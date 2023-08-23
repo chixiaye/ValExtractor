@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..7af63f4 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1436,8 +1436,9 @@
+                     dataset, series);
+         }
+         String urlText = null;
+-        if (this.legendItemURLGenerator != null) {
+-            urlText = this.legendItemURLGenerator.generateLabel(dataset,
++        CategorySeriesLabelGenerator legendItemURLGenerator1 = this.legendItemURLGenerator;
++        if (legendItemURLGenerator1 != null) {
++            urlText = legendItemURLGenerator1.generateLabel(dataset,
+                     series);
+         }
+         Shape shape = lookupLegendShape(series);

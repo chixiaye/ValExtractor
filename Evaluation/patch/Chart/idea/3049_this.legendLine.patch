@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+index ec442b1..a54b615 100644
+--- a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+@@ -306,8 +306,9 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         SamplingXYLineRenderer clone = (SamplingXYLineRenderer) super.clone();
+-        if (this.legendLine != null) {
+-            clone.legendLine = ShapeUtilities.clone(this.legendLine);
++        Shape legendLine1 = this.legendLine;
++        if (legendLine1 != null) {
++            clone.legendLine = ShapeUtilities.clone(legendLine1);
+         }
+         return clone;
+     }

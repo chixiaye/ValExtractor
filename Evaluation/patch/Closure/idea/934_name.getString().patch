@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java b/src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java
+index 9ed82e2..73a108c 100644
+--- a/src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java
++++ b/src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java
+@@ -95,12 +95,13 @@
+ 
+     private boolean isRecursiveFunction(Node function) {
+       Node name = function.getFirstChild();
+-      if (name.getString().isEmpty()) {
++        String string = name.getString();
++        if (string.isEmpty()) {
+         return false;
+       }
+       Node args = name.getNext();
+       Node body = args.getNext();
+-      return containsName(body, name.getString());
++      return containsName(body, string);
+     }
+ 
+     private boolean containsName(Node n, String name) {

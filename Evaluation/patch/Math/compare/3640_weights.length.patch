@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+index c0240a0..15fdba4 100644
+--- a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+@@ -112,7 +112,8 @@
+         }
+ 
+         if (weights != null && weights.length != bases.length) {
+-            throw new DimensionMismatchException(weights.length, bases.length);
++            int var_3640 = weights.length;
++			throw new DimensionMismatchException(var_3640, bases.length);
+         }
+ 
+         this.dimension = dimension;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+index c0240a0..0e70d30 100644
+--- a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+@@ -111,8 +111,9 @@
+             throw new OutOfRangeException(dimension, 1, PRIMES.length);
+         }
+ 
+-        if (weights != null && weights.length != bases.length) {
+-            throw new DimensionMismatchException(weights.length, bases.length);
++        int var_3640 = weights.length;
++		if (weights != null && var_3640 != bases.length) {
++            throw new DimensionMismatchException(var_3640, bases.length);
+         }
+ 
+         this.dimension = dimension;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+index c0240a0..077b4fb 100644
+--- a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+@@ -111,8 +111,11 @@
+             throw new OutOfRangeException(dimension, 1, PRIMES.length);
+         }
+ 
+-        if (weights != null && weights.length != bases.length) {
+-            throw new DimensionMismatchException(weights.length, bases.length);
++        if (weights != null) {
++            int length = weights.length;
++            if (length != weights.length) {
++                throw new DimensionMismatchException(length, bases.length);
++            }
+         }
+ 
+         this.dimension = dimension;

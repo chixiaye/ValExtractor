@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/joda/time/chrono/BuddhistChronology.java b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+index fc6a1ec..5c909ac 100644
+--- a/src/main/java/org/joda/time/chrono/BuddhistChronology.java
++++ b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+@@ -18,13 +18,7 @@
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+-import org.joda.time.Chronology;
+-import org.joda.time.DateTime;
+-import org.joda.time.DateTimeConstants;
+-import org.joda.time.DateTimeField;
+-import org.joda.time.DateTimeFieldType;
+-import org.joda.time.DateTimeZone;
+-import org.joda.time.DurationFieldType;
++import org.joda.time.*;
+ import org.joda.time.field.DelegatedDateTimeField;
+ import org.joda.time.field.DividedDateTimeField;
+ import org.joda.time.field.OffsetDateTimeField;
+@@ -236,7 +230,8 @@
+             field = new OffsetDateTimeField(fields.yearOfEra, 99);
+             fields.centuryOfEra = new DividedDateTimeField(
+                 field, fields.eras, DateTimeFieldType.centuryOfEra(), 100);
+-            fields.centuries = fields.centuryOfEra.getDurationField();
++            DurationField centuries = fields.centuries;
++            centuries = fields.centuryOfEra.getDurationField();
+             
+             field = new RemainderDateTimeField(
+                 (DividedDateTimeField) fields.centuryOfEra);

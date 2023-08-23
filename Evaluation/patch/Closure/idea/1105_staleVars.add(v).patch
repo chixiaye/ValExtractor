@@ -1,0 +1,41 @@
+diff --git a/src/com/google/javascript/jscomp/InlineVariables.java b/src/com/google/javascript/jscomp/InlineVariables.java
+index 5c7408d..19ce101 100644
+--- a/src/com/google/javascript/jscomp/InlineVariables.java
++++ b/src/com/google/javascript/jscomp/InlineVariables.java
+@@ -259,7 +259,8 @@
+       Reference init = referenceInfo.getInitializingReference();
+       int firstRefAfterInit = (declaration == init) ? 2 : 3;
+ 
+-      if (refCount > 1 &&
++        boolean add = staleVars.add(v);
++        if (refCount > 1 &&
+           isImmutableAndWellDefinedVariable(v, referenceInfo)) {
+         // if the variable is referenced more than once, we can only
+         // inline it if it's immutable and never defined before referenced.
+@@ -273,7 +274,7 @@
+         }
+         Preconditions.checkNotNull(value);
+         inlineWellDefinedVariable(v, value, referenceInfo.references);
+-        staleVars.add(v);
++        add;
+       } else if (refCount == firstRefAfterInit) {
+         // The variable likely only read once, try some more
+         // complex inlining heuristics.
+@@ -281,7 +282,7 @@
+             firstRefAfterInit - 1);
+         if (canInline(declaration, init, reference)) {
+           inline(v, declaration, init, reference);
+-          staleVars.add(v);
++          add;
+         }
+       } else if (declaration != init && refCount == 2) {
+         if (isValidDeclaration(declaration) && isValidInitialization(init)) {
+@@ -290,7 +291,7 @@
+           Node value = init.getAssignedValue();
+           Preconditions.checkNotNull(value);
+           inlineWellDefinedVariable(v, value, referenceInfo.references);
+-          staleVars.add(v);
++          add;
+         }
+       }
+ 

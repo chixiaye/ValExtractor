@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..80d67ca 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -670,7 +670,8 @@
+         for (s = 0; s < nDataPoints; s++) {
+             // check whether the "valueHistory" array member exists; if not,
+             // create them:
+-            if (this.valueHistory[s] == null) {
++            ValueSequence valueSequence = this.valueHistory[s];
++            if (valueSequence == null) {
+                 this.valueHistory[s] = new ValueSequence(this.historyCount);
+             }
+             this.valueHistory[s].enterData(this.newestAt, newData[s]);

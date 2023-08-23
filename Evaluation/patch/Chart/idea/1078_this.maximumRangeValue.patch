@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..45b013b 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -163,11 +163,12 @@
+                 "Maximum_range_value")));
+         this.maximumRangeValue = new JTextField(Double.toString(
+                 this.maximumValue));
+-        this.maximumRangeValue.setEnabled(!this.autoRange);
+-        this.maximumRangeValue.setActionCommand("MaximumRange");
+-        this.maximumRangeValue.addActionListener(this);
+-        this.maximumRangeValue.addFocusListener(this);
+-        range.add(this.maximumRangeValue);
++        JTextField maximumRangeValue1 = this.maximumRangeValue;
++        maximumRangeValue1.setEnabled(!this.autoRange);
++        maximumRangeValue1.setActionCommand("MaximumRange");
++        maximumRangeValue1.addActionListener(this);
++        maximumRangeValue1.addFocusListener(this);
++        range.add(maximumRangeValue1);
+         range.add(new JPanel());
+ 
+         other.add(localizationResources.getString("Range"), range);

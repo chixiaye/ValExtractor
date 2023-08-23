@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..0e779e9 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -126,7 +126,8 @@
+ 
+     /** A recursive descent parser that closes over pattern and flags above. */
+     class Parser {
+-      /** The number of characters in pattern consumed. */
++        private CharRanges empty = CharRanges.EMPTY;
++        /** The number of characters in pattern consumed. */
+       int pos;
+       /** The number of capturing groups seen so far. */
+       int numCapturingGroups = 0;
+@@ -306,8 +307,8 @@
+         boolean isCaseInsensitive = flags.indexOf('i') >= 0;
+         boolean inverse = pos < limit && pattern.charAt(pos) == '^';
+         if (inverse) { ++pos; }
+-        CharRanges ranges = CharRanges.EMPTY;
+-        CharRanges ieExplicits = CharRanges.EMPTY;
++        CharRanges ranges = empty;
++        CharRanges ieExplicits = empty;
+         while (pos < limit && pattern.charAt(pos) != ']') {
+           char ch = pattern.charAt(pos);
+           char start;
+@@ -446,7 +447,7 @@
+           CharRanges charGroup = NAMED_CHAR_GROUPS.get(ch);
+           if (charGroup != null) {  // Handle \d, etc.
+             ++pos;
+-            return new Charset(charGroup, CharRanges.EMPTY);
++            return new Charset(charGroup, empty);
+           }
+           return new Text("" + parseEscapeChar());
+         }

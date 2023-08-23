@@ -1,0 +1,54 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..2fec356 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -944,7 +944,7 @@
+     }
+     if (paramNum > 0) {
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        StringBuilder var_2607 = b.append(", ");
+       }
+       Node p = call.parameters.getFirstChild();
+       appendArgString(b, p, forAnnotations);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..2fec356 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -944,7 +944,7 @@
+     }
+     if (paramNum > 0) {
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        StringBuilder var_2607 = b.append(", ");
+       }
+       Node p = call.parameters.getFirstChild();
+       appendArgString(b, p, forAnnotations);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..aa256b0 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -943,15 +943,16 @@
+       b.append(typeOfThis.toStringHelper(forAnnotations));
+     }
+     if (paramNum > 0) {
++        StringBuilder append = b.append(", ");
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        append;
+       }
+       Node p = call.parameters.getFirstChild();
+       appendArgString(b, p, forAnnotations);
+ 
+       p = p.getNext();
+       while (p != null) {
+-        b.append(", ");
++        append;
+         appendArgString(b, p, forAnnotations);
+         p = p.getNext();
+       }

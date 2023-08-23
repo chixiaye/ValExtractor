@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java b/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java
+index 1ce89f7..a060a31 100644
+--- a/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java
++++ b/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java
+@@ -177,7 +177,8 @@
+ 
+                 // select the transformer
+                 for (int i = 0; i < updates.length - 1; ++i) {
+-                    if (t <= updates[i]) {
++                    double update = updates[i];
++                    if (t <= update) {
+                         // apply the transform
+                         return transformers[i].transformed(rawG);
+                     }

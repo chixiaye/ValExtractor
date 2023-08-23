@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..15914e4 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -702,7 +702,8 @@
+   boolean setDeprecationReason(String reason) {
+     lazyInitInfo();
+ 
+-    if (info.deprecated != null) {
++      String deprecated = info.deprecated;
++      if (deprecated != null) {
+       return false;
+     }
+ 

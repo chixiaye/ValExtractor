@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..be176fc 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1075,10 +1075,11 @@
+   private String expandCommandLinePath(
+       String path, JSModule forModule) {
+     String sub;
+-    if (forModule != null) {
+-      sub = config.moduleOutputPathPrefix + forModule.getName() + ".js";
++      String moduleOutputPathPrefix = config.moduleOutputPathPrefix;
++      if (forModule != null) {
++      sub = moduleOutputPathPrefix + forModule.getName() + ".js";
+     } else if (!config.module.isEmpty()) {
+-      sub = config.moduleOutputPathPrefix;
++      sub = moduleOutputPathPrefix;
+     } else {
+       sub = config.jsOutputFile;
+     }

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..963309e 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -363,9 +363,9 @@
+       Appendable out, String name, CharSequence value)
+       throws IOException {
+     out.append(",\n");
+-    out.append("\"");
+-    out.append(name);
+-    out.append("\"");
++      Appendable append = out.append("\"");
++      out.append(name);
++    append;
+     out.append(":");
+     out.append(value);
+   }

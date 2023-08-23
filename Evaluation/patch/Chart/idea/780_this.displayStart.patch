@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/axis/ModuloAxis.java b/source/org/jfree/chart/axis/ModuloAxis.java
+index cf1e3c9..f2a410d 100644
+--- a/source/org/jfree/chart/axis/ModuloAxis.java
++++ b/source/org/jfree/chart/axis/ModuloAxis.java
+@@ -385,11 +385,12 @@
+     public double lengthToJava2D(double length, Rectangle2D area,
+                                  RectangleEdge edge) {
+         double axisLength = 0.0;
+-        if (this.displayEnd > this.displayStart) {
+-            axisLength = this.displayEnd - this.displayStart;
++        double displayStart1 = this.displayStart;
++        if (this.displayEnd > displayStart1) {
++            axisLength = this.displayEnd - displayStart1;
+         }
+         else {
+-            axisLength = (this.fixedRange.getUpperBound() - this.displayStart)
++            axisLength = (this.fixedRange.getUpperBound() - displayStart1)
+                 + (this.displayEnd - this.fixedRange.getLowerBound());
+         }
+         double areaLength = 0.0;

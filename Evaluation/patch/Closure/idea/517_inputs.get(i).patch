@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..afe6471 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1700,10 +1700,11 @@
+         String[] sources = new String[numInputs];
+         CodeBuilder cb = new CodeBuilder();
+         for (int i = 0; i < numInputs; i++) {
+-          Node scriptNode = inputs.get(i).getAstRoot(Compiler.this);
++            CompilerInput compilerInput = inputs.get(i);
++            Node scriptNode = compilerInput.getAstRoot(Compiler.this);
+           if (scriptNode == null) {
+             throw new IllegalArgumentException(
+-                "Bad module input: " + inputs.get(i).getName());
++                "Bad module input: " + compilerInput.getName());
+           }
+ 
+           cb.reset();

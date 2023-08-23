@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+index a2ea88e..5e0ea5b 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+@@ -403,7 +403,8 @@
+ 
+                 // Column modification
+                 for (int i = 0; i <= FastMath.min(iu, k + 3); i++) {
+-                    p = shift.x * matrixT[i][k] + shift.y * matrixT[i][k + 1];
++                    double v = matrixT[i][k + 1];
++                    p = shift.x * matrixT[i][k] + shift.y * v;
+                     if (notlast) {
+                         p = p + z * matrixT[i][k + 2];
+                         matrixT[i][k + 2] = matrixT[i][k + 2] - p * r;

@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+index bb29eee..ab59935 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+@@ -627,14 +627,16 @@
+     public Field<DerivativeStructure> getField() {
+         return new Field<DerivativeStructure>() {
+ 
++            private final int order = compiler.getOrder();
++
+             /** {@inheritDoc} */
+             public DerivativeStructure getZero() {
+-                return new DerivativeStructure(compiler.getFreeParameters(), compiler.getOrder(), 0.0);
++                return new DerivativeStructure(compiler.getFreeParameters(), order, 0.0);
+             }
+ 
+             /** {@inheritDoc} */
+             public DerivativeStructure getOne() {
+-                return new DerivativeStructure(compiler.getFreeParameters(), compiler.getOrder(), 1.0);
++                return new DerivativeStructure(compiler.getFreeParameters(), order, 1.0);
+             }
+ 
+             /** {@inheritDoc} */

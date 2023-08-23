@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..52413bf 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -86,6 +86,7 @@
+     public TextBox(String text) {
+         this((TextBlock) null);
+         if (text != null) {
++            TextBlock textBlock1 = this.textBlock;
+             this.textBlock = new TextBlock();
+             this.textBlock.addLine(text, new Font("Tahoma", Font.PLAIN, 10),
+                     Color.black);

@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..353da89 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -169,7 +169,7 @@
+           Definition bDef = b.reachingDef.get(var);
+ 
+           if (aDef.equals(bDef)) {
+-            resultMap.put(var, aDef);
++            Definition var_1088 = resultMap.put(var, aDef);
+           } else {
+             resultMap.put(var, null);
+           }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..353da89 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -169,7 +169,7 @@
+           Definition bDef = b.reachingDef.get(var);
+ 
+           if (aDef.equals(bDef)) {
+-            resultMap.put(var, aDef);
++            Definition var_1088 = resultMap.put(var, aDef);
+           } else {
+             resultMap.put(var, null);
+           }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..1380241 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -165,16 +165,17 @@
+ 
+         Node aNode = aDef.node;
+ 
++          Definition put = resultMap.put(var, aDef);
+         if (b.reachingDef.containsKey(var)) {
+           Definition bDef = b.reachingDef.get(var);
+ 
+           if (aDef.equals(bDef)) {
+-            resultMap.put(var, aDef);
++            put;
+           } else {
+             resultMap.put(var, null);
+           }
+         } else {
+-          resultMap.put(var, aDef);
++          put;
+         }
+       }
+ 

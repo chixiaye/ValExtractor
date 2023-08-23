@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..ed5d0e8 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1402,10 +1402,11 @@
+         Writer out = fileNameToOutputWriter2(
+             expandCommandLinePath(output, null));
+         if (config.module.isEmpty()) {
+-          if (isManifest) {
+-            printManifestTo(compiler.getInputsInOrder(), out);
++            List<CompilerInput> inputsInOrder = compiler.getInputsInOrder();
++            if (isManifest) {
++            printManifestTo(inputsInOrder, out);
+           } else {
+-            printBundleTo(compiler.getInputsInOrder(), out);
++            printBundleTo(inputsInOrder, out);
+           }
+         } else {
+           printModuleGraphManifestOrBundleTo(

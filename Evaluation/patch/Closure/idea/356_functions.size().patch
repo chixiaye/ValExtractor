@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/CallGraph.java b/src/com/google/javascript/jscomp/CallGraph.java
+index 81d8dd3..0351e46 100644
+--- a/src/com/google/javascript/jscomp/CallGraph.java
++++ b/src/com/google/javascript/jscomp/CallGraph.java
+@@ -203,10 +203,11 @@
+         }
+       });
+ 
+-    if (functions.size() == 1) {
++      int size = functions.size();
++      if (size == 1) {
+       return functions.iterator().next();
+     } else {
+-      throw new IllegalStateException("Found " + functions.size()
++      throw new IllegalStateException("Found " + size
+           + " functions with name " + desiredName);
+     }
+   }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..a18f568 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -374,7 +374,8 @@
+                     if (characterization[0] == null) {
+                         characterization[0] = sub;
+                     } else {
+-                        characterization[0] = characterization[0].reunite(sub);
++                        SubHyperplane<S> sSubHyperplane = characterization[0];
++                        sSubHyperplane = characterization[0].reunite(sub);
+                     }
+                 }
+             } else {

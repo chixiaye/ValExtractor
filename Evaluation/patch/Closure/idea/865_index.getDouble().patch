@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java b/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
+index 03e257f..bd6903d 100644
+--- a/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
++++ b/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
+@@ -229,7 +229,8 @@
+ 
+       // Replace the highest index if we see an access that has a higher index
+       // than all the one we saw before.
+-      int value = (int) index.getDouble();
++        double aDouble = index.getDouble();
++        int value = (int) aDouble;
+       if (value > highestIndex) {
+         highestIndex = value;
+       }

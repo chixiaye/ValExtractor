@@ -1,0 +1,23 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..cfb4f78 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -213,7 +213,8 @@
+         startOffsetPosition = 0;
+       }
+ 
+-      if (endPosition.getLine() > 0) {
++        int line = endPosition.getLine();
++        if (line > 0) {
+         endOffsetPosition = 0;
+       }
+ 
+@@ -222,7 +223,7 @@
+                        startPosition.getColumn() + startOffsetPosition);
+ 
+       mapping.endPosition =
+-          new FilePosition(endPosition.getLine() + offsetLine,
++          new FilePosition(line + offsetLine,
+                        endPosition.getColumn() + endOffsetPosition);
+     }
+ 

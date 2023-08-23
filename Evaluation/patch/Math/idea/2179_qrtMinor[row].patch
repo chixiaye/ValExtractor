@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+index b3412e0..5104efa 100644
+--- a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+@@ -412,7 +412,8 @@
+ 
+                     Arrays.fill(alpha, 0, kWidth, 0.0);
+                     for (int row = minor; row < m; ++row) {
+-                        final double   d    = qrtMinor[row];
++                        double v = qrtMinor[row];
++                        final double   d    = v;
+                         final double[] yRow = y[row];
+                         for (int k = 0; k < kWidth; ++k) {
+                             alpha[k] += d * yRow[k];

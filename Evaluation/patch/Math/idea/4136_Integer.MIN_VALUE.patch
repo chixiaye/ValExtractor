@@ -1,0 +1,36 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/ArithmeticUtils.java b/src/main/java/org/apache/commons/math3/util/ArithmeticUtils.java
+index 4916f75..258471a 100644
+--- a/src/main/java/org/apache/commons/math3/util/ArithmeticUtils.java
++++ b/src/main/java/org/apache/commons/math3/util/ArithmeticUtils.java
+@@ -252,10 +252,11 @@
+         throws MathArithmeticException {
+         int a = p;
+         int b = q;
++        int minValue = Integer.MIN_VALUE;
+         if (a == 0 ||
+             b == 0) {
+-            if (a == Integer.MIN_VALUE ||
+-                b == Integer.MIN_VALUE) {
++            if (a == minValue ||
++                b == minValue) {
+                 throw new MathArithmeticException(LocalizedFormats.GCD_OVERFLOW_32_BITS,
+                                                   p, q);
+             }
+@@ -266,7 +267,7 @@
+         long bl = b;
+         boolean useLong = false;
+         if (a < 0) {
+-            if(Integer.MIN_VALUE == a) {
++            if(minValue == a) {
+                 useLong = true;
+             } else {
+                 a = -a;
+@@ -274,7 +275,7 @@
+             al = -al;
+         }
+         if (b < 0) {
+-            if (Integer.MIN_VALUE == b) {
++            if (minValue == b) {
+                 useLong = true;
+             } else {
+                 b = -b;

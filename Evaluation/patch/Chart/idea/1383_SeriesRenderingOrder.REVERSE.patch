@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/SeriesRenderingOrder.java b/source/org/jfree/chart/plot/SeriesRenderingOrder.java
+index d893b3b..e5d9873 100644
+--- a/source/org/jfree/chart/plot/SeriesRenderingOrder.java
++++ b/source/org/jfree/chart/plot/SeriesRenderingOrder.java
+@@ -130,8 +130,11 @@
+         if (this.equals(SeriesRenderingOrder.FORWARD)) {
+             return SeriesRenderingOrder.FORWARD;
+         }
+-        else if (this.equals(SeriesRenderingOrder.REVERSE)) {
+-            return SeriesRenderingOrder.REVERSE;
++        else {
++            SeriesRenderingOrder reverse = SeriesRenderingOrder.REVERSE;
++            if (this.equals(reverse)) {
++                return reverse;
++            }
+         }
+         return null;
+     }

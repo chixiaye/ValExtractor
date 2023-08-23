@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..cf525ff 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -1963,14 +1963,15 @@
+         }
+ 
+         // handle negatives, which means last n characters
++        int length = str.length();
+         if (start < 0) {
+-            start = str.length() + start; // remember start is negative
++            start = length + start; // remember start is negative
+         }
+ 
+         if (start < 0) {
+             start = 0;
+         }
+-        if (start > str.length()) {
++        if (start > length) {
+             return EMPTY;
+         }
+ 

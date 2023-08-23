@@ -1,0 +1,40 @@
+diff --git a/source/org/jfree/chart/title/LegendGraphic.java b/source/org/jfree/chart/title/LegendGraphic.java
+index 3db85f5..7aaada5 100644
+--- a/source/org/jfree/chart/title/LegendGraphic.java
++++ b/source/org/jfree/chart/title/LegendGraphic.java
+@@ -514,22 +514,23 @@
+         LengthConstraintType w = contentConstraint.getWidthConstraintType();
+         LengthConstraintType h = contentConstraint.getHeightConstraintType();
+         Size2D contentSize = null;
++        LengthConstraintType range = LengthConstraintType.RANGE;
+         if (w == LengthConstraintType.NONE) {
+             if (h == LengthConstraintType.NONE) {
+                 contentSize = arrangeNN(g2);
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+         }
+-        else if (w == LengthConstraintType.RANGE) {
++        else if (w == range) {
+             if (h == LengthConstraintType.NONE) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {
+@@ -540,7 +541,7 @@
+             if (h == LengthConstraintType.NONE) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {

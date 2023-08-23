@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..2d6a0db 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1541,13 +1541,14 @@
+         /* Handle special case x<0 */
+         if (x < 0) {
+             // y is an even integer in this case
++            double pow = pow(-x, y);
+             if (y >= TWO_POWER_53 || y <= -TWO_POWER_53) {
+-                return pow(-x, y);
++                return pow;
+             }
+ 
+             if (y == (long) y) {
+                 // If y is an integer
+-                return ((long)y & 1) == 0 ? pow(-x, y) : -pow(-x, y);
++                return ((long)y & 1) == 0 ? pow : -pow;
+             } else {
+                 return Double.NaN;
+             }

@@ -1,0 +1,47 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+index 7805b12..0d18c1e 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
++++ b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+@@ -46,9 +46,10 @@
+ 
+     // Determine the number of digits used for the repetition count.
+     // Each "!" indicates another base64 digit.
+-    for (char peek = reader.peek(); peek == '!'; peek = reader.peek()) {
++      char next = reader.next();
++      for (char peek = reader.peek(); peek == '!'; peek = reader.peek()) {
+       repDigits++;
+-      reader.next(); // consume the "!"
++      next; // consume the "!"
+     }
+ 
+     int idDigits = 0;
+@@ -57,17 +58,17 @@
+       // No repetition digit escapes, so the next character represents the
+       // number of digits in the id (bottom 2 bits) and the number of
+       // repetitions (top 4 digits).
+-      char digit = reader.next();
++      char digit = next;
+       int value = addBase64Digit(digit, 0);
+       reps = (value >> 2);
+       idDigits = (value & 3);
+     } else {
+-      char digit = reader.next();
++      char digit = next;
+       idDigits = addBase64Digit(digit, 0);
+ 
+       int value = 0;
+       for (int i = 0; i < repDigits; i++) {
+-        digit = reader.next();
++        digit = next;
+         value = addBase64Digit(digit, value);
+       }
+       reps = value;
+@@ -80,7 +81,7 @@
+     // Decode the id token.
+     int value = 0;
+     for (int i = 0; i < idDigits; i++) {
+-      char digit = reader.next();
++      char digit = next;
+       value = addBase64Digit(digit, value);
+     }
+     int mappingId = getIdFromRelativeId(value, idDigits, lastId);

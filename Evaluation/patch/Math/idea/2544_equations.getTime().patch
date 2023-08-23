@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+index 3898435..5d5287e 100644
+--- a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+@@ -445,9 +445,10 @@
+     protected void sanityChecks(final ExpandableStatefulODE equations, final double t)
+         throws NumberIsTooSmallException, DimensionMismatchException {
+ 
+-        final double threshold = 1000 * FastMath.ulp(FastMath.max(FastMath.abs(equations.getTime()),
++        double time = equations.getTime();
++        final double threshold = 1000 * FastMath.ulp(FastMath.max(FastMath.abs(time),
+                                                                   FastMath.abs(t)));
+-        final double dt = FastMath.abs(equations.getTime() - t);
++        final double dt = FastMath.abs(time - t);
+         if (dt <= threshold) {
+             throw new NumberIsTooSmallException(LocalizedFormats.TOO_SMALL_INTEGRATION_INTERVAL,
+                                                 dt, threshold, false);

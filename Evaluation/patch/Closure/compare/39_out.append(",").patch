@@ -1,0 +1,58 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..75e7b8c 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -509,7 +509,7 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      Appendable var_39 = out.append(",");
+       out.append(String.valueOf(m.originalPosition.getColumn()));
+ 
+       if (m.originalName != null) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..75e7b8c 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -509,7 +509,7 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      Appendable var_39 = out.append(",");
+       out.append(String.valueOf(m.originalPosition.getColumn()));
+ 
+       if (m.originalName != null) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..e5fb6fb 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -499,7 +499,7 @@
+       out.append("[");
+ 
+       out.append(String.valueOf(m.sourceFile));
+-      out.append(",");
++        Appendable append = out.append(",");
+ 
+       int line = m.originalPosition.getLine();
+       if (line != lastLine) {
+@@ -509,11 +509,11 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      append;
+       out.append(String.valueOf(m.originalPosition.getColumn()));
+ 
+       if (m.originalName != null) {
+-        out.append(",");
++        append;
+         out.append(String.valueOf(getNameId(m.originalName)));
+       }
+ 

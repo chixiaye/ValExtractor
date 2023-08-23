@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValue.java b/source/org/jfree/data/time/TimePeriodValue.java
+index 825ba0a..0a23583 100644
+--- a/source/org/jfree/data/time/TimePeriodValue.java
++++ b/source/org/jfree/data/time/TimePeriodValue.java
+@@ -136,7 +136,8 @@
+ 
+         TimePeriodValue timePeriodValue = (TimePeriodValue) obj;
+ 
+-        if (this.period != null ? !this.period.equals(timePeriodValue.period)
++        TimePeriod period1 = this.period;
++        if (period1 != null ? !period1.equals(timePeriodValue.period)
+                 : timePeriodValue.period != null) {
+             return false;
+         }

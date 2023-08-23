@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..dcae2d4 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -3771,13 +3771,14 @@
+ 
+         static {
+             if (RECOMPUTE_TABLES_AT_RUNTIME) {
+-                EXP_FRAC_TABLE_A = new double[FastMath.EXP_FRAC_TABLE_LEN];
+-                EXP_FRAC_TABLE_B = new double[FastMath.EXP_FRAC_TABLE_LEN];
++                int expFracTableLen = FastMath.EXP_FRAC_TABLE_LEN;
++                EXP_FRAC_TABLE_A = new double[expFracTableLen];
++                EXP_FRAC_TABLE_B = new double[expFracTableLen];
+ 
+                 final double tmp[] = new double[2];
+ 
+                 // Populate expFracTable
+-                final double factor = 1d / (EXP_FRAC_TABLE_LEN - 1);
++                final double factor = 1d / (expFracTableLen - 1);
+                 for (int i = 0; i < EXP_FRAC_TABLE_A.length; i++) {
+                     FastMathCalc.slowexp(i * factor, tmp);
+                     EXP_FRAC_TABLE_A[i] = tmp[0];

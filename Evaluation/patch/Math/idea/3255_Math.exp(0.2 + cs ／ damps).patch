@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..faf596d 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -619,12 +619,13 @@
+                 lastResult = current;
+             }
+             // Adjust step size in case of equal function values (flat fitness)
++            double exp = Math.exp(0.2 + cs / damps);
+             if (bestValue == fitness[arindex[(int)(0.1+lambda/4.)]]) {
+-                sigma = sigma * Math.exp(0.2 + cs / damps);
++                sigma = sigma * exp;
+             }
+             if (iterations > 2 && Math.max(historyWorst, bestFitness) -
+                 Math.min(historyBest, bestFitness) == 0) {
+-                sigma = sigma * Math.exp(0.2 + cs / damps);
++                sigma = sigma * exp;
+             }
+             // store best in history
+             push(fitnessHistory,bestFitness);

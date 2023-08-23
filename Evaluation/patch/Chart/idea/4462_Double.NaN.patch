@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..a119084 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -171,10 +171,11 @@
+         this.data = new java.util.ArrayList();
+         this.autoSort = autoSort;
+         this.allowDuplicateXValues = allowDuplicateXValues;
+-        this.minX = Double.NaN;
+-        this.maxX = Double.NaN;
+-        this.minY = Double.NaN;
+-        this.maxY = Double.NaN;
++        double naN = Double.NaN;
++        this.minX = naN;
++        this.maxX = naN;
++        this.minY = naN;
++        this.maxY = naN;
+     }
+ 
+     /**

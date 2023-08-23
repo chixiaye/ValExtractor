@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..aaf0df7 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -888,16 +888,17 @@
+      */
+     public void setDisplayRange(int range, double low, double high) {
+ 
+-        if ((range >= 0) && (range < this.subrangeInfo.length)
++        double[][] subrangeInfo1 = this.subrangeInfo;
++        if ((range >= 0) && (range < subrangeInfo1.length)
+             && isValidNumber(high) && isValidNumber(low)) {
+ 
+             if (high > low) {
+-                this.subrangeInfo[range][DISPLAY_HIGH] = high;
+-                this.subrangeInfo[range][DISPLAY_LOW] = low;
++                subrangeInfo1[range][DISPLAY_HIGH] = high;
++                subrangeInfo1[range][DISPLAY_LOW] = low;
+             }
+             else {
+-                this.subrangeInfo[range][DISPLAY_HIGH] = low;
+-                this.subrangeInfo[range][DISPLAY_LOW] = high;
++                subrangeInfo1[range][DISPLAY_HIGH] = low;
++                subrangeInfo1[range][DISPLAY_LOW] = high;
+             }
+ 
+         }

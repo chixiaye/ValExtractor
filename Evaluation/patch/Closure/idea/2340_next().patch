@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..d9d6d00 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1581,13 +1581,14 @@
+   private Node parseTypeExpressionAnnotation(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       skipEOLs();
+-      Node typeNode = parseTopLevelTypeExpression(next());
++        JsDocToken next = next();
++        Node typeNode = parseTopLevelTypeExpression(next);
+       if (typeNode != null) {
+         skipEOLs();
+         if (!match(JsDocToken.RC)) {
+           reportTypeSyntaxWarning("msg.jsdoc.missing.rc");
+         } else {
+-          next();
++          next;
+         }
+       }
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartFrame.java b/source/org/jfree/chart/ChartFrame.java
+index 5c0b53d..9b43b85 100644
+--- a/source/org/jfree/chart/ChartFrame.java
++++ b/source/org/jfree/chart/ChartFrame.java
+@@ -75,6 +75,7 @@
+     public ChartFrame(String title, JFreeChart chart, boolean scrollPane) {
+         super(title);
+         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
++        ChartPanel chartPanel1 = this.chartPanel;
+         this.chartPanel = new ChartPanel(chart);
+         if (scrollPane) {
+             setContentPane(new JScrollPane(this.chartPanel));

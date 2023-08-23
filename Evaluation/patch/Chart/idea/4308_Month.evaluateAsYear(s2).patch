@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/time/Month.java b/source/org/jfree/data/time/Month.java
+index 08655c1..eed23a4 100644
+--- a/source/org/jfree/data/time/Month.java
++++ b/source/org/jfree/data/time/Month.java
+@@ -456,6 +456,7 @@
+         boolean yearIsFirst;
+         // if there is no separator, we assume the first four characters
+         // are YYYY
++        Year year1 = Month.evaluateAsYear(s2);
+         if (i == -1) {
+             yearIsFirst = true;
+             s1 = s.substring(0, 5);
+@@ -470,7 +471,7 @@
+                 yearIsFirst = false;
+             }
+             else {
+-                Year y2 = Month.evaluateAsYear(s2);
++                Year y2 = year1;
+                 if (y2 == null) {
+                     yearIsFirst = true;
+                 }
+@@ -486,7 +487,7 @@
+             month = SerialDate.stringToMonthCode(s2);
+         }
+         else {
+-            year = Month.evaluateAsYear(s2);
++            year = year1;
+             month = SerialDate.stringToMonthCode(s1);
+         }
+         if (month == -1) {

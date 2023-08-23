@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..d66481d 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -323,7 +323,8 @@
+       Name.Type type = Name.Type.OTHER;
+       boolean isPropAssign = false;
+ 
+-      switch (n.getType()) {
++        final int dec = Token.DEC;
++        switch (n.getType()) {
+         case Token.GETTER_DEF:
+         case Token.SETTER_DEF:
+         case Token.STRING_KEY:
+@@ -373,7 +374,7 @@
+                 type = Name.Type.FUNCTION;
+                 break;
+               case Token.INC:
+-              case Token.DEC:
++              case dec:
+                 isSet = true;
+                 type = Name.Type.OTHER;
+                 break;
+@@ -399,7 +400,7 @@
+                 }
+                 break;
+               case Token.INC:
+-              case Token.DEC:
++              case dec:
+                 isSet = true;
+                 type = Name.Type.OTHER;
+                 break;

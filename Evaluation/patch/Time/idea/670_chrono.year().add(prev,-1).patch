@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..c052d30 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -606,15 +606,16 @@
+             prev = chrono.millisOfDay().add(prev, iMillisOfDay);
+             prev = setDayOfMonthPrevious(chrono, prev);
+ 
++            long add = chrono.year().add(prev, -1);
+             if (iDayOfWeek == 0) {
+                 if (prev >= instant) {
+-                    prev = chrono.year().add(prev, -1);
++                    prev = add;
+                     prev = setDayOfMonthPrevious(chrono, prev);
+                 }
+             } else {
+                 prev = setDayOfWeek(chrono, prev);
+                 if (prev >= instant) {
+-                    prev = chrono.year().add(prev, -1);
++                    prev = add;
+                     prev = chrono.monthOfYear().set(prev, iMonthOfYear);
+                     prev = setDayOfMonthPrevious(chrono, prev);
+                     prev = setDayOfWeek(chrono, prev);

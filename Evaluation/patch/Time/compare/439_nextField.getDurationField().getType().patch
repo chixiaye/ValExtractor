@@ -1,0 +1,108 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..a6b4544 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -20,6 +20,7 @@
+ import org.joda.time.DateTimeField;
+ import org.joda.time.DateTimeFieldType;
+ import org.joda.time.DurationField;
++import org.joda.time.DurationFieldType;
+ import org.joda.time.IllegalFieldValueException;
+ import org.joda.time.ReadablePartial;
+ 
+@@ -399,7 +400,8 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                DurationFieldType var_439 = nextField.getDurationField().getType();
++				if (getRangeDurationField().getType() != var_439) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..2d04d97 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -20,6 +20,7 @@
+ import org.joda.time.DateTimeField;
+ import org.joda.time.DateTimeFieldType;
+ import org.joda.time.DurationField;
++import org.joda.time.DurationFieldType;
+ import org.joda.time.IllegalFieldValueException;
+ import org.joda.time.ReadablePartial;
+ 
+@@ -384,6 +385,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        DurationFieldType var_439 = nextField.getDurationField().getType();
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -399,7 +401,7 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (getRangeDurationField().getType() != var_439) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+@@ -421,7 +423,7 @@
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (getRangeDurationField().getType() != var_439) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..3058354 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -17,11 +17,7 @@
+ 
+ import java.util.Locale;
+ 
+-import org.joda.time.DateTimeField;
+-import org.joda.time.DateTimeFieldType;
+-import org.joda.time.DurationField;
+-import org.joda.time.IllegalFieldValueException;
+-import org.joda.time.ReadablePartial;
++import org.joda.time.*;
+ 
+ /**
+  * BaseDateTimeField provides the common behaviour for DateTimeField
+@@ -384,6 +380,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        DurationFieldType type = nextField.getDurationField().getType();
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -399,7 +396,7 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (getRangeDurationField().getType() != type) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+@@ -421,7 +418,7 @@
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (getRangeDurationField().getType() != type) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }

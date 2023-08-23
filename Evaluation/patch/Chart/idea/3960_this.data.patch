@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/general/DefaultKeyedValueDataset.java b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+index ee47f3e..d5ca92c 100644
+--- a/source/org/jfree/data/general/DefaultKeyedValueDataset.java
++++ b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+@@ -109,8 +109,9 @@
+      */
+     public Number getValue() {
+         Number result = null;
+-        if (this.data != null) {
+-            result = this.data.getValue();
++        KeyedValue data1 = this.data;
++        if (data1 != null) {
++            result = data1.getValue();
+         }
+         return result;
+     }

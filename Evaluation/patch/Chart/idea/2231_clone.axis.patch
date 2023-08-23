@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..b78c2b0 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -1062,8 +1062,9 @@
+         PolarPlot clone = (PolarPlot) super.clone();
+         if (this.axis != null) {
+             clone.axis = (ValueAxis) ObjectUtilities.clone(this.axis);
+-            clone.axis.setPlot(clone);
+-            clone.axis.addChangeListener(clone);
++            ValueAxis axis1 = clone.axis;
++            axis1.setPlot(clone);
++            axis1.addChangeListener(clone);
+         }
+ 
+         if (clone.dataset != null) {

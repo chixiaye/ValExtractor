@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/configuration/injection/ConstructorInjection.java b/src/org/mockito/internal/configuration/injection/ConstructorInjection.java
+index 10c01d1..678a8c4 100644
+--- a/src/org/mockito/internal/configuration/injection/ConstructorInjection.java
++++ b/src/org/mockito/internal/configuration/injection/ConstructorInjection.java
+@@ -53,8 +53,9 @@
+ 
+             return report.fieldWasInitializedUsingContructorArgs();
+         } catch (MockitoException e) {
+-            if(e.getCause() instanceof InvocationTargetException) {
+-                Throwable realCause = e.getCause().getCause();
++            Throwable cause = e.getCause();
++            if(cause instanceof InvocationTargetException) {
++                Throwable realCause = cause.getCause();
+                 new Reporter().fieldInitialisationThrewException(field, realCause);
+             }
+             // other causes should be fine

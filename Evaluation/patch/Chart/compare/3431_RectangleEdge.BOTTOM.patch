@@ -1,0 +1,109 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..b185ebf 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -574,15 +574,16 @@
+                 this.axis.draw(g2, target.getMaxY() - this.stripWidth
+                         - this.axisOffset, target, target, RectangleEdge.TOP,
+                         null);
+-            }
+-            else if (axisEdge == RectangleEdge.BOTTOM) {
++            } else {
++				RectangleEdge var_3431 = RectangleEdge.BOTTOM;
++				if (axisEdge == var_3431) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+                     double vv0 = this.axis.valueToJava2D(v, target,
+-                            RectangleEdge.BOTTOM);
++				                var_3431);
+                     double vv1 = this.axis.valueToJava2D(v + increment, target,
+-                            RectangleEdge.BOTTOM);
++				                var_3431);
+                     double ww = Math.abs(vv1 - vv0) + 1.0;
+                     r.setRect(Math.min(vv0, vv1), target.getMinY(), ww,
+                             this.stripWidth);
+@@ -598,7 +599,8 @@
+                 }
+                 this.axis.draw(g2, target.getMinY() + this.stripWidth
+                         + this.axisOffset, target, target,
+-                        RectangleEdge.BOTTOM, null);
++				            var_3431, null);
++				}
+             }
+         }
+         else {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..b185ebf 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -574,15 +574,16 @@
+                 this.axis.draw(g2, target.getMaxY() - this.stripWidth
+                         - this.axisOffset, target, target, RectangleEdge.TOP,
+                         null);
+-            }
+-            else if (axisEdge == RectangleEdge.BOTTOM) {
++            } else {
++				RectangleEdge var_3431 = RectangleEdge.BOTTOM;
++				if (axisEdge == var_3431) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+                     double vv0 = this.axis.valueToJava2D(v, target,
+-                            RectangleEdge.BOTTOM);
++				                var_3431);
+                     double vv1 = this.axis.valueToJava2D(v + increment, target,
+-                            RectangleEdge.BOTTOM);
++				                var_3431);
+                     double ww = Math.abs(vv1 - vv0) + 1.0;
+                     r.setRect(Math.min(vv0, vv1), target.getMinY(), ww,
+                             this.stripWidth);
+@@ -598,7 +599,8 @@
+                 }
+                 this.axis.draw(g2, target.getMinY() + this.stripWidth
+                         + this.axisOffset, target, target,
+-                        RectangleEdge.BOTTOM, null);
++				            var_3431, null);
++				}
+             }
+         }
+         else {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..f777773 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -575,14 +575,16 @@
+                         - this.axisOffset, target, target, RectangleEdge.TOP,
+                         null);
+             }
+-            else if (axisEdge == RectangleEdge.BOTTOM) {
++            else {
++                RectangleEdge bottom = RectangleEdge.BOTTOM;
++                if (axisEdge == bottom) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+                     double vv0 = this.axis.valueToJava2D(v, target,
+-                            RectangleEdge.BOTTOM);
++                                bottom);
+                     double vv1 = this.axis.valueToJava2D(v + increment, target,
+-                            RectangleEdge.BOTTOM);
++                                bottom);
+                     double ww = Math.abs(vv1 - vv0) + 1.0;
+                     r.setRect(Math.min(vv0, vv1), target.getMinY(), ww,
+                             this.stripWidth);
+@@ -598,7 +600,8 @@
+                 }
+                 this.axis.draw(g2, target.getMinY() + this.stripWidth
+                         + this.axisOffset, target, target,
+-                        RectangleEdge.BOTTOM, null);
++                            bottom, null);
++                }
+             }
+         }
+         else {

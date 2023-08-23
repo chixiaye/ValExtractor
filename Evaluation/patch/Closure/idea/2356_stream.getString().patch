@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..8f3add4 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1806,7 +1806,8 @@
+       return reportGenericTypeSyntaxWarning();
+     }
+ 
+-    String typeName = stream.getString();
++      String string = stream.getString();
++      String typeName = string;
+     int lineno = stream.getLineno();
+     int charno = stream.getCharno();
+     while (match(JsDocToken.EOL) &&
+@@ -1814,7 +1815,7 @@
+       skipEOLs();
+       if (match(JsDocToken.STRING)) {
+         next();
+-        typeName += stream.getString();
++        typeName += string;
+       }
+     }
+ 

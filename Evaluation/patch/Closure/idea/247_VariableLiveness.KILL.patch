@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+index 9d1b56c..54da945 100644
+--- a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
++++ b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+@@ -297,7 +297,8 @@
+       Node n, Node exprRoot, String variable) {
+     while (n != exprRoot) {
+       VariableLiveness state = VariableLiveness.MAYBE_LIVE;
+-      switch (n.getParent().getType()) {
++        VariableLiveness kill = VariableLiveness.KILL;
++        switch (n.getParent().getType()) {
+         case Token.OR:
+         case Token.AND:
+           // If the currently node is the first child of
+@@ -306,7 +307,7 @@
+           if (n.getNext() != null) {
+             state = isVariableReadBeforeKill(
+                 n.getNext(), variable);
+-            if (state == VariableLiveness.KILL) {
++            if (state == kill) {
+               state = VariableLiveness.MAYBE_LIVE;
+             }
+           }
+@@ -335,7 +336,7 @@
+       // If we see a READ or KILL there is no need to continue.
+       if (state == VariableLiveness.READ) {
+         return true;
+-      } else if (state == VariableLiveness.KILL) {
++      } else if (state == kill) {
+         return false;
+       }
+       n = n.getParent();

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..9147c8d 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -213,7 +213,8 @@
+                 }
+                 // case 3: leave current, add alternate
+               } else if (!alternate.isParameterizedType()) {
+-                if (current.isSubtype(alternate)) {
++                boolean var_2695 = current.isSubtype(alternate);
++				if (var_2695) {
+                   // case 4, 5
+                   removeCurrent = true;
+                 }

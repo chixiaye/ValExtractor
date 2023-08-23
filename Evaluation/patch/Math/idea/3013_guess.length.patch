@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..9c26bd3 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -572,8 +572,9 @@
+             throw new NotStrictlyPositiveException(lambda);
+         }
+         // initialize sigma
+-        final double[][] sigmaArray = new double[guess.length][1];
+-        for (int i = 0; i < guess.length; i++) {
++        int length = guess.length;
++        final double[][] sigmaArray = new double[length][1];
++        for (int i = 0; i < length; i++) {
+             sigmaArray[i][0] = inputSigma[i];
+         }
+         final RealMatrix insigma = new Array2DRowRealMatrix(sigmaArray, false);

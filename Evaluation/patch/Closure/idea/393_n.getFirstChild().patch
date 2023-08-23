@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+index 709e6f1..8291c0f 100644
+--- a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
++++ b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+@@ -81,10 +81,11 @@
+ 
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+-      if (n.isCall() && n.getFirstChild() != null &&
+-          n.getFirstChild().isName() &&
+-          "define".equals(n.getFirstChild().getString())) {
+-        Scope.Var define = t.getScope().getVar(n.getFirstChild().
++        Node firstChild = n.getFirstChild();
++        if (n.isCall() && firstChild != null &&
++          firstChild.isName() &&
++          "define".equals(firstChild.getString())) {
++        Scope.Var define = t.getScope().getVar(firstChild.
+             getString());
+         if (define != null && !define.isGlobal()) {
+           // Ignore non-global define.

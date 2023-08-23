@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..2e1b667 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -3061,13 +3061,16 @@
+         return parent.getJSDocInfo();
+       } else if (parent.isVar() && parent.hasOneChild()) {
+         return parent.getJSDocInfo();
+-      } else if ((parent.isHook() && parent.getFirstChild() != n) ||
+-                 parent.isOr() ||
+-                 parent.isAnd() ||
+-                 (parent.isComma() && parent.getFirstChild() != n)) {
+-        return getBestJSDocInfo(parent);
+-      } else if (parent.isCast()) {
+-        return parent.getJSDocInfo();
++      } else {
++          Node firstChild = parent.getFirstChild();
++          if ((parent.isHook() && firstChild != n) ||
++                     parent.isOr() ||
++                     parent.isAnd() ||
++                     (parent.isComma() && firstChild != n)) {
++            return getBestJSDocInfo(parent);
++          } else if (parent.isCast()) {
++            return parent.getJSDocInfo();
++          }
+       }
+     }
+     return info;

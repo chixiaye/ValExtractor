@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+index aa90f2b..7d28e49 100644
+--- a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+@@ -742,8 +742,9 @@
+         // setup for collecting optional entity info...
+         Shape entityArea = null;
+         EntityCollection entities = null;
+-        if (state.getInfo() != null) {
+-            entities = state.getInfo().getOwner().getEntityCollection();
++        PlotRenderingInfo info = state.getInfo();
++        if (info != null) {
++            entities = info.getOwner().getEntityCollection();
+         }
+ 
+         PlotOrientation orientation = plot.getOrientation();

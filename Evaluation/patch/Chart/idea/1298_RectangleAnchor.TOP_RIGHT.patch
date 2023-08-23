@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/panel/CrosshairOverlay.java b/source/org/jfree/chart/panel/CrosshairOverlay.java
+index 2fc3cdd..ec39e23 100644
+--- a/source/org/jfree/chart/panel/CrosshairOverlay.java
++++ b/source/org/jfree/chart/panel/CrosshairOverlay.java
+@@ -509,10 +509,11 @@
+ 
+     private RectangleAnchor flipAnchorH(RectangleAnchor anchor) {
+         RectangleAnchor result = anchor;
++        RectangleAnchor topRight = RectangleAnchor.TOP_RIGHT;
+         if (anchor.equals(RectangleAnchor.TOP_LEFT)) {
+-            result = RectangleAnchor.TOP_RIGHT;
++            result = topRight;
+         }
+-        else if (anchor.equals(RectangleAnchor.TOP_RIGHT)) {
++        else if (anchor.equals(topRight)) {
+             result = RectangleAnchor.TOP_LEFT;
+         }
+         else if (anchor.equals(RectangleAnchor.LEFT)) {

@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+index c3dd8cc..04f57fb 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+@@ -932,9 +932,10 @@
+ 
+         public int parse(String periodStr, int position) {
+             String text1 = iPluralText;
+-            String text2 = iSingularText; 
++            String text2 = iSingularText;
+ 
+-            if (text1.length() < text2.length()) {
++            int length = text2.length();
++            if (text1.length() < length) {
+                 // Swap in order to match longer one first.
+                 String temp = text1;
+                 text1 = text2;
+@@ -946,8 +947,8 @@
+                 return position + text1.length();
+             }
+             if (periodStr.regionMatches
+-                (true, position, text2, 0, text2.length())) {
+-                return position + text2.length();
++                (true, position, text2, 0, length)) {
++                return position + length;
+             }
+ 
+             return ~position;

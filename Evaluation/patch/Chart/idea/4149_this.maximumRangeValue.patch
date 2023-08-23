@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+index 4aa2d4d..1d35f7c 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+@@ -494,8 +494,9 @@
+      */
+     public double getRangeUpperBound(boolean includeInterval) {
+         double result = Double.NaN;
+-        if (this.maximumRangeValue != null) {
+-            result = this.maximumRangeValue.doubleValue();
++        Number maximumRangeValue1 = this.maximumRangeValue;
++        if (maximumRangeValue1 != null) {
++            result = maximumRangeValue1.doubleValue();
+         }
+         return result;
+     }

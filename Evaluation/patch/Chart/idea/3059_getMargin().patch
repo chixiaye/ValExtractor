@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+index ccc914a..aeefdc2 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+@@ -324,8 +324,9 @@
+         double translatedWidth = Math.max(1, Math.abs(translatedEndX
+                 - translatedStartX));
+         double translatedHeight = Math.abs(translatedValue - translatedBase);
+-        if (getMargin() > 0.0) {
+-            double cut = translatedWidth * getMargin();
++        double margin = getMargin();
++        if (margin > 0.0) {
++            double cut = translatedWidth * margin;
+             translatedWidth = translatedWidth - cut;
+             translatedStartX = translatedStartX + cut / 2;
+         }

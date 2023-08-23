@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/EulerStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/EulerStepInterpolator.java
+index 661149d..5e11c3a 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/EulerStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/EulerStepInterpolator.java
+@@ -83,16 +83,17 @@
+   @Override
+   protected void computeInterpolatedStateAndDerivatives(final double theta,
+                                           final double oneMinusThetaH) {
++      double[] doubles = yDotK[0];
+       if ((previousState != null) && (theta <= 0.5)) {
+           for (int i = 0; i < interpolatedState.length; ++i) {
+-              interpolatedState[i] = previousState[i] + theta * h * yDotK[0][i];
++              interpolatedState[i] = previousState[i] + theta * h * doubles[i];
+           }
+-          System.arraycopy(yDotK[0], 0, interpolatedDerivatives, 0, interpolatedDerivatives.length);
++          System.arraycopy(doubles, 0, interpolatedDerivatives, 0, interpolatedDerivatives.length);
+       } else {
+           for (int i = 0; i < interpolatedState.length; ++i) {
+-              interpolatedState[i] = currentState[i] - oneMinusThetaH * yDotK[0][i];
++              interpolatedState[i] = currentState[i] - oneMinusThetaH * doubles[i];
+           }
+-          System.arraycopy(yDotK[0], 0, interpolatedDerivatives, 0, interpolatedDerivatives.length);
++          System.arraycopy(doubles, 0, interpolatedDerivatives, 0, interpolatedDerivatives.length);
+       }
+ 
+   }

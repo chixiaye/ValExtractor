@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/InstrumentFunctions.java b/src/com/google/javascript/jscomp/InstrumentFunctions.java
+index 330e767..10f2b25 100644
+--- a/src/com/google/javascript/jscomp/InstrumentFunctions.java
++++ b/src/com/google/javascript/jscomp/InstrumentFunctions.java
+@@ -96,7 +96,8 @@
+           templateFilename));
+       this.initCodeSource = "";
+       this.definedFunctionName = "";
+-      this.reportFunctionName = "";
++        String reportFunctionName1 = this.reportFunctionName;
++        this.reportFunctionName = "";
+       this.reportFunctionExitName = "";
+       this.appNameSetter = "";
+       this.declarationsToRemove = Lists.newArrayList();

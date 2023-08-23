@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+index 317947b..f5f8323 100644
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -173,7 +173,8 @@
+         Node trueBlock, falseBlock;
+ 
+         // First, the true condition block.
+-        trueBlock = ifTree.getFirstChild().getNext();
++        Node var_570 = ifTree.getFirstChild().getNext();
++		trueBlock = var_570;
+         falseBlock = trueBlock.getNext();
+         tryMinimizeIfBlockExits(trueBlock, falseBlock,
+             ifTree, exitType, labelName);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+index 317947b..209a5b9 100644
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -173,14 +173,15 @@
+         Node trueBlock, falseBlock;
+ 
+         // First, the true condition block.
+-        trueBlock = ifTree.getFirstChild().getNext();
++        Node var_570 = ifTree.getFirstChild().getNext();
++		trueBlock = var_570;
+         falseBlock = trueBlock.getNext();
+         tryMinimizeIfBlockExits(trueBlock, falseBlock,
+             ifTree, exitType, labelName);
+ 
+         // Now the else block.
+         // The if blocks may have changed, get them again.
+-        trueBlock = ifTree.getFirstChild().getNext();
++        trueBlock = var_570;
+         falseBlock = trueBlock.getNext();
+         if (falseBlock != null) {
+           tryMinimizeIfBlockExits(falseBlock, trueBlock,
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+index 317947b..69067a9 100644
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -173,14 +173,15 @@
+         Node trueBlock, falseBlock;
+ 
+         // First, the true condition block.
+-        trueBlock = ifTree.getFirstChild().getNext();
++          Node next = ifTree.getFirstChild().getNext();
++          trueBlock = next;
+         falseBlock = trueBlock.getNext();
+         tryMinimizeIfBlockExits(trueBlock, falseBlock,
+             ifTree, exitType, labelName);
+ 
+         // Now the else block.
+         // The if blocks may have changed, get them again.
+-        trueBlock = ifTree.getFirstChild().getNext();
++        trueBlock = next;
+         falseBlock = trueBlock.getNext();
+         if (falseBlock != null) {
+           tryMinimizeIfBlockExits(falseBlock, trueBlock,

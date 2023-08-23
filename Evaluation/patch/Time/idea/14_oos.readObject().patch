@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/DateMidnight.java b/src/main/java/org/joda/time/DateMidnight.java
+index 05e348d..e58edaf 100644
+--- a/src/main/java/org/joda/time/DateMidnight.java
++++ b/src/main/java/org/joda/time/DateMidnight.java
+@@ -1250,8 +1250,9 @@
+          * Reads the property from a safe serialization format.
+          */
+         private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
+-            iInstant = (DateMidnight) oos.readObject();
+-            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
++            Object o = oos.readObject();
++            iInstant = (DateMidnight) o;
++            DateTimeFieldType type = (DateTimeFieldType) o;
+             iField = type.getField(iInstant.getChronology());
+         }
+ 

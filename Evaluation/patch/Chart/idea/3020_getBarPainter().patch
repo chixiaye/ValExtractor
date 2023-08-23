@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+index ee3e0b4..e2966de 100644
+--- a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+@@ -307,12 +307,13 @@
+                 barBase = RectangleEdge.TOP;
+             }
+         }
++        XYBarPainter barPainter = getBarPainter();
+         if (pass == 0 && getShadowsVisible()) {
+-            getBarPainter().paintBarShadow(g2, this, series, item, selected, 
++            barPainter.paintBarShadow(g2, this, series, item, selected, 
+                     bar, barBase, !getUseYInterval());
+         }
+         if (pass == 1) {
+-            getBarPainter().paintBar(g2, this, series, item, selected, bar,
++            barPainter.paintBar(g2, this, series, item, selected, bar,
+                     barBase);
+ 
+             if (isItemLabelVisible(series, item, selected)) {

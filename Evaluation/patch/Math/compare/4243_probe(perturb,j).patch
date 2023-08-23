@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+index fd55902..fb55d35 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+@@ -291,7 +291,8 @@
+         int j = index;
+         if (states[index] == FULL) {
+             while (true) {
+-                j = probe(perturb, j);
++                int var_4243 = probe(perturb, j);
++				j = var_4243;
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+index fd55902..21c2a45 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+@@ -289,9 +289,10 @@
+ 
+         int perturb = perturb(hash);
+         int j = index;
++        int var_4243 = probe(perturb, j);
+         if (states[index] == FULL) {
+             while (true) {
+-                j = probe(perturb, j);
++                j = var_4243;
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+@@ -311,7 +312,7 @@
+ 
+         final int firstRemoved = index;
+         while (true) {
+-            j = probe(perturb, j);
++            j = var_4243;
+             index = j & mask;
+ 
+             if (states[index] == FREE) {
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+index fd55902..6f4c2ba 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+@@ -289,9 +289,10 @@
+ 
+         int perturb = perturb(hash);
+         int j = index;
++        int probe = probe(perturb, j);
+         if (states[index] == FULL) {
+             while (true) {
+-                j = probe(perturb, j);
++                j = probe;
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+@@ -311,7 +312,7 @@
+ 
+         final int firstRemoved = index;
+         while (true) {
+-            j = probe(perturb, j);
++            j = probe;
+             index = j & mask;
+ 
+             if (states[index] == FREE) {

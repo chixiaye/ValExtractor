@@ -1,0 +1,118 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..ffa3d6b 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -304,7 +304,8 @@
+                 double h = stream.readDouble();
+                 double as = stream.readDouble(); // Angle Start
+                 double ae = stream.readDouble(); // Angle Extent
+-                int at = stream.readInt();       // Arc type
++                int var_3648 = stream.readInt();
++				int at = var_3648;       // Arc type
+                 result = new Arc2D.Double(x, y, w, h, as, ae, at);
+             }
+             else if (c.equals(GeneralPath.class)) {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..e0e6949 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -296,15 +296,16 @@
+                 double w = stream.readDouble();
+                 double h = stream.readDouble();
+                 result = new Ellipse2D.Double(x, y, w, h);
+-            }
+-            else if (c.equals(Arc2D.class)) {
++            } else {
++				int var_3648 = stream.readInt();
++				if (c.equals(Arc2D.class)) {
+                 double x = stream.readDouble();
+                 double y = stream.readDouble();
+                 double w = stream.readDouble();
+                 double h = stream.readDouble();
+                 double as = stream.readDouble(); // Angle Start
+                 double ae = stream.readDouble(); // Angle Extent
+-                int at = stream.readInt();       // Arc type
++				    int at = var_3648;       // Arc type
+                 result = new Arc2D.Double(x, y, w, h, as, ae, at);
+             }
+             else if (c.equals(GeneralPath.class)) {
+@@ -312,7 +313,7 @@
+                 float[] args = new float[6];
+                 boolean hasNext = stream.readBoolean();
+                 while (!hasNext) {
+-                    int type = stream.readInt();
++				        int type = var_3648;
+                     for (int i = 0; i < 6; i++) {
+                         args[i] = stream.readFloat();
+                     }
+@@ -337,7 +338,7 @@
+                             throw new RuntimeException(
+                                     "JFreeChart - No path exists");
+                     }
+-                    gp.setWindingRule(stream.readInt());
++				        gp.setWindingRule(var_3648);
+                     hasNext = stream.readBoolean();
+                 }
+                 result = gp;
+@@ -346,6 +347,7 @@
+                 result = (Shape) stream.readObject();
+             }
+         }
++        }
+         return result;
+ 
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..3488c75 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -297,14 +297,16 @@
+                 double h = stream.readDouble();
+                 result = new Ellipse2D.Double(x, y, w, h);
+             }
+-            else if (c.equals(Arc2D.class)) {
++            else {
++                int i1 = stream.readInt();
++                if (c.equals(Arc2D.class)) {
+                 double x = stream.readDouble();
+                 double y = stream.readDouble();
+                 double w = stream.readDouble();
+                 double h = stream.readDouble();
+                 double as = stream.readDouble(); // Angle Start
+                 double ae = stream.readDouble(); // Angle Extent
+-                int at = stream.readInt();       // Arc type
++                    int at = i1;       // Arc type
+                 result = new Arc2D.Double(x, y, w, h, as, ae, at);
+             }
+             else if (c.equals(GeneralPath.class)) {
+@@ -312,7 +314,7 @@
+                 float[] args = new float[6];
+                 boolean hasNext = stream.readBoolean();
+                 while (!hasNext) {
+-                    int type = stream.readInt();
++                        int type = i1;
+                     for (int i = 0; i < 6; i++) {
+                         args[i] = stream.readFloat();
+                     }
+@@ -337,7 +339,7 @@
+                             throw new RuntimeException(
+                                     "JFreeChart - No path exists");
+                     }
+-                    gp.setWindingRule(stream.readInt());
++                        gp.setWindingRule(i1);
+                     hasNext = stream.readBoolean();
+                 }
+                 result = gp;
+@@ -346,6 +348,7 @@
+                 result = (Shape) stream.readObject();
+             }
+         }
++        }
+         return result;
+ 
+     }

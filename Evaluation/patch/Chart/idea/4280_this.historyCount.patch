@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..280e6fc 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -541,11 +541,12 @@
+      */
+     protected int wrapOffset(int protoIndex) {
+         int tmp = protoIndex;
+-        if (tmp >= this.historyCount) {
+-            tmp -= this.historyCount;
++        int historyCount1 = this.historyCount;
++        if (tmp >= historyCount1) {
++            tmp -= historyCount1;
+         }
+         else if (tmp < 0) {
+-            tmp += this.historyCount;
++            tmp += historyCount1;
+         }
+         return tmp;
+     }

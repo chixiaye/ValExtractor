@@ -1,0 +1,14 @@
+diff --git a/src/org/mockito/internal/verification/VerificationOverTimeImpl.java b/src/org/mockito/internal/verification/VerificationOverTimeImpl.java
+index e719cb4..1a3759a 100644
+--- a/src/org/mockito/internal/verification/VerificationOverTimeImpl.java
++++ b/src/org/mockito/internal/verification/VerificationOverTimeImpl.java
+@@ -83,7 +83,8 @@
+                     error = null;
+                 }
+             } catch (MockitoAssertionError e) {
+-                error = handleVerifyException(e);
++                AssertionError error1 = handleVerifyException(e);
++                error = error1;
+             }
+             catch (AssertionError e) {
+                 error = handleVerifyException(e);

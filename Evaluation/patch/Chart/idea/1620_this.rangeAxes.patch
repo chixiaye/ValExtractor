@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..62b452e 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -1180,8 +1180,9 @@
+      */
+     public ValueAxis getRangeAxis(int index) {
+         ValueAxis result = null;
+-        if (index < this.rangeAxes.size()) {
+-            result = (ValueAxis) this.rangeAxes.get(index);
++        ObjectList rangeAxes1 = this.rangeAxes;
++        if (index < rangeAxes1.size()) {
++            result = (ValueAxis) rangeAxes1.get(index);
+         }
+         if (result == null) {
+             Plot parent = getParent();

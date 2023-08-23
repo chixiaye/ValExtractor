@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSType.java b/src/com/google/javascript/rhino/jstype/JSType.java
+index 11875e9..525ea79 100644
+--- a/src/com/google/javascript/rhino/jstype/JSType.java
++++ b/src/com/google/javascript/rhino/jstype/JSType.java
+@@ -1122,7 +1122,8 @@
+       UnionType unionType = type.toMaybeUnionType();
+       boolean needsFiltering = false;
+       for (JSType alt : unionType.getAlternates()) {
+-        if (alt.isNoResolvedType()) {
++          boolean noResolvedType = alt.isNoResolvedType();
++          if (noResolvedType) {
+           needsFiltering = true;
+           break;
+         }

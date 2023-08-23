@@ -1,0 +1,41 @@
+diff --git a/src/com/google/javascript/jscomp/VarCheck.java b/src/com/google/javascript/jscomp/VarCheck.java
+index a497232..bc1be8b 100644
+--- a/src/com/google/javascript/jscomp/VarCheck.java
++++ b/src/com/google/javascript/jscomp/VarCheck.java
+@@ -233,7 +233,8 @@
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+       if (n.isName()) {
+-        switch (parent.getType()) {
++          String string = n.getString();
++          switch (parent.getType()) {
+           case Token.VAR:
+           case Token.FUNCTION:
+           case Token.PARAM_LIST:
+@@ -242,20 +243,20 @@
+           case Token.GETPROP:
+             if (n == parent.getFirstChild()) {
+               Scope scope = t.getScope();
+-              Scope.Var var = scope.getVar(n.getString());
++              Scope.Var var = scope.getVar(string);
+               if (var == null) {
+-                t.report(n, UNDEFINED_EXTERN_VAR_ERROR, n.getString());
+-                varsToDeclareInExterns.add(n.getString());
++                t.report(n, UNDEFINED_EXTERN_VAR_ERROR, string);
++                varsToDeclareInExterns.add(string);
+               }
+             }
+             break;
+           default:
+-            t.report(n, NAME_REFERENCE_IN_EXTERNS_ERROR, n.getString());
++            t.report(n, NAME_REFERENCE_IN_EXTERNS_ERROR, string);
+ 
+             Scope scope = t.getScope();
+-            Scope.Var var = scope.getVar(n.getString());
++            Scope.Var var = scope.getVar(string);
+             if (var == null) {
+-              varsToDeclareInExterns.add(n.getString());
++              varsToDeclareInExterns.add(string);
+             }
+             break;
+         }

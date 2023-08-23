@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/general/DefaultKeyedValueDataset.java b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+index ee47f3e..f7ec07b 100644
+--- a/source/org/jfree/data/general/DefaultKeyedValueDataset.java
++++ b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+@@ -155,13 +155,14 @@
+             return false;
+         }
+         KeyedValueDataset that = (KeyedValueDataset) obj;
++        Comparable key = that.getKey();
+         if (this.data == null) {
+-            if (that.getKey() != null || that.getValue() != null) {
++            if (key != null || that.getValue() != null) {
+                 return false;
+             }
+             return true;
+         }
+-        if (!ObjectUtilities.equal(this.data.getKey(), that.getKey())) {
++        if (!ObjectUtilities.equal(this.data.getKey(), key)) {
+             return false;
+         }
+         if (!ObjectUtilities.equal(this.data.getValue(), that.getValue())) {

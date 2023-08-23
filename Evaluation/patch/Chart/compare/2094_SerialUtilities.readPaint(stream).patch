@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..24b0cb2 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3710,7 +3710,8 @@
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+         this.baseSectionPaint = SerialUtilities.readPaint(stream);
+-        this.baseSectionOutlinePaint = SerialUtilities.readPaint(stream);
++        Paint var_2094 = SerialUtilities.readPaint(stream);
++		this.baseSectionOutlinePaint = var_2094;
+         this.baseSectionOutlineStroke = SerialUtilities.readStroke(stream);
+         this.shadowPaint = SerialUtilities.readPaint(stream);
+         this.labelPaint = SerialUtilities.readPaint(stream);
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..3d8dc50 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3709,16 +3709,17 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.baseSectionPaint = SerialUtilities.readPaint(stream);
+-        this.baseSectionOutlinePaint = SerialUtilities.readPaint(stream);
++        Paint var_2094 = SerialUtilities.readPaint(stream);
++		this.baseSectionPaint = var_2094;
++        this.baseSectionOutlinePaint = var_2094;
+         this.baseSectionOutlineStroke = SerialUtilities.readStroke(stream);
+-        this.shadowPaint = SerialUtilities.readPaint(stream);
+-        this.labelPaint = SerialUtilities.readPaint(stream);
+-        this.labelBackgroundPaint = SerialUtilities.readPaint(stream);
+-        this.labelOutlinePaint = SerialUtilities.readPaint(stream);
++        this.shadowPaint = var_2094;
++        this.labelPaint = var_2094;
++        this.labelBackgroundPaint = var_2094;
++        this.labelOutlinePaint = var_2094;
+         this.labelOutlineStroke = SerialUtilities.readStroke(stream);
+-        this.labelShadowPaint = SerialUtilities.readPaint(stream);
+-        this.labelLinkPaint = SerialUtilities.readPaint(stream);
++        this.labelShadowPaint = var_2094;
++        this.labelLinkPaint = var_2094;
+         this.labelLinkStroke = SerialUtilities.readStroke(stream);
+         this.legendItemShape = SerialUtilities.readShape(stream);
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..e40d92a 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3709,16 +3709,17 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.baseSectionPaint = SerialUtilities.readPaint(stream);
+-        this.baseSectionOutlinePaint = SerialUtilities.readPaint(stream);
++        Paint baseSectionOutlinePaint1 = SerialUtilities.readPaint(stream);
++        this.baseSectionPaint = baseSectionOutlinePaint1;
++        this.baseSectionOutlinePaint = baseSectionOutlinePaint1;
+         this.baseSectionOutlineStroke = SerialUtilities.readStroke(stream);
+-        this.shadowPaint = SerialUtilities.readPaint(stream);
+-        this.labelPaint = SerialUtilities.readPaint(stream);
+-        this.labelBackgroundPaint = SerialUtilities.readPaint(stream);
+-        this.labelOutlinePaint = SerialUtilities.readPaint(stream);
++        this.shadowPaint = baseSectionOutlinePaint1;
++        this.labelPaint = baseSectionOutlinePaint1;
++        this.labelBackgroundPaint = baseSectionOutlinePaint1;
++        this.labelOutlinePaint = baseSectionOutlinePaint1;
+         this.labelOutlineStroke = SerialUtilities.readStroke(stream);
+-        this.labelShadowPaint = SerialUtilities.readPaint(stream);
+-        this.labelLinkPaint = SerialUtilities.readPaint(stream);
++        this.labelShadowPaint = baseSectionOutlinePaint1;
++        this.labelLinkPaint = baseSectionOutlinePaint1;
+         this.labelLinkStroke = SerialUtilities.readStroke(stream);
+         this.legendItemShape = SerialUtilities.readShape(stream);
+     }

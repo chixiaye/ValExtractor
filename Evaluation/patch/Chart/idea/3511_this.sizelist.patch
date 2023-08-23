@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ui/FontChooserPanel.java b/source/org/jfree/chart/ui/FontChooserPanel.java
+index 061a429..f75d660 100644
+--- a/source/org/jfree/chart/ui/FontChooserPanel.java
++++ b/source/org/jfree/chart/ui/FontChooserPanel.java
+@@ -115,6 +115,7 @@
+         sizePanel.setBorder(BorderFactory.createTitledBorder(
+                             BorderFactory.createEtchedBorder(),
+                             localizationResources.getString("Size")));
++        JList sizelist1 = this.sizelist;
+         this.sizelist = new JList(SIZES);
+         JScrollPane sizepane = new JScrollPane(this.sizelist);
+         sizepane.setBorder(BorderFactory.createEtchedBorder());

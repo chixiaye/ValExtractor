@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..b5061ee 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -577,7 +577,8 @@
+             }
+         }
+         else {
+-            if (this.backgroundPaint != null) {
++            Paint backgroundPaint1 = this.backgroundPaint;
++            if (backgroundPaint1 != null) {
+                 if (this.backgroundPaint.equals(paint)) {
+                     return;  // nothing to do
+                 }

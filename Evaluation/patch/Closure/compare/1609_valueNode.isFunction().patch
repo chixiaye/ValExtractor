@@ -1,0 +1,39 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..a848fd5 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -586,9 +586,10 @@
+       Node valueNode = NodeUtil.getRValueOfLValue(n);
+       JSDocInfo info = NodeUtil.getBestJSDocInfo(n);
+       // Heed the annotations only if they're sensibly used.
++      boolean var_1609 = valueNode.isFunction();
+       return info != null && valueNode != null &&
+-             (info.isConstructor() && valueNode.isFunction() ||
+-              info.isInterface() && valueNode.isFunction() ||
++             (info.isConstructor() && var_1609 ||
++              info.isInterface() && var_1609 ||
+               info.hasEnumParameterType() && valueNode.isObjectLit());
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..56f18c2 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -586,9 +586,10 @@
+       Node valueNode = NodeUtil.getRValueOfLValue(n);
+       JSDocInfo info = NodeUtil.getBestJSDocInfo(n);
+       // Heed the annotations only if they're sensibly used.
++        boolean function = valueNode.isFunction();
+       return info != null && valueNode != null &&
+-             (info.isConstructor() && valueNode.isFunction() ||
+-              info.isInterface() && valueNode.isFunction() ||
++             (info.isConstructor() && function ||
++              info.isInterface() && function ||
+               info.hasEnumParameterType() && valueNode.isObjectLit());
+     }
+ 

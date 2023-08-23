@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..1b13e53 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1748,11 +1748,13 @@
+           cb.append(delimiter)
+             .append("\n");
+         }
+-        if (root.getJSDocInfo() != null &&
+-            root.getJSDocInfo().getLicense() != null) {
+-          cb.append("/*\n")
+-            .append(root.getJSDocInfo().getLicense())
+-            .append("*/\n");
++        if (root.getJSDocInfo() != null) {
++            String license = root.getJSDocInfo().getLicense();
++            if (license != null) {
++                cb.append("/*\n")
++                        .append(license)
++                        .append("*/\n");
++            }
+         }
+ 
+         // If there is a valid source map, then indicate to it that the current

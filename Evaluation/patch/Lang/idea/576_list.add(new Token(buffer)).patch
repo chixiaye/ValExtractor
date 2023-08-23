@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+index 09e636b..c36ff06 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+@@ -497,6 +497,7 @@
+                 continue;
+             }
+             Object value = null;
++            boolean add = list.add(new Token(buffer));
+             switch (ch) {
+             // TODO: Need to handle escaping of '
+             case '\'':
+@@ -505,7 +506,7 @@
+                     inLiteral = false;
+                 } else {
+                     buffer = new StringBuilder();
+-                    list.add(new Token(buffer));
++                    add;
+                     inLiteral = true;
+                 }
+                 break;
+@@ -533,7 +534,7 @@
+             default:
+                 if (buffer == null) {
+                     buffer = new StringBuilder();
+-                    list.add(new Token(buffer));
++                    add;
+                 }
+                 buffer.append(ch);
+             }

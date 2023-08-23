@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..d76421b 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -155,11 +155,12 @@
+         Var var = varEntry.getKey();
+         Definition aDef = varEntry.getValue();
+ 
+-        if (aDef == null) {
++          Definition put = resultMap.put(var, null);
++          if (aDef == null) {
+           // "a" is BOTTOM implies that the variable has more than one possible
+           // definition. We set the join of this to be BOTTOM regardless of what
+           // "b" might be.
+-          resultMap.put(var, null);
++          put;
+           continue;
+         }
+ 
+@@ -171,7 +172,7 @@
+           if (aDef.equals(bDef)) {
+             resultMap.put(var, aDef);
+           } else {
+-            resultMap.put(var, null);
++            put;
+           }
+         } else {
+           resultMap.put(var, aDef);

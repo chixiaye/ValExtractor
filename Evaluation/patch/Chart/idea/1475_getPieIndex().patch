@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot3D.java b/source/org/jfree/chart/plot/PiePlot3D.java
+index a7aab14..7d03f88 100644
+--- a/source/org/jfree/chart/plot/PiePlot3D.java
++++ b/source/org/jfree/chart/plot/PiePlot3D.java
+@@ -561,12 +561,13 @@
+                         tip = tipster.generateToolTip(dataset, currentKey);
+                     }
+                     String url = null;
++                    int pieIndex = getPieIndex();
+                     if (getURLGenerator() != null) {
+                         url = getURLGenerator().generateURL(dataset, currentKey,
+-                                getPieIndex());
++                                pieIndex);
+                     }
+                     PieSectionEntity entity = new PieSectionEntity(
+-                            upperArc, dataset, getPieIndex(), sectionIndex,
++                            upperArc, dataset, pieIndex, sectionIndex,
+                             currentKey, tip, url);
+                     entities.add(entity);
+                 }

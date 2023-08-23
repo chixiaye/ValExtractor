@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+index b9bb413..b2d436d 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+@@ -113,9 +113,10 @@
+         final List<Strategy> collector = new ArrayList<Strategy>();
+ 
+         final Matcher patternMatcher= formatPattern.matcher(pattern);
++        int index = patternMatcher.regionStart();
+         if(!patternMatcher.lookingAt()) {
+             throw new IllegalArgumentException(
+-                    "Illegal pattern character '" + pattern.charAt(patternMatcher.regionStart()) + "'");
++                    "Illegal pattern character '" + pattern.charAt(index) + "'");
+         }
+ 
+         currentFormatField= patternMatcher.group();
+@@ -134,8 +135,8 @@
+             currentFormatField= nextFormatField;
+             currentStrategy= nextStrategy;
+         }
+-        if (patternMatcher.regionStart() != patternMatcher.regionEnd()) {
+-            throw new IllegalArgumentException("Failed to parse \""+pattern+"\" ; gave up at index "+patternMatcher.regionStart());
++        if (index != patternMatcher.regionEnd()) {
++            throw new IllegalArgumentException("Failed to parse \""+pattern+"\" ; gave up at index "+ index);
+         }
+         if(currentStrategy.addRegex(this, regex)) {
+             collector.add(currentStrategy);

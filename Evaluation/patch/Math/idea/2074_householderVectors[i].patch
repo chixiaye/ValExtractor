@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+index c2c5002..c0c2da0 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+@@ -109,7 +109,8 @@
+                     for (int j = k; j < m; ++j) {
+                         double alpha = 0;
+                         for (int i = k; i < m; ++i) {
+-                            alpha -= ua[i][j] * householderVectors[i][k - diagOffset];
++                            double[] householderVector = householderVectors[i];
++                            alpha -= ua[i][j] * householderVector[k - diagOffset];
+                         }
+                         alpha /= diagonal[k - diagOffset] * hK[k - diagOffset];
+ 

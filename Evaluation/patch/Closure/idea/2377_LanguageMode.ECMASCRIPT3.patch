@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/ParserRunner.java b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+index 2c78855..f5f28b0 100644
+--- a/src/com/google/javascript/jscomp/parsing/ParserRunner.java
++++ b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+@@ -122,12 +122,13 @@
+     compilerEnv.setRecordingLocalJsDocComments(true);
+ 
+     // ES5 specifically allows trailing commas
+-    compilerEnv.setWarnTrailingComma(
+-        config.languageMode == LanguageMode.ECMASCRIPT3);
++      LanguageMode ecmascript3 = LanguageMode.ECMASCRIPT3;
++      compilerEnv.setWarnTrailingComma(
++        config.languageMode == ecmascript3);
+ 
+     // Do our own identifier check for ECMASCRIPT 5
+     boolean acceptEs5 =
+-        config.isIdeMode || config.languageMode != LanguageMode.ECMASCRIPT3;
++        config.isIdeMode || config.languageMode != ecmascript3;
+     compilerEnv.setReservedKeywordAsIdentifier(acceptEs5);
+ 
+     compilerEnv.setAllowMemberExprAsFunctionName(false);

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+index 8b9d8e0..9a41a20 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+@@ -104,6 +104,7 @@
+                 this.varCovData[i] = MathArrays.copyOf(varcov[i]);
+             }
+         } else {
++            double[] parameters1 = this.parameters;
+             this.parameters = parameters;
+             this.varCovData = varcov;
+         }

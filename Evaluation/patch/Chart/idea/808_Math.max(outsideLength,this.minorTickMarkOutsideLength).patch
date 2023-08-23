@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..5d63c0f 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -781,13 +781,13 @@
+             t.peg(this.calendar);
+             t0 = t.getFirstMillisecond();
+         }
++        double max = Math.max(outsideLength,
++                this.minorTickMarkOutsideLength);
+         if (edge == RectangleEdge.TOP) {
+-            state.cursorUp(Math.max(outsideLength,
+-                    this.minorTickMarkOutsideLength));
++            state.cursorUp(max);
+         }
+         else if (edge == RectangleEdge.BOTTOM) {
+-            state.cursorDown(Math.max(outsideLength,
+-                    this.minorTickMarkOutsideLength));
++            state.cursorDown(max);
+         }
+         state.setTicks(ticks);
+     }

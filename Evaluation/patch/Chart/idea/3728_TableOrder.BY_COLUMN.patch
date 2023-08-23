@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/TableOrder.java b/source/org/jfree/chart/util/TableOrder.java
+index c2278e8..9f26f88 100644
+--- a/source/org/jfree/chart/util/TableOrder.java
++++ b/source/org/jfree/chart/util/TableOrder.java
+@@ -121,8 +121,11 @@
+         if (this.equals(TableOrder.BY_ROW)) {
+             return TableOrder.BY_ROW;
+         }
+-        else if (this.equals(TableOrder.BY_COLUMN)) {
+-            return TableOrder.BY_COLUMN;
++        else {
++            TableOrder byColumn = TableOrder.BY_COLUMN;
++            if (this.equals(byColumn)) {
++                return byColumn;
++            }
+         }
+         return null;
+     }

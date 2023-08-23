@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/matchers/ArrayEquals.java b/src/org/mockito/internal/matchers/ArrayEquals.java
+index c6cdf33..f9dc6e8 100644
+--- a/src/org/mockito/internal/matchers/ArrayEquals.java
++++ b/src/org/mockito/internal/matchers/ArrayEquals.java
+@@ -67,8 +67,9 @@
+         if (array instanceof Object[]) {
+             return (Object[]) array;
+         }
+-        Object[] result = new Object[Array.getLength(array)];
+-        for (int i = 0; i < Array.getLength(array); i++) {
++        int length = Array.getLength(array);
++        Object[] result = new Object[length];
++        for (int i = 0; i < length; i++) {
+             result[i] = Array.get(array, i);
+         }
+         return result;

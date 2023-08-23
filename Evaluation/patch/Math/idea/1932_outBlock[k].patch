@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+index c6b1a04..26cbd6b 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+@@ -536,7 +536,8 @@
+                                     sum = sum.add(tBlock[l].multiply(m.getEntry(r, q)));
+                                     ++r;
+                                 }
+-                                outBlock[k] = outBlock[k].add(sum);
++                                T t = outBlock[k];
++                                t = outBlock[k].add(sum);
+                                 ++k;
+                             }
+                         }

@@ -1,0 +1,12 @@
+diff --git a/src/org/mockito/internal/invocation/InvocationMatcher.java b/src/org/mockito/internal/invocation/InvocationMatcher.java
+index d45e4c6..188fcc4 100644
+--- a/src/org/mockito/internal/invocation/InvocationMatcher.java
++++ b/src/org/mockito/internal/invocation/InvocationMatcher.java
+@@ -30,6 +30,7 @@
+     public InvocationMatcher(Invocation invocation, List<Matcher> matchers) {
+         this.invocation = invocation;
+         if (matchers.isEmpty()) {
++            List<Matcher> matchers1 = this.matchers;
+             this.matchers = ArgumentsProcessor.argumentsToMatchers(invocation.getArguments());
+         } else {
+             this.matchers = matchers;

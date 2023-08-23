@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..73cb6ef 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -217,7 +217,8 @@
+                 rule = selectNumberRule(Calendar.DAY_OF_MONTH, tokenLen);
+                 break;
+             case 'h': // hour in am/pm (number, 1..12)
+-                rule = new TwelveHourField(selectNumberRule(Calendar.HOUR, tokenLen));
++                NumberRule var_597 = selectNumberRule(Calendar.HOUR, tokenLen);
++				rule = new TwelveHourField(var_597);
+                 break;
+             case 'H': // hour in day (number, 0..23)
+                 rule = selectNumberRule(Calendar.HOUR_OF_DAY, tokenLen);

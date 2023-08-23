@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormat.java b/src/main/java/org/joda/time/format/DateTimeFormat.java
+index 4558eb7..29bf64e 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormat.java
+@@ -590,7 +590,8 @@
+     private static String parseToken(String pattern, int[] indexRef) {
+         StringBuilder buf = new StringBuilder();
+ 
+-        int i = indexRef[0];
++        int i1 = indexRef[0];
++        int i = i1;
+         int length = pattern.length();
+ 
+         char c = pattern.charAt(i);

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/FieldCleanupPass.java b/src/com/google/javascript/jscomp/FieldCleanupPass.java
+index ba839e6..d8091cd 100644
+--- a/src/com/google/javascript/jscomp/FieldCleanupPass.java
++++ b/src/com/google/javascript/jscomp/FieldCleanupPass.java
+@@ -94,11 +94,12 @@
+       if (n.isGetProp() && !p.isGetProp()) {
+         String propName = getFieldName(n);
+         JSType type = n.getFirstChild().getJSType();
+-        if (type == null || type.toObjectType() == null) {
++          ObjectType objectType = type.toObjectType();
++          if (type == null || objectType == null) {
+           // Note cases like <primitive>.field
+           return;
+         }
+-        removeProperty(type.toObjectType(), propName);
++        removeProperty(objectType, propName);
+       }
+       if (n.getJSDocInfo() != null) {
+         n.getJSDocInfo().setAssociatedNode(null);

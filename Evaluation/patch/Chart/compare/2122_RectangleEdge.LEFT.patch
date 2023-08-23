@@ -1,0 +1,106 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..13fef30 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1453,10 +1453,11 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.TOP;
+             }
+-        }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        } else {
++			RectangleEdge var_2122 = RectangleEdge.LEFT;
++			if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2122;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.TOP;
+@@ -1472,12 +1473,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2122;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.BOTTOM;
+             }
+         }
++		}
+         // the above should cover all the options...
+         if (result == null) {
+             throw new IllegalStateException("resolveDomainAxisLocation()");
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..13fef30 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1453,10 +1453,11 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.TOP;
+             }
+-        }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        } else {
++			RectangleEdge var_2122 = RectangleEdge.LEFT;
++			if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2122;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.TOP;
+@@ -1472,12 +1473,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2122;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.BOTTOM;
+             }
+         }
++		}
+         // the above should cover all the options...
+         if (result == null) {
+             throw new IllegalStateException("resolveDomainAxisLocation()");
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..cec0862 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1454,9 +1454,11 @@
+                 result = RectangleEdge.TOP;
+             }
+         }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        else {
++            RectangleEdge left = RectangleEdge.LEFT;
++            if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++                    result = left;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.TOP;
+@@ -1472,12 +1474,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.LEFT;
++                    result = left;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.BOTTOM;
+             }
+         }
++        }
+         // the above should cover all the options...
+         if (result == null) {
+             throw new IllegalStateException("resolveDomainAxisLocation()");

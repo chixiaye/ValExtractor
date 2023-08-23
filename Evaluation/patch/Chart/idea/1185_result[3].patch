@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java b/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
+index 7c67045..52ef217 100644
+--- a/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
++++ b/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
+@@ -121,7 +121,8 @@
+             Number start = icd.getStartValue(row, column);
+             Number end = icd.getEndValue(row, column);
+             if (getNumberFormat() != null) {
+-                result[3] = getNumberFormat().format(start);
++                Object o = result[3];
++                o = getNumberFormat().format(start);
+                 result[4] = getNumberFormat().format(end);
+             }
+             else if (getDateFormat() != null) {

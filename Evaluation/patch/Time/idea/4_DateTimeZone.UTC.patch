@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
+index 19fbc86..fc9fd09 100644
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
+@@ -205,8 +205,9 @@
+         if (id == null) {
+             return getDefault();
+         }
++        DateTimeZone utc = DateTimeZone.UTC;
+         if (id.equals("UTC")) {
+-            return DateTimeZone.UTC;
++            return utc;
+         }
+         DateTimeZone zone = cProvider.getZone(id);
+         if (zone != null) {
+@@ -215,7 +216,7 @@
+         if (id.startsWith("+") || id.startsWith("-")) {
+             int offset = parseOffset(id);
+             if (offset == 0L) {
+-                return DateTimeZone.UTC;
++                return utc;
+             } else {
+                 id = printOffset(offset);
+                 return fixedOffsetZone(id, offset);

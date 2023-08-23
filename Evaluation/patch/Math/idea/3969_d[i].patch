@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..159d517 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -385,7 +385,8 @@
+         for (int i = nreq - 1; i > -1; i--) {
+             if (Math.sqrt(d[i]) < tol[i]) {
+                 ret[i] = 0.0;
+-                d[i] = 0.0;
++                double v = d[i];
++                v = 0.0;
+                 rankProblem = true;
+             } else {
+                 ret[i] = rhs[i];

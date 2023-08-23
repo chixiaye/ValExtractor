@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/RenameVars.java b/src/com/google/javascript/jscomp/RenameVars.java
+index 27c69c3..69e0870 100644
+--- a/src/com/google/javascript/jscomp/RenameVars.java
++++ b/src/com/google/javascript/jscomp/RenameVars.java
+@@ -548,10 +548,11 @@
+       throw new IllegalArgumentException("Var is not local");
+     }
+ 
+-    boolean isBleedingIntoScope = s.getParent() != null &&
++      Scope parent = s.getParent();
++      boolean isBleedingIntoScope = parent != null &&
+         localBleedingFunctions.contains(v);
+ 
+-    while (s.getParent() != null) {
++    while (parent != null) {
+       if (isBleedingIntoScope) {
+         num += localBleedingFunctionsPerScope.get(s).indexOf(v) + 1;
+         isBleedingIntoScope = false;
+@@ -560,7 +561,7 @@
+       }
+ 
+       num += s.getVarCount();
+-      s = s.getParent();
++      s = parent;
+     }
+     return num;
+   }

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..4adbce9 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -370,8 +370,9 @@
+      * @return The current label insets value.
+      */
+     public RectangleInsets getLabelInsets() {
+-        return (this.labelInsets == null)
+-            ? new RectangleInsets(0, 0, 0, 0) : this.labelInsets;
++        RectangleInsets labelInsets1 = this.labelInsets;
++        return (labelInsets1 == null)
++            ? new RectangleInsets(0, 0, 0, 0) : labelInsets1;
+     }
+ 
+     /**

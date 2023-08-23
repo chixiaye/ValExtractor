@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
+index 2d3b139..cf2eda0 100644
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
+@@ -788,10 +788,11 @@
+     options.jqueryPass = flags.process_jquery_primitives &&
+         CompilationLevel.ADVANCED_OPTIMIZATIONS == level;
+ 
+-    if (!flags.translationsFile.isEmpty()) {
++      String translationsFile = flags.translationsFile;
++      if (!translationsFile.isEmpty()) {
+       try {
+         options.messageBundle = new XtbMessageBundle(
+-            new FileInputStream(flags.translationsFile),
++            new FileInputStream(translationsFile),
+             flags.translationsProject);
+       } catch (IOException e) {
+         throw new RuntimeException("Reading XTB file", e);

@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/util/LengthAdjustmentType.java b/source/org/jfree/chart/util/LengthAdjustmentType.java
+index 713c496..434889a 100644
+--- a/source/org/jfree/chart/util/LengthAdjustmentType.java
++++ b/source/org/jfree/chart/util/LengthAdjustmentType.java
+@@ -128,11 +128,14 @@
+         if (this.equals(LengthAdjustmentType.NO_CHANGE)) {
+             return LengthAdjustmentType.NO_CHANGE;
+         }
+-        else if (this.equals(LengthAdjustmentType.EXPAND)) {
+-            return LengthAdjustmentType.EXPAND;
+-        }
+-        else if (this.equals(LengthAdjustmentType.CONTRACT)) {
+-            return LengthAdjustmentType.CONTRACT;
++        else {
++            LengthAdjustmentType expand = LengthAdjustmentType.EXPAND;
++            if (this.equals(expand)) {
++                return expand;
++            }
++            else if (this.equals(LengthAdjustmentType.CONTRACT)) {
++                return LengthAdjustmentType.CONTRACT;
++            }
+         }
+         return null;
+     }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator.java
+index 66ddfde..8d7ec30 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/UnivariatePeriodicInterpolator.java
+@@ -108,7 +108,8 @@
+             y[i] = yval[index];
+ 
+             index = len - extend + i;
+-            x[index] = MathUtils.reduce(xval[i], period, offset) + period;
++            double a = xval[i];
++            x[index] = MathUtils.reduce(a, period, offset) + period;
+             y[index] = yval[i];
+         }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..7273b72 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -522,7 +522,8 @@
+             fields.clockhourOfDay = new CutoverField(julian.clockhourOfDay(), fields.clockhourOfDay, iCutoverMillis);
+             fields.clockhourOfHalfday = new CutoverField(julian.clockhourOfHalfday(),
+                                                          fields.clockhourOfHalfday, iCutoverMillis);
+-            fields.halfdayOfDay = new CutoverField(julian.halfdayOfDay(), fields.halfdayOfDay, iCutoverMillis);
++            DateTimeField halfdayOfDay = fields.halfdayOfDay;
++            halfdayOfDay = new CutoverField(julian.halfdayOfDay(), fields.halfdayOfDay, iCutoverMillis);
+         }
+ 
+         // These fields just require basic cutover support.

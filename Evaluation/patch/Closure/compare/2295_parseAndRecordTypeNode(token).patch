@@ -1,0 +1,98 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..e998978 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -567,8 +567,9 @@
+                   type = null;
+ 
+                   if (token == JsDocToken.LC) {
++                    Node var_2295 = parseAndRecordTypeNode(token);
+                     type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                        var_2295);
+ 
+                     if (type == null) {
+                       // parsing error reported during recursive descent
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..6cfcb34 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,7 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++              Node var_2295 = parseAndRecordTypeNode(token);
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -379,7 +380,7 @@
+                   type = null;
+                   if (token != JsDocToken.EOL && token != JsDocToken.EOC) {
+                     type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                        var_2295);
+                   }
+ 
+                   if (type == null) {
+@@ -568,7 +569,7 @@
+ 
+                   if (token == JsDocToken.LC) {
+                     type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                        var_2295);
+ 
+                     if (type == null) {
+                       // parsing error reported during recursive descent
+@@ -834,7 +835,7 @@
+                   if (hasType || !canSkipTypeAnnotation) {
+                     skipEOLs();
+                     token = next();
+-                    typeNode = parseAndRecordTypeNode(token);
++                    typeNode = var_2295;
+ 
+                     if (annotation == Annotation.THIS) {
+                       typeNode = wrapNode(Token.BANG, typeNode);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..179d480 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,7 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++                Node n = parseAndRecordTypeNode(token);
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -379,7 +380,7 @@
+                   type = null;
+                   if (token != JsDocToken.EOL && token != JsDocToken.EOC) {
+                     type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                            n);
+                   }
+ 
+                   if (type == null) {
+@@ -568,7 +569,7 @@
+ 
+                   if (token == JsDocToken.LC) {
+                     type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                            n);
+ 
+                     if (type == null) {
+                       // parsing error reported during recursive descent
+@@ -834,7 +835,7 @@
+                   if (hasType || !canSkipTypeAnnotation) {
+                     skipEOLs();
+                     token = next();
+-                    typeNode = parseAndRecordTypeNode(token);
++                    typeNode = n;
+ 
+                     if (annotation == Annotation.THIS) {
+                       typeNode = wrapNode(Token.BANG, typeNode);

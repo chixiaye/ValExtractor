@@ -1,0 +1,29 @@
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..80b074c 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -166,7 +166,8 @@
+           }
+         }
+     }
+-    switch (operatorToken) {
++      FlowScope flowScope = caseEquality(condition, blindScope, SHNE);
++      switch (operatorToken) {
+       case Token.AND:
+         if (outcome) {
+           return caseAndOrNotShortCircuiting(condition.getFirstChild(),
+@@ -203,12 +204,12 @@
+         if (outcome) {
+           return caseEquality(condition, blindScope, SHEQ);
+         } else {
+-          return caseEquality(condition, blindScope, SHNE);
++          return flowScope;
+         }
+ 
+       case Token.SHNE:
+         if (outcome) {
+-          return caseEquality(condition, blindScope, SHNE);
++          return flowScope;
+         } else {
+           return caseEquality(condition, blindScope, SHEQ);
+         }

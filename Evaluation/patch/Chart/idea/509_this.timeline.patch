@@ -1,0 +1,50 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..f7b9916 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1284,12 +1284,13 @@
+             ValueAxisPlot vap = (ValueAxisPlot) plot;
+ 
+             Range r = vap.getDataRange(this);
++            Timeline timeline1 = this.timeline;
+             if (r == null) {
+-                if (this.timeline instanceof SegmentedTimeline) {
++                if (timeline1 instanceof SegmentedTimeline) {
+                     //Timeline hasn't method getStartTime()
+                     r = new DateRange((
+-                            (SegmentedTimeline) this.timeline).getStartTime(),
+-                            ((SegmentedTimeline) this.timeline).getStartTime()
++                            (SegmentedTimeline) timeline1).getStartTime(),
++                            ((SegmentedTimeline) timeline1).getStartTime()
+                             + 1);
+                 }
+                 else {
+@@ -1297,7 +1298,7 @@
+                 }
+             }
+ 
+-            long upper = this.timeline.toTimelineValue(
++            long upper = timeline1.toTimelineValue(
+                     (long) r.getUpperBound());
+             long lower;
+             long fixedAutoRange = (long) getFixedAutoRange();
+@@ -1305,7 +1306,7 @@
+                 lower = upper - fixedAutoRange;
+             }
+             else {
+-                lower = this.timeline.toTimelineValue((long) r.getLowerBound());
++                lower = timeline1.toTimelineValue((long) r.getLowerBound());
+                 double range = upper - lower;
+                 long minRange = (long) getAutoRangeMinimumSize();
+                 if (range < minRange) {
+@@ -1317,8 +1318,8 @@
+                 lower = lower - (long) (range * getLowerMargin());
+             }
+ 
+-            upper = this.timeline.toMillisecond(upper);
+-            lower = this.timeline.toMillisecond(lower);
++            upper = timeline1.toMillisecond(upper);
++            lower = timeline1.toMillisecond(lower);
+             DateRange dr = new DateRange(new Date(lower), new Date(upper));
+             setRange(dr, false, false);
+         }

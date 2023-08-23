@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..5346b78 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -929,9 +929,10 @@
+ 
+     @Override
+     protected void appendSourceCode(StringBuilder sb) {
+-      int bodyStart = sb.length();
++        int length = sb.length();
++        int bodyStart = length;
+       appendBodySourceCode(sb);
+-      int bodyEnd = sb.length();
++      int bodyEnd = length;
+       int bodyLen = bodyEnd - bodyStart;
+       int min = this.min;
+       int max = this.max;

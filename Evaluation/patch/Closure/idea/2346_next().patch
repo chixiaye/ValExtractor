@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..941c5ce 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1676,13 +1676,13 @@
+     if (typeExpr != null) {
+       // top-level unions are allowed
+       if (match(JsDocToken.PIPE)) {
+-        next();
+-        if (match(JsDocToken.PIPE)) {
++          JsDocToken next = next();
++          if (match(JsDocToken.PIPE)) {
+           // We support double pipes for backwards-compatibility.
+-          next();
++          next;
+         }
+         skipEOLs();
+-        token = next();
++        token = next;
+         return parseUnionTypeWithAlternate(token, typeExpr);
+       }
+     }

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+index c5c8ecf..c1241d7 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+@@ -1030,10 +1030,11 @@
+      * of the instance
+      */
+     public FieldRotation<T> applyInverseTo(final Rotation r) {
+-        return new FieldRotation<T>(q0.multiply(r.getQ0()).add(q1.multiply(r.getQ1()).add(q2.multiply(r.getQ2())).add(q3.multiply(r.getQ3()))).negate(),
+-                                    q1.multiply(r.getQ0()).add(q3.multiply(r.getQ2()).subtract(q2.multiply(r.getQ3()))).subtract(q0.multiply(r.getQ1())),
+-                                    q2.multiply(r.getQ0()).add(q1.multiply(r.getQ3()).subtract(q3.multiply(r.getQ1()))).subtract(q0.multiply(r.getQ2())),
+-                                    q3.multiply(r.getQ0()).add(q2.multiply(r.getQ1()).subtract(q1.multiply(r.getQ2()))).subtract(q0.multiply(r.getQ3())),
++        double q11 = r.getQ1();
++        return new FieldRotation<T>(q0.multiply(r.getQ0()).add(q1.multiply(q11).add(q2.multiply(r.getQ2())).add(q3.multiply(r.getQ3()))).negate(),
++                                    q1.multiply(r.getQ0()).add(q3.multiply(r.getQ2()).subtract(q2.multiply(r.getQ3()))).subtract(q0.multiply(q11)),
++                                    q2.multiply(r.getQ0()).add(q1.multiply(r.getQ3()).subtract(q3.multiply(q11))).subtract(q0.multiply(r.getQ2())),
++                                    q3.multiply(r.getQ0()).add(q2.multiply(q11).subtract(q1.multiply(r.getQ2()))).subtract(q0.multiply(r.getQ3())),
+                                     false);
+     }
+ 

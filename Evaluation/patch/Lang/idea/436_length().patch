@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..aaf0f60 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -245,9 +245,10 @@
+      * @return this, to enable chaining
+      */
+     public StrBuilder minimizeCapacity() {
+-        if (buffer.length > length()) {
++        int length = length();
++        if (buffer.length > length) {
+             final char[] old = buffer;
+-            buffer = new char[length()];
++            buffer = new char[length];
+             System.arraycopy(old, 0, buffer, 0, size);
+         }
+         return this;

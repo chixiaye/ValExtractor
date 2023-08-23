@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..08bfddd 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -851,7 +851,8 @@
+      */
+     public void setOutlinePaint(Paint paint) {
+         if (paint == null) {
+-            if (this.outlinePaint != null) {
++            Paint outlinePaint1 = this.outlinePaint;
++            if (outlinePaint1 != null) {
+                 this.outlinePaint = null;
+                 fireChangeEvent();
+             }

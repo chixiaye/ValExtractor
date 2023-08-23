@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..f565dcf 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -528,7 +528,8 @@
+         if (paint == null) {
+             throw new IllegalArgumentException("Null 'paint' argument.");
+         }
+-        if (!this.tickLabelPaint.equals(paint)) {
++        Paint tickLabelPaint1 = this.tickLabelPaint;
++        if (!tickLabelPaint1.equals(paint)) {
+             this.tickLabelPaint = paint;
+             fireChangeEvent();
+         }

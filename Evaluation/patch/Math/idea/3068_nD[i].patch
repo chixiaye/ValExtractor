@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
+index 0c47b5c..dad2a0f 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
+@@ -281,7 +281,8 @@
+         final double[] nP = new double[n];
+         final double[] nD = new double[n];
+         for (int i = 0; i < n; i++) {
+-            nD[i] = d[i] * optimum;
++            double v = nD[i];
++            v = d[i] * optimum;
+             nP[i] = p[i] + nD[i];
+         }
+ 

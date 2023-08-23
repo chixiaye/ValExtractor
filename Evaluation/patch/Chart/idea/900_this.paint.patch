@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/block/LabelBlock.java b/source/org/jfree/chart/block/LabelBlock.java
+index dd5c709..7c46590 100644
+--- a/source/org/jfree/chart/block/LabelBlock.java
++++ b/source/org/jfree/chart/block/LabelBlock.java
+@@ -148,6 +148,7 @@
+      */
+     public LabelBlock(String text, Font font, Paint paint) {
+         this.text = text;
++        Paint paint1 = this.paint;
+         this.paint = paint;
+         this.label = TextUtilities.createTextBlock(text, font, this.paint);
+         this.font = font;

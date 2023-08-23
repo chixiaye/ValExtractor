@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialScale.java b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+index b40e93d..ddd7b47 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialScale.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+@@ -1013,7 +1013,8 @@
+         stream.defaultReadObject();
+         this.majorTickPaint = SerialUtilities.readPaint(stream);
+         this.majorTickStroke = SerialUtilities.readStroke(stream);
+-        this.minorTickPaint = SerialUtilities.readPaint(stream);
++        Paint var_2299 = SerialUtilities.readPaint(stream);
++		this.minorTickPaint = var_2299;
+         this.minorTickStroke = SerialUtilities.readStroke(stream);
+         this.tickLabelPaint = SerialUtilities.readPaint(stream);
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialScale.java b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+index b40e93d..694a1d4 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialScale.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+@@ -1011,11 +1011,12 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.majorTickPaint = SerialUtilities.readPaint(stream);
++        Paint var_2299 = SerialUtilities.readPaint(stream);
++		this.majorTickPaint = var_2299;
+         this.majorTickStroke = SerialUtilities.readStroke(stream);
+-        this.minorTickPaint = SerialUtilities.readPaint(stream);
++        this.minorTickPaint = var_2299;
+         this.minorTickStroke = SerialUtilities.readStroke(stream);
+-        this.tickLabelPaint = SerialUtilities.readPaint(stream);
++        this.tickLabelPaint = var_2299;
+     }
+ 
+ }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialScale.java b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+index b40e93d..1810c6c 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialScale.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+@@ -1011,11 +1011,12 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.majorTickPaint = SerialUtilities.readPaint(stream);
++        Paint minorTickPaint1 = SerialUtilities.readPaint(stream);
++        this.majorTickPaint = minorTickPaint1;
+         this.majorTickStroke = SerialUtilities.readStroke(stream);
+-        this.minorTickPaint = SerialUtilities.readPaint(stream);
++        this.minorTickPaint = minorTickPaint1;
+         this.minorTickStroke = SerialUtilities.readStroke(stream);
+-        this.tickLabelPaint = SerialUtilities.readPaint(stream);
++        this.tickLabelPaint = minorTickPaint1;
+     }
+ 
+ }

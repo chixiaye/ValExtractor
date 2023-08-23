@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..2077ef0 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -839,8 +839,9 @@
+                     base, stickWidth, length);
+         }
+         if (yClose > yOpen) {
+-            if (this.upPaint != null) {
+-                g2.setPaint(this.upPaint);
++            Paint upPaint1 = this.upPaint;
++            if (upPaint1 != null) {
++                g2.setPaint(upPaint1);
+             }
+             else {
+                 g2.setPaint(p);

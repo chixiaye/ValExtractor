@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/CollapseVariableDeclarations.java b/src/com/google/javascript/jscomp/CollapseVariableDeclarations.java
+index e0466ea..8101336 100644
+--- a/src/com/google/javascript/jscomp/CollapseVariableDeclarations.java
++++ b/src/com/google/javascript/jscomp/CollapseVariableDeclarations.java
+@@ -154,7 +154,8 @@
+       boolean hasVar = n.isVar();
+ 
+       // Find variable declarations that follow this one (if any)
+-      n = n.getNext();
++        Node next = n.getNext();
++        n = next;
+ 
+       boolean hasNodesToCollapse = false;
+ 
+@@ -169,7 +170,7 @@
+         nodesToCollapse.add(n);
+         hasNodesToCollapse = true;
+ 
+-        n = n.getNext();
++        n = next;
+       }
+ 
+       if (hasNodesToCollapse && hasVar) {

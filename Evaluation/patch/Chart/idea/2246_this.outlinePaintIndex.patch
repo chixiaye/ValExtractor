@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..bfd28af 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -222,8 +222,9 @@
+      * @return The paint.
+      */
+     public Paint getNextOutlinePaint() {
++        int outlinePaintIndex1 = this.outlinePaintIndex;
+         Paint result = this.outlinePaintSequence[
+-                this.outlinePaintIndex % this.outlinePaintSequence.length];
++                outlinePaintIndex1 % this.outlinePaintSequence.length];
+         this.outlinePaintIndex++;
+         return result;
+     }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/Well44497b.java b/src/main/java/org/apache/commons/math3/random/Well44497b.java
+index 8fd0e1d..ebb7816 100644
+--- a/src/main/java/org/apache/commons/math3/random/Well44497b.java
++++ b/src/main/java/org/apache/commons/math3/random/Well44497b.java
+@@ -104,7 +104,8 @@
+ 
+         v[index]     = z3;
+         v[indexRm1]  = z4;
+-        v[indexRm2] &= 0xFFFF8000;
++        int i = v[indexRm2];
++        i &= 0xFFFF8000;
+         index        = indexRm1;
+ 
+         // add Matsumoto-Kurita tempering

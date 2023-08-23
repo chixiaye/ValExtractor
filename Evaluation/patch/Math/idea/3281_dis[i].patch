@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..0215f76 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -948,7 +948,8 @@
+         Arrays.sort(dis);
+         final int[] indices = new int[doubles.length];
+         for (int i = 0; i < doubles.length; i++) {
+-            indices[i] = dis[i].index;
++            DoubleIndex di = dis[i];
++            indices[i] = di.index;
+         }
+         return indices;
+     }

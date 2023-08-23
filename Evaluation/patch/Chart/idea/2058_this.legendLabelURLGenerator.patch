@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..27ec2ef 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3065,8 +3065,9 @@
+                                 .generateSectionLabel(this.dataset, key);
+                     }
+                     String urlText = null;
+-                    if (this.legendLabelURLGenerator != null) {
+-                        urlText = this.legendLabelURLGenerator.generateURL(
++                    PieURLGenerator legendLabelURLGenerator1 = this.legendLabelURLGenerator;
++                    if (legendLabelURLGenerator1 != null) {
++                        urlText = legendLabelURLGenerator1.generateURL(
+                                 this.dataset, key, this.pieIndex);
+                     }
+                     Paint paint = lookupSectionPaint(key, false);

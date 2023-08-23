@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/category/GanttRenderer.java b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+index fc9e2ef..8fc7004 100644
+--- a/source/org/jfree/chart/renderer/category/GanttRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+@@ -358,11 +358,12 @@
+ 
+             }
+ 
++            BarPainter barPainter = getBarPainter();
+             if (getShadowsVisible()) {
+-                getBarPainter().paintBarShadow(g2, this, row, column, selected, 
++                barPainter.paintBarShadow(g2, this, row, column, selected, 
+                         bar, barBase, true);
+             }
+-            getBarPainter().paintBar(g2, this, row, column, selected, bar,
++            barPainter.paintBar(g2, this, row, column, selected, bar,
+                     barBase);
+ 
+             if (completeBar != null) {

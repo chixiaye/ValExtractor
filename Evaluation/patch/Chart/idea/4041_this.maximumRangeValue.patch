@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..b9045d1 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -848,6 +848,7 @@
+         this.minimumRangeValue = Double.NaN;
+         this.minimumRangeValueRow = -1;
+         this.minimumRangeValueColumn = -1;
++        double maximumRangeValue1 = this.maximumRangeValue;
+         this.maximumRangeValue = Double.NaN;
+         this.maximumRangeValueRow = -1;
+         this.maximumRangeValueColumn = -1;

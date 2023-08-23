@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..d21f836 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -106,7 +106,8 @@
+     if (value.equals("ECMASCRIPT5_STRICT") || value.equals("ES5_STRICT")) {
+       this.languageIn = CompilerOptions.LanguageMode.ECMASCRIPT5_STRICT;
+     } else if (value.equals("ECMASCRIPT5") || value.equals("ES5")) {
+-      this.languageIn = CompilerOptions.LanguageMode.ECMASCRIPT5;
++        CompilerOptions.LanguageMode languageIn1 = this.languageIn;
++        this.languageIn = CompilerOptions.LanguageMode.ECMASCRIPT5;
+     } else if (value.equals("ECMASCRIPT3") || value.equals("ES3")) {
+       this.languageIn = CompilerOptions.LanguageMode.ECMASCRIPT3;
+     } else {

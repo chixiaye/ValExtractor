@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/panel/PanHandler.java b/source/org/jfree/chart/panel/PanHandler.java
+index 49ce1fe..ed5994a 100644
+--- a/source/org/jfree/chart/panel/PanHandler.java
++++ b/source/org/jfree/chart/panel/PanHandler.java
+@@ -91,12 +91,15 @@
+         if (pannable.isDomainPannable() || pannable.isRangePannable()) {
+             Rectangle2D screenDataArea = panel.getScreenDataArea(e.getX(),
+                     e.getY());
+-            if (screenDataArea != null && screenDataArea.contains(
+-                    e.getPoint())) {
+-                this.panW = screenDataArea.getWidth();
+-                this.panH = screenDataArea.getHeight();
+-                this.panLast = e.getPoint();
+-                panel.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
++            if (screenDataArea != null) {
++                Point point = e.getPoint();
++                if (screenDataArea.contains(
++                        point)) {
++                    this.panW = screenDataArea.getWidth();
++                    this.panH = screenDataArea.getHeight();
++                    this.panLast = point;
++                    panel.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
++                }
+             }
+         }
+         // the actual panning occurs later in the mouseDragged() method

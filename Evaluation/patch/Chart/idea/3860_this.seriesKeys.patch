@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+index def4410..b449907 100644
+--- a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
++++ b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+@@ -242,8 +242,9 @@
+      */
+     public int getSeriesIndex(Comparable seriesKey) {
+         int result = -1;
+-        for (int i = 0; i < this.seriesKeys.length; i++) {
+-            if (seriesKey.equals(this.seriesKeys[i])) {
++        Comparable[] seriesKeys1 = this.seriesKeys;
++        for (int i = 0; i < seriesKeys1.length; i++) {
++            if (seriesKey.equals(seriesKeys1[i])) {
+                 result = i;
+                 break;
+             }

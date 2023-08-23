@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..4d3fc6a 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -259,7 +259,8 @@
+         break;
+ 
+       case Token.NAME:
+-        var = scope.getVar(n.getString());
++          String string = n.getString();
++          var = scope.getVar(string);
+         if (parent.isVar()) {
+           Node value = n.getFirstChild();
+           if (value != null && var != null && isRemovableVar(var) &&
+@@ -274,7 +275,7 @@
+ 
+           // If arguments is escaped, we just assume the worst and continue
+           // on all the parameters.
+-          if ("arguments".equals(n.getString()) && scope.isLocal()) {
++          if ("arguments".equals(string) && scope.isLocal()) {
+             Node lp = scope.getRootNode().getFirstChild().getNext();
+             for (Node a = lp.getFirstChild(); a != null; a = a.getNext()) {
+               markReferencedVar(scope.getVar(a.getString()));

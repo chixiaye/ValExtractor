@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+index 1e1571d..73518da 100644
+--- a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
++++ b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+@@ -699,8 +699,9 @@
+     }
+ 
+     // if (x()) { }
+-    if (!mayHaveSideEffects(thenBody) && elseBody == null) {
+-      if (mayHaveSideEffects(cond)) {
++      boolean b = mayHaveSideEffects(cond);
++      if (!mayHaveSideEffects(thenBody) && elseBody == null) {
++      if (b) {
+         // x() has side effects, just leave the condition on its own.
+         n.removeChild(cond);
+         Node replacement = NodeUtil.newExpr(cond);
+@@ -721,7 +722,7 @@
+       return n;  // We can't remove branches otherwise!
+     }
+ 
+-    if (mayHaveSideEffects(cond)) {
++    if (b) {
+       // Transform "if (a = 2) {x =2}" into "if (true) {a=2;x=2}"
+       boolean newConditionValue = condValue == TernaryValue.TRUE;
+       // Add an elseBody if it is needed.

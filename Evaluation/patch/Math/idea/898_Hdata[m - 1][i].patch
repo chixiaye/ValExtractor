@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.java b/src/main/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.java
+index 52748aa..8252630 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.java
+@@ -317,6 +317,7 @@
+          */
+         for (int i = 0; i < m; ++i) {
+             Hdata[i][0] = Hdata[i][0].subtract(hPowers[i]);
++            BigFraction bigFraction = Hdata[m - 1][i];
+             Hdata[m - 1][i] = Hdata[m - 1][i].subtract(hPowers[m - i - 1]);
+         }
+ 

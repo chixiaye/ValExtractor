@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/MathArrays.java b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+index ff729ac..8220b82 100644
+--- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
++++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+@@ -1210,10 +1210,11 @@
+         if ((x == null) || (y == null)) {
+             return !((x == null) ^ (y == null));
+         }
+-        if (x.length != y.length) {
++        int length = x.length;
++        if (length != y.length) {
+             return false;
+         }
+-        for (int i = 0; i < x.length; ++i) {
++        for (int i = 0; i < length; ++i) {
+             if (!Precision.equalsIncludingNaN(x[i], y[i])) {
+                 return false;
+             }

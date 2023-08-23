@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/AliasExternals.java b/src/com/google/javascript/jscomp/AliasExternals.java
+index fc43f34..f93a430 100644
+--- a/src/com/google/javascript/jscomp/AliasExternals.java
++++ b/src/com/google/javascript/jscomp/AliasExternals.java
+@@ -606,11 +606,12 @@
+ 
+         JSDocInfo docInfo = dest.getJSDocInfo() == null ?
+             parent.getJSDocInfo() : dest.getJSDocInfo();
+-        boolean aliasable = !unaliasableGlobals.contains(dest.getString()) &&
++          String string = dest.getString();
++          boolean aliasable = !unaliasableGlobals.contains(string) &&
+             (docInfo == null || !docInfo.isNoAlias());
+ 
+         if (aliasable) {
+-          String name = dest.getString();
++          String name = string;
+           Scope.Var var = t.getScope().getVar(name);
+ 
+           if (var != null && !var.isLocal()) {

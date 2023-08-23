@@ -1,0 +1,14 @@
+diff --git a/src/org/mockito/internal/matchers/Equals.java b/src/org/mockito/internal/matchers/Equals.java
+index b712622..54db230 100644
+--- a/src/org/mockito/internal/matchers/Equals.java
++++ b/src/org/mockito/internal/matchers/Equals.java
+@@ -52,7 +52,8 @@
+             return false;
+         }
+         Equals other = (Equals) o;
+-        return this.wanted == null && other.wanted == null || this.wanted != null && this.wanted.equals(other.wanted);
++        Object wanted1 = other.wanted;
++        return this.wanted == null && wanted1 == null || this.wanted != null && this.wanted.equals(wanted1);
+     }
+ 
+     @Override

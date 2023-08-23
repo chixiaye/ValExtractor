@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..b5c5fe3 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -182,7 +182,7 @@
+                 startID, Bytes.toArray(currentOffsets));
+             currentOffsets.clear();
+             // Start a new section.
+-            fragmentList.add(myLineFragment);
++            com.google.common.collect.ImmutableList.Builder<LineFragment> var_99 = fragmentList.add(myLineFragment);
+             startID = mappingID;
+           } else {
+             currentOffsets.add((byte) (mappingID - lastID));
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..b5c5fe3 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -182,7 +182,7 @@
+                 startID, Bytes.toArray(currentOffsets));
+             currentOffsets.clear();
+             // Start a new section.
+-            fragmentList.add(myLineFragment);
++            com.google.common.collect.ImmutableList.Builder<LineFragment> var_99 = fragmentList.add(myLineFragment);
+             startID = mappingID;
+           } else {
+             currentOffsets.add((byte) (mappingID - lastID));
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..c85d95c 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -160,6 +160,7 @@
+       int lastID = -1;
+       int startID = Integer.MIN_VALUE;
+       List<Byte> currentOffsets = Lists.newArrayList();
++        ImmutableList.Builder<LineFragment> add = fragmentList.add(myLineFragment);
+       for (int j = 0; j < charArray.length(); ++j) {
+         // Keep track of the current mappingID, if the next element in the
+         // array is empty we reuse the existing mappingID for the column.
+@@ -182,7 +183,7 @@
+                 startID, Bytes.toArray(currentOffsets));
+             currentOffsets.clear();
+             // Start a new section.
+-            fragmentList.add(myLineFragment);
++            add;
+             startID = mappingID;
+           } else {
+             currentOffsets.add((byte) (mappingID - lastID));
+@@ -194,7 +195,7 @@
+       if (startID != Integer.MIN_VALUE) {
+         myLineFragment = new LineFragment(
+             startID, Bytes.toArray(currentOffsets));
+-        fragmentList.add(myLineFragment);
++        add;
+       }
+       characterMapBuilder.add(fragmentList.build());
+     }

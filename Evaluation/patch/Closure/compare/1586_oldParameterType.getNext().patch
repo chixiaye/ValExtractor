@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+index db990fa..e46b94e 100644
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+@@ -474,7 +474,8 @@
+           isVarArgs);
+ 
+       if (oldParameterType != null) {
+-        oldParameterType = oldParameterType.getNext();
++        Node var_1586 = oldParameterType.getNext();
++		oldParameterType = var_1586;
+       }
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+index db990fa..7d37cfd 100644
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+@@ -447,6 +447,7 @@
+         Sets.newHashSet(info.getParameterNames());
+     boolean foundTemplateType = false;
+     boolean isVarArgs = false;
++    Node var_1586 = oldParameterType.getNext();
+     for (Node arg : argsParent.children()) {
+       String argumentName = arg.getString();
+       allJsDocParams.remove(argumentName);
+@@ -474,7 +475,7 @@
+           isVarArgs);
+ 
+       if (oldParameterType != null) {
+-        oldParameterType = oldParameterType.getNext();
++        oldParameterType = var_1586;
+       }
+     }
+ 
+@@ -482,7 +483,7 @@
+     if (!isVarArgs) {
+       while (oldParameterType != null && !isVarArgs) {
+         builder.newParameterFromNode(oldParameterType);
+-        oldParameterType = oldParameterType.getNext();
++        oldParameterType = var_1586;
+       }
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+index db990fa..20c18a8 100644
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+@@ -447,6 +447,7 @@
+         Sets.newHashSet(info.getParameterNames());
+     boolean foundTemplateType = false;
+     boolean isVarArgs = false;
++      Node next = oldParameterType.getNext();
+     for (Node arg : argsParent.children()) {
+       String argumentName = arg.getString();
+       allJsDocParams.remove(argumentName);
+@@ -474,7 +475,7 @@
+           isVarArgs);
+ 
+       if (oldParameterType != null) {
+-        oldParameterType = oldParameterType.getNext();
++        oldParameterType = next;
+       }
+     }
+ 
+@@ -482,7 +483,7 @@
+     if (!isVarArgs) {
+       while (oldParameterType != null && !isVarArgs) {
+         builder.newParameterFromNode(oldParameterType);
+-        oldParameterType = oldParameterType.getNext();
++        oldParameterType = next;
+       }
+     }
+ 

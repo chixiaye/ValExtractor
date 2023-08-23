@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..2239561 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -290,7 +290,7 @@
+             if (fields.remove(DateTimeFieldType.dayOfYear())) {
+                 // YYYY-DDD/YYYYDDD
+                 appendSeparator(bld, extended);
+-                bld.appendDayOfYear(3);
++                DateTimeFormatterBuilder var_580 = bld.appendDayOfYear(3);
+             } else {
+                 // YYYY/YYYY
+                 reducedPrec = true;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..2239561 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -290,7 +290,7 @@
+             if (fields.remove(DateTimeFieldType.dayOfYear())) {
+                 // YYYY-DDD/YYYYDDD
+                 appendSeparator(bld, extended);
+-                bld.appendDayOfYear(3);
++                DateTimeFormatterBuilder var_580 = bld.appendDayOfYear(3);
+             } else {
+                 // YYYY/YYYY
+                 reducedPrec = true;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..0cfafbe 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -285,12 +285,13 @@
+         boolean strictISO) {
+         
+         boolean reducedPrec = false;
++        DateTimeFormatterBuilder dateTimeFormatterBuilder = bld.appendDayOfYear(3);
+         if (fields.remove(DateTimeFieldType.year())) {
+             bld.append(Constants.ye);
+             if (fields.remove(DateTimeFieldType.dayOfYear())) {
+                 // YYYY-DDD/YYYYDDD
+                 appendSeparator(bld, extended);
+-                bld.appendDayOfYear(3);
++                dateTimeFormatterBuilder;
+             } else {
+                 // YYYY/YYYY
+                 reducedPrec = true;
+@@ -299,7 +300,7 @@
+         } else if (fields.remove(DateTimeFieldType.dayOfYear())) {
+             // -DDD/-DDD
+             bld.appendLiteral('-');
+-            bld.appendDayOfYear(3);
++            dateTimeFormatterBuilder;
+         }
+         return reducedPrec;
+     }

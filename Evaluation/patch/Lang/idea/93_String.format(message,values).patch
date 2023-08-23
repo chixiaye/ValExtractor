@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Validate.java b/src/main/java/org/apache/commons/lang3/Validate.java
+index eb477d1..b64c1c9 100644
+--- a/src/main/java/org/apache/commons/lang3/Validate.java
++++ b/src/main/java/org/apache/commons/lang3/Validate.java
+@@ -244,11 +244,12 @@
+      * @see #notEmpty(Object[])
+      */
+     public static <T> T[] notEmpty(final T[] array, final String message, final Object... values) {
++        String format = String.format(message, values);
+         if (array == null) {
+-            throw new NullPointerException(String.format(message, values));
++            throw new NullPointerException(format);
+         }
+         if (array.length == 0) {
+-            throw new IllegalArgumentException(String.format(message, values));
++            throw new IllegalArgumentException(format);
+         }
+         return array;
+     }

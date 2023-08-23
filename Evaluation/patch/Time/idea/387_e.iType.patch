@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..5450167 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -52,8 +52,9 @@
+ 
+         Entry e;
+         // This loop depends on there being at least one null slot.
++        Class<?> iType = e.iType;
+         while ((e = entries[index]) != null) {
+-            if (e.iType == type) {
++            if (iType == type) {
+                 return e.iConverter;
+             }
+             if (++index >= length) {
+@@ -96,7 +97,7 @@
+         Entry[] newEntries = new Entry[newLength];
+         for (int i=0; i<length; i++) {
+             e = entries[i];
+-            type = e.iType;
++            type = iType;
+             index = type == null ? 0 : type.hashCode() & (newLength - 1);
+             while (newEntries[index] != null) {
+                 if (++index >= newLength) {

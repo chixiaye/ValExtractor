@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..63bcb37 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -425,7 +425,8 @@
+ 
+       // Reset the source tree
+       for (int j = 0; j < newGetProps.size(); j++) {
+-        newGetProps.get(j).getParent().replaceChild(newGetProps.get(j),
++          Node node = newGetProps.get(j);
++          node.getParent().replaceChild(node,
+             origGetElems.get(j));
+       }
+       for (int j = 0; j < newKeys.size(); j++) {

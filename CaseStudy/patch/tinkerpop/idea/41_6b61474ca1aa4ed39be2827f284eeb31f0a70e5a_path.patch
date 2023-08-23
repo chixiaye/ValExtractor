@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+index 67ffbe110a..ddadcb2d75 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+@@ -333,7 +333,8 @@ public final class MatchStep<S, E> extends ComputerAwareStep<S, Map<String, E>>
+             }
+             if (null == traverser) {
+                 traverser = this.starts.next();
+-                traverser.path().addLabel(this.getId()); // so the traverser never returns to this branch ever again
++                Path path = traverser.path();
++                path.addLabel(this.getId()); // so the traverser never returns to this branch ever again
+             }
+ 
+             if (!this.isDuplicate(traverser)) {

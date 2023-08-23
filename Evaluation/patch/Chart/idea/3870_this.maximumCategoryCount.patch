@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java b/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
+index be09f04..0061800 100644
+--- a/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
++++ b/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
+@@ -157,10 +157,11 @@
+      * @return The index.
+      */
+     private int lastCategoryIndex() {
+-        if (this.maximumCategoryCount == 0) {
++        int maximumCategoryCount1 = this.maximumCategoryCount;
++        if (maximumCategoryCount1 == 0) {
+             return -1;
+         }
+-        return Math.min(this.firstCategoryIndex + this.maximumCategoryCount,
++        return Math.min(this.firstCategoryIndex + maximumCategoryCount1,
+                 this.underlying.getColumnCount()) - 1;
+     }
+ 

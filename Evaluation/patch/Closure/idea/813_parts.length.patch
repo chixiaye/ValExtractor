@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceStrings.java b/src/com/google/javascript/jscomp/ReplaceStrings.java
+index 1d4ac50..4f94533 100644
+--- a/src/com/google/javascript/jscomp/ReplaceStrings.java
++++ b/src/com/google/javascript/jscomp/ReplaceStrings.java
+@@ -409,8 +409,9 @@
+    */
+   private String getMethodFromDeclarationName(String fullDeclarationName) {
+     String[] parts = fullDeclarationName.split("\\.prototype\\.");
+-    Preconditions.checkState(parts.length == 1 || parts.length == 2);
+-    if (parts.length == 2) {
++      int length = parts.length;
++      Preconditions.checkState(length == 1 || length == 2);
++    if (length == 2) {
+       return parts[1];
+     }
+     return null;

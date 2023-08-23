@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..78992f4 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -370,7 +370,8 @@
+   }
+ 
+   public Node(int nodeType, Node left, Node right) {
+-    Preconditions.checkArgument(left.parent == null,
++      Node parent1 = left.parent;
++      Preconditions.checkArgument(parent1 == null,
+         "first new child has existing parent");
+     Preconditions.checkArgument(left.next == null,
+         "first new child has existing sibling");

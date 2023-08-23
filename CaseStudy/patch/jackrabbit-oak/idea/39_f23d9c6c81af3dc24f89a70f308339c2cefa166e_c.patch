@@ -1,0 +1,14 @@
+diff --git a/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/observation/EventGenerator.java b/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/observation/EventGenerator.java
+index 511f78db32..1b67d81f55 100644
+--- a/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/observation/EventGenerator.java
++++ b/oak-core/src/main/java/org/apache/jackrabbit/oak/plugins/observation/EventGenerator.java
+@@ -105,7 +105,8 @@ public class EventGenerator {
+      */
+     public void generate() {
+         if (!continuations.isEmpty()) {
+-            continuations.removeFirst().run();
++            Runnable c = continuations.removeFirst();
++            c.run();
+         }
+     }
+ 

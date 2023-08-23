@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..1380358 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1306,7 +1306,8 @@
+ 
+         /* Make all numbers positive, but remember their sign */
+         final byte asign = a.sign;
+-        final byte bsign = b.sign;
++        byte sign1 = b.sign;
++        final byte bsign = sign1;
+ 
+         a.sign = 1;
+         b.sign = 1;

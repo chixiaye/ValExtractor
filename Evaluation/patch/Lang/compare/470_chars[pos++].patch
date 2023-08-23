@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+index 7430b1c..3233757 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+@@ -768,7 +768,8 @@
+                 }
+                 
+                 // copy regular character from inside quotes
+-                workArea.append(chars[pos++]);
++                char var_470 = chars[pos++];
++				workArea.append(var_470);
+                 trimStart = workArea.size();
+                 
+             } else {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+index 7430b1c..fb090f1 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+@@ -745,6 +745,7 @@
+             // quoting mode can occur several times throughout a string
+             // we must switch between quoting and non-quoting until we
+             // encounter a non-quoted delimiter, or end of string
++            char var_470 = chars[pos++];
+             if (quoting) {
+                 // In quoting mode
+                 
+@@ -768,7 +769,7 @@
+                 }
+                 
+                 // copy regular character from inside quotes
+-                workArea.append(chars[pos++]);
++                workArea.append(var_470);
+                 trimStart = workArea.size();
+                 
+             } else {
+@@ -807,7 +808,7 @@
+                 }
+                 
+                 // copy regular character from outside quotes
+-                workArea.append(chars[pos++]);
++                workArea.append(var_470);
+                 trimStart = workArea.size();
+             }
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+index 7430b1c..98cfd1b 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+@@ -745,6 +745,7 @@
+             // quoting mode can occur several times throughout a string
+             // we must switch between quoting and non-quoting until we
+             // encounter a non-quoted delimiter, or end of string
++            char aChar = chars[pos++];
+             if (quoting) {
+                 // In quoting mode
+                 
+@@ -768,7 +769,7 @@
+                 }
+                 
+                 // copy regular character from inside quotes
+-                workArea.append(chars[pos++]);
++                workArea.append(aChar);
+                 trimStart = workArea.size();
+                 
+             } else {
+@@ -807,7 +808,7 @@
+                 }
+                 
+                 // copy regular character from outside quotes
+-                workArea.append(chars[pos++]);
++                workArea.append(aChar);
+                 trimStart = workArea.size();
+             }
+         }

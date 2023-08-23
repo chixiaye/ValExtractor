@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..e13613d 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -763,8 +763,9 @@
+                             dataset, series);
+                 }
+                 String urlText = null;
+-                if (getLegendItemURLGenerator() != null) {
+-                    urlText = getLegendItemURLGenerator().generateLabel(
++                XYSeriesLabelGenerator legendItemURLGenerator = getLegendItemURLGenerator();
++                if (legendItemURLGenerator != null) {
++                    urlText = legendItemURLGenerator.generateLabel(
+                             dataset, series);
+                 }
+                 // FIXME: Use the general mechanism

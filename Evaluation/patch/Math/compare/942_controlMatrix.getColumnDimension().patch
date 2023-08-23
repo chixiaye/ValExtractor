@@ -1,0 +1,52 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..3c282aa 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -182,13 +182,14 @@
+         }
+ 
+         // row dimension of B must be equal to A
++        int var_942 = controlMatrix.getColumnDimension();
+         if (controlMatrix != null &&
+             controlMatrix.getRowDimension() > 0 &&
+-            controlMatrix.getColumnDimension() > 0 &&
++            var_942 > 0 &&
+             (controlMatrix.getRowDimension() != transitionMatrix.getRowDimension() ||
+-             controlMatrix.getColumnDimension() != 1)) {
++             var_942 != 1)) {
+             throw new MatrixDimensionMismatchException(controlMatrix.getRowDimension(),
+-                                                       controlMatrix.getColumnDimension(),
++                                                       var_942,
+                                                        transitionMatrix.getRowDimension(), 1);
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..c61199f 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -183,14 +183,16 @@
+ 
+         // row dimension of B must be equal to A
+         if (controlMatrix != null &&
+-            controlMatrix.getRowDimension() > 0 &&
+-            controlMatrix.getColumnDimension() > 0 &&
++                controlMatrix.getRowDimension() > 0) {
++            int columnDimension = controlMatrix.getColumnDimension();
++            if (columnDimension > 0 &&
+             (controlMatrix.getRowDimension() != transitionMatrix.getRowDimension() ||
+-             controlMatrix.getColumnDimension() != 1)) {
++                            columnDimension != 1)) {
+             throw new MatrixDimensionMismatchException(controlMatrix.getRowDimension(),
+-                                                       controlMatrix.getColumnDimension(),
++                        columnDimension,
+                                                        transitionMatrix.getRowDimension(), 1);
+         }
++        }
+ 
+         // Q must be equal to A
+         MatrixUtils.checkAdditionCompatible(transitionMatrix, processNoise);

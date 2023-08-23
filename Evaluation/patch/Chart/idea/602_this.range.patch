@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..377bc4f 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -1588,8 +1588,9 @@
+      * @param upperPercent  the new upper bound.
+      */
+     public void zoomRange(double lowerPercent, double upperPercent) {
+-        double start = this.range.getLowerBound();
+-        double length = this.range.getLength();
++        Range range1 = this.range;
++        double start = range1.getLowerBound();
++        double length = range1.getLength();
+         Range adjusted = null;
+         if (isInverted()) {
+             adjusted = new Range(start + (length * (1 - upperPercent)),

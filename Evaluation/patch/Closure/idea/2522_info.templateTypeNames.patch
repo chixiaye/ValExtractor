@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..2cbcfd8 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1462,10 +1462,11 @@
+ 
+   /** Gets the template type name. */
+   public ImmutableList<String> getTemplateTypeNames() {
+-    if (info == null || info.templateTypeNames == null) {
++      ImmutableList<String> templateTypeNames = info.templateTypeNames;
++      if (info == null || templateTypeNames == null) {
+       return ImmutableList.of();
+     }
+-    return info.templateTypeNames;
++    return templateTypeNames;
+   }
+ 
+   /**

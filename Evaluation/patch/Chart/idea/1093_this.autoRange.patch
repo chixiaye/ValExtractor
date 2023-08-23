@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..255fb59 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -342,8 +342,9 @@
+     public void setAxisProperties(Axis axis) {
+         super.setAxisProperties(axis);
+         NumberAxis numberAxis = (NumberAxis) axis;
+-        numberAxis.setAutoRange(this.autoRange);
+-        if (!this.autoRange) {
++        boolean autoRange1 = this.autoRange;
++        numberAxis.setAutoRange(autoRange1);
++        if (!autoRange1) {
+             numberAxis.setRange(this.minimumValue, this.maximumValue);
+         }
+     }

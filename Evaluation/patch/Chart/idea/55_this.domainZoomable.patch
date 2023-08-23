@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..cc23f63 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1063,6 +1063,7 @@
+             Plot plot = this.chart.getPlot();
+             if (plot instanceof Zoomable) {
+                 Zoomable z = (Zoomable) plot;
++                boolean domainZoomable1 = this.domainZoomable;
+                 this.domainZoomable = flag && (z.isDomainZoomable());
+             }
+         }

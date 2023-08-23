@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+index b3412e0..eb042fb 100644
+--- a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+@@ -440,7 +440,8 @@
+                     final double[] xBlock = xBlocks[jBlock * cBlocks + kBlock];
+                     int index = (j - jStart) * kWidth;
+                     for (int k = 0; k < kWidth; ++k) {
+-                        yJ[k]          *= factor;
++                        double v = yJ[k];
++                        v          *= factor;
+                         xBlock[index++] = yJ[k];
+                     }
+ 

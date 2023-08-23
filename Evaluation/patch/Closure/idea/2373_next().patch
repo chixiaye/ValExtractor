@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..936d502 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2187,12 +2187,12 @@
+     }
+ 
+     // Move to the colon.
+-    next();
++      JsDocToken next = next();
+ 
+-    // Move to the token after the colon and parse
++      // Move to the token after the colon and parse
+     // the type expression.
+     skipEOLs();
+-    Node typeExpression = parseTypeExpression(next());
++    Node typeExpression = parseTypeExpression(next);
+ 
+     if (typeExpression == null) {
+       return null;

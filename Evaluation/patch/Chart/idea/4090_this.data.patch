@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..597080f 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -552,14 +552,15 @@
+         this.minimumRangeValueIncStdDevRow = -1;
+         this.minimumRangeValueIncStdDevColumn = -1;
+ 
+-        int rowCount = this.data.getRowCount();
+-        int columnCount = this.data.getColumnCount();
++        KeyedObjects2D data1 = this.data;
++        int rowCount = data1.getRowCount();
++        int columnCount = data1.getColumnCount();
+         for (int r = 0; r < rowCount; r++) {
+             for (int c = 0; c < columnCount; c++) {
+                 double m = Double.NaN;
+                 double sd = Double.NaN;
+                 MeanAndStandardDeviation masd = (MeanAndStandardDeviation)
+-                        this.data.getObject(r, c);
++                        data1.getObject(r, c);
+                 if (masd == null) {
+                     continue;
+                 }

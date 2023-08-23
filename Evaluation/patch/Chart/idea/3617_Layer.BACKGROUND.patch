@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/Layer.java b/source/org/jfree/chart/util/Layer.java
+index 27628fd..9e83f4d 100644
+--- a/source/org/jfree/chart/util/Layer.java
++++ b/source/org/jfree/chart/util/Layer.java
+@@ -126,8 +126,11 @@
+         if (this.equals(Layer.FOREGROUND)) {
+             result = Layer.FOREGROUND;
+         }
+-        else if (this.equals(Layer.BACKGROUND)) {
+-            result = Layer.BACKGROUND;
++        else {
++            Layer background = Layer.BACKGROUND;
++            if (this.equals(background)) {
++                result = background;
++            }
+         }
+         return result;
+     }

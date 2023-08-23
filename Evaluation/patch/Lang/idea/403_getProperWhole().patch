@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..d4891f5 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -941,11 +941,12 @@
+                 // have a larger range.  otherwise numerator==Integer.MIN_VALUE
+                 // is handled incorrectly.
+                 final int properNumerator = getProperNumerator();
++                int properWhole = getProperWhole();
+                 if (properNumerator == 0) {
+-                    toProperString = Integer.toString(getProperWhole());
++                    toProperString = Integer.toString(properWhole);
+                 } else {
+                     toProperString = new StringBuilder(32)
+-                        .append(getProperWhole()).append(' ')
++                        .append(properWhole).append(' ')
+                         .append(properNumerator).append('/')
+                         .append(getDenominator()).toString();
+                 }

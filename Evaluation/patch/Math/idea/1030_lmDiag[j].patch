@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..6fe0b68 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -817,7 +817,8 @@
+             if (dpj != 0) {
+                 Arrays.fill(lmDiag, j + 1, lmDiag.length, 0);
+             }
+-            lmDiag[j] = dpj;
++            double v = lmDiag[j];
++            v = dpj;
+ 
+             //  the transformations to eliminate the row of d
+             // modify only a single element of Qty

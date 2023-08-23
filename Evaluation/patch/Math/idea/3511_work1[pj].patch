@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..06e6957 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -606,7 +606,8 @@
+                 for (int i = 0; i < j; ++i) {
+                     sum += weightedJacobian[i][pj] * work1[permutation[i]];
+                 }
+-                double s = (work1[pj] - sum) / diagR[pj];
++                double v = work1[pj];
++                double s = (v - sum) / diagR[pj];
+                 work1[pj] = s;
+                 sum2 += s * s;
+             }

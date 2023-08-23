@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/HistogramDataset.java b/source/org/jfree/data/statistics/HistogramDataset.java
+index bd7563c..34c4144 100644
+--- a/source/org/jfree/data/statistics/HistogramDataset.java
++++ b/source/org/jfree/data/statistics/HistogramDataset.java
+@@ -188,8 +188,9 @@
+         // fill the bins
+         for (int i = 0; i < values.length; i++) {
+             int binIndex = bins - 1;
+-            if (values[i] < maximum) {
+-                double fraction = (values[i] - minimum) / (maximum - minimum);
++            double value = values[i];
++            if (value < maximum) {
++                double fraction = (value - minimum) / (maximum - minimum);
+                 if (fraction < 0.0) {
+                     fraction = 0.0;
+                 }

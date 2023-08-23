@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..01b475e 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -1263,9 +1263,10 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         XYBarRenderer result = (XYBarRenderer) super.clone();
+-        if (this.gradientPaintTransformer != null) {
++        GradientPaintTransformer gradientPaintTransformer1 = this.gradientPaintTransformer;
++        if (gradientPaintTransformer1 != null) {
+             result.gradientPaintTransformer = (GradientPaintTransformer)
+-                ObjectUtilities.clone(this.gradientPaintTransformer);
++                ObjectUtilities.clone(gradientPaintTransformer1);
+         }
+         result.legendBar = ShapeUtilities.clone(this.legendBar);
+         return result;

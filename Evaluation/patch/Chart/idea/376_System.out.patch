@@ -1,0 +1,112 @@
+diff --git a/source/org/jfree/chart/axis/MonthDateFormat.java b/source/org/jfree/chart/axis/MonthDateFormat.java
+index c1cde39..7526067 100644
+--- a/source/org/jfree/chart/axis/MonthDateFormat.java
++++ b/source/org/jfree/chart/axis/MonthDateFormat.java
+@@ -40,6 +40,7 @@
+ 
+ package org.jfree.chart.axis;
+ 
++import java.io.PrintStream;
+ import java.text.DateFormat;
+ import java.text.DateFormatSymbols;
+ import java.text.FieldPosition;
+@@ -256,55 +257,56 @@
+      */
+     public static void main(String[] args) {
+         MonthDateFormat mdf = new MonthDateFormat(Locale.UK, 2);
+-        System.out.println("UK:");
+-        System.out.println(mdf.format(new Month(1, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(2, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(3, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(4, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(5, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(6, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(7, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(8, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(9, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(10, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(11, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(12, 2005).getStart()));
+-        System.out.println();
++        PrintStream out = System.out;
++        out.println("UK:");
++        out.println(mdf.format(new Month(1, 2005).getStart()));
++        out.println(mdf.format(new Month(2, 2005).getStart()));
++        out.println(mdf.format(new Month(3, 2005).getStart()));
++        out.println(mdf.format(new Month(4, 2005).getStart()));
++        out.println(mdf.format(new Month(5, 2005).getStart()));
++        out.println(mdf.format(new Month(6, 2005).getStart()));
++        out.println(mdf.format(new Month(7, 2005).getStart()));
++        out.println(mdf.format(new Month(8, 2005).getStart()));
++        out.println(mdf.format(new Month(9, 2005).getStart()));
++        out.println(mdf.format(new Month(10, 2005).getStart()));
++        out.println(mdf.format(new Month(11, 2005).getStart()));
++        out.println(mdf.format(new Month(12, 2005).getStart()));
++        out.println();
+ 
+         mdf = new MonthDateFormat(Locale.GERMANY, 2);
+-        System.out.println("GERMANY:");
+-        System.out.println(mdf.format(new Month(1, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(2, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(3, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(4, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(5, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(6, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(7, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(8, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(9, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(10, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(11, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(12, 2005).getStart()));
+-        System.out.println();
++        out.println("GERMANY:");
++        out.println(mdf.format(new Month(1, 2005).getStart()));
++        out.println(mdf.format(new Month(2, 2005).getStart()));
++        out.println(mdf.format(new Month(3, 2005).getStart()));
++        out.println(mdf.format(new Month(4, 2005).getStart()));
++        out.println(mdf.format(new Month(5, 2005).getStart()));
++        out.println(mdf.format(new Month(6, 2005).getStart()));
++        out.println(mdf.format(new Month(7, 2005).getStart()));
++        out.println(mdf.format(new Month(8, 2005).getStart()));
++        out.println(mdf.format(new Month(9, 2005).getStart()));
++        out.println(mdf.format(new Month(10, 2005).getStart()));
++        out.println(mdf.format(new Month(11, 2005).getStart()));
++        out.println(mdf.format(new Month(12, 2005).getStart()));
++        out.println();
+ 
+         mdf = new MonthDateFormat(Locale.FRANCE, 2);
+-        System.out.println("FRANCE:");
+-        System.out.println(mdf.format(new Month(1, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(2, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(3, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(4, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(5, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(6, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(7, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(8, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(9, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(10, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(11, 2005).getStart()));
+-        System.out.println(mdf.format(new Month(12, 2005).getStart()));
+-        System.out.println();
++        out.println("FRANCE:");
++        out.println(mdf.format(new Month(1, 2005).getStart()));
++        out.println(mdf.format(new Month(2, 2005).getStart()));
++        out.println(mdf.format(new Month(3, 2005).getStart()));
++        out.println(mdf.format(new Month(4, 2005).getStart()));
++        out.println(mdf.format(new Month(5, 2005).getStart()));
++        out.println(mdf.format(new Month(6, 2005).getStart()));
++        out.println(mdf.format(new Month(7, 2005).getStart()));
++        out.println(mdf.format(new Month(8, 2005).getStart()));
++        out.println(mdf.format(new Month(9, 2005).getStart()));
++        out.println(mdf.format(new Month(10, 2005).getStart()));
++        out.println(mdf.format(new Month(11, 2005).getStart()));
++        out.println(mdf.format(new Month(12, 2005).getStart()));
++        out.println();
+ 
+         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+         sdf.setNumberFormat(null);
+-        System.out.println(sdf.equals("X"));
++        out.println(sdf.equals("X"));
+     }
+ }

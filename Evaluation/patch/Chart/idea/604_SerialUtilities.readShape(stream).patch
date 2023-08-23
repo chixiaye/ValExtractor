@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..8b5b7b7 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -1742,10 +1742,11 @@
+             throws IOException, ClassNotFoundException {
+ 
+         stream.defaultReadObject();
+-        this.upArrow = SerialUtilities.readShape(stream);
+-        this.downArrow = SerialUtilities.readShape(stream);
+-        this.leftArrow = SerialUtilities.readShape(stream);
+-        this.rightArrow = SerialUtilities.readShape(stream);
++        Shape upArrow1 = SerialUtilities.readShape(stream);
++        this.upArrow = upArrow1;
++        this.downArrow = upArrow1;
++        this.leftArrow = upArrow1;
++        this.rightArrow = upArrow1;
+     }
+ 
+ }

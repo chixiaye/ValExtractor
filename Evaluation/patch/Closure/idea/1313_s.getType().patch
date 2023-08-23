@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..f13e44f 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -933,7 +933,8 @@
+     }
+ 
+     SymbolScope parentPropertyScope = null;
+-    ObjectType type = s.getType() == null ? null : s.getType().toObjectType();
++      JSType type1 = s.getType();
++      ObjectType type = type1 == null ? null : type1.toObjectType();
+     if (type == null) {
+       return;
+     }

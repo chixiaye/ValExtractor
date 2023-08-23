@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/JSModule.java b/src/com/google/javascript/jscomp/JSModule.java
+index 9f2c194..21a1800 100644
+--- a/src/com/google/javascript/jscomp/JSModule.java
++++ b/src/com/google/javascript/jscomp/JSModule.java
+@@ -178,8 +178,10 @@
+   public Set<JSModule> getAllDependencies() {
+     Set<JSModule> allDeps = Sets.newHashSet(deps);
+     List<JSModule> workList = Lists.newArrayList(deps);
+-    while (workList.size() > 0) {
+-      JSModule module = workList.remove(workList.size() - 1);
++    while (true) {
++        int size = workList.size();
++        if (!(size > 0)) break;
++        JSModule module = workList.remove(size - 1);
+       for (JSModule dep : module.getDependencies()) {
+         if (allDeps.add(dep)) {
+           workList.add(dep);

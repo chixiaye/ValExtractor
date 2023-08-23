@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/VectorRenderer.java b/source/org/jfree/chart/renderer/xy/VectorRenderer.java
+index dc9417d..cdd09fc 100644
+--- a/source/org/jfree/chart/renderer/xy/VectorRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/VectorRenderer.java
+@@ -255,8 +255,9 @@
+         double bx = xx0 + (1.0 - this.baseLength) * dxx;
+         double by = yy0 + (1.0 - this.baseLength) * dyy;
+ 
+-        double cx = xx0 + (1.0 - this.headLength) * dxx;
+-        double cy = yy0 + (1.0 - this.headLength) * dyy;
++        double headLength1 = this.headLength;
++        double cx = xx0 + (1.0 - headLength1) * dxx;
++        double cy = yy0 + (1.0 - headLength1) * dyy;
+ 
+         double angle = 0.0;
+         if (dxx != 0.0) {

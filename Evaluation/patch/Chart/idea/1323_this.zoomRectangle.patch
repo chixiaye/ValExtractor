@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/panel/ZoomHandler.java b/source/org/jfree/chart/panel/ZoomHandler.java
+index ab08810..e2c196a 100644
+--- a/source/org/jfree/chart/panel/ZoomHandler.java
++++ b/source/org/jfree/chart/panel/ZoomHandler.java
+@@ -117,6 +117,7 @@
+         }
+         else if (hZoom) {
+             double xmax = Math.min(e.getX(), scaledDataArea.getMaxX());
++            Rectangle2D zoomRectangle1 = this.zoomRectangle;
+             this.zoomRectangle = new Rectangle2D.Double(
+                     this.zoomPoint.getX(), scaledDataArea.getMinY(),
+                     xmax - this.zoomPoint.getX(), scaledDataArea.getHeight());

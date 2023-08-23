@@ -1,0 +1,75 @@
+diff --git a/src/main/java/org/apache/commons/math3/special/Beta.java b/src/main/java/org/apache/commons/math3/special/Beta.java
+index a425f99..6c789b6 100644
+--- a/src/main/java/org/apache/commons/math3/special/Beta.java
++++ b/src/main/java/org/apache/commons/math3/special/Beta.java
+@@ -472,39 +472,42 @@
+                            logGammaMinusLogGammaSum(ared, b);
+                 }
+             }
+-        } else if (a >= 1.0) {
+-            if (b > 2.0) {
+-                if (b < 10.0) {
+-                    double prod = 1.0;
+-                    double bred = b;
+-                    while (bred > 2.0) {
+-                        bred -= 1.0;
+-                        prod *= bred / (a + bred);
++        } else {
++            double v = logGammaMinusLogGammaSum(a, b);
++            if (a >= 1.0) {
++                if (b > 2.0) {
++                    if (b < 10.0) {
++                        double prod = 1.0;
++                        double bred = b;
++                        while (bred > 2.0) {
++                            bred -= 1.0;
++                            prod *= bred / (a + bred);
++                        }
++                        return FastMath.log(prod) +
++                               (Gamma.logGamma(a) +
++                                (Gamma.logGamma(bred) -
++                                 logGammaSum(a, bred)));
++                    } else {
++                        return Gamma.logGamma(a) +
++                                v;
+                     }
+-                    return FastMath.log(prod) +
+-                           (Gamma.logGamma(a) +
+-                            (Gamma.logGamma(bred) -
+-                             logGammaSum(a, bred)));
+                 } else {
+                     return Gamma.logGamma(a) +
+-                           logGammaMinusLogGammaSum(a, b);
++                           Gamma.logGamma(b) -
++                           logGammaSum(a, b);
+                 }
+             } else {
+-                return Gamma.logGamma(a) +
+-                       Gamma.logGamma(b) -
+-                       logGammaSum(a, b);
+-            }
+-        } else {
+-            if (b >= 10.0) {
+-                return Gamma.logGamma(a) +
+-                       logGammaMinusLogGammaSum(a, b);
+-            } else {
+-                // The following command is the original NSWC implementation.
+-                // return Gamma.logGamma(a) +
+-                // (Gamma.logGamma(b) - Gamma.logGamma(a + b));
+-                // The following command turns out to be more accurate.
+-                return FastMath.log(Gamma.gamma(a) * Gamma.gamma(b) /
+-                                    Gamma.gamma(a + b));
++                if (b >= 10.0) {
++                    return Gamma.logGamma(a) +
++                            v;
++                } else {
++                    // The following command is the original NSWC implementation.
++                    // return Gamma.logGamma(a) +
++                    // (Gamma.logGamma(b) - Gamma.logGamma(a + b));
++                    // The following command turns out to be more accurate.
++                    return FastMath.log(Gamma.gamma(a) * Gamma.gamma(b) /
++                                        Gamma.gamma(a + b));
++                }
+             }
+         }
+     }

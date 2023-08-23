@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+index 70b8d64..fe36350 100644
+--- a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
++++ b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+@@ -984,8 +984,9 @@
+         // Finds and returns max
+         short max = array[0];
+         for (int i = 1; i < array.length; i++) {
+-            if (array[i] > max) {
+-                max = array[i];
++            short i1 = array[i];
++            if (i1 > max) {
++                max = i1;
+             }
+         }
+     

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/TimeSeriesCollection.java b/source/org/jfree/data/time/TimeSeriesCollection.java
+index f76f9b9..b5359cf 100644
+--- a/source/org/jfree/data/time/TimeSeriesCollection.java
++++ b/source/org/jfree/data/time/TimeSeriesCollection.java
+@@ -766,8 +766,9 @@
+     public int hashCode() {
+         int result;
+         result = this.data.hashCode();
+-        result = 29 * result + (this.workingCalendar != null
+-                ? this.workingCalendar.hashCode() : 0);
++        Calendar workingCalendar1 = this.workingCalendar;
++        result = 29 * result + (workingCalendar1 != null
++                ? workingCalendar1.hashCode() : 0);
+         result = 29 * result + (this.xPosition != null
+                 ? this.xPosition.hashCode() : 0);
+         return result;

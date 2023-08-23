@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/panel/RegionSelectionHandler.java b/source/org/jfree/chart/panel/RegionSelectionHandler.java
+index f7f4e5d..9fbd961 100644
+--- a/source/org/jfree/chart/panel/RegionSelectionHandler.java
++++ b/source/org/jfree/chart/panel/RegionSelectionHandler.java
+@@ -261,12 +261,13 @@
+         System.out.println("mouseClicked(): " + e);
+         ChartPanel panel = (ChartPanel) e.getSource();
+         Rectangle2D dataArea = panel.getScreenDataArea();
+-        if (dataArea.contains(e.getPoint())) {
++        Point point = e.getPoint();
++        if (dataArea.contains(point)) {
+             JFreeChart chart = panel.getChart();
+             if (chart.getPlot() instanceof Selectable) {
+                 Selectable s = (Selectable) chart.getPlot();
+                 if (s.canSelectByPoint()) {
+-                    Point pt = e.getPoint();
++                    Point pt = point;
+                     s.select(pt.getX(), pt.getY(), dataArea, panel);
+                 }
+             }

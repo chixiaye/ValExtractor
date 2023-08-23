@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
+index b5d02a4..ea2253c 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
+@@ -126,7 +126,8 @@
+         Location loc2 = subLine.getRemainingRegion().checkPoint(line2.toSubSpace(v2D));
+ 
+         if (includeEndPoints) {
+-            return ((loc1 != Location.OUTSIDE) && (loc2 != Location.OUTSIDE)) ? v2D : null;
++            Location outside = Location.OUTSIDE;
++            return ((loc1 != outside) && (loc2 != outside)) ? v2D : null;
+         } else {
+             return ((loc1 == Location.INSIDE) && (loc2 == Location.INSIDE)) ? v2D : null;
+         }

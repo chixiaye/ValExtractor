@@ -1,0 +1,38 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..5362c46 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -476,26 +476,27 @@
+      */
+     private StringBuilder appendQuotedString(final String pattern, final ParsePosition pos,
+             final StringBuilder appendTo, final boolean escapingOn) {
+-        final int start = pos.getIndex();
++        int index = pos.getIndex();
++        final int start = index;
+         final char[] c = pattern.toCharArray();
+         if (escapingOn && c[start] == QUOTE) {
+             next(pos);
+             return appendTo == null ? null : appendTo.append(QUOTE);
+         }
+         int lastHold = start;
+-        for (int i = pos.getIndex(); i < pattern.length(); i++) {
++        for (int i = index; i < pattern.length(); i++) {
+             if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+-                appendTo.append(c, lastHold, pos.getIndex() - lastHold).append(
++                appendTo.append(c, lastHold, index - lastHold).append(
+                         QUOTE);
+                 pos.setIndex(i + ESCAPED_QUOTE.length());
+-                lastHold = pos.getIndex();
++                lastHold = index;
+                 continue;
+             }
+-            switch (c[pos.getIndex()]) {
++            switch (c[index]) {
+             case QUOTE:
+                 next(pos);
+                 return appendTo == null ? null : appendTo.append(c, lastHold,
+-                        pos.getIndex() - lastHold);
++                        index - lastHold);
+             default:
+                 next(pos);
+             }

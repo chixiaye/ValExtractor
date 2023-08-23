@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..389beb9 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -175,6 +175,7 @@
+             }
+ 
+             if (Double.isNaN(this.minimumRangeValue)) {
++                double minimumRangeValue1 = this.minimumRangeValue;
+                 this.minimumRangeValue = minval;
+                 this.minimumRangeValueRow = r;
+                 this.minimumRangeValueColumn = c;

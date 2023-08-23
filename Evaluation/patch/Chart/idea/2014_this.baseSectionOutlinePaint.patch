@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..3df847b 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -1196,6 +1196,7 @@
+         }
+ 
+         // nothing defined - do we autoPopulate?
++        Paint baseSectionOutlinePaint1 = this.baseSectionOutlinePaint;
+         if (autoPopulate) {
+             DrawingSupplier ds = getDrawingSupplier();
+             if (ds != null) {
+@@ -1203,11 +1204,11 @@
+                 this.sectionOutlinePaintMap.put(key, result);
+             }
+             else {
+-                result = this.baseSectionOutlinePaint;
++                result = baseSectionOutlinePaint1;
+             }
+         }
+         else {
+-            result = this.baseSectionOutlinePaint;
++            result = baseSectionOutlinePaint1;
+         }
+         return result;
+     }

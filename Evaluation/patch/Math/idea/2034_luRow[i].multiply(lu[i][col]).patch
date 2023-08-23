@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+index 513606d..c2abfd4 100644
+--- a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+@@ -113,7 +113,8 @@
+                 final T[] luRow = lu[row];
+                 sum = luRow[col];
+                 for (int i = 0; i < row; i++) {
+-                    sum = sum.subtract(luRow[i].multiply(lu[i][col]));
++                    T multiply = luRow[i].multiply(lu[i][col]);
++                    sum = sum.subtract(multiply);
+                 }
+                 luRow[col] = sum;
+             }

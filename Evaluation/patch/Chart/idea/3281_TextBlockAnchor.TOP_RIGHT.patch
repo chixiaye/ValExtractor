@@ -1,0 +1,54 @@
+diff --git a/source/org/jfree/chart/text/TextBlockAnchor.java b/source/org/jfree/chart/text/TextBlockAnchor.java
+index 4b579f0..96523cc 100644
+--- a/source/org/jfree/chart/text/TextBlockAnchor.java
++++ b/source/org/jfree/chart/text/TextBlockAnchor.java
+@@ -158,26 +158,29 @@
+         else if (this.equals(TextBlockAnchor.TOP_LEFT)) {
+             return TextBlockAnchor.TOP_LEFT;
+         }
+-        else if (this.equals(TextBlockAnchor.TOP_RIGHT)) {
+-            return TextBlockAnchor.TOP_RIGHT;
+-        }
+-        else if (this.equals(TextBlockAnchor.CENTER)) {
+-            return TextBlockAnchor.CENTER;
+-        }
+-        else if (this.equals(TextBlockAnchor.CENTER_LEFT)) {
+-            return TextBlockAnchor.CENTER_LEFT;
+-        }
+-        else if (this.equals(TextBlockAnchor.CENTER_RIGHT)) {
+-            return TextBlockAnchor.CENTER_RIGHT;
+-        }
+-        else if (this.equals(TextBlockAnchor.BOTTOM_CENTER)) {
+-            return TextBlockAnchor.BOTTOM_CENTER;
+-        }
+-        else if (this.equals(TextBlockAnchor.BOTTOM_LEFT)) {
+-            return TextBlockAnchor.BOTTOM_LEFT;
+-        }
+-        else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
+-            return TextBlockAnchor.BOTTOM_RIGHT;
++        else {
++            TextBlockAnchor topRight = TextBlockAnchor.TOP_RIGHT;
++            if (this.equals(topRight)) {
++                return topRight;
++            }
++            else if (this.equals(TextBlockAnchor.CENTER)) {
++                return TextBlockAnchor.CENTER;
++            }
++            else if (this.equals(TextBlockAnchor.CENTER_LEFT)) {
++                return TextBlockAnchor.CENTER_LEFT;
++            }
++            else if (this.equals(TextBlockAnchor.CENTER_RIGHT)) {
++                return TextBlockAnchor.CENTER_RIGHT;
++            }
++            else if (this.equals(TextBlockAnchor.BOTTOM_CENTER)) {
++                return TextBlockAnchor.BOTTOM_CENTER;
++            }
++            else if (this.equals(TextBlockAnchor.BOTTOM_LEFT)) {
++                return TextBlockAnchor.BOTTOM_LEFT;
++            }
++            else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
++                return TextBlockAnchor.BOTTOM_RIGHT;
++            }
+         }
+         return null;
+     }

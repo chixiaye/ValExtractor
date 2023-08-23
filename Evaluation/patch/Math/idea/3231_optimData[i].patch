@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizer.java b/src/main/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizer.java
+index 3d26bdb..f695ec3 100644
+--- a/src/main/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/univariate/MultiStartUnivariateOptimizer.java
+@@ -150,7 +150,8 @@
+                 maxEvalIndex = i;
+                 continue;
+             }
+-            if (optimData[i] instanceof SearchInterval) {
++            OptimizationData optimDatum = optimData[i];
++            if (optimDatum instanceof SearchInterval) {
+                 optimData[i] = null;
+                 searchIntervalIndex = i;
+                 continue;

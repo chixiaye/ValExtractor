@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
+index 623b6ac..55b1b53 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
+@@ -369,8 +369,9 @@
+                 // evaluate derivatives
+                 final DerivativeStructure[][] value = new DerivativeStructure[y.length][y[0].length];
+                 for (int j = 0; j < value.length; ++j) {
+-                    for (int k = 0; k < y[j].length; ++k) {
+-                        value[j][k] = evaluate(t, t0, y[j][k]);
++                    double[][] doubles = y[j];
++                    for (int k = 0; k < doubles.length; ++k) {
++                        value[j][k] = evaluate(t, t0, doubles[k]);
+                     }
+                 }
+ 

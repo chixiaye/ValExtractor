@@ -1,0 +1,32 @@
+diff --git a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+index eaf0b57..b146abe 100644
+--- a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
++++ b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+@@ -60,14 +60,7 @@
+ 
+ package org.jfree.chart.renderer.category;
+ 
+-import java.awt.BasicStroke;
+-import java.awt.Color;
+-import java.awt.Component;
+-import java.awt.Graphics;
+-import java.awt.Graphics2D;
+-import java.awt.Paint;
+-import java.awt.Shape;
+-import java.awt.Stroke;
++import java.awt.*;
+ import java.awt.geom.AffineTransform;
+ import java.awt.geom.Arc2D;
+ import java.awt.geom.GeneralPath;
+@@ -468,8 +461,9 @@
+     private Icon getIcon(Shape shape, final Paint fillPaint,
+                         final Paint outlinePaint) {
+ 
+-      final int width = shape.getBounds().width;
+-      final int height = shape.getBounds().height;
++        Rectangle bounds = shape.getBounds();
++        final int width = bounds.width;
++      final int height = bounds.height;
+       final GeneralPath path = new GeneralPath(shape);
+       return new Icon() {
+           public void paintIcon(Component c, Graphics g, int x, int y) {

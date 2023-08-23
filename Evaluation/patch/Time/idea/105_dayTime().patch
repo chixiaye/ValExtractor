@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/PeriodType.java b/src/main/java/org/joda/time/PeriodType.java
+index e06b379..2a24c9c 100644
+--- a/src/main/java/org/joda/time/PeriodType.java
++++ b/src/main/java/org/joda/time/PeriodType.java
+@@ -516,7 +516,8 @@
+             cache.put(yearWeekDay(), yearWeekDay());
+             cache.put(yearDayTime(), yearDayTime());
+             cache.put(yearDay(), yearDay());
+-            cache.put(dayTime(), dayTime());
++            PeriodType key = dayTime();
++            cache.put(key, key);
+             cache.put(time(), time());
+             cache.put(years(), years());
+             cache.put(months(), months());

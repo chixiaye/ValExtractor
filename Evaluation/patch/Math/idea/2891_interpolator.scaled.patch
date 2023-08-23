@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.java
+index 73d0be9..2718703 100644
+--- a/src/main/java/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/sampling/NordsieckStepInterpolator.java
+@@ -83,8 +83,9 @@
+         super(interpolator);
+         scalingH      = interpolator.scalingH;
+         referenceTime = interpolator.referenceTime;
+-        if (interpolator.scaled != null) {
+-            scaled = interpolator.scaled.clone();
++        double[] scaled1 = interpolator.scaled;
++        if (scaled1 != null) {
++            scaled = scaled1.clone();
+         }
+         if (interpolator.nordsieck != null) {
+             nordsieck = new Array2DRowRealMatrix(interpolator.nordsieck.getDataRef(), true);

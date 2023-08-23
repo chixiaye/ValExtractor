@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..2fa2228 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -559,7 +559,8 @@
+                     sumpq += modelSecondDerivativesParameters.getEntry(k);
+                     double sum = -HALF * xoptsq;
+                     for (int i = 0; i < n; i++) {
+-                        sum += interpolationPoints.getEntry(k, i) * trustRegionCenterOffset.getEntry(i);
++                        double entry = interpolationPoints.getEntry(k, i);
++                        sum += entry * trustRegionCenterOffset.getEntry(i);
+                     }
+                     // sum = sumVector.getEntry(k); // XXX "testAckley" and "testDiffPow" fail.
+                     work2.setEntry(k, sum);

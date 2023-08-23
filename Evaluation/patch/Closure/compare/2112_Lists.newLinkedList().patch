@@ -1,0 +1,76 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/AstParallelizer.java b/src/com/google/javascript/jscomp/AstParallelizer.java
+index 4b7a67c..461ed01 100644
+--- a/src/com/google/javascript/jscomp/AstParallelizer.java
++++ b/src/com/google/javascript/jscomp/AstParallelizer.java
+@@ -21,6 +21,8 @@
+ import com.google.common.collect.Lists;
+ import com.google.javascript.rhino.IR;
+ import com.google.javascript.rhino.Node;
++
++import java.util.LinkedList;
+ import java.util.List;
+ 
+ /**
+@@ -72,7 +74,8 @@
+     this.placeHolderProvider = placeHolderProvider;
+     this.root = root;
+     this.includeRoot = includeRoot;
+-    this.forest = Lists.newLinkedList();
++    LinkedList<Node> var_2112 = Lists.newLinkedList();
++	this.forest = var_2112;
+     this.detachPointList = Lists.newLinkedList();
+   }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/AstParallelizer.java b/src/com/google/javascript/jscomp/AstParallelizer.java
+index 4b7a67c..461ed01 100644
+--- a/src/com/google/javascript/jscomp/AstParallelizer.java
++++ b/src/com/google/javascript/jscomp/AstParallelizer.java
+@@ -21,6 +21,8 @@
+ import com.google.common.collect.Lists;
+ import com.google.javascript.rhino.IR;
+ import com.google.javascript.rhino.Node;
++
++import java.util.LinkedList;
+ import java.util.List;
+ 
+ /**
+@@ -72,7 +74,8 @@
+     this.placeHolderProvider = placeHolderProvider;
+     this.root = root;
+     this.includeRoot = includeRoot;
+-    this.forest = Lists.newLinkedList();
++    LinkedList<Node> var_2112 = Lists.newLinkedList();
++	this.forest = var_2112;
+     this.detachPointList = Lists.newLinkedList();
+   }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/AstParallelizer.java b/src/com/google/javascript/jscomp/AstParallelizer.java
+index 4b7a67c..6b7ddfa 100644
+--- a/src/com/google/javascript/jscomp/AstParallelizer.java
++++ b/src/com/google/javascript/jscomp/AstParallelizer.java
+@@ -21,6 +21,8 @@
+ import com.google.common.collect.Lists;
+ import com.google.javascript.rhino.IR;
+ import com.google.javascript.rhino.Node;
++
++import java.util.LinkedList;
+ import java.util.List;
+ 
+ /**
+@@ -72,8 +74,9 @@
+     this.placeHolderProvider = placeHolderProvider;
+     this.root = root;
+     this.includeRoot = includeRoot;
+-    this.forest = Lists.newLinkedList();
+-    this.detachPointList = Lists.newLinkedList();
++      LinkedList<Node> forest1 = Lists.newLinkedList();
++      this.forest = forest1;
++    this.detachPointList = forest1;
+   }
+ 
+   public static AstParallelizer createNewFunctionLevelAstParallelizer(

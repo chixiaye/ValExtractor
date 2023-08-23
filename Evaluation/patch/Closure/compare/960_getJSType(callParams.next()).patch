@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..2fed6ab 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1121,9 +1121,10 @@
+       Map<TemplateType, JSType> resolvedTypes) {
+     while (declParams.hasNext() && callParams.hasNext()) {
+       Node declParam = declParams.next();
++      JSType var_960 = getJSType(callParams.next());
+       maybeResolveTemplatedType(
+           getJSType(declParam),
+-          getJSType(callParams.next()),
++          var_960,
+           resolvedTypes);
+       if (declParam.isVarArgs()) {
+         while (callParams.hasNext()) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..59c6955 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1121,15 +1121,16 @@
+       Map<TemplateType, JSType> resolvedTypes) {
+     while (declParams.hasNext() && callParams.hasNext()) {
+       Node declParam = declParams.next();
++      JSType var_960 = getJSType(callParams.next());
+       maybeResolveTemplatedType(
+           getJSType(declParam),
+-          getJSType(callParams.next()),
++          var_960,
+           resolvedTypes);
+       if (declParam.isVarArgs()) {
+         while (callParams.hasNext()) {
+           maybeResolveTemplatedType(
+               getJSType(declParam),
+-              getJSType(callParams.next()),
++              var_960,
+               resolvedTypes);
+         }
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..7a1b5e5 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1121,15 +1121,16 @@
+       Map<TemplateType, JSType> resolvedTypes) {
+     while (declParams.hasNext() && callParams.hasNext()) {
+       Node declParam = declParams.next();
++        JSType jsType = getJSType(callParams.next());
+       maybeResolveTemplatedType(
+           getJSType(declParam),
+-          getJSType(callParams.next()),
++                jsType,
+           resolvedTypes);
+       if (declParam.isVarArgs()) {
+         while (callParams.hasNext()) {
+           maybeResolveTemplatedType(
+               getJSType(declParam),
+-              getJSType(callParams.next()),
++                  jsType,
+               resolvedTypes);
+         }
+       }

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java b/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
+index 03e257f..85b10cb 100644
+--- a/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
++++ b/src/com/google/javascript/jscomp/OptimizeArgumentsArray.java
+@@ -264,8 +264,9 @@
+       int value = (int) index.getDouble();
+ 
+       // Unnamed parameter.
+-      if (value >= numNamedParameter) {
+-        ref.getParent().getParent().replaceChild(ref.getParent(),
++        Node parent = ref.getParent();
++        if (value >= numNamedParameter) {
++        parent.getParent().replaceChild(parent,
+             IR.name(argNames[value - numNamedParameter]));
+       } else {
+ 
+@@ -279,7 +280,7 @@
+         for (int i = 0; i < value; i++) {
+           name = name.getNext();
+         }
+-        ref.getParent().getParent().replaceChild(ref.getParent(),
++        parent.getParent().replaceChild(parent,
+             IR.name(name.getString()));
+       }
+       changed = true;

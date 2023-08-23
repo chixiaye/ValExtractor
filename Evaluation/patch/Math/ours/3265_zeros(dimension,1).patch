@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..cde53d7 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -748,7 +748,8 @@
+         xmean = MatrixUtils.createColumnRealMatrix(guess); // objective variables
+         diagD = insigma.scalarMultiply(1 / sigma);
+         diagC = square(diagD);
+-        pc = zeros(dimension, 1); // evolution paths for C and sigma
++        RealMatrix var_3265 = zeros(dimension, 1);
++		pc = var_3265; // evolution paths for C and sigma
+         ps = zeros(dimension, 1); // B defines the coordinate system
+         normps = ps.getFrobeniusNorm();
+ 

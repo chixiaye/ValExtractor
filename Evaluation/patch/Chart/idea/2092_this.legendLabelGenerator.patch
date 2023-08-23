@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..330287e 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3660,9 +3660,10 @@
+                     this.urlGenerator);
+         }
+         clone.legendItemShape = ShapeUtilities.clone(this.legendItemShape);
+-        if (this.legendLabelGenerator != null) {
++        PieSectionLabelGenerator legendLabelGenerator1 = this.legendLabelGenerator;
++        if (legendLabelGenerator1 != null) {
+             clone.legendLabelGenerator = (PieSectionLabelGenerator)
+-                    ObjectUtilities.clone(this.legendLabelGenerator);
++                    ObjectUtilities.clone(legendLabelGenerator1);
+         }
+         if (this.legendLabelToolTipGenerator != null) {
+             clone.legendLabelToolTipGenerator = (PieSectionLabelGenerator)

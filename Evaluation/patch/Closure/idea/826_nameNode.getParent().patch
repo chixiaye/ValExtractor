@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/RescopeGlobalSymbols.java b/src/com/google/javascript/jscomp/RescopeGlobalSymbols.java
+index 72b9653..0f9f2a1 100644
+--- a/src/com/google/javascript/jscomp/RescopeGlobalSymbols.java
++++ b/src/com/google/javascript/jscomp/RescopeGlobalSymbols.java
+@@ -184,9 +184,12 @@
+       }
+       Node nameNode = var.getNameNode();
+       // The exception variable (e in try{}catch(e){}) should not be rewritten.
+-      if (nameNode != null && nameNode.getParent() != null &&
+-          nameNode.getParent().isCatch()) {
+-        return;
++      if (nameNode != null) {
++          Node parent1 = nameNode.getParent();
++          if (parent1 != null &&
++                  parent1.isCatch()) {
++              return;
++          }
+       }
+       replaceSymbol(n, name);
+     }

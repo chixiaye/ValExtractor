@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..da3d210 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -201,8 +201,9 @@
+      */
+     public void updateXPoints() {
+         this.propagateEvents = false;
+-        for (int s = 0; s < this.data.size(); s++) {
+-            updateXPoints((XYSeries) this.data.get(s));
++        List data1 = this.data;
++        for (int s = 0; s < data1.size(); s++) {
++            updateXPoints((XYSeries) data1.get(s));
+         }
+         if (this.autoPrune) {
+             prune();

@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..5f4bfc4 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2454,7 +2454,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            boolean var_1858 = markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..5f4bfc4 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2454,7 +2454,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            boolean var_1858 = markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..3082963 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2447,6 +2447,7 @@
+             throw new IllegalArgumentException("Null 'layer' not permitted.");
+         }
+         Collection markers;
++        boolean add = markers.add(marker);
+         if (layer == Layer.FOREGROUND) {
+             markers = (Collection) this.foregroundDomainMarkers.get(
+                     new Integer(index));
+@@ -2454,7 +2455,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+@@ -2463,7 +2464,7 @@
+                 markers = new java.util.ArrayList();
+                 this.backgroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         marker.addChangeListener(this);
+         if (notify) {

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/TickType.java b/source/org/jfree/chart/axis/TickType.java
+index 3d74450..71a36ac 100644
+--- a/source/org/jfree/chart/axis/TickType.java
++++ b/source/org/jfree/chart/axis/TickType.java
+@@ -112,8 +112,11 @@
+         if (this.equals(TickType.MAJOR)) {
+             result = TickType.MAJOR;
+         }
+-        else if (this.equals(TickType.MINOR)) {
+-            result = TickType.MINOR;
++        else {
++            TickType minor = TickType.MINOR;
++            if (this.equals(minor)) {
++                result = minor;
++            }
+         }
+         return result;
+     }

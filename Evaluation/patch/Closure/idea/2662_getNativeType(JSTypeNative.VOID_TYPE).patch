@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..8f42178 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -582,9 +582,10 @@
+     register(getNativeType(JSTypeNative.REGEXP_TYPE));
+     register(getNativeType(JSTypeNative.STRING_OBJECT_TYPE));
+     register(getNativeType(JSTypeNative.STRING_TYPE));
+-    register(getNativeType(JSTypeNative.VOID_TYPE));
+-    register(getNativeType(JSTypeNative.VOID_TYPE), "Undefined");
+-    register(getNativeType(JSTypeNative.VOID_TYPE), "void");
++      JSType nativeType = getNativeType(VOID_TYPE);
++      register(nativeType);
++    register(nativeType, "Undefined");
++    register(nativeType, "void");
+     register(getNativeType(JSTypeNative.FUNCTION_INSTANCE_TYPE), "Function");
+   }
+ 

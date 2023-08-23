@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/PassConfig.java b/src/com/google/javascript/jscomp/PassConfig.java
+index adcf17e..24302c0 100644
+--- a/src/com/google/javascript/jscomp/PassConfig.java
++++ b/src/com/google/javascript/jscomp/PassConfig.java
+@@ -131,10 +131,11 @@
+     String lastPass = null;
+     String loopStart = null;
+     for (PassFactory pass : allPasses) {
+-      String passName = pass.getName();
++        String name = pass.getName();
++        String passName = name;
+       int i = 1;
+       while (graph.hasNode(passName)) {
+-        passName = pass.getName() + (i++);
++        passName = name + (i++);
+       }
+       graph.createNode(passName);
+ 

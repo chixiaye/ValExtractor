@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..26208e2 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -187,7 +187,8 @@
+             controlMatrix.getColumnDimension() > 0 &&
+             (controlMatrix.getRowDimension() != transitionMatrix.getRowDimension() ||
+              controlMatrix.getColumnDimension() != 1)) {
+-            throw new MatrixDimensionMismatchException(controlMatrix.getRowDimension(),
++            int var_937 = controlMatrix.getRowDimension();
++			throw new MatrixDimensionMismatchException(var_937,
+                                                        controlMatrix.getColumnDimension(),
+                                                        transitionMatrix.getRowDimension(), 1);
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..13efb02 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -182,12 +182,13 @@
+         }
+ 
+         // row dimension of B must be equal to A
++        int var_937 = controlMatrix.getRowDimension();
+         if (controlMatrix != null &&
+-            controlMatrix.getRowDimension() > 0 &&
++            var_937 > 0 &&
+             controlMatrix.getColumnDimension() > 0 &&
+-            (controlMatrix.getRowDimension() != transitionMatrix.getRowDimension() ||
++            (var_937 != transitionMatrix.getRowDimension() ||
+              controlMatrix.getColumnDimension() != 1)) {
+-            throw new MatrixDimensionMismatchException(controlMatrix.getRowDimension(),
++            throw new MatrixDimensionMismatchException(var_937,
+                                                        controlMatrix.getColumnDimension(),
+                                                        transitionMatrix.getRowDimension(), 1);
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..8016516 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -182,15 +182,17 @@
+         }
+ 
+         // row dimension of B must be equal to A
+-        if (controlMatrix != null &&
+-            controlMatrix.getRowDimension() > 0 &&
++        if (controlMatrix != null) {
++            int rowDimension = controlMatrix.getRowDimension();
++            if (rowDimension > 0 &&
+             controlMatrix.getColumnDimension() > 0 &&
+-            (controlMatrix.getRowDimension() != transitionMatrix.getRowDimension() ||
++                    (rowDimension != transitionMatrix.getRowDimension() ||
+              controlMatrix.getColumnDimension() != 1)) {
+-            throw new MatrixDimensionMismatchException(controlMatrix.getRowDimension(),
++                throw new MatrixDimensionMismatchException(rowDimension,
+                                                        controlMatrix.getColumnDimension(),
+                                                        transitionMatrix.getRowDimension(), 1);
+         }
++        }
+ 
+         // Q must be equal to A
+         MatrixUtils.checkAdditionCompatible(transitionMatrix, processNoise);

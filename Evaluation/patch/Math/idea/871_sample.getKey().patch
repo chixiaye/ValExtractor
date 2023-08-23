@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java b/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
+index d457434..2e6c92a 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
+@@ -196,8 +196,9 @@
+     public double getSupportUpperBound() {
+         double max = Double.NEGATIVE_INFINITY;
+         for (final Pair<Double, Double> sample : innerDistribution.getPmf()) {
+-            if (sample.getKey() > max && sample.getValue() > 0) {
+-                max = sample.getKey();
++            Double key = sample.getKey();
++            if (key > max && sample.getValue() > 0) {
++                max = key;
+             }
+         }
+ 

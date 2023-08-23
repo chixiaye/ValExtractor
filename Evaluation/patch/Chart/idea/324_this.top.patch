@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/AxisSpace.java b/source/org/jfree/chart/axis/AxisSpace.java
+index d869ec6..4f4b374 100644
+--- a/source/org/jfree/chart/axis/AxisSpace.java
++++ b/source/org/jfree/chart/axis/AxisSpace.java
+@@ -203,7 +203,8 @@
+      */
+     public void ensureAtLeast(double space, RectangleEdge edge) {
+         if (edge == RectangleEdge.TOP) {
+-            if (this.top < space) {
++            double top1 = this.top;
++            if (top1 < space) {
+                 this.top = space;
+             }
+         }

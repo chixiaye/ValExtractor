@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..a7e8513 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -598,7 +598,8 @@
+ 
+   public void addChildToBack(Node child) {
+     Preconditions.checkArgument(child.parent == null);
+-    Preconditions.checkArgument(child.next == null);
++      Node next1 = child.next;
++      Preconditions.checkArgument(next1 == null);
+     child.parent = this;
+     child.next = null;
+     if (last == null) {

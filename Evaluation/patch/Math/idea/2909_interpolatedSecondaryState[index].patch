@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+index 75ed7c6..f9b91ec 100644
+--- a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+@@ -431,9 +431,10 @@
+   /** {@inheritDoc} */
+   public double[] getInterpolatedSecondaryState(final int index) throws MaxCountExceededException {
+       evaluateCompleteInterpolatedState();
++      double[] equationData = interpolatedSecondaryState[index];
+       secondaryMappers[index].extractEquationData(interpolatedState,
+-                                                  interpolatedSecondaryState[index]);
+-      return interpolatedSecondaryState[index];
++              equationData);
++      return equationData;
+   }
+ 
+   /** {@inheritDoc} */

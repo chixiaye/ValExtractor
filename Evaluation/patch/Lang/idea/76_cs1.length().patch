@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..53b48c1 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -6439,12 +6439,13 @@
+             return 0;
+         }
+         int i;
+-        for (i = 0; i < cs1.length() && i < cs2.length(); ++i) {
++        int length = cs1.length();
++        for (i = 0; i < length && i < cs2.length(); ++i) {
+             if (cs1.charAt(i) != cs2.charAt(i)) {
+                 break;
+             }
+         }
+-        if (i < cs2.length() || i < cs1.length()) {
++        if (i < cs2.length() || i < length) {
+             return i;
+         }
+         return INDEX_NOT_FOUND;

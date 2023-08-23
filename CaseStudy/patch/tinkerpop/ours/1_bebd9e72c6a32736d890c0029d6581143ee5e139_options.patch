@@ -1,0 +1,28 @@
+diff --git a/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/remote/DriverRemoteConnection.java b/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/remote/DriverRemoteConnection.java
+index 09fad00..0f077ae 100644
+--- a/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/remote/DriverRemoteConnection.java
++++ b/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/remote/DriverRemoteConnection.java
+@@ -32,6 +32,7 @@
+ import org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils;
+ 
+ import java.util.Iterator;
++import java.util.Map;
+ import java.util.Optional;
+ import java.util.concurrent.CompletableFuture;
+ 
+@@ -221,10 +222,11 @@
+             final RequestOptions.Builder builder = RequestOptions.build();
+             while (itty.hasNext()) {
+                 final OptionsStrategy optionsStrategy = itty.next();
+-                if (optionsStrategy.getOptions().containsKey(PER_REQUEST_TIMEOUT))
+-                    builder.timeout((long) optionsStrategy.getOptions().get(PER_REQUEST_TIMEOUT));
+-                else if (optionsStrategy.getOptions().containsKey(PER_REQUEST_BATCH_SIZE))
+-                    builder.batchSize((int) optionsStrategy.getOptions().get(PER_REQUEST_BATCH_SIZE));
++                Map<String, Object> options = optionsStrategy.getOptions();
++				if (options.containsKey(PER_REQUEST_TIMEOUT))
++                    builder.timeout((long) options.get(PER_REQUEST_TIMEOUT));
++                else if (options.containsKey(PER_REQUEST_BATCH_SIZE))
++                    builder.batchSize((int) options.get(PER_REQUEST_BATCH_SIZE));
+             }
+ 
+             return client.submitAsync(bytecode, builder.create()).thenApply(rs -> new DriverRemoteTraversal<>(rs, client, attachElements, conf));

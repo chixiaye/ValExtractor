@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+index 4ffd794..3aba836 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+@@ -798,9 +798,10 @@
+ 
+     /** {@inheritDoc} */
+     public FieldVector<T> append(T in) {
+-        final T[] out = MathArrays.buildArray(field, data.length + 1);
+-        System.arraycopy(data, 0, out, 0, data.length);
+-        out[data.length] = in;
++        int length = data.length;
++        final T[] out = MathArrays.buildArray(field, length + 1);
++        System.arraycopy(data, 0, out, 0, length);
++        out[length] = in;
+         return new ArrayFieldVector<T>(field, out, false);
+     }
+ 

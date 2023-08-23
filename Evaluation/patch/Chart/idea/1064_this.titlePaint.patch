@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/editor/DefaultTitleEditor.java b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+index 55b846e..7f5fc8f 100644
+--- a/source/org/jfree/chart/editor/DefaultTitleEditor.java
++++ b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+@@ -247,13 +247,14 @@
+      * Paint chooser).
+      */
+     public void attemptPaintSelection() {
+-        Paint p = this.titlePaint.getPaint();
++        PaintSample titlePaint1 = this.titlePaint;
++        Paint p = titlePaint1.getPaint();
+         Color defaultColor = (p instanceof Color ? (Color) p : Color.blue);
+         Color c = JColorChooser.showDialog(
+             this, localizationResources.getString("Title_Color"), defaultColor
+         );
+         if (c != null) {
+-            this.titlePaint.setPaint(c);
++            titlePaint1.setPaint(c);
+         }
+     }
+ 

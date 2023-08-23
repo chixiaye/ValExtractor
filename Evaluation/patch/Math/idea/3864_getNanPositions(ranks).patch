@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+index 7fd7850..56b6a10 100644
+--- a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
++++ b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+@@ -199,6 +199,7 @@
+ 
+         // Recode, remove or record positions of NaNs
+         List<Integer> nanPositions = null;
++        List<Integer> nanPositions1 = getNanPositions(ranks);
+         switch (nanStrategy) {
+             case MAXIMAL: // Replace NaNs with +INFs
+                 recodeNaNs(ranks, Double.POSITIVE_INFINITY);
+@@ -210,10 +211,10 @@
+                 ranks = removeNaNs(ranks);
+                 break;
+             case FIXED:   // Record positions of NaNs
+-                nanPositions = getNanPositions(ranks);
++                nanPositions = nanPositions1;
+                 break;
+             case FAILED:
+-                nanPositions = getNanPositions(ranks);
++                nanPositions = nanPositions1;
+                 if (nanPositions.size() > 0) {
+                     throw new NotANumberException();
+                 }

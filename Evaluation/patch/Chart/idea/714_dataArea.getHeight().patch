@@ -1,0 +1,32 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..afee1c6 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -1071,15 +1071,18 @@
+                     cursor - dataArea.getWidth(), xx, cursor, xx
+                 );
+             }
+-            else if (edge == RectangleEdge.TOP) {
+-                mark = new Line2D.Double(
+-                    xx, cursor + dataArea.getHeight(), xx, cursor
+-                );
+-            }
+-            else if (edge == RectangleEdge.BOTTOM) {
+-                mark = new Line2D.Double(
+-                    xx, cursor, xx, cursor - dataArea.getHeight()
+-                );
++            else {
++                double height = dataArea.getHeight();
++                if (edge == RectangleEdge.TOP) {
++                    mark = new Line2D.Double(
++                        xx, cursor + height, xx, cursor
++                    );
++                }
++                else if (edge == RectangleEdge.BOTTOM) {
++                    mark = new Line2D.Double(
++                        xx, cursor, xx, cursor - height
++                    );
++                }
+             }
+             g2.draw(mark);
+         }

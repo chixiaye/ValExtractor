@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..9b3df69 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -1144,8 +1144,9 @@
+             if (iRules.size() == 2) {
+                 Rule startRule = iRules.get(0);
+                 Rule endRule = iRules.get(1);
+-                if (startRule.getToYear() == Integer.MAX_VALUE &&
+-                    endRule.getToYear() == Integer.MAX_VALUE) {
++                int maxValue = Integer.MAX_VALUE;
++                if (startRule.getToYear() == maxValue &&
++                    endRule.getToYear() == maxValue) {
+ 
+                     // With exactly two infinitely recurring rules left, a
+                     // simple DSTZone can be formed.

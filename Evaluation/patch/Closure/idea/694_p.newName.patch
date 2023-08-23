@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/AmbiguateProperties.java b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+index 68c3996..d59bd70 100644
+--- a/src/com/google/javascript/jscomp/AmbiguateProperties.java
++++ b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+@@ -231,12 +231,15 @@
+     for (Node n : stringNodesToRename) {
+       String oldName = n.getString();
+       Property p = propertyMap.get(oldName);
+-      if (p != null && p.newName != null) {
+-        Preconditions.checkState(oldName.equals(p.oldName));
+-        if (!p.newName.equals(oldName)) {
+-          n.setString(p.newName);
+-          compiler.reportCodeChange();
+-        }
++      if (p != null) {
++          String newName = p.newName;
++          if (newName != null) {
++              Preconditions.checkState(oldName.equals(p.oldName));
++              if (!newName.equals(oldName)) {
++                  n.setString(newName);
++                  compiler.reportCodeChange();
++              }
++          }
+       }
+     }
+ 

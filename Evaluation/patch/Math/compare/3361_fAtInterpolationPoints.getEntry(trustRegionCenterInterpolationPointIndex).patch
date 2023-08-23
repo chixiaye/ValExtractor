@@ -1,0 +1,144 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..7e5bdb7 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1195,7 +1195,8 @@
+         }
+         case 720: {
+             printState(720); // XXX
+-            if (fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex) <= fsave) {
++            double var_3361 = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			if (var_3361 <= fsave) {
+                 for (int i = 0; i < n; i++) {
+                     // Computing MIN
+                     // Computing MAX
+@@ -1211,7 +1212,7 @@
+                         currentBest.setEntry(i, upperBound[i]);
+                     }
+                 }
+-                f = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++                f = var_3361;
+             }
+             return f;
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..7433049 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -442,7 +442,9 @@
+         // call of RESCUE that makes a call of CALFUN.
+ 
+         int state = 20;
+-        for(;;) switch (state) {
++        for(;;) {
++			double var_3361 = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			switch (state) {
+         case 20: {
+             printState(20); // XXX
+             if (trustRegionCenterInterpolationPointIndex != kbase) {
+@@ -837,7 +839,7 @@
+             // Use the quadratic model to predict the change in F due to the step D,
+             //   and set DIFF to the error of this prediction.
+ 
+-            final double fopt = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			    final double fopt = var_3361;
+             double vquad = ZERO;
+             int ih = 0;
+             for (int j = 0; j < n; j++) {
+@@ -1019,7 +1021,7 @@
+ 
+             if (ntrits > 0) {
+                 for (int k = 0; k < npt; k++) {
+-                    lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex));
++			            lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - var_3361);
+                     work3.setEntry(k, ZERO);
+                 }
+                 for (int j = 0; j < nptm; j++) {
+@@ -1195,7 +1197,7 @@
+         }
+         case 720: {
+             printState(720); // XXX
+-            if (fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex) <= fsave) {
++			    if (var_3361 <= fsave) {
+                 for (int i = 0; i < n; i++) {
+                     // Computing MIN
+                     // Computing MAX
+@@ -1211,13 +1213,14 @@
+                         currentBest.setEntry(i, upperBound[i]);
+                     }
+                 }
+-                f = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			        f = var_3361;
+             }
+             return f;
+         }
+         default: {
+             throw new MathIllegalStateException(LocalizedFormats.SIMPLE_MESSAGE, "bobyqb");
+         }}
++		}
+     } // bobyqb
+ 
+     // ----------------------------------------------------------------------------------------
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..3e8d81b 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -442,7 +442,9 @@
+         // call of RESCUE that makes a call of CALFUN.
+ 
+         int state = 20;
+-        for(;;) switch (state) {
++        for(;;) {
++            double entry = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++            switch (state) {
+         case 20: {
+             printState(20); // XXX
+             if (trustRegionCenterInterpolationPointIndex != kbase) {
+@@ -837,7 +839,7 @@
+             // Use the quadratic model to predict the change in F due to the step D,
+             //   and set DIFF to the error of this prediction.
+ 
+-            final double fopt = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++                final double fopt = entry;
+             double vquad = ZERO;
+             int ih = 0;
+             for (int j = 0; j < n; j++) {
+@@ -1019,7 +1021,7 @@
+ 
+             if (ntrits > 0) {
+                 for (int k = 0; k < npt; k++) {
+-                    lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex));
++                        lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - entry);
+                     work3.setEntry(k, ZERO);
+                 }
+                 for (int j = 0; j < nptm; j++) {
+@@ -1195,7 +1197,7 @@
+         }
+         case 720: {
+             printState(720); // XXX
+-            if (fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex) <= fsave) {
++                if (entry <= fsave) {
+                 for (int i = 0; i < n; i++) {
+                     // Computing MIN
+                     // Computing MAX
+@@ -1211,13 +1213,14 @@
+                         currentBest.setEntry(i, upperBound[i]);
+                     }
+                 }
+-                f = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++                    f = entry;
+             }
+             return f;
+         }
+         default: {
+             throw new MathIllegalStateException(LocalizedFormats.SIMPLE_MESSAGE, "bobyqb");
+         }}
++        }
+     } // bobyqb
+ 
+     // ----------------------------------------------------------------------------------------

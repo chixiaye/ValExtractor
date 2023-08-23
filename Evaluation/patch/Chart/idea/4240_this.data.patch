@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..6aed525 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -243,8 +243,9 @@
+         if (item == null) {
+             throw new IllegalArgumentException("Null item not allowed.");
+         }
+-        this.data.add(item);
+-        updateBounds(item.getPeriod(), this.data.size() - 1);
++        List data1 = this.data;
++        data1.add(item);
++        updateBounds(item.getPeriod(), data1.size() - 1);
+         fireSeriesChanged();
+     }
+     

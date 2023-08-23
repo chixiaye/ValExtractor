@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/AliasExternals.java b/src/com/google/javascript/jscomp/AliasExternals.java
+index fc43f34..49044a8 100644
+--- a/src/com/google/javascript/jscomp/AliasExternals.java
++++ b/src/com/google/javascript/jscomp/AliasExternals.java
+@@ -321,7 +321,8 @@
+     Node propNameNode = getPropNode.getLastChild();
+     Node parentNode = getPropNode.getParent();
+ 
+-    Symbol prop = props.get(propNameNode.getString());
++      String string = propNameNode.getString();
++      Symbol prop = props.get(string);
+     if (prop.aliasMutator) {
+       Node propSrc = getPropNode.getFirstChild();
+       Node propDest = parentNode.getLastChild();
+@@ -334,7 +335,7 @@
+       // Create the call GETPROP_prop() node, using the old propSrc as the
+       // one parameter to GETPROP_prop() call.
+       Node callName = IR.name(
+-          getMutatorFor(propNameNode.getString()));
++          getMutatorFor(string));
+       Node call = IR.call( callName, propSrc, propDest);
+       call.putBooleanProp(Node.FREE_CALL, true);
+ 

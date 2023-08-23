@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYSplineRenderer.java b/source/org/jfree/chart/renderer/xy/XYSplineRenderer.java
+index 6841362..3bb0f27 100644
+--- a/source/org/jfree/chart/renderer/xy/XYSplineRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYSplineRenderer.java
+@@ -214,7 +214,8 @@
+                 }
+                 else {
+                     // construct spline
+-                    int np = this.points.size(); // number of points
++                    Vector points1 = this.points;
++                    int np = points1.size(); // number of points
+                     float[] d = new float[np]; // Newton form coefficients
+                     float[] x = new float[np]; // x-coordinates of nodes
+                     float y;

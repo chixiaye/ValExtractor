@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+index 6577281..33cbde8 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+@@ -208,7 +208,8 @@
+         }
+ 
+         RealMatrix[] results = new RealMatrix[maxI + 1];
+-        results[0] = this.copy();
++        RealMatrix var_1893 = this.copy();
++		results[0] = var_1893;
+ 
+         for (int i = 1; i <= maxI; ++i) {
+             results[i] = results[i-1].multiply(results[i-1]);

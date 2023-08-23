@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+index 3a5d3e0..1ef01c1 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+@@ -292,7 +292,8 @@
+         }
+         double value = meanValue.doubleValue();
+         double base = 0.0;
+-        double lclip = rangeAxis.getLowerBound();
++        double lowerBound = rangeAxis.getLowerBound();
++        double lclip = lowerBound;
+         double uclip = rangeAxis.getUpperBound();
+ 
+         if (uclip <= 0.0) {  // cases 1, 2, 3 and 4
+@@ -318,7 +319,7 @@
+             if (value <= lclip) {
+                 return; // bar is not visible
+             }
+-            base = rangeAxis.getLowerBound();
++            base = lowerBound;
+             if (value >= uclip) {
+                value = uclip;
+             }

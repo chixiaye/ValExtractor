@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+index a8877eb..5b1f408 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+@@ -858,7 +858,8 @@
+                 double infinity = Double.POSITIVE_INFINITY;
+                 for (int i = 1; i < function.length; ++i) {
+                     infinity = -infinity;
+-                    function[i] = infinity;
++                    double v = function[i];
++                    v = infinity;
+                 }
+             } else if (operand[operandOffset] < 0) {
+                 Arrays.fill(function, Double.NaN);

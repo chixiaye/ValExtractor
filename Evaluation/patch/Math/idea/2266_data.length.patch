@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+index 4ffd794..e266f51 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+@@ -891,8 +891,9 @@
+      */
+     protected void checkVectorDimensions(int n)
+         throws DimensionMismatchException {
+-        if (data.length != n) {
+-            throw new DimensionMismatchException(data.length, n);
++        int length = data.length;
++        if (length != n) {
++            throw new DimensionMismatchException(length, n);
+         }
+     }
+ 

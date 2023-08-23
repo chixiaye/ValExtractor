@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver.java b/src/main/java/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver.java
+index c481d20..90fb16f 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver.java
++++ b/src/main/java/org/apache/commons/math3/analysis/solvers/BracketingNthOrderBrentSolver.java
+@@ -255,6 +255,7 @@
+             double nextX;
+             int start = 0;
+             int end   = nbPoints;
++            boolean naN = Double.isNaN(nextX);
+             do {
+ 
+                 // guess a value for current target, using inverse polynomial interpolation
+@@ -280,9 +281,9 @@
+ 
+                 }
+ 
+-            } while (Double.isNaN(nextX) && (end - start > 1));
++            } while (naN && (end - start > 1));
+ 
+-            if (Double.isNaN(nextX)) {
++            if (naN) {
+                 // fall back to bisection
+                 nextX = xA + 0.5 * (xB - xA);
+                 start = signChangeIndex - 1;

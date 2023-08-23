@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+index ee3e0b4..454ab03 100644
+--- a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+@@ -238,10 +238,11 @@
+             return;
+         }
+ 
++        RectangleEdge rangeAxisEdge = plot.getRangeAxisEdge();
+         double yy0 = rangeAxis.valueToJava2D(y0, dataArea,
+-                plot.getRangeAxisEdge());
++                rangeAxisEdge);
+         double yy1 = rangeAxis.valueToJava2D(y1, dataArea,
+-                plot.getRangeAxisEdge());
++                rangeAxisEdge);
+ 
+         RectangleEdge xAxisLocation = plot.getDomainAxisEdge();
+         double x0 = intervalDataset.getStartXValue(series, item);

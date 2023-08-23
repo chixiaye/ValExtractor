@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java b/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
+index 2cbebcf..c713181 100644
+--- a/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
++++ b/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
+@@ -107,10 +107,11 @@
+      */
+     public void addSeriesLabel(int series, String label) {
+         Integer key = new Integer(series);
+-        List labelList = (List) this.seriesLabelLists.get(key);
++        Map seriesLabelLists1 = this.seriesLabelLists;
++        List labelList = (List) seriesLabelLists1.get(key);
+         if (labelList == null) {
+             labelList = new java.util.ArrayList();
+-            this.seriesLabelLists.put(key, labelList);
++            seriesLabelLists1.put(key, labelList);
+         }
+         labelList.add(label);
+     }

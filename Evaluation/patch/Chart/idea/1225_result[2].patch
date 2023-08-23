@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/AbstractCategoryItemLabelGenerator.java b/source/org/jfree/chart/labels/AbstractCategoryItemLabelGenerator.java
+index 21d9da3..9c466e3 100644
+--- a/source/org/jfree/chart/labels/AbstractCategoryItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/AbstractCategoryItemLabelGenerator.java
+@@ -253,7 +253,8 @@
+                 result[2] = this.numberFormat.format(value);
+             }
+             else if (this.dateFormat != null) {
+-                result[2] = this.dateFormat.format(value);
++                Object o = result[2];
++                o = this.dateFormat.format(value);
+             }
+         }
+         else {

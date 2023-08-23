@@ -1,0 +1,37 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..e38ecee 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -30,12 +30,7 @@
+ import java.util.Locale;
+ import java.util.Set;
+ 
+-import org.joda.time.Chronology;
+-import org.joda.time.DateTime;
+-import org.joda.time.DateTimeUtils;
+-import org.joda.time.DateTimeZone;
+-import org.joda.time.Period;
+-import org.joda.time.PeriodType;
++import org.joda.time.*;
+ import org.joda.time.chrono.ISOChronology;
+ 
+ /**
+@@ -600,7 +595,8 @@
+             instant += offset;
+ 
+             Chronology chrono = ISOChronology.getInstanceUTC();
+-            long prev = chrono.monthOfYear().set(instant, iMonthOfYear);
++            DateTimeField dateTimeField = chrono.monthOfYear();
++            long prev = dateTimeField.set(instant, iMonthOfYear);
+             // Be lenient with millisOfDay.
+             prev = chrono.millisOfDay().set(prev, 0);
+             prev = chrono.millisOfDay().add(prev, iMillisOfDay);
+@@ -615,7 +611,7 @@
+                 prev = setDayOfWeek(chrono, prev);
+                 if (prev >= instant) {
+                     prev = chrono.year().add(prev, -1);
+-                    prev = chrono.monthOfYear().set(prev, iMonthOfYear);
++                    prev = dateTimeField.set(prev, iMonthOfYear);
+                     prev = setDayOfMonthPrevious(chrono, prev);
+                     prev = setDayOfWeek(chrono, prev);
+                 }

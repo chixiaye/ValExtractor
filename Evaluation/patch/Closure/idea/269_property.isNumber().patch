@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java b/src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java
+index decfc10..afc3bad 100644
+--- a/src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java
++++ b/src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java
+@@ -233,14 +233,15 @@
+     Node property = obj.getNext();
+ 
+     // The property must be statically known.
+-    if (lhs.isGetElem()
++      boolean number = property.isNumber();
++      if (lhs.isGetElem()
+         && (!property.isString()
+-            && !property.isNumber())) {
++            && !number)) {
+       return false;
+     }
+ 
+     String propertyName;
+-    if (property.isNumber()) {
++    if (number) {
+       propertyName = NodeUtil.getStringValue(property);
+     } else {
+       propertyName = property.getString();

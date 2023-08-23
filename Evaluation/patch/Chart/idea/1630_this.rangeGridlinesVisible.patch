@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..dac7f3c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2023,7 +2023,8 @@
+      * @see #isRangeGridlinesVisible()
+      */
+     public void setRangeGridlinesVisible(boolean visible) {
+-        if (this.rangeGridlinesVisible != visible) {
++        boolean rangeGridlinesVisible1 = this.rangeGridlinesVisible;
++        if (rangeGridlinesVisible1 != visible) {
+             this.rangeGridlinesVisible = visible;
+             fireChangeEvent();
+         }

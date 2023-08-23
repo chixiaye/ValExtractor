@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..e8d21fb 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -526,10 +526,11 @@
+         BoxAndWhiskerCategoryDataset bawDataset
+                 = (BoxAndWhiskerCategoryDataset) dataset;
+ 
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         double categoryEnd = domainAxis.getCategoryEnd(column,
+-                getColumnCount(), dataArea, plot.getDomainAxisEdge());
++                getColumnCount(), dataArea, domainAxisEdge);
+         double categoryStart = domainAxis.getCategoryStart(column,
+-                getColumnCount(), dataArea, plot.getDomainAxisEdge());
++                getColumnCount(), dataArea, domainAxisEdge);
+         double categoryWidth = Math.abs(categoryEnd - categoryStart);
+ 
+         double yy = categoryStart;

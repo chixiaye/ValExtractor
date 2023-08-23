@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..8c3b97d 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -1411,8 +1411,9 @@
+ 
+         for (int i = 0; i < n; i++) {
+             final double tmp = trustRegionCenterOffset.getEntry(i) + stpsav * (interpolationPoints.getEntry(ksav, i) - trustRegionCenterOffset.getEntry(i));
++            double min = Math.min(upperDifference.getEntry(i), tmp);
+             newPoint.setEntry(i, Math.max(lowerDifference.getEntry(i),
+-                                      Math.min(upperDifference.getEntry(i), tmp)));
++                    min));
+         }
+         if (ibdsav < 0) {
+             newPoint.setEntry(-ibdsav - 1, lowerDifference.getEntry(-ibdsav - 1));

@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterManager.java b/src/main/java/org/joda/time/convert/ConverterManager.java
+index 0b029aa..58cf998 100644
+--- a/src/main/java/org/joda/time/convert/ConverterManager.java
++++ b/src/main/java/org/joda/time/convert/ConverterManager.java
+@@ -104,8 +104,9 @@
+     protected ConverterManager() {
+         super();
+ 
++        ReadableInstantConverter instance = ReadableInstantConverter.INSTANCE;
+         iInstantConverters = new ConverterSet(new Converter[] {
+-            ReadableInstantConverter.INSTANCE,
++                instance,
+             StringConverter.INSTANCE,
+             CalendarConverter.INSTANCE,
+             DateConverter.INSTANCE,
+@@ -115,7 +116,7 @@
+ 
+         iPartialConverters = new ConverterSet(new Converter[] {
+             ReadablePartialConverter.INSTANCE,
+-            ReadableInstantConverter.INSTANCE,
++                instance,
+             StringConverter.INSTANCE,
+             CalendarConverter.INSTANCE,
+             DateConverter.INSTANCE,

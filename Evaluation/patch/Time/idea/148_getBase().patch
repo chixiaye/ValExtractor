@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/chrono/ZonedChronology.java b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+index c7c2da6..6f22212 100644
+--- a/src/main/java/org/joda/time/chrono/ZonedChronology.java
++++ b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+@@ -96,10 +96,11 @@
+         if (zone == getParam()) {
+             return this;
+         }
++        Chronology base = getBase();
+         if (zone == DateTimeZone.UTC) {
+-            return getBase();
++            return base;
+         }
+-        return new ZonedChronology(getBase(), zone);
++        return new ZonedChronology(base, zone);
+     }
+ 
+     public long getDateTimeMillis(int year, int monthOfYear, int dayOfMonth,

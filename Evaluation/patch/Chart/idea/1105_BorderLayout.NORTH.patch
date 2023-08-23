@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..e47265f 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -291,11 +291,12 @@
+             interior.add(this.drawShapesCheckBox);
+         }
+ 
+-        general.add(interior, BorderLayout.NORTH);
++        String north = BorderLayout.NORTH;
++        general.add(interior, north);
+ 
+         JPanel appearance = new JPanel(new BorderLayout());
+         appearance.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+-        appearance.add(general, BorderLayout.NORTH);
++        appearance.add(general, north);
+ 
+         JTabbedPane tabs = new JTabbedPane();
+         tabs.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));

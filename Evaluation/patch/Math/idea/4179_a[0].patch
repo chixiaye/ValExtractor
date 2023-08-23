@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+index 07c0bdc..f75236c 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+@@ -353,7 +353,8 @@
+         } else {
+             double z = c * 9.31322574615478515625E-10;
+             a[0] = (c + z - c) * HEX_40000000;
+-            a[1] = c - a[0] + d;
++            double v = a[0];
++            a[1] = c - v + d;
+         }
+     }
+ 

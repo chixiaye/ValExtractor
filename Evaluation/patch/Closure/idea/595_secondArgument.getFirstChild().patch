@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java b/src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java
+index 3189487..e9ac84c 100644
+--- a/src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java
++++ b/src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java
+@@ -66,18 +66,19 @@
+       Node firstArgument = objectName.getNext();
+       Node secondArgument = firstArgument.getNext();
+       int secondArgumentType = secondArgument.getType();
+-      if (secondArgumentType == Token.GETPROP) {
++        Node firstChild = secondArgument.getFirstChild();
++        if (secondArgumentType == Token.GETPROP) {
+         // Rewrite "new goog.testing.ObjectPropertyString(window, foo.bar)"
+         // as "new goog.testing.ObjectPropertyString(foo, 'bar')".
+-        Node newChild = secondArgument.getFirstChild();
++        Node newChild = firstChild;
+         secondArgument.removeChild(newChild);
+         n.replaceChild(firstArgument, newChild);
+         n.replaceChild(secondArgument,
+-            IR.string(secondArgument.getFirstChild().getString()));
++            IR.string(firstChild.getString()));
+       } else if (secondArgumentType == Token.GETELEM) {
+         // Rewrite "new goog.testing.ObjectPropertyString(window, foo[bar])"
+         // as "new goog.testing.ObjectPropertyString(foo, bar)".
+-        Node newFirstArgument = secondArgument.getFirstChild();
++        Node newFirstArgument = firstChild;
+         secondArgument.removeChild(newFirstArgument);
+         Node newSecondArgument = secondArgument.getLastChild();
+         secondArgument.removeChild(newSecondArgument);

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.java
+index 0450ebd..801068b 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/GLSMultipleLinearRegression.java
+@@ -129,7 +129,8 @@
+     protected double calculateErrorVariance() {
+         RealVector residuals = calculateResiduals();
+         double t = residuals.dotProduct(getOmegaInverse().operate(residuals));
+-        return t / (getX().getRowDimension() - getX().getColumnDimension());
++        RealMatrix x = getX();
++        return t / (x.getRowDimension() - x.getColumnDimension());
+ 
+     }
+ 

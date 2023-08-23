@@ -1,0 +1,35 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+index 2b007b2..c1246de 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+@@ -268,10 +268,11 @@
+                                           final int key, final int mask) {
+         final int hash = hashOf(key);
+         int index = hash & mask;
++        int i = changeIndexSign(index);
+         if (states[index] == FREE) {
+             return index;
+         } else if (states[index] == FULL && keys[index] == key) {
+-            return changeIndexSign(index);
++            return i;
+         }
+ 
+         int perturb = perturb(hash);
+@@ -293,7 +294,7 @@
+         } else if (states[index] == FULL) {
+             // due to the loop exit condition,
+             // if (states[index] == FULL) then keys[index] == key
+-            return changeIndexSign(index);
++            return i;
+         }
+ 
+         final int firstRemoved = index;
+@@ -304,7 +305,7 @@
+             if (states[index] == FREE) {
+                 return firstRemoved;
+             } else if (states[index] == FULL && keys[index] == key) {
+-                return changeIndexSign(index);
++                return i;
+             }
+ 
+             perturb >>= PERTURB_SHIFT;

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJLocaleSymbols.java b/src/main/java/org/joda/time/chrono/GJLocaleSymbols.java
+index 2c8fa15..9dfbefb 100644
+--- a/src/main/java/org/joda/time/chrono/GJLocaleSymbols.java
++++ b/src/main/java/org/joda/time/chrono/GJLocaleSymbols.java
+@@ -43,7 +43,8 @@
+             locale = Locale.getDefault();
+         }
+         int index = System.identityHashCode(locale) & (FAST_CACHE_SIZE - 1);
+-        GJLocaleSymbols symbols = cFastCache[index];
++        GJLocaleSymbols gjLocaleSymbols = cFastCache[index];
++        GJLocaleSymbols symbols = gjLocaleSymbols;
+         if (symbols != null && symbols.iLocale.get() == locale) {
+             return symbols;
+         }

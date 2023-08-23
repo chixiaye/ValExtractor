@@ -1,0 +1,60 @@
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..fd5d4cc 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -263,29 +263,32 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE4)) {
+             result = ItemLabelAnchor.OUTSIDE4;
+         }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE5)) {
+-            result = ItemLabelAnchor.OUTSIDE5;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE6)) {
+-            result = ItemLabelAnchor.OUTSIDE6;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE7)) {
+-            result = ItemLabelAnchor.OUTSIDE7;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE8)) {
+-            result = ItemLabelAnchor.OUTSIDE8;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE9)) {
+-            result = ItemLabelAnchor.OUTSIDE9;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
+-            result = ItemLabelAnchor.OUTSIDE10;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+-            result = ItemLabelAnchor.OUTSIDE11;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+-            result = ItemLabelAnchor.OUTSIDE12;
++        else {
++            ItemLabelAnchor outside5 = ItemLabelAnchor.OUTSIDE5;
++            if (this.equals(outside5)) {
++                result = outside5;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE6)) {
++                result = ItemLabelAnchor.OUTSIDE6;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE7)) {
++                result = ItemLabelAnchor.OUTSIDE7;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE8)) {
++                result = ItemLabelAnchor.OUTSIDE8;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE9)) {
++                result = ItemLabelAnchor.OUTSIDE9;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
++                result = ItemLabelAnchor.OUTSIDE10;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
++                result = ItemLabelAnchor.OUTSIDE11;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
++                result = ItemLabelAnchor.OUTSIDE12;
++            }
+         }
+         return result;
+     }

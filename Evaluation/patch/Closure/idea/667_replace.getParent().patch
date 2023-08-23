@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..8030948 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -384,11 +384,12 @@
+       Node replace = ref.getParent();
+       replacement.copyInformationFromForTree(replace);
+ 
+-      if (replace.isVar()) {
+-        replace.getParent().replaceChild(
++        Node parent = replace.getParent();
++        if (replace.isVar()) {
++        parent.replaceChild(
+             replace, NodeUtil.newExpr(replacement));
+       } else {
+-        replace.getParent().replaceChild(replace, replacement);
++        parent.replaceChild(replace, replacement);
+       }
+     }
+ 

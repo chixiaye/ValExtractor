@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPlot.java b/source/org/jfree/chart/plot/dial/DialPlot.java
+index acb9f7c..adc9112 100644
+--- a/source/org/jfree/chart/plot/dial/DialPlot.java
++++ b/source/org/jfree/chart/plot/dial/DialPlot.java
+@@ -554,8 +554,9 @@
+         }
+ 
+         Iterator iterator = this.layers.iterator();
++        Object next = iterator.next();
+         while (iterator.hasNext()) {
+-            DialLayer current = (DialLayer) iterator.next();
++            DialLayer current = (DialLayer) next;
+             if (current.isVisible()) {
+                 if (current.isClippedToWindow()) {
+                     Shape savedClip = g2.getClip();
+@@ -572,7 +573,7 @@
+         // draw the pointers
+         iterator = this.pointers.iterator();
+         while (iterator.hasNext()) {
+-            DialPointer current = (DialPointer) iterator.next();
++            DialPointer current = (DialPointer) next;
+             if (current.isVisible()) {
+                 if (current.isClippedToWindow()) {
+                     Shape savedClip = g2.getClip();

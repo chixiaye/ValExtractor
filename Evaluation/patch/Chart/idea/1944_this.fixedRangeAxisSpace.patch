@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..3d3d7d1 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -5140,9 +5140,10 @@
+             clone.fixedDomainAxisSpace = (AxisSpace) ObjectUtilities.clone(
+                     this.fixedDomainAxisSpace);
+         }
+-        if (this.fixedRangeAxisSpace != null) {
++        AxisSpace fixedRangeAxisSpace1 = this.fixedRangeAxisSpace;
++        if (fixedRangeAxisSpace1 != null) {
+             clone.fixedRangeAxisSpace = (AxisSpace) ObjectUtilities.clone(
+-                    this.fixedRangeAxisSpace);
++                    fixedRangeAxisSpace1);
+         }
+ 
+         clone.annotations = (List) ObjectUtilities.deepClone(this.annotations);

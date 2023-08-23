@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java b/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
+index ce7a873..008c940 100644
+--- a/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
++++ b/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
+@@ -315,9 +315,10 @@
+         context = new HashMap<String, Object>();
+         for (int i = 0; i < len; i++) {
+             // Step 2.
+-            final String key = (String) in.readObject();
++            Object o = in.readObject();
++            final String key = (String) o;
+             // Step 3.
+-            final Object value = in.readObject();
++            final Object value = o;
+             context.put(key, value);
+         }
+     }

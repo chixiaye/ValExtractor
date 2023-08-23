@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/Statistics.java b/source/org/jfree/data/statistics/Statistics.java
+index 1f97438..0f34633 100644
+--- a/source/org/jfree/data/statistics/Statistics.java
++++ b/source/org/jfree/data/statistics/Statistics.java
+@@ -347,7 +347,8 @@
+ 
+         double[] result = new double[2];
+         // slope
+-        result[1] = getSlope(xData, yData);
++        double v = result[1];
++        v = getSlope(xData, yData);
+         // intercept
+         result[0] = calculateMean(yData) - result[1] * calculateMean(xData);
+ 

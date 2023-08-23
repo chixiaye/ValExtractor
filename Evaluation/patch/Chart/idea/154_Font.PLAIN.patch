@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..c0e3c6a 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -307,8 +307,9 @@
+         this.name = name;
+         this.extraLargeFont = new Font("Tahoma", Font.BOLD, 20);
+         this.largeFont = new Font("Tahoma", Font.BOLD, 14);
+-        this.regularFont = new Font("Tahoma", Font.PLAIN, 12);
+-        this.smallFont = new Font("Tahoma", Font.PLAIN, 10);
++        int plain = Font.PLAIN;
++        this.regularFont = new Font("Tahoma", plain, 12);
++        this.smallFont = new Font("Tahoma", plain, 10);
+         this.titlePaint = Color.black;
+         this.subtitlePaint = Color.black;
+         this.legendBackgroundPaint = Color.white;

@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
+index 12badd2..c865d69 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
+@@ -236,7 +236,8 @@
+             WeightedObservedPoint curr = observations[0];
+             for (int j = 1; j < observations.length; ++j) {
+                 WeightedObservedPoint prec = curr;
+-                curr = observations[j];
++                WeightedObservedPoint observation = observations[j];
++                curr = observation;
+                 if (curr.getX() < prec.getX()) {
+                     // the current element should be inserted closer to the beginning
+                     int i = j - 1;
+@@ -248,7 +249,7 @@
+                         }
+                     }
+                     observations[i + 1] = curr;
+-                    curr = observations[j];
++                    curr = observation;
+                 }
+             }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..8e12fe6 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -257,7 +257,8 @@
+           }
+ 
+           // If there's a TWIN def, only put one of the twins in.
+-          if (ref.getTwin() == null || !ref.getTwin().isSet()) {
++            Ref twin = ref.getTwin();
++            if (twin == null || !twin.isSet()) {
+             allRefInfo.put(ref.node, new RefInfo(ref, name));
+           }
+         }

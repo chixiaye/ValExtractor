@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..ccaee09 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -323,8 +323,9 @@
+      * @return An unmodifiable list of subplots.
+      */
+     public List getSubplots() {
+-        if (this.subplots != null) {
+-            return Collections.unmodifiableList(this.subplots);
++        List subplots1 = this.subplots;
++        if (subplots1 != null) {
++            return Collections.unmodifiableList(subplots1);
+         }
+         else {
+             return Collections.EMPTY_LIST;

@@ -1,0 +1,41 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..37903dd 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1291,10 +1291,11 @@
+    * annotation.
+    */
+   public int getImplementedInterfaceCount() {
+-    if (info == null || info.implementedInterfaces == null) {
++    List<JSTypeExpression> var_2514 = info.implementedInterfaces;
++	if (info == null || var_2514 == null) {
+       return 0;
+     }
+-    return info.implementedInterfaces.size();
++    return var_2514.size();
+   }
+ 
+   /**
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..40be657 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1291,10 +1291,11 @@
+    * annotation.
+    */
+   public int getImplementedInterfaceCount() {
+-    if (info == null || info.implementedInterfaces == null) {
++      List<JSTypeExpression> implementedInterfaces = info.implementedInterfaces;
++      if (info == null || implementedInterfaces == null) {
+       return 0;
+     }
+-    return info.implementedInterfaces.size();
++    return implementedInterfaces.size();
+   }
+ 
+   /**

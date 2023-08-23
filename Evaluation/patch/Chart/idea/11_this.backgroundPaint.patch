@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..7e95754 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -971,6 +971,7 @@
+ 
+         if (this.backgroundPaint != null) {
+             if (!this.backgroundPaint.equals(paint)) {
++                Paint backgroundPaint1 = this.backgroundPaint;
+                 this.backgroundPaint = paint;
+                 fireChartChanged();
+             }

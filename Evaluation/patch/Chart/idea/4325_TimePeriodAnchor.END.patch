@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/time/TimePeriodAnchor.java b/source/org/jfree/data/time/TimePeriodAnchor.java
+index 4bf751e..4f67908 100644
+--- a/source/org/jfree/data/time/TimePeriodAnchor.java
++++ b/source/org/jfree/data/time/TimePeriodAnchor.java
+@@ -134,8 +134,11 @@
+         else if (this.equals(TimePeriodAnchor.MIDDLE)) {
+             return TimePeriodAnchor.MIDDLE;
+         }
+-        else if (this.equals(TimePeriodAnchor.END)) {
+-            return TimePeriodAnchor.END;
++        else {
++            TimePeriodAnchor end = TimePeriodAnchor.END;
++            if (this.equals(end)) {
++                return end;
++            }
+         }
+         return null;
+     }

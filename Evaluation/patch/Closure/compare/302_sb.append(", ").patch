@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..30a5ab5 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1236,7 +1236,7 @@
+         while (protoIter.hasNext()) {
+           sb.append(protoIter.next());
+           if (protoIter.hasNext()) {
+-            sb.append(", ");
++            StringBuilder var_302 = sb.append(", ");
+           }
+         }
+       }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..30a5ab5 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1236,7 +1236,7 @@
+         while (protoIter.hasNext()) {
+           sb.append(protoIter.next());
+           if (protoIter.hasNext()) {
+-            sb.append(", ");
++            StringBuilder var_302 = sb.append(", ");
+           }
+         }
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..90d3ccc 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1230,13 +1230,14 @@
+     sb.append("ALL NAMES<ul>\n");
+     for (JsName node : allNames.values()) {
+       sb.append("<li>" + nameAnchor(node.name) + "<ul>");
++        StringBuilder append = sb.append(", ");
+       if (node.prototypeNames.size() > 0) {
+         sb.append("<li>PROTOTYPES: ");
+         Iterator<String> protoIter = node.prototypeNames.iterator();
+         while (protoIter.hasNext()) {
+           sb.append(protoIter.next());
+           if (protoIter.hasNext()) {
+-            sb.append(", ");
++            append;
+           }
+         }
+       }
+@@ -1250,7 +1251,7 @@
+           while (toIter.hasNext()) {
+             sb.append(nameLink(toIter.next().getDestination().getValue().name));
+             if (toIter.hasNext()) {
+-              sb.append(", ");
++              append;
+             }
+           }
+         }
+@@ -1264,7 +1265,7 @@
+             sb.append(
+                 nameLink(fromIter.next().getDestination().getValue().name));
+             if (fromIter.hasNext()) {
+-              sb.append(", ");
++              append;
+             }
+           }
+         }

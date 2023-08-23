@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..c0016b5 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -1041,11 +1041,12 @@
+     }
+ 
+     Node value = null;
+-    if (n.isExprResult()) {
+-      Node assign = n.getFirstChild();
++      Node firstChild = n.getFirstChild();
++      if (n.isExprResult()) {
++      Node assign = firstChild;
+       value = assign.getLastChild();
+     } else if (n.isVar()) {
+-      Node name = n.getFirstChild();
++      Node name = firstChild;
+       value = name.getFirstChild();
+     }
+ 

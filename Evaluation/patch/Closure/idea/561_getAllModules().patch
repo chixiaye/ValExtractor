@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/JSModuleGraph.java b/src/com/google/javascript/jscomp/JSModuleGraph.java
+index 114ad2a..62c0f15 100644
+--- a/src/com/google/javascript/jscomp/JSModuleGraph.java
++++ b/src/com/google/javascript/jscomp/JSModuleGraph.java
+@@ -391,7 +391,8 @@
+ 
+     // Clear the modules of their inputs. This also nulls out
+     // the input's reference to its module.
+-    for (JSModule module : getAllModules()) {
++      Iterable<JSModule> allModules = getAllModules();
++      for (JSModule module : allModules) {
+       module.removeAll();
+     }
+ 
+@@ -425,7 +426,7 @@
+ 
+     // Now, generate the sorted result.
+     List<CompilerInput> result = Lists.newArrayList();
+-    for (JSModule module : getAllModules()) {
++    for (JSModule module : allModules) {
+       result.addAll(module.getInputs());
+     }
+ 

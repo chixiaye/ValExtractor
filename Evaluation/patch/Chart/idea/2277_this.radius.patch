@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPointer.java b/source/org/jfree/chart/plot/dial/DialPointer.java
+index 1aba46d..3f82df3 100644
+--- a/source/org/jfree/chart/plot/dial/DialPointer.java
++++ b/source/org/jfree/chart/plot/dial/DialPointer.java
+@@ -304,8 +304,9 @@
+ 
+             g2.setPaint(this.paint);
+             g2.setStroke(this.stroke);
++            double radius1 = this.radius;
+             Rectangle2D arcRect = DialPlot.rectangleByRadius(frame,
+-                    this.radius, this.radius);
++                    radius1, radius1);
+ 
+             double value = plot.getValue(this.datasetIndex);
+             DialScale scale = plot.getScaleForDataset(this.datasetIndex);

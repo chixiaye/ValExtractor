@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..e104fad 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -215,13 +215,14 @@
+                     }
+                 }
+             }
+-            if (zone == DateTimeZone.UTC) {
++            DateTimeZone utc = DateTimeZone.UTC;
++            if (zone == utc) {
+                 chrono = new GJChronology
+                     (JulianChronology.getInstance(zone, minDaysInFirstWeek),
+                      GregorianChronology.getInstance(zone, minDaysInFirstWeek),
+                      cutoverInstant);
+             } else {
+-                chrono = getInstance(DateTimeZone.UTC, cutoverInstant, minDaysInFirstWeek);
++                chrono = getInstance(utc, cutoverInstant, minDaysInFirstWeek);
+                 chrono = new GJChronology
+                     (ZonedChronology.getInstance(chrono, zone),
+                      chrono.iJulianChronology,

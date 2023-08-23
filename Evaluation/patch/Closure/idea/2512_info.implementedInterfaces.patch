@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..2e2bccc 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1263,7 +1263,8 @@
+    */
+   boolean addImplementedInterface(JSTypeExpression interfaceName) {
+     lazyInitInfo();
+-    if (info.implementedInterfaces == null) {
++      List<JSTypeExpression> implementedInterfaces = info.implementedInterfaces;
++      if (implementedInterfaces == null) {
+       info.implementedInterfaces = Lists.newArrayListWithCapacity(2);
+     }
+     if (info.implementedInterfaces.contains(interfaceName)) {

@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..87c35b5 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1882,8 +1882,9 @@
+ 
+         if (crosshairState != null) {
+             // do we need to update the crosshair values?
++            boolean rangeCrosshairLockedOnData = this.plot.isRangeCrosshairLockedOnData();
+             if (this.plot.isDomainCrosshairLockedOnData()) {
+-                if (this.plot.isRangeCrosshairLockedOnData()) {
++                if (rangeCrosshairLockedOnData) {
+                     // both axes
+                     crosshairState.updateCrosshairPoint(x, y, domainAxisIndex,
+                             rangeAxisIndex, transX, transY, orientation);
+@@ -1894,7 +1895,7 @@
+                 }
+             }
+             else {
+-                if (this.plot.isRangeCrosshairLockedOnData()) {
++                if (rangeCrosshairLockedOnData) {
+                     // just the range axis...
+                     crosshairState.updateCrosshairY(y, rangeAxisIndex);
+                 }

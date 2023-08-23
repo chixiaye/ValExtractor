@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..cad8969 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1721,7 +1721,8 @@
+    *     | '?'
+    */
+   private Node parseTypeExpression(JsDocToken token) {
+-    if (token == JsDocToken.QMARK) {
++      JsDocToken qmark = JsDocToken.QMARK;
++      if (token == qmark) {
+       // A QMARK could mean that a type is nullable, or that it's unknown.
+       // We use look-ahead 1 to determine whether it's unknown. Otherwise,
+       // we assume it means nullable. There are 5 cases:
+@@ -1752,7 +1753,7 @@
+     } else {
+       Node basicTypeExpr = parseBasicTypeExpression(token);
+       if (basicTypeExpr != null) {
+-        if (match(JsDocToken.QMARK)) {
++        if (match(qmark)) {
+           next();
+           return wrapNode(Token.QMARK, basicTypeExpr);
+         } else if (match(JsDocToken.BANG)) {

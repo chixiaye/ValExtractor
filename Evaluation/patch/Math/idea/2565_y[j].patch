@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java b/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
+index 3a5d11b..f93e143 100644
+--- a/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
++++ b/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
+@@ -468,7 +468,8 @@
+                 for (int i = 0; i < n; ++i) {
+                     dFdY[i][j] = (tmpDot[i] - yDot[i]) / hY[j];
+                 }
+-                y[j] = savedYj;
++                double v = y[j];
++                v = savedYj;
+             }
+         }
+ 

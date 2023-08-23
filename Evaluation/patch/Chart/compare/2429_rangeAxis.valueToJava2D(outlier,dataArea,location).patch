@@ -1,0 +1,94 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..ada236a 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -809,19 +809,20 @@
+                 }
+                 else if (outlier < minOutlier.doubleValue()) {
+                     outlierListCollection.setLowFarOut(true);
+-                }
+-                else if (outlier > maxRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
++                } else {
++					double var_2429 = rangeAxis.valueToJava2D(outlier, dataArea,
+                             location);
++					if (outlier > maxRegular.doubleValue()) {
++					    yyOutlier = var_2429;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
+                 else if (outlier < minRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
+-                            location);
++					    yyOutlier = var_2429;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
++				}
+                 Collections.sort(outliers);
+             }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..ada236a 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -809,19 +809,20 @@
+                 }
+                 else if (outlier < minOutlier.doubleValue()) {
+                     outlierListCollection.setLowFarOut(true);
+-                }
+-                else if (outlier > maxRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
++                } else {
++					double var_2429 = rangeAxis.valueToJava2D(outlier, dataArea,
+                             location);
++					if (outlier > maxRegular.doubleValue()) {
++					    yyOutlier = var_2429;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
+                 else if (outlier < minRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
+-                            location);
++					    yyOutlier = var_2429;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
++				}
+                 Collections.sort(outliers);
+             }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..a8b220f 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -810,18 +810,20 @@
+                 else if (outlier < minOutlier.doubleValue()) {
+                     outlierListCollection.setLowFarOut(true);
+                 }
+-                else if (outlier > maxRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
++                else {
++                    double yyOutlier1 = rangeAxis.valueToJava2D(outlier, dataArea,
+                             location);
++                    if (outlier > maxRegular.doubleValue()) {
++                        yyOutlier = yyOutlier1;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
+                 else if (outlier < minRegular.doubleValue()) {
+-                    yyOutlier = rangeAxis.valueToJava2D(outlier, dataArea,
+-                            location);
++                        yyOutlier = yyOutlier1;
+                     outliers.add(new Outlier(xx + state.getBarWidth() / 2.0,
+                             yyOutlier, oRadius));
+                 }
++                }
+                 Collections.sort(outliers);
+             }
+ 

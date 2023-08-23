@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/field/UnsupportedDurationField.java b/src/main/java/org/joda/time/field/UnsupportedDurationField.java
+index bf44e01..ace2151 100644
+--- a/src/main/java/org/joda/time/field/UnsupportedDurationField.java
++++ b/src/main/java/org/joda/time/field/UnsupportedDurationField.java
+@@ -239,10 +239,11 @@
+             return true;
+         } else if (obj instanceof UnsupportedDurationField) {
+             UnsupportedDurationField other = (UnsupportedDurationField) obj;
++            String name = getName();
+             if (other.getName() == null) {
+-                return (getName() == null);
++                return (name == null);
+             }
+-            return (other.getName().equals(getName()));
++            return (other.getName().equals(name));
+         }
+         return false;
+     }

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java b/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
+index 04d88ae..70690aa 100644
+--- a/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
++++ b/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
+@@ -217,11 +217,12 @@
+   private void replacePrototypeMemberDeclaration(
+       PrototypeMemberDeclaration declar) {
+     // x.prototype.y = ...  ->  t.y = ...
+-    Node assignment = declar.node.getFirstChild();
++      Node node = declar.node;
++      Node assignment = node.getFirstChild();
+     Node lhs = assignment.getFirstChild();
+     Node name = NodeUtil.newQualifiedNameNode(
+         compiler.getCodingConvention(),
+-        prototypeAlias + "." + declar.memberName, declar.node,
++        prototypeAlias + "." + declar.memberName, node,
+         declar.memberName);
+ 
+     // Save the full prototype path on the left hand side of the assignment

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+index 8d6a50b..2854f40 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+@@ -791,6 +791,7 @@
+                         double rik = weightedJacobian[i][pk];
+                         final double temp2 = cos * rik + sin * lmDiag[i];
+                         lmDiag[i] = -sin * rik + cos * lmDiag[i];
++                        double v = weightedJacobian[i][pk];
+                         weightedJacobian[i][pk] = temp2;
+                     }
+                 }

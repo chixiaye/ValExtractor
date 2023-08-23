@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..649327c 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -540,8 +540,9 @@
+      */
+     public Range getRange() {
+         // TODO: find a cleaner way to do this...
+-        return new Range(this.first.getFirstMillisecond(this.calendar),
+-                this.last.getLastMillisecond(this.calendar));
++        Calendar calendar1 = this.calendar;
++        return new Range(this.first.getFirstMillisecond(calendar1),
++                this.last.getLastMillisecond(calendar1));
+     }
+ 
+     /**

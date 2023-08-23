@@ -1,0 +1,34 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..1e47eac 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -946,8 +946,9 @@
+      */
+     private static int compare(final Dfp a, final Dfp b) {
+         // Ignore the sign of zero
++        byte nans1 = b.nans;
+         if (a.mant[a.mant.length - 1] == 0 && b.mant[b.mant.length - 1] == 0 &&
+-            a.nans == FINITE && b.nans == FINITE) {
++            a.nans == FINITE && nans1 == FINITE) {
+             return 0;
+         }
+ 
+@@ -960,15 +961,15 @@
+         }
+ 
+         // deal with the infinities
+-        if (a.nans == INFINITE && b.nans == FINITE) {
++        if (a.nans == INFINITE && nans1 == FINITE) {
+             return a.sign;
+         }
+ 
+-        if (a.nans == FINITE && b.nans == INFINITE) {
++        if (a.nans == FINITE && nans1 == INFINITE) {
+             return -b.sign;
+         }
+ 
+-        if (a.nans == INFINITE && b.nans == INFINITE) {
++        if (a.nans == INFINITE && nans1 == INFINITE) {
+             return 0;
+         }
+ 

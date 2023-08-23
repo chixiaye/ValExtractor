@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..eaf4d9d 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -402,7 +402,8 @@
+                 // save the state
+                 for (int j = 0; j < solvedCols; ++j) {
+                     int pj = permutation[j];
+-                    oldX[pj] = currentPoint[pj];
++                    double v = currentPoint[pj];
++                    oldX[pj] = v;
+                 }
+                 final double previousCost = currentCost;
+                 double[] tmpVec = weightedResidual;

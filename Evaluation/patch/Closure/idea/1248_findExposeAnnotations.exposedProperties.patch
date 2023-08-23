@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/Normalize.java b/src/com/google/javascript/jscomp/Normalize.java
+index 98b136e..f1b8d9d 100644
+--- a/src/com/google/javascript/jscomp/Normalize.java
++++ b/src/com/google/javascript/jscomp/Normalize.java
+@@ -147,10 +147,11 @@
+ 
+     FindExposeAnnotations findExposeAnnotations = new FindExposeAnnotations();
+     NodeTraversal.traverse(compiler, root, findExposeAnnotations);
+-    if (!findExposeAnnotations.exposedProperties.isEmpty()) {
++      Set<String> exposedProperties = findExposeAnnotations.exposedProperties;
++      if (!exposedProperties.isEmpty()) {
+       NodeTraversal.traverse(compiler, root,
+           new RewriteExposedProperties(
+-              findExposeAnnotations.exposedProperties));
++                  exposedProperties));
+     }
+ 
+     if (!compiler.getLifeCycleStage().isNormalized()) {

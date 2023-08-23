@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..5b78ff6 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -854,16 +854,17 @@
+     }
+ 
+     Node processName(Name nameNode, boolean asString) {
+-      if (asString) {
+-        return newStringNode(Token.STRING, nameNode.getIdentifier());
++        String identifier = nameNode.getIdentifier();
++        if (asString) {
++        return newStringNode(Token.STRING, identifier);
+       } else {
+-        if (isReservedKeyword(nameNode.getIdentifier())) {
++        if (isReservedKeyword(identifier)) {
+           errorReporter.error(
+             "identifier is a reserved word",
+             sourceName,
+             nameNode.getLineno(), "", 0);
+         }
+-        return newStringNode(Token.NAME, nameNode.getIdentifier());
++        return newStringNode(Token.NAME, identifier);
+       }
+     }
+ 

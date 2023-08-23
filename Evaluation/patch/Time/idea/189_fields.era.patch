@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/LenientChronology.java b/src/main/java/org/joda/time/chrono/LenientChronology.java
+index f072d58..a5bbbc8 100644
+--- a/src/main/java/org/joda/time/chrono/LenientChronology.java
++++ b/src/main/java/org/joda/time/chrono/LenientChronology.java
+@@ -88,7 +88,8 @@
+         fields.yearOfEra = convertField(fields.yearOfEra);
+         fields.yearOfCentury = convertField(fields.yearOfCentury);
+         fields.centuryOfEra = convertField(fields.centuryOfEra);
+-        fields.era = convertField(fields.era);
++        DateTimeField era = fields.era;
++        era = convertField(fields.era);
+         fields.dayOfWeek = convertField(fields.dayOfWeek);
+         fields.dayOfMonth = convertField(fields.dayOfMonth);
+         fields.dayOfYear = convertField(fields.dayOfYear);

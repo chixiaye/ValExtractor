@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..1b12cc7 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -139,6 +139,7 @@
+          * @param length  the length.
+          */
+         public ValueSequence(int length) {
++            float[] dataPoints1 = this.dataPoints;
+             this.dataPoints = new float[length];
+             for (int i = 0; i < length; i++) {
+                 this.dataPoints[i] = 0.0f;

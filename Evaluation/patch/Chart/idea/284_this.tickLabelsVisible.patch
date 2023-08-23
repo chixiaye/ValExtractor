@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..dc5f48e 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -697,7 +697,8 @@
+      */
+     public void setTickLabelsVisible(boolean flag) {
+ 
+-        if (flag != this.tickLabelsVisible) {
++        boolean tickLabelsVisible1 = this.tickLabelsVisible;
++        if (flag != tickLabelsVisible1) {
+             this.tickLabelsVisible = flag;
+             fireChangeEvent();
+         }

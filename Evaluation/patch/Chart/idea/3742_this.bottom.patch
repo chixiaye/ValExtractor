@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/util/RectangleInsets.java b/source/org/jfree/chart/util/RectangleInsets.java
+index 47f58a5..bd92223 100644
+--- a/source/org/jfree/chart/util/RectangleInsets.java
++++ b/source/org/jfree/chart/util/RectangleInsets.java
+@@ -408,9 +408,10 @@
+      * @return The bottom margin (in Java2D units).
+      */
+     public double calculateBottomInset(double height) {
+-        double result = this.bottom;
++        double bottom1 = this.bottom;
++        double result = bottom1;
+         if (this.unitType == UnitType.RELATIVE) {
+-            result = (this.bottom * height);
++            result = (bottom1 * height);
+         }
+         return result;
+     }

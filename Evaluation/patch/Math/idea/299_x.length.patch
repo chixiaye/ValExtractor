@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/LinearInterpolator.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/LinearInterpolator.java
+index bf5c79a..12d1102 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/LinearInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/LinearInterpolator.java
+@@ -47,17 +47,18 @@
+         throws DimensionMismatchException,
+                NumberIsTooSmallException,
+                NonMonotonicSequenceException {
+-        if (x.length != y.length) {
+-            throw new DimensionMismatchException(x.length, y.length);
++        int length = x.length;
++        if (length != y.length) {
++            throw new DimensionMismatchException(length, y.length);
+         }
+ 
+-        if (x.length < 2) {
++        if (length < 2) {
+             throw new NumberIsTooSmallException(LocalizedFormats.NUMBER_OF_POINTS,
+-                                                x.length, 2, true);
++                    length, 2, true);
+         }
+ 
+         // Number of intervals.  The number of data points is n + 1.
+-        int n = x.length - 1;
++        int n = length - 1;
+ 
+         MathArrays.checkOrder(x);
+ 

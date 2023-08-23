@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java b/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
+index 503fc31..a3974a6 100644
+--- a/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
+@@ -209,13 +209,14 @@
+         else {
+             space = dataArea.getWidth();
+         }
+-        double barW0 = domainAxis.getCategoryStart(column, getColumnCount(),
++        int columnCount = getColumnCount();
++        double barW0 = domainAxis.getCategoryStart(column, columnCount,
+                 dataArea, plot.getDomainAxisEdge());
+         int groupCount = this.seriesToGroupMap.getGroupCount();
+         int groupIndex = this.seriesToGroupMap.getGroupIndex(
+                 this.seriesToGroupMap.getGroup(plot.getDataset(
+                         plot.getIndexOf(this)).getRowKey(row)));
+-        int categoryCount = getColumnCount();
++        int categoryCount = columnCount;
+         if (groupCount > 1) {
+             double groupGap = space * getItemMargin()
+                               / (categoryCount * (groupCount - 1));
+@@ -225,7 +226,7 @@
+                           + (groupW / 2.0) - (state.getBarWidth() / 2.0);
+         }
+         else {
+-            barW0 = domainAxis.getCategoryMiddle(column, getColumnCount(),
++            barW0 = domainAxis.getCategoryMiddle(column, columnCount,
+                     dataArea, plot.getDomainAxisEdge())
+                     - state.getBarWidth() / 2.0;
+         }

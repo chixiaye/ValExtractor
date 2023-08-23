@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+index c0240a0..fd6d30a 100644
+--- a/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/HaltonSequenceGenerator.java
+@@ -107,12 +107,13 @@
+ 
+         MathUtils.checkNotNull(bases);
+ 
+-        if (dimension < 1 || dimension > bases.length) {
++        int length = bases.length;
++        if (dimension < 1 || dimension > length) {
+             throw new OutOfRangeException(dimension, 1, PRIMES.length);
+         }
+ 
+-        if (weights != null && weights.length != bases.length) {
+-            throw new DimensionMismatchException(weights.length, bases.length);
++        if (weights != null && weights.length != length) {
++            throw new DimensionMismatchException(weights.length, length);
+         }
+ 
+         this.dimension = dimension;

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/util/AbstractObjectList.java b/source/org/jfree/chart/util/AbstractObjectList.java
+index eac3110..8ade64d 100644
+--- a/source/org/jfree/chart/util/AbstractObjectList.java
++++ b/source/org/jfree/chart/util/AbstractObjectList.java
+@@ -125,7 +125,8 @@
+         }
+         if (index >= this.objects.length) {
+             Object[] enlarged = new Object[index + this.increment];
+-            System.arraycopy(this.objects, 0, enlarged, 0, this.objects.length);
++            Object[] objects1 = this.objects;
++            System.arraycopy(objects1, 0, enlarged, 0, this.objects.length);
+             this.objects = enlarged;
+         }
+         this.objects[index] = object;

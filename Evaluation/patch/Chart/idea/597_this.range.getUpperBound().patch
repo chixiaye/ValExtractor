@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..9ca5357 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -1179,8 +1179,9 @@
+      * @see #getLowerBound()
+      */
+     public void setLowerBound(double min) {
+-        if (this.range.getUpperBound() > min) {
+-            setRange(new Range(min, this.range.getUpperBound()));
++        double upperBound = this.range.getUpperBound();
++        if (upperBound > min) {
++            setRange(new Range(min, upperBound));
+         }
+         else {
+             setRange(new Range(min, min + 1.0));

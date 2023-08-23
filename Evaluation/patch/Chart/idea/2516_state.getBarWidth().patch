@@ -1,0 +1,46 @@
+diff --git a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+index 4dbfd3f..b61da52 100644
+--- a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+@@ -213,7 +213,8 @@
+         }
+ 
+         // BAR WIDTH
+-        double rectWidth = state.getBarWidth();
++         double barWidth = state.getBarWidth();
++         double rectWidth = barWidth;
+ 
+         // BAR HEIGHT
+         double rectHeight = Math.abs(java2dValue1 - java2dValue0);
+@@ -226,15 +227,15 @@
+             if (seriesCount > 1) {
+                 double seriesGap = dataArea.getHeight() * getItemMargin()
+                                    / (categoryCount * (seriesCount - 1));
+-                rectY = rectY + visibleRow * (state.getBarWidth() + seriesGap);
++                rectY = rectY + visibleRow * (barWidth + seriesGap);
+             }
+             else {
+-                rectY = rectY + visibleRow * state.getBarWidth();
++                rectY = rectY + visibleRow * barWidth;
+             }
+ 
+             rectX = java2dValue0;
+ 
+-            rectHeight = state.getBarWidth();
++            rectHeight = barWidth;
+             rectWidth = Math.abs(java2dValue1 - java2dValue0);
+             barBase = RectangleEdge.LEFT;
+         }
+@@ -246,10 +247,10 @@
+             if (seriesCount > 1) {
+                 double seriesGap = dataArea.getWidth() * getItemMargin()
+                                    / (categoryCount * (seriesCount - 1));
+-                rectX = rectX + visibleRow * (state.getBarWidth() + seriesGap);
++                rectX = rectX + visibleRow * (barWidth + seriesGap);
+             }
+             else {
+-                rectX = rectX + visibleRow * state.getBarWidth();
++                rectX = rectX + visibleRow * barWidth;
+             }
+ 
+             rectY = java2dValue0;

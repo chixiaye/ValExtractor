@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..8919caa 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -2535,10 +2535,11 @@
+   static Node getPrototypeClassName(Node qName) {
+     Node cur = qName;
+     while (cur.isGetProp()) {
+-      if (cur.getLastChild().getString().equals("prototype")) {
+-        return cur.getFirstChild();
++        Node firstChild = cur.getFirstChild();
++        if (cur.getLastChild().getString().equals("prototype")) {
++        return firstChild;
+       } else {
+-        cur = cur.getFirstChild();
++        cur = firstChild;
+       }
+     }
+     return null;

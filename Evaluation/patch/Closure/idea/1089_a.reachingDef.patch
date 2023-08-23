@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..6c98a8d 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -151,7 +151,8 @@
+       Map<Var, Definition> resultMap = result.reachingDef;
+ 
+       // Take the join of all variables that are not TOP in this.
+-      for (Map.Entry<Var, Definition> varEntry : a.reachingDef.entrySet()) {
++        Map<Var, Definition> reachingDef = a.reachingDef;
++        for (Map.Entry<Var, Definition> varEntry : reachingDef.entrySet()) {
+         Var var = varEntry.getKey();
+         Definition aDef = varEntry.getValue();
+ 
+@@ -182,7 +183,7 @@
+       // in this.
+       for (Map.Entry<Var, Definition> entry : b.reachingDef.entrySet()) {
+         Var var = entry.getKey();
+-        if (!a.reachingDef.containsKey(var)) {
++        if (!reachingDef.containsKey(var)) {
+           resultMap.put(var, entry.getValue());
+         }
+       }

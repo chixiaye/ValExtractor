@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessTweaks.java b/src/com/google/javascript/jscomp/ProcessTweaks.java
+index e20b902..4dcd2f9 100644
+--- a/src/com/google/javascript/jscomp/ProcessTweaks.java
++++ b/src/com/google/javascript/jscomp/ProcessTweaks.java
+@@ -197,7 +197,8 @@
+     this.compiler = compiler;
+     this.stripTweaks = stripTweaks;
+     // Having the map sorted is required for the unit tests to be deterministic.
+-    this.compilerDefaultValueOverrides = Maps.newTreeMap();
++      SortedMap<String, Node> compilerDefaultValueOverrides1 = this.compilerDefaultValueOverrides;
++      this.compilerDefaultValueOverrides = Maps.newTreeMap();
+     this.compilerDefaultValueOverrides.putAll(compilerDefaultValueOverrides);
+   }
+ 

@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..61ec10a 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -844,10 +844,11 @@
+         if (rbody.greedy == greedy) {
+           long lmin = ((long) min) * rbody.min;
+           long lmax = ((long) max) * rbody.max;
+-          if (lmin < Integer.MAX_VALUE) {
++            int maxValue = Integer.MAX_VALUE;
++            if (lmin < maxValue) {
+             body = rbody.body;
+             min = (int) lmin;
+-            max = lmax >= Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) lmax;
++            max = lmax >= maxValue ? maxValue : (int) lmax;
+           }
+         }
+       }

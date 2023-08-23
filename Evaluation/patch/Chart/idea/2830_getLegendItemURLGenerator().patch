@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer2.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer2.java
+index d34a512..dd1d7a9 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer2.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer2.java
+@@ -239,8 +239,9 @@
+                             dataset, series);
+                 }
+                 String urlText = null;
+-                if (getLegendItemURLGenerator() != null) {
+-                    urlText = getLegendItemURLGenerator().generateLabel(
++                XYSeriesLabelGenerator legendItemURLGenerator = getLegendItemURLGenerator();
++                if (legendItemURLGenerator != null) {
++                    urlText = legendItemURLGenerator.generateLabel(
+                             dataset, series);
+                 }
+                 Paint paint = lookupSeriesPaint(series);

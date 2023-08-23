@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..591e456 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -307,7 +307,8 @@
+             }
+         }
+         catch (NumberFormatException e) {
+-            newMin = this.minimumValue;
++            double minimumValue1 = this.minimumValue;
++            newMin = minimumValue1;
+         }
+ 
+         this.minimumValue = newMin;

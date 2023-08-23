@@ -1,0 +1,51 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..50051c9 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -505,24 +505,25 @@
+             throw new IllegalArgumentException("Null 'item' argument.");
+         }
+         item = (XYDataItem) item.clone();
++        List data1 = this.data;
+         if (this.autoSort) {
+-            int index = Collections.binarySearch(this.data, item);
++            int index = Collections.binarySearch(data1, item);
+             if (index < 0) {
+-                this.data.add(-index - 1, item);
++                data1.add(-index - 1, item);
+             }
+             else {
+                 if (this.allowDuplicateXValues) {
+                     // need to make sure we are adding *after* any duplicates
+-                    int size = this.data.size();
++                    int size = data1.size();
+                     while (index < size && item.compareTo(
+-                            this.data.get(index)) == 0) {
++                            data1.get(index)) == 0) {
+                         index++;
+                     }
+-                    if (index < this.data.size()) {
+-                        this.data.add(index, item);
++                    if (index < data1.size()) {
++                        data1.add(index, item);
+                     }
+                     else {
+-                        this.data.add(item);
++                        data1.add(item);
+                     }
+                 }
+                 else {
+@@ -539,11 +540,11 @@
+                     throw new SeriesException("X-value already exists.");
+                 }
+             }
+-            this.data.add(item);
++            data1.add(item);
+         }
+         updateBoundsForAddedItem(item);
+         if (getItemCount() > this.maximumItemCount) {
+-            XYDataItem removed = (XYDataItem) this.data.remove(0);
++            XYDataItem removed = (XYDataItem) data1.remove(0);
+             updateBoundsForRemovedItem(removed);
+         }
+         if (notify) {

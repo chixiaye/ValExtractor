@@ -1,0 +1,145 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..da23fc2 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -1339,8 +1339,9 @@
+                     labely - h / 2.0f, w, h);
+             state.cursorDown(insets.getTop() + labelBounds.getHeight()
+                     + insets.getBottom());
+-        }
+-        else if (edge == RectangleEdge.LEFT) {
++        } else {
++			double var_311 = insets.getLeft();
++			if (edge == RectangleEdge.LEFT) {
+             AffineTransform t = AffineTransform.getRotateInstance(
+                     getLabelAngle() - Math.PI / 2.0, labelBounds.getCenterX(),
+                     labelBounds.getCenterY());
+@@ -1356,7 +1357,7 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorLeft(insets.getLeft() + labelBounds.getWidth()
++			    state.cursorLeft(var_311 + labelBounds.getWidth()
+                     + insets.getRight());
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+@@ -1369,7 +1370,7 @@
+             float w = (float) labelBounds.getWidth();
+             float h = (float) labelBounds.getHeight();
+             float labelx = (float) (state.getCursor()
+-                            + insets.getLeft() + w / 2.0);
++			                    + var_311 + w / 2.0);
+             float labely = (float) (dataArea.getY() + dataArea.getHeight()
+                     / 2.0);
+             TextUtilities.drawRotatedString(label, g2, labelx, labely,
+@@ -1377,10 +1378,11 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorRight(insets.getLeft() + labelBounds.getWidth()
++			    state.cursorRight(var_311 + labelBounds.getWidth()
+                     + insets.getRight());
+ 
+         }
++		}
+         if (plotState != null && hotspot != null) {
+             ChartRenderingInfo owner = plotState.getOwner();
+             if (owner != null) {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..da23fc2 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -1339,8 +1339,9 @@
+                     labely - h / 2.0f, w, h);
+             state.cursorDown(insets.getTop() + labelBounds.getHeight()
+                     + insets.getBottom());
+-        }
+-        else if (edge == RectangleEdge.LEFT) {
++        } else {
++			double var_311 = insets.getLeft();
++			if (edge == RectangleEdge.LEFT) {
+             AffineTransform t = AffineTransform.getRotateInstance(
+                     getLabelAngle() - Math.PI / 2.0, labelBounds.getCenterX(),
+                     labelBounds.getCenterY());
+@@ -1356,7 +1357,7 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorLeft(insets.getLeft() + labelBounds.getWidth()
++			    state.cursorLeft(var_311 + labelBounds.getWidth()
+                     + insets.getRight());
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+@@ -1369,7 +1370,7 @@
+             float w = (float) labelBounds.getWidth();
+             float h = (float) labelBounds.getHeight();
+             float labelx = (float) (state.getCursor()
+-                            + insets.getLeft() + w / 2.0);
++			                    + var_311 + w / 2.0);
+             float labely = (float) (dataArea.getY() + dataArea.getHeight()
+                     / 2.0);
+             TextUtilities.drawRotatedString(label, g2, labelx, labely,
+@@ -1377,10 +1378,11 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorRight(insets.getLeft() + labelBounds.getWidth()
++			    state.cursorRight(var_311 + labelBounds.getWidth()
+                     + insets.getRight());
+ 
+         }
++		}
+         if (plotState != null && hotspot != null) {
+             ChartRenderingInfo owner = plotState.getOwner();
+             if (owner != null) {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..1e77dca 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -1340,7 +1340,9 @@
+             state.cursorDown(insets.getTop() + labelBounds.getHeight()
+                     + insets.getBottom());
+         }
+-        else if (edge == RectangleEdge.LEFT) {
++        else {
++            double left = insets.getLeft();
++            if (edge == RectangleEdge.LEFT) {
+             AffineTransform t = AffineTransform.getRotateInstance(
+                     getLabelAngle() - Math.PI / 2.0, labelBounds.getCenterX(),
+                     labelBounds.getCenterY());
+@@ -1356,7 +1358,7 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorLeft(insets.getLeft() + labelBounds.getWidth()
++                state.cursorLeft(left + labelBounds.getWidth()
+                     + insets.getRight());
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+@@ -1369,7 +1371,7 @@
+             float w = (float) labelBounds.getWidth();
+             float h = (float) labelBounds.getHeight();
+             float labelx = (float) (state.getCursor()
+-                            + insets.getLeft() + w / 2.0);
++                                + left + w / 2.0);
+             float labely = (float) (dataArea.getY() + dataArea.getHeight()
+                     / 2.0);
+             TextUtilities.drawRotatedString(label, g2, labelx, labely,
+@@ -1377,10 +1379,11 @@
+                     TextAnchor.CENTER);
+             hotspot = new Rectangle2D.Float(labelx - w / 2.0f,
+                     labely - h / 2.0f, w, h);
+-            state.cursorRight(insets.getLeft() + labelBounds.getWidth()
++                state.cursorRight(left + labelBounds.getWidth()
+                     + insets.getRight());
+ 
+         }
++        }
+         if (plotState != null && hotspot != null) {
+             ChartRenderingInfo owner = plotState.getOwner();
+             if (owner != null) {

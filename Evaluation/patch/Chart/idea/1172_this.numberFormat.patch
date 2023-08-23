@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/AbstractPieItemLabelGenerator.java b/source/org/jfree/chart/labels/AbstractPieItemLabelGenerator.java
+index 1c214e3..8da6f7f 100644
+--- a/source/org/jfree/chart/labels/AbstractPieItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/AbstractPieItemLabelGenerator.java
+@@ -235,8 +235,9 @@
+     public Object clone() throws CloneNotSupportedException {
+         AbstractPieItemLabelGenerator clone
+                 = (AbstractPieItemLabelGenerator) super.clone();
+-        if (this.numberFormat != null) {
+-            clone.numberFormat = (NumberFormat) this.numberFormat.clone();
++        NumberFormat numberFormat1 = this.numberFormat;
++        if (numberFormat1 != null) {
++            clone.numberFormat = (NumberFormat) numberFormat1.clone();
+         }
+         if (this.percentFormat != null) {
+             clone.percentFormat = (NumberFormat) this.percentFormat.clone();

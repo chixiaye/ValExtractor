@@ -1,0 +1,14 @@
+diff --git a/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/PropertyDelegate.java b/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/PropertyDelegate.java
+index 1e53df9096..dd6022268f 100644
+--- a/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/PropertyDelegate.java
++++ b/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/PropertyDelegate.java
+@@ -68,7 +68,8 @@ public class PropertyDelegate extends ItemDelegate {
+ 
+     @Override
+     public String getPath() throws InvalidItemStateException {
+-        return getParent().getPath() + '/' + getName();
++        String path = getParent().getPath();
++        return path + '/' + getName();
+     }
+ 
+     @Override

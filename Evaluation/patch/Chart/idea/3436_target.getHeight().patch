@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..14f4a8c 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -604,6 +604,7 @@
+         else {
+             RectangleEdge axisEdge = Plot.resolveRangeAxisLocation(
+                     this.axisLocation, PlotOrientation.VERTICAL);
++            double height = target.getHeight();
+             if (axisEdge == RectangleEdge.LEFT) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+@@ -623,7 +624,7 @@
+                     g2.setStroke(this.stripOutlineStroke);
+                     g2.draw(new Rectangle2D.Double(target.getMaxX()
+                             - this.stripWidth, target.getMinY(),
+-                            this.stripWidth, target.getHeight()));
++                            this.stripWidth, height));
+                 }
+                 this.axis.draw(g2, target.getMaxX() - this.stripWidth
+                         - this.axisOffset, target, target, RectangleEdge.LEFT,
+@@ -648,7 +649,7 @@
+                     g2.setStroke(this.stripOutlineStroke);
+                     g2.draw(new Rectangle2D.Double(target.getMinX(),
+                             target.getMinY(), this.stripWidth,
+-                            target.getHeight()));
++                            height));
+                 }
+                 this.axis.draw(g2, target.getMinX() + this.stripWidth
+                         + this.axisOffset, target, target, RectangleEdge.RIGHT,

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..dc4a8f6 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -147,7 +147,8 @@
+         // update cached min and max values
+         int r = this.data.getRowIndex(rowKey);
+         int c = this.data.getColumnIndex(columnKey);
+-        if ((this.maximumRangeValueRow == r && this.maximumRangeValueColumn
++        int maximumRangeValueColumn1 = this.maximumRangeValueColumn;
++        if ((this.maximumRangeValueRow == r && maximumRangeValueColumn1
+                 == c) || (this.minimumRangeValueRow == r
+                 && this.minimumRangeValueColumn == c))  {
+             updateBounds();

@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/TypeValidator.java b/src/com/google/javascript/jscomp/TypeValidator.java
+index 5feecd0..e0ce248 100644
+--- a/src/com/google/javascript/jscomp/TypeValidator.java
++++ b/src/com/google/javascript/jscomp/TypeValidator.java
+@@ -333,8 +333,9 @@
+       expectStringOrNumber(t, indexNode, indexType, "property access");
+     } else {
+       ObjectType dereferenced = objType.dereference();
+-      if (dereferenced != null && dereferenced.getIndexType() != null) {
+-        expectCanAssignTo(t, indexNode, indexType, dereferenced.getIndexType(),
++        JSType indexType1 = dereferenced.getIndexType();
++        if (dereferenced != null && indexType1 != null) {
++        expectCanAssignTo(t, indexNode, indexType, indexType1,
+             "restricted index type");
+       } else if (dereferenced != null && dereferenced.isArrayType()) {
+         expectNumber(t, indexNode, indexType, "array access");

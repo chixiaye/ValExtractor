@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..bf3d09b 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2619,11 +2619,12 @@
+             markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+-            markers = (Collection) this.backgroundDomainMarkers.get(
++            Map backgroundDomainMarkers1 = this.backgroundDomainMarkers;
++            markers = (Collection) backgroundDomainMarkers1.get(
+                     new Integer(index));
+             if (markers == null) {
+                 markers = new java.util.ArrayList();
+-                this.backgroundDomainMarkers.put(new Integer(index), markers);
++                backgroundDomainMarkers1.put(new Integer(index), markers);
+             }
+             markers.add(marker);
+         }

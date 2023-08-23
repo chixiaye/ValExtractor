@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/general/WaferMapDataset.java b/source/org/jfree/data/general/WaferMapDataset.java
+index 7436b84..a676e47 100644
+--- a/source/org/jfree/data/general/WaferMapDataset.java
++++ b/source/org/jfree/data/general/WaferMapDataset.java
+@@ -104,6 +104,7 @@
+         this.maxChipX = maxChipX;
+         this.maxChipY = maxChipY;
+         if (chipSpace == null) {
++            double chipSpace1 = this.chipSpace;
+             this.chipSpace = DEFAULT_CHIP_SPACE;
+         }
+         else {

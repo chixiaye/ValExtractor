@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..6615c8d 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -351,10 +351,11 @@
+       }
+     }
+ 
+-    if (s.length() > 3
++      char c = s.charAt(2);
++      if (s.length() > 3
+         && (s.charAt(0) == '-' || s.charAt(0) == '+')
+         && s.charAt(1) == '0'
+-        && (s.charAt(2) == 'x' || s.charAt(2) == 'X')) {
++        && (c == 'x' || c == 'X')) {
+       // hex numbers with explicit signs vary between browsers.
+       return null;
+     }

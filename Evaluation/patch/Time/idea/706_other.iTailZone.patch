@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..b89a871 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -1624,6 +1624,7 @@
+             }
+             if (obj instanceof PrecalculatedZone) {
+                 PrecalculatedZone other = (PrecalculatedZone)obj;
++                DSTZone iTailZone1 = other.iTailZone;
+                 return
+                     getID().equals(other.getID()) &&
+                     Arrays.equals(iTransitions, other.iTransitions) &&
+@@ -1631,8 +1632,8 @@
+                     Arrays.equals(iWallOffsets, other.iWallOffsets) &&
+                     Arrays.equals(iStandardOffsets, other.iStandardOffsets) &&
+                     ((iTailZone == null)
+-                     ? (null == other.iTailZone)
+-                     : (iTailZone.equals(other.iTailZone)));
++                     ? (null == iTailZone1)
++                     : (iTailZone.equals(iTailZone1)));
+             }
+             return false;
+         }

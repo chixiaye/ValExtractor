@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
+index 786e707..65872fa 100644
+--- a/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
+@@ -167,8 +167,9 @@
+                 throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_COLUMN);
+             }
+             for (int r = 1; r < nRows; r++) {
+-                if (d[r].length != nCols) {
+-                    throw new DimensionMismatchException(nCols, d[r].length);
++                int length = d[r].length;
++                if (length != nCols) {
++                    throw new DimensionMismatchException(nCols, length);
+                 }
+             }
+             data = d;

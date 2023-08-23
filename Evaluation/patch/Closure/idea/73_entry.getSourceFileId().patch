@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+index e970d3a..7998e81 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+@@ -707,9 +707,10 @@
+             pending = false;
+           }
+ 
+-          if (entry.getSourceFileId() != UNMAPPED) {
++          int sourceFileId = entry.getSourceFileId();
++          if (sourceFileId != UNMAPPED) {
+             pending = true;
+-            sourceName = sources[entry.getSourceFileId()];
++            sourceName = sources[sourceFileId];
+             symbolName = (entry.getNameId() != UNMAPPED)
+                 ? names[entry.getNameId()] : null;
+             sourceStartPosition = new FilePosition(

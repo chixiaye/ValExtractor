@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
+index 8182fa6..c05111b 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
+@@ -284,8 +284,10 @@
+         }
+         final CompareToBuilder compareToBuilder = new CompareToBuilder();
+         reflectionAppend(lhs, rhs, lhsClazz, compareToBuilder, compareTransients, excludeFields);
+-        while (lhsClazz.getSuperclass() != null && lhsClazz != reflectUpToClass) {
+-            lhsClazz = lhsClazz.getSuperclass();
++        while (true) {
++            Class<?> superclass = lhsClazz.getSuperclass();
++            if (!(superclass != null && lhsClazz != reflectUpToClass)) break;
++            lhsClazz = superclass;
+             reflectionAppend(lhs, rhs, lhsClazz, compareToBuilder, compareTransients, excludeFields);
+         }
+         return compareToBuilder.toComparison();

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/ui/StrokeChooserPanel.java b/source/org/jfree/chart/ui/StrokeChooserPanel.java
+index ac78774..3dbb478 100644
+--- a/source/org/jfree/chart/ui/StrokeChooserPanel.java
++++ b/source/org/jfree/chart/ui/StrokeChooserPanel.java
+@@ -71,11 +71,12 @@
+     public StrokeChooserPanel(StrokeSample current, StrokeSample[] available) {
+         setLayout(new BorderLayout());
+         this.selector = new JComboBox(available);
+-        this.selector.setSelectedItem(current);
+-        this.selector.setRenderer(new StrokeSample(new BasicStroke(1)));
+-        add(this.selector);
++        JComboBox selector1 = this.selector;
++        selector1.setSelectedItem(current);
++        selector1.setRenderer(new StrokeSample(new BasicStroke(1)));
++        add(selector1);
+         // Changes due to focus problems!! DZ
+-        this.selector.addActionListener(new ActionListener() {
++        selector1.addActionListener(new ActionListener() {
+             public void actionPerformed(final ActionEvent evt) {
+                 getSelector().transferFocus();
+             }

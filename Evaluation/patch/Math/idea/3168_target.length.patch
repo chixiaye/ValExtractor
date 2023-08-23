@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/MultivariateVectorOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/MultivariateVectorOptimizer.java
+index 2d344bc..7875b18 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/MultivariateVectorOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/MultivariateVectorOptimizer.java
+@@ -159,8 +159,9 @@
+      * {@link #weightMatrix} have inconsistent dimensions.
+      */
+     private void checkParameters() {
+-        if (target.length != weightMatrix.getColumnDimension()) {
+-            throw new DimensionMismatchException(target.length,
++        int length = target.length;
++        if (length != weightMatrix.getColumnDimension()) {
++            throw new DimensionMismatchException(length,
+                                                  weightMatrix.getColumnDimension());
+         }
+     }

@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/AxisLocation.java b/source/org/jfree/chart/axis/AxisLocation.java
+index 03b9cd7..b8394ba 100644
+--- a/source/org/jfree/chart/axis/AxisLocation.java
++++ b/source/org/jfree/chart/axis/AxisLocation.java
+@@ -169,9 +169,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(AxisLocation.TOP_OR_RIGHT)) {
+             return AxisLocation.TOP_OR_RIGHT;
+-        }
+-        else if (this.equals(AxisLocation.BOTTOM_OR_RIGHT)) {
+-            return AxisLocation.BOTTOM_OR_RIGHT;
++        } else {
++			AxisLocation var_754 = AxisLocation.BOTTOM_OR_RIGHT;
++			if (this.equals(var_754)) {
++			    return var_754;
+         }
+         else if (this.equals(AxisLocation.TOP_OR_LEFT)) {
+             return AxisLocation.TOP_OR_LEFT;
+@@ -179,6 +180,7 @@
+         else if (this.equals(AxisLocation.BOTTOM_OR_LEFT)) {
+             return AxisLocation.BOTTOM_OR_LEFT;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/AxisLocation.java b/source/org/jfree/chart/axis/AxisLocation.java
+index 03b9cd7..b8394ba 100644
+--- a/source/org/jfree/chart/axis/AxisLocation.java
++++ b/source/org/jfree/chart/axis/AxisLocation.java
+@@ -169,9 +169,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(AxisLocation.TOP_OR_RIGHT)) {
+             return AxisLocation.TOP_OR_RIGHT;
+-        }
+-        else if (this.equals(AxisLocation.BOTTOM_OR_RIGHT)) {
+-            return AxisLocation.BOTTOM_OR_RIGHT;
++        } else {
++			AxisLocation var_754 = AxisLocation.BOTTOM_OR_RIGHT;
++			if (this.equals(var_754)) {
++			    return var_754;
+         }
+         else if (this.equals(AxisLocation.TOP_OR_LEFT)) {
+             return AxisLocation.TOP_OR_LEFT;
+@@ -179,6 +180,7 @@
+         else if (this.equals(AxisLocation.BOTTOM_OR_LEFT)) {
+             return AxisLocation.BOTTOM_OR_LEFT;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/AxisLocation.java b/source/org/jfree/chart/axis/AxisLocation.java
+index 03b9cd7..5c33cd4 100644
+--- a/source/org/jfree/chart/axis/AxisLocation.java
++++ b/source/org/jfree/chart/axis/AxisLocation.java
+@@ -170,8 +170,10 @@
+         if (this.equals(AxisLocation.TOP_OR_RIGHT)) {
+             return AxisLocation.TOP_OR_RIGHT;
+         }
+-        else if (this.equals(AxisLocation.BOTTOM_OR_RIGHT)) {
+-            return AxisLocation.BOTTOM_OR_RIGHT;
++        else {
++            AxisLocation bottomOrRight = AxisLocation.BOTTOM_OR_RIGHT;
++            if (this.equals(bottomOrRight)) {
++                return bottomOrRight;
+         }
+         else if (this.equals(AxisLocation.TOP_OR_LEFT)) {
+             return AxisLocation.TOP_OR_LEFT;
+@@ -179,6 +181,7 @@
+         else if (this.equals(AxisLocation.BOTTOM_OR_LEFT)) {
+             return AxisLocation.BOTTOM_OR_LEFT;
+         }
++        }
+         return null;
+     }
+ 

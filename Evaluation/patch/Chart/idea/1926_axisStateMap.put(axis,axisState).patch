@@ -1,0 +1,13 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..558c793 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3903,7 +3903,7 @@
+                 AxisState axisState = axis.draw(g2, cursor, plotArea, dataArea,
+                         RectangleEdge.TOP, plotState);
+                 cursor = axisState.getCursor();
+-                axisStateMap.put(axis, axisState);
++                Object put = axisStateMap.put(axis, axisState);
+             }
+         }
+ 

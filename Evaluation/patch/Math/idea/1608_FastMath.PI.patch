@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+index 7ff678c..c08819a 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+@@ -156,10 +156,11 @@
+     /** Revert the instance.
+      */
+     public void revertSelf() {
+-        if (angle < FastMath.PI) {
+-            angle += FastMath.PI;
++        double pi = FastMath.PI;
++        if (angle < pi) {
++            angle += pi;
+         } else {
+-            angle -= FastMath.PI;
++            angle -= pi;
+         }
+         cos          = -cos;
+         sin          = -sin;

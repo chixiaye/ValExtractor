@@ -1,0 +1,31 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+index 6577281..8c14975 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+@@ -178,8 +178,9 @@
+             return MatrixUtils.createRealIdentityMatrix(this.getRowDimension());
+         }
+ 
++        RealMatrix copy = this.copy();
+         if (p == 1) {
+-            return this.copy();
++            return copy;
+         }
+ 
+         final int power = p - 1;
+@@ -208,13 +209,13 @@
+         }
+ 
+         RealMatrix[] results = new RealMatrix[maxI + 1];
+-        results[0] = this.copy();
++        results[0] = copy;
+ 
+         for (int i = 1; i <= maxI; ++i) {
+             results[i] = results[i-1].multiply(results[i-1]);
+         }
+ 
+-        RealMatrix result = this.copy();
++        RealMatrix result = copy;
+ 
+         for (Integer i : nonZeroPositions) {
+             result = result.multiply(results[i]);

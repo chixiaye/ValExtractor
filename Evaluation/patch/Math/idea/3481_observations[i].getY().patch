@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+index 40e1d47..8daebb7 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+@@ -290,7 +290,8 @@
+                 final double previousX = currentX;
+                 final double previousY = currentY;
+                 currentX = observations[i].getX();
+-                currentY = observations[i].getY();
++                double y = observations[i].getY();
++                currentY = y;
+ 
+                 // update the integrals of f<sup>2</sup> and f'<sup>2</sup>
+                 // considering a linear model for f (and therefore constant f')

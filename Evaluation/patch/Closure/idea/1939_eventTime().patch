@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..9420478 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -665,15 +665,16 @@
+     String toString(long prevEventTime, String indent, int digitsColWidth) {
+       StringBuilder sb = new StringBuilder(120);
+ 
+-      if (prevEventTime == -1) {
++        long l = eventTime();
++        if (prevEventTime == -1) {
+         appendSpaces(sb, digitsColWidth);
+       } else {
+         sb.append(longToPaddedString(
+-            eventTime() - prevEventTime, digitsColWidth));
++            l - prevEventTime, digitsColWidth));
+       }
+ 
+       sb.append(' ');
+-      sb.append(formatTime(eventTime()));
++      sb.append(formatTime(l));
+       if (isStart) {
+         sb.append(" Start ");
+         appendSpaces(sb, digitsColWidth);

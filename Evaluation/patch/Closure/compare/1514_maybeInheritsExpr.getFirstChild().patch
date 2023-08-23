@@ -1,0 +1,48 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..2758c87 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -427,10 +427,11 @@
+       Node maybeInheritsExpr = (enclosingParent.isAssign() ?
+           enclosingParent.getParent() : enclosingParent).getNext();
+       Node baseClassNode = null;
++      Node var_1514 = maybeInheritsExpr.getFirstChild();
+       if (maybeInheritsExpr != null &&
+           maybeInheritsExpr.isExprResult() &&
+-          maybeInheritsExpr.getFirstChild().isCall()) {
+-        Node callNode = maybeInheritsExpr.getFirstChild();
++          var_1514.isCall()) {
++        Node callNode = var_1514;
+         if ("goog.inherits".equals(
+                 callNode.getFirstChild().getQualifiedName()) &&
+             callNode.getLastChild().isQualifiedName()) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..03a9818 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -428,15 +428,17 @@
+           enclosingParent.getParent() : enclosingParent).getNext();
+       Node baseClassNode = null;
+       if (maybeInheritsExpr != null &&
+-          maybeInheritsExpr.isExprResult() &&
+-          maybeInheritsExpr.getFirstChild().isCall()) {
+-        Node callNode = maybeInheritsExpr.getFirstChild();
++              maybeInheritsExpr.isExprResult()) {
++          Node firstChild = maybeInheritsExpr.getFirstChild();
++          if (firstChild.isCall()) {
++              Node callNode = firstChild;
+         if ("goog.inherits".equals(
+                 callNode.getFirstChild().getQualifiedName()) &&
+             callNode.getLastChild().isQualifiedName()) {
+           baseClassNode = callNode.getLastChild();
+         }
+       }
++      }
+ 
+       if (baseClassNode == null) {
+         reportBadBaseClassUse(

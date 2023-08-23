@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..e76b624 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1712,10 +1712,11 @@
+         s.simplify(element.simplify(flags));
+       }
+ 
+-      switch (s.simplified.size()) {
++        List<RegExpTree> simplified = s.simplified;
++        switch (simplified.size()) {
+         case 0: return Empty.INSTANCE;
+-        case 1: return s.simplified.get(0);
+-        default: return new Concatenation(s.simplified);
++        case 1: return simplified.get(0);
++        default: return new Concatenation(simplified);
+       }
+     }
+ 

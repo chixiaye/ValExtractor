@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+index 1c6eaff..9ae57f0 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+@@ -336,13 +336,14 @@
+         final Class<?> lhsClass = lhs.getClass();
+         final Class<?> rhsClass = rhs.getClass();
+         Class<?> testClass;
++        boolean instance = rhsClass.isInstance(lhs);
+         if (lhsClass.isInstance(rhs)) {
+             testClass = lhsClass;
+-            if (!rhsClass.isInstance(lhs)) {
++            if (!instance) {
+                 // rhsClass is a subclass of lhsClass
+                 testClass = rhsClass;
+             }
+-        } else if (rhsClass.isInstance(lhs)) {
++        } else if (instance) {
+             testClass = rhsClass;
+             if (!lhsClass.isInstance(rhs)) {
+                 // lhsClass is a subclass of rhsClass

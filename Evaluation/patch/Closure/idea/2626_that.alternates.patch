@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionType.java b/src/com/google/javascript/rhino/jstype/UnionType.java
+index 585bd8f..af74a38 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionType.java
++++ b/src/com/google/javascript/rhino/jstype/UnionType.java
+@@ -320,11 +320,12 @@
+    */
+   boolean checkUnionEquivalenceHelper(
+       UnionType that, EquivalenceMethod eqMethod) {
+-    if (eqMethod == EquivalenceMethod.IDENTITY
+-        && alternates.size() != that.alternates.size()) {
++      Collection<JSType> alternates1 = that.alternates;
++      if (eqMethod == EquivalenceMethod.IDENTITY
++        && alternates.size() != alternates1.size()) {
+       return false;
+     }
+-    for (JSType alternate : that.alternates) {
++    for (JSType alternate : alternates1) {
+       if (!hasAlternate(alternate, eqMethod)) {
+         return false;
+       }

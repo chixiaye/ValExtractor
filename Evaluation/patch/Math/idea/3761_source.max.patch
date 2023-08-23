@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+index 3e7fff7..b4600a9 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+@@ -704,10 +704,11 @@
+         } else {
+             GeometricMean.copy(source.geoMean, dest.geoMean);
+         }
+-        if (source.max == source.maxImpl) {
++        Max max1 = source.max;
++        if (max1 == source.maxImpl) {
+             dest.max = (Max) dest.maxImpl;
+         } else {
+-            Max.copy(source.max, dest.max);
++            Max.copy(max1, dest.max);
+         }
+         if (source.mean == source.meanImpl) {
+             dest.mean = (Mean) dest.meanImpl;

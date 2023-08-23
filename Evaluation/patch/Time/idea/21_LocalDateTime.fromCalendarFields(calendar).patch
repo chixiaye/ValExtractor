@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..2a64ff3 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -840,18 +840,19 @@
+     private Date correctDstTransition(Date date, final TimeZone timeZone) {
+         Calendar calendar = Calendar.getInstance(timeZone);
+         calendar.setTime(date);
+-        LocalDateTime check = LocalDateTime.fromCalendarFields(calendar);
++        LocalDateTime localDateTime = LocalDateTime.fromCalendarFields(calendar);
++        LocalDateTime check = localDateTime;
+         if (check.isBefore(this)) {
+             // DST gap
+             // move forward in units of one minute until equal/after
+             while (check.isBefore(this)) {
+                 calendar.setTimeInMillis(calendar.getTimeInMillis() + 60000);
+-                check = LocalDateTime.fromCalendarFields(calendar);
++                check = localDateTime;
+             }
+             // move back in units of one second until date wrong
+             while (check.isBefore(this) == false) {
+                 calendar.setTimeInMillis(calendar.getTimeInMillis() - 1000);
+-                check = LocalDateTime.fromCalendarFields(calendar);
++                check = localDateTime;
+             }
+             calendar.setTimeInMillis(calendar.getTimeInMillis() + 1000);
+         } else if (check.equals(this)) {

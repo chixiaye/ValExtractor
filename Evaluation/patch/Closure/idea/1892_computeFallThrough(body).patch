@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..b3b3cdd 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -403,7 +403,8 @@
+       // checking the condition (for the first time).
+       createEdge(init, Branch.UNCOND, forNode);
+       // The edge that transfer control to the beginning of the loop body.
+-      createEdge(forNode, Branch.ON_TRUE, computeFallThrough(body));
++        Node toNode = computeFallThrough(body);
++        createEdge(forNode, Branch.ON_TRUE, toNode);
+       // The edge to end of the loop.
+       createEdge(forNode, Branch.ON_FALSE,
+           computeFollowNode(forNode, this));

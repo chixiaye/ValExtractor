@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/Period.java b/src/main/java/org/joda/time/Period.java
+index 5ea67a7..3bdbfb5 100644
+--- a/src/main/java/org/joda/time/Period.java
++++ b/src/main/java/org/joda/time/Period.java
+@@ -266,7 +266,8 @@
+             if (start.getFieldType(i) != end.getFieldType(i)) {
+                 throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+             }
+-            types[i] = start.getFieldType(i).getDurationType();
++            DurationFieldType type = types[i];
++            type = start.getFieldType(i).getDurationType();
+             if (i > 0 && types[i - 1] == types[i]) {
+                 throw new IllegalArgumentException("ReadablePartial objects must not have overlapping fields");
+             }

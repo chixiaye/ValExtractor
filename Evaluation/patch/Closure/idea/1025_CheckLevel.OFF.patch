@@ -1,0 +1,37 @@
+diff --git a/src/com/google/javascript/jscomp/CompilerOptions.java b/src/com/google/javascript/jscomp/CompilerOptions.java
+index c4ba579..aff156a 100644
+--- a/src/com/google/javascript/jscomp/CompilerOptions.java
++++ b/src/com/google/javascript/jscomp/CompilerOptions.java
+@@ -850,21 +850,22 @@
+     nameAnonymousFunctionsOnly = false;
+     devMode = DevMode.OFF;
+     checkSymbols = false;
+-    aggressiveVarCheck = CheckLevel.OFF;
++      CheckLevel off = CheckLevel.OFF;
++      aggressiveVarCheck = off;
+     checkSuspiciousCode = false;
+     checkControlStructures = false;
+     checkTypes = false;
+     tightenTypes = false;
+-    reportMissingOverride = CheckLevel.OFF;
+-    reportUnknownTypes = CheckLevel.OFF;
+-    checkRequires = CheckLevel.OFF;
+-    checkProvides = CheckLevel.OFF;
+-    checkGlobalNamesLevel = CheckLevel.OFF;
++    reportMissingOverride = off;
++    reportUnknownTypes = off;
++    checkRequires = off;
++    checkProvides = off;
++    checkGlobalNamesLevel = off;
+     brokenClosureRequiresLevel = CheckLevel.ERROR;
+-    checkGlobalThisLevel = CheckLevel.OFF;
+-    checkUnreachableCode = CheckLevel.OFF;
+-    checkMissingReturn = CheckLevel.OFF;
+-    checkMissingGetCssNameLevel = CheckLevel.OFF;
++    checkGlobalThisLevel = off;
++    checkUnreachableCode = off;
++    checkMissingReturn = off;
++    checkMissingGetCssNameLevel = off;
+     checkMissingGetCssNameBlacklist = null;
+     checkCaja = false;
+     computeFunctionSideEffects = false;

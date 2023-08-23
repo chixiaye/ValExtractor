@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+index b17bcd4..8e52630 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+@@ -355,9 +355,10 @@
+             }
+         }
+         else {  // handle negative value
+-            transY1 = (float) rangeAxis.valueToJava2D(y1 + stack1[0], dataArea,
++            double v = stack1[0];
++            transY1 = (float) rangeAxis.valueToJava2D(y1 + v, dataArea,
+                     edge1);
+-            float transStack1 = (float) rangeAxis.valueToJava2D(stack1[0],
++            float transStack1 = (float) rangeAxis.valueToJava2D(v,
+                     dataArea, edge1);
+             float transStackLeft = (float) rangeAxis.valueToJava2D(
+                     adjStackLeft[0], dataArea, edge1);

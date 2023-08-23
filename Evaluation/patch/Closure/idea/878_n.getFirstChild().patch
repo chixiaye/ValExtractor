@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..a0d9c28 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -444,7 +444,8 @@
+      */
+     private void handleGetProp(NodeTraversal t, Node n) {
+       String name = n.getLastChild().getString();
+-      T type = typeSystem.getType(getScope(), n.getFirstChild(), name);
++        Node firstChild = n.getFirstChild();
++        T type = typeSystem.getType(getScope(), firstChild, name);
+ 
+       Property prop = getProperty(name);
+       if (!prop.scheduleRenaming(n.getLastChild(),
+@@ -454,11 +455,11 @@
+           if (type instanceof JSType) {
+             JSType jsType = (JSType) type;
+             if (jsType.isAllType() || jsType.isUnknownType()) {
+-              if (n.getFirstChild().isThis()) {
++              if (firstChild.isThis()) {
+                 suggestion = "The \"this\" object is unknown in the function,"+
+                     "consider using @this";
+               } else {
+-                String qName = n.getFirstChild().getQualifiedName();
++                String qName = firstChild.getQualifiedName();
+                 suggestion = "Consider casting " + qName +
+                     " if you know it's type.";
+               }

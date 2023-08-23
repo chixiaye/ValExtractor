@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/axis/AxisSpace.java b/source/org/jfree/chart/axis/AxisSpace.java
+index d869ec6..223c815 100644
+--- a/source/org/jfree/chart/axis/AxisSpace.java
++++ b/source/org/jfree/chart/axis/AxisSpace.java
+@@ -281,20 +281,21 @@
+      */
+     public Rectangle2D reserved(Rectangle2D area, RectangleEdge edge) {
+         Rectangle2D result = null;
++        double x = area.getX();
+         if (edge == RectangleEdge.TOP) {
+             result = new Rectangle2D.Double(
+-                area.getX(), area.getY(), area.getWidth(), this.top
++                    x, area.getY(), area.getWidth(), this.top
+             );
+         }
+         else if (edge == RectangleEdge.BOTTOM) {
+             result = new Rectangle2D.Double(
+-                area.getX(), area.getMaxY() - this.top,
++                    x, area.getMaxY() - this.top,
+                 area.getWidth(), this.bottom
+             );
+         }
+         else if (edge == RectangleEdge.LEFT) {
+             result = new Rectangle2D.Double(
+-                area.getX(), area.getY(), this.left, area.getHeight()
++                    x, area.getY(), this.left, area.getHeight()
+             );
+         }
+         else if (edge == RectangleEdge.RIGHT) {

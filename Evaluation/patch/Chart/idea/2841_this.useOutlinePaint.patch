@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..ff3218f 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -557,7 +557,8 @@
+      * @see #getUseOutlinePaint()
+      */
+     public void setUseOutlinePaint(boolean use) {
+-        if (this.useOutlinePaint != use) {
++        boolean useOutlinePaint1 = this.useOutlinePaint;
++        if (useOutlinePaint1 != use) {
+             this.useOutlinePaint = use;
+             fireChangeEvent();
+         }

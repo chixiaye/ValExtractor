@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..b6ff999 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2517,14 +2517,15 @@
+             }
+             this.backgroundDomainMarkers.clear();
+         }
+-        if (this.foregroundDomainMarkers != null) {
+-            Set keys = this.foregroundDomainMarkers.keySet();
++        Map foregroundDomainMarkers1 = this.foregroundDomainMarkers;
++        if (foregroundDomainMarkers1 != null) {
++            Set keys = foregroundDomainMarkers1.keySet();
+             Iterator iterator = keys.iterator();
+             while (iterator.hasNext()) {
+                 Integer key = (Integer) iterator.next();
+                 clearDomainMarkers(key.intValue());
+             }
+-            this.foregroundDomainMarkers.clear();
++            foregroundDomainMarkers1.clear();
+         }
+         fireChangeEvent();
+     }

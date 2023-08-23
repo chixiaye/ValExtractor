@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..e91c769 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -202,7 +202,8 @@
+         if (intValue == value) {
+             writePaddedInteger(out, intValue, size);
+         } else if (size <= 19) {
+-            out.write(Long.toString(value));
++            String var_504 = Long.toString(value);
++			out.write(var_504);
+         } else {
+             if (value < 0) {
+                 out.write('-');
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..ea51fe6 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -201,8 +201,10 @@
+         int intValue = (int)value;
+         if (intValue == value) {
+             writePaddedInteger(out, intValue, size);
+-        } else if (size <= 19) {
+-            out.write(Long.toString(value));
++        } else {
++			String var_504 = Long.toString(value);
++			if (size <= 19) {
++			    out.write(var_504);
+         } else {
+             if (value < 0) {
+                 out.write('-');
+@@ -220,7 +222,8 @@
+             for (; size > digits; size--) {
+                 out.write('0');
+             }
+-            out.write(Long.toString(value));
++			    out.write(var_504);
++			}
+         }
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..166a2cc 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -201,8 +201,10 @@
+         int intValue = (int)value;
+         if (intValue == value) {
+             writePaddedInteger(out, intValue, size);
+-        } else if (size <= 19) {
+-            out.write(Long.toString(value));
++        } else {
++            String str = Long.toString(value);
++            if (size <= 19) {
++                out.write(str);
+         } else {
+             if (value < 0) {
+                 out.write('-');
+@@ -220,7 +222,8 @@
+             for (; size > digits; size--) {
+                 out.write('0');
+             }
+-            out.write(Long.toString(value));
++                out.write(str);
++            }
+         }
+     }
+ 

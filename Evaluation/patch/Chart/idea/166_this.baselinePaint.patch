@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..1efb7bc 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1378,8 +1378,9 @@
+      */
+     protected void applyToXYPlot(XYPlot plot) {
+         plot.setAxisOffset(this.axisOffset);
+-        plot.setDomainZeroBaselinePaint(this.baselinePaint);
+-        plot.setRangeZeroBaselinePaint(this.baselinePaint);
++        Paint baselinePaint1 = this.baselinePaint;
++        plot.setDomainZeroBaselinePaint(baselinePaint1);
++        plot.setRangeZeroBaselinePaint(baselinePaint1);
+         plot.setDomainGridlinePaint(this.domainGridlinePaint);
+         plot.setRangeGridlinePaint(this.rangeGridlinePaint);
+         plot.setDomainCrosshairPaint(this.crosshairPaint);

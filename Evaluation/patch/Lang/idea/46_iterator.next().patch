@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..7720451 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -3979,7 +3979,8 @@
+         if (!iterator.hasNext()) {
+             return EMPTY;
+         }
+-        final Object first = iterator.next();
++        Object next = iterator.next();
++        final Object first = next;
+         if (!iterator.hasNext()) {
+             return ObjectUtils.toString(first);
+         }
+@@ -3994,7 +3995,7 @@
+             if (separator != null) {
+                 buf.append(separator);
+             }
+-            final Object obj = iterator.next();
++            final Object obj = next;
+             if (obj != null) {
+                 buf.append(obj);
+             }

@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/PerformanceTracker.java b/src/com/google/javascript/jscomp/PerformanceTracker.java
+index 0c2bace..f78a79a 100644
+--- a/src/com/google/javascript/jscomp/PerformanceTracker.java
++++ b/src/com/google/javascript/jscomp/PerformanceTracker.java
+@@ -243,8 +243,9 @@
+ 
+         output.write(key);
+         output.write(",");
+-        output.write(String.valueOf(stats.runtime));
+-        runtime += stats.runtime;
++          long runtime1 = stats.runtime;
++          output.write(String.valueOf(runtime1));
++        runtime += runtime1;
+         output.write(",");
+         output.write(String.valueOf(stats.runs));
+         runs += stats.runs;

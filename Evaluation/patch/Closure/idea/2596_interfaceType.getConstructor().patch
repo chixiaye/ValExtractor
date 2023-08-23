@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..9cdea92 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -460,8 +460,9 @@
+ 
+       if (isInterface()) {
+         for (ObjectType interfaceType : getExtendedInterfaces()) {
+-          if (interfaceType.getConstructor() != null) {
+-            interfaceType.getConstructor().addSubType(this);
++            FunctionType constructor = interfaceType.getConstructor();
++            if (constructor != null) {
++            constructor.addSubType(this);
+           }
+         }
+       }

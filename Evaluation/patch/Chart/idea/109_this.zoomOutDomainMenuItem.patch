@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..da7197b 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2823,6 +2823,7 @@
+ 
+             zoomOutMenu.addSeparator();
+ 
++            JMenuItem zoomOutDomainMenuItem1 = this.zoomOutDomainMenuItem;
+             this.zoomOutDomainMenuItem = new JMenuItem(
+                     localizationResources.getString("Domain_Axis"));
+             this.zoomOutDomainMenuItem.setActionCommand(

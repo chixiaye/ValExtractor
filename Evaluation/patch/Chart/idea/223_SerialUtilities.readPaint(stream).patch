@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYShapeAnnotation.java b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+index 2fae007..d4d092c 100644
+--- a/source/org/jfree/chart/annotations/XYShapeAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+@@ -306,8 +306,9 @@
+         stream.defaultReadObject();
+         this.shape = SerialUtilities.readShape(stream);
+         this.stroke = SerialUtilities.readStroke(stream);
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
+-        this.fillPaint = SerialUtilities.readPaint(stream);
++        Paint outlinePaint1 = SerialUtilities.readPaint(stream);
++        this.outlinePaint = outlinePaint1;
++        this.fillPaint = outlinePaint1;
+     }
+ 
+ }

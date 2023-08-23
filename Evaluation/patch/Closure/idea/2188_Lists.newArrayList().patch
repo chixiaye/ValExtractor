@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/SecureCompiler.java b/src/com/google/javascript/jscomp/jsonml/SecureCompiler.java
+index 26da822..f033fe3 100644
+--- a/src/com/google/javascript/jscomp/jsonml/SecureCompiler.java
++++ b/src/com/google/javascript/jscomp/jsonml/SecureCompiler.java
+@@ -156,12 +156,13 @@
+       return null;
+     }
+ 
+-    ArrayList<JsonMLError> errors = Lists.newArrayList();
++      ArrayList<JsonMLError> jsonMLErrors = Lists.newArrayList();
++      ArrayList<JsonMLError> errors = jsonMLErrors;
+     for (JSError error : result.errors) {
+       errors.add(JsonMLError.make(error, sourceAst));
+     }
+ 
+-    ArrayList<JsonMLError> warnings = Lists.newArrayList();
++    ArrayList<JsonMLError> warnings = jsonMLErrors;
+     for (JSError warning : result.warnings) {
+       warnings.add(JsonMLError.make(warning, sourceAst));
+     }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
+index a03c4f4..dffd459 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
+@@ -292,7 +292,8 @@
+ 
+         // copy the blocks
+         for (int i = 0; i < blocks.length; ++i) {
+-            System.arraycopy(blocks[i], 0, copied.blocks[i], 0, blocks[i].length);
++            double[] block = blocks[i];
++            System.arraycopy(block, 0, copied.blocks[i], 0, block.length);
+         }
+ 
+         return copied;

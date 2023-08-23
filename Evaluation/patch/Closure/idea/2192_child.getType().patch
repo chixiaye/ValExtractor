@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Reader.java b/src/com/google/javascript/jscomp/jsonml/Reader.java
+index 9b7e760..37e4576 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Reader.java
++++ b/src/com/google/javascript/jscomp/jsonml/Reader.java
+@@ -468,8 +468,9 @@
+     JsonML child;
+     for (int i = 0; i < childno; ++i) {
+       child = element.getChild(i);
+-      if (child.getType() == TagType.EmptyStmt ||
+-          child.getType() == TagType.Empty) {
++        TagType type = child.getType();
++        if (type == TagType.EmptyStmt ||
++          type == TagType.Empty) {
+         nodeIndex++;
+         node.addChildToBack(IR.empty());
+       } else {

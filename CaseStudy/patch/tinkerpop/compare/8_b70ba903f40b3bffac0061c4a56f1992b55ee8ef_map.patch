@@ -1,0 +1,27 @@
+diff --git a/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/eclipse/8_b70ba903f40b3bffac0061c4a56f1992b55ee8ef_map.patch b/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/ours/8_b70ba903f40b3bffac0061c4a56f1992b55ee8ef_map.patch
+index 8af3bd90..3940ba26 100644
+--- a/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/eclipse/8_b70ba903f40b3bffac0061c4a56f1992b55ee8ef_map.patch
++++ b/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/ours/8_b70ba903f40b3bffac0061c4a56f1992b55ee8ef_map.patch
+@@ -1,17 +1,14 @@
+ diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+-index 3359942..e3fecf2 100644
++index 3359942..6f9a39f 100644
+ --- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+ +++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+-@@ -45,9 +45,10 @@
+-     private static final ThreadLocal<Map<Object, String>> MAP = new ThreadLocal<>();
+- 
++@@ -47,7 +47,8 @@
+      public <V> V of(final String variable, final V value) {
+--        if (null == MAP.get())
+-+        Map<Object, String> map = MAP.get();
+-+		if (null == map)
++         if (null == MAP.get())
+              MAP.set(new HashMap<>());
+ -        MAP.get().put(value, variable);
+-+        map.put(value, variable);
+++        Map<Object, String> map = MAP.get();
+++		map.put(value, variable);
+          return value;
+      }
+  

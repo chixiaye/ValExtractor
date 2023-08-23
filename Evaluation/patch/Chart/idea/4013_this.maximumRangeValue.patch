@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..08cb0a6 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -142,6 +142,7 @@
+                 this.maximumRangeValue = new Double(maxval);
+             }
+             else if (maxval > this.maximumRangeValue.doubleValue()) {
++                Number maximumRangeValue1 = this.maximumRangeValue;
+                 this.maximumRangeValue = new Double(maxval);
+             }
+ 

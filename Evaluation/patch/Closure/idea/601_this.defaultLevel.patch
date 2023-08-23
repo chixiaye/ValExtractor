@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/DiagnosticType.java b/src/com/google/javascript/jscomp/DiagnosticType.java
+index 18b2f8e..9e06c1f 100644
+--- a/src/com/google/javascript/jscomp/DiagnosticType.java
++++ b/src/com/google/javascript/jscomp/DiagnosticType.java
+@@ -96,7 +96,8 @@
+    */
+   private DiagnosticType(String key, CheckLevel level, MessageFormat format) {
+     this.key = key;
+-    this.defaultLevel = level;
++      CheckLevel defaultLevel1 = this.defaultLevel;
++      this.defaultLevel = level;
+     this.format = format;
+ 
+     this.level = this.defaultLevel;

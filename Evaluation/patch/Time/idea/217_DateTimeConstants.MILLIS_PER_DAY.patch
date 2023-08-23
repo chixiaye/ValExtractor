@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/chrono/EthiopicChronology.java b/src/main/java/org/joda/time/chrono/EthiopicChronology.java
+index 44b8edf..54204a6 100644
+--- a/src/main/java/org/joda/time/chrono/EthiopicChronology.java
++++ b/src/main/java/org/joda/time/chrono/EthiopicChronology.java
+@@ -217,13 +217,14 @@
+                 leapYears++;
+             }
+         }
+-        
++
++        int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
+         long millis = (relativeYear * 365L + leapYears)
+-            * (long)DateTimeConstants.MILLIS_PER_DAY;
++            * (long) millisPerDay;
+ 
+         // Adjust to account for difference between 1963-01-01 and 1962-04-23.
+ 
+-        return millis + (365L - 112) * DateTimeConstants.MILLIS_PER_DAY;
++        return millis + (365L - 112) * millisPerDay;
+     }
+ 
+     //-----------------------------------------------------------------------

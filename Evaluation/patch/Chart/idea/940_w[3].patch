@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/block/BorderArrangement.java b/source/org/jfree/chart/block/BorderArrangement.java
+index b3ae54b..3f31801 100644
+--- a/source/org/jfree/chart/block/BorderArrangement.java
++++ b/source/org/jfree/chart/block/BorderArrangement.java
+@@ -200,7 +200,8 @@
+        }
+         if (this.rightBlock != null) {
+             Size2D size = this.rightBlock.arrange(g2, RectangleConstraint.NONE);
+-            w[3] = size.width;
++            double v = w[3];
++            v = size.width;
+             h[3] = size.height;
+         }
+ 

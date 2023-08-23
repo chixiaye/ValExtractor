@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+index fbdafa3..57d1d1b 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+@@ -596,7 +596,8 @@
+       // (-r) (Vector3D.plusJ) coordinates are :
+       // sin (psi) cos (phi), cos (psi) cos (phi), -sin (phi)
+       // and we can choose to have phi in the interval [-PI/2 ; +PI/2]
+-      Vector3D v1 = applyTo(Vector3D.PLUS_K);
++      Vector3D var_1412 = applyTo(Vector3D.PLUS_K);
++	Vector3D v1 = var_1412;
+       Vector3D v2 = applyInverseTo(Vector3D.PLUS_J);
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(true);

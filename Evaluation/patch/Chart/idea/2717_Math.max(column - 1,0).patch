@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+index f8c3051..ed3d39d 100644
+--- a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+@@ -214,11 +214,12 @@
+         // get the previous point and the next point so we can calculate a
+         // "hot spot" for the area (used by the chart entity)...
+         double y0 = 0.0;
+-        n = dataset.getValue(row, Math.max(column - 1, 0));
++        int max = Math.max(column - 1, 0);
++        n = dataset.getValue(row, max);
+         if (n != null) {
+             y0 = n.doubleValue();
+         }
+-        double[] stack0 = getStackValues(dataset, row, Math.max(column - 1, 0));
++        double[] stack0 = getStackValues(dataset, row, max);
+ 
+         // FIXME: calculate xx0
+         double xx0 = domainAxis.getCategoryStart(column, getColumnCount(),

@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/title/ShortTextTitle.java b/source/org/jfree/chart/title/ShortTextTitle.java
+index e060d30..2b03037 100644
+--- a/source/org/jfree/chart/title/ShortTextTitle.java
++++ b/source/org/jfree/chart/title/ShortTextTitle.java
+@@ -40,8 +40,7 @@
+ 
+ package org.jfree.chart.title;
+ 
+-import java.awt.FontMetrics;
+-import java.awt.Graphics2D;
++import java.awt.*;
+ import java.awt.geom.Rectangle2D;
+ 
+ import org.jfree.chart.block.LengthConstraintType;
+@@ -173,8 +172,9 @@
+      * @return The content size.
+      */
+     protected Size2D arrangeFN(Graphics2D g2, double w) {
+-        g2.setFont(getFont());
+-        FontMetrics fm = g2.getFontMetrics(getFont());
++        Font font = getFont();
++        g2.setFont(font);
++        FontMetrics fm = g2.getFontMetrics(font);
+         Rectangle2D bounds = TextUtilities.getTextBounds(getText(), g2, fm);
+         if (bounds.getWidth() <= w) {
+             return new Size2D(w, bounds.getHeight());

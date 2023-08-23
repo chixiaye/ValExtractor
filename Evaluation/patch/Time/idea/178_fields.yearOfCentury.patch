@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/ZonedChronology.java b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+index c7c2da6..64ca9b4 100644
+--- a/src/main/java/org/joda/time/chrono/ZonedChronology.java
++++ b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+@@ -169,7 +169,8 @@
+ 
+         fields.year = convertField(fields.year, converted);
+         fields.yearOfEra = convertField(fields.yearOfEra, converted);
+-        fields.yearOfCentury = convertField(fields.yearOfCentury, converted);
++        DateTimeField yearOfCentury = fields.yearOfCentury;
++        yearOfCentury = convertField(fields.yearOfCentury, converted);
+         fields.centuryOfEra = convertField(fields.centuryOfEra, converted);
+         fields.era = convertField(fields.era, converted);
+         fields.dayOfWeek = convertField(fields.dayOfWeek, converted);

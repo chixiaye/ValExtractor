@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..befa408 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -195,7 +195,8 @@
+     Node current = n.getParent();
+     if (n.isName() &&
+         n.getParent().isFunction()) {
+-      current = current.getParent();
++      Node var_1290 = current.getParent();
++	current = var_1290;
+     }
+ 
+     for (; current != null; current = current.getParent()) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..1c6d8ab 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -193,12 +193,13 @@
+    */
+   public SymbolScope getEnclosingScope(Node n) {
+     Node current = n.getParent();
++    Node var_1290 = current.getParent();
+     if (n.isName() &&
+         n.getParent().isFunction()) {
+-      current = current.getParent();
++      current = var_1290;
+     }
+ 
+-    for (; current != null; current = current.getParent()) {
++    for (; current != null; current = var_1290) {
+       if (scopes.containsKey(current)) {
+         return scopes.get(current);
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..a010dd1 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -193,12 +193,13 @@
+    */
+   public SymbolScope getEnclosingScope(Node n) {
+     Node current = n.getParent();
++      Node parent = current.getParent();
+     if (n.isName() &&
+         n.getParent().isFunction()) {
+-      current = current.getParent();
++      current = parent;
+     }
+ 
+-    for (; current != null; current = current.getParent()) {
++    for (; current != null; current = parent) {
+       if (scopes.containsKey(current)) {
+         return scopes.get(current);
+       }

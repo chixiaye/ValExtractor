@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+index 311459c..a375b17 100644
+--- a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+@@ -707,14 +707,15 @@
+                 }
+             }
+ 
++            Shape face = faces[5];
+             itemLabelList.add(new Object[] {new Integer(series),
+-                    faces[5].getBounds2D(),
++                    face.getBounds2D(),
+                     Boolean.valueOf(v0 < getBase())});
+ 
+             // add an item entity, if this information is being collected
+             EntityCollection entities = state.getEntityCollection();
+             if (entities != null) {
+-                addEntity(entities, faces[5], dataset, series, column, false);
++                addEntity(entities, face, dataset, series, column, false);
+             }
+ 
+         }

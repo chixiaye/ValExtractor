@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..af96a38 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -322,8 +322,9 @@
+                 return null;
+             }
+             else {
+-                return new Range(r.getLowerBound() + this.yOffset,
+-                        r.getUpperBound() + this.blockHeight + this.yOffset);
++                double yOffset1 = this.yOffset;
++                return new Range(r.getLowerBound() + yOffset1,
++                        r.getUpperBound() + this.blockHeight + yOffset1);
+             }
+         }
+         else {

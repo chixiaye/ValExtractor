@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/UnicodeEscaper.java b/src/main/java/org/apache/commons/lang3/text/translate/UnicodeEscaper.java
+index 09cc07d..2da350a 100644
+--- a/src/main/java/org/apache/commons/lang3/text/translate/UnicodeEscaper.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/UnicodeEscaper.java
+@@ -114,14 +114,17 @@
+         // TODO: Handle potential + sign per various Unicode escape implementations
+         if (codepoint > 0xffff) {
+             out.write(toUtf16Escape(codepoint));
+-        } else if (codepoint > 0xfff) {
+-            out.write("\\u" + hex(codepoint));
+-        } else if (codepoint > 0xff) {
+-            out.write("\\u0" + hex(codepoint));
+-        } else if (codepoint > 0xf) {
+-            out.write("\\u00" + hex(codepoint));
+         } else {
+-            out.write("\\u000" + hex(codepoint));
++            String hex = hex(codepoint);
++            if (codepoint > 0xfff) {
++                out.write("\\u" + hex);
++            } else if (codepoint > 0xff) {
++                out.write("\\u0" + hex);
++            } else if (codepoint > 0xf) {
++                out.write("\\u00" + hex);
++            } else {
++                out.write("\\u000" + hex);
++            }
+         }
+         return true;
+     }

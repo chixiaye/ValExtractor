@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..c19c16a 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -1848,9 +1848,10 @@
+                     maxLength = property.getMaximumTextLength(locale);
+                     for (int i = min; i <= max; i++) {
+                         property.set(i);
+-                        validValues.add(property.getAsShortText(locale));
+-                        validValues.add(property.getAsShortText(locale).toLowerCase(locale));
+-                        validValues.add(property.getAsShortText(locale).toUpperCase(locale));
++                        String asShortText = property.getAsShortText(locale);
++                        validValues.add(asShortText);
++                        validValues.add(asShortText.toLowerCase(locale));
++                        validValues.add(asShortText.toUpperCase(locale));
+                         validValues.add(property.getAsText(locale));
+                         validValues.add(property.getAsText(locale).toLowerCase(locale));
+                         validValues.add(property.getAsText(locale).toUpperCase(locale));

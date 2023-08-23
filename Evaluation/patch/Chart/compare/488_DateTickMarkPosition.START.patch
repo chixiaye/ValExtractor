@@ -1,0 +1,205 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..7da8463 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -902,14 +902,15 @@
+                 mm = calendar.getTime();
+             }
+             return mm;
+-        }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        } else {
++			DateTickMarkPosition var_488 = DateTickMarkPosition.START;
++			if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 milliseconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -932,7 +933,7 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                seconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -954,7 +955,7 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+@@ -978,7 +979,7 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1024,7 +1025,7 @@
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 months = 0;
+                 days = 1;
+             }
+@@ -1048,6 +1049,7 @@
+         else {
+             return null;
+         }
++		}
+ 
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..7da8463 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -902,14 +902,15 @@
+                 mm = calendar.getTime();
+             }
+             return mm;
+-        }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        } else {
++			DateTickMarkPosition var_488 = DateTickMarkPosition.START;
++			if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 milliseconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -932,7 +933,7 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                seconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -954,7 +955,7 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+@@ -978,7 +979,7 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1024,7 +1025,7 @@
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (this.tickMarkPosition == var_488) {
+                 months = 0;
+                 days = 1;
+             }
+@@ -1048,6 +1049,7 @@
+         else {
+             return null;
+         }
++		}
+ 
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..fc07d08 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -903,13 +903,15 @@
+             }
+             return mm;
+         }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        else {
++            DateTickMarkPosition start = DateTickMarkPosition.START;
++            if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (this.tickMarkPosition == start) {
+                 milliseconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -932,7 +934,7 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (this.tickMarkPosition == start) {
+                seconds = 0;
+             }
+             else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
+@@ -954,7 +956,7 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (this.tickMarkPosition == start) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+@@ -978,7 +980,7 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (this.tickMarkPosition == start) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1024,7 +1026,7 @@
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (this.tickMarkPosition == start) {
+                 months = 0;
+                 days = 1;
+             }
+@@ -1048,6 +1050,7 @@
+         else {
+             return null;
+         }
++        }
+ 
+     }
+ 

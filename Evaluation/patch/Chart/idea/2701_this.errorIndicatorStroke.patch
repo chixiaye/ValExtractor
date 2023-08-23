@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+index 3a5d3e0..07f650f 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+@@ -529,8 +529,9 @@
+             else {
+                 g2.setPaint(getItemOutlinePaint(row, column, selected));
+             }
+-            if (this.errorIndicatorStroke != null) {
+-                g2.setStroke(this.errorIndicatorStroke);
++            Stroke errorIndicatorStroke1 = this.errorIndicatorStroke;
++            if (errorIndicatorStroke1 != null) {
++                g2.setStroke(errorIndicatorStroke1);
+             }
+             else {
+                 g2.setStroke(getItemOutlineStroke(row, column, selected));

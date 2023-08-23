@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSet.java b/src/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSet.java
+index 466c11a..da62733 100644
+--- a/src/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSet.java
++++ b/src/org/mockito/internal/util/collections/HashCodeAndEqualsSafeSet.java
+@@ -107,8 +107,9 @@
+ 
+ 
+     public <T> T[] toArray(T[] typedArray) {
+-        T[] array = typedArray.length >= size() ? typedArray :
+-                (T[]) newInstance(typedArray.getClass().getComponentType(), size());
++        int size = size();
++        T[] array = typedArray.length >= size ? typedArray :
++                (T[]) newInstance(typedArray.getClass().getComponentType(), size);
+         return unwrapTo(array);
+     }
+ 

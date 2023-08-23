@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/ml/clustering/DBSCANClusterer.java b/src/main/java/org/apache/commons/math3/ml/clustering/DBSCANClusterer.java
+index 61a5b70..7bce658 100644
+--- a/src/main/java/org/apache/commons/math3/ml/clustering/DBSCANClusterer.java
++++ b/src/main/java/org/apache/commons/math3/ml/clustering/DBSCANClusterer.java
+@@ -173,7 +173,8 @@
+                                      final Collection<T> points,
+                                      final Map<Clusterable, PointStatus> visited) {
+         cluster.addPoint(point);
+-        visited.put(point, PointStatus.PART_OF_CLUSTER);
++        PointStatus partOfCluster = PointStatus.PART_OF_CLUSTER;
++        visited.put(point, partOfCluster);
+ 
+         List<T> seeds = new ArrayList<T>(neighbors);
+         int index = 0;
+@@ -188,8 +189,8 @@
+                 }
+             }
+ 
+-            if (pStatus != PointStatus.PART_OF_CLUSTER) {
+-                visited.put(current, PointStatus.PART_OF_CLUSTER);
++            if (pStatus != partOfCluster) {
++                visited.put(current, partOfCluster);
+                 cluster.addPoint(current);
+             }
+ 

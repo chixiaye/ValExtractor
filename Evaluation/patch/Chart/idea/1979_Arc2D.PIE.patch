@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..cdef380 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -1022,19 +1022,20 @@
+         double w = area.getWidth();
+         double h = area.getHeight();
+         int joinType = Arc2D.OPEN;
++        int pie = Arc2D.PIE;
+         if (this.shape == DialShape.PIE) {
+-            joinType = Arc2D.PIE;
++            joinType = pie;
+         }
+         else if (this.shape == DialShape.CHORD) {
+             if (dial && this.meterAngle > 180) {
+                 joinType = Arc2D.CHORD;
+             }
+             else {
+-                joinType = Arc2D.PIE;
++                joinType = pie;
+             }
+         }
+         else if (this.shape == DialShape.CIRCLE) {
+-            joinType = Arc2D.PIE;
++            joinType = pie;
+             if (dial) {
+                 extent = 360;
+             }

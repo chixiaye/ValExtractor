@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..0ca07ee 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -316,7 +316,8 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                DurationField var_429 = getRangeDurationField();
++				if (var_429.getType() != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..a2e39e1 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -303,6 +303,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        DurationField var_429 = getRangeDurationField();
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -316,7 +317,7 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (var_429.getType() != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+@@ -336,7 +337,7 @@
+                     throw new IllegalArgumentException("Maximum value exceeded for add");
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (var_429.getType() != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..a52fa39 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -303,6 +303,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        DurationField rangeDurationField = getRangeDurationField();
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -316,7 +317,7 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (rangeDurationField.getType() != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }
+@@ -336,7 +337,7 @@
+                     throw new IllegalArgumentException("Maximum value exceeded for add");
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                if (rangeDurationField.getType() != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }

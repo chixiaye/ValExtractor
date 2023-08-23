@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..b905359 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1907,9 +1907,10 @@
+      * @param parent The parent of n
+      */
+     @Override public void visit(NodeTraversal t, Node n, Node parent) {
+-      if (n == scope.getRootNode()) return;
++        Node rootNode = scope.getRootNode();
++        if (n == rootNode) return;
+ 
+-      if (n.isParamList() && parent == scope.getRootNode()) {
++      if (n.isParamList() && parent == rootNode) {
+         handleFunctionInputs(parent);
+         return;
+       }

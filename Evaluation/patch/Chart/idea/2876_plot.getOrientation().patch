@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..e40c649 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -941,7 +941,8 @@
+         }
+         boolean inverted = rangeAxis.isInverted();
+         RectangleEdge barBase;
+-        if (plot.getOrientation() == PlotOrientation.HORIZONTAL) {
++        PlotOrientation orientation = plot.getOrientation();
++        if (orientation == PlotOrientation.HORIZONTAL) {
+             if (positive && inverted || !positive && !inverted) {
+                 barBase = RectangleEdge.RIGHT;
+             }
+@@ -982,7 +983,7 @@
+         int rangeAxisIndex = plot.getRangeAxisIndex(rangeAxis);
+         XYCrosshairState crosshairState = state.getCrosshairState();
+         updateCrosshairValues(crosshairState, x1, y1, domainAxisIndex,
+-                rangeAxisIndex, transX1, transY1, plot.getOrientation());
++                rangeAxisIndex, transX1, transY1, orientation);
+ 
+         EntityCollection entities = state.getEntityCollection();
+         if (entities != null) {

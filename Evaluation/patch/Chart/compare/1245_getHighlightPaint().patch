@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/needle/LongNeedle.java b/source/org/jfree/chart/needle/LongNeedle.java
+index 8433c41..a3e6a30 100644
+--- a/source/org/jfree/chart/needle/LongNeedle.java
++++ b/source/org/jfree/chart/needle/LongNeedle.java
+@@ -46,6 +46,7 @@
+ package org.jfree.chart.needle;
+ 
+ import java.awt.Graphics2D;
++import java.awt.Paint;
+ import java.awt.geom.GeneralPath;
+ import java.awt.geom.Point2D;
+ import java.awt.geom.Rectangle2D;
+@@ -125,8 +126,9 @@
+         }
+ 
+ 
+-        if (getHighlightPaint() != null) {
+-            g2.setPaint(getHighlightPaint());
++        Paint var_1245 = getHighlightPaint();
++		if (var_1245 != null) {
++            g2.setPaint(var_1245);
+             g2.fill(s3);
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/needle/LongNeedle.java b/source/org/jfree/chart/needle/LongNeedle.java
+index 8433c41..a3e6a30 100644
+--- a/source/org/jfree/chart/needle/LongNeedle.java
++++ b/source/org/jfree/chart/needle/LongNeedle.java
+@@ -46,6 +46,7 @@
+ package org.jfree.chart.needle;
+ 
+ import java.awt.Graphics2D;
++import java.awt.Paint;
+ import java.awt.geom.GeneralPath;
+ import java.awt.geom.Point2D;
+ import java.awt.geom.Rectangle2D;
+@@ -125,8 +126,9 @@
+         }
+ 
+ 
+-        if (getHighlightPaint() != null) {
+-            g2.setPaint(getHighlightPaint());
++        Paint var_1245 = getHighlightPaint();
++		if (var_1245 != null) {
++            g2.setPaint(var_1245);
+             g2.fill(s3);
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/needle/LongNeedle.java b/source/org/jfree/chart/needle/LongNeedle.java
+index 8433c41..1f86719 100644
+--- a/source/org/jfree/chart/needle/LongNeedle.java
++++ b/source/org/jfree/chart/needle/LongNeedle.java
+@@ -45,11 +45,10 @@
+ 
+ package org.jfree.chart.needle;
+ 
+-import java.awt.Graphics2D;
++import java.awt.*;
+ import java.awt.geom.GeneralPath;
+ import java.awt.geom.Point2D;
+ import java.awt.geom.Rectangle2D;
+-import java.awt.Shape;
+ import java.io.Serializable;
+ 
+ /**
+@@ -125,8 +124,9 @@
+         }
+ 
+ 
+-        if (getHighlightPaint() != null) {
+-            g2.setPaint(getHighlightPaint());
++        Paint highlightPaint = getHighlightPaint();
++        if (highlightPaint != null) {
++            g2.setPaint(highlightPaint);
+             g2.fill(s3);
+         }
+ 

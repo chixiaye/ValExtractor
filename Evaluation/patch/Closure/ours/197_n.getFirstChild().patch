@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+index e1caa71..7c509f4 100644
+--- a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
++++ b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+@@ -138,7 +138,8 @@
+           return;
+         }
+ 
+-        String fnName = n.getFirstChild().getString();
++        Node var_197 = n.getFirstChild();
++		String fnName = var_197.getString();
+         if (fnName.isEmpty()) {
+           // This is invalid, but allow it so the checks can catch it.
+           return;

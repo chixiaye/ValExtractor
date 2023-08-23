@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ui/LCBLayout.java b/source/org/jfree/chart/ui/LCBLayout.java
+index b63c82b..308d70f 100644
+--- a/source/org/jfree/chart/ui/LCBLayout.java
++++ b/source/org/jfree/chart/ui/LCBLayout.java
+@@ -196,7 +196,8 @@
+             // adjust the width of the second column to use up all of parent
+             int available = parent.getWidth() - insets.left
+                     - insets.right - this.labelGap - this.buttonGap;
+-            this.colWidth[1] = this.colWidth[1] + (available - totalWidth);
++            int i1 = this.colWidth[1];
++            i1 = this.colWidth[1] + (available - totalWidth);
+ 
+             // *** DO THE LAYOUT ***
+             int x = insets.left;

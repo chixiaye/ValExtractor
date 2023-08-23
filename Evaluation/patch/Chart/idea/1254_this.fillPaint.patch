@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/needle/MeterNeedle.java b/source/org/jfree/chart/needle/MeterNeedle.java
+index c3f2c81..89a256b 100644
+--- a/source/org/jfree/chart/needle/MeterNeedle.java
++++ b/source/org/jfree/chart/needle/MeterNeedle.java
+@@ -306,8 +306,9 @@
+      */
+     protected void defaultDisplay(Graphics2D g2, Shape shape) {
+ 
+-        if (this.fillPaint != null) {
+-            g2.setPaint(this.fillPaint);
++        Paint fillPaint1 = this.fillPaint;
++        if (fillPaint1 != null) {
++            g2.setPaint(fillPaint1);
+             g2.fill(shape);
+         }
+ 

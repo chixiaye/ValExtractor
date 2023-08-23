@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..2af48fa 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -482,8 +482,9 @@
+             double upperMargin = 0.5;
+             double lowerMargin = 0.5;
+ 
++            boolean autoRangeStickyZero = getAutoRangeStickyZero();
+             if (getAutoRangeIncludesZero()) {
+-                if (getAutoRangeStickyZero()) {
++                if (autoRangeStickyZero) {
+                     if (upper <= 0.0) {
+                         upper = 0.0;
+                     }
+@@ -503,7 +504,7 @@
+                 }
+             }
+             else {
+-                if (getAutoRangeStickyZero()) {
++                if (autoRangeStickyZero) {
+                     if (upper <= 0.0) {
+                         upper = Math.min(0.0, upper + upperMargin);
+                     }

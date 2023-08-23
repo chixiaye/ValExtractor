@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..89aa874 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -252,7 +252,8 @@
+         fields.minutes = cMinutesField;
+         fields.hours = cHoursField;
+         fields.halfdays = cHalfdaysField;
+-        fields.days = cDaysField;
++        DurationField days = fields.days;
++        days = cDaysField;
+         fields.weeks = cWeeksField;
+ 
+         fields.millisOfSecond = cMillisOfSecondField;

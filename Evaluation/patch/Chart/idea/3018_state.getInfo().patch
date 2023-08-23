@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/YIntervalRenderer.java b/source/org/jfree/chart/renderer/xy/YIntervalRenderer.java
+index f2ed931..54ff086 100644
+--- a/source/org/jfree/chart/renderer/xy/YIntervalRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/YIntervalRenderer.java
+@@ -183,8 +183,9 @@
+ 
+         // setup for collecting optional entity info...
+         EntityCollection entities = null;
+-        if (state.getInfo() != null) {
+-            entities = state.getInfo().getOwner().getEntityCollection();
++        PlotRenderingInfo info = state.getInfo();
++        if (info != null) {
++            entities = info.getOwner().getEntityCollection();
+         }
+ 
+         IntervalXYDataset intervalDataset = (IntervalXYDataset) dataset;

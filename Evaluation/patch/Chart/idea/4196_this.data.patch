@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValuesCollection.java b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+index ba52bd7..61709f6 100644
+--- a/source/org/jfree/data/time/TimePeriodValuesCollection.java
++++ b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+@@ -99,6 +99,7 @@
+      * @param series  the series (<code>null</code> ignored).
+      */
+     public TimePeriodValuesCollection(TimePeriodValues series) {
++        List data1 = this.data;
+         this.data = new java.util.ArrayList();
+         this.xPosition = TimePeriodAnchor.MIDDLE;
+         if (series != null) {

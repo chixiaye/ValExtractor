@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/chrono/GregorianChronology.java b/src/main/java/org/joda/time/chrono/GregorianChronology.java
+index d67e517..866165f 100644
+--- a/src/main/java/org/joda/time/chrono/GregorianChronology.java
++++ b/src/main/java/org/joda/time/chrono/GregorianChronology.java
+@@ -125,10 +125,11 @@
+                     ("Invalid min days in first week: " + minDaysInFirstWeek);
+             }
+             if (chrono == null) {
+-                if (zone == DateTimeZone.UTC) {
++                DateTimeZone utc = DateTimeZone.UTC;
++                if (zone == utc) {
+                     chrono = new GregorianChronology(null, null, minDaysInFirstWeek);
+                 } else {
+-                    chrono = getInstance(DateTimeZone.UTC, minDaysInFirstWeek);
++                    chrono = getInstance(utc, minDaysInFirstWeek);
+                     chrono = new GregorianChronology
+                         (ZonedChronology.getInstance(chrono, zone), null, minDaysInFirstWeek);
+                 }

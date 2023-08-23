@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..3e97b6b 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -433,7 +433,7 @@
+         if (minute) {
+             bld.appendMinuteOfHour(2);
+         } else if (second || milli) {
+-            bld.appendLiteral('-');
++            DateTimeFormatterBuilder var_589 = bld.appendLiteral('-');
+         }
+         if (extended && minute && second) {
+             bld.appendLiteral(':');
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..3e97b6b 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -433,7 +433,7 @@
+         if (minute) {
+             bld.appendMinuteOfHour(2);
+         } else if (second || milli) {
+-            bld.appendLiteral('-');
++            DateTimeFormatterBuilder var_589 = bld.appendLiteral('-');
+         }
+         if (extended && minute && second) {
+             bld.appendLiteral(':');
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..6b3801a 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -422,10 +422,11 @@
+                 }
+             }
+         }
++        DateTimeFormatterBuilder dateTimeFormatterBuilder = bld.appendLiteral('-');
+         if (hour) {
+             bld.appendHourOfDay(2);
+         } else if (minute || second || milli) {
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+         }
+         if (extended && hour && minute) {
+             bld.appendLiteral(':');
+@@ -433,7 +434,7 @@
+         if (minute) {
+             bld.appendMinuteOfHour(2);
+         } else if (second || milli) {
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+         }
+         if (extended && minute && second) {
+             bld.appendLiteral(':');
+@@ -441,7 +442,7 @@
+         if (second) {
+             bld.appendSecondOfMinute(2);
+         } else if (milli) {
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+         }
+         if (milli) {
+             bld.appendLiteral('.');

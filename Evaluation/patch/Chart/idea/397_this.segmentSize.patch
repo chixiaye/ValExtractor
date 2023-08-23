@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..b88cd79 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -327,6 +327,7 @@
+                              int segmentsIncluded,
+                              int segmentsExcluded) {
+ 
++        long segmentSize1 = this.segmentSize;
+         this.segmentSize = segmentSize;
+         this.segmentsIncluded = segmentsIncluded;
+         this.segmentsExcluded = segmentsExcluded;

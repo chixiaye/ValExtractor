@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/general/DefaultHeatMapDataset.java b/source/org/jfree/data/general/DefaultHeatMapDataset.java
+index 7840965..85208b1 100644
+--- a/source/org/jfree/data/general/DefaultHeatMapDataset.java
++++ b/source/org/jfree/data/general/DefaultHeatMapDataset.java
+@@ -193,8 +193,9 @@
+      * @return The x-value.
+      */
+     public double getXValue(int xIndex) {
+-        double x = this.minX
+-                + (this.maxX - this.minX) * (xIndex / (double) this.xSamples);
++        double minX1 = this.minX;
++        double x = minX1
++                + (this.maxX - minX1) * (xIndex / (double) this.xSamples);
+         return x;
+     }
+ 

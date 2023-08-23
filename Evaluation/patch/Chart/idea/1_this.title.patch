@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..e782e5b 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -417,6 +417,7 @@
+             if (titleFont == null) {
+                 titleFont = DEFAULT_TITLE_FONT;
+             }
++            TextTitle title1 = this.title;
+             this.title = new TextTitle(title, titleFont);
+             this.title.addChangeListener(this);
+         }

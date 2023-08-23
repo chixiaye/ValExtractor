@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..dc6ad89 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -2285,8 +2285,9 @@
+     // make sure that the adding root looks ok
+     Preconditions.checkState(addingRoot.isBlock() ||
+         addingRoot.isScript());
+-    Preconditions.checkState(addingRoot.getFirstChild() == null ||
+-        !addingRoot.getFirstChild().isScript());
++      Node firstChild = addingRoot.getFirstChild();
++      Preconditions.checkState(firstChild == null ||
++        !firstChild.isScript());
+     return addingRoot;
+   }
+ 

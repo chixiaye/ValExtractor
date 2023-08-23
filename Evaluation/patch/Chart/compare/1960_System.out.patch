@@ -1,0 +1,81 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..a1a18bd 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -201,6 +201,7 @@
+ import java.io.IOException;
+ import java.io.ObjectInputStream;
+ import java.io.ObjectOutputStream;
++import java.io.PrintStream;
+ import java.io.Serializable;
+ import java.lang.annotation.Annotation;
+ import java.util.ArrayList;
+@@ -5345,8 +5346,9 @@
+      */
+     public void select(GeneralPath region, Rectangle2D dataArea,
+             RenderingSource source) {
+-        System.out.println(region);
+-        System.out.println("Select a region...");
++        PrintStream var_1960 = System.out;
++		var_1960.println(region);
++        var_1960.println("Select a region...");
+     }
+ 
+     /**
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..a1a18bd 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -201,6 +201,7 @@
+ import java.io.IOException;
+ import java.io.ObjectInputStream;
+ import java.io.ObjectOutputStream;
++import java.io.PrintStream;
+ import java.io.Serializable;
+ import java.lang.annotation.Annotation;
+ import java.util.ArrayList;
+@@ -5345,8 +5346,9 @@
+      */
+     public void select(GeneralPath region, Rectangle2D dataArea,
+             RenderingSource source) {
+-        System.out.println(region);
+-        System.out.println("Select a region...");
++        PrintStream var_1960 = System.out;
++		var_1960.println(region);
++        var_1960.println("Select a region...");
+     }
+ 
+     /**
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..5678799 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -198,10 +198,7 @@
+ import java.awt.geom.Point2D;
+ import java.awt.geom.Rectangle2D;
+ import java.awt.image.BufferedImage;
+-import java.io.IOException;
+-import java.io.ObjectInputStream;
+-import java.io.ObjectOutputStream;
+-import java.io.Serializable;
++import java.io.*;
+ import java.lang.annotation.Annotation;
+ import java.util.ArrayList;
+ import java.util.Collection;
+@@ -5345,8 +5342,9 @@
+      */
+     public void select(GeneralPath region, Rectangle2D dataArea,
+             RenderingSource source) {
+-        System.out.println(region);
+-        System.out.println("Select a region...");
++        PrintStream out = System.out;
++        out.println(region);
++        out.println("Select a region...");
+     }
+ 
+     /**

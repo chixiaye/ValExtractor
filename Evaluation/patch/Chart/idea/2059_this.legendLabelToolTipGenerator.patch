@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..79f74bf 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3060,8 +3060,9 @@
+                 if (label != null) {
+                     String description = label;
+                     String toolTipText = null;
+-                    if (this.legendLabelToolTipGenerator != null) {
+-                        toolTipText = this.legendLabelToolTipGenerator
++                    PieSectionLabelGenerator legendLabelToolTipGenerator1 = this.legendLabelToolTipGenerator;
++                    if (legendLabelToolTipGenerator1 != null) {
++                        toolTipText = legendLabelToolTipGenerator1
+                                 .generateSectionLabel(this.dataset, key);
+                     }
+                     String urlText = null;

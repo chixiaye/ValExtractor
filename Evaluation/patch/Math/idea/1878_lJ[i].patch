@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+index f03ba0e..2bb037d 100644
+--- a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+@@ -128,7 +128,8 @@
+                 if (FastMath.abs(lIJ - lJI) > maxDelta) {
+                     throw new NonSymmetricMatrixException(i, j, relativeSymmetryThreshold);
+                 }
+-                lJ[i] = 0;
++                double v = lJ[i];
++                v = 0;
+            }
+         }
+ 

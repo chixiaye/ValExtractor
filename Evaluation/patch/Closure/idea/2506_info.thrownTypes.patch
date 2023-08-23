@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..492e188 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -960,7 +960,8 @@
+   boolean declareThrows(JSTypeExpression jsType) {
+     lazyInitInfo();
+ 
+-    if (info.thrownTypes == null) {
++      List<JSTypeExpression> thrownTypes = info.thrownTypes;
++      if (thrownTypes == null) {
+       info.thrownTypes = Lists.newArrayList();
+     }
+ 

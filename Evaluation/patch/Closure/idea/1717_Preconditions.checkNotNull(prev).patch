@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..fbb2737 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -426,7 +426,8 @@
+     Node prev = null;
+     Node elem = arrayNode.getFirstChild();
+     // Merges adjacent String nodes.
+-    while (elem != null) {
++      Node node1 = Preconditions.checkNotNull(prev);
++      while (elem != null) {
+       if (NodeUtil.isImmutableValue(elem) || elem.isEmpty()) {
+         if (sb == null) {
+           sb = new StringBuilder();
+@@ -436,7 +437,7 @@
+         sb.append(NodeUtil.getArrayElementStringValue(elem));
+       } else {
+         if (sb != null) {
+-          Preconditions.checkNotNull(prev);
++          node1;
+           // + 2 for the quotes.
+           foldedSize += sb.length() + 2;
+           arrayFoldedChildren.add(
+@@ -451,7 +452,7 @@
+     }
+ 
+     if (sb != null) {
+-      Preconditions.checkNotNull(prev);
++      node1;
+       // + 2 for the quotes.
+       foldedSize += sb.length() + 2;
+       arrayFoldedChildren.add(

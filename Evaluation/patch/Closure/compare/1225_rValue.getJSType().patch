@@ -1,0 +1,115 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..7577dbc 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1287,7 +1287,8 @@
+       } else if (rValue != null && rValue.isFunction() &&
+           shouldUseFunctionLiteralType(
+               JSType.toMaybeFunctionType(rValue.getJSType()), info, lValue)) {
+-        return rValue.getJSType();
++        JSType var_1225 = rValue.getJSType();
++		return var_1225;
+       } else if (info != null) {
+         if (info.hasEnumParameterType()) {
+           if (rValue != null && rValue.isObjectLit()) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..10140ef 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1284,14 +1284,16 @@
+         Node lValue, @Nullable Node rValue) {
+       if (info != null && info.hasType()) {
+         return getDeclaredTypeInAnnotation(sourceName, lValue, info);
+-      } else if (rValue != null && rValue.isFunction() &&
++      } else {
++		JSType var_1225 = rValue.getJSType();
++		if (rValue != null && rValue.isFunction() &&
+           shouldUseFunctionLiteralType(
+-              JSType.toMaybeFunctionType(rValue.getJSType()), info, lValue)) {
+-        return rValue.getJSType();
++		          JSType.toMaybeFunctionType(var_1225), info, lValue)) {
++		    return var_1225;
+       } else if (info != null) {
+         if (info.hasEnumParameterType()) {
+           if (rValue != null && rValue.isObjectLit()) {
+-            return rValue.getJSType();
++		        return var_1225;
+           } else {
+             return createEnumTypeFromNodes(
+                 rValue, lValue.getQualifiedName(), info, lValue);
+@@ -1308,11 +1310,11 @@
+               if (rValueInfo != null && rValueInfo.hasType()) {
+                 // If rValue has a type-cast, we use the type in the type-cast.
+                 return rValueInfo.getType().evaluate(scope, typeRegistry);
+-              } else if (rValue.getJSType() != null
+-                  && !rValue.getJSType().isUnknownType()) {
++		          } else if (var_1225 != null
++		              && !var_1225.isUnknownType()) {
+                 // If rValue's type was already computed during scope creation,
+                 // then we can safely use that.
+-                return rValue.getJSType();
++		            return var_1225;
+               } else if (rValue.isOr()) {
+                 // Check for a very specific JS idiom:
+                 // var x = x || TYPE;
+@@ -1332,6 +1334,7 @@
+           }
+         }
+       }
++	}
+ 
+       return getDeclaredTypeInAnnotation(sourceName, lValue, info);
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..7a45984 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1284,14 +1284,16 @@
+         Node lValue, @Nullable Node rValue) {
+       if (info != null && info.hasType()) {
+         return getDeclaredTypeInAnnotation(sourceName, lValue, info);
+-      } else if (rValue != null && rValue.isFunction() &&
++      } else {
++          JSType jsType = rValue.getJSType();
++          if (rValue != null && rValue.isFunction() &&
+           shouldUseFunctionLiteralType(
+-              JSType.toMaybeFunctionType(rValue.getJSType()), info, lValue)) {
+-        return rValue.getJSType();
++                  JSType.toMaybeFunctionType(jsType), info, lValue)) {
++            return jsType;
+       } else if (info != null) {
+         if (info.hasEnumParameterType()) {
+           if (rValue != null && rValue.isObjectLit()) {
+-            return rValue.getJSType();
++                return jsType;
+           } else {
+             return createEnumTypeFromNodes(
+                 rValue, lValue.getQualifiedName(), info, lValue);
+@@ -1308,11 +1310,11 @@
+               if (rValueInfo != null && rValueInfo.hasType()) {
+                 // If rValue has a type-cast, we use the type in the type-cast.
+                 return rValueInfo.getType().evaluate(scope, typeRegistry);
+-              } else if (rValue.getJSType() != null
+-                  && !rValue.getJSType().isUnknownType()) {
++                  } else if (jsType != null
++                      && !jsType.isUnknownType()) {
+                 // If rValue's type was already computed during scope creation,
+                 // then we can safely use that.
+-                return rValue.getJSType();
++                    return jsType;
+               } else if (rValue.isOr()) {
+                 // Check for a very specific JS idiom:
+                 // var x = x || TYPE;
+@@ -1332,6 +1334,7 @@
+           }
+         }
+       }
++      }
+ 
+       return getDeclaredTypeInAnnotation(sourceName, lValue, info);
+     }

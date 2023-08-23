@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..9f6720a 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5671,7 +5671,8 @@
+                 this.rangeAxisLocations);
+ 
+         // the datasets are not cloned, but listeners need to be added...
+-        clone.datasets = (ObjectList) ObjectUtilities.clone(this.datasets);
++        ObjectList datasets1 = clone.datasets;
++        datasets1 = (ObjectList) ObjectUtilities.clone(this.datasets);
+         for (int i = 0; i < clone.datasets.size(); ++i) {
+             XYDataset d = getDataset(i);
+             if (d != null) {

@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/InlineFunctions.java b/src/com/google/javascript/jscomp/InlineFunctions.java
+index 008ffe5..f373d93 100644
+--- a/src/com/google/javascript/jscomp/InlineFunctions.java
++++ b/src/com/google/javascript/jscomp/InlineFunctions.java
+@@ -844,9 +844,10 @@
+   void verifyAllReferencesInlined(FunctionState fs) {
+     for (Reference ref : fs.getReferences()) {
+       if (!ref.inlined) {
+-        throw new IllegalStateException("Call site missed.\n call: "
+-            + ref.callNode.toStringTree() + "\n parent:  "
+-            + ref.callNode.getParent().toStringTree());
++          Node callNode = ref.callNode;
++          throw new IllegalStateException("Call site missed.\n call: "
++            + callNode.toStringTree() + "\n parent:  "
++            + callNode.getParent().toStringTree());
+       }
+     }
+   }

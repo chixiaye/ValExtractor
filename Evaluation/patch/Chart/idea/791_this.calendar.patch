@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..624b298 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -311,6 +311,7 @@
+             throw new IllegalArgumentException("Null 'zone' argument.");
+         }
+         this.timeZone = zone;
++        Calendar calendar1 = this.calendar;
+         this.calendar = Calendar.getInstance(zone, this.locale);
+         this.first.peg(this.calendar);
+         this.last.peg(this.calendar);

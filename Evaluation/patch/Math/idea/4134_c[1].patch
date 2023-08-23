@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java b/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
+index a6f60a9..69865e8 100644
+--- a/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
++++ b/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
+@@ -545,7 +545,8 @@
+                 return ret;
+             }
+             // T3
+-            if (c[1] + 1 < c[2]) {
++            int i = c[1];
++            if (i + 1 < c[2]) {
+                 c[1] = c[1] + 1;
+                 return ret;
+             } else {

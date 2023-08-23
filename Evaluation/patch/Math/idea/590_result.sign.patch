@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..ea4d482 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1091,16 +1091,17 @@
+         }
+ 
+         if (changed) {
++            byte sign1 = result.sign;
+             switch (rmode) {
+                 case ROUND_FLOOR:
+-                    if (result.sign == -1) {
++                    if (sign1 == -1) {
+                         // then we must increment the mantissa by one
+                         result = result.add(newInstance(-1));
+                     }
+                     break;
+ 
+                 case ROUND_CEIL:
+-                    if (result.sign == 1) {
++                    if (sign1 == 1) {
+                         // then we must increment the mantissa by one
+                         result = result.add(getOne());
+                     }

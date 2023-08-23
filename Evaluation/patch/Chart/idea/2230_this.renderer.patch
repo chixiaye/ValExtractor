@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..e09870e 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -1070,9 +1070,10 @@
+             clone.dataset.addChangeListener(clone);
+         }
+ 
+-        if (this.renderer != null) {
++        PolarItemRenderer renderer1 = this.renderer;
++        if (renderer1 != null) {
+             clone.renderer
+-                = (PolarItemRenderer) ObjectUtilities.clone(this.renderer);
++                = (PolarItemRenderer) ObjectUtilities.clone(renderer1);
+         }
+ 
+         clone.cornerTextItems = new ArrayList(this.cornerTextItems);

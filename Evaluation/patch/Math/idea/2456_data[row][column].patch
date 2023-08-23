@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
+index 786e707..3774613 100644
+--- a/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/Array2DRowFieldMatrix.java
+@@ -386,6 +386,7 @@
+         checkRowIndex(row);
+         checkColumnIndex(column);
+ 
++        T t = data[row][column];
+         data[row][column] = data[row][column].add(increment);
+     }
+ 

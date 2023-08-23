@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Writer.java b/src/com/google/javascript/jscomp/jsonml/Writer.java
+index b357eb9..ef23a0b 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Writer.java
++++ b/src/com/google/javascript/jscomp/jsonml/Writer.java
+@@ -516,10 +516,11 @@
+       String op) {
+     JsonML element = new JsonML(TagType.CountExpr);
+     currentParent.appendChild(element);
+-    if (op.equals("++")) {
+-      element.setAttribute(TagAttr.OP, "++");
++      TagAttr op1 = TagAttr.OP;
++      if (op.equals("++")) {
++      element.setAttribute(op1, "++");
+     } else { // op.equals("--")
+-      element.setAttribute(TagAttr.OP, "--");
++      element.setAttribute(op1, "--");
+     }
+ 
+     if (node.getIntProp(Node.INCRDECR_PROP) == 1) {

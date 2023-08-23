@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/Weeks.java b/src/main/java/org/joda/time/Weeks.java
+index 70866af..8da7b77 100644
+--- a/src/main/java/org/joda/time/Weeks.java
++++ b/src/main/java/org/joda/time/Weeks.java
+@@ -455,10 +455,11 @@
+      * @return true if this weeks instance is less than the specified one
+      */
+     public boolean isLessThan(Weeks other) {
++        int value = getValue();
+         if (other == null) {
+-            return getValue() < 0;
++            return value < 0;
+         }
+-        return getValue() < other.getValue();
++        return value < other.getValue();
+     }
+ 
+     //-----------------------------------------------------------------------

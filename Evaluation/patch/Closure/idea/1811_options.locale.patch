@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..157343f 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -2238,9 +2238,10 @@
+       additionalReplacements.put(COMPILED_CONSTANT_NAME, IR.trueNode());
+     }
+ 
+-    if (options.closurePass && options.locale != null) {
++      String locale = options.locale;
++      if (options.closurePass && locale != null) {
+       additionalReplacements.put(CLOSURE_LOCALE_CONSTANT_NAME,
+-          IR.string(options.locale));
++          IR.string(locale));
+     }
+ 
+     return additionalReplacements;

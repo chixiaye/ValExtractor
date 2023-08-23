@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/xy/XYIntervalSeriesCollection.java b/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
+index 9438968..7ad81cc 100644
+--- a/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
++++ b/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
+@@ -323,9 +323,10 @@
+         if (series == null) {
+             throw new IllegalArgumentException("Null 'series' argument.");
+         }
+-        if (this.data.contains(series)) {
++        List data1 = this.data;
++        if (data1.contains(series)) {
+             series.removeChangeListener(this);
+-            this.data.remove(series);
++            data1.remove(series);
+             fireDatasetChanged(new DatasetChangeInfo());
+             //TODO: fill in real change info
+         }

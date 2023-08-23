@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/graphson/GraphSONModule.java b/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/graphson/GraphSONModule.java
+index 0534c216c6..9f285ac968 100644
+--- a/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/graphson/GraphSONModule.java
++++ b/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/graphson/GraphSONModule.java
+@@ -82,7 +82,8 @@ public class GraphSONModule extends SimpleModule {
+             m.put(GraphSONTokens.ID, edge.getId());
+             m.put(GraphSONTokens.LABEL, edge.getLabel());
+             m.put(GraphSONTokens.TYPE, GraphSONTokens.EDGE);
+-            m.put(GraphSONTokens.IN, edge.getVertex(Direction.IN).getId());
++            Vertex inV = edge.getVertex(Direction.IN);
++            m.put(GraphSONTokens.IN, inV.getId());
+             m.put(GraphSONTokens.OUT, edge.getVertex(Direction.OUT).getId());
+             m.put(GraphSONTokens.PROPERTIES,
+                     edge.getProperties().values().stream().collect(

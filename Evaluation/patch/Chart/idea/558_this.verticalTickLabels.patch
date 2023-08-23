@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..d276fc4 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -350,7 +350,8 @@
+      * @see #isVerticalTickLabels()
+      */
+     public void setVerticalTickLabels(boolean flag) {
+-        if (this.verticalTickLabels != flag) {
++        boolean verticalTickLabels1 = this.verticalTickLabels;
++        if (verticalTickLabels1 != flag) {
+             this.verticalTickLabels = flag;
+             notifyListeners(new AxisChangeEvent(this));
+         }

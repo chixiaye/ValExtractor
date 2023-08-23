@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/LineRenderer3D.java b/source/org/jfree/chart/renderer/category/LineRenderer3D.java
+index 68c0447..3ab8358 100644
+--- a/source/org/jfree/chart/renderer/category/LineRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/LineRenderer3D.java
+@@ -275,9 +275,10 @@
+         // draw background image, if there is one...
+         Image backgroundImage = plot.getBackgroundImage();
+         if (backgroundImage != null) {
++            double xOffset1 = getXOffset();
+             Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX()
+-                    + getXOffset(), dataArea.getY(),
+-                    dataArea.getWidth() - getXOffset(),
++                    + xOffset1, dataArea.getY(),
++                    dataArea.getWidth() - xOffset1,
+                     dataArea.getHeight() - getYOffset());
+             plot.drawBackgroundImage(g2, adjusted);
+         }

@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..e97eb09 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -297,7 +297,8 @@
+         // sanity checks
+         if (u != null &&
+             u.getDimension() != controlMatrix.getColumnDimension()) {
+-            throw new DimensionMismatchException(u.getDimension(),
++            int var_948 = u.getDimension();
++			throw new DimensionMismatchException(var_948,
+                                                  controlMatrix.getColumnDimension());
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..4b6a316 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -295,9 +295,10 @@
+      */
+     public void predict(final RealVector u) throws DimensionMismatchException {
+         // sanity checks
++        int var_948 = u.getDimension();
+         if (u != null &&
+-            u.getDimension() != controlMatrix.getColumnDimension()) {
+-            throw new DimensionMismatchException(u.getDimension(),
++            var_948 != controlMatrix.getColumnDimension()) {
++            throw new DimensionMismatchException(var_948,
+                                                  controlMatrix.getColumnDimension());
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..559098e 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -295,11 +295,13 @@
+      */
+     public void predict(final RealVector u) throws DimensionMismatchException {
+         // sanity checks
+-        if (u != null &&
+-            u.getDimension() != controlMatrix.getColumnDimension()) {
+-            throw new DimensionMismatchException(u.getDimension(),
++        if (u != null) {
++            int dimension = u.getDimension();
++            if (dimension != controlMatrix.getColumnDimension()) {
++                throw new DimensionMismatchException(dimension,
+                                                  controlMatrix.getColumnDimension());
+         }
++        }
+ 
+         // project the state estimation ahead (a priori state)
+         // xHat(k)- = A * xHat(k-1) + B * u(k-1)

@@ -1,0 +1,60 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..7dc9450 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -179,7 +179,8 @@
+             public DerivativeStructure value(final DerivativeStructure t)
+                 throws DimensionMismatchException {
+                 DerivativeStructure r = f[0].value(t);
+-                for (int i = 1; i < f.length; i++) {
++                int var_9 = f.length;
++				for (int i = 1; i < var_9; i++) {
+                     r = r.add(f[i].value(t));
+                 }
+                 return r;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..7dc9450 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -179,7 +179,8 @@
+             public DerivativeStructure value(final DerivativeStructure t)
+                 throws DimensionMismatchException {
+                 DerivativeStructure r = f[0].value(t);
+-                for (int i = 1; i < f.length; i++) {
++                int var_9 = f.length;
++				for (int i = 1; i < var_9; i++) {
+                     r = r.add(f[i].value(t));
+                 }
+                 return r;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..0ea3d16 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -164,10 +164,12 @@
+     public static UnivariateDifferentiableFunction add(final UnivariateDifferentiableFunction ... f) {
+         return new UnivariateDifferentiableFunction() {
+ 
++            private final int length = f.length;
++
+             /** {@inheritDoc} */
+             public double value(final double t) {
+                 double r = f[0].value(t);
+-                for (int i = 1; i < f.length; i++) {
++                for (int i = 1; i < length; i++) {
+                     r += f[i].value(t);
+                 }
+                 return r;
+@@ -179,7 +181,7 @@
+             public DerivativeStructure value(final DerivativeStructure t)
+                 throws DimensionMismatchException {
+                 DerivativeStructure r = f[0].value(t);
+-                for (int i = 1; i < f.length; i++) {
++                for (int i = 1; i < length; i++) {
+                     r = r.add(f[i].value(t));
+                 }
+                 return r;

@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..35956d6 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -201,13 +201,16 @@
+       String name = null;
+       if (n.isAssign()) {
+         name = n.getFirstChild().getQualifiedName();
+-      } else if (n.isVar()) {
+-        name = n.getFirstChild().getString();
+-      } else if (n.isFunction()){
+-        name = n.getFirstChild().getString();
+-        if (name.isEmpty()) {
+-          return;
+-        }
++      } else {
++          String string = n.getFirstChild().getString();
++          if (n.isVar()) {
++            name = string;
++          } else if (n.isFunction()){
++            name = string;
++            if (name.isEmpty()) {
++              return;
++            }
++          }
+       }
+ 
+       if (doc.isConsistentIdGenerator()) {

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..72f082a 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -354,7 +354,8 @@
+         this.dataset = dataset;
+         if (this.dataset != null) {
+             setDatasetGroup(this.dataset.getGroup());
+-            this.dataset.addChangeListener(this);
++            XYDataset dataset1 = this.dataset;
++            dataset1.addChangeListener(this);
+         }
+ 
+         // send a dataset change event to self...

@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..d85339b 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -300,8 +300,9 @@
+                     String label = entry.getKey().toString();
+                     String description = label;
+                     Shape shape = new Rectangle2D.Double(1d, 1d, 1d, 1d);
++                    int series = ((Integer) entry.getValue()).intValue();
+                     Paint paint = lookupSeriesPaint(
+-                            ((Integer) entry.getValue()).intValue());
++                            series);
+                     Paint outlinePaint = Color.black;
+                     Stroke outlineStroke = DEFAULT_STROKE;
+ 

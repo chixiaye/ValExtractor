@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/block/AbstractBlock.java b/source/org/jfree/chart/block/AbstractBlock.java
+index cb9f84a..c2cdc24 100644
+--- a/source/org/jfree/chart/block/AbstractBlock.java
++++ b/source/org/jfree/chart/block/AbstractBlock.java
+@@ -595,8 +595,9 @@
+     public Object clone() throws CloneNotSupportedException {
+         AbstractBlock clone = (AbstractBlock) super.clone();
+         clone.bounds = (Rectangle2D) ShapeUtilities.clone(this.bounds);
+-        if (this.frame instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.frame;
++        BlockFrame frame1 = this.frame;
++        if (frame1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) frame1;
+             clone.frame = (BlockFrame) pc.clone();
+         }
+         return clone;

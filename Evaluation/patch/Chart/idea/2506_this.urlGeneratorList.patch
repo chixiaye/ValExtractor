@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..d28108d 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1719,8 +1719,9 @@
+             }
+         }
+ 
+-        if (this.urlGeneratorList != null) {
+-            clone.urlGeneratorList = (ObjectList) this.urlGeneratorList.clone();
++        ObjectList urlGeneratorList1 = this.urlGeneratorList;
++        if (urlGeneratorList1 != null) {
++            clone.urlGeneratorList = (ObjectList) urlGeneratorList1.clone();
+         }
+ 
+         if (this.baseURLGenerator != null) {

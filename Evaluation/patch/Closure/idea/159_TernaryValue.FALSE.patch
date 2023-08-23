@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+index 7378f31..e799e20 100644
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -949,6 +949,7 @@
+     boolean nullRight = right.isNull();
+     int lhType = getNormalizedNodeType(left);
+     int rhType = getNormalizedNodeType(right);
++    TernaryValue aFalse = TernaryValue.FALSE;
+     switch (lhType) {
+       case Token.VOID:
+         if (!leftLiteral) {
+@@ -1002,7 +1003,7 @@
+ 
+           case Token.SHNE:
+           case Token.NE:
+-            return TernaryValue.FALSE;
++            return aFalse;
+         }
+ 
+         // We can only handle == and != here.
+@@ -1075,7 +1076,7 @@
+           // to handle EQ,NE,LE,GE,SHEQ, and SHNE.
+           case Token.LT:
+           case Token.GT:
+-            return TernaryValue.FALSE;
++            return aFalse;
+         }
+ 
+         return TernaryValue.UNKNOWN;  // don't handle that op

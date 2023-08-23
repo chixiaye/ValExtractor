@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/block/BlockBorder.java b/source/org/jfree/chart/block/BlockBorder.java
+index 666988c..cc88750 100644
+--- a/source/org/jfree/chart/block/BlockBorder.java
++++ b/source/org/jfree/chart/block/BlockBorder.java
+@@ -165,11 +165,12 @@
+         // border space with a single color
+         double t = this.insets.calculateTopInset(area.getHeight());
+         double b = this.insets.calculateBottomInset(area.getHeight());
+-        double l = this.insets.calculateLeftInset(area.getWidth());
+-        double r = this.insets.calculateRightInset(area.getWidth());
++        double width = area.getWidth();
++        double l = this.insets.calculateLeftInset(width);
++        double r = this.insets.calculateRightInset(width);
+         double x = area.getX();
+         double y = area.getY();
+-        double w = area.getWidth();
++        double w = width;
+         double h = area.getHeight();
+         g2.setPaint(this.paint);
+         Rectangle2D rect = new Rectangle2D.Double();

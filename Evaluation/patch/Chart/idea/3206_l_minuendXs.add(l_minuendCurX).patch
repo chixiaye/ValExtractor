@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..fba84fe 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -492,6 +492,7 @@
+ 
+         // fast-forward through leading tails
+         boolean b_fastForwardDone = false;
++        boolean add = l_minuendXs.add(l_minuendCurX);
+         while (!b_fastForwardDone) {
+             // get the x and y coordinates
+             l_x1 = x_dataset.getXValue(0, l_minuendItem);
+@@ -555,7 +556,7 @@
+                 l_minuendCurY  = new Double((l_slope * l_x3)
+                         + (l_y1 - (l_slope * l_x1)));
+ 
+-                l_minuendXs.add(l_minuendCurX);
++                add;
+                 l_minuendYs.add(l_minuendCurY);
+             }
+ 
+@@ -576,7 +577,7 @@
+                 l_minuendCurY = new Double(l_y1);
+ 
+                 if (!b_minuendAtIntersect) {
+-                    l_minuendXs.add(l_minuendCurX);
++                    add;
+                     l_minuendYs.add(l_minuendCurY);
+                 }
+ 

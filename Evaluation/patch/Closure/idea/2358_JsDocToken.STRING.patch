@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..9c417e5 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1802,7 +1802,8 @@
+    * TypeApplication := '.<' TypeExpressionList '>'
+    */
+   private Node parseTypeName(JsDocToken token) {
+-    if (token != JsDocToken.STRING) {
++      JsDocToken string = JsDocToken.STRING;
++      if (token != string) {
+       return reportGenericTypeSyntaxWarning();
+     }
+ 
+@@ -1812,7 +1813,7 @@
+     while (match(JsDocToken.EOL) &&
+         typeName.charAt(typeName.length() - 1) == '.') {
+       skipEOLs();
+-      if (match(JsDocToken.STRING)) {
++      if (match(string)) {
+         next();
+         typeName += stream.getString();
+       }

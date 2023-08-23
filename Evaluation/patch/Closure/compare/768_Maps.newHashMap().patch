@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..49ced14 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -33,6 +33,7 @@
+ import java.text.MessageFormat;
+ import java.util.ArrayDeque;
+ import java.util.Deque;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -236,9 +237,10 @@
+ 
+     CollectDefines(AbstractCompiler compiler, List<Name> listOfDefines) {
+       this.compiler = compiler;
+-      this.allDefines = Maps.newHashMap();
++      HashMap<String, DefineInfo> var_768 = Maps.newHashMap();
++	this.allDefines = var_768;
+ 
+-      assignableDefines = Maps.newHashMap();
++      assignableDefines = var_768;
+       assignAllowed = new ArrayDeque<Integer>();
+       assignAllowed.push(1);
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..49ced14 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -33,6 +33,7 @@
+ import java.text.MessageFormat;
+ import java.util.ArrayDeque;
+ import java.util.Deque;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -236,9 +237,10 @@
+ 
+     CollectDefines(AbstractCompiler compiler, List<Name> listOfDefines) {
+       this.compiler = compiler;
+-      this.allDefines = Maps.newHashMap();
++      HashMap<String, DefineInfo> var_768 = Maps.newHashMap();
++	this.allDefines = var_768;
+ 
+-      assignableDefines = Maps.newHashMap();
++      assignableDefines = var_768;
+       assignAllowed = new ArrayDeque<Integer>();
+       assignAllowed.push(1);
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..46ea01b 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -31,11 +31,7 @@
+ import com.google.javascript.rhino.jstype.JSTypeNative;
+ 
+ import java.text.MessageFormat;
+-import java.util.ArrayDeque;
+-import java.util.Deque;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
++import java.util.*;
+ 
+ /**
+  * Process variables annotated as {@code @define}. A define is
+@@ -236,14 +232,15 @@
+ 
+     CollectDefines(AbstractCompiler compiler, List<Name> listOfDefines) {
+       this.compiler = compiler;
+-      this.allDefines = Maps.newHashMap();
++        HashMap<String, DefineInfo> allDefines1 = Maps.newHashMap();
++        this.allDefines = allDefines1;
+ 
+-      assignableDefines = Maps.newHashMap();
++      assignableDefines = allDefines1;
+       assignAllowed = new ArrayDeque<Integer>();
+       assignAllowed.push(1);
+ 
+       // Create a map of references to defines keyed by node for easy lookup
+-      allRefInfo = Maps.newHashMap();
++      allRefInfo = allDefines1;
+       for (Name name : listOfDefines) {
+         Ref decl = name.getDeclaration();
+         if (decl != null) {

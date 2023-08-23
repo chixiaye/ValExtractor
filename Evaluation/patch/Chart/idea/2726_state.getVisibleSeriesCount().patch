@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer.java b/source/org/jfree/chart/renderer/category/BarRenderer.java
+index 37da044..24e8512 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer.java
+@@ -743,8 +743,9 @@
+         CategoryAxis domainAxis = getDomainAxis(plot, dataset);
+         if (dataset != null) {
+             int columns = dataset.getColumnCount();
+-            int rows = state.getVisibleSeriesCount() >= 0
+-                    ? state.getVisibleSeriesCount() : dataset.getRowCount();
++            int visibleSeriesCount = state.getVisibleSeriesCount();
++            int rows = visibleSeriesCount >= 0
++                    ? visibleSeriesCount : dataset.getRowCount();
+             double space = 0.0;
+             PlotOrientation orientation = plot.getOrientation();
+             if (orientation == PlotOrientation.HORIZONTAL) {

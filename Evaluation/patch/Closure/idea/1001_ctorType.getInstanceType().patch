@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..7f5e186 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1214,10 +1214,11 @@
+ 
+     ObjectType topInstanceType = superClassHasDeclaredProperty ?
+         superClass.getTopMostDefiningType(propertyName) : null;
+-    boolean declaredLocally =
++      ObjectType instanceType = ctorType.getInstanceType();
++      boolean declaredLocally =
+         ctorType.isConstructor() &&
+         (ctorType.getPrototype().hasOwnProperty(propertyName) ||
+-         ctorType.getInstanceType().hasOwnProperty(propertyName));
++         instanceType.hasOwnProperty(propertyName));
+     if (reportMissingOverride.isOn()
+         && !declaredOverride
+         && superClassHasDeclaredProperty
+@@ -1263,7 +1264,7 @@
+       // there is no superclass nor interface implementation
+       compiler.report(
+           t.makeError(n, UNKNOWN_OVERRIDE,
+-              propertyName, ctorType.getInstanceType().toString()));
++              propertyName, instanceType.toString()));
+     }
+   }
+ 

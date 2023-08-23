@@ -1,0 +1,54 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..e2daa18 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -215,8 +215,9 @@
+   List<ConcreteFunctionType> getSuperclassTypes() {
+     return getMatchingTypes(new TypeFilter<ConcreteFunctionType>(NO_FUNCTIONS) {
+       @Override public ConcreteFunctionType filter(ConcreteType type) {
++        ConcreteFunctionType var_1757 = type.toFunction().getSuperclassType();
+         return type.isFunction()
+-          && type.toFunction().getSuperclassType() != null
++          && var_1757 != null
+           ? type.toFunction().getSuperclassType() : null;
+       }
+     });
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..010a715 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -215,9 +215,10 @@
+   List<ConcreteFunctionType> getSuperclassTypes() {
+     return getMatchingTypes(new TypeFilter<ConcreteFunctionType>(NO_FUNCTIONS) {
+       @Override public ConcreteFunctionType filter(ConcreteType type) {
++        ConcreteFunctionType var_1757 = type.toFunction().getSuperclassType();
+         return type.isFunction()
+-          && type.toFunction().getSuperclassType() != null
+-          ? type.toFunction().getSuperclassType() : null;
++          && var_1757 != null
++          ? var_1757 : null;
+       }
+     });
+   }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..2e88db1 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -215,9 +215,10 @@
+   List<ConcreteFunctionType> getSuperclassTypes() {
+     return getMatchingTypes(new TypeFilter<ConcreteFunctionType>(NO_FUNCTIONS) {
+       @Override public ConcreteFunctionType filter(ConcreteType type) {
++          ConcreteFunctionType superclassType = type.toFunction().getSuperclassType();
+         return type.isFunction()
+-          && type.toFunction().getSuperclassType() != null
+-          ? type.toFunction().getSuperclassType() : null;
++          && superclassType != null
++          ? superclassType : null;
+       }
+     });
+   }

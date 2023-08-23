@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..d8c1c3d 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -141,6 +141,7 @@
+         range.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+ 
+         range.add(new JPanel());
++        JCheckBox autoRangeCheckBox1 = this.autoRangeCheckBox;
+         this.autoRangeCheckBox = new JCheckBox(localizationResources.getString(
+                 "Auto-adjust_range"), this.autoRange);
+         this.autoRangeCheckBox.setActionCommand("AutoRangeOnOff");

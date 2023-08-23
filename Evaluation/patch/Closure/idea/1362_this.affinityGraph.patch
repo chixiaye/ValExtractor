@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/RenameProperties.java b/src/com/google/javascript/jscomp/RenameProperties.java
+index 7753a36..b1d6330 100644
+--- a/src/com/google/javascript/jscomp/RenameProperties.java
++++ b/src/com/google/javascript/jscomp/RenameProperties.java
+@@ -197,7 +197,8 @@
+     this.prevUsedPropertyMap = prevUsedPropertyMap;
+     this.reservedCharacters = reservedCharacters;
+     if (affinity) {
+-      this.affinityGraph = LinkedUndirectedGraph.createWithoutAnnotations();
++        UndiGraph<Property, PropertyAffinity> affinityGraph1 = this.affinityGraph;
++        this.affinityGraph = LinkedUndirectedGraph.createWithoutAnnotations();
+     } else {
+       this.affinityGraph = null;
+     }

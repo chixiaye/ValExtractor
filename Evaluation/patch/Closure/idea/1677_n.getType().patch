@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/AstValidator.java b/src/com/google/javascript/jscomp/AstValidator.java
+index dececfe..10231c3 100644
+--- a/src/com/google/javascript/jscomp/AstValidator.java
++++ b/src/com/google/javascript/jscomp/AstValidator.java
+@@ -559,7 +559,8 @@
+   }
+ 
+   private void validateSwitchMember(Node n) {
+-    switch (n.getType()) {
++      int type = n.getType();
++      switch (type) {
+       case Token.CASE:
+         validateCase(n);
+         return;
+@@ -568,7 +569,7 @@
+         return;
+       default:
+         violation("Expected switch member but was "
+-            + Token.name(n.getType()), n);
++            + Token.name(type), n);
+     }
+   }
+ 

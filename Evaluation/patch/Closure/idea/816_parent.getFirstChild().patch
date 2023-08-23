@@ -1,0 +1,42 @@
+diff --git a/src/com/google/javascript/jscomp/DefinitionsRemover.java b/src/com/google/javascript/jscomp/DefinitionsRemover.java
+index adf49a7..96fb9f4 100644
+--- a/src/com/google/javascript/jscomp/DefinitionsRemover.java
++++ b/src/com/google/javascript/jscomp/DefinitionsRemover.java
+@@ -46,20 +46,23 @@
+ 
+     if (NodeUtil.isVarDeclaration(n) && n.hasChildren()) {
+       return new VarDefinition(n, isExtern);
+-    } else if (parent.isFunction() && parent.getFirstChild() == n) {
+-      if (!NodeUtil.isFunctionExpression(parent)) {
+-        return new NamedFunctionDefinition(parent, isExtern);
+-      } else if (!n.getString().equals("")) {
+-        return new FunctionExpressionDefinition(parent, isExtern);
+-      }
+-    } else if (parent.isAssign() && parent.getFirstChild() == n) {
+-      return new AssignmentDefinition(parent, isExtern);
+-    } else if (NodeUtil.isObjectLitKey(n, parent)) {
+-      return new ObjectLiteralPropertyDefinition(parent, n, n.getFirstChild(),
+-          isExtern);
+-    } else if (parent.isParamList()) {
+-      Node function = parent.getParent();
+-      return new FunctionArgumentDefinition(function, n, isExtern);
++    } else {
++        Node firstChild = parent.getFirstChild();
++        if (parent.isFunction() && firstChild == n) {
++          if (!NodeUtil.isFunctionExpression(parent)) {
++            return new NamedFunctionDefinition(parent, isExtern);
++          } else if (!n.getString().equals("")) {
++            return new FunctionExpressionDefinition(parent, isExtern);
++          }
++        } else if (parent.isAssign() && firstChild == n) {
++          return new AssignmentDefinition(parent, isExtern);
++        } else if (NodeUtil.isObjectLitKey(n, parent)) {
++          return new ObjectLiteralPropertyDefinition(parent, n, n.getFirstChild(),
++              isExtern);
++        } else if (parent.isParamList()) {
++          Node function = parent.getParent();
++          return new FunctionArgumentDefinition(function, n, isExtern);
++        }
+     }
+     return null;
+   }

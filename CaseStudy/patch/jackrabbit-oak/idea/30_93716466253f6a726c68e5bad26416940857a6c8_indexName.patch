@@ -1,0 +1,19 @@
+diff --git a/oak-core/src/main/java/org/apache/jackrabbit/oak/query/QueryImpl.java b/oak-core/src/main/java/org/apache/jackrabbit/oak/query/QueryImpl.java
+index 2e455554a0..4c11bb2512 100644
+--- a/oak-core/src/main/java/org/apache/jackrabbit/oak/query/QueryImpl.java
++++ b/oak-core/src/main/java/org/apache/jackrabbit/oak/query/QueryImpl.java
+@@ -963,11 +963,12 @@ public class QueryImpl implements Query {
+             } else {
+                 cost = index.getCost(filter, rootState);
+             }
++            String indexName = index.getIndexName();
+             if (LOG.isDebugEnabled()) {
+-                logDebug("cost for " + index.getIndexName() + " is " + cost);
++                logDebug("cost for " + indexName + " is " + cost);
+             }
+             if (cost < 0) {
+-                LOG.error("cost below 0 for " + index.getIndexName() + " is " + cost);
++                LOG.error("cost below 0 for " + indexName + " is " + cost);
+             }
+             if (cost < bestCost) {
+                 bestCost = cost;

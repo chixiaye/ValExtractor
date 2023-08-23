@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..e54d368 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -2169,8 +2169,9 @@
+          * Reads the property from a safe serialization format.
+          */
+         private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
+-            iInstant = (LocalDateTime) oos.readObject();
+-            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
++            Object o = oos.readObject();
++            iInstant = (LocalDateTime) o;
++            DateTimeFieldType type = (DateTimeFieldType) o;
+             iField = type.getField(iInstant.getChronology());
+         }
+ 

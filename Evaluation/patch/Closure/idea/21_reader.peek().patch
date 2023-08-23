@@ -1,0 +1,14 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+index 7805b12..49f0a59 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
++++ b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+@@ -46,7 +46,8 @@
+ 
+     // Determine the number of digits used for the repetition count.
+     // Each "!" indicates another base64 digit.
+-    for (char peek = reader.peek(); peek == '!'; peek = reader.peek()) {
++      char peek1 = reader.peek();
++      for (char peek = peek1; peek == '!'; peek = peek1) {
+       repDigits++;
+       reader.next(); // consume the "!"
+     }

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..6047525 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -444,7 +444,8 @@
+      * @param timeline  the timeline.
+      */
+     public void setTimeline(Timeline timeline) {
+-        if (this.timeline != timeline) {
++        Timeline timeline1 = this.timeline;
++        if (timeline1 != timeline) {
+             this.timeline = timeline;
+             notifyListeners(new AxisChangeEvent(this));
+         }

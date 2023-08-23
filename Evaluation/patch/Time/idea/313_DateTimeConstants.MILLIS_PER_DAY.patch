@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicGJChronology.java b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+index 5b651e5..e66e665 100644
+--- a/src/main/java/org/joda/time/chrono/BasicGJChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+@@ -56,13 +56,14 @@
+         long minSum = 0;
+         long maxSum = 0;
+         for (int i = 0; i < 11; i++) {
++            int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
+             long millis = MIN_DAYS_PER_MONTH_ARRAY[i]
+-                * (long)DateTimeConstants.MILLIS_PER_DAY;
++                * (long) millisPerDay;
+             minSum += millis;
+             MIN_TOTAL_MILLIS_BY_MONTH_ARRAY[i + 1] = minSum;
+ 
+             millis = MAX_DAYS_PER_MONTH_ARRAY[i]
+-                * (long)DateTimeConstants.MILLIS_PER_DAY;
++                * (long) millisPerDay;
+             maxSum += millis;
+             MAX_TOTAL_MILLIS_BY_MONTH_ARRAY[i + 1] = maxSum;
+         }

@@ -1,0 +1,26 @@
+diff --git a/src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java b/src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java
+index df86442..0a99c16 100644
+--- a/src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java
++++ b/src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java
+@@ -33,17 +33,18 @@
+         Method mockMethod = invocation.getMethod();
+         
+         Object result = null;
+-        
++
++        Object mock = invocation.getMock();
+         try {
+             Method delegateMethod = getDelegateMethod(mockMethod);
+             
+             if (!compatibleReturnTypes(mockMethod.getReturnType(), delegateMethod.getReturnType())) {
+-                new Reporter().delegatedMethodHasWrongReturnType(mockMethod, delegateMethod, invocation.getMock(), delegatedObject);
++                new Reporter().delegatedMethodHasWrongReturnType(mockMethod, delegateMethod, mock, delegatedObject);
+             }
+             
+             result = delegateMethod.invoke(delegatedObject, invocation.getArguments());
+         } catch (NoSuchMethodException e) {
+-            new Reporter().delegatedMethodDoesNotExistOnDelegate(mockMethod, invocation.getMock(), delegatedObject);
++            new Reporter().delegatedMethodDoesNotExistOnDelegate(mockMethod, mock, delegatedObject);
+         } catch (InvocationTargetException e) {
+             // propagate the original exception from the delegate
+             throw e.getCause();

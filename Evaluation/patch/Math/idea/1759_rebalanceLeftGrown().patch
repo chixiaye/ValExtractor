@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..c9ab112 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -348,11 +348,12 @@
+         boolean insert(final T newElement) {
+             if (newElement.compareTo(this.element) < 0) {
+                 // the inserted element is smaller than the node
++                boolean b = rebalanceLeftGrown();
+                 if (left == null) {
+                     left = new Node(newElement, this);
+-                    return rebalanceLeftGrown();
++                    return b;
+                 }
+-                return left.insert(newElement) ? rebalanceLeftGrown() : false;
++                return left.insert(newElement) ? b : false;
+             }
+ 
+             // the inserted element is equal to or greater than the node

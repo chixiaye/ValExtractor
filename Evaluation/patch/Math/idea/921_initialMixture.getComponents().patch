@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java b/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
+index cc7b318..99b2182 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
++++ b/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
+@@ -147,10 +147,11 @@
+         // Number of data columns. Jagged data already rejected in constructor,
+         // so we can assume the lengths of each row are equal.
+         final int numCols = data[0].length;
+-        final int k = initialMixture.getComponents().size();
++        List<Pair<Double, MultivariateNormalDistribution>> components1 = initialMixture.getComponents();
++        final int k = components1.size();
+ 
+         final int numMeanColumns
+-            = initialMixture.getComponents().get(0).getSecond().getMeans().length;
++            = components1.get(0).getSecond().getMeans().length;
+ 
+         if (numMeanColumns != numCols) {
+             throw new DimensionMismatchException(numMeanColumns, numCols);
+@@ -162,7 +163,7 @@
+         logLikelihood = Double.NEGATIVE_INFINITY;
+ 
+         // Initialize model to fit to initial mixture.
+-        fittedModel = new MixtureMultivariateNormalDistribution(initialMixture.getComponents());
++        fittedModel = new MixtureMultivariateNormalDistribution(components1);
+ 
+         while (numIterations++ <= maxIterations &&
+                Math.abs(previousLogLikelihood - logLikelihood) > threshold) {

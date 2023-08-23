@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..156ac22 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -1158,7 +1158,8 @@
+               // Check special case when such transformation cannot reduce
+               // due to the added ()
+               // It only occurs when both of expressions are not NOT expressions
+-              if (!leftParent.isNot()
++              boolean not = leftParent.isNot();
++              if (!not
+                   && !rightParent.isNot()) {
+                 // If an expression has higher precedence than && or ||,
+                 // but lower precedence than NOT, an additional () is needed
+@@ -1172,7 +1173,7 @@
+                 }
+               }
+ 
+-              if (leftParent.isNot()) {
++              if (not) {
+                 left = leftParent.removeFirstChild();
+               } else {
+                 leftParent.detachFromParent();

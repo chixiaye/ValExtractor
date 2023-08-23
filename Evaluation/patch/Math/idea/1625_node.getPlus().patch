@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+index 5d8a992..597a2f6 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+@@ -307,10 +307,11 @@
+         }
+ 
+         // recurse through lower levels
++        BSPTree<Euclidean2D> plus = node.getPlus();
+         if (!plusList.isEmpty()) {
+-            insertEdges(hyperplaneThickness, node.getPlus(),  plusList);
++            insertEdges(hyperplaneThickness, plus,  plusList);
+         } else {
+-            node.getPlus().setAttribute(Boolean.FALSE);
++            plus.setAttribute(Boolean.FALSE);
+         }
+         if (!minusList.isEmpty()) {
+             insertEdges(hyperplaneThickness, node.getMinus(), minusList);

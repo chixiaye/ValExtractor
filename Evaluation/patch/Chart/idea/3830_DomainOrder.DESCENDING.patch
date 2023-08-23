@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/data/DomainOrder.java b/source/org/jfree/data/DomainOrder.java
+index bd094fa..13a5183 100644
+--- a/source/org/jfree/data/DomainOrder.java
++++ b/source/org/jfree/data/DomainOrder.java
+@@ -126,11 +126,14 @@
+         if (this.equals(DomainOrder.ASCENDING)) {
+             return DomainOrder.ASCENDING;
+         }
+-        else if (this.equals(DomainOrder.DESCENDING)) {
+-            return DomainOrder.DESCENDING;
+-        }
+-        else if (this.equals(DomainOrder.NONE)) {
+-            return DomainOrder.NONE;
++        else {
++            DomainOrder descending = DomainOrder.DESCENDING;
++            if (this.equals(descending)) {
++                return descending;
++            }
++            else if (this.equals(DomainOrder.NONE)) {
++                return DomainOrder.NONE;
++            }
+         }
+         return null;
+     }

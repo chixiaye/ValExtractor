@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/util/reflection/Whitebox.java b/src/org/mockito/internal/util/reflection/Whitebox.java
+index 5de2ac2..0c4bcd2 100644
+--- a/src/org/mockito/internal/util/reflection/Whitebox.java
++++ b/src/org/mockito/internal/util/reflection/Whitebox.java
+@@ -31,10 +31,11 @@
+     }
+ 
+     private static Field getFieldFromHierarchy(Class<?> clazz, String field) {
+-        Field f = getField(clazz, field);
++        Field field1 = getField(clazz, field);
++        Field f = field1;
+         while (f == null && clazz != Object.class) {
+             clazz = clazz.getSuperclass();
+-            f = getField(clazz, field);
++            f = field1;
+         }
+         if (f == null) {
+             throw new RuntimeException(

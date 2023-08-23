@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/axis/SubCategoryAxis.java b/source/org/jfree/chart/axis/SubCategoryAxis.java
+index 5b619d5..d831323 100644
+--- a/source/org/jfree/chart/axis/SubCategoryAxis.java
++++ b/source/org/jfree/chart/axis/SubCategoryAxis.java
+@@ -317,6 +317,7 @@
+         }
+ 
+         double maxdim = getMaxDim(g2, edge);
++        RectangleEdge right = RectangleEdge.RIGHT;
+         for (int categoryIndex = 0; categoryIndex < categoryCount;
+              categoryIndex++) {
+ 
+@@ -348,7 +349,7 @@
+                 x1 = state.getCursor();
+                 x0 = x1 - maxdim;
+             }
+-            else if (edge == RectangleEdge.RIGHT) {
++            else if (edge == right) {
+                 y0 = getCategoryStart(categoryIndex, categoryCount, dataArea,
+                         edge);
+                 y1 = getCategoryEnd(categoryIndex, categoryCount, dataArea,
+@@ -390,7 +391,7 @@
+             double w = maxdim;
+             state.cursorLeft(w);
+         }
+-        else if (edge == RectangleEdge.RIGHT) {
++        else if (edge == right) {
+             double w = maxdim;
+             state.cursorRight(w);
+         }

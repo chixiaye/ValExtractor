@@ -1,0 +1,18 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..b7cdb90 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -242,9 +242,10 @@
+ 
+     // Setup all the arrays to keep track of the various details about the
+     // source file.
+-    ArrayList<Byte> lineOffsets = Lists.newArrayList();
+-    ArrayList<Short> columns = Lists.newArrayList();
+-    ArrayList<String> identifiers = Lists.newArrayList();
++      ArrayList<Short> shorts = Lists.newArrayList();
++      ArrayList<Byte> lineOffsets = shorts;
++    ArrayList<Short> columns = shorts;
++    ArrayList<String> identifiers = shorts;
+ 
+     // The indexes and details about the current position in the file to do
+     // diffs against.

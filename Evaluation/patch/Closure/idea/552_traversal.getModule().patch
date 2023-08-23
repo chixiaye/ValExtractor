@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+index fb9b5c2..6701001 100644
+--- a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
++++ b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+@@ -164,7 +164,8 @@
+ 
+       Definition def =
+           DefinitionsRemover.getDefinition(node, inExterns);
+-      if (def != null) {
++        JSModule module = traversal.getModule();
++        if (def != null) {
+         String name = getSimplifiedName(def.getLValue());
+         if (name != null) {
+           Node rValue = def.getRValue();
+@@ -212,7 +213,7 @@
+           definitionSiteMap.put(node,
+                                 new DefinitionSite(node,
+                                                    def,
+-                                                   traversal.getModule(),
++                                        module,
+                                                    traversal.inGlobalScope(),
+                                                    inExterns));
+         }
+@@ -251,7 +252,7 @@
+             definitionSiteMap.put(node,
+                                   new DefinitionSite(node,
+                                                      definition,
+-                                                     traversal.getModule(),
++                                          module,
+                                                      traversal.inGlobalScope(),
+                                                      inExterns));
+           }

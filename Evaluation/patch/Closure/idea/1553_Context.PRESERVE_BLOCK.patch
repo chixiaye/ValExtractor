@@ -1,0 +1,67 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..dd2844c 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -144,14 +144,15 @@
+ 
+     cc.startSourceMapping(n);
+ 
+-    switch (type) {
++      Context preserveBlock1 = Context.PRESERVE_BLOCK;
++      switch (type) {
+       case Token.TRY: {
+         Preconditions.checkState(first.getNext().isBlock() &&
+                 !first.getNext().hasMoreThanOneChild());
+         Preconditions.checkState(childCount >= 2 && childCount <= 3);
+ 
+         add("try");
+-        add(first, Context.PRESERVE_BLOCK);
++        add(first, preserveBlock1);
+ 
+         // second child contains the catch block, or nothing if there
+         // isn't a catch block
+@@ -162,7 +163,7 @@
+ 
+         if (childCount == 3) {
+           add("finally");
+-          add(last, Context.PRESERVE_BLOCK);
++          add(last, preserveBlock1);
+         }
+         break;
+       }
+@@ -172,7 +173,7 @@
+         add("catch(");
+         add(first);
+         add(")");
+-        add(last, Context.PRESERVE_BLOCK);
++        add(last, preserveBlock1);
+         break;
+ 
+       case Token.THROW:
+@@ -316,7 +317,7 @@
+         add(first);
+ 
+         add(first.getNext());
+-        add(last, Context.PRESERVE_BLOCK);
++        add(last, preserveBlock1);
+         cc.endFunction(context == Context.STATEMENT);
+ 
+         if (funcNeedsParens) {
+@@ -366,7 +367,7 @@
+         }
+ 
+         add(parameters);
+-        add(body, Context.PRESERVE_BLOCK);
++        add(body, preserveBlock1);
+         break;
+ 
+       case Token.SCRIPT:
+@@ -374,7 +375,7 @@
+         if (n.getClass() != Node.class) {
+           throw new Error("Unexpected Node subclass.");
+         }
+-        boolean preserveBlock = context == Context.PRESERVE_BLOCK;
++        boolean preserveBlock = context == preserveBlock1;
+         if (preserveBlock) {
+           cc.beginBlock();
+         }

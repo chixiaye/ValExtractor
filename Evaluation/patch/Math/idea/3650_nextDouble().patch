@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java b/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
+index 83ddf1d..b0d708a 100644
+--- a/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
+@@ -103,8 +103,9 @@
+         final double random;
+         if (Double.isNaN(nextGaussian)) {
+             // generate a new pair of gaussian numbers
+-            final double x = nextDouble();
+-            final double y = nextDouble();
++            double v = nextDouble();
++            final double x = v;
++            final double y = v;
+             final double alpha = 2 * FastMath.PI * x;
+             final double r      = FastMath.sqrt(-2 * FastMath.log(y));
+             random       = r * FastMath.cos(alpha);

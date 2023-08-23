@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..af34696 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -464,10 +464,11 @@
+             }
+             printer.withChronology(withUTC()).printTo(sb, iCutoverMillis);
+         }
+-        
+-        if (getMinimumDaysInFirstWeek() != 4) {
++
++        int minimumDaysInFirstWeek = getMinimumDaysInFirstWeek();
++        if (minimumDaysInFirstWeek != 4) {
+             sb.append(",mdfw=");
+-            sb.append(getMinimumDaysInFirstWeek());
++            sb.append(minimumDaysInFirstWeek);
+         }
+         sb.append(']');
+         

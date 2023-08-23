@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..a708e26 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1064,10 +1064,11 @@
+    * Returns the list of thrown types.
+    */
+   public List<JSTypeExpression> getThrownTypes() {
+-    if (info == null || info.thrownTypes == null) {
++      List<JSTypeExpression> thrownTypes = info.thrownTypes;
++      if (info == null || thrownTypes == null) {
+       return ImmutableList.of();
+     }
+-    return Collections.unmodifiableList(info.thrownTypes);
++    return Collections.unmodifiableList(thrownTypes);
+   }
+ 
+   /**

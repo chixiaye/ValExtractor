@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/CheckUnreachableCode.java b/src/com/google/javascript/jscomp/CheckUnreachableCode.java
+index b788a3c..8987809 100644
+--- a/src/com/google/javascript/jscomp/CheckUnreachableCode.java
++++ b/src/com/google/javascript/jscomp/CheckUnreachableCode.java
+@@ -50,7 +50,8 @@
+ 
+   @Override
+   public boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {
+-    GraphNode<Node, Branch> gNode = t.getControlFlowGraph().getNode(n);
++      ControlFlowGraph<Node> controlFlowGraph = t.getControlFlowGraph();
++      GraphNode<Node, Branch> gNode = controlFlowGraph.getNode(n);
+     if (gNode != null && gNode.getAnnotation() != GraphReachability.REACHABLE) {
+ 
+       // Only report error when there are some line number informations.
+@@ -64,7 +65,7 @@
+         // From now on, we are going to assume the user fixed the error and not
+         // give more warning related to code section reachable from this node.
+         new GraphReachability<Node, ControlFlowGraph.Branch>(
+-            t.getControlFlowGraph()).recompute(n);
++                controlFlowGraph).recompute(n);
+ 
+         // Saves time by not traversing children.
+         return false;

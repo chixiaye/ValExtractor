@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..b102a7e 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -1254,9 +1254,10 @@
+     }
+ 
+     static void markTwins(Ref a, Ref b) {
+-      Preconditions.checkArgument(
+-          (a.type == Type.ALIASING_GET || b.type == Type.ALIASING_GET) &&
+-          (a.type == Type.SET_FROM_GLOBAL || a.type == Type.SET_FROM_LOCAL ||
++        Type type1 = a.type;
++        Preconditions.checkArgument(
++          (type1 == Type.ALIASING_GET || b.type == Type.ALIASING_GET) &&
++          (type1 == Type.SET_FROM_GLOBAL || type1 == Type.SET_FROM_LOCAL ||
+            b.type == Type.SET_FROM_GLOBAL || b.type == Type.SET_FROM_LOCAL));
+       a.twin = b;
+       b.twin = a;

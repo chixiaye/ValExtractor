@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
+index e2f0538..3c10b1b 100644
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
+@@ -111,7 +111,8 @@
+     if (!traversal.hasErrors()) {
+ 
+       // Apply the aliases.
+-      for (AliasUsage aliasUsage : traversal.getAliasUsages()) {
++        List<AliasUsage> aliasUsages = traversal.getAliasUsages();
++        for (AliasUsage aliasUsage : aliasUsages) {
+         aliasUsage.applyAlias();
+       }
+ 
+@@ -136,7 +137,7 @@
+         NodeUtil.tryMergeBlock(scopeClosureBlock);
+       }
+ 
+-      if (traversal.getAliasUsages().size() > 0 ||
++      if (aliasUsages.size() > 0 ||
+           traversal.getAliasDefinitionsInOrder().size() > 0 ||
+           traversal.getScopeCalls().size() > 0) {
+         compiler.reportCodeChange();

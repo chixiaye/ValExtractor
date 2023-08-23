@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..c670761 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -973,14 +973,15 @@
+ 
+   /** Outputs a JS string, using the optimal (single/double) quote character */
+   private void addJsString(Node n) {
+-    String s = n.getString();
++      String string = n.getString();
++      String s = string;
+     boolean useSlashV = n.getBooleanProp(Node.SLASH_V);
+     if (useSlashV) {
+-      add(jsString(n.getString(), useSlashV));
++      add(jsString(string, useSlashV));
+     } else {
+       String cached = ESCAPED_JS_STRINGS.get(s);
+       if (cached == null) {
+-        cached = jsString(n.getString(), useSlashV);
++        cached = jsString(string, useSlashV);
+         ESCAPED_JS_STRINGS.put(s, cached);
+       }
+       add(cached);

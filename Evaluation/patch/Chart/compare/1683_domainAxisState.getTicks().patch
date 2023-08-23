@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..7596a4a 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3321,7 +3321,8 @@
+             }
+         }
+         if (domainAxisState != null) {
+-            drawDomainTickBands(g2, dataArea, domainAxisState.getTicks());
++            List var_1683 = domainAxisState.getTicks();
++			drawDomainTickBands(g2, dataArea, var_1683);
+         }
+         if (rangeAxisState != null) {
+             drawRangeTickBands(g2, dataArea, rangeAxisState.getTicks());
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..c00271c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3320,14 +3320,15 @@
+                         .get(getRangeAxis());
+             }
+         }
++        List var_1683 = domainAxisState.getTicks();
+         if (domainAxisState != null) {
+-            drawDomainTickBands(g2, dataArea, domainAxisState.getTicks());
++            drawDomainTickBands(g2, dataArea, var_1683);
+         }
+         if (rangeAxisState != null) {
+             drawRangeTickBands(g2, dataArea, rangeAxisState.getTicks());
+         }
+         if (domainAxisState != null) {
+-            drawDomainGridlines(g2, dataArea, domainAxisState.getTicks());
++            drawDomainGridlines(g2, dataArea, var_1683);
+             drawZeroDomainBaseline(g2, dataArea);
+         }
+         if (rangeAxisState != null) {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..6a633a6 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3320,14 +3320,15 @@
+                         .get(getRangeAxis());
+             }
+         }
++        List ticks = domainAxisState.getTicks();
+         if (domainAxisState != null) {
+-            drawDomainTickBands(g2, dataArea, domainAxisState.getTicks());
++            drawDomainTickBands(g2, dataArea, ticks);
+         }
+         if (rangeAxisState != null) {
+             drawRangeTickBands(g2, dataArea, rangeAxisState.getTicks());
+         }
+         if (domainAxisState != null) {
+-            drawDomainGridlines(g2, dataArea, domainAxisState.getTicks());
++            drawDomainGridlines(g2, dataArea, ticks);
+             drawZeroDomainBaseline(g2, dataArea);
+         }
+         if (rangeAxisState != null) {

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+index 5ba6e4b..5acd396 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+@@ -344,9 +344,9 @@
+   private static void appendFirstField(
+       Appendable out, String name, CharSequence value)
+       throws IOException {
+-    out.append("\"");
+-    out.append(name);
+-    out.append("\"");
++      Appendable append = out.append("\"");
++      out.append(name);
++    append;
+     out.append(":");
+     out.append(value);
+   }

@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..06a085e 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -1428,14 +1428,15 @@
+         }
+ 
+         public void printTo(StringBuffer buf, ReadablePartial partial, Locale locale) {
++            StringBuffer append = buf.append('\ufffd');
+             if (partial.isSupported(iFieldType)) {
+                 try {
+                     FormatUtils.appendUnpaddedInteger(buf, partial.get(iFieldType));
+                 } catch (RuntimeException e) {
+-                    buf.append('\ufffd');
++                    append;
+                 }
+             } else {
+-                buf.append('\ufffd');
++                append;
+             }
+         }
+ 

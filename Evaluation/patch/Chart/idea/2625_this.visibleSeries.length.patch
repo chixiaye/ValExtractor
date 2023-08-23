@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/CategoryItemRendererState.java b/source/org/jfree/chart/renderer/category/CategoryItemRendererState.java
+index a3ff61b..6bab8da 100644
+--- a/source/org/jfree/chart/renderer/category/CategoryItemRendererState.java
++++ b/source/org/jfree/chart/renderer/category/CategoryItemRendererState.java
+@@ -216,9 +216,10 @@
+         if (this.visibleSeries == null) {
+             return null;
+         }
+-        int[] result = new int[this.visibleSeries.length];
++        int length = this.visibleSeries.length;
++        int[] result = new int[length];
+         System.arraycopy(this.visibleSeries, 0, result, 0,
+-                this.visibleSeries.length);
++                length);
+         return result;
+     }
+ 

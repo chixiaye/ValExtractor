@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index f41a3ea..1299e41 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -2261,9 +2261,10 @@
+         MultiLineToStringStyle() {
+             super();
+             this.setContentStart("[");
+-            this.setFieldSeparator(SystemUtils.LINE_SEPARATOR + "  ");
++            String lineSeparator = SystemUtils.LINE_SEPARATOR;
++            this.setFieldSeparator(lineSeparator + "  ");
+             this.setFieldSeparatorAtStart(true);
+-            this.setContentEnd(SystemUtils.LINE_SEPARATOR + "]");
++            this.setContentEnd(lineSeparator + "]");
+         }
+ 
+         /**

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java b/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
+index 1f7a2b3..ad94048 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
+@@ -147,8 +147,9 @@
+         this.densityPrefactor1 = this.densityPrefactor2 / scale *
+                 FastMath.pow(shiftedShape, -shape) *
+                 FastMath.exp(shape + Gamma.LANCZOS_G);
+-        this.minY = shape + Gamma.LANCZOS_G - FastMath.log(Double.MAX_VALUE);
+-        this.maxLogY = FastMath.log(Double.MAX_VALUE) / (shape - 1.0);
++        double maxValue = Double.MAX_VALUE;
++        this.minY = shape + Gamma.LANCZOS_G - FastMath.log(maxValue);
++        this.maxLogY = FastMath.log(maxValue) / (shape - 1.0);
+     }
+ 
+     /**

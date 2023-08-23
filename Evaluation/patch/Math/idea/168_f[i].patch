@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/function/Logit.java b/src/main/java/org/apache/commons/math3/analysis/function/Logit.java
+index a791e52..30f0914 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/function/Logit.java
++++ b/src/main/java/org/apache/commons/math3/analysis/function/Logit.java
+@@ -202,7 +202,8 @@
+             final double invH = 1.0 / (hi - x);
+             double xH = invH;
+             for (int i = 1; i < f.length; ++i) {
+-                f[i] = xL + xH;
++                double v = f[i];
++                v = xL + xH;
+                 xL  *= -i * invL;
+                 xH  *=  i * invH;
+             }

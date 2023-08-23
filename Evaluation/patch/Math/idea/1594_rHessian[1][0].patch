@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
+index de58d7b..011e71b 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
+@@ -301,6 +301,7 @@
+             // lower-left part of Hessian of r
+             rHessian = new double[3][3];
+             rHessian[0][0] = y * yOr3 + z * zOr3;
++            double v1 = rHessian[1][0];
+             rHessian[1][0] = -x * yOr3;
+             rHessian[2][0] = -z * xOr3;
+             rHessian[1][1] = x * xOr3 + z * zOr3;

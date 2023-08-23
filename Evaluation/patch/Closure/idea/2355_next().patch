@@ -1,0 +1,52 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..f49be0b 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1772,25 +1772,28 @@
+   private Node parseBasicTypeExpression(JsDocToken token) {
+     if (token == JsDocToken.STAR) {
+       return newNode(Token.STAR);
+-    } else if (token == JsDocToken.LB) {
+-      skipEOLs();
+-      return parseArrayType(next());
+-    } else if (token == JsDocToken.LC) {
+-      skipEOLs();
+-      return parseRecordType(next());
+-    } else if (token == JsDocToken.LP) {
+-      skipEOLs();
+-      return parseUnionType(next());
+-    } else if (token == JsDocToken.STRING) {
+-      String string = stream.getString();
+-      if ("function".equals(string)) {
+-        skipEOLs();
+-        return parseFunctionType(next());
+-      } else if ("null".equals(string) || "undefined".equals(string)) {
+-        return newStringNode(string);
+-      } else {
+-        return parseTypeName(token);
+-      }
++    } else {
++        JsDocToken next = next();
++        if (token == JsDocToken.LB) {
++          skipEOLs();
++          return parseArrayType(next);
++        } else if (token == JsDocToken.LC) {
++          skipEOLs();
++          return parseRecordType(next);
++        } else if (token == JsDocToken.LP) {
++          skipEOLs();
++          return parseUnionType(next);
++        } else if (token == JsDocToken.STRING) {
++          String string = stream.getString();
++          if ("function".equals(string)) {
++            skipEOLs();
++            return parseFunctionType(next);
++          } else if ("null".equals(string) || "undefined".equals(string)) {
++            return newStringNode(string);
++          } else {
++            return parseTypeName(token);
++          }
++        }
+     }
+ 
+     restoreLookAhead(token);

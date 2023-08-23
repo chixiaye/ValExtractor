@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
+index 2139e68..5241609 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
+@@ -161,11 +161,12 @@
+         if (xval.length != yval.length) {
+             throw new DimensionMismatchException(xval.length, yval.length);
+         }
+-        if (xval[0] == null) {
++        double[] doubles = xval[0];
++        if (doubles == null) {
+             throw new NullArgumentException();
+         }
+ 
+-        dimension = xval[0].length;
++        dimension = doubles.length;
+         this.brightnessExponent = brightnessExponent;
+ 
+         // Copy data samples.

@@ -1,0 +1,56 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..769d6ea 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -3935,7 +3935,8 @@
+         if (!iterator.hasNext()) {
+             return EMPTY;
+         }
+-        final Object first = iterator.next();
++        Object var_44 = iterator.next();
++		final Object first = var_44;
+         if (!iterator.hasNext()) {
+             return ObjectUtils.toString(first);
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..769d6ea 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -3935,7 +3935,8 @@
+         if (!iterator.hasNext()) {
+             return EMPTY;
+         }
+-        final Object first = iterator.next();
++        Object var_44 = iterator.next();
++		final Object first = var_44;
+         if (!iterator.hasNext()) {
+             return ObjectUtils.toString(first);
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..33eb434 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -3935,7 +3935,8 @@
+         if (!iterator.hasNext()) {
+             return EMPTY;
+         }
+-        final Object first = iterator.next();
++        Object next = iterator.next();
++        final Object first = next;
+         if (!iterator.hasNext()) {
+             return ObjectUtils.toString(first);
+         }
+@@ -3948,7 +3949,7 @@
+ 
+         while (iterator.hasNext()) {
+             buf.append(separator);
+-            final Object obj = iterator.next();
++            final Object obj = next;
+             if (obj != null) {
+                 buf.append(obj);
+             }

@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/CodePrinter.java b/src/com/google/javascript/jscomp/CodePrinter.java
+index fd77e51..fe72596 100644
+--- a/src/com/google/javascript/jscomp/CodePrinter.java
++++ b/src/com/google/javascript/jscomp/CodePrinter.java
+@@ -645,7 +645,8 @@
+    */
+   private static String toSource(Node root, Format outputFormat,
+       CompilerOptions options, SourceMap sourceMap,  boolean tagAsStrict) {
+-    Preconditions.checkState(options.sourceMapDetailLevel != null);
++      SourceMap.DetailLevel sourceMapDetailLevel = options.sourceMapDetailLevel;
++      Preconditions.checkState(sourceMapDetailLevel != null);
+ 
+     boolean createSourceMap = (sourceMap != null);
+     MappedCodePrinter mcp =
+@@ -655,11 +656,11 @@
+             options.preferLineBreakAtEndOfFile,
+             options.lineLengthThreshold,
+             createSourceMap,
+-            options.sourceMapDetailLevel)
++                sourceMapDetailLevel)
+         : new PrettyCodePrinter(
+             options.lineLengthThreshold,
+             createSourceMap,
+-            options.sourceMapDetailLevel);
++                sourceMapDetailLevel);
+     CodeGenerator cg =
+         outputFormat == Format.TYPED
+         ? new TypedCodeGenerator(mcp, options)

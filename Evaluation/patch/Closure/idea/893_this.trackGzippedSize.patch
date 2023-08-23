@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/PerformanceTracker.java b/src/com/google/javascript/jscomp/PerformanceTracker.java
+index 0c2bace..b265b05 100644
+--- a/src/com/google/javascript/jscomp/PerformanceTracker.java
++++ b/src/com/google/javascript/jscomp/PerformanceTracker.java
+@@ -88,7 +88,8 @@
+ 
+       case RAW_SIZE:
+         this.trackSize = true;
+-        this.trackGzippedSize = false;
++          boolean trackGzippedSize1 = this.trackGzippedSize;
++          this.trackGzippedSize = false;
+         break;
+ 
+       case ALL:

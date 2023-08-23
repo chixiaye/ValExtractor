@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..092fd53 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -1118,9 +1118,10 @@
+      */
+     protected void checkAdditionCompatible(final FieldMatrix<T> m)
+         throws MatrixDimensionMismatchException {
++        int columnDimension = m.getColumnDimension();
+         if ((getRowDimension() != m.getRowDimension()) ||
+-            (getColumnDimension() != m.getColumnDimension())) {
+-            throw new MatrixDimensionMismatchException(m.getRowDimension(), m.getColumnDimension(),
++            (getColumnDimension() != columnDimension)) {
++            throw new MatrixDimensionMismatchException(m.getRowDimension(), columnDimension,
+                                                        getRowDimension(), getColumnDimension());
+         }
+     }

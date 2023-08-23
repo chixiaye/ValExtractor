@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/ui/FontChooserPanel.java b/source/org/jfree/chart/ui/FontChooserPanel.java
+index 061a429..b9d6181 100644
+--- a/source/org/jfree/chart/ui/FontChooserPanel.java
++++ b/source/org/jfree/chart/ui/FontChooserPanel.java
+@@ -215,11 +215,12 @@
+         }
+ 
+         String fontSize = String.valueOf(font.getSize());
+-        model = this.sizelist.getModel();
+-        this.sizelist.clearSelection();
++        JList sizelist1 = this.sizelist;
++        model = sizelist1.getModel();
++        sizelist1.clearSelection();
+         for (int i = 0; i < model.getSize(); i++) {
+             if (fontSize.equals(model.getElementAt(i))) {
+-                this.sizelist.setSelectedIndex(i);
++                sizelist1.setSelectedIndex(i);
+                 break;
+             }
+         }

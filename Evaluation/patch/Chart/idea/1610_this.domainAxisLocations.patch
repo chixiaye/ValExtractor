@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..8270d34 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -643,6 +643,7 @@
+ 
+         // allocate storage for datasets, axes and renderers (all optional)
+         this.domainAxes = new ObjectList();
++        ObjectList domainAxisLocations1 = this.domainAxisLocations;
+         this.domainAxisLocations = new ObjectList();
+         this.foregroundDomainMarkers = new HashMap();
+         this.backgroundDomainMarkers = new HashMap();

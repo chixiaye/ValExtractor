@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+index 513606d..995dd6e 100644
+--- a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+@@ -380,8 +380,9 @@
+         /** {@inheritDoc} */
+         public FieldMatrix<T> solve(FieldMatrix<T> b) {
+             final int m = pivot.length;
+-            if (b.getRowDimension() != m) {
+-                throw new DimensionMismatchException(b.getRowDimension(), m);
++            int rowDimension = b.getRowDimension();
++            if (rowDimension != m) {
++                throw new DimensionMismatchException(rowDimension, m);
+             }
+             if (singular) {
+                 throw new SingularMatrixException();

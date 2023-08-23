@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionType.java b/src/com/google/javascript/rhino/jstype/UnionType.java
+index 585bd8f..f7dc729 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionType.java
++++ b/src/com/google/javascript/rhino/jstype/UnionType.java
+@@ -517,8 +517,9 @@
+       if (p.typeA != null) {
+         thisRestricted.addAlternate(p.typeA);
+       }
+-      if (p.typeB != null) {
+-        thatRestricted.addAlternate(p.typeB);
++        JSType typeB = p.typeB;
++        if (typeB != null) {
++        thatRestricted.addAlternate(typeB);
+       }
+     }
+     return new TypePair(

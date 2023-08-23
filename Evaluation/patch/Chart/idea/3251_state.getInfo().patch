@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/HighLowRenderer.java b/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
+index 878a686..bf60b60 100644
+--- a/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
+@@ -328,8 +328,9 @@
+         // setup for collecting optional entity info...
+         Shape entityArea = null;
+         EntityCollection entities = null;
+-        if (state.getInfo() != null) {
+-            entities = state.getInfo().getOwner().getEntityCollection();
++        PlotRenderingInfo info = state.getInfo();
++        if (info != null) {
++            entities = info.getOwner().getEntityCollection();
+         }
+ 
+         PlotOrientation orientation = plot.getOrientation();

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..071a762 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -165,6 +165,7 @@
+ 
+             if (Double.isNaN(this.maximumRangeValue)) {
+                 this.maximumRangeValue = maxval;
++                int maximumRangeValueRow1 = this.maximumRangeValueRow;
+                 this.maximumRangeValueRow = r;
+                 this.maximumRangeValueColumn = c;
+             }

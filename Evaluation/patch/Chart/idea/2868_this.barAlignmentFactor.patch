@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..9fdb9d3 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -863,10 +863,11 @@
+         }
+ 
+         // is there an alignment adjustment to be made?
+-        if (this.barAlignmentFactor >= 0.0 && this.barAlignmentFactor <= 1.0) {
++        double barAlignmentFactor1 = this.barAlignmentFactor;
++        if (barAlignmentFactor1 >= 0.0 && barAlignmentFactor1 <= 1.0) {
+             double x = ixyd.getXValue(series, item);
+             double interval = endX - startX;
+-            startX = x - interval * this.barAlignmentFactor;
++            startX = x - interval * barAlignmentFactor1;
+             endX = startX + interval;
+         }
+ 

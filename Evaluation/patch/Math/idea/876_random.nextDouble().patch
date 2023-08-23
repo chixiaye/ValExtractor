@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/PoissonDistribution.java b/src/main/java/org/apache/commons/math3/distribution/PoissonDistribution.java
+index 4aa5706..616ee81 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/PoissonDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/PoissonDistribution.java
+@@ -289,6 +289,7 @@
+      */
+     private long nextPoisson(double meanPoisson) {
+         final double pivot = 40.0d;
++        double v1 = random.nextDouble();
+         if (meanPoisson < pivot) {
+             double p = FastMath.exp(-meanPoisson);
+             long n = 0;
+@@ -296,7 +297,7 @@
+             double rnd = 1.0d;
+ 
+             while (n < 1000 * meanPoisson) {
+-                rnd = random.nextDouble();
++                rnd = v1;
+                 r = r * rnd;
+                 if (r >= p) {
+                     n++;
+@@ -329,7 +330,7 @@
+             double qr = 0;
+             double qa = 0;
+             for (;;) {
+-                final double u = random.nextDouble();
++                final double u = v1;
+                 if (u <= p1) {
+                     final double n = random.nextGaussian();
+                     x = n * FastMath.sqrt(lambda + halfDelta) - 0.5d;

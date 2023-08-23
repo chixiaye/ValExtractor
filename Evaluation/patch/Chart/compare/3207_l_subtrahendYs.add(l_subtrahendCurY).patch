@@ -1,0 +1,70 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..68fb664 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -466,7 +466,7 @@
+             l_subtrahendMinY      = 0.0;
+ 
+             l_subtrahendXs.add(l_subtrahendCurX);
+-            l_subtrahendYs.add(l_subtrahendCurY);
++            boolean var_3207 = l_subtrahendYs.add(l_subtrahendCurY);
+         }
+         else {
+             l_subtrahendItemCount = x_dataset.getItemCount(1);
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..68fb664 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -466,7 +466,7 @@
+             l_subtrahendMinY      = 0.0;
+ 
+             l_subtrahendXs.add(l_subtrahendCurX);
+-            l_subtrahendYs.add(l_subtrahendCurY);
++            boolean var_3207 = l_subtrahendYs.add(l_subtrahendCurY);
+         }
+         else {
+             l_subtrahendItemCount = x_dataset.getItemCount(1);
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..b26aeeb 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -454,6 +454,7 @@
+         double l_subtrahendMinY   = Double.POSITIVE_INFINITY;
+ 
+         // if a subtrahend is not specified, assume it is zero
++        boolean add = l_subtrahendYs.add(l_subtrahendCurY);
+         if (b_impliedZeroSubtrahend) {
+             l_subtrahendItem      = 0;
+             l_subtrahendItemCount = 2;
+@@ -466,7 +467,7 @@
+             l_subtrahendMinY      = 0.0;
+ 
+             l_subtrahendXs.add(l_subtrahendCurX);
+-            l_subtrahendYs.add(l_subtrahendCurY);
++            add;
+         }
+         else {
+             l_subtrahendItemCount = x_dataset.getItemCount(1);
+@@ -545,7 +546,7 @@
+                         + (l_y3 - (l_slope * l_x3)));
+ 
+                 l_subtrahendXs.add(l_subtrahendCurX);
+-                l_subtrahendYs.add(l_subtrahendCurY);
++                add;
+             }
+ 
+             if ((l_x1 < l_x3) && (l_x3 < l_x2)) {
+@@ -599,7 +600,7 @@
+ 
+                 if (!b_subtrahendAtIntersect) {
+                     l_subtrahendXs.add(l_subtrahendCurX);
+-                    l_subtrahendYs.add(l_subtrahendCurY);
++                    add;
+                 }
+ 
+                 l_subtrahendMaxY = Math.max(l_subtrahendMaxY, l_y3);

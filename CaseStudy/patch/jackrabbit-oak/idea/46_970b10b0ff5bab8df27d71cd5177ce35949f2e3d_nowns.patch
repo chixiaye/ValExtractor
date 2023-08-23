@@ -1,0 +1,39 @@
+diff --git a/oak-core/src/main/java/org/apache/jackrabbit/oak/stats/Clock.java b/oak-core/src/main/java/org/apache/jackrabbit/oak/stats/Clock.java
+index a0b6b7d33b..b8c3ef2dd8 100644
+--- a/oak-core/src/main/java/org/apache/jackrabbit/oak/stats/Clock.java
++++ b/oak-core/src/main/java/org/apache/jackrabbit/oak/stats/Clock.java
+@@ -168,7 +168,8 @@ public abstract class Clock {
+         private long ns = System.nanoTime();
+         @Override
+         public synchronized long getTime() {
+-            long nsIncrease = Math.max(System.nanoTime() - ns, 0); // >= 0
++            long nowns = System.nanoTime();
++            long nsIncrease = Math.max(nowns - this.ns, 0); // >= 0
+             long msIncrease = nsIncrease / NS_IN_MS;
+             if (ACCURATE_CLOCK_GRANULARITY > 1) {
+                 msIncrease -= msIncrease % ACCURATE_CLOCK_GRANULARITY;
+@@ -177,7 +178,7 @@ public abstract class Clock {
+             long now = ms + msIncrease;
+             if (now > ms + SYNC_INTERVAL) {
+                 ms = SIMPLE.getTime();
+-                ns = System.nanoTime();
++                this.ns = nowns;
+                 // Check whether the system time jumped ahead or back
+                 // from what we'd expect based on the nanosecond interval.
+                 // If the jump was small, it was probably caused by low
+@@ -189,13 +190,13 @@ public abstract class Clock {
+                 long jump = ms - now;
+                 if (0 < jump && jump < 1000) {
+                     ms = now;
+-                    ns -= NS_IN_MS / 2;
++                    this.ns -= NS_IN_MS / 2;
+                 } else if (0 > jump && jump > -1000) {
+                     // Note that the Math.max(..., 0) above will cause the
+                     // reported time to stay constant for a while instead
+                     // of going backwards because of this.
+                     ms = now;
+-                    ns += NS_IN_MS / 2;
++                    this.ns += NS_IN_MS / 2;
+                 }
+             }
+ 

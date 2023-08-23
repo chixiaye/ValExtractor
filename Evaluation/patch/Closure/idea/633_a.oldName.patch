@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/RenameVars.java b/src/com/google/javascript/jscomp/RenameVars.java
+index 27c69c3..502dd10 100644
+--- a/src/com/google/javascript/jscomp/RenameVars.java
++++ b/src/com/google/javascript/jscomp/RenameVars.java
+@@ -455,12 +455,13 @@
+         continue;
+       }
+ 
+-      if (externNames.contains(a.oldName)) {
++        String oldName = a.oldName;
++        if (externNames.contains(oldName)) {
+         continue;
+       }
+ 
+       String newName;
+-      if (a.oldName.startsWith(LOCAL_VAR_PREFIX)) {
++      if (oldName.startsWith(LOCAL_VAR_PREFIX)) {
+         // For local variable, we make the assignment right away.
+         newName = localNameGenerator.generateNextName();
+         finalizeNameAssignment(a, newName);

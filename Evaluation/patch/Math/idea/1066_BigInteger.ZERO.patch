@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/fraction/BigFraction.java b/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
+index 4ca33eb..91482ab 100644
+--- a/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
++++ b/src/main/java/org/apache/commons/math3/fraction/BigFraction.java
+@@ -195,11 +195,12 @@
+             ++k;
+         }
+ 
++        BigInteger zero = BigInteger.ZERO;
+         if (k < 0) {
+             numerator   = BigInteger.valueOf(m);
+-            denominator = BigInteger.ZERO.flipBit(-k);
++            denominator = zero.flipBit(-k);
+         } else {
+-            numerator   = BigInteger.valueOf(m).multiply(BigInteger.ZERO.flipBit(k));
++            numerator   = BigInteger.valueOf(m).multiply(zero.flipBit(k));
+             denominator = BigInteger.ONE;
+         }
+ 

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+index 5ba6e4b..7afc19a 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+@@ -755,9 +755,10 @@
+         Base64VLQ.encode(out, srcColumn - previousSourceColumn);
+         previousSourceColumn = srcColumn;
+ 
+-        if (m.originalName != null) {
++          String originalName = m.originalName;
++          if (originalName != null) {
+           // The relative id for the associated symbol name
+-          int nameId = getNameId(m.originalName);
++          int nameId = getNameId(originalName);
+           Base64VLQ.encode(out, (nameId - previousNameId));
+           previousNameId = nameId;
+         }

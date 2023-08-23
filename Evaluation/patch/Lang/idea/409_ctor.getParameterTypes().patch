@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/lang3/reflect/ConstructorUtils.java b/src/main/java/org/apache/commons/lang3/reflect/ConstructorUtils.java
+index 4484f1b..54cb081 100644
+--- a/src/main/java/org/apache/commons/lang3/reflect/ConstructorUtils.java
++++ b/src/main/java/org/apache/commons/lang3/reflect/ConstructorUtils.java
+@@ -260,13 +260,14 @@
+         // return best match:
+         for (Constructor<?> ctor : ctors) {
+             // compare parameters
+-            if (ClassUtils.isAssignable(parameterTypes, ctor.getParameterTypes(), true)) {
++            Class<?>[] parameterTypes1 = ctor.getParameterTypes();
++            if (ClassUtils.isAssignable(parameterTypes, parameterTypes1, true)) {
+                 // get accessible version of constructor
+                 ctor = getAccessibleConstructor(ctor);
+                 if (ctor != null) {
+                     MemberUtils.setAccessibleWorkaround(ctor);
+                     if (result == null
+-                            || MemberUtils.compareParameterTypes(ctor.getParameterTypes(), result
++                            || MemberUtils.compareParameterTypes(parameterTypes1, result
+                                     .getParameterTypes(), parameterTypes) < 0) {
+                         // temporary variable for annotation, see comment above (1)
+                         @SuppressWarnings("unchecked")

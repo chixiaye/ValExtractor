@@ -1,0 +1,70 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..ec3d891 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -163,12 +163,14 @@
+         }
+         else if (edge == RectangleEdge.BOTTOM) {
+             result = RectangleEdge.TOP;
+-        }
+-        else if (edge == RectangleEdge.LEFT) {
++        } else {
++			RectangleEdge var_3601 = RectangleEdge.LEFT;
++			if (edge == var_3601) {
+             result = RectangleEdge.RIGHT;
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+-            result = RectangleEdge.LEFT;
++			    result = var_3601;
++			}
+         }
+         return result;
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..ec3d891 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -163,12 +163,14 @@
+         }
+         else if (edge == RectangleEdge.BOTTOM) {
+             result = RectangleEdge.TOP;
+-        }
+-        else if (edge == RectangleEdge.LEFT) {
++        } else {
++			RectangleEdge var_3601 = RectangleEdge.LEFT;
++			if (edge == var_3601) {
+             result = RectangleEdge.RIGHT;
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+-            result = RectangleEdge.LEFT;
++			    result = var_3601;
++			}
+         }
+         return result;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..ef15853 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -164,11 +164,14 @@
+         else if (edge == RectangleEdge.BOTTOM) {
+             result = RectangleEdge.TOP;
+         }
+-        else if (edge == RectangleEdge.LEFT) {
++        else {
++            RectangleEdge left = RectangleEdge.LEFT;
++            if (edge == left) {
+             result = RectangleEdge.RIGHT;
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+-            result = RectangleEdge.LEFT;
++                result = left;
++            }
+         }
+         return result;
+     }

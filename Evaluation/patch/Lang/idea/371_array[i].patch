@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+index 70b8d64..71ae2db 100644
+--- a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
++++ b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+@@ -790,8 +790,9 @@
+         // Finds and returns min
+         long min = array[0];
+         for (int i = 1; i < array.length; i++) {
+-            if (array[i] < min) {
+-                min = array[i];
++            long l = array[i];
++            if (l < min) {
++                min = l;
+             }
+         }
+     

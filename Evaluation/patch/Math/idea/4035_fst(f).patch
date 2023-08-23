@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastSineTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastSineTransformer.java
+index 2eb36b9..33d4c3e 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastSineTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastSineTransformer.java
+@@ -94,15 +94,16 @@
+      *   not a power of two, or the first element of the data array is not zero
+      */
+     public double[] transform(final double[] f, final TransformType type) {
++        double[] fst = fst(f);
+         if (normalization == DstNormalization.ORTHOGONAL_DST_I) {
+             final double s = FastMath.sqrt(2.0 / f.length);
+-            return TransformUtils.scaleArray(fst(f), s);
++            return TransformUtils.scaleArray(fst, s);
+         }
+         if (type == TransformType.FORWARD) {
+-            return fst(f);
++            return fst;
+         }
+         final double s = 2.0 / f.length;
+-        return TransformUtils.scaleArray(fst(f), s);
++        return TransformUtils.scaleArray(fst, s);
+     }
+ 
+     /**

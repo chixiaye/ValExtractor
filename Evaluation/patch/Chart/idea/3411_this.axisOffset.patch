@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..9c9dc3f 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -486,6 +486,7 @@
+             Range heightRange) {
+ 
+         RectangleEdge position = getPosition();
++        double axisOffset1 = this.axisOffset;
+         if (position == RectangleEdge.TOP || position == RectangleEdge.BOTTOM) {
+ 
+ 
+@@ -496,7 +497,7 @@
+                     new Rectangle2D.Double(0, 0, maxWidth, 100),
+                     RectangleEdge.BOTTOM, null);
+ 
+-            return new Size2D(maxWidth, this.stripWidth + this.axisOffset
++            return new Size2D(maxWidth, this.stripWidth + axisOffset1
+                     + space.getTop() + space.getBottom());
+         }
+         else if (position == RectangleEdge.LEFT || position
+@@ -505,7 +506,7 @@
+             AxisSpace space = this.axis.reserveSpace(g2, null,
+                     new Rectangle2D.Double(0, 0, 100, maxHeight),
+                     RectangleEdge.RIGHT, null);
+-            return new Size2D(this.stripWidth + this.axisOffset
++            return new Size2D(this.stripWidth + axisOffset1
+                     + space.getLeft() + space.getRight(), maxHeight);
+         }
+         else {

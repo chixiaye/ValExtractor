@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..6cd0bb4 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -380,8 +380,9 @@
+     Preconditions.checkState(scopeCreator == null);
+     Preconditions.checkState(topScope == null);
+ 
+-    Preconditions.checkState(jsRoot.getParent() != null);
+-    Node externsAndJsRoot = jsRoot.getParent();
++      Node parent = jsRoot.getParent();
++      Preconditions.checkState(parent != null);
++    Node externsAndJsRoot = parent;
+ 
+     scopeCreator = new MemoizedScopeCreator(new TypedScopeCreator(compiler));
+     topScope = scopeCreator.createScope(externsAndJsRoot, null);

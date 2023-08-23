@@ -1,0 +1,64 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+index 3743287..f364896 100644
+--- a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
++++ b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+@@ -175,7 +175,7 @@
+         // Remove the function body scope
+         nameStack.pop();
+         // Remove function recursive name (if any).
+-        nameStack.pop();
++        Renamer var_233 = nameStack.pop();
+         break;
+ 
+       case Token.PARAM_LIST:
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+index 3743287..f364896 100644
+--- a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
++++ b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+@@ -175,7 +175,7 @@
+         // Remove the function body scope
+         nameStack.pop();
+         // Remove function recursive name (if any).
+-        nameStack.pop();
++        Renamer var_233 = nameStack.pop();
+         break;
+ 
+       case Token.PARAM_LIST:
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+index 3743287..87df81a 100644
+--- a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
++++ b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+@@ -157,6 +157,7 @@
+ 
+   @Override
+   public void visit(NodeTraversal t, Node n, Node parent) {
++      Renamer pop = nameStack.pop();
+     switch (n.getType()) {
+       case Token.NAME:
+         String newName = getReplacementName(n.getString());
+@@ -173,9 +174,9 @@
+ 
+       case Token.FUNCTION:
+         // Remove the function body scope
+-        nameStack.pop();
++        pop;
+         // Remove function recursive name (if any).
+-        nameStack.pop();
++        pop;
+         break;
+ 
+       case Token.PARAM_LIST:
+@@ -186,7 +187,7 @@
+ 
+       case Token.CATCH:
+         // Remove catch except name from the stack of names.
+-        nameStack.pop();
++        pop;
+         break;
+     }
+   }

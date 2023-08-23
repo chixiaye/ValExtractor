@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/Regression.java b/source/org/jfree/data/statistics/Regression.java
+index 962b978..5e2f6a2 100644
+--- a/source/org/jfree/data/statistics/Regression.java
++++ b/source/org/jfree/data/statistics/Regression.java
+@@ -219,7 +219,8 @@
+         double ybar = sumY / n;
+ 
+         double[] result = new double[2];
+-        result[1] = sxy / sxx;
++        double v = result[1];
++        v = sxy / sxx;
+         result[0] = Math.pow(Math.exp(1.0), ybar - result[1] * xbar);
+ 
+         return result;

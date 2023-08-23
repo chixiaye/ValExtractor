@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..073682b 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -459,7 +459,8 @@
+    * found we log it as an error.
+    */
+   static void initCurrentThreadTrace() {
+-    ThreadTrace events = getThreadTrace();
++      ThreadTrace threadTrace = getThreadTrace();
++      ThreadTrace events = threadTrace;
+     if (!events.isEmpty()) {
+       logger.log(Level.WARNING,
+                  "Non-empty timer log:\n" + events,
+@@ -467,7 +468,7 @@
+       clearThreadTrace();
+ 
+       // Grab a new thread trace if we find a previous non-empty ThreadTrace.
+-      events = getThreadTrace();
++      events = threadTrace;
+     }
+ 
+     // Mark the thread trace as initialized.

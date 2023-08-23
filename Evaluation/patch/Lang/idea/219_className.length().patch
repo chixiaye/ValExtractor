@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..1c7b087 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -197,8 +197,9 @@
+                 arrayPrefix.append("[]");
+             }
+             // Strip Object type encoding
+-            if (className.charAt(0) == 'L' && className.charAt(className.length() - 1) == ';') {
+-                className = className.substring(1, className.length() - 1);
++            int length = className.length();
++            if (className.charAt(0) == 'L' && className.charAt(length - 1) == ';') {
++                className = className.substring(1, length - 1);
+             }
+ 
+             if (reverseAbbreviationMap.containsKey(className)) {

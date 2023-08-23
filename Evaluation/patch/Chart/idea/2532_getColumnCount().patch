@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..fb65b8b 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -253,6 +253,7 @@
+ 
+         // current data point...
+         double x1;
++        int columnCount = getColumnCount();
+         if (getUseSeriesOffset()) {
+             x1 = domainAxis.getCategorySeriesMiddle(column,
+                     dataset.getColumnCount(),
+@@ -260,7 +261,7 @@
+                     getItemMargin(), dataArea, plot.getDomainAxisEdge());
+         }
+         else {
+-            x1 = domainAxis.getCategoryMiddle(column, getColumnCount(),
++            x1 = domainAxis.getCategoryMiddle(column, columnCount,
+                     dataArea, plot.getDomainAxisEdge());
+         }
+         double y1 = rangeAxis.valueToJava2D(meanValue.doubleValue(), dataArea,
+@@ -390,7 +391,7 @@
+                     }
+                     else {
+                         x0 = domainAxis.getCategoryMiddle(column - 1,
+-                                getColumnCount(), dataArea,
++                                columnCount, dataArea,
+                                 plot.getDomainAxisEdge());
+                     }
+                     double y0 = rangeAxis.valueToJava2D(previous, dataArea,

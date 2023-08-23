@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..0e79da0 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4014,7 +4014,8 @@
+                                       List ticks) {
+ 
+         // no renderer, no gridlines...
+-        if (getRenderer() == null) {
++        XYItemRenderer renderer = getRenderer();
++        if (renderer == null) {
+             return;
+         }
+ 
+@@ -4043,7 +4044,7 @@
+                     }
+                     if ((tick.getValue() != 0.0
+                             || !isRangeZeroBaselineVisible()) && paintLine) {
+-                        getRenderer().drawRangeLine(g2, this, getRangeAxis(),
++                        renderer.drawRangeLine(g2, this, getRangeAxis(),
+                                 area, tick.getValue(), gridPaint, gridStroke);
+                     }
+                 }

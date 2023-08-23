@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/Period.java b/src/main/java/org/joda/time/Period.java
+index 5ea67a7..1f9ebc2 100644
+--- a/src/main/java/org/joda/time/Period.java
++++ b/src/main/java/org/joda/time/Period.java
+@@ -1087,8 +1087,9 @@
+             return this;
+         }
+         int[] values = getValues();  // cloned
+-        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, weeks);
+-        return new Period(values, getPeriodType());
++        PeriodType periodType = getPeriodType();
++        periodType.addIndexedField(this, PeriodType.WEEK_INDEX, values, weeks);
++        return new Period(values, periodType);
+     }
+ 
+     /**

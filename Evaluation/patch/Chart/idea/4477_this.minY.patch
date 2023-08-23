@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..e3aa6f2 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -671,7 +671,8 @@
+         boolean iterate = false;
+         double oldY = item.getYValue();
+         if (!Double.isNaN(oldY)) {
+-            iterate = oldY <= this.minY || oldY >= this.maxY;
++            double minY1 = this.minY;
++            iterate = oldY <= minY1 || oldY >= this.maxY;
+         }
+         item.setY(y);
+ 

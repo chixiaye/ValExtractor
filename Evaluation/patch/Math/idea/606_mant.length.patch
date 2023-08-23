@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..0f194ac 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1237,13 +1237,14 @@
+     protected int complement(int extra) {
+ 
+         extra = RADIX-extra;
+-        for (int i = 0; i < mant.length; i++) {
++        int length = mant.length;
++        for (int i = 0; i < length; i++) {
+             mant[i] = RADIX-mant[i]-1;
+         }
+ 
+         int rh = extra / RADIX;
+         extra = extra - rh * RADIX;
+-        for (int i = 0; i < mant.length; i++) {
++        for (int i = 0; i < length; i++) {
+             final int r = mant[i] + rh;
+             rh = r / RADIX;
+             mant[i] = r - rh * RADIX;

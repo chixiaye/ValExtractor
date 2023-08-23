@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..64d0d1c 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -263,10 +263,11 @@
+       }
+     }
+ 
+-    if (!config.warningsWhitelistFile.isEmpty()) {
++      String warningsWhitelistFile = config.warningsWhitelistFile;
++      if (!warningsWhitelistFile.isEmpty()) {
+       options.addWarningsGuard(
+           WhitelistWarningsGuard.fromFile(
+-              new File(config.warningsWhitelistFile)));
++              new File(warningsWhitelistFile)));
+     }
+ 
+     createDefineOrTweakReplacements(config.define, options, false);

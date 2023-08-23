@@ -1,0 +1,39 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..d617c1c 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -727,6 +727,7 @@
+         Line2D outside = null;
+         long firstOnAxis = getFirst().getFirstMillisecond();
+         long lastOnAxis = getLast().getLastMillisecond() + 1;
++        RectangleEdge bottom = RectangleEdge.BOTTOM;
+         while (t0 <= lastOnAxis) {
+             ticks.add(new NumberTick(new Double(t0), "", TextAnchor.CENTER,
+                     TextAnchor.CENTER, 0.0));
+@@ -735,7 +736,7 @@
+                 inside = new Line2D.Double(x0, y0, x0, y0 + insideLength);
+                 outside = new Line2D.Double(x0, y0, x0, y0 - outsideLength);
+             }
+-            else if (edge == RectangleEdge.BOTTOM) {
++            else if (edge == bottom) {
+                 inside = new Line2D.Double(x0, y0, x0, y0 - insideLength);
+                 outside = new Line2D.Double(x0, y0, x0, y0 + outsideLength);
+             }
+@@ -760,7 +761,7 @@
+                         outside = new Line2D.Double(xx0, y0, xx0,
+                                 y0 - this.minorTickMarkOutsideLength);
+                     }
+-                    else if (edge == RectangleEdge.BOTTOM) {
++                    else if (edge == bottom) {
+                         inside = new Line2D.Double(xx0, y0, xx0,
+                                 y0 - this.minorTickMarkInsideLength);
+                         outside = new Line2D.Double(xx0, y0, xx0,
+@@ -785,7 +786,7 @@
+             state.cursorUp(Math.max(outsideLength,
+                     this.minorTickMarkOutsideLength));
+         }
+-        else if (edge == RectangleEdge.BOTTOM) {
++        else if (edge == bottom) {
+             state.cursorDown(Math.max(outsideLength,
+                     this.minorTickMarkOutsideLength));
+         }

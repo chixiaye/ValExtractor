@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..e1861d7 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1621,6 +1621,7 @@
+         boolean scale = false;
+         double drawWidth = available.getWidth();
+         double drawHeight = available.getHeight();
++        double scaleX1 = this.scaleX;
+         this.scaleX = 1.0;
+         this.scaleY = 1.0;
+ 

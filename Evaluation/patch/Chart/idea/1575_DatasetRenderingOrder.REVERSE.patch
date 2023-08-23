@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/DatasetRenderingOrder.java b/source/org/jfree/chart/plot/DatasetRenderingOrder.java
+index ac6b16a..405e1ca 100644
+--- a/source/org/jfree/chart/plot/DatasetRenderingOrder.java
++++ b/source/org/jfree/chart/plot/DatasetRenderingOrder.java
+@@ -132,8 +132,11 @@
+         if (this.equals(DatasetRenderingOrder.FORWARD)) {
+             return DatasetRenderingOrder.FORWARD;
+         }
+-        else if (this.equals(DatasetRenderingOrder.REVERSE)) {
+-            return DatasetRenderingOrder.REVERSE;
++        else {
++            DatasetRenderingOrder reverse = DatasetRenderingOrder.REVERSE;
++            if (this.equals(reverse)) {
++                return reverse;
++            }
+         }
+         return null;
+     }

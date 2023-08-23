@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer3D.java b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+index 6cf5928..9fe9f00 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+@@ -670,10 +670,11 @@
+ 
+         double value = dataValue.doubleValue();
+ 
++        double yOffset1 = getYOffset();
+         Rectangle2D adjusted = new Rectangle2D.Double(dataArea.getX(),
+-                dataArea.getY() + getYOffset(),
++                dataArea.getY() + yOffset1,
+                 dataArea.getWidth() - getXOffset(),
+-                dataArea.getHeight() - getYOffset());
++                dataArea.getHeight() - yOffset1);
+ 
+         PlotOrientation orientation = plot.getOrientation();
+ 
+@@ -710,9 +711,9 @@
+         double x2 = bar.getMaxX();
+         double x3 = x2 + getXOffset();
+ 
+-        double y0 = bar.getMinY() - getYOffset();
++        double y0 = bar.getMinY() - yOffset1;
+         double y1 = bar.getMinY();
+-        double y2 = bar.getMaxY() - getYOffset();
++        double y2 = bar.getMaxY() - yOffset1;
+         double y3 = bar.getMaxY();
+ 
+         GeneralPath bar3dRight = null;

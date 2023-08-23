@@ -1,0 +1,16 @@
+diff --git a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/SegmentCache.java b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/SegmentCache.java
+index a1a601472f..f12eab8b90 100644
+--- a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/SegmentCache.java
++++ b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/SegmentCache.java
+@@ -97,8 +97,9 @@ public class SegmentCache {
+      * @param segment  the segment to cache
+      */
+     public void putSegment(@Nonnull Segment segment) {
+-        cache.put(segment.getSegmentId(), segment);
+-        segment.getSegmentId().loaded(segment);
++        SegmentId segmentId = segment.getSegmentId();
++        cache.put(segmentId, segment);
++        segmentId.loaded(segment);
+     }
+ 
+     /**

@@ -1,0 +1,78 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..e1c9f25 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -854,7 +854,9 @@
+                 check = LocalDateTime.fromCalendarFields(calendar);
+             }
+             calendar.setTimeInMillis(calendar.getTimeInMillis() + 1000);
+-        } else if (check.equals(this)) {
++        } else {
++			boolean var_20 = check.equals(this);
++			if (var_20) {
+             // check for DST overlap
+             final Calendar earlier = Calendar.getInstance(timeZone);
+             earlier.setTimeInMillis(calendar.getTimeInMillis() - timeZone.getDSTSavings());
+@@ -863,6 +865,7 @@
+                 calendar = earlier;
+             }
+         }
++		}
+         return calendar.getTime();
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..507c6c3 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -854,15 +854,18 @@
+                 check = LocalDateTime.fromCalendarFields(calendar);
+             }
+             calendar.setTimeInMillis(calendar.getTimeInMillis() + 1000);
+-        } else if (check.equals(this)) {
++        } else {
++			boolean var_20 = check.equals(this);
++			if (var_20) {
+             // check for DST overlap
+             final Calendar earlier = Calendar.getInstance(timeZone);
+             earlier.setTimeInMillis(calendar.getTimeInMillis() - timeZone.getDSTSavings());
+             check = LocalDateTime.fromCalendarFields(earlier);
+-            if (check.equals(this)) {
++			    if (var_20) {
+                 calendar = earlier;
+             }
+         }
++		}
+         return calendar.getTime();
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..ef8eb4f 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -854,15 +854,18 @@
+                 check = LocalDateTime.fromCalendarFields(calendar);
+             }
+             calendar.setTimeInMillis(calendar.getTimeInMillis() + 1000);
+-        } else if (check.equals(this)) {
++        } else {
++            boolean equals = check.equals(this);
++            if (equals) {
+             // check for DST overlap
+             final Calendar earlier = Calendar.getInstance(timeZone);
+             earlier.setTimeInMillis(calendar.getTimeInMillis() - timeZone.getDSTSavings());
+             check = LocalDateTime.fromCalendarFields(earlier);
+-            if (check.equals(this)) {
++                if (equals) {
+                 calendar = earlier;
+             }
+         }
++        }
+         return calendar.getTime();
+     }
+ 

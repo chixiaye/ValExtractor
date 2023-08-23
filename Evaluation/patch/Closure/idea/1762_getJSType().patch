@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..e8a8827 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -367,9 +367,10 @@
+      */
+     ConcreteInstanceType getInstanceType() {
+       if (instanceType == null) {
+-        if (getJSType().isConstructor()) {
++          FunctionType jsType = getJSType();
++          if (jsType.isConstructor()) {
+           instanceType =
+-              factory.createConcreteInstance(getJSType().getInstanceType());
++              factory.createConcreteInstance(jsType.getInstanceType());
+         }
+       }
+       return instanceType;

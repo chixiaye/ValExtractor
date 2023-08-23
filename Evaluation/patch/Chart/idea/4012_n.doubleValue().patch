@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..d9bb94f 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -118,7 +118,8 @@
+             Object obj = iterator.next();
+             if (obj instanceof Number) {
+                 Number n = (Number) obj;
+-                double v = n.doubleValue();
++                double v1 = n.doubleValue();
++                double v = v1;
+                 if (!Double.isNaN(v)) {
+                     vlist.add(n);
+                 }

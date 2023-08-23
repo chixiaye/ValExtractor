@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..d184733 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -1534,14 +1534,15 @@
+                 return iWallOffsets[i];
+             }
+             i = ~i;
++            int iWallOffset = iWallOffsets[i - 1];
+             if (i < transitions.length) {
+                 if (i > 0) {
+-                    return iWallOffsets[i - 1];
++                    return iWallOffset;
+                 }
+                 return 0;
+             }
+             if (iTailZone == null) {
+-                return iWallOffsets[i - 1];
++                return iWallOffset;
+             }
+             return iTailZone.getOffset(instant);
+         }

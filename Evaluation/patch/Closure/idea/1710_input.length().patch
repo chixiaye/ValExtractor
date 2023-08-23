@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..54ef9d1 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -190,14 +190,15 @@
+    * @return string with leading and trailing zeros removed
+    */
+   private String normalizeNumericString(String input) {
+-    if (input == null || input.length() == 0) {
++      int length = input.length();
++      if (input == null || length == 0) {
+       return input;
+     }
+ 
+-    int startIndex = 0, endIndex = input.length() - 1;
++    int startIndex = 0, endIndex = length - 1;
+ 
+     // Remove leading zeros
+-    while (startIndex < input.length() && input.charAt(startIndex) == '0' &&
++    while (startIndex < length && input.charAt(startIndex) == '0' &&
+         input.charAt(startIndex) != '.') {
+       startIndex++;
+     }

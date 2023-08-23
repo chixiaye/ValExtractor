@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..d3f7726 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -92,10 +92,11 @@
+                 return false;
+         } else if (!declaringClass.equals(other.declaringClass))
+             return false;
++        String methodName1 = other.methodName;
+         if (methodName == null) {
+-            if (other.methodName != null)
++            if (methodName1 != null)
+                 return false;
+-        } else if (!methodName.equals(other.methodName))
++        } else if (!methodName.equals(methodName1))
+             return false;
+         if (!Arrays.equals(parameterTypes, other.parameterTypes))
+             return false;

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+index 8332a80..e3bf4a5 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+@@ -555,8 +555,9 @@
+                     else {
+                         g2.setPaint(seriesPaint);
+                     }
+-                    if (getShapeStroke() != null) {
+-                        g2.setStroke(getShapeStroke());
++                    Stroke shapeStroke1 = getShapeStroke();
++                    if (shapeStroke1 != null) {
++                        g2.setStroke(shapeStroke1);
+                     }
+                     else {
+                         g2.setStroke(seriesStroke);

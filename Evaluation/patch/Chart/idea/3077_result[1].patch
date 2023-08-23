@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+index b17bcd4..b8c3073 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+@@ -515,7 +515,8 @@
+             result[0] = (stack1[0] + stack2[0]) / 2.0;
+         }
+         if (stack1[1] == 0.0 || stack2[1] == 0.0) {
+-            result[1] = 0.0;
++            double v = result[1];
++            v = 0.0;
+         }
+         else {
+             result[1] = (stack1[1] + stack2[1]) / 2.0;

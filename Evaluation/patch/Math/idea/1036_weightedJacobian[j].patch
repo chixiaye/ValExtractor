@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..ba44590 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -862,8 +862,9 @@
+ 
+             // store the diagonal element of s and restore
+             // the corresponding diagonal element of R
+-            lmDiag[j] = weightedJacobian[j][permutation[j]];
+-            weightedJacobian[j][permutation[j]] = lmDir[j];
++            double[] doubles = weightedJacobian[j];
++            lmDiag[j] = doubles[permutation[j]];
++            doubles[permutation[j]] = lmDir[j];
+         }
+ 
+         // solve the triangular system for z, if the system is

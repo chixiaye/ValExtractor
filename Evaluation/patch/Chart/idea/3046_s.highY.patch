@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+index ec442b1..8e7b1ab 100644
+--- a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+@@ -258,7 +258,8 @@
+                     }
+                     s.lastX = x;
+                     s.openY = y;
+-                    s.highY = y;
++                    double highY = s.highY;
++                    highY = y;
+                     s.lowY = y;
+                     s.closeY = y;
+                 }

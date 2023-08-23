@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..af6df3e 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -563,8 +563,9 @@
+      */
+     public List getCategories() {
+         List result = new java.util.ArrayList();
+-        if (this.subplots != null) {
+-            Iterator iterator = this.subplots.iterator();
++        List subplots1 = this.subplots;
++        if (subplots1 != null) {
++            Iterator iterator = subplots1.iterator();
+             while (iterator.hasNext()) {
+                 CategoryPlot plot = (CategoryPlot) iterator.next();
+                 List more = plot.getCategories();

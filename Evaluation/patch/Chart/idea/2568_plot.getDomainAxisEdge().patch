@@ -1,0 +1,32 @@
+diff --git a/source/org/jfree/chart/renderer/category/LineRenderer3D.java b/source/org/jfree/chart/renderer/category/LineRenderer3D.java
+index 68c0447..e65d262 100644
+--- a/source/org/jfree/chart/renderer/category/LineRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/LineRenderer3D.java
+@@ -79,6 +79,7 @@
+ import org.jfree.chart.plot.PlotOrientation;
+ import org.jfree.chart.plot.ValueMarker;
+ import org.jfree.chart.util.PaintUtilities;
++import org.jfree.chart.util.RectangleEdge;
+ import org.jfree.chart.util.SerialUtilities;
+ import org.jfree.chart.util.ShapeUtilities;
+ import org.jfree.data.Range;
+@@ -533,8 +534,9 @@
+         PlotOrientation orientation = plot.getOrientation();
+ 
+         // current data point...
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         double x1 = domainAxis.getCategoryMiddle(column, getColumnCount(),
+-                adjusted, plot.getDomainAxisEdge());
++                adjusted, domainAxisEdge);
+         double value = v.doubleValue();
+         double y1 = rangeAxis.valueToJava2D(value, adjusted,
+                 plot.getRangeAxisEdge());
+@@ -557,7 +559,7 @@
+                     double previous = previousValue.doubleValue();
+                     double x0 = domainAxis.getCategoryMiddle(column - 1,
+                             getColumnCount(), adjusted,
+-                            plot.getDomainAxisEdge());
++                            domainAxisEdge);
+                     double y0 = rangeAxis.valueToJava2D(previous, adjusted,
+                             plot.getRangeAxisEdge());
+ 

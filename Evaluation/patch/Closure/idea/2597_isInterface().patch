@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..afa3c23 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -452,13 +452,14 @@
+       oldPrototype.setOwnerFunction(null);
+     }
+ 
+-    if (isConstructor() || isInterface()) {
++      boolean anInterface = isInterface();
++      if (isConstructor() || anInterface) {
+       FunctionType superClass = getSuperClassConstructor();
+       if (superClass != null) {
+         superClass.addSubType(this);
+       }
+ 
+-      if (isInterface()) {
++      if (anInterface) {
+         for (ObjectType interfaceType : getExtendedInterfaces()) {
+           if (interfaceType.getConstructor() != null) {
+             interfaceType.getConstructor().addSubType(this);

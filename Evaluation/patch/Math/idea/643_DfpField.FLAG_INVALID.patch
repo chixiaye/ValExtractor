@@ -1,0 +1,32 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..a99d77c 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1504,11 +1504,12 @@
+     public Dfp multiply(final Dfp x) {
+ 
+         // make sure we don't mix number with different precision
++        int flagInvalid = DfpField.FLAG_INVALID;
+         if (field.getRadixDigits() != x.field.getRadixDigits()) {
+-            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++            field.setIEEEFlagsBits(flagInvalid);
+             final Dfp result = newInstance(getZero());
+             result.nans = QNAN;
+-            return dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);
++            return dotrap(flagInvalid, MULTIPLY_TRAP, x, result);
+         }
+ 
+         Dfp result = newInstance(getZero());
+@@ -1543,10 +1544,10 @@
+ 
+             if ( (x.nans == INFINITE && nans == FINITE && mant[mant.length-1] == 0) ||
+                     (nans == INFINITE && x.nans == FINITE && x.mant[mant.length-1] == 0) ) {
+-                field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++                field.setIEEEFlagsBits(flagInvalid);
+                 result = newInstance(getZero());
+                 result.nans = QNAN;
+-                result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, x, result);
++                result = dotrap(flagInvalid, MULTIPLY_TRAP, x, result);
+                 return result;
+             }
+         }

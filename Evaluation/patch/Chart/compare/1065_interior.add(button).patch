@@ -1,0 +1,107 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..49ad864 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -43,6 +43,7 @@
+ 
+ import java.awt.BorderLayout;
+ import java.awt.Color;
++import java.awt.Component;
+ import java.awt.Paint;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+@@ -124,7 +125,7 @@
+                 "Select..."));
+         button.setActionCommand("BackgroundPaint");
+         button.addActionListener(this);
+-        interior.add(button);
++        Component var_1065 = interior.add(button);
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Paint")));
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..49ad864 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -43,6 +43,7 @@
+ 
+ import java.awt.BorderLayout;
+ import java.awt.Color;
++import java.awt.Component;
+ import java.awt.Paint;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+@@ -124,7 +125,7 @@
+                 "Select..."));
+         button.setActionCommand("BackgroundPaint");
+         button.addActionListener(this);
+-        interior.add(button);
++        Component var_1065 = interior.add(button);
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Paint")));
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..324f205 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -41,9 +41,7 @@
+ 
+ package org.jfree.chart.editor;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Color;
+-import java.awt.Paint;
++import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.util.ResourceBundle;
+@@ -124,7 +122,7 @@
+                 "Select..."));
+         button.setActionCommand("BackgroundPaint");
+         button.addActionListener(this);
+-        interior.add(button);
++        Component add = interior.add(button);
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Paint")));
+@@ -134,7 +132,7 @@
+         interior.add(info);
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+-        interior.add(button);
++        add;
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Stroke")));
+@@ -144,7 +142,7 @@
+         interior.add(info);
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+-        interior.add(button);
++        add;
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Outline_Paint")));
+@@ -154,7 +152,7 @@
+         interior.add(info);
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+-        interior.add(button);
++        add;
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Series_Outline_Stroke")));
+@@ -164,7 +162,7 @@
+         interior.add(info);
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+-        interior.add(button);
++        add;
+ 
+         general.add(interior, BorderLayout.NORTH);
+         other.add(general, BorderLayout.NORTH);

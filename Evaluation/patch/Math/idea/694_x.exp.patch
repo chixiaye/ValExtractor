@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..216a197 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2009,7 +2009,8 @@
+ 
+         /* Lets make a reasonable guess as to the size of the square root */
+         if (x.exp < -1 || x.exp > 1) {
+-            x.exp = this.exp / 2;
++            int exp1 = x.exp;
++            exp1 = this.exp / 2;
+         }
+ 
+         /* Coarsely estimate the mantissa */

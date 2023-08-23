@@ -1,0 +1,134 @@
+package com.google.javascript.jscomp;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Maps;
+import com.google.debugging.sourcemap.FilePosition;
+import com.google.debugging.sourcemap.SourceMapFormat;
+import com.google.debugging.sourcemap.SourceMapGenerator;
+import com.google.debugging.sourcemap.SourceMapGeneratorFactory;
+import com.google.debugging.sourcemap.SourceMapGeneratorV1;
+import com.google.debugging.sourcemap.SourceMapGeneratorV2;
+import com.google.javascript.rhino.Node;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+public class SourceMap  {
+  final private SourceMapGenerator generator;
+  private List<LocationMapping> prefixMappings = Collections.emptyList();
+  final private Map<String, String> sourceLocationFixupCache = Maps.newHashMap();
+  private SourceMap(SourceMapGenerator generator) {
+    super();
+    this.generator = generator;
+  }
+  private String fixupSourceLocation(String sourceFile) {
+    if(prefixMappings.isEmpty()) {
+      return sourceFile;
+    }
+    String fixed = sourceLocationFixupCache.get(sourceFile);
+    if(fixed != null) {
+      return fixed;
+    }
+    for (LocationMapping mapping : prefixMappings) {
+      String var_1035 = mapping.prefix;
+      if(sourceFile.startsWith(var_1035)) {
+        fixed = mapping.replacement + sourceFile.substring(mapping.prefix.length());
+        break ;
+      }
+    }
+    if(fixed == null) {
+      fixed = sourceFile;
+    }
+    sourceLocationFixupCache.put(sourceFile, fixed);
+    return fixed;
+  }
+  public void addMapping(Node node, FilePosition outputStartPosition, FilePosition outputEndPosition) {
+    String sourceFile = node.getSourceFileName();
+    if(sourceFile == null || node.getLineno() < 0) {
+      return ;
+    }
+    sourceFile = fixupSourceLocation(sourceFile);
+    String originalName = (String)node.getProp(Node.ORIGINALNAME_PROP);
+    int lineBaseOffset = 1;
+    if(generator instanceof SourceMapGeneratorV1 || generator instanceof SourceMapGeneratorV2) {
+      lineBaseOffset = 0;
+    }
+    generator.addMapping(sourceFile, originalName, new FilePosition(node.getLineno() - lineBaseOffset, node.getCharno()), outputStartPosition, outputEndPosition);
+  }
+  public void appendTo(Appendable out, String name) throws IOException {
+    generator.appendTo(out, name);
+  }
+  public void reset() {
+    generator.reset();
+    sourceLocationFixupCache.clear();
+  }
+  public void setPrefixMappings(List<LocationMapping> sourceMapLocationMappings) {
+    this.prefixMappings = sourceMapLocationMappings;
+  }
+  public void setStartingPosition(int offsetLine, int offsetIndex) {
+    generator.setStartingPosition(offsetLine, offsetIndex);
+  }
+  public void setWrapperPrefix(String prefix) {
+    generator.setWrapperPrefix(prefix);
+  }
+  public void validate(boolean validate) {
+    generator.validate(validate);
+  }
+  public static enum DetailLevel implements Predicate<Node> {
+    ALL() {
+        @Override() public boolean apply(Node node) {
+          return true;
+        }
+    },
+
+    SYMBOLS() {
+        @Override() public boolean apply(Node node) {
+          return node.isCall() || node.isNew() || node.isFunction() || node.isName() || NodeUtil.isGet(node) || NodeUtil.isObjectLitKey(node, node.getParent()) || (node.isString() && NodeUtil.isGet(node.getParent()));
+        }
+    },
+
+  ;
+  private DetailLevel() {
+  }
+  }
+  public static enum Format {
+    V1() {
+        @Override() SourceMap getInstance() {
+          return new SourceMap(SourceMapGeneratorFactory.getInstance(SourceMapFormat.V1));
+        }
+    },
+
+    DEFAULT() {
+        @Override() SourceMap getInstance() {
+          return new SourceMap(SourceMapGeneratorFactory.getInstance(SourceMapFormat.DEFAULT));
+        }
+    },
+
+    V2() {
+        @Override() SourceMap getInstance() {
+          return new SourceMap(SourceMapGeneratorFactory.getInstance(SourceMapFormat.V2));
+        }
+    },
+
+    V3() {
+        @Override() SourceMap getInstance() {
+          return new SourceMap(SourceMapGeneratorFactory.getInstance(SourceMapFormat.V3));
+        }
+    },
+
+  ;
+    abstract SourceMap getInstance();
+  private Format() {
+  }
+  }
+  
+  public static class LocationMapping  {
+    final String prefix;
+    final String replacement;
+    public LocationMapping(String prefix, String replacement) {
+      super();
+      this.prefix = prefix;
+      this.replacement = replacement;
+    }
+  }
+}

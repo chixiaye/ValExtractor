@@ -1,0 +1,39 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..b9de9e3 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -491,8 +491,9 @@
+          * @return true if the parent tree should be reSkew.BALANCED too
+          */
+         private boolean rebalanceLeftShrunk() {
++            final Skew leftHigh = Skew.LEFT_HIGH;
+             switch (skew) {
+-            case LEFT_HIGH:
++            case leftHigh:
+                 skew = Skew.BALANCED;
+                 return true;
+             case RIGHT_HIGH:
+@@ -503,7 +504,7 @@
+                     return true;
+                 } else if (right.skew == Skew.BALANCED) {
+                     rotateCCW();
+-                    skew      = Skew.LEFT_HIGH;
++                    skew      = leftHigh;
+                     left.skew = Skew.RIGHT_HIGH;
+                     return false;
+                 } else {
+@@ -511,12 +512,12 @@
+                     right.rotateCW();
+                     rotateCCW();
+                     switch (s) {
+-                    case LEFT_HIGH:
++                    case leftHigh:
+                         left.skew  = Skew.BALANCED;
+                         right.skew = Skew.RIGHT_HIGH;
+                         break;
+                     case RIGHT_HIGH:
+-                        left.skew  = Skew.LEFT_HIGH;
++                        left.skew  = leftHigh;
+                         right.skew = Skew.BALANCED;
+                         break;
+                     default:

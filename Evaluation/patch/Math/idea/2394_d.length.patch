@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..0c18745 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -136,8 +136,9 @@
+      * @param d Array of {@code Double}s.
+      */
+     public ArrayRealVector(Double[] d) {
+-        data = new double[d.length];
+-        for (int i = 0; i < d.length; i++) {
++        int length = d.length;
++        data = new double[length];
++        for (int i = 0; i < length; i++) {
+             data[i] = d[i].doubleValue();
+         }
+     }

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..7d4398e 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -274,6 +274,7 @@
+         // the first initialization must precede creation of the ValueSet array:
+         this.maximumItemCount = nMoments;  // establishes length of each array
+         this.historyCount = nMoments;
++        Comparable[] seriesKeys1 = this.seriesKeys;
+         this.seriesKeys = new Comparable[nSeries];
+         // initialize the members of "seriesNames" array so they won't be null:
+         for (int i = 0; i < nSeries; i++) {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/WordUtils.java b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+index 7f29b59..9860bd0 100644
+--- a/src/main/java/org/apache/commons/lang3/text/WordUtils.java
++++ b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+@@ -330,7 +330,8 @@
+         final char[] buffer = str.toCharArray();
+         boolean uncapitalizeNext = true;
+         for (int i = 0; i < buffer.length; i++) {
+-            final char ch = buffer[i];
++            char c = buffer[i];
++            final char ch = c;
+             if (isDelimiter(ch, delimiters)) {
+                 uncapitalizeNext = true;
+             } else if (uncapitalizeNext) {

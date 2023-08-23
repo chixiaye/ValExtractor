@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/CallGraph.java b/src/com/google/javascript/jscomp/CallGraph.java
+index 81d8dd3..1179910 100644
+--- a/src/com/google/javascript/jscomp/CallGraph.java
++++ b/src/com/google/javascript/jscomp/CallGraph.java
+@@ -30,6 +30,7 @@
+ import com.google.javascript.rhino.Token;
+ 
+ import java.util.Collection;
++import java.util.LinkedHashMap;
+ import java.util.LinkedList;
+ import java.util.Map;
+ 
+@@ -125,8 +126,9 @@
+     this.computeForwardGraph = computeForwardGraph;
+     this.computeBackwardGraph = computeBackwardGraph;
+ 
+-    callsitesByNode = Maps.newLinkedHashMap();
+-    functionsByNode = Maps.newLinkedHashMap();
++      LinkedHashMap<Node, Callsite> callsitesByNode1 = Maps.newLinkedHashMap();
++      callsitesByNode = callsitesByNode1;
++    functionsByNode = callsitesByNode1;
+   }
+ 
+   /**

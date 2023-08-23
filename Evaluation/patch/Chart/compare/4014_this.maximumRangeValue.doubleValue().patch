@@ -1,0 +1,76 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..644e3b6 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -140,10 +140,12 @@
+             // update the cached range values...
+             if (this.maximumRangeValue == null) {
+                 this.maximumRangeValue = new Double(maxval);
+-            }
+-            else if (maxval > this.maximumRangeValue.doubleValue()) {
++            } else {
++				double var_4014 = this.maximumRangeValue.doubleValue();
++				if (maxval > var_4014) {
+                 this.maximumRangeValue = new Double(maxval);
+             }
++			}
+ 
+             if (this.minimumRangeValue == null) {
+                 this.minimumRangeValue = new Double(minval);
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..d4fca27 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -138,10 +138,11 @@
+             }
+ 
+             // update the cached range values...
++            double var_4014 = this.maximumRangeValue.doubleValue();
+             if (this.maximumRangeValue == null) {
+                 this.maximumRangeValue = new Double(maxval);
+             }
+-            else if (maxval > this.maximumRangeValue.doubleValue()) {
++            else if (maxval > var_4014) {
+                 this.maximumRangeValue = new Double(maxval);
+             }
+ 
+@@ -152,7 +153,7 @@
+                 this.minimumRangeValue = new Double(minval);
+             }
+             this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),
+-                    this.maximumRangeValue.doubleValue());
++                    var_4014);
+         }
+ 
+         fireDatasetChanged(new DatasetChangeInfo());
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..340b753 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -138,10 +138,11 @@
+             }
+ 
+             // update the cached range values...
++            double v = this.maximumRangeValue.doubleValue();
+             if (this.maximumRangeValue == null) {
+                 this.maximumRangeValue = new Double(maxval);
+             }
+-            else if (maxval > this.maximumRangeValue.doubleValue()) {
++            else if (maxval > v) {
+                 this.maximumRangeValue = new Double(maxval);
+             }
+ 
+@@ -152,7 +153,7 @@
+                 this.minimumRangeValue = new Double(minval);
+             }
+             this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),
+-                    this.maximumRangeValue.doubleValue());
++                    v);
+         }
+ 
+         fireDatasetChanged(new DatasetChangeInfo());

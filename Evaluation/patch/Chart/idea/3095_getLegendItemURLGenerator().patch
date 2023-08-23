@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..a58dce8 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1030,8 +1030,9 @@
+                     dataset, series);
+         }
+         String urlText = null;
+-        if (getLegendItemURLGenerator() != null) {
+-            urlText = getLegendItemURLGenerator().generateLabel(dataset,
++        XYSeriesLabelGenerator legendItemURLGenerator1 = getLegendItemURLGenerator();
++        if (legendItemURLGenerator1 != null) {
++            urlText = legendItemURLGenerator1.generateLabel(dataset,
+                     series);
+         }
+         Shape shape = lookupLegendShape(series);

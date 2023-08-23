@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/RenameProperties.java b/src/com/google/javascript/jscomp/RenameProperties.java
+index 7753a36..f0c0c5e 100644
+--- a/src/com/google/javascript/jscomp/RenameProperties.java
++++ b/src/com/google/javascript/jscomp/RenameProperties.java
+@@ -115,8 +115,11 @@
+          *
+          * see #computeAffinityScores() for how the score is computed.
+          */
+-        } else if (p1.affinityScore != p2.affinityScore) {
+-          return p2.affinityScore - p1.affinityScore;
++        } else {
++            int affinityScore = p1.affinityScore;
++            if (affinityScore != p2.affinityScore) {
++              return p2.affinityScore - affinityScore;
++            }
+         }
+ 
+         /**

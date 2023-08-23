@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..d75f46c 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -820,7 +820,8 @@
+         }
+         else {
+             if (this.outlineStroke != null) {
+-                if (this.outlineStroke.equals(stroke)) {
++                Stroke outlineStroke1 = this.outlineStroke;
++                if (outlineStroke1.equals(stroke)) {
+                     return;  // nothing to do
+                 }
+             }

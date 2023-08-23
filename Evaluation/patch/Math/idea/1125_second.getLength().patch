@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/genetics/NPointCrossover.java b/src/main/java/org/apache/commons/math3/genetics/NPointCrossover.java
+index 8243ece..aa96af4 100644
+--- a/src/main/java/org/apache/commons/math3/genetics/NPointCrossover.java
++++ b/src/main/java/org/apache/commons/math3/genetics/NPointCrossover.java
+@@ -128,8 +128,9 @@
+         throws DimensionMismatchException, NumberIsTooLargeException {
+ 
+         final int length = first.getLength();
+-        if (length != second.getLength()) {
+-            throw new DimensionMismatchException(second.getLength(), length);
++        int length1 = second.getLength();
++        if (length != length1) {
++            throw new DimensionMismatchException(length1, length);
+         }
+         if (crossoverPoints >= length) {
+             throw new NumberIsTooLargeException(crossoverPoints, length, false);
+@@ -140,7 +141,7 @@
+         final List<T> parent2Rep = second.getRepresentation();
+         // and of the children
+         final ArrayList<T> child1Rep = new ArrayList<T>(first.getLength());
+-        final ArrayList<T> child2Rep = new ArrayList<T>(second.getLength());
++        final ArrayList<T> child2Rep = new ArrayList<T>(length1);
+ 
+         final RandomGenerator random = GeneticAlgorithm.getRandomGenerator();
+ 

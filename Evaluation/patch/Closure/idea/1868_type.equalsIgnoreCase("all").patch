@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/JvmMetrics.java b/src/com/google/javascript/jscomp/JvmMetrics.java
+index c7ec381..f469c4f 100644
+--- a/src/com/google/javascript/jscomp/JvmMetrics.java
++++ b/src/com/google/javascript/jscomp/JvmMetrics.java
+@@ -79,13 +79,14 @@
+   private static void writeMetrics(
+       PrintStream out, String type, boolean verbose, boolean pretty) {
+ 
+-    if (type.equals("gc") || type.equalsIgnoreCase("all")) {
++      boolean all = type.equalsIgnoreCase("all");
++      if (type.equals("gc") || all) {
+       writeGarbageCollectionStats(out, verbose, pretty);
+     }
+-    if (type.equals("mem") || type.equalsIgnoreCase("all")) {
++    if (type.equals("mem") || all) {
+       writeMemoryMetrics(out, verbose, pretty);
+     }
+-    if (type.equals("jit") || type.equalsIgnoreCase("all")) {
++    if (type.equals("jit") || all) {
+       writeJitMetrics(out, verbose, pretty);
+     }
+   }

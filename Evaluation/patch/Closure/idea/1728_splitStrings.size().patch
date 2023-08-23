@@ -1,0 +1,39 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..8d0ddda 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -716,7 +716,8 @@
+ 
+     // If an empty string is specified for the separator, split apart each
+     // character of the string.
+-    if (separator.length() == 0) {
++      int size = splitStrings.size();
++      if (separator.length() == 0) {
+       for (int i = 0; i < stringValue.length() && i < limit; i++) {
+         splitStrings.add(stringValue.substring(i, i + 1));
+       }
+@@ -724,13 +725,13 @@
+       int startIndex = 0, matchIndex;
+       while ((matchIndex =
+           jsSplitMatch(stringValue, startIndex, separator)) >= 0 &&
+-          splitStrings.size() < limit) {
++          size < limit) {
+         splitStrings.add(stringValue.substring(startIndex, matchIndex));
+ 
+         startIndex = matchIndex + separator.length();
+       }
+ 
+-      if (splitStrings.size() < limit) {
++      if (size < limit) {
+         if (startIndex < stringValue.length()) {
+           splitStrings.add(stringValue.substring(startIndex));
+         } else {
+@@ -739,7 +740,7 @@
+       }
+     }
+ 
+-    return splitStrings.toArray(new String[splitStrings.size()]);
++    return splitStrings.toArray(new String[size]);
+   }
+ 
+   /**

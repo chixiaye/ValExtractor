@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..94fa9b7 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -3029,13 +3029,14 @@
+      * @throws NullPointerException if array content is {@code null}
+      */
+     public static double[] toPrimitive(final Double[] array) {
++        int length = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (length == 0) {
+             return EMPTY_DOUBLE_ARRAY;
+         }
+-        final double[] result = new double[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final double[] result = new double[length];
++        for (int i = 0; i < length; i++) {
+             result[i] = array[i].doubleValue();
+         }
+         return result;

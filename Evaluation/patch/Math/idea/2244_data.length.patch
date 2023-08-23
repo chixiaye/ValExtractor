@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+index 4ffd794..fd0a28a 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+@@ -500,8 +500,9 @@
+ 
+     /** {@inheritDoc} */
+     public FieldVector<T> mapAdd(T d) throws NullArgumentException {
+-        T[] out = MathArrays.buildArray(field, data.length);
+-        for (int i = 0; i < data.length; i++) {
++        int length = data.length;
++        T[] out = MathArrays.buildArray(field, length);
++        for (int i = 0; i < length; i++) {
+             out[i] = data[i].add(d);
+         }
+         return new ArrayFieldVector<T>(field, out, false);

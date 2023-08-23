@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..b196b13 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1694,10 +1694,11 @@
+               && !beforeBody.hasCapturingGroup()) {
+             long lmin = ((long) beforeMin) + afterMin;
+             long lmax = ((long) beforeMax) + afterMax;
+-            if (lmin < Integer.MAX_VALUE) {
++              int maxValue = Integer.MAX_VALUE;
++              if (lmin < maxValue) {
+               int min = (int) lmin;
+-              int max = lmax >= Integer.MAX_VALUE
+-                  ? Integer.MAX_VALUE : (int) lmax;
++              int max = lmax >= maxValue
++                  ? maxValue : (int) lmax;
+               return new Repetition(
+                   beforeBody, min, max,
+                   beforeGreedy || afterGreedy || min == max);

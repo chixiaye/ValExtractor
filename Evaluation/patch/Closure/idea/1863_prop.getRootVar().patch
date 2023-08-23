@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java b/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java
+index 810f309..f9f06e7 100644
+--- a/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java
++++ b/src/com/google/javascript/jscomp/CrossModuleMethodMotion.java
+@@ -134,7 +134,8 @@
+         // So if we move a prototype method into a deeper module, we must
+         // replace it with a stub function so that it preserves its original
+         // behavior.
+-        if (prop.getRootVar() == null || !prop.getRootVar().isGlobal()) {
++          Scope.Var rootVar = prop.getRootVar();
++          if (rootVar == null || !rootVar.isGlobal()) {
+           continue;
+         }
+ 

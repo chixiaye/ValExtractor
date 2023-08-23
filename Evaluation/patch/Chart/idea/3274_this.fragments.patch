@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/text/TextLine.java b/source/org/jfree/chart/text/TextLine.java
+index d79bb18..748325a 100644
+--- a/source/org/jfree/chart/text/TextLine.java
++++ b/source/org/jfree/chart/text/TextLine.java
+@@ -114,6 +114,7 @@
+         if (paint == null) {
+             throw new IllegalArgumentException("Null 'paint' argument.");
+         }
++        List fragments1 = this.fragments;
+         this.fragments = new java.util.ArrayList();
+         TextFragment fragment = new TextFragment(text, font, paint);
+         this.fragments.add(fragment);

@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/DialShape.java b/source/org/jfree/chart/plot/DialShape.java
+index 612f663..90fec1b 100644
+--- a/source/org/jfree/chart/plot/DialShape.java
++++ b/source/org/jfree/chart/plot/DialShape.java
+@@ -124,13 +124,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DialShape.CIRCLE)) {
+             return DialShape.CIRCLE;
+-        }
+-        else if (this.equals(DialShape.CHORD)) {
+-            return DialShape.CHORD;
++        } else {
++			DialShape var_1554 = DialShape.CHORD;
++			if (this.equals(var_1554)) {
++			    return var_1554;
+         }
+         else if (this.equals(DialShape.PIE)) {
+             return DialShape.PIE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/DialShape.java b/source/org/jfree/chart/plot/DialShape.java
+index 612f663..90fec1b 100644
+--- a/source/org/jfree/chart/plot/DialShape.java
++++ b/source/org/jfree/chart/plot/DialShape.java
+@@ -124,13 +124,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DialShape.CIRCLE)) {
+             return DialShape.CIRCLE;
+-        }
+-        else if (this.equals(DialShape.CHORD)) {
+-            return DialShape.CHORD;
++        } else {
++			DialShape var_1554 = DialShape.CHORD;
++			if (this.equals(var_1554)) {
++			    return var_1554;
+         }
+         else if (this.equals(DialShape.PIE)) {
+             return DialShape.PIE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/DialShape.java b/source/org/jfree/chart/plot/DialShape.java
+index 612f663..0a07dfe 100644
+--- a/source/org/jfree/chart/plot/DialShape.java
++++ b/source/org/jfree/chart/plot/DialShape.java
+@@ -125,12 +125,15 @@
+         if (this.equals(DialShape.CIRCLE)) {
+             return DialShape.CIRCLE;
+         }
+-        else if (this.equals(DialShape.CHORD)) {
+-            return DialShape.CHORD;
++        else {
++            DialShape chord = DialShape.CHORD;
++            if (this.equals(chord)) {
++                return chord;
+         }
+         else if (this.equals(DialShape.PIE)) {
+             return DialShape.PIE;
+         }
++        }
+         return null;
+     }
+ 

@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+index 6016825..53b1cd7 100644
+--- a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+@@ -112,13 +112,14 @@
+                     }
+                     for (int j = k + 1; j < m; ++j) {
+                         beta = 0;
++                        double[] doubles = qta[j];
+                         for (int i = k + 1; i < m; ++i) {
+-                            beta += qta[j][i] * hK[i];
++                            beta += doubles[i] * hK[i];
+                         }
+                         beta *= inv;
+-                        qta[j][k] = beta * hK[k];
++                        doubles[k] = beta * hK[k];
+                         for (int i = k + 1; i < m; ++i) {
+-                            qta[j][i] += beta * hK[i];
++                            doubles[i] += beta * hK[i];
+                         }
+                     }
+                 }

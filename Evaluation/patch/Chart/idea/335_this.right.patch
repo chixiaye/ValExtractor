@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/AxisSpace.java b/source/org/jfree/chart/axis/AxisSpace.java
+index d869ec6..d1baa95 100644
+--- a/source/org/jfree/chart/axis/AxisSpace.java
++++ b/source/org/jfree/chart/axis/AxisSpace.java
+@@ -298,9 +298,10 @@
+             );
+         }
+         else if (edge == RectangleEdge.RIGHT) {
++            double right1 = this.right;
+             result = new Rectangle2D.Double(
+-                area.getMaxX() - this.right, area.getY(),
+-                this.right, area.getHeight()
++                area.getMaxX() - right1, area.getY(),
++                    right1, area.getHeight()
+             );
+         }
+         return result;

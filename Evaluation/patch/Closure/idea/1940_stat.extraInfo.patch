@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..ba7ed8e 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -823,11 +823,12 @@
+           typeToTimeMap.incrementBy(t.type, elapsed);
+         }
+ 
+-        if (stat.extraInfo != null && t.extraTracingValues != null) {
++          int[] extraInfo = stat.extraInfo;
++          if (extraInfo != null && t.extraTracingValues != null) {
+           int overlapLength =
+-              Math.min(stat.extraInfo.length, t.extraTracingValues.length);
++              Math.min(extraInfo.length, t.extraTracingValues.length);
+           for (int i = 0; i < overlapLength; i++) {
+-            stat.extraInfo[i] += t.extraTracingValues[i];
++            extraInfo[i] += t.extraTracingValues[i];
+             AtomicTracerStatMap map =
+                 extraTracingStatistics.get(i).getTracingStat();
+             if (map != null) {

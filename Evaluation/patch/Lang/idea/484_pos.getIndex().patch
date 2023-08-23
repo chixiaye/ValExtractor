@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..cba11a0 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -447,10 +447,11 @@
+     private void seekNonWs(final String pattern, final ParsePosition pos) {
+         int len = 0;
+         final char[] buffer = pattern.toCharArray();
++        int index = pos.getIndex();
+         do {
+-            len = StrMatcher.splitMatcher().isMatch(buffer, pos.getIndex());
+-            pos.setIndex(pos.getIndex() + len);
+-        } while (len > 0 && pos.getIndex() < pattern.length());
++            len = StrMatcher.splitMatcher().isMatch(buffer, index);
++            pos.setIndex(index + len);
++        } while (len > 0 && index < pattern.length());
+     }
+ 
+     /**

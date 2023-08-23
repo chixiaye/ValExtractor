@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..3a7f473 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1110,9 +1110,10 @@
+ 
+         PlotOrientation orientation = plot.getOrientation();
+         Rectangle2D bounds = null;
++        int columnCount1 = dataset.getColumnCount();
+         if (marker.getDrawAsLine()) {
+             double v = axis.getCategoryMiddle(columnIndex,
+-                    dataset.getColumnCount(), dataArea,
++                    columnCount1, dataArea,
+                     plot.getDomainAxisEdge());
+             Line2D line = null;
+             if (orientation == PlotOrientation.HORIZONTAL) {
+@@ -1130,10 +1131,10 @@
+         }
+         else {
+             double v0 = axis.getCategoryStart(columnIndex,
+-                    dataset.getColumnCount(), dataArea,
++                    columnCount1, dataArea,
+                     plot.getDomainAxisEdge());
+             double v1 = axis.getCategoryEnd(columnIndex,
+-                    dataset.getColumnCount(), dataArea,
++                    columnCount1, dataArea,
+                     plot.getDomainAxisEdge());
+             Rectangle2D area = null;
+             if (orientation == PlotOrientation.HORIZONTAL) {

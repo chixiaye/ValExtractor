@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..6d39179 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -441,7 +441,8 @@
+                         r[_pi] = 0.0;
+                     }
+                     final double y = rhs[col];
+-                    final double weight = d[col];
++                    double v = d[col];
++                    final double weight = v;
+                     d[col] = 0.0;
+                     rhs[col] = 0.0;
+                     this.include(x_sing, weight, y);

@@ -1,0 +1,109 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..fc64827 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -711,14 +711,15 @@
+ 
+             xAdj = 0.0f;
+ 
+-        }
+-        else if (anchor == TextAnchor.TOP_CENTER
++        } else {
++			double var_3332 = bounds.getWidth();
++			if (anchor == TextAnchor.TOP_CENTER
+                 || anchor == TextAnchor.CENTER
+                 || anchor == TextAnchor.BOTTOM_CENTER
+                 || anchor == TextAnchor.BASELINE_CENTER
+                 || anchor == TextAnchor.HALF_ASCENT_CENTER) {
+ 
+-            xAdj = (float) bounds.getWidth() / 2.0f;
++			    xAdj = (float) var_3332 / 2.0f;
+ 
+         }
+         else if (anchor == TextAnchor.TOP_RIGHT
+@@ -727,9 +728,10 @@
+                 || anchor == TextAnchor.BASELINE_RIGHT
+                 || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
+ 
+-            xAdj = (float) bounds.getWidth();
++			    xAdj = (float) var_3332;
+ 
+         }
++		}
+ 
+         if (anchor == TextAnchor.TOP_LEFT
+                 || anchor == TextAnchor.TOP_CENTER
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..fc64827 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -711,14 +711,15 @@
+ 
+             xAdj = 0.0f;
+ 
+-        }
+-        else if (anchor == TextAnchor.TOP_CENTER
++        } else {
++			double var_3332 = bounds.getWidth();
++			if (anchor == TextAnchor.TOP_CENTER
+                 || anchor == TextAnchor.CENTER
+                 || anchor == TextAnchor.BOTTOM_CENTER
+                 || anchor == TextAnchor.BASELINE_CENTER
+                 || anchor == TextAnchor.HALF_ASCENT_CENTER) {
+ 
+-            xAdj = (float) bounds.getWidth() / 2.0f;
++			    xAdj = (float) var_3332 / 2.0f;
+ 
+         }
+         else if (anchor == TextAnchor.TOP_RIGHT
+@@ -727,9 +728,10 @@
+                 || anchor == TextAnchor.BASELINE_RIGHT
+                 || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
+ 
+-            xAdj = (float) bounds.getWidth();
++			    xAdj = (float) var_3332;
+ 
+         }
++		}
+ 
+         if (anchor == TextAnchor.TOP_LEFT
+                 || anchor == TextAnchor.TOP_CENTER
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..f61ac96 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -712,13 +712,15 @@
+             xAdj = 0.0f;
+ 
+         }
+-        else if (anchor == TextAnchor.TOP_CENTER
++        else {
++            double width = bounds.getWidth();
++            if (anchor == TextAnchor.TOP_CENTER
+                 || anchor == TextAnchor.CENTER
+                 || anchor == TextAnchor.BOTTOM_CENTER
+                 || anchor == TextAnchor.BASELINE_CENTER
+                 || anchor == TextAnchor.HALF_ASCENT_CENTER) {
+ 
+-            xAdj = (float) bounds.getWidth() / 2.0f;
++                xAdj = (float) width / 2.0f;
+ 
+         }
+         else if (anchor == TextAnchor.TOP_RIGHT
+@@ -727,9 +729,10 @@
+                 || anchor == TextAnchor.BASELINE_RIGHT
+                 || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
+ 
+-            xAdj = (float) bounds.getWidth();
++                xAdj = (float) width;
+ 
+         }
++        }
+ 
+         if (anchor == TextAnchor.TOP_LEFT
+                 || anchor == TextAnchor.TOP_CENTER

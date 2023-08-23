@@ -1,0 +1,22 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
+index 6ca6a3ef89..affd602ed6 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
+@@ -2110,12 +2110,13 @@ public interface GraphTraversal<S, E> extends Traversal<S, E> {
+             this.asAdmin().getBytecode().addStep(Symbols.property, cardinality, key, value, keyValues);
+         // if it can be detected that this call to property() is related to an addV/E() then we can attempt to fold
+         // the properties into that step to gain an optimization for those graphs that support such capabilities.
+-        if ((this.asAdmin().getEndStep() instanceof AddVertexStep || this.asAdmin().getEndStep() instanceof AddEdgeStep
+-                || this.asAdmin().getEndStep() instanceof AddVertexStartStep) && keyValues.length == 0 && null == cardinality) {
+-            ((Mutating) this.asAdmin().getEndStep()).addPropertyMutations(key, value);
++        Step<?, E> endStep = this.asAdmin().getEndStep();
++        if ((endStep instanceof AddVertexStep || endStep instanceof AddEdgeStep
++                || endStep instanceof AddVertexStartStep) && keyValues.length == 0 && null == cardinality) {
++            ((Mutating) endStep).addPropertyMutations(key, value);
+         } else {
+             this.asAdmin().addStep(new AddPropertyStep(this.asAdmin(), cardinality, key, value));
+-            ((AddPropertyStep) this.asAdmin().getEndStep()).addPropertyMutations(keyValues);
++            ((AddPropertyStep) endStep).addPropertyMutations(keyValues);
+         }
+         return this;
+     }

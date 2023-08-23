@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..ac5a811 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -971,7 +971,8 @@
+             }
+             int pk = permutation[nextColumn];
+             permutation[nextColumn] = permutation[k];
+-            permutation[k] = pk;
++            int i = permutation[k];
++            i = pk;
+ 
+             // choose alpha such that Hk.u = alpha ek
+             double akk = weightedJacobian[k][pk];

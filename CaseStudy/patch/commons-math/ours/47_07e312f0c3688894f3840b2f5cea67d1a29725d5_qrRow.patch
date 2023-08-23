@@ -1,0 +1,14 @@
+diff --git a/src/java/org/apache/commons/math/linear/QRDecompositionImpl.java b/src/java/org/apache/commons/math/linear/QRDecompositionImpl.java
+index 5f9c05f..6df5afb 100644
+--- a/src/java/org/apache/commons/math/linear/QRDecompositionImpl.java
++++ b/src/java/org/apache/commons/math/linear/QRDecompositionImpl.java
+@@ -122,7 +122,8 @@
+ 
+                     // Subtract the column vector alpha*v from x.
+                     for (int row = minor; row < m; row++) {
+-                        qr[row][col] -= alpha*qr[row][minor];
++                        double[] qrRow = qr[row];
++						qrRow[col] -= alpha*qrRow[minor];
+                     }
+                 }
+             }

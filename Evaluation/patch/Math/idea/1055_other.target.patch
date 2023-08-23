@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
+index 247ad23..9b61321 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
+@@ -71,7 +71,8 @@
+     protected AbstractLeastSquaresOptimizer(AbstractLeastSquaresOptimizer other) {
+         super(other);
+ 
+-        target = other.target == null ? null : other.target.clone();
++        double[] target1 = other.target;
++        target = target1 == null ? null : target1.clone();
+         start = other.start == null ? null : other.start.clone();
+         weight = other.weight == null ? null : other.weight.copy();
+         weightSqrt = other.weightSqrt == null ? null : other.weightSqrt.copy();

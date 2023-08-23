@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..9180e7f 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -628,6 +628,7 @@
+             TextAnchor anchor = null;
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
++            double angle1 = lastTick.getAngle();
+             if (isVerticalTickLabels()) {
+ 
+                 if (edge == RectangleEdge.LEFT) {
+@@ -640,7 +641,7 @@
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+-                            lastTick.getAngle())
++                                angle1)
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+@@ -659,7 +660,7 @@
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+-                            lastTick.getAngle())
++                                angle1)
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+@@ -680,7 +681,7 @@
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+-                            lastTick.getAngle())
++                                angle1)
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+@@ -698,7 +699,7 @@
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+-                            lastTick.getAngle())
++                                angle1)
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()

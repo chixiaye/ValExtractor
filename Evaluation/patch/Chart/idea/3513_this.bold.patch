@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ui/FontChooserPanel.java b/source/org/jfree/chart/ui/FontChooserPanel.java
+index 061a429..2ca3427 100644
+--- a/source/org/jfree/chart/ui/FontChooserPanel.java
++++ b/source/org/jfree/chart/ui/FontChooserPanel.java
+@@ -121,6 +121,7 @@
+         sizePanel.add(sizepane);
+ 
+         JPanel attributes = new JPanel(new GridLayout(1, 2));
++        JCheckBox bold1 = this.bold;
+         this.bold = new JCheckBox(localizationResources.getString("Bold"));
+         this.italic = new JCheckBox(localizationResources.getString("Italic"));
+         attributes.add(this.bold);

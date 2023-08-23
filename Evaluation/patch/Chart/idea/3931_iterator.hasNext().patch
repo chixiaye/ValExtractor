@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..625dfc4 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1438,7 +1438,9 @@
+             // handle special case of BoxAndWhiskerXYDataset
+             BoxAndWhiskerXYDataset bx = (BoxAndWhiskerXYDataset) dataset;
+             Iterator iterator = visibleSeriesKeys.iterator();
+-            while (iterator.hasNext()) {
++            while (true) {
++                boolean b = iterator.hasNext();
++                if (!b) break;
+                 Comparable seriesKey = (Comparable) iterator.next();
+                 int series = dataset.indexOf(seriesKey);
+                 int itemCount = dataset.getItemCount(series);

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+index 65185d3..f866362 100644
+--- a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+@@ -290,8 +290,9 @@
+         /** {@inheritDoc} */
+         public RealVector solve(RealVector b) {
+             final int m = pivot.length;
+-            if (b.getDimension() != m) {
+-                throw new DimensionMismatchException(b.getDimension(), m);
++            int dimension = b.getDimension();
++            if (dimension != m) {
++                throw new DimensionMismatchException(dimension, m);
+             }
+             if (singular) {
+                 throw new SingularMatrixException();

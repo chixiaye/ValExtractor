@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/AliasExternals.java b/src/com/google/javascript/jscomp/AliasExternals.java
+index fc43f34..6586cff 100644
+--- a/src/com/google/javascript/jscomp/AliasExternals.java
++++ b/src/com/google/javascript/jscomp/AliasExternals.java
+@@ -493,7 +493,8 @@
+ 
+         if (canReplaceWithGetProp(propNameNode, n, parent)) {
+           String name = propNameNode.getString();
+-          props.get(name).recordAccessor(t);
++            Symbol symbol = props.get(name);
++            symbol.recordAccessor(t);
+           accessors.add(n);
+         }
+         if (canReplaceWithSetProp(propNameNode, n, parent)) {

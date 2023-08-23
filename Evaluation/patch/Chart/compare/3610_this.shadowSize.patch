@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/DefaultShadowGenerator.java b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+index f97affa..f5efc83 100644
+--- a/source/org/jfree/chart/util/DefaultShadowGenerator.java
++++ b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+@@ -173,9 +173,10 @@
+      * @return A new image containing the shadow.
+      */
+     public BufferedImage createDropShadow(BufferedImage source) {
++        int var_3610 = this.shadowSize;
+         BufferedImage subject = new BufferedImage(
+-                source.getWidth() + this.shadowSize * 2,
+-                source.getHeight() + this.shadowSize * 2,
++                source.getWidth() + var_3610 * 2,
++                source.getHeight() + var_3610 * 2,
+                 BufferedImage.TYPE_INT_ARGB);
+ 
+         Graphics2D g2 = subject.createGraphics();
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/DefaultShadowGenerator.java b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+index f97affa..f5efc83 100644
+--- a/source/org/jfree/chart/util/DefaultShadowGenerator.java
++++ b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+@@ -173,9 +173,10 @@
+      * @return A new image containing the shadow.
+      */
+     public BufferedImage createDropShadow(BufferedImage source) {
++        int var_3610 = this.shadowSize;
+         BufferedImage subject = new BufferedImage(
+-                source.getWidth() + this.shadowSize * 2,
+-                source.getHeight() + this.shadowSize * 2,
++                source.getWidth() + var_3610 * 2,
++                source.getHeight() + var_3610 * 2,
+                 BufferedImage.TYPE_INT_ARGB);
+ 
+         Graphics2D g2 = subject.createGraphics();
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/DefaultShadowGenerator.java b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+index f97affa..6cab24c 100644
+--- a/source/org/jfree/chart/util/DefaultShadowGenerator.java
++++ b/source/org/jfree/chart/util/DefaultShadowGenerator.java
+@@ -173,13 +173,14 @@
+      * @return A new image containing the shadow.
+      */
+     public BufferedImage createDropShadow(BufferedImage source) {
++        int shadowSize1 = this.shadowSize;
+         BufferedImage subject = new BufferedImage(
+-                source.getWidth() + this.shadowSize * 2,
+-                source.getHeight() + this.shadowSize * 2,
++                source.getWidth() + shadowSize1 * 2,
++                source.getHeight() + shadowSize1 * 2,
+                 BufferedImage.TYPE_INT_ARGB);
+ 
+         Graphics2D g2 = subject.createGraphics();
+-        g2.drawImage(source, null, shadowSize, shadowSize);
++        g2.drawImage(source, null, shadowSize1, shadowSize1);
+         g2.dispose();
+         applyShadow(subject);
+         return subject;

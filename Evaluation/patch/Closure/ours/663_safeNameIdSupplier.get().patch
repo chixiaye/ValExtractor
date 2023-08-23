@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..84b0a90 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -284,8 +284,9 @@
+                 continue;
+               }
+ 
+-              String var = VAR_PREFIX + varname + "_" +
+-                safeNameIdSupplier.get();
++              String var_663 = safeNameIdSupplier.get();
++			String var = VAR_PREFIX + varname + "_" +
++                var_663;
+               varmap.put(varname, var);
+             }
+           }

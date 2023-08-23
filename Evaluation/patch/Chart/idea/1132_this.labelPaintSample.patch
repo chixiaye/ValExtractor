@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..921b179 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -173,6 +173,7 @@
+     public DefaultAxisEditor(Axis axis) {
+ 
+         this.labelFont = axis.getLabelFont();
++        PaintSample labelPaintSample1 = this.labelPaintSample;
+         this.labelPaintSample = new PaintSample(axis.getLabelPaint());
+         this.tickLabelFont = axis.getTickLabelFont();
+         this.tickLabelPaintSample = new PaintSample(axis.getTickLabelPaint());

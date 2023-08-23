@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..e4c2864 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -395,7 +395,8 @@
+       // Find the longest path that has been mapped (if any).
+       List<String> pieces = Lists.newArrayList(exportPath.split("\\."));
+ 
+-      for (int i = pieces.size(); i > 0; i--) {
++        int size = pieces.size();
++        for (int i = size; i > 0; i--) {
+         // Find the path of the current length.
+         String cPath = Joiner.on(".").join(Iterables.limit(pieces, i));
+ 
+@@ -404,7 +405,7 @@
+         if (mappedPaths.containsKey(cPath)) {
+           String newPath = mappedPaths.get(cPath);
+ 
+-          if (i < pieces.size()) {
++          if (i < size) {
+             newPath += "." + Joiner.on(".").join(Iterables.skip(pieces, i));
+           }
+ 

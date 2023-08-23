@@ -1,0 +1,36 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..906fc06 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -1021,25 +1021,26 @@
+         return false;
+       }
+ 
+-      if (callNode.isOnlyModifiesThisCall()
+-          && evaluatesToLocalValue(nameNode.getFirstChild())) {
++        Node firstChild = nameNode.getFirstChild();
++        if (callNode.isOnlyModifiesThisCall()
++          && evaluatesToLocalValue(firstChild)) {
+         return false;
+       }
+ 
+       // Math.floor has no side-effects.
+       // TODO(nicksantos): This is a terrible terrible hack, until
+       // I create a definitionProvider that understands namespacing.
+-      if (nameNode.getFirstChild().isName()) {
++      if (firstChild.isName()) {
+         if ("Math.floor".equals(nameNode.getQualifiedName())) {
+           return false;
+         }
+       }
+ 
+       if (compiler != null && !compiler.hasRegExpGlobalReferences()) {
+-        if (nameNode.getFirstChild().isRegExp()
++        if (firstChild.isRegExp()
+             && REGEXP_METHODS.contains(nameNode.getLastChild().getString())) {
+           return false;
+-        } else if (nameNode.getFirstChild().isString()
++        } else if (firstChild.isString()
+             && STRING_REGEXP_METHODS.contains(
+                 nameNode.getLastChild().getString())) {
+           Node param = nameNode.getNext();

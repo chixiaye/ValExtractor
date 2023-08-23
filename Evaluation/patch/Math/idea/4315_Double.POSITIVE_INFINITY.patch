@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..b781f85 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1365,8 +1365,9 @@
+             return Double.NEGATIVE_INFINITY;
+         }
+ 
+-        if (x == Double.POSITIVE_INFINITY) {
+-            return Double.POSITIVE_INFINITY;
++        double positiveInfinity = Double.POSITIVE_INFINITY;
++        if (x == positiveInfinity) {
++            return positiveInfinity;
+         }
+ 
+         if (x > 1e-6 ||

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..6cec0ca 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -123,6 +123,7 @@
+             vorder[i] = i;
+         }
+         if (errorTolerance > 0) {
++            double epsilon1 = this.epsilon;
+             this.epsilon = errorTolerance;
+         } else {
+             this.epsilon = -errorTolerance;

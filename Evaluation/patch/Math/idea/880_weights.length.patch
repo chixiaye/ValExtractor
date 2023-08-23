@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateNormalDistribution.java b/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateNormalDistribution.java
+index dc590e8..1b88d7e 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateNormalDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateNormalDistribution.java
+@@ -82,10 +82,11 @@
+     private static List<Pair<Double, MultivariateNormalDistribution>> createComponents(double[] weights,
+                                                                                        double[][] means,
+                                                                                        double[][][] covariances) {
++        int length = weights.length;
+         final List<Pair<Double, MultivariateNormalDistribution>> mvns
+-            = new ArrayList<Pair<Double, MultivariateNormalDistribution>>(weights.length);
++            = new ArrayList<Pair<Double, MultivariateNormalDistribution>>(length);
+ 
+-        for (int i = 0; i < weights.length; i++) {
++        for (int i = 0; i < length; i++) {
+             final MultivariateNormalDistribution dist
+                 = new MultivariateNormalDistribution(means[i], covariances[i]);
+ 

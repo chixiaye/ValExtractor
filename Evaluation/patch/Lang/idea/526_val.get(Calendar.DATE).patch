@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..5c38ba2 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1005,6 +1005,7 @@
+ 
+         boolean roundUp = false;
+         for (final int[] aField : fields) {
++            int i = val.get(Calendar.DATE);
+             for (final int element : aField) {
+                 if (element == field) {
+                     //This is our field... we stop looping
+@@ -1013,7 +1014,7 @@
+                             //This is a special case that's hard to generalize
+                             //If the date is 1, we round up to 16, otherwise
+                             //  we subtract 15 days and add 1 month
+-                            if (val.get(Calendar.DATE) == 1) {
++                            if (i == 1) {
+                                 val.add(Calendar.DATE, 15);
+                             } else {
+                                 val.add(Calendar.DATE, -15);
+@@ -1050,7 +1051,7 @@
+                         //If we're going to drop the DATE field's value,
+                         //  we want to do this our own way.
+                         //We need to subtrace 1 since the date has a minimum of 1
+-                        offset = val.get(Calendar.DATE) - 1;
++                        offset = i - 1;
+                         //If we're above 15 days adjustment, that means we're in the
+                         //  bottom half of the month and should stay accordingly.
+                         if (offset >= 15) {

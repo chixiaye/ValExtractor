@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/Second.java b/source/org/jfree/data/time/Second.java
+index 0800081..e48bf14 100644
+--- a/source/org/jfree/data/time/Second.java
++++ b/source/org/jfree/data/time/Second.java
+@@ -232,7 +232,8 @@
+ 
+         Second result = null;
+         if (this.second != FIRST_SECOND_IN_MINUTE) {
+-            result = new Second(this.second - 1, getMinute());
++            Minute var_4317 = getMinute();
++			result = new Second(this.second - 1, var_4317);
+         }
+         else {
+             Minute previous = (Minute) getMinute().previous();

@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+index 7430b1c..0ad22b5 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+@@ -745,6 +745,7 @@
+             // quoting mode can occur several times throughout a string
+             // we must switch between quoting and non-quoting until we
+             // encounter a non-quoted delimiter, or end of string
++            boolean quote = isQuote(chars, pos, len, quoteStart, quoteLen);
+             if (quoting) {
+                 // In quoting mode
+                 
+@@ -752,7 +753,7 @@
+                 // followed by a second quote.  If so, then we need
+                 // to actually put the quote character into the token
+                 // rather than end the token.
+-                if (isQuote(chars, pos, len, quoteStart, quoteLen)) {
++                if (quote) {
+                     if (isQuote(chars, pos + quoteLen, len, quoteStart, quoteLen)) {
+                         // matched pair of quotes, thus an escaped quote
+                         workArea.append(chars, pos, quoteLen);
+@@ -783,7 +784,7 @@
+                 }
+                 
+                 // check for quote, and thus back into quoting mode
+-                if (quoteLen > 0 && isQuote(chars, pos, len, quoteStart, quoteLen)) {
++                if (quoteLen > 0 && quote) {
+                     quoting = true;
+                     pos += quoteLen;
+                     continue;

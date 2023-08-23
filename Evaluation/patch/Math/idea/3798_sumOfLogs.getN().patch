@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/GeometricMean.java b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/GeometricMean.java
+index b94b882..8435c2b 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/GeometricMean.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/GeometricMean.java
+@@ -111,8 +111,9 @@
+      */
+     @Override
+     public double getResult() {
+-        if (sumOfLogs.getN() > 0) {
+-            return FastMath.exp(sumOfLogs.getResult() / sumOfLogs.getN());
++        long n = sumOfLogs.getN();
++        if (n > 0) {
++            return FastMath.exp(sumOfLogs.getResult() / n);
+         } else {
+             return Double.NaN;
+         }

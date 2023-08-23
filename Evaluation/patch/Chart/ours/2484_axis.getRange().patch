@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..10869a1 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1186,7 +1186,8 @@
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+-            Range range = axis.getRange();
++            Range var_2484 = axis.getRange();
++			Range range = var_2484;
+ 
+             if (!range.contains(value)) {
+                 return;

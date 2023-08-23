@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..309db2a 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -492,6 +492,7 @@
+         int index = this.orientationCombo.getSelectedIndex();
+ 
+         if (index == ORIENTATION_VERTICAL) {
++            PlotOrientation plotOrientation1 = this.plotOrientation;
+             this.plotOrientation = PlotOrientation.VERTICAL;
+         }
+         else {

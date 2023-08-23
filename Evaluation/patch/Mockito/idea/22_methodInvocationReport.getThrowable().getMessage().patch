@@ -1,0 +1,14 @@
+diff --git a/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java b/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
+index 0712fb7..4333e08 100644
+--- a/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
++++ b/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
+@@ -40,7 +40,8 @@
+ 
+     private void printReturnedValueOrThrowable(MethodInvocationReport methodInvocationReport) {
+         if (methodInvocationReport.threwException()) {
+-            String message = methodInvocationReport.getThrowable().getMessage() == null ? "" : " with message " + methodInvocationReport.getThrowable().getMessage();
++            String message1 = methodInvocationReport.getThrowable().getMessage();
++            String message = message1 == null ? "" : " with message " + message1;
+             printlnIndented("has thrown: " + methodInvocationReport.getThrowable().getClass() + message);
+         } else {
+             String type = (methodInvocationReport.getReturnedValue() == null) ? "" : " (" + methodInvocationReport.getReturnedValue().getClass().getName() + ")";

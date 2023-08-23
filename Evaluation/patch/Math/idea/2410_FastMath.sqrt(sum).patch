@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..464bb9a 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -506,7 +506,8 @@
+                 final double delta = data[i] - vData[i];
+                 sum += delta * delta;
+             }
+-            return FastMath.sqrt(sum);
++            double sqrt = FastMath.sqrt(sum);
++            return sqrt;
+         } else {
+             checkVectorDimensions(v);
+             double sum = 0;

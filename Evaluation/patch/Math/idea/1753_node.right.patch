@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..ef073a3 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -189,10 +189,11 @@
+                 node = node.left;
+             } else {
+                 candidate = node;
+-                if (node.right == null) {
++                Node right = node.right;
++                if (right == null) {
+                     return candidate;
+                 }
+-                node = node.right;
++                node = right;
+             }
+         }
+         return null;

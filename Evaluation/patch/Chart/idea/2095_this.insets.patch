@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..7023c5a 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -540,7 +540,8 @@
+         if (insets == null) {
+             throw new IllegalArgumentException("Null 'insets' argument.");
+         }
+-        if (!this.insets.equals(insets)) {
++        RectangleInsets insets1 = this.insets;
++        if (!insets1.equals(insets)) {
+             this.insets = insets;
+             if (notify) {
+                 fireChangeEvent();

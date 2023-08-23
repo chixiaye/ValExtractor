@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..7627dfa 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1066,10 +1066,11 @@
+ 
+         /* If the exponent is less than zero then we can certainly
+          * return zero */
++        int flagInexact = DfpField.FLAG_INEXACT;
+         if (exp < 0) {
+-            field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);
++            field.setIEEEFlagsBits(flagInexact);
+             Dfp result = newInstance(getZero());
+-            result = dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);
++            result = dotrap(flagInexact, TRUNC_TRAP, this, result);
+             return result;
+         }
+ 
+@@ -1126,8 +1127,8 @@
+                     break;
+             }
+ 
+-            field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);  // signal inexact
+-            result = dotrap(DfpField.FLAG_INEXACT, TRUNC_TRAP, this, result);
++            field.setIEEEFlagsBits(flagInexact);  // signal inexact
++            result = dotrap(flagInexact, TRUNC_TRAP, this, result);
+             return result;
+         }
+ 

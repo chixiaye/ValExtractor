@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/ContinuousOutputModel.java b/src/main/java/org/apache/commons/math3/ode/ContinuousOutputModel.java
+index a5f5faf..22e4275 100644
+--- a/src/main/java/org/apache/commons/math3/ode/ContinuousOutputModel.java
++++ b/src/main/java/org/apache/commons/math3/ode/ContinuousOutputModel.java
+@@ -130,7 +130,8 @@
+   public void append(final ContinuousOutputModel model)
+     throws MathIllegalArgumentException, MaxCountExceededException {
+ 
+-    if (model.steps.size() == 0) {
++      List<StepInterpolator> steps1 = model.steps;
++      if (steps1.size() == 0) {
+       return;
+     }
+ 
+@@ -160,7 +161,7 @@
+ 
+     }
+ 
+-    for (StepInterpolator interpolator : model.steps) {
++    for (StepInterpolator interpolator : steps1) {
+       steps.add(interpolator.copy());
+     }
+ 

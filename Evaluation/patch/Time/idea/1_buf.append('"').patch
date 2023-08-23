@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/IllegalFieldValueException.java b/src/main/java/org/joda/time/IllegalFieldValueException.java
+index f588a85..d84ff2a 100644
+--- a/src/main/java/org/joda/time/IllegalFieldValueException.java
++++ b/src/main/java/org/joda/time/IllegalFieldValueException.java
+@@ -76,9 +76,9 @@
+         if (value == null) {
+             buf.append("null");
+         } else {
+-            buf.append('"');
++            StringBuffer append = buf.append('"');
+             buf.append(value);
+-            buf.append('"');
++            append;
+         }
+ 
+         buf.append(" for ").append(fieldName).append(' ').append("is not supported");

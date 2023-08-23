@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+index c3dd8cc..4c34717 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+@@ -1474,6 +1474,7 @@
+         }
+ 
+         boolean isSupported(PeriodType type, int field) {
++            DurationFieldType millis = DurationFieldType.millis();
+             switch (field) {
+             default:
+                 return false;
+@@ -1492,11 +1493,11 @@
+             case SECONDS:
+                 return type.isSupported(DurationFieldType.seconds());
+             case MILLIS:
+-                return type.isSupported(DurationFieldType.millis());
++                return type.isSupported(millis);
+             case SECONDS_MILLIS: // drop through
+             case SECONDS_OPTIONAL_MILLIS:
+                 return type.isSupported(DurationFieldType.seconds()) ||
+-                       type.isSupported(DurationFieldType.millis());
++                       type.isSupported(millis);
+             }
+         }
+ 

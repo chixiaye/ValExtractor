@@ -1,0 +1,40 @@
+diff --git a/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java b/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
+index 04d88ae..8e06067 100644
+--- a/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
++++ b/src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java
+@@ -172,17 +172,18 @@
+   private void extractInstance(ExtractionInstance instance) {
+     PrototypeMemberDeclaration first = instance.declarations.getFirst();
+     String className = first.qualifiedClassName;
+-    if (pattern == Pattern.USE_GLOBAL_TEMP) {
++      Node node = first.node;
++      if (pattern == Pattern.USE_GLOBAL_TEMP) {
+       // Use the temp variable to hold the prototype.
+-      Node stmt = new Node(first.node.getType(),
++      Node stmt = new Node(node.getType(),
+          IR.assign(
+               IR.name(prototypeAlias),
+               NodeUtil.newQualifiedNameNode(
+                   compiler.getCodingConvention(), className + ".prototype",
+                   instance.parent, className + ".prototype")))
+-          .copyInformationFromForTree(first.node);
++          .copyInformationFromForTree(node);
+ 
+-      instance.parent.addChildBefore(stmt, first.node);
++      instance.parent.addChildBefore(stmt, node);
+     } else if (pattern == Pattern.USE_ANON_FUNCTION){
+       Node block = IR.block();
+       Node func = IR.function(
+@@ -196,9 +197,9 @@
+                instance.parent, className + ".prototype"));
+       call.putIntProp(Node.FREE_CALL, 1);
+ 
+-      Node stmt = new Node(first.node.getType(), call);
+-      stmt.copyInformationFromForTree(first.node);
+-      instance.parent.addChildBefore(stmt, first.node);
++      Node stmt = new Node(node.getType(), call);
++      stmt.copyInformationFromForTree(node);
++      instance.parent.addChildBefore(stmt, node);
+       for (PrototypeMemberDeclaration declar : instance.declarations) {
+         block.addChildToBack(declar.node.detachFromParent());
+       }

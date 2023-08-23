@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..63cea29 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -778,17 +778,18 @@
+ 
+     @Override public ImmutableSet<JSType> getTypesToSkipForType(JSType type) {
+       type = type.restrictByNotNullOrUndefined();
+-      if (type.isUnionType()) {
++        Set<JSType> typesToSkipForTypeNonUnion = getTypesToSkipForTypeNonUnion(type);
++        if (type.isUnionType()) {
+         Set<JSType> types = Sets.newHashSet(type);
+         for (JSType alt : type.toMaybeUnionType().getAlternates()) {
+-          types.addAll(getTypesToSkipForTypeNonUnion(type));
++          types.addAll(typesToSkipForTypeNonUnion);
+         }
+         return ImmutableSet.copyOf(types);
+       } else if (type.isEnumElementType()) {
+         return getTypesToSkipForType(
+             type.toMaybeEnumElementType().getPrimitiveType());
+       }
+-      return ImmutableSet.copyOf(getTypesToSkipForTypeNonUnion(type));
++      return ImmutableSet.copyOf(typesToSkipForTypeNonUnion);
+     }
+ 
+     private Set<JSType> getTypesToSkipForTypeNonUnion(JSType type) {

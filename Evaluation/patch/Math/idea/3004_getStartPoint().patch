@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..0731cbd 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -369,7 +369,8 @@
+          // -------------------- Initialization --------------------------------
+         isMinimize = getGoalType().equals(GoalType.MINIMIZE);
+         final FitnessFunction fitfun = new FitnessFunction();
+-        final double[] guess = getStartPoint();
++        double[] startPoint = getStartPoint();
++        final double[] guess = startPoint;
+         // number of objective variables/problem dimension
+         dimension = guess.length;
+         initializeCMA(guess);
+@@ -377,7 +378,7 @@
+         double bestValue = fitfun.value(guess);
+         push(fitnessHistory, bestValue);
+         PointValuePair optimum
+-            = new PointValuePair(getStartPoint(),
++            = new PointValuePair(startPoint,
+                                  isMinimize ? bestValue : -bestValue);
+         PointValuePair lastResult = null;
+ 

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/FDistribution.java b/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
+index e301e2e..2cab45f 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/FDistribution.java
+@@ -107,12 +107,13 @@
+         throws NotStrictlyPositiveException {
+         super(rng);
+ 
++        LocalizedFormats degreesOfFreedom = LocalizedFormats.DEGREES_OF_FREEDOM;
+         if (numeratorDegreesOfFreedom <= 0) {
+-            throw new NotStrictlyPositiveException(LocalizedFormats.DEGREES_OF_FREEDOM,
++            throw new NotStrictlyPositiveException(degreesOfFreedom,
+                                                    numeratorDegreesOfFreedom);
+         }
+         if (denominatorDegreesOfFreedom <= 0) {
+-            throw new NotStrictlyPositiveException(LocalizedFormats.DEGREES_OF_FREEDOM,
++            throw new NotStrictlyPositiveException(degreesOfFreedom,
+                                                    denominatorDegreesOfFreedom);
+         }
+         this.numeratorDegreesOfFreedom = numeratorDegreesOfFreedom;

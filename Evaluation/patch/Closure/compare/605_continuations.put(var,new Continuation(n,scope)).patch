@@ -1,0 +1,70 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..cfff30e 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -222,7 +222,7 @@
+               // If the var is unreferenced and performing this assign has
+               // no secondary side effects, then we can create a continuation
+               // for it instead of traversing immediately.
+-              continuations.put(var, new Continuation(n, scope));
++              boolean var_605 = continuations.put(var, new Continuation(n, scope));
+               return;
+             }
+           }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..cfff30e 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -222,7 +222,7 @@
+               // If the var is unreferenced and performing this assign has
+               // no secondary side effects, then we can create a continuation
+               // for it instead of traversing immediately.
+-              continuations.put(var, new Continuation(n, scope));
++              boolean var_605 = continuations.put(var, new Continuation(n, scope));
+               return;
+             }
+           }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..a6e2133 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -192,6 +192,7 @@
+   private void traverseNode(Node n, Node parent, Scope scope) {
+     int type = n.getType();
+     Var var = null;
++      boolean put = continuations.put(var, new Continuation(n, scope));
+     switch (type) {
+       case Token.FUNCTION:
+         // If this function is a removable var, then create a continuation
+@@ -201,7 +202,7 @@
+         }
+ 
+         if (var != null && isRemovableVar(var)) {
+-          continuations.put(var, new Continuation(n, scope));
++          put;
+         } else {
+           traverseFunction(n, scope);
+         }
+@@ -222,7 +223,7 @@
+               // If the var is unreferenced and performing this assign has
+               // no secondary side effects, then we can create a continuation
+               // for it instead of traversing immediately.
+-              continuations.put(var, new Continuation(n, scope));
++              put;
+               return;
+             }
+           }
+@@ -267,7 +268,7 @@
+             // If the var is unreferenced and creating its value has no side
+             // effects, then we can create a continuation for it instead
+             // of traversing immediately.
+-            continuations.put(var, new Continuation(n, scope));
++            put;
+             return;
+           }
+         } else {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+index 513606d..909f8bb 100644
+--- a/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java
+@@ -150,7 +150,8 @@
+                 }
+                 int temp = pivot[nonZero];
+                 pivot[nonZero] = pivot[col];
+-                pivot[col] = temp;
++                int i = pivot[col];
++                i = temp;
+                 even = !even;
+             }
+ 

@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+index 5371054..bc72890 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+@@ -551,7 +551,8 @@
+         }
+ 
+         if (FastMath.abs(x.getReal()) <= threshold) {
+-            final T inverse  = y.multiply(y).add(z.multiply(z)).sqrt().reciprocal();
++            T var_1491 = y.multiply(y);
++			final T inverse  = var_1491.add(z.multiply(z)).sqrt().reciprocal();
+             return new FieldVector3D<T>(inverse.getField().getZero(), inverse.multiply(z), inverse.multiply(y).negate());
+         } else if (FastMath.abs(y.getReal()) <= threshold) {
+             final T inverse  = x.multiply(x).add(z.multiply(z)).sqrt().reciprocal();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+index 5371054..bc72890 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+@@ -551,7 +551,8 @@
+         }
+ 
+         if (FastMath.abs(x.getReal()) <= threshold) {
+-            final T inverse  = y.multiply(y).add(z.multiply(z)).sqrt().reciprocal();
++            T var_1491 = y.multiply(y);
++			final T inverse  = var_1491.add(z.multiply(z)).sqrt().reciprocal();
+             return new FieldVector3D<T>(inverse.getField().getZero(), inverse.multiply(z), inverse.multiply(y).negate());
+         } else if (FastMath.abs(y.getReal()) <= threshold) {
+             final T inverse  = x.multiply(x).add(z.multiply(z)).sqrt().reciprocal();
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+index 5371054..aca51fa 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java
+@@ -550,14 +550,15 @@
+             throw new MathArithmeticException(LocalizedFormats.ZERO_NORM);
+         }
+ 
++        T multiply = y.multiply(y);
+         if (FastMath.abs(x.getReal()) <= threshold) {
+-            final T inverse  = y.multiply(y).add(z.multiply(z)).sqrt().reciprocal();
++            final T inverse  = multiply.add(z.multiply(z)).sqrt().reciprocal();
+             return new FieldVector3D<T>(inverse.getField().getZero(), inverse.multiply(z), inverse.multiply(y).negate());
+         } else if (FastMath.abs(y.getReal()) <= threshold) {
+             final T inverse  = x.multiply(x).add(z.multiply(z)).sqrt().reciprocal();
+             return new FieldVector3D<T>(inverse.multiply(z).negate(), inverse.getField().getZero(), inverse.multiply(x));
+         } else {
+-            final T inverse  = x.multiply(x).add(y.multiply(y)).sqrt().reciprocal();
++            final T inverse  = x.multiply(x).add(multiply).sqrt().reciprocal();
+             return new FieldVector3D<T>(inverse.multiply(y), inverse.multiply(x).negate(), inverse.getField().getZero());
+         }
+ 

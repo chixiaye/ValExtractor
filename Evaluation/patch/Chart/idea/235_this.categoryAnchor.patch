@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/annotations/CategoryTextAnnotation.java b/source/org/jfree/chart/annotations/CategoryTextAnnotation.java
+index 802e204..9650c1d 100644
+--- a/source/org/jfree/chart/annotations/CategoryTextAnnotation.java
++++ b/source/org/jfree/chart/annotations/CategoryTextAnnotation.java
+@@ -208,16 +208,17 @@
+         RectangleEdge rangeEdge = Plot.resolveRangeAxisLocation(
+                 plot.getRangeAxisLocation(), orientation);
+ 
++        CategoryAnchor categoryAnchor1 = this.categoryAnchor;
+         if (orientation == PlotOrientation.HORIZONTAL) {
+             anchorY = (float) domainAxis.getCategoryJava2DCoordinate(
+-                    this.categoryAnchor, catIndex, catCount, dataArea,
++                    categoryAnchor1, catIndex, catCount, dataArea,
+                     domainEdge);
+             anchorX = (float) rangeAxis.valueToJava2D(this.value, dataArea,
+                     rangeEdge);
+         }
+         else if (orientation == PlotOrientation.VERTICAL) {
+             anchorX = (float) domainAxis.getCategoryJava2DCoordinate(
+-                    this.categoryAnchor, catIndex, catCount, dataArea,
++                    categoryAnchor1, catIndex, catCount, dataArea,
+                     domainEdge);
+             anchorY = (float) rangeAxis.valueToJava2D(this.value, dataArea,
+                     rangeEdge);

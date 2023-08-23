@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/editor/DefaultTitleEditor.java b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+index 55b846e..4d77f64 100644
+--- a/source/org/jfree/chart/editor/DefaultTitleEditor.java
++++ b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+@@ -225,7 +225,8 @@
+      */
+     public void attemptFontSelection() {
+ 
+-        FontChooserPanel panel = new FontChooserPanel(this.titleFont);
++        Font titleFont1 = this.titleFont;
++        FontChooserPanel panel = new FontChooserPanel(titleFont1);
+         int result =
+             JOptionPane.showConfirmDialog(
+                 this, panel, localizationResources.getString("Font_Selection"),

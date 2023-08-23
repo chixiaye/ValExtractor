@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/RenamePrototypes.java b/src/com/google/javascript/jscomp/RenamePrototypes.java
+index c051306..ad8f4ae 100644
+--- a/src/com/google/javascript/jscomp/RenamePrototypes.java
++++ b/src/com/google/javascript/jscomp/RenamePrototypes.java
+@@ -238,7 +238,8 @@
+                                               reservedCharacters);
+     StringBuilder debug = new StringBuilder();
+     for (Property a : propsByFrequency) {
+-      if (a.newName == null) {
++        String newName = a.newName;
++        if (newName == null) {
+         a.newName = nameGen.generateNextName();
+         reservedNames.add(a.newName);
+       }

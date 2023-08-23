@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+index d05eb2f..8cb2502 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+@@ -510,8 +510,9 @@
+         // get the previous point and the next point so we can calculate a
+         // "hot spot" for the area (used by the chart entity)...
+         int itemCount = dataset.getItemCount(series);
+-        double x0 = dataset.getXValue(series, Math.max(item - 1, 0));
+-        double y0 = dataset.getYValue(series, Math.max(item - 1, 0));
++        int max = Math.max(item - 1, 0);
++        double x0 = dataset.getXValue(series, max);
++        double y0 = dataset.getYValue(series, max);
+         if (Double.isNaN(y0)) {
+             y0 = 0.0;
+         }

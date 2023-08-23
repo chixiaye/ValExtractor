@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/ComparableObjectSeries.java b/source/org/jfree/data/ComparableObjectSeries.java
+index 02c55ab..352ef41 100644
+--- a/source/org/jfree/data/ComparableObjectSeries.java
++++ b/source/org/jfree/data/ComparableObjectSeries.java
+@@ -225,12 +225,13 @@
+             else {
+                 if (this.allowDuplicateXValues) {
+                     // need to make sure we are adding *after* any duplicates
+-                    int size = this.data.size();
++                    int size1 = this.data.size();
++                    int size = size1;
+                     while (index < size
+                            && item.compareTo(this.data.get(index)) == 0) {
+                         index++;
+                     }
+-                    if (index < this.data.size()) {
++                    if (index < size1) {
+                         this.data.add(index, item);
+                     }
+                     else {

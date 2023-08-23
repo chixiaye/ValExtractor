@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..e4b497a 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -854,7 +854,8 @@
+                     for (int i = k + 1; i < solvedCols; ++i) {
+                         double rik = weightedJacobian[i][pk];
+                         final double temp2 = cos * rik + sin * lmDiag[i];
+-                        lmDiag[i] = -sin * rik + cos * lmDiag[i];
++                        double v = lmDiag[i];
++                        lmDiag[i] = -sin * rik + cos * v;
+                         weightedJacobian[i][pk] = temp2;
+                     }
+                 }

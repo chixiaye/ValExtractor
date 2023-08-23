@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..29ab362 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1353,7 +1353,8 @@
+             CombinedDomainCategoryPlot cp = (CombinedDomainCategoryPlot) plot;
+             Iterator iterator = cp.getSubplots().iterator();
+             while (iterator.hasNext()) {
+-                CategoryPlot subplot = (CategoryPlot) iterator.next();
++                Object next = iterator.next();
++                CategoryPlot subplot = (CategoryPlot) next;
+                 if (subplot != null) {
+                     applyToPlot(subplot);
+                 }

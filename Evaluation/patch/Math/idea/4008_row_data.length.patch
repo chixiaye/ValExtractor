@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..24d36c9 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -855,14 +855,15 @@
+         int pos;
+         double total;
+ 
+-        if (row_data.length > nvars) {
++        int length = row_data.length;
++        if (length > nvars) {
+             return Double.NaN;
+         }
+         double[] xrow;
+         if (this.hasIntercept) {
+-            xrow = new double[row_data.length + 1];
++            xrow = new double[length + 1];
+             xrow[0] = 1.0;
+-            System.arraycopy(row_data, 0, xrow, 1, row_data.length);
++            System.arraycopy(row_data, 0, xrow, 1, length);
+         } else {
+             xrow = row_data;
+         }

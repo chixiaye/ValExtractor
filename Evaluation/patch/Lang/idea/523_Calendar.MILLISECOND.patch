@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..b36aa4a 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -957,8 +957,9 @@
+         if (val.get(Calendar.YEAR) > 280000000) {
+             throw new ArithmeticException("Calendar value too large for accurate calculations");
+         }
+-        
+-        if (field == Calendar.MILLISECOND) {
++
++        int millisecond = Calendar.MILLISECOND;
++        if (field == millisecond) {
+             return;
+         }
+ 
+@@ -973,7 +974,7 @@
+         boolean done = false;
+ 
+         // truncate milliseconds
+-        final int millisecs = val.get(Calendar.MILLISECOND);
++        final int millisecs = val.get(millisecond);
+         if (MODIFY_TRUNCATE == modType || millisecs < 500) {
+             time = time - millisecs;
+         }

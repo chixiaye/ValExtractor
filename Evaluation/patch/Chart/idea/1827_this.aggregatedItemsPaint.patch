@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/MultiplePiePlot.java b/source/org/jfree/chart/plot/MultiplePiePlot.java
+index f85acab..3b137da 100644
+--- a/source/org/jfree/chart/plot/MultiplePiePlot.java
++++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
+@@ -595,10 +595,11 @@
+             section++;
+         }
+         if (this.limit > 0.0) {
++            Paint aggregatedItemsPaint1 = this.aggregatedItemsPaint;
+             LegendItem a = new LegendItem(this.aggregatedItemsKey.toString(),
+                     this.aggregatedItemsKey.toString(), null, null,
+-                    getLegendItemShape(), this.aggregatedItemsPaint,
+-                    Plot.DEFAULT_OUTLINE_STROKE, this.aggregatedItemsPaint);
++                    getLegendItemShape(), aggregatedItemsPaint1,
++                    Plot.DEFAULT_OUTLINE_STROKE, aggregatedItemsPaint1);
+             result.add(a);
+         }
+         return result;

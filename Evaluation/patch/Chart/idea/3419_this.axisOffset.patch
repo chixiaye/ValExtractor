@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..795aef6 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -547,6 +547,7 @@
+         double increment = this.axis.getRange().getLength() / this.subdivisions;
+         Rectangle2D r = new Rectangle2D.Double();
+ 
++        double axisOffset1 = this.axisOffset;
+         if (RectangleEdge.isTopOrBottom(getPosition())) {
+             RectangleEdge axisEdge = Plot.resolveRangeAxisLocation(
+                     this.axisLocation, PlotOrientation.HORIZONTAL);
+@@ -572,7 +573,7 @@
+                             target.getWidth(), this.stripWidth));
+                 }
+                 this.axis.draw(g2, target.getMaxY() - this.stripWidth
+-                        - this.axisOffset, target, target, RectangleEdge.TOP,
++                        - axisOffset1, target, target, RectangleEdge.TOP,
+                         null);
+             }
+             else if (axisEdge == RectangleEdge.BOTTOM) {
+@@ -597,7 +598,7 @@
+                             this.stripWidth));
+                 }
+                 this.axis.draw(g2, target.getMinY() + this.stripWidth
+-                        + this.axisOffset, target, target,
++                        + axisOffset1, target, target,
+                         RectangleEdge.BOTTOM, null);
+             }
+         }
+@@ -626,7 +627,7 @@
+                             this.stripWidth, target.getHeight()));
+                 }
+                 this.axis.draw(g2, target.getMaxX() - this.stripWidth
+-                        - this.axisOffset, target, target, RectangleEdge.LEFT,
++                        - axisOffset1, target, target, RectangleEdge.LEFT,
+                         null);
+             }
+             else if (axisEdge == RectangleEdge.RIGHT) {
+@@ -651,7 +652,7 @@
+                             target.getHeight()));
+                 }
+                 this.axis.draw(g2, target.getMinX() + this.stripWidth
+-                        + this.axisOffset, target, target, RectangleEdge.RIGHT,
++                        + axisOffset1, target, target, RectangleEdge.RIGHT,
+                         null);
+             }
+         }

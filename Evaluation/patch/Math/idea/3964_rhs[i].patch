@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..7f0e41f 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -278,7 +278,8 @@
+             if (di != 0.0) {
+                 rhs[i] = smartAdd(di * rhs[i], wxi * xk) / dpi;
+             } else {
+-                rhs[i] = xk / xi;
++                double rh = rhs[i];
++                rh = xk / xi;
+             }
+         }
+         sserr = smartAdd(sserr, w * y * y);

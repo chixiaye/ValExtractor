@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/base/BasePeriod.java b/src/main/java/org/joda/time/base/BasePeriod.java
+index 96b4738..b9f0c63 100644
+--- a/src/main/java/org/joda/time/base/BasePeriod.java
++++ b/src/main/java/org/joda/time/base/BasePeriod.java
+@@ -158,7 +158,8 @@
+         }
+         if (start instanceof BaseLocal && end instanceof BaseLocal && start.getClass() == end.getClass()) {
+             // for performance
+-            type = checkPeriodType(type);
++            PeriodType var_142 = checkPeriodType(type);
++			type = var_142;
+             long startMillis = ((BaseLocal) start).getLocalMillis();
+             long endMillis = ((BaseLocal) end).getLocalMillis();
+             Chronology chrono = start.getChronology();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/base/BasePeriod.java b/src/main/java/org/joda/time/base/BasePeriod.java
+index 96b4738..e449b0c 100644
+--- a/src/main/java/org/joda/time/base/BasePeriod.java
++++ b/src/main/java/org/joda/time/base/BasePeriod.java
+@@ -156,9 +156,10 @@
+         if (start == null || end == null) {
+             throw new IllegalArgumentException("ReadablePartial objects must not be null");
+         }
++        PeriodType var_142 = checkPeriodType(type);
+         if (start instanceof BaseLocal && end instanceof BaseLocal && start.getClass() == end.getClass()) {
+             // for performance
+-            type = checkPeriodType(type);
++            type = var_142;
+             long startMillis = ((BaseLocal) start).getLocalMillis();
+             long endMillis = ((BaseLocal) end).getLocalMillis();
+             Chronology chrono = start.getChronology();
+@@ -177,7 +178,7 @@
+             if (DateTimeUtils.isContiguous(start) == false) {
+                 throw new IllegalArgumentException("ReadablePartial objects must be contiguous");
+             }
+-            iType = checkPeriodType(type);
++            iType = var_142;
+             Chronology chrono = DateTimeUtils.getChronology(start.getChronology()).withUTC();
+             iValues = chrono.get(this, chrono.set(start, 0L), chrono.set(end, 0L));
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/base/BasePeriod.java b/src/main/java/org/joda/time/base/BasePeriod.java
+index 96b4738..764cb1a 100644
+--- a/src/main/java/org/joda/time/base/BasePeriod.java
++++ b/src/main/java/org/joda/time/base/BasePeriod.java
+@@ -156,9 +156,10 @@
+         if (start == null || end == null) {
+             throw new IllegalArgumentException("ReadablePartial objects must not be null");
+         }
++        PeriodType type1 = checkPeriodType(type);
+         if (start instanceof BaseLocal && end instanceof BaseLocal && start.getClass() == end.getClass()) {
+             // for performance
+-            type = checkPeriodType(type);
++            type = type1;
+             long startMillis = ((BaseLocal) start).getLocalMillis();
+             long endMillis = ((BaseLocal) end).getLocalMillis();
+             Chronology chrono = start.getChronology();
+@@ -177,7 +178,7 @@
+             if (DateTimeUtils.isContiguous(start) == false) {
+                 throw new IllegalArgumentException("ReadablePartial objects must be contiguous");
+             }
+-            iType = checkPeriodType(type);
++            iType = type1;
+             Chronology chrono = DateTimeUtils.getChronology(start.getChronology()).withUTC();
+             iValues = chrono.get(this, chrono.set(start, 0L), chrono.set(end, 0L));
+         }

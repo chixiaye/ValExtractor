@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+index 372c699..b33fd37 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
++++ b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+@@ -193,7 +193,8 @@
+         final Dfp[] x = new Dfp[maximalOrder + 1];
+         final Dfp[] y = new Dfp[maximalOrder + 1];
+         x[0] = min;
+-        x[1] = startValue;
++        Dfp x1 = x[1];
++        x1 = startValue;
+         x[2] = max;
+ 
+         // evaluate initial guess

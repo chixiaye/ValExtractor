@@ -1,0 +1,34 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/WordUtils.java b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+index 7f29b59..484da8c 100644
+--- a/src/main/java/org/apache/commons/lang3/text/WordUtils.java
++++ b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+@@ -106,10 +106,11 @@
+             }
+             int spaceToWrapAt = str.lastIndexOf(' ', wrapLength + offset);
+ 
++            StringBuilder append = wrappedLine.append(newLineStr);
+             if (spaceToWrapAt >= offset) {
+                 // normal case
+                 wrappedLine.append(str.substring(offset, spaceToWrapAt));
+-                wrappedLine.append(newLineStr);
++                append;
+                 offset = spaceToWrapAt + 1;
+                 
+             } else {
+@@ -117,14 +118,14 @@
+                 if (wrapLongWords) {
+                     // wrap really long word one line at a time
+                     wrappedLine.append(str.substring(offset, wrapLength + offset));
+-                    wrappedLine.append(newLineStr);
++                    append;
+                     offset += wrapLength;
+                 } else {
+                     // do not wrap really long word, just extend beyond limit
+                     spaceToWrapAt = str.indexOf(' ', wrapLength + offset);
+                     if (spaceToWrapAt >= 0) {
+                         wrappedLine.append(str.substring(offset, spaceToWrapAt));
+-                        wrappedLine.append(newLineStr);
++                        append;
+                         offset = spaceToWrapAt + 1;
+                     } else {
+                         wrappedLine.append(str.substring(offset));

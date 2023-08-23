@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..95cfd60 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -594,6 +594,7 @@
+         this.datasetToDomainAxesMap = new TreeMap();
+         this.datasetToRangeAxesMap = new TreeMap();
+ 
++        ObjectList renderers1 = this.renderers;
+         this.renderers = new ObjectList();
+ 
+         this.datasets = new ObjectList();

@@ -1,0 +1,97 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..feb579b 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1780,7 +1780,8 @@
+       return parseRecordType(next());
+     } else if (token == JsDocToken.LP) {
+       skipEOLs();
+-      return parseUnionType(next());
++      JsDocToken var_2355 = next();
++	return parseUnionType(var_2355);
+     } else if (token == JsDocToken.STRING) {
+       String string = stream.getString();
+       if ("function".equals(string)) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..cfe9923 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1772,26 +1772,29 @@
+   private Node parseBasicTypeExpression(JsDocToken token) {
+     if (token == JsDocToken.STAR) {
+       return newNode(Token.STAR);
+-    } else if (token == JsDocToken.LB) {
++    } else {
++		JsDocToken var_2355 = next();
++		if (token == JsDocToken.LB) {
+       skipEOLs();
+-      return parseArrayType(next());
++		  return parseArrayType(var_2355);
+     } else if (token == JsDocToken.LC) {
+       skipEOLs();
+-      return parseRecordType(next());
++		  return parseRecordType(var_2355);
+     } else if (token == JsDocToken.LP) {
+       skipEOLs();
+-      return parseUnionType(next());
++		  return parseUnionType(var_2355);
+     } else if (token == JsDocToken.STRING) {
+       String string = stream.getString();
+       if ("function".equals(string)) {
+         skipEOLs();
+-        return parseFunctionType(next());
++		    return parseFunctionType(var_2355);
+       } else if ("null".equals(string) || "undefined".equals(string)) {
+         return newStringNode(string);
+       } else {
+         return parseTypeName(token);
+       }
+     }
++	}
+ 
+     restoreLookAhead(token);
+     return reportGenericTypeSyntaxWarning();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..f49be0b 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1772,26 +1772,29 @@
+   private Node parseBasicTypeExpression(JsDocToken token) {
+     if (token == JsDocToken.STAR) {
+       return newNode(Token.STAR);
+-    } else if (token == JsDocToken.LB) {
++    } else {
++        JsDocToken next = next();
++        if (token == JsDocToken.LB) {
+       skipEOLs();
+-      return parseArrayType(next());
++          return parseArrayType(next);
+     } else if (token == JsDocToken.LC) {
+       skipEOLs();
+-      return parseRecordType(next());
++          return parseRecordType(next);
+     } else if (token == JsDocToken.LP) {
+       skipEOLs();
+-      return parseUnionType(next());
++          return parseUnionType(next);
+     } else if (token == JsDocToken.STRING) {
+       String string = stream.getString();
+       if ("function".equals(string)) {
+         skipEOLs();
+-        return parseFunctionType(next());
++            return parseFunctionType(next);
+       } else if ("null".equals(string) || "undefined".equals(string)) {
+         return newStringNode(string);
+       } else {
+         return parseTypeName(token);
+       }
+     }
++    }
+ 
+     restoreLookAhead(token);
+     return reportGenericTypeSyntaxWarning();

@@ -1,0 +1,71 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/NamedType.java b/src/com/google/javascript/rhino/jstype/NamedType.java
+index 9fb2191..5906b5b 100644
+--- a/src/com/google/javascript/rhino/jstype/NamedType.java
++++ b/src/com/google/javascript/rhino/jstype/NamedType.java
+@@ -350,7 +350,8 @@
+                 JSTypeNative.NO_RESOLVED_TYPE));
+ 
+         if (registry.isLastGeneration() && validator != null) {
+-          validator.apply(getReferencedType());
++          JSType var_2646 = getReferencedType();
++		validator.apply(var_2646);
+         }
+       }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/NamedType.java b/src/com/google/javascript/rhino/jstype/NamedType.java
+index 9fb2191..ca3eeff 100644
+--- a/src/com/google/javascript/rhino/jstype/NamedType.java
++++ b/src/com/google/javascript/rhino/jstype/NamedType.java
+@@ -341,6 +341,7 @@
+       boolean isForwardDeclared =
+           ignoreForwardReferencedTypes &&
+           registry.isForwardDeclaredType(reference);
++      JSType var_2646 = getReferencedType();
+       if (!isForwardDeclared && registry.isLastGeneration()) {
+         t.warning("Bad type annotation. Unknown type " + reference,
+             sourceName, lineno, charno);
+@@ -350,11 +351,11 @@
+                 JSTypeNative.NO_RESOLVED_TYPE));
+ 
+         if (registry.isLastGeneration() && validator != null) {
+-          validator.apply(getReferencedType());
++          validator.apply(var_2646);
+         }
+       }
+ 
+-      setResolvedTypeInternal(getReferencedType());
++      setResolvedTypeInternal(var_2646);
+     } else {
+       setResolvedTypeInternal(this);
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/NamedType.java b/src/com/google/javascript/rhino/jstype/NamedType.java
+index 9fb2191..2d53014 100644
+--- a/src/com/google/javascript/rhino/jstype/NamedType.java
++++ b/src/com/google/javascript/rhino/jstype/NamedType.java
+@@ -341,6 +341,7 @@
+       boolean isForwardDeclared =
+           ignoreForwardReferencedTypes &&
+           registry.isForwardDeclaredType(reference);
++        JSType referencedType = getReferencedType();
+       if (!isForwardDeclared && registry.isLastGeneration()) {
+         t.warning("Bad type annotation. Unknown type " + reference,
+             sourceName, lineno, charno);
+@@ -350,11 +351,11 @@
+                 JSTypeNative.NO_RESOLVED_TYPE));
+ 
+         if (registry.isLastGeneration() && validator != null) {
+-          validator.apply(getReferencedType());
++          validator.apply(referencedType);
+         }
+       }
+ 
+-      setResolvedTypeInternal(getReferencedType());
++      setResolvedTypeInternal(referencedType);
+     } else {
+       setResolvedTypeInternal(this);
+     }

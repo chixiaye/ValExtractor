@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java b/src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java
+index 5b996f9..5e8e269 100644
+--- a/src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java
++++ b/src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java
+@@ -143,9 +143,10 @@
+         continue;
+       }
+       DiGraphNode<N, E> v = e.getDestination();
+-      if (v.getAnnotation() == WHITE) {
++        Annotation annotation = v.getAnnotation();
++        if (annotation == WHITE) {
+         discoverBackEdges(v);
+-      } else if (v.getAnnotation() == GRAY) {
++      } else if (annotation == GRAY) {
+         e.setAnnotation(BACK_EDGE);
+       }
+     }

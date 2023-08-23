@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..d8c7126 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -559,6 +559,7 @@
+             }
+             if (this.beta1 == 0.) {
+                 /* If b = 0 exactly, stop with x = 0. */
++                boolean bIsNull1 = this.bIsNull;
+                 this.bIsNull = true;
+                 return;
+             }

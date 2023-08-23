@@ -1,0 +1,29 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..0c1338b 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1534,7 +1534,8 @@
+       sb.append(namedGroups);
+       boolean rangesStartCharset = !inverted && namedGroups.length() == 0;
+       boolean emitDashAtEnd = false;
+-      for (int i = 0, n = ranges.getNumRanges(); i < n; ++i) {
++        StringBuilder append = sb.append('-');
++        for (int i = 0, n = ranges.getNumRanges(); i < n; ++i) {
+         char start = (char) ranges.start(i);
+         char end = (char) (ranges.end(i) - 1);
+         switch (end - start) {
+@@ -1554,12 +1555,12 @@
+             break;
+           default:
+             escapeRangeCharOnto(start, rangesStartCharset, i == 0, false, sb);
+-            sb.append('-');
++            append;
+             escapeRangeCharOnto(end, rangesStartCharset, false, true, sb);
+             break;
+         }
+       }
+-      if (emitDashAtEnd) { sb.append('-'); }
++      if (emitDashAtEnd) { append; }
+       sb.append(']');
+     }
+ 

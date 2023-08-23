@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..4f55295 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -309,6 +309,7 @@
+                 case Types.DATE:
+                 case Types.TIME:
+                 case Types.TIMESTAMP:
++                    boolean isTimeSeries1 = this.isTimeSeries;
+                     this.isTimeSeries = true;
+                     break;
+                 default :

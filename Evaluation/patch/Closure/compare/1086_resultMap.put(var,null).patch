@@ -1,0 +1,58 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..e10cf47 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -159,7 +159,7 @@
+           // "a" is BOTTOM implies that the variable has more than one possible
+           // definition. We set the join of this to be BOTTOM regardless of what
+           // "b" might be.
+-          resultMap.put(var, null);
++          Definition var_1086 = resultMap.put(var, null);
+           continue;
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..e10cf47 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -159,7 +159,7 @@
+           // "a" is BOTTOM implies that the variable has more than one possible
+           // definition. We set the join of this to be BOTTOM regardless of what
+           // "b" might be.
+-          resultMap.put(var, null);
++          Definition var_1086 = resultMap.put(var, null);
+           continue;
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..d76421b 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -155,11 +155,12 @@
+         Var var = varEntry.getKey();
+         Definition aDef = varEntry.getValue();
+ 
++          Definition put = resultMap.put(var, null);
+         if (aDef == null) {
+           // "a" is BOTTOM implies that the variable has more than one possible
+           // definition. We set the join of this to be BOTTOM regardless of what
+           // "b" might be.
+-          resultMap.put(var, null);
++          put;
+           continue;
+         }
+ 
+@@ -171,7 +172,7 @@
+           if (aDef.equals(bDef)) {
+             resultMap.put(var, aDef);
+           } else {
+-            resultMap.put(var, null);
++            put;
+           }
+         } else {
+           resultMap.put(var, aDef);

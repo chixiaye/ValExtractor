@@ -1,0 +1,17 @@
+diff --git a/tinkergraph-gremlin/src/main/java/com/tinkerpop/gremlin/tinkergraph/process/computer/TinkerGraphComputer.java b/tinkergraph-gremlin/src/main/java/com/tinkerpop/gremlin/tinkergraph/process/computer/TinkerGraphComputer.java
+index a67daac380..dc27ac87e5 100644
+--- a/tinkergraph-gremlin/src/main/java/com/tinkerpop/gremlin/tinkergraph/process/computer/TinkerGraphComputer.java
++++ b/tinkergraph-gremlin/src/main/java/com/tinkerpop/gremlin/tinkergraph/process/computer/TinkerGraphComputer.java
+@@ -108,9 +108,10 @@ public class TinkerGraphComputer implements GraphComputer {
+             keyMapping.forEach((key1, key2) -> {
+                 if (v1.property(key1).isPresent()) {
+                     final Object value = v1.property(key1).value();
+-                    TinkerHelper.getGraphView(((TinkerGraph) originalGraph)).setInUse(false);
++                    TinkerGraphView graphView = TinkerHelper.getGraphView(((TinkerGraph) originalGraph));
++                    graphView.setInUse(false);
+                     v2.property(key2, value);
+-                    TinkerHelper.getGraphView(((TinkerGraph) originalGraph)).setInUse(true);
++                    graphView.setInUse(true);
+                 }
+             });
+         });

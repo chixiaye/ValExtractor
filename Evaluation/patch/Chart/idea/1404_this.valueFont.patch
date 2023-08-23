@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..a016027 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -754,7 +754,8 @@
+         if (f == null) {
+             throw new IllegalArgumentException("Null 'font' argument.");
+         }
+-        if (!this.valueFont.equals(f)) {
++        Font valueFont1 = this.valueFont;
++        if (!valueFont1.equals(f)) {
+             this.valueFont = f;
+             fireChangeEvent();
+         }

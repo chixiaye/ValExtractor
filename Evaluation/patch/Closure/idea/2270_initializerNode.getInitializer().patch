@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..6ed741e 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -1166,8 +1166,9 @@
+     @Override
+     Node processVariableInitializer(VariableInitializer initializerNode) {
+       Node node = transform(initializerNode.getTarget());
+-      if (initializerNode.getInitializer() != null) {
+-        Node initalizer = transform(initializerNode.getInitializer());
++        AstNode initializer = initializerNode.getInitializer();
++        if (initializer != null) {
++        Node initalizer = transform(initializer);
+         node.addChildToBack(initalizer);
+       }
+       return node;

@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..13ff6ac 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -818,18 +818,19 @@
+       case Token.HOOK:
+       case Token.OBJECTLIT:
+       case Token.OR:
+-        if (n.getJSType() != null) { // If we didn't run type inference.
++          boolean objectLit = n.isObjectLit();
++          if (n.getJSType() != null) { // If we didn't run type inference.
+           ensureTyped(t, n);
+         } else {
+           // If this is an enum, then give that type to the objectlit as well.
+-          if ((n.isObjectLit())
++          if (objectLit
+               && (parent.getJSType() instanceof EnumType)) {
+             ensureTyped(t, n, parent.getJSType());
+           } else {
+             ensureTyped(t, n);
+           }
+         }
+-        if (n.isObjectLit()) {
++        if (objectLit) {
+           JSType typ = getJSType(n);
+           for (Node key : n.children()) {
+             visitObjLitKey(t, key, n, typ);

@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..83d17fb 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -159,9 +159,10 @@
+             stateEstimation = processModel.getInitialStateEstimate();
+         }
+ 
+-        if (transitionMatrix.getColumnDimension() != stateEstimation.getDimension()) {
++        int dimension = stateEstimation.getDimension();
++        if (transitionMatrix.getColumnDimension() != dimension) {
+             throw new DimensionMismatchException(transitionMatrix.getColumnDimension(),
+-                                                 stateEstimation.getDimension());
++                    dimension);
+         }
+ 
+         // initialize the error covariance to the process noise if it is not

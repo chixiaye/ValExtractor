@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..bc23db4 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3761,8 +3761,9 @@
+         }
+ 
+         // draw the left axes
++        double width = dataArea.getWidth();
+         cursor = dataArea.getMinX()
+-                 - this.axisOffset.calculateLeftOutset(dataArea.getWidth());
++                 - this.axisOffset.calculateLeftOutset(width);
+         iterator = axisCollection.getAxesAtLeft().iterator();
+         while (iterator.hasNext()) {
+             ValueAxis axis = (ValueAxis) iterator.next();
+@@ -3774,7 +3775,7 @@
+ 
+         // draw the right axes
+         cursor = dataArea.getMaxX()
+-                 + this.axisOffset.calculateRightOutset(dataArea.getWidth());
++                 + this.axisOffset.calculateRightOutset(width);
+         iterator = axisCollection.getAxesAtRight().iterator();
+         while (iterator.hasNext()) {
+             ValueAxis axis = (ValueAxis) iterator.next();

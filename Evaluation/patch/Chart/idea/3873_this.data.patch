@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/gantt/TaskSeriesCollection.java b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+index 882799a..ebf652a 100644
+--- a/source/org/jfree/data/gantt/TaskSeriesCollection.java
++++ b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+@@ -218,9 +218,10 @@
+      */
+     public int getRowIndex(Comparable rowKey) {
+         int result = -1;
+-        int count = this.data.size();
++        List data1 = this.data;
++        int count = data1.size();
+         for (int i = 0; i < count; i++) {
+-            TaskSeries s = (TaskSeries) this.data.get(i);
++            TaskSeries s = (TaskSeries) data1.get(i);
+             if (s.getKey().equals(rowKey)) {
+                 result = i;
+                 break;

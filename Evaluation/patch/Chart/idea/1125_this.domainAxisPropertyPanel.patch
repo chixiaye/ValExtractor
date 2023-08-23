@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..ca6eabb 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -530,7 +530,8 @@
+         plot.setInsets(getPlotInsets());
+ 
+         // then the axis properties...
+-        if (this.domainAxisPropertyPanel != null) {
++        DefaultAxisEditor domainAxisPropertyPanel1 = this.domainAxisPropertyPanel;
++        if (domainAxisPropertyPanel1 != null) {
+             Axis domainAxis = null;
+             if (plot instanceof CategoryPlot) {
+                 CategoryPlot p = (CategoryPlot) plot;
+@@ -541,7 +542,7 @@
+                 domainAxis = p.getDomainAxis();
+             }
+             if (domainAxis != null) {
+-                this.domainAxisPropertyPanel.setAxisProperties(domainAxis);
++                domainAxisPropertyPanel1.setAxisProperties(domainAxis);
+             }
+         }
+ 

@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+index 09e636b..5fc4a51 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+@@ -428,8 +428,8 @@
+                             .toString(years));
+                     lastOutputSeconds = false;
+                 } else if (value == M) {
+-                    buffer.append(padWithZeros ? StringUtils.leftPad(Integer.toString(months), count, '0') : Integer
+-                            .toString(months));
++                    String str = Integer.toString(months);
++                    buffer.append(padWithZeros ? StringUtils.leftPad(str, count, '0') : str);
+                     lastOutputSeconds = false;
+                 } else if (value == d) {
+                     buffer.append(padWithZeros ? StringUtils.leftPad(Integer.toString(days), count, '0') : Integer

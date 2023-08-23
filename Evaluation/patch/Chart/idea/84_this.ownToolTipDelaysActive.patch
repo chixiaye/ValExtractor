@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..7999c15 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1835,7 +1835,8 @@
+      * @param e  the mouse event.
+      */
+     public void mouseEntered(MouseEvent e) {
+-        if (!this.ownToolTipDelaysActive) {
++        boolean ownToolTipDelaysActive1 = this.ownToolTipDelaysActive;
++        if (!ownToolTipDelaysActive1) {
+             ToolTipManager ttm = ToolTipManager.sharedInstance();
+ 
+             this.originalToolTipInitialDelay = ttm.getInitialDelay();

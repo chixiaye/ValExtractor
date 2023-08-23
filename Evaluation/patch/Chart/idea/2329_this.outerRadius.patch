@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/dial/ArcDialFrame.java b/source/org/jfree/chart/plot/dial/ArcDialFrame.java
+index 73ee773..5a1e088 100644
+--- a/source/org/jfree/chart/plot/dial/ArcDialFrame.java
++++ b/source/org/jfree/chart/plot/dial/ArcDialFrame.java
+@@ -359,8 +359,9 @@
+         Rectangle2D innerFrame = DialPlot.rectangleByRadius(frame,
+                 this.innerRadius - radiusMargin, this.innerRadius
+                 - radiusMargin);
++        double outerRadius1 = this.outerRadius;
+         Rectangle2D outerFrame = DialPlot.rectangleByRadius(frame,
+-                this.outerRadius + radiusMargin, this.outerRadius
++                outerRadius1 + radiusMargin, outerRadius1
+                 + radiusMargin);
+         Arc2D inner = new Arc2D.Double(innerFrame, this.startAngle
+                 - angleMargin, this.extent + 2 * angleMargin, Arc2D.OPEN);

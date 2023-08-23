@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java b/src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java
+index 4054904..476d27f 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java
+@@ -203,14 +203,15 @@
+             }
+         };
+ 
++        double solverAbsoluteAccuracy1 = getSolverAbsoluteAccuracy();
+         double x = UnivariateSolverUtils.solve(toSolve,
+                                                    lowerBound,
+                                                    upperBound,
+-                                                   getSolverAbsoluteAccuracy());
++                solverAbsoluteAccuracy1);
+ 
+         if (!isSupportConnected()) {
+             /* Test for plateau. */
+-            final double dx = getSolverAbsoluteAccuracy();
++            final double dx = solverAbsoluteAccuracy1;
+             if (x - dx >= getSupportLowerBound()) {
+                 double px = cumulativeProbability(x);
+                 if (cumulativeProbability(x - dx) == px) {

@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/RenamePrototypes.java b/src/com/google/javascript/jscomp/RenamePrototypes.java
+index c051306..10155bd 100644
+--- a/src/com/google/javascript/jscomp/RenamePrototypes.java
++++ b/src/com/google/javascript/jscomp/RenamePrototypes.java
+@@ -316,16 +316,17 @@
+ 
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+-      switch (n.getType()) {
++        CompilerInput input = t.getInput();
++        switch (n.getType()) {
+         case Token.GETPROP:
+         case Token.GETELEM:
+           Node dest = n.getFirstChild().getNext();
+           if (dest.isString()) {
+             String s = dest.getString();
+             if (s.equals("prototype")) {
+-              processPrototypeParent(parent, t.getInput());
++              processPrototypeParent(parent, input);
+             } else {
+-              markPropertyAccessCandidate(dest, t.getInput());
++              markPropertyAccessCandidate(dest, input);
+             }
+           }
+           break;
+@@ -339,7 +340,7 @@
+                  child = child.getNext()) {
+ 
+               if (TokenStream.isJSIdentifier(child.getString())) {
+-                markObjLitPropertyCandidate(child, t.getInput());
++                markObjLitPropertyCandidate(child, input);
+               }
+             }
+           }

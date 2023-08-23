@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+index 65185d3..514fdba 100644
+--- a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+@@ -128,8 +128,9 @@
+                 luRow[col] = sum;
+ 
+                 // maintain best permutation choice
+-                if (FastMath.abs(sum) > largest) {
+-                    largest = FastMath.abs(sum);
++                double abs = FastMath.abs(sum);
++                if (abs > largest) {
++                    largest = abs;
+                     max = row;
+                 }
+             }

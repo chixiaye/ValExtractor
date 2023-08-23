@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/Years.java b/src/main/java/org/joda/time/Years.java
+index e7faa69..5d131db 100644
+--- a/src/main/java/org/joda/time/Years.java
++++ b/src/main/java/org/joda/time/Years.java
+@@ -326,10 +326,11 @@
+      * @return true if this years instance is greater than the specified one
+      */
+     public boolean isGreaterThan(Years other) {
++        int value = getValue();
+         if (other == null) {
+-            return getValue() > 0;
++            return value > 0;
+         }
+-        return getValue() > other.getValue();
++        return value > other.getValue();
+     }
+ 
+     /**

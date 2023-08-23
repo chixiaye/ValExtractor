@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+index c2c5002..01de13b 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+@@ -328,7 +328,8 @@
+             final double[] hK = householderVectors[k];
+             double xNormSqr = 0;
+             for (int j = k; j < n; ++j) {
+-                final double c = hK[j];
++                double v = hK[j];
++                final double c = v;
+                 xNormSqr += c * c;
+             }
+             final double a = (hK[k] > 0) ? -FastMath.sqrt(xNormSqr) : FastMath.sqrt(xNormSqr);

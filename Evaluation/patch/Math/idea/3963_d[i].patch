@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..f5e169e 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -262,7 +262,8 @@
+                 dpi = wxi * xi;
+                 w = 0.0;
+             }
+-            d[i] = dpi;
++            double v = d[i];
++            v = dpi;
+             for (int k = i + 1; k < nvars; k++) {
+                 xk = x[k];
+                 x[k] = smartAdd(xk, -xi * r[nextr]);

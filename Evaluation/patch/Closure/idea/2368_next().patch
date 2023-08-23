@@ -1,0 +1,39 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..a7e7593 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2043,20 +2043,21 @@
+     }
+ 
+     Node expr = null;
+-    do {
++      JsDocToken next = next();
++      do {
+       if (expr != null) {
+         skipEOLs();
+-        token = next();
++        token = next;
+         Preconditions.checkState(
+             token == JsDocToken.PIPE || token == JsDocToken.COMMA);
+ 
+         boolean isPipe = token == JsDocToken.PIPE;
+         if (isPipe && match(JsDocToken.PIPE)) {
+           // We support double pipes for backwards compatibility.
+-          next();
++          next;
+         }
+         skipEOLs();
+-        token = next();
++        token = next;
+       }
+       expr = parseTypeExpression(token);
+       if (expr == null) {
+@@ -2072,7 +2073,7 @@
+       if (!match(JsDocToken.RP)) {
+         return reportTypeSyntaxWarning("msg.jsdoc.missing.rp");
+       }
+-      next();
++      next;
+     }
+     return union;
+   }

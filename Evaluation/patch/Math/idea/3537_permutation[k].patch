@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..44b91d6 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -893,7 +893,8 @@
+             }
+             int pk                  = permutation[nextColumn];
+             permutation[nextColumn] = permutation[k];
+-            permutation[k]          = pk;
++            int i = permutation[k];
++            i          = pk;
+ 
+             // choose alpha such that Hk.u = alpha ek
+             double akk   = weightedJacobian[k][pk];

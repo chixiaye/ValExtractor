@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..3215473 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -274,10 +274,11 @@
+     options.setTweakProcessing(config.tweakProcessing);
+     createDefineOrTweakReplacements(config.tweak, options, true);
+ 
+-    DependencyOptions depOptions = createDependencyOptions(
++      boolean processCommonJSModules = config.processCommonJSModules;
++      DependencyOptions depOptions = createDependencyOptions(
+         config.manageClosureDependencies,
+         config.onlyClosureDependencies,
+-        config.processCommonJSModules,
++              processCommonJSModules,
+         config.closureEntryPoints);
+     if (depOptions != null) {
+       options.setDependencyOptions(depOptions);
+@@ -358,7 +359,7 @@
+ 
+     options.acceptConstKeyword = config.acceptConstKeyword;
+     options.transformAMDToCJSModules = config.transformAMDToCJSModules;
+-    options.processCommonJSModules = config.processCommonJSModules;
++    options.processCommonJSModules = processCommonJSModules;
+     options.commonJSModulePathPrefix = config.commonJSModulePathPrefix;
+   }
+ 

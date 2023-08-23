@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/GanttRenderer.java b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+index fc9e2ef..c939302 100644
+--- a/source/org/jfree/chart/renderer/category/GanttRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+@@ -319,7 +319,8 @@
+             // DRAW THE BARS...
+             Rectangle2D bar = null;
+             RectangleEdge barBase = null;
+-            if (plot.getOrientation() == PlotOrientation.HORIZONTAL) {
++            PlotOrientation horizontal = PlotOrientation.HORIZONTAL;
++            if (plot.getOrientation() == horizontal) {
+                 bar = new Rectangle2D.Double(translatedValue0, rectStart,
+                         rectLength, rectBreadth);
+                 barBase = RectangleEdge.LEFT;
+@@ -338,7 +339,7 @@
+             double end = getEndPercent();
+             if (percent != null) {
+                 double p = percent.doubleValue();
+-                if (orientation == PlotOrientation.HORIZONTAL) {
++                if (orientation == horizontal) {
+                     completeBar = new Rectangle2D.Double(translatedValue0,
+                             rectStart + start * rectBreadth, rectLength * p,
+                             rectBreadth * (end - start));

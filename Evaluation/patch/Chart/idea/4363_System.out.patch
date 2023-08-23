@@ -1,0 +1,37 @@
+diff --git a/source/org/jfree/data/xml/DatasetReader.java b/source/org/jfree/data/xml/DatasetReader.java
+index 3b45b51..efa3226 100644
+--- a/source/org/jfree/data/xml/DatasetReader.java
++++ b/source/org/jfree/data/xml/DatasetReader.java
+@@ -40,10 +40,7 @@
+ 
+ package org.jfree.data.xml;
+ 
+-import java.io.File;
+-import java.io.FileInputStream;
+-import java.io.IOException;
+-import java.io.InputStream;
++import java.io.*;
+ 
+ import javax.xml.parsers.ParserConfigurationException;
+ import javax.xml.parsers.SAXParser;
+@@ -133,6 +130,7 @@
+         CategoryDataset result = null;
+ 
+         SAXParserFactory factory = SAXParserFactory.newInstance();
++        PrintStream out = System.out;
+         try {
+             SAXParser parser = factory.newSAXParser();
+             CategoryDatasetHandler handler = new CategoryDatasetHandler();
+@@ -140,10 +138,10 @@
+             result = handler.getDataset();
+         }
+         catch (SAXException e) {
+-            System.out.println(e.getMessage());
++            out.println(e.getMessage());
+         }
+         catch (ParserConfigurationException e2) {
+-            System.out.println(e2.getMessage());
++            out.println(e2.getMessage());
+         }
+         return result;
+ 

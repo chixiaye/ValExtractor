@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..ac81e72 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1921,8 +1921,9 @@
+      * @return A hash code.
+      */
+     public int hashCode() {
+-        if (getLabel() != null) {
+-            return getLabel().hashCode();
++        String label = getLabel();
++        if (label != null) {
++            return label.hashCode();
+         }
+         else {
+             return 0;

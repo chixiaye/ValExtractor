@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..3308b5c 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -250,9 +250,10 @@
+         }
+         else if (this.equals(ItemLabelAnchor.INSIDE12)) {
+             result = ItemLabelAnchor.INSIDE12;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE1)) {
+-            result = ItemLabelAnchor.OUTSIDE1;
++        } else {
++			ItemLabelAnchor var_1215 = ItemLabelAnchor.OUTSIDE1;
++			if (this.equals(var_1215)) {
++			    result = var_1215;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE2)) {
+             result = ItemLabelAnchor.OUTSIDE2;
+@@ -287,6 +288,7 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..3308b5c 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -250,9 +250,10 @@
+         }
+         else if (this.equals(ItemLabelAnchor.INSIDE12)) {
+             result = ItemLabelAnchor.INSIDE12;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE1)) {
+-            result = ItemLabelAnchor.OUTSIDE1;
++        } else {
++			ItemLabelAnchor var_1215 = ItemLabelAnchor.OUTSIDE1;
++			if (this.equals(var_1215)) {
++			    result = var_1215;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE2)) {
+             result = ItemLabelAnchor.OUTSIDE2;
+@@ -287,6 +288,7 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..d6b4223 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -251,8 +251,10 @@
+         else if (this.equals(ItemLabelAnchor.INSIDE12)) {
+             result = ItemLabelAnchor.INSIDE12;
+         }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE1)) {
+-            result = ItemLabelAnchor.OUTSIDE1;
++        else {
++            ItemLabelAnchor outside1 = ItemLabelAnchor.OUTSIDE1;
++            if (this.equals(outside1)) {
++                result = outside1;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE2)) {
+             result = ItemLabelAnchor.OUTSIDE2;
+@@ -287,6 +289,7 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++        }
+         return result;
+     }
+ 

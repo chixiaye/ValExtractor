@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..611a42d 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -607,8 +607,9 @@
+ 
+         Rectangle2D dataArea = info.getDataArea();
+         if (dataArea.contains(x, y)) {
+-            for (int i = 0; i < this.subplots.size(); i++) {
+-                CategoryPlot subplot = (CategoryPlot) this.subplots.get(i);
++            List subplots1 = this.subplots;
++            for (int i = 0; i < subplots1.size(); i++) {
++                CategoryPlot subplot = (CategoryPlot) subplots1.get(i);
+                 PlotRenderingInfo subplotInfo = info.getSubplotInfo(i);
+                 subplot.handleClick(x, y, subplotInfo);
+             }

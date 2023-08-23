@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ui/BasicProjectInfo.java b/source/org/jfree/chart/ui/BasicProjectInfo.java
+index cc45be5..856944e 100644
+--- a/source/org/jfree/chart/ui/BasicProjectInfo.java
++++ b/source/org/jfree/chart/ui/BasicProjectInfo.java
+@@ -240,8 +240,9 @@
+      * @return the list of libraries.
+      */
+     public Library[] getLibraries() {
+-        return (Library[]) this.libraries.toArray
+-                (new Library[this.libraries.size()]);
++        List libraries1 = this.libraries;
++        return (Library[]) libraries1.toArray
++                (new Library[libraries1.size()]);
+     }
+ 
+     /**

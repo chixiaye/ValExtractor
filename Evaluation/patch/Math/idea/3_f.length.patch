@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..fd745da 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -74,10 +74,12 @@
+     public static UnivariateDifferentiableFunction compose(final UnivariateDifferentiableFunction ... f) {
+         return new UnivariateDifferentiableFunction() {
+ 
++            private final int length = f.length;
++
+             /** {@inheritDoc} */
+             public double value(final double t) {
+                 double r = t;
+-                for (int i = f.length - 1; i >= 0; i--) {
++                for (int i = length - 1; i >= 0; i--) {
+                     r = f[i].value(r);
+                 }
+                 return r;
+@@ -86,7 +88,7 @@
+             /** {@inheritDoc} */
+             public DerivativeStructure value(final DerivativeStructure t) {
+                 DerivativeStructure r = t;
+-                for (int i = f.length - 1; i >= 0; i--) {
++                for (int i = length - 1; i >= 0; i--) {
+                     r = f[i].value(r);
+                 }
+                 return r;

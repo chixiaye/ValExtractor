@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+index 317947b..a85e720 100644
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -307,7 +307,8 @@
+    */
+   static private void moveAllFollowing(
+       Node start, Node srcParent, Node destParent) {
+-    for (Node n = start.getNext(); n != null; n = start.getNext()) {
++      Node next = start.getNext();
++      for (Node n = next; n != null; n = next) {
+       boolean isFunctionDeclaration =
+           NodeUtil.isFunctionDeclaration(n);
+ 

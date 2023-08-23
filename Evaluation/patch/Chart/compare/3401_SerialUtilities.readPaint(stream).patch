@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/title/LegendTitle.java b/source/org/jfree/chart/title/LegendTitle.java
+index 674edcc..294cf95 100644
+--- a/source/org/jfree/chart/title/LegendTitle.java
++++ b/source/org/jfree/chart/title/LegendTitle.java
+@@ -648,7 +648,8 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
++        Paint var_3401 = SerialUtilities.readPaint(stream);
++		this.backgroundPaint = var_3401;
+         this.itemPaint = SerialUtilities.readPaint(stream);
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/title/LegendTitle.java b/source/org/jfree/chart/title/LegendTitle.java
+index 674edcc..c502605 100644
+--- a/source/org/jfree/chart/title/LegendTitle.java
++++ b/source/org/jfree/chart/title/LegendTitle.java
+@@ -648,8 +648,9 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.itemPaint = SerialUtilities.readPaint(stream);
++        Paint var_3401 = SerialUtilities.readPaint(stream);
++		this.backgroundPaint = var_3401;
++        this.itemPaint = var_3401;
+     }
+ 
+ }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/title/LegendTitle.java b/source/org/jfree/chart/title/LegendTitle.java
+index 674edcc..6ec5cce 100644
+--- a/source/org/jfree/chart/title/LegendTitle.java
++++ b/source/org/jfree/chart/title/LegendTitle.java
+@@ -648,8 +648,9 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.itemPaint = SerialUtilities.readPaint(stream);
++        Paint backgroundPaint1 = SerialUtilities.readPaint(stream);
++        this.backgroundPaint = backgroundPaint1;
++        this.itemPaint = backgroundPaint1;
+     }
+ 
+ }

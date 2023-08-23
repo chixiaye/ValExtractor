@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYSeriesCollection.java b/source/org/jfree/data/xy/XYSeriesCollection.java
+index 17136b3..95b0605 100644
+--- a/source/org/jfree/data/xy/XYSeriesCollection.java
++++ b/source/org/jfree/data/xy/XYSeriesCollection.java
+@@ -112,6 +112,7 @@
+      * @param series  the series (<code>null</code> ignored).
+      */
+     public XYSeriesCollection(XYSeries series) {
++        List data1 = this.data;
+         this.data = new java.util.ArrayList();
+         this.intervalDelegate = new IntervalXYDelegate(this, false);
+         addChangeListener(this.intervalDelegate);

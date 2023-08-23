@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/block/BorderArrangement.java b/source/org/jfree/chart/block/BorderArrangement.java
+index b3ae54b..2a74ceb 100644
+--- a/source/org/jfree/chart/block/BorderArrangement.java
++++ b/source/org/jfree/chart/block/BorderArrangement.java
+@@ -381,7 +381,8 @@
+             // height required for the top and bottom, and the width required
+             // by the left and right
+             Size2D size = this.centerBlock.arrange(g2, c5);
+-            w[4] = size.width;
++            double v = w[4];
++            v = size.width;
+             h[4] = size.height;
+         }
+         double width = Math.max(w[0], Math.max(w[1], w[2] + w[4] + w[3]));

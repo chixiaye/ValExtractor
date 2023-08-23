@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..a9dd3ac 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1511,8 +1511,9 @@
+         }
+       }
+ 
+-      if (info.thrownTypes != null) {
+-        for (JSTypeExpression thrownType : info.thrownTypes) {
++        List<JSTypeExpression> thrownTypes = info.thrownTypes;
++        if (thrownTypes != null) {
++        for (JSTypeExpression thrownType : thrownTypes) {
+           if (thrownType != null) {
+             nodes.add(thrownType.getRoot());
+           }

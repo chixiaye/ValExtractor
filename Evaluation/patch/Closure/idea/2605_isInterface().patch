@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..d427aae 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -861,11 +861,12 @@
+    * constructor).
+    */
+   public ObjectType getTopMostDefiningType(String propertyName) {
+-    Preconditions.checkState(isConstructor() || isInterface());
++      boolean anInterface = isInterface();
++      Preconditions.checkState(isConstructor() || anInterface);
+     Preconditions.checkArgument(getInstanceType().hasProperty(propertyName));
+     FunctionType ctor = this;
+ 
+-    if (isInterface()) {
++    if (anInterface) {
+       return getTopDefiningInterface(getInstanceType(), propertyName);
+     }
+ 

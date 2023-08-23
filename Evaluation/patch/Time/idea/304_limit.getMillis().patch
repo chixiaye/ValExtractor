@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/chrono/LimitChronology.java b/src/main/java/org/joda/time/chrono/LimitChronology.java
+index 89325ad..17f10e8 100644
+--- a/src/main/java/org/joda/time/chrono/LimitChronology.java
++++ b/src/main/java/org/joda/time/chrono/LimitChronology.java
+@@ -282,10 +282,11 @@
+ 
+     void checkLimits(long instant, String desc) {
+         DateTime limit;
+-        if ((limit = iLowerLimit) != null && instant < limit.getMillis()) {
++        long millis = limit.getMillis();
++        if ((limit = iLowerLimit) != null && instant < millis) {
+             throw new LimitException(desc, true);
+         }
+-        if ((limit = iUpperLimit) != null && instant >= limit.getMillis()) {
++        if ((limit = iUpperLimit) != null && instant >= millis) {
+             throw new LimitException(desc, false);
+         }
+     }

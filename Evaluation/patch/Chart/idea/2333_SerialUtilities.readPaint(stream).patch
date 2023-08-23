@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialCap.java b/source/org/jfree/chart/plot/dial/DialCap.java
+index 619f376..ffb48b0 100644
+--- a/source/org/jfree/chart/plot/dial/DialCap.java
++++ b/source/org/jfree/chart/plot/dial/DialCap.java
+@@ -334,8 +334,9 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.fillPaint = SerialUtilities.readPaint(stream);
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
++        Paint fillPaint1 = SerialUtilities.readPaint(stream);
++        this.fillPaint = fillPaint1;
++        this.outlinePaint = fillPaint1;
+         this.outlineStroke = SerialUtilities.readStroke(stream);
+     }
+ 

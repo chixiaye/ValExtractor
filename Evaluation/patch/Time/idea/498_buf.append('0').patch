@@ -1,0 +1,44 @@
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..f9a9c9f 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -47,13 +47,14 @@
+      * @param size minumum amount of digits to append
+      */
+     public static void appendPaddedInteger(StringBuffer buf, int value, int size) {
++        StringBuffer append = buf.append('0');
+         if (value < 0) {
+             buf.append('-');
+             if (value != Integer.MIN_VALUE) {
+                 value = -value;
+             } else {
+                 for (; size > 10; size--) {
+-                    buf.append('0');
++                    append;
+                 }
+                 buf.append("" + -(long)Integer.MIN_VALUE);
+                 return;
+@@ -61,12 +62,12 @@
+         }
+         if (value < 10) {
+             for (; size > 1; size--) {
+-                buf.append('0');
++                append;
+             }
+             buf.append((char)(value + '0'));
+         } else if (value < 100) {
+             for (; size > 2; size--) {
+-                buf.append('0');
++                append;
+             }
+             // Calculate value div/mod by 10 without using two expensive
+             // division operations. (2 ^ 27) / 10 = 13421772. Add one to
+@@ -85,7 +86,7 @@
+                 digits = (int)(Math.log(value) / LOG_10) + 1;
+             }
+             for (; size > digits; size--) {
+-                buf.append('0');
++                append;
+             }
+             buf.append(Integer.toString(value));
+         }

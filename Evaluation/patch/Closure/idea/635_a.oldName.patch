@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/RenameVars.java b/src/com/google/javascript/jscomp/RenameVars.java
+index 27c69c3..0638de2 100644
+--- a/src/com/google/javascript/jscomp/RenameVars.java
++++ b/src/com/google/javascript/jscomp/RenameVars.java
+@@ -516,10 +516,11 @@
+     a.setNewName(newName);
+ 
+     // Keep track of the mapping
+-    renameMap.put(a.oldName, newName);
++      String oldName = a.oldName;
++      renameMap.put(oldName, newName);
+ 
+     // Log the mapping
+-    assignmentLog.append(a.oldName).append(" => ").append(newName).append('\n');
++    assignmentLog.append(oldName).append(" => ").append(newName).append('\n');
+   }
+ 
+   /**

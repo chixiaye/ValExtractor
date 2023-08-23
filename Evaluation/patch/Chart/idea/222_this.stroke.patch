@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYShapeAnnotation.java b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+index 2fae007..68923a7 100644
+--- a/source/org/jfree/chart/annotations/XYShapeAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+@@ -258,8 +258,9 @@
+     public int hashCode() {
+         int result = 193;
+         result = 37 * result + this.shape.hashCode();
+-        if (this.stroke != null) {
+-            result = 37 * result + this.stroke.hashCode();
++        Stroke stroke1 = this.stroke;
++        if (stroke1 != null) {
++            result = 37 * result + stroke1.hashCode();
+         }
+         result = 37 * result + HashUtilities.hashCodeForPaint(
+                 this.outlinePaint);

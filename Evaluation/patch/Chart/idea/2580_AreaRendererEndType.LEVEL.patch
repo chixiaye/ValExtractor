@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/AreaRenderer.java b/source/org/jfree/chart/renderer/category/AreaRenderer.java
+index 46547b7..d1ad324 100644
+--- a/source/org/jfree/chart/renderer/category/AreaRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AreaRenderer.java
+@@ -258,7 +258,8 @@
+         double yy1 = value.doubleValue();
+ 
+         double yy0 = 0.0;
+-        if (this.endType == AreaRendererEndType.LEVEL) {
++        AreaRendererEndType level = AreaRendererEndType.LEVEL;
++        if (this.endType == level) {
+             yy0 = yy1;
+         }
+         if (column > 0) {
+@@ -275,7 +276,7 @@
+                 yy2 = (n2.doubleValue() + yy1) / 2.0;
+             }
+         }
+-        else if (this.endType == AreaRendererEndType.LEVEL) {
++        else if (this.endType == level) {
+             yy2 = yy1;
+         }
+ 

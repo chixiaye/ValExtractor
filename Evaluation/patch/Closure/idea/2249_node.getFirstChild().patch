@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..50c65e4 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -700,8 +700,9 @@
+         node.addChildToBack(transform(child));
+       }
+ 
+-      node.setLineno(node.getFirstChild().getLineno());
+-      node.setCharno(node.getFirstChild().getCharno());
++        Node firstChild = node.getFirstChild();
++        node.setLineno(firstChild.getLineno());
++      node.setCharno(firstChild.getCharno());
+       maybeSetLengthFrom(node, callNode);
+       return node;
+     }

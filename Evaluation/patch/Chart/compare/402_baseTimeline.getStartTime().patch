@@ -1,0 +1,94 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..f6c6360 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -559,8 +559,9 @@
+                 throw new IllegalArgumentException(
+                         "baseTimeline.getSegmentSize() "
+                         + "is smaller than segmentSize");
+-            }
+-            else if (baseTimeline.getStartTime() > this.startTime) {
++            } else {
++				long var_402 = baseTimeline.getStartTime();
++				if (var_402 > this.startTime) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline.getStartTime() is after startTime");
+             }
+@@ -570,11 +571,12 @@
+                         + "segmentSize");
+             }
+             else if (((this.startTime
+-                    - baseTimeline.getStartTime()) % this.segmentSize) != 0) {
++				        - var_402) % this.segmentSize) != 0) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline is not aligned");
+             }
+         }
++        }
+ 
+         this.baseTimeline = baseTimeline;
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..f6c6360 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -559,8 +559,9 @@
+                 throw new IllegalArgumentException(
+                         "baseTimeline.getSegmentSize() "
+                         + "is smaller than segmentSize");
+-            }
+-            else if (baseTimeline.getStartTime() > this.startTime) {
++            } else {
++				long var_402 = baseTimeline.getStartTime();
++				if (var_402 > this.startTime) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline.getStartTime() is after startTime");
+             }
+@@ -570,11 +571,12 @@
+                         + "segmentSize");
+             }
+             else if (((this.startTime
+-                    - baseTimeline.getStartTime()) % this.segmentSize) != 0) {
++				        - var_402) % this.segmentSize) != 0) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline is not aligned");
+             }
+         }
++        }
+ 
+         this.baseTimeline = baseTimeline;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..50ded0f 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -560,7 +560,9 @@
+                         "baseTimeline.getSegmentSize() "
+                         + "is smaller than segmentSize");
+             }
+-            else if (baseTimeline.getStartTime() > this.startTime) {
++            else {
++                long startTime1 = baseTimeline.getStartTime();
++                if (startTime1 > this.startTime) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline.getStartTime() is after startTime");
+             }
+@@ -570,11 +572,12 @@
+                         + "segmentSize");
+             }
+             else if (((this.startTime
+-                    - baseTimeline.getStartTime()) % this.segmentSize) != 0) {
++                        - startTime1) % this.segmentSize) != 0) {
+                 throw new IllegalArgumentException(
+                         "baseTimeline is not aligned");
+             }
+         }
++        }
+ 
+         this.baseTimeline = baseTimeline;
+     }

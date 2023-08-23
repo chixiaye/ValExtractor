@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/CompilerInput.java b/src/com/google/javascript/jscomp/CompilerInput.java
+index 4259a88..b4675bb 100644
+--- a/src/com/google/javascript/jscomp/CompilerInput.java
++++ b/src/com/google/javascript/jscomp/CompilerInput.java
+@@ -341,10 +341,11 @@
+   }
+ 
+   void setIsExtern(boolean isExtern) {
+-    if (ast == null || ast.getSourceFile() == null) {
++      SourceFile sourceFile = ast.getSourceFile();
++      if (ast == null || sourceFile == null) {
+       return;
+     }
+-    ast.getSourceFile().setIsExtern(isExtern);
++    sourceFile.setIsExtern(isExtern);
+   }
+ 
+   public int getLineOffset(int lineno) {

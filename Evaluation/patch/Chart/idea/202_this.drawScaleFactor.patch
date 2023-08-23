@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/annotations/XYDrawableAnnotation.java b/source/org/jfree/chart/annotations/XYDrawableAnnotation.java
+index 1a40308..d02f6e7 100644
+--- a/source/org/jfree/chart/annotations/XYDrawableAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYDrawableAnnotation.java
+@@ -166,13 +166,14 @@
+         // to a larger area and scale it down into the display area
+         // afterwards, the original transform is restored
+         AffineTransform savedTransform = g2.getTransform();
++        double drawScaleFactor1 = this.drawScaleFactor;
+         Rectangle2D drawArea = new Rectangle2D.Double(0.0, 0.0,
+-                this.displayWidth * this.drawScaleFactor,
+-                this.displayHeight * this.drawScaleFactor);
++                this.displayWidth * drawScaleFactor1,
++                this.displayHeight * drawScaleFactor1);
+ 
+-        g2.scale(1 / this.drawScaleFactor, 1 / this.drawScaleFactor);
+-        g2.translate((j2DX - this.displayWidth / 2.0) * this.drawScaleFactor,
+-                (j2DY - this.displayHeight / 2.0) * this.drawScaleFactor);
++        g2.scale(1 / drawScaleFactor1, 1 / drawScaleFactor1);
++        g2.translate((j2DX - this.displayWidth / 2.0) * drawScaleFactor1,
++                (j2DY - this.displayHeight / 2.0) * drawScaleFactor1);
+         this.drawable.draw(g2, drawArea);
+         g2.setTransform(savedTransform);
+         String toolTip = getToolTipText();

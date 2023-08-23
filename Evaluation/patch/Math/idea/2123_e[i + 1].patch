@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..ded8505 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -638,7 +638,8 @@
+                         if (FastMath.abs(p) >= FastMath.abs(q)) {
+                             c = q / p;
+                             t = FastMath.sqrt(c * c + 1.0);
+-                            e[i + 1] = p * t;
++                            double v = e[i + 1];
++                            v = p * t;
+                             s = 1.0 / t;
+                             c = c * s;
+                         } else {

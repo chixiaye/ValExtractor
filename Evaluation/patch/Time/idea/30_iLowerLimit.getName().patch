@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/DateTimeComparator.java b/src/main/java/org/joda/time/DateTimeComparator.java
+index 646918f..8fde165 100644
+--- a/src/main/java/org/joda/time/DateTimeComparator.java
++++ b/src/main/java/org/joda/time/DateTimeComparator.java
+@@ -259,13 +259,14 @@
+      * @return a debugging string
+      */
+     public String toString() {
++        String name = iLowerLimit.getName();
+         if (iLowerLimit == iUpperLimit) {
+             return "DateTimeComparator["
+-                + (iLowerLimit == null ? "" : iLowerLimit.getName())
++                + (iLowerLimit == null ? "" : name)
+                 + "]";
+         } else {
+             return "DateTimeComparator["
+-                + (iLowerLimit == null ? "" : iLowerLimit.getName())
++                + (iLowerLimit == null ? "" : name)
+                 + "-"
+                 + (iUpperLimit == null ? "" : iUpperLimit.getName())
+                 + "]";

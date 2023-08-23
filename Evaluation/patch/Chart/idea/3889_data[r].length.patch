@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..e401048 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -444,7 +444,8 @@
+         }
+         int columnCount = 0;
+         for (int r = 0; r < data.length; r++) {
+-            columnCount = Math.max(columnCount, data[r].length);
++            int length = data[r].length;
++            columnCount = Math.max(columnCount, length);
+         }
+         if (columnKeys.length != columnCount) {
+             throw new IllegalArgumentException(

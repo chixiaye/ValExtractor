@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..41c0053 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1374,7 +1374,8 @@
+     }
+ 
+     stream.update();
+-    int startLineno = stream.getLineno();
++      int lineno = stream.getLineno();
++      int startLineno = lineno;
+     int startCharno = stream.getCharno() + 1;
+ 
+     // Read the content from the first line.
+@@ -1454,7 +1455,7 @@
+               multilineText = multilineText.trim();
+             }
+ 
+-            int endLineno = stream.getLineno();
++            int endLineno = lineno;
+             int endCharno = stream.getCharno();
+ 
+             if (multilineText.length() > 0) {

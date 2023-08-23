@@ -1,0 +1,19 @@
+diff --git a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+index a96dac4..da0dff7 100644
+--- a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
++++ b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+@@ -203,11 +203,12 @@
+         if (genericReturnType instanceof Class) {
+             return new NotGenericReturnTypeSupport(genericReturnType);
+         }
++        TypeVariable<Method>[] typeParameters = method.getTypeParameters();
+         if (genericReturnType instanceof ParameterizedType) {
+-            return new ParameterizedReturnType(this, method.getTypeParameters(), (ParameterizedType) method.getGenericReturnType());
++            return new ParameterizedReturnType(this, typeParameters, (ParameterizedType) method.getGenericReturnType());
+         }
+         if (genericReturnType instanceof TypeVariable) {
+-            return new TypeVariableReturnType(this, method.getTypeParameters(), (TypeVariable) genericReturnType);
++            return new TypeVariableReturnType(this, typeParameters, (TypeVariable) genericReturnType);
+         }
+ 
+         throw new MockitoException("Ouch, it shouldn't happen, type '" + genericReturnType.getClass().getCanonicalName() + "' on method : '" + method.toGenericString() + "' is not supported : " + genericReturnType);

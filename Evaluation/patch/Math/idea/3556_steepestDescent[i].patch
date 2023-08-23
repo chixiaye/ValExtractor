@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer.java
+index dc7c8b2..28a138b 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/NonLinearConjugateGradientOptimizer.java
+@@ -217,7 +217,8 @@
+             } else {
+                 double deltaMid = 0;
+                 for (int i = 0; i < r.length; ++i) {
+-                    deltaMid += r[i] * steepestDescent[i];
++                    double v = steepestDescent[i];
++                    deltaMid += r[i] * v;
+                 }
+                 beta = (delta - deltaMid) / deltaOld;
+             }

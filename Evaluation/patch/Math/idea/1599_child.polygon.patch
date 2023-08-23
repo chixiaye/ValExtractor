@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/NestedLoops.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/NestedLoops.java
+index 5bf445c..34b0006 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/NestedLoops.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/NestedLoops.java
+@@ -132,7 +132,8 @@
+         // check if we can absorb some of the instance children
+         for (final Iterator<NestedLoops> iterator = surrounded.iterator(); iterator.hasNext();) {
+             final NestedLoops child = iterator.next();
+-            if (node.polygon.contains(child.polygon)) {
++            Region<Euclidean2D> polygon1 = child.polygon;
++            if (node.polygon.contains(polygon1)) {
+                 node.surrounded.add(child);
+                 iterator.remove();
+             }

@@ -1,0 +1,40 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..be8dfca 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -433,22 +433,23 @@
+         LengthConstraintType w = cc.getWidthConstraintType();
+         LengthConstraintType h = cc.getHeightConstraintType();
+         Size2D contentSize = null;
++        LengthConstraintType range = LengthConstraintType.RANGE;
+         if (w == LengthConstraintType.NONE) {
+             if (h == LengthConstraintType.NONE) {
+                 contentSize = new Size2D(getWidth(), getHeight());
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+         }
+-        else if (w == LengthConstraintType.RANGE) {
++        else if (w == range) {
+             if (h == LengthConstraintType.NONE) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 contentSize = arrangeRR(g2, cc.getWidthRange(),
+                         cc.getHeightRange());
+             }
+@@ -460,7 +461,7 @@
+             if (h == LengthConstraintType.NONE) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not yet implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {

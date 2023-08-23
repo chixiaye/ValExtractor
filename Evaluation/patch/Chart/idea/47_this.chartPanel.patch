@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/MouseWheelHandler.java b/source/org/jfree/chart/MouseWheelHandler.java
+index 458a892..f57450e 100644
+--- a/source/org/jfree/chart/MouseWheelHandler.java
++++ b/source/org/jfree/chart/MouseWheelHandler.java
+@@ -74,6 +74,7 @@
+      * @param chartPanel  the chart panel (<code>null</code> not permitted).
+      */
+     public MouseWheelHandler(ChartPanel chartPanel) {
++        ChartPanel chartPanel1 = this.chartPanel;
+         this.chartPanel = chartPanel;
+         this.zoomFactor = 0.10;
+         this.chartPanel.addMouseWheelListener(this);

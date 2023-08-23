@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..1b22a1e 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -576,7 +576,8 @@
+     private static int greatestCommonDivisor(int u, int v) {
+         // From Commons Math:
+         if (u == 0 || v == 0) {
+-            if (u == Integer.MIN_VALUE || v == Integer.MIN_VALUE) {
++            int minValue = Integer.MIN_VALUE;
++            if (u == minValue || v == minValue) {
+                 throw new ArithmeticException("overflow: gcd is 2^31");
+             }
+             return Math.abs(u) + Math.abs(v);

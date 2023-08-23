@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
+index ac1e894..43f9f23 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
+@@ -294,12 +294,13 @@
+         @SuppressWarnings("unchecked")
+         final BoundaryAttribute<Euclidean3D> attribute =
+             (BoundaryAttribute<Euclidean3D>) node.getAttribute();
++        Location inside = Location.INSIDE;
+         if ((attribute.getPlusOutside() != null) &&
+-            (((SubPlane) attribute.getPlusOutside()).getRemainingRegion().checkPoint(point2D) == Location.INSIDE)) {
++            (((SubPlane) attribute.getPlusOutside()).getRemainingRegion().checkPoint(point2D) == inside)) {
+             return attribute.getPlusOutside();
+         }
+         if ((attribute.getPlusInside() != null) &&
+-            (((SubPlane) attribute.getPlusInside()).getRemainingRegion().checkPoint(point2D) == Location.INSIDE)) {
++            (((SubPlane) attribute.getPlusInside()).getRemainingRegion().checkPoint(point2D) == inside)) {
+             return attribute.getPlusInside();
+         }
+         return null;

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java b/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
+index 46cfbef..22ba902 100644
+--- a/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
++++ b/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
+@@ -204,7 +204,8 @@
+      */
+     public int hashCode() {
+         int result;
+-        result = (this.prefix != null ? this.prefix.hashCode() : 0);
++        String prefix1 = this.prefix;
++        result = (prefix1 != null ? prefix1.hashCode() : 0);
+         result = 29 * result
+             + (this.seriesParameterName != null
+                     ? this.seriesParameterName.hashCode() : 0);

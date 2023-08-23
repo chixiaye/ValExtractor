@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RealVector.java b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+index d8e5017..7242922 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+@@ -187,10 +187,11 @@
+      * @exception OutOfRangeException if {@code index} is not valid.
+      */
+     protected void checkIndex(final int index) throws OutOfRangeException {
++        int dimension = getDimension();
+         if (index < 0 ||
+-            index >= getDimension()) {
++            index >= dimension) {
+             throw new OutOfRangeException(LocalizedFormats.INDEX,
+-                                          index, 0, getDimension() - 1);
++                                          index, 0, dimension - 1);
+         }
+     }
+ 

@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+index 6ed0a41..d20ab5f 100644
+--- a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
++++ b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+@@ -140,7 +140,7 @@
+             Number number = (Number) iterator.next();
+             double value = number.doubleValue();
+             if (value > upperOutlierThreshold) {
+-                outliers.add(number);
++                boolean var_4019 = outliers.add(number);
+                 if (value > maxOutlier && value <= upperFaroutThreshold) {
+                     maxOutlier = value;
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+index 6ed0a41..d20ab5f 100644
+--- a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
++++ b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+@@ -140,7 +140,7 @@
+             Number number = (Number) iterator.next();
+             double value = number.doubleValue();
+             if (value > upperOutlierThreshold) {
+-                outliers.add(number);
++                boolean var_4019 = outliers.add(number);
+                 if (value > maxOutlier && value <= upperFaroutThreshold) {
+                     maxOutlier = value;
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+index 6ed0a41..2edbc78 100644
+--- a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
++++ b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+@@ -139,14 +139,15 @@
+         while (iterator.hasNext()) {
+             Number number = (Number) iterator.next();
+             double value = number.doubleValue();
++            boolean add = outliers.add(number);
+             if (value > upperOutlierThreshold) {
+-                outliers.add(number);
++                add;
+                 if (value > maxOutlier && value <= upperFaroutThreshold) {
+                     maxOutlier = value;
+                 }
+             }
+             else if (value < lowerOutlierThreshold) {
+-                outliers.add(number);
++                add;
+                 if (value < minOutlier && value >= lowerFaroutThreshold) {
+                     minOutlier = value;
+                 }

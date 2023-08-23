@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..2941d66 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -292,11 +292,12 @@
+         fields.monthOfYear = new GJMonthOfYearDateTimeField(this);
+         fields.weekyear = new BasicWeekyearDateTimeField(this);
+         fields.weekOfWeekyear = new BasicWeekOfWeekyearDateTimeField(this, fields.weeks);
+-        
++
++        DateTimeFieldType type = DateTimeFieldType.weekyearOfCentury();
+         field = new RemainderDateTimeField(
+-            fields.weekyear, fields.centuries, DateTimeFieldType.weekyearOfCentury(), 100);
++            fields.weekyear, fields.centuries, type, 100);
+         fields.weekyearOfCentury = new OffsetDateTimeField(
+-            field, DateTimeFieldType.weekyearOfCentury(), 1);
++            field, type, 1);
+         
+         // The remaining (imprecise) durations are available from the newly
+         // created datetime fields.

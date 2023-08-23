@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.java b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.java
+index f420132..02cc547 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/SemiVariance.java
+@@ -276,8 +276,9 @@
+                 double dev = 0.0;
+                 double sumsq = 0.0;
+                 for (int i = start; i < length; i++) {
+-                    if ((values[i] > cutoff) == booleanDirection) {
+-                       dev = values[i] - cutoff;
++                    double value = values[i];
++                    if ((value > cutoff) == booleanDirection) {
++                       dev = value - cutoff;
+                        sumsq += dev * dev;
+                     }
+                 }

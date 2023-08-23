@@ -1,0 +1,39 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..4a33f1c 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1128,15 +1128,16 @@
+         int midX = (int) (interior.getX() + (interior.getWidth() / 2));
+         int midY = (int) (interior.getY() + (interior.getHeight() / 2));
+         int stemTop = (int) (interior.getMinY() + getBulbRadius());
+-        int stemBottom = (int) (interior.getMaxY() - getBulbDiameter());
++        int bulbDiameter = getBulbDiameter();
++        int stemBottom = (int) (interior.getMaxY() - bulbDiameter);
+         Rectangle2D dataArea = new Rectangle2D.Double(midX - getColumnRadius(),
+                 stemTop, getColumnRadius(), stemBottom - stemTop);
+ 
+         outerBulb.setFrame(midX - getBulbRadius(), stemBottom,
+-                getBulbDiameter(), getBulbDiameter());
++                bulbDiameter, bulbDiameter);
+ 
+         outerStem.setRoundRect(midX - getColumnRadius(), interior.getMinY(),
+-                getColumnDiameter(), stemBottom + getBulbDiameter() - stemTop,
++                getColumnDiameter(), stemBottom + bulbDiameter - stemTop,
+                 getColumnDiameter(), getColumnDiameter());
+ 
+         Area outerThermometer = new Area(outerBulb);
+@@ -1144,12 +1145,12 @@
+         outerThermometer.add(tempArea);
+ 
+         innerBulb.setFrame(midX - getBulbRadius() + getGap(), stemBottom
+-                + getGap(), getBulbDiameter() - getGap() * 2, getBulbDiameter()
++                + getGap(), bulbDiameter - getGap() * 2, bulbDiameter
+                 - getGap() * 2);
+ 
+         innerStem.setRoundRect(midX - getColumnRadius() + getGap(),
+                 interior.getMinY() + getGap(), getColumnDiameter()
+-                - getGap() * 2, stemBottom + getBulbDiameter() - getGap() * 2
++                - getGap() * 2, stemBottom + bulbDiameter - getGap() * 2
+                 - stemTop, getColumnDiameter() - getGap() * 2,
+                 getColumnDiameter() - getGap() * 2);
+ 

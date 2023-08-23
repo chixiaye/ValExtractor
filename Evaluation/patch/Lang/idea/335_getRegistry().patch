@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+index 8b2415a..9a07561 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+@@ -464,12 +464,13 @@
+      *            The object to register.
+      */
+     static void register(final Object value) {
++        Set<IDKey> registry = getRegistry();
+         synchronized (HashCodeBuilder.class) {
+-            if (getRegistry() == null) {
++            if (registry == null) {
+                 REGISTRY.set(new HashSet<IDKey>());
+             }
+         }
+-        getRegistry().add(new IDKey(value));
++        registry.add(new IDKey(value));
+     }
+ 
+     /**

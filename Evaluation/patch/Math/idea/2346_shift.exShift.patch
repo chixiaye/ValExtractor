@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+index a2ea88e..9d9e16d 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+@@ -147,17 +147,18 @@
+             final int il = findSmallSubDiagonalElement(iu, norm);
+ 
+             // Check for convergence
++            double exShift = shift.exShift;
+             if (il == iu) {
+                 // One root found
+-                matrixT[iu][iu] = matrixT[iu][iu] + shift.exShift;
++                matrixT[iu][iu] = matrixT[iu][iu] + exShift;
+                 iu--;
+                 iteration = 0;
+             } else if (il == iu - 1) {
+                 // Two roots found
+                 double p = (matrixT[iu - 1][iu - 1] - matrixT[iu][iu]) / 2.0;
+                 double q = p * p + matrixT[iu][iu - 1] * matrixT[iu - 1][iu];
+-                matrixT[iu][iu] += shift.exShift;
+-                matrixT[iu - 1][iu - 1] += shift.exShift;
++                matrixT[iu][iu] += exShift;
++                matrixT[iu - 1][iu - 1] += exShift;
+ 
+                 if (q >= 0) {
+                     double z = FastMath.sqrt(FastMath.abs(q));

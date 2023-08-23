@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..8418d14 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1682,8 +1682,9 @@
+                 RenderingHints.VALUE_ANTIALIAS_ON);
+ 
+         // register as a listener with sub-components...
+-        if (this.title != null) {
+-            this.title.addChangeListener(this);
++        TextTitle title1 = this.title;
++        if (title1 != null) {
++            title1.addChangeListener(this);
+         }
+ 
+         for (int i = 0; i < getSubtitleCount(); i++) {

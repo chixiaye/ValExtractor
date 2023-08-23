@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/xml/KeyHandler.java b/source/org/jfree/data/xml/KeyHandler.java
+index 1188ba4..b07b4e9 100644
+--- a/source/org/jfree/data/xml/KeyHandler.java
++++ b/source/org/jfree/data/xml/KeyHandler.java
+@@ -113,9 +113,10 @@
+ 
+         if (qName.equals(KEY_TAG)) {
+             this.itemHandler.setKey(getCurrentText());
+-            this.rootHandler.popSubHandler();
+-            this.rootHandler.pushSubHandler(
+-                new ValueHandler(this.rootHandler, this.itemHandler)
++            RootHandler rootHandler1 = this.rootHandler;
++            rootHandler1.popSubHandler();
++            rootHandler1.pushSubHandler(
++                new ValueHandler(rootHandler1, this.itemHandler)
+             );
+         }
+         else {

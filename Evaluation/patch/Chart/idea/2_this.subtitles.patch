@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..c0ae655 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -399,6 +399,7 @@
+         this.plot = plot;
+         plot.addChangeListener(this);
+ 
++        List subtitles1 = this.subtitles;
+         this.subtitles = new ArrayList();
+ 
+         // create a legend, if requested...

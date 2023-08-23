@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
+index 882b0f1..2976284 100644
+--- a/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
+@@ -728,8 +728,9 @@
+         }
+ 
+         // do nothing if both the line and shape are not visible
++        boolean itemShapeVisible = getItemShapeVisible(row, column);
+         if (!getItemLineVisible(row, column)
+-                && !getItemShapeVisible(row, column)) {
++                && !itemShapeVisible) {
+             return;
+         }
+ 
+@@ -807,7 +808,7 @@
+                 shape = ShapeUtilities.createTranslatedShape(shape, x1, y1);
+             }
+ 
+-            if (getItemShapeVisible(row, column)) {
++            if (itemShapeVisible) {
+                 if (getItemShapeFilled(row, column)) {
+                     if (this.useFillPaint) {
+                         g2.setPaint(getItemFillPaint(row, column, selected));

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..aa1a1a6 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -483,8 +483,9 @@
+         LegendItemCollection result = getFixedLegendItems();
+         if (result == null) {
+             result = new LegendItemCollection();
+-            if (this.subplots != null) {
+-                Iterator iterator = this.subplots.iterator();
++            List subplots1 = this.subplots;
++            if (subplots1 != null) {
++                Iterator iterator = subplots1.iterator();
+                 while (iterator.hasNext()) {
+                     XYPlot plot = (XYPlot) iterator.next();
+                     LegendItemCollection more = plot.getLegendItems();

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..392c07a 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -1114,9 +1114,10 @@
+         this.radiusGridlinePaint = SerialUtilities.readPaint(stream);
+         this.angleLabelPaint = SerialUtilities.readPaint(stream);
+ 
+-        if (this.axis != null) {
+-            this.axis.setPlot(this);
+-            this.axis.addChangeListener(this);
++        ValueAxis axis1 = this.axis;
++        if (axis1 != null) {
++            axis1.setPlot(this);
++            axis1.addChangeListener(this);
+         }
+ 
+         if (this.dataset != null) {

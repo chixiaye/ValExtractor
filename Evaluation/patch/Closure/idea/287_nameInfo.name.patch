@@ -1,0 +1,36 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..a8f7e16 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -857,10 +857,11 @@
+         return;
+       }
+ 
+-      if (nameInfo.onlyAffectsClassDef) {
++        String name = nameInfo.name;
++        if (nameInfo.onlyAffectsClassDef) {
+         if (nameInfo.superclass != null) {
+           recordReference(
+-              nameInfo.name, nameInfo.superclass, RefType.INHERITANCE);
++                  name, nameInfo.superclass, RefType.INHERITANCE);
+         }
+ 
+         // Make sure that we record a reference to the function that does
+@@ -869,7 +870,7 @@
+         String nodeName = n.getQualifiedName();
+         if (nodeName != null) {
+           recordReference(
+-              nameInfo.name, nodeName, RefType.REGULAR);
++                  name, nodeName, RefType.REGULAR);
+         }
+ 
+         return;
+@@ -879,7 +880,7 @@
+           parent.getLastChild() == n &&
+           // Don't cover GETELEMs with a global root node.
+           n.isQualifiedName()) {
+-        JsName checkedClass = getName(nameInfo.name, true);
++        JsName checkedClass = getName(name, true);
+         refNodes.add(new InstanceOfCheckNode(checkedClass, n));
+         checkedClass.hasInstanceOfReference = true;
+         return;

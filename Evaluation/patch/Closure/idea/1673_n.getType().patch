@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/AstValidator.java b/src/com/google/javascript/jscomp/AstValidator.java
+index dececfe..b3a8859 100644
+--- a/src/com/google/javascript/jscomp/AstValidator.java
++++ b/src/com/google/javascript/jscomp/AstValidator.java
+@@ -152,7 +152,8 @@
+   }
+ 
+   public void validateExpression(Node n) {
+-    switch (n.getType()) {
++      int type = n.getType();
++      switch (type) {
+       // Childless expressions
+       case Token.FALSE:
+       case Token.NULL:
+@@ -270,7 +271,7 @@
+ 
+       default:
+         violation("Expected expression but was "
+-            + Token.name(n.getType()), n);
++            + Token.name(type), n);
+     }
+   }
+ 

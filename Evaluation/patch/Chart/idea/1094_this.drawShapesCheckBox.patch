@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..780499a 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -284,11 +284,12 @@
+             interior.add(new JLabel(localizationResources.getString(
+                     "Draw_shapes")));
+             this.drawShapesCheckBox = new JCheckBox();
+-            this.drawShapesCheckBox.setSelected(this.drawShapes.booleanValue());
+-            this.drawShapesCheckBox.setActionCommand("DrawShapes");
+-            this.drawShapesCheckBox.addActionListener(this);
++            JCheckBox drawShapesCheckBox1 = this.drawShapesCheckBox;
++            drawShapesCheckBox1.setSelected(this.drawShapes.booleanValue());
++            drawShapesCheckBox1.setActionCommand("DrawShapes");
++            drawShapesCheckBox1.addActionListener(this);
+             interior.add(new JPanel());
+-            interior.add(this.drawShapesCheckBox);
++            interior.add(drawShapesCheckBox1);
+         }
+ 
+         general.add(interior, BorderLayout.NORTH);

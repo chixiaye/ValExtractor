@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..a8e7b4a 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -752,10 +752,11 @@
+         double axisMin = this.timeline.toTimelineValue(range.getLowerMillis());
+         double axisMax = this.timeline.toTimelineValue(range.getUpperMillis());
+         double result = 0.0;
++        boolean inverted = isInverted();
+         if (RectangleEdge.isTopOrBottom(edge)) {
+             double minX = area.getX();
+             double maxX = area.getMaxX();
+-            if (isInverted()) {
++            if (inverted) {
+                 result = maxX + ((value - axisMin) / (axisMax - axisMin))
+                          * (minX - maxX);
+             }
+@@ -767,7 +768,7 @@
+         else if (RectangleEdge.isLeftOrRight(edge)) {
+             double minY = area.getMinY();
+             double maxY = area.getMaxY();
+-            if (isInverted()) {
++            if (inverted) {
+                 result = minY + (((value - axisMin) / (axisMax - axisMin))
+                          * (maxY - minY));
+             }

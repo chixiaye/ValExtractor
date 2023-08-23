@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..57bc5e3 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3357,8 +3357,9 @@
+                                 angle0, angle, Arc2D.PIE);
+                         if (arc.contains(x, y)) {
+                             Comparable key = this.dataset.getKey(section);
+-                            state.setSelected(key, !state.isSelected(key));
+-                            System.out.println(key + " is " + state.isSelected(key));
++                            boolean selected = state.isSelected(key);
++                            state.setSelected(key, !selected);
++                            System.out.println(key + " is " + selected);
+                         }
+                     }
+                 }

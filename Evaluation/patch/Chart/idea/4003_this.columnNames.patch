@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..cb5396f 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -491,9 +491,10 @@
+      */
+     public Comparable getSeriesKey(int seriesIndex) {
+ 
+-        if ((seriesIndex < this.columnNames.length)
+-                && (this.columnNames[seriesIndex] != null)) {
+-            return this.columnNames[seriesIndex];
++        String[] columnNames1 = this.columnNames;
++        if ((seriesIndex < columnNames1.length)
++                && (columnNames1[seriesIndex] != null)) {
++            return columnNames1[seriesIndex];
+         }
+         else {
+             return "";

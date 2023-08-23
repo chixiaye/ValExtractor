@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..5e5da4d 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4555,7 +4555,9 @@
+                     new Integer(rangeIndex)));
+             if (rangeIndex == 0) {
+                 Iterator iterator = this.annotations.iterator();
+-                while (iterator.hasNext()) {
++                while (true) {
++                    boolean b = iterator.hasNext();
++                    if (!b) break;
+                     XYAnnotation annotation = (XYAnnotation) iterator.next();
+                     if (annotation instanceof XYAnnotationBoundsInfo) {
+                         includedAnnotations.add(annotation);

@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/DateTickUnitType.java b/source/org/jfree/chart/axis/DateTickUnitType.java
+index 273e6d3..1b9ce28 100644
+--- a/source/org/jfree/chart/axis/DateTickUnitType.java
++++ b/source/org/jfree/chart/axis/DateTickUnitType.java
+@@ -149,9 +149,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DateTickUnitType.YEAR)) {
+             return DateTickUnitType.YEAR;
+-        }
+-        else if (this.equals(DateTickUnitType.MONTH)) {
+-            return DateTickUnitType.MONTH;
++        } else {
++			DateTickUnitType var_730 = DateTickUnitType.MONTH;
++			if (this.equals(var_730)) {
++			    return var_730;
+         }
+         else if (this.equals(DateTickUnitType.DAY)) {
+             return DateTickUnitType.DAY;
+@@ -168,6 +169,7 @@
+         else if (this.equals(DateTickUnitType.MILLISECOND)) {
+             return DateTickUnitType.MILLISECOND;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/DateTickUnitType.java b/source/org/jfree/chart/axis/DateTickUnitType.java
+index 273e6d3..1b9ce28 100644
+--- a/source/org/jfree/chart/axis/DateTickUnitType.java
++++ b/source/org/jfree/chart/axis/DateTickUnitType.java
+@@ -149,9 +149,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DateTickUnitType.YEAR)) {
+             return DateTickUnitType.YEAR;
+-        }
+-        else if (this.equals(DateTickUnitType.MONTH)) {
+-            return DateTickUnitType.MONTH;
++        } else {
++			DateTickUnitType var_730 = DateTickUnitType.MONTH;
++			if (this.equals(var_730)) {
++			    return var_730;
+         }
+         else if (this.equals(DateTickUnitType.DAY)) {
+             return DateTickUnitType.DAY;
+@@ -168,6 +169,7 @@
+         else if (this.equals(DateTickUnitType.MILLISECOND)) {
+             return DateTickUnitType.MILLISECOND;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/DateTickUnitType.java b/source/org/jfree/chart/axis/DateTickUnitType.java
+index 273e6d3..a0392cc 100644
+--- a/source/org/jfree/chart/axis/DateTickUnitType.java
++++ b/source/org/jfree/chart/axis/DateTickUnitType.java
+@@ -150,8 +150,10 @@
+         if (this.equals(DateTickUnitType.YEAR)) {
+             return DateTickUnitType.YEAR;
+         }
+-        else if (this.equals(DateTickUnitType.MONTH)) {
+-            return DateTickUnitType.MONTH;
++        else {
++            DateTickUnitType month = DateTickUnitType.MONTH;
++            if (this.equals(month)) {
++                return month;
+         }
+         else if (this.equals(DateTickUnitType.DAY)) {
+             return DateTickUnitType.DAY;
+@@ -168,6 +170,7 @@
+         else if (this.equals(DateTickUnitType.MILLISECOND)) {
+             return DateTickUnitType.MILLISECOND;
+         }
++        }
+         return null;
+     }
+ 

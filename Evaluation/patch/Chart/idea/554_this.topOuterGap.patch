@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/MarkerAxisBand.java b/source/org/jfree/chart/axis/MarkerAxisBand.java
+index 3943ebc..ca07ba2 100644
+--- a/source/org/jfree/chart/axis/MarkerAxisBand.java
++++ b/source/org/jfree/chart/axis/MarkerAxisBand.java
+@@ -202,9 +202,10 @@
+             double e = this.axis.valueToJava2D(
+                 end, dataArea, RectangleEdge.BOTTOM
+             );
++            double topOuterGap1 = this.topOuterGap;
+             Rectangle2D r = new Rectangle2D.Double(
+-                s, y + this.topOuterGap, e - s,
+-                h - this.topOuterGap - this.bottomOuterGap
++                s, y + topOuterGap1, e - s,
++                h - topOuterGap1 - this.bottomOuterGap
+             );
+ 
+             Composite originalComposite = g2.getComposite();

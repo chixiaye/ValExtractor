@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..2491aec 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -92,8 +92,9 @@
+     }
+ 
+     private void checkNotLocal(Field field) {
+-        if(field.getType().isLocalClass()) {
+-            throw new MockitoException("the type '" + field.getType().getSimpleName() + "' is a local class.");
++        Class<?> type = field.getType();
++        if(type.isLocalClass()) {
++            throw new MockitoException("the type '" + type.getSimpleName() + "' is a local class.");
+         }
+     }
+ 

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..3d2b808 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1360,9 +1360,10 @@
+      */
+     protected void setAxisRange() {
+         if ((this.subrange >= 0) && (this.followDataInSubranges)) {
++            double[] doubles = this.subrangeInfo[this.subrange];
+             this.rangeAxis.setRange(
+-                    new Range(this.subrangeInfo[this.subrange][DISPLAY_LOW],
+-                    this.subrangeInfo[this.subrange][DISPLAY_HIGH]));
++                    new Range(doubles[DISPLAY_LOW],
++                    doubles[DISPLAY_HIGH]));
+         }
+         else {
+             this.rangeAxis.setRange(this.lowerBound, this.upperBound);

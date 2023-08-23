@@ -1,0 +1,29 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..bcd9fae 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1520,11 +1520,12 @@
+     }
+ 
+     void appendSourceCode(StringBuilder sb) {
+-      if (ranges.isEmpty()) {
+-        if (!inverted && namedGroups.length() == 2) {
++        int length = namedGroups.length();
++        if (ranges.isEmpty()) {
++        if (!inverted && length == 2) {
+           sb.append(namedGroups);
+           return;
+-        } else if (ranges.isEmpty() && namedGroups.length() == 0) {
++        } else if (ranges.isEmpty() && length == 0) {
+           sb.append(inverted ? "[\\S\\s]" : "(?!)");
+           return;
+         }
+@@ -1532,7 +1533,7 @@
+       sb.append('[');
+       if (inverted) { sb.append('^'); }
+       sb.append(namedGroups);
+-      boolean rangesStartCharset = !inverted && namedGroups.length() == 0;
++      boolean rangesStartCharset = !inverted && length == 0;
+       boolean emitDashAtEnd = false;
+       for (int i = 0, n = ranges.getNumRanges(); i < n; ++i) {
+         char start = (char) ranges.start(i);

@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+index 07c0bdc..762049a 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+@@ -519,14 +519,15 @@
+             p >>= 1;
+         }
+ 
++        double y = ys[1];
+         if (result != null) {
+             result[0] = ys[0];
+-            result[1] = ys[1];
++            result[1] = y;
+ 
+             resplit(result);
+         }
+ 
+-        return ys[0] + ys[1];
++        return ys[0] + y;
+     }
+     /** xi in the range of [1, 2].
+      *                                3        5        7

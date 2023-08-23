@@ -1,0 +1,20 @@
+diff --git a/src/java/org/apache/commons/math/linear/BigMatrixImpl.java b/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
+index ccb9a9d..d5fa455 100644
+--- a/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
++++ b/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
+@@ -1053,11 +1053,12 @@
+             int max = col; // permutation row
+             BigDecimal largest = ZERO;
+             for (int row = col; row < nRows; row++) {
+-                sum = lu[row][col];
++                BigDecimal[] luRow = lu[row];
++				sum = luRow[col];
+                 for (int i = 0; i < col; i++) {
+-                    sum = sum.subtract(lu[row][i].multiply(lu[i][col]));
++                    sum = sum.subtract(luRow[i].multiply(lu[i][col]));
+                 }
+-                lu[row][col] = sum;
++                luRow[col] = sum;
+                 
+                 // maintain best permutation choice
+                 if (sum.abs().compareTo(largest) == 1) {

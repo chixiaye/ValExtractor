@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/field/PreciseDateTimeField.java b/src/main/java/org/joda/time/field/PreciseDateTimeField.java
+index 3db90c3..07e5a00 100644
+--- a/src/main/java/org/joda/time/field/PreciseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/PreciseDateTimeField.java
+@@ -77,10 +77,11 @@
+      * @return the amount of fractional units extracted from the input.
+      */
+     public int get(long instant) {
++        long unitMillis = getUnitMillis();
+         if (instant >= 0) {
+-            return (int) ((instant / getUnitMillis()) % iRange);
++            return (int) ((instant / unitMillis) % iRange);
+         } else {
+-            return iRange - 1 + (int) (((instant + 1) / getUnitMillis()) % iRange);
++            return iRange - 1 + (int) (((instant + 1) / unitMillis) % iRange);
+         }
+     }
+ 

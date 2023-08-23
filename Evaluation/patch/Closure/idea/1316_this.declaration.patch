@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..97c510d 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -1084,7 +1084,8 @@
+ 
+     /** Sets the declaration node. May only be called once. */
+     void setDeclaration(Reference ref) {
+-      Preconditions.checkState(this.declaration == null);
++        Reference declaration1 = this.declaration;
++        Preconditions.checkState(declaration1 == null);
+       this.declaration = ref;
+     }
+ 

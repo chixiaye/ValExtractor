@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..291633e 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -815,8 +815,9 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.gridBandPaint = SerialUtilities.readPaint(stream);
+-        this.gridBandAlternatePaint = SerialUtilities.readPaint(stream);
++        Paint gridBandPaint1 = SerialUtilities.readPaint(stream);
++        this.gridBandPaint = gridBandPaint1;
++        this.gridBandAlternatePaint = gridBandPaint1;
+     }
+ 
+ }

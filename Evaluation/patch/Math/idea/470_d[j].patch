@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+index 315c3dd..56578d4 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+@@ -233,7 +233,8 @@
+                 // update the difference arrays
+                 final double w = (c[j+1] - d[j]) / divider;
+                 c[j] = tc * w;
+-                d[j] = td * w;
++                double v = d[j];
++                v = td * w;
+             }
+             // sum up the difference terms to get the final value
+             if (nearest < 0.5*(n-i+1)) {

@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..406c06a 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3829,6 +3829,7 @@
+             int passCount = renderer.getPassCount();
+ 
+             SeriesRenderingOrder seriesOrder = getSeriesRenderingOrder();
++            boolean processVisibleItemsOnly = state.getProcessVisibleItemsOnly();
+             if (seriesOrder == SeriesRenderingOrder.REVERSE) {
+                 //render series in reverse order
+                 for (int pass = 0; pass < passCount; pass++) {
+@@ -3839,7 +3840,7 @@
+                         if (lastItem == -1) {
+                             continue;
+                         }
+-                        if (state.getProcessVisibleItemsOnly()) {
++                        if (processVisibleItemsOnly) {
+                             int[] itemBounds = RendererUtilities.findLiveItems(
+                                     dataset, series, xAxis.getLowerBound(),
+                                     xAxis.getUpperBound());
+@@ -3870,7 +3871,7 @@
+                     for (int series = 0; series < seriesCount; series++) {
+                         int firstItem = 0;
+                         int lastItem = dataset.getItemCount(series) - 1;
+-                        if (state.getProcessVisibleItemsOnly()) {
++                        if (processVisibleItemsOnly) {
+                             int[] itemBounds = RendererUtilities.findLiveItems(
+                                     dataset, series, xAxis.getLowerBound(),
+                                     xAxis.getUpperBound());

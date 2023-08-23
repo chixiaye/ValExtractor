@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..c3a076e 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3046,11 +3046,12 @@
+      * @see #addAnnotation(XYAnnotation)
+      */
+     public void clearAnnotations() {
+-        for(int i = 0; i < this.annotations.size(); i++){
+-            XYAnnotation annotation = (XYAnnotation) this.annotations.get(i);
++        List annotations1 = this.annotations;
++        for(int i = 0; i < annotations1.size(); i++){
++            XYAnnotation annotation = (XYAnnotation) annotations1.get(i);
+             annotation.removeChangeListener(this);
+         }
+-        this.annotations.clear();
++        annotations1.clear();
+         fireChangeEvent();
+     }
+ 

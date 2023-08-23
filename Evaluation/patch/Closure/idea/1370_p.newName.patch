@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/RenameProperties.java b/src/com/google/javascript/jscomp/RenameProperties.java
+index 7753a36..1eb6af6 100644
+--- a/src/com/google/javascript/jscomp/RenameProperties.java
++++ b/src/com/google/javascript/jscomp/RenameProperties.java
+@@ -341,7 +341,8 @@
+         p.newName = "$" + p.oldName + "$";
+       } else {
+         // If we haven't already given this property a reusable name.
+-        if (p.newName == null) {
++          String newName = p.newName;
++          if (newName == null) {
+           p.newName = nameGen.generateNextName();
+         }
+       }

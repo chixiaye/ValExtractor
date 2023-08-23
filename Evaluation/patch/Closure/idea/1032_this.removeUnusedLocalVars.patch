@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CompilerOptions.java b/src/com/google/javascript/jscomp/CompilerOptions.java
+index c4ba579..1ef7cc8 100644
+--- a/src/com/google/javascript/jscomp/CompilerOptions.java
++++ b/src/com/google/javascript/jscomp/CompilerOptions.java
+@@ -1280,7 +1280,8 @@
+         break;
+       case LOCAL_ONLY:
+         this.removeUnusedVars = false;
+-        this.removeUnusedLocalVars = true;
++          boolean removeUnusedLocalVars1 = this.removeUnusedLocalVars;
++          this.removeUnusedLocalVars = true;
+         break;
+       case NONE:
+         this.removeUnusedVars = false;

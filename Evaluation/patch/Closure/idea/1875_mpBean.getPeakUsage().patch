@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/JvmMetrics.java b/src/com/google/javascript/jscomp/JvmMetrics.java
+index c7ec381..ed8affc 100644
+--- a/src/com/google/javascript/jscomp/JvmMetrics.java
++++ b/src/com/google/javascript/jscomp/JvmMetrics.java
+@@ -166,7 +166,8 @@
+       List<MemoryPoolMXBean> mpBeans = ManagementFactory.getMemoryPoolMXBeans();
+       for (MemoryPoolMXBean mpBean : mpBeans) {
+         MemoryUsage currentUsage = mpBean.getUsage();
+-        MemoryUsage peakUsage = mpBean.getPeakUsage();
++          MemoryUsage peakUsage1 = mpBean.getPeakUsage();
++          MemoryUsage peakUsage = peakUsage1;
+         if (pretty) {
+           out.println("\tPool " + mpBean.getName());
+           writePoolMemoryUsage(out, currentUsage, peakUsage, null, true);

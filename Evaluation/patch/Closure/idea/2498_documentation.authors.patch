@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..4d40bf1 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -804,7 +804,8 @@
+       return true;
+     }
+ 
+-    if (documentation.authors == null) {
++      List<String> authors = documentation.authors;
++      if (authors == null) {
+       documentation.authors = Lists.newArrayList();
+     }
+ 

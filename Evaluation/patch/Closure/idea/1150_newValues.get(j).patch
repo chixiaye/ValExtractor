@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..2bd5150 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -433,7 +433,8 @@
+             keyNodes.get(j));
+       }
+       for (int j = 0; j < newValues.size(); j++) {
+-        newValues.get(j).getParent().replaceChild(newValues.get(j),
++          Node node = newValues.get(j);
++          node.getParent().replaceChild(node,
+             valueNodes.get(j));
+       }
+ 

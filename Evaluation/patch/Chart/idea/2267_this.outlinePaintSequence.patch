@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..8292919 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -478,6 +478,7 @@
+         }
+ 
+         int outlinePaintCount = stream.readInt();
++        Paint[] outlinePaintSequence1 = this.outlinePaintSequence;
+         this.outlinePaintSequence = new Paint[outlinePaintCount];
+         for (int i = 0; i < outlinePaintCount; i++) {
+             this.outlinePaintSequence[i] = SerialUtilities.readPaint(stream);

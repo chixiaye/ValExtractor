@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/KeyToGroupMap.java b/source/org/jfree/data/KeyToGroupMap.java
+index e1dd30f..1cf49b9 100644
+--- a/source/org/jfree/data/KeyToGroupMap.java
++++ b/source/org/jfree/data/KeyToGroupMap.java
+@@ -178,11 +178,12 @@
+             throw new IllegalArgumentException("Null 'key' argument.");
+         }
+         Comparable currentGroup = getGroup(key);
++        List groups1 = this.groups;
+         if (!currentGroup.equals(this.defaultGroup)) {
+             if (!currentGroup.equals(group)) {
+                 int count = getKeyCount(currentGroup);
+                 if (count == 1) {
+-                    this.groups.remove(currentGroup);
++                    groups1.remove(currentGroup);
+                 }
+             }
+         }
+@@ -190,9 +191,9 @@
+             this.keyToGroupMap.remove(key);
+         }
+         else {
+-            if (!this.groups.contains(group)) {
++            if (!groups1.contains(group)) {
+                 if (!this.defaultGroup.equals(group)) {
+-                    this.groups.add(group);
++                    groups1.add(group);
+                 }
+             }
+             this.keyToGroupMap.put(key, group);

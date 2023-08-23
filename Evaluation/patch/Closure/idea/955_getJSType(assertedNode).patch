@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..b3e8084 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -900,15 +900,16 @@
+ 
+     JSType narrowed;
+     // Handle assertions that enforce expressions evaluate to true.
+-    if (assertedType == null) {
++      JSType jsType = getJSType(assertedNode);
++      if (assertedType == null) {
+       // Handle arbitrary expressions within the assert.
+       scope = reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+           assertedNode, scope, true);
+       // Build the result of the assertExpression
+-      narrowed = getJSType(assertedNode).restrictByNotNullOrUndefined();
++      narrowed = jsType.restrictByNotNullOrUndefined();
+     } else {
+       // Handle assertions that enforce expressions are of a certain type.
+-      JSType type = getJSType(assertedNode);
++      JSType type = jsType;
+       narrowed = type.getGreatestSubtype(assertedType);
+       if (assertedNodeName != null && type.differsFrom(narrowed)) {
+         scope = narrowScope(scope, assertedNode, narrowed);

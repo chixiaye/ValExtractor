@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..6b7af90 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -591,7 +591,8 @@
+             if (values[i] > field.getMaximumValue(partial, values)) {
+                 values[i] = field.getMaximumValue(partial, values);
+             }
+-            if (values[i] < field.getMinimumValue(partial, values)) {
++            int value = values[i];
++            if (value < field.getMinimumValue(partial, values)) {
+                 values[i] = field.getMinimumValue(partial, values);
+             }
+         }

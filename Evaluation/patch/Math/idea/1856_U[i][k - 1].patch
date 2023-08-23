@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..2dad3ab 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -362,7 +362,8 @@
+ 
+                         for (int i = 0; i < m; i++) {
+                             t = cs * U[i][j] + sn * U[i][k - 1];
+-                            U[i][k - 1] = -sn * U[i][j] + cs * U[i][k - 1];
++                            double v = U[i][k - 1];
++                            U[i][k - 1] = -sn * U[i][j] + cs * v;
+                             U[i][j] = t;
+                         }
+                     }

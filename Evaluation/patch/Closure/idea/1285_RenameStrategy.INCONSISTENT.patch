@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..19a62d6 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -246,14 +246,15 @@
+         return;
+       }
+ 
+-      if (!t.inGlobalScope() &&
+-          nameGenerator.getRenameStrategy() == RenameStrategy.INCONSISTENT) {
++        RenameStrategy inconsistent = RenameStrategy.INCONSISTENT;
++        if (!t.inGlobalScope() &&
++          nameGenerator.getRenameStrategy() == inconsistent) {
+         // Warn about calls not in the global scope.
+         compiler.report(t.makeError(n, NON_GLOBAL_ID_GENERATOR_CALL));
+         return;
+       }
+ 
+-      if (nameGenerator.getRenameStrategy() == RenameStrategy.INCONSISTENT) {
++      if (nameGenerator.getRenameStrategy() == inconsistent) {
+         for (Node ancestor : n.getAncestors()) {
+           if (NodeUtil.isControlStructure(ancestor)) {
+             // Warn about conditional calls.

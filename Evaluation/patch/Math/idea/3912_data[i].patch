@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..f7e3c82 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -257,11 +257,12 @@
+      */
+     public void addData(final double[][] data) throws ModelSpecificationException {
+         for (int i = 0; i < data.length; i++) {
+-            if( data[i].length < 2 ){
++            double[] datum = data[i];
++            if( datum.length < 2 ){
+                throw new ModelSpecificationException(LocalizedFormats.INVALID_REGRESSION_OBSERVATION,
+-                    data[i].length, 2);
++                    datum.length, 2);
+             }
+-            addData(data[i][0], data[i][1]);
++            addData(datum[0], datum[1]);
+         }
+     }
+ 

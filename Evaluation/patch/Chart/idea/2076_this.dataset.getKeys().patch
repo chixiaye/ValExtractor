@@ -1,0 +1,86 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..a3f697b 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3322,43 +3322,46 @@
+                 explodeArea.getWidth() - h1, explodeArea.getHeight() - v1);
+ 
+         // plot the data (unless the dataset is null)...
+-        if ((this.dataset != null) && (this.dataset.getKeys().size() > 0)) {
++        if ((this.dataset != null)) {
++            List keys1 = this.dataset.getKeys();
++            if (keys1.size() > 0) {
+ 
+ 
+-            List keys = this.dataset.getKeys();
+-            double total = DatasetUtilities.calculatePieDatasetTotal(
+-                    this.dataset);
+-            double runningTotal = 0.0;
+-            for (int section = 0; section < keys.size(); section++) {
+-                Number n = this.dataset.getValue(section);
+-                if (n == null) {
+-                    continue;
+-                }
+-                double value = n.doubleValue();
+-                if (value > 0.0) {
+-                    double angle0 = calculateAngleForValue(runningTotal,
+-                            total);
+-                    double angle1 = calculateAngleForValue(runningTotal
+-                            + value, total);
+-                    runningTotal += value;
+-                    System.out.println(this.dataset.getValue(section));
+-                    System.out.println(angle0);
+-                    System.out.println(angle1);
+-                    double angle = (angle1 - angle0);
+-                    if (Math.abs(angle) > getMinimumArcAngleToDraw()) {
+-                        double ep = 0.0;
+-                        double mep = getMaximumExplodePercent();
+-                        if (mep > 0.0) {
+-                            ep = getExplodePercent(getSectionKey(section)) / mep;
+-                        }
+-                        Rectangle2D arcBounds = getArcBounds(pieArea,
+-                                explodeArea, angle0, angle, ep);
+-                        Arc2D.Double arc = new Arc2D.Double(arcBounds,
+-                                angle0, angle, Arc2D.PIE);
+-                        if (arc.contains(x, y)) {
+-                            Comparable key = this.dataset.getKey(section);
+-                            state.setSelected(key, !state.isSelected(key));
+-                            System.out.println(key + " is " + state.isSelected(key));
++                List keys = keys1;
++                double total = DatasetUtilities.calculatePieDatasetTotal(
++                        this.dataset);
++                double runningTotal = 0.0;
++                for (int section = 0; section < keys.size(); section++) {
++                    Number n = this.dataset.getValue(section);
++                    if (n == null) {
++                        continue;
++                    }
++                    double value = n.doubleValue();
++                    if (value > 0.0) {
++                        double angle0 = calculateAngleForValue(runningTotal,
++                                total);
++                        double angle1 = calculateAngleForValue(runningTotal
++                                + value, total);
++                        runningTotal += value;
++                        System.out.println(this.dataset.getValue(section));
++                        System.out.println(angle0);
++                        System.out.println(angle1);
++                        double angle = (angle1 - angle0);
++                        if (Math.abs(angle) > getMinimumArcAngleToDraw()) {
++                            double ep = 0.0;
++                            double mep = getMaximumExplodePercent();
++                            if (mep > 0.0) {
++                                ep = getExplodePercent(getSectionKey(section)) / mep;
++                            }
++                            Rectangle2D arcBounds = getArcBounds(pieArea,
++                                    explodeArea, angle0, angle, ep);
++                            Arc2D.Double arc = new Arc2D.Double(arcBounds,
++                                    angle0, angle, Arc2D.PIE);
++                            if (arc.contains(x, y)) {
++                                Comparable key = this.dataset.getKey(section);
++                                state.setSelected(key, !state.isSelected(key));
++                                System.out.println(key + " is " + state.isSelected(key));
++                            }
+                         }
+                     }
+                 }

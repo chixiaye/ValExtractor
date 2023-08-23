@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..c1bbb2a 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -722,7 +722,8 @@
+         double outsideLength = getTickMarkOutsideLength();
+         RegularTimePeriod t = createInstance(this.majorTickTimePeriodClass,
+                 this.first.getStart(), getTimeZone(), this.locale);
+-        long t0 = t.getFirstMillisecond();
++        long firstMillisecond = t.getFirstMillisecond();
++        long t0 = firstMillisecond;
+         Line2D inside = null;
+         Line2D outside = null;
+         long firstOnAxis = getFirst().getFirstMillisecond();
+@@ -779,7 +780,7 @@
+             }
+             t = t.next();
+             t.peg(this.calendar);
+-            t0 = t.getFirstMillisecond();
++            t0 = firstMillisecond;
+         }
+         if (edge == RectangleEdge.TOP) {
+             state.cursorUp(Math.max(outsideLength,

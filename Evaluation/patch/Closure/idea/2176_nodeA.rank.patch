@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/graph/StandardUnionFind.java b/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
+index 1362ba2..df28657 100644
+--- a/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
++++ b/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
+@@ -82,13 +82,14 @@
+     if (nodeA == nodeB) {
+       return nodeA.element;
+     }
+-    if (nodeA.rank > nodeB.rank) {
++      int rank = nodeA.rank;
++      if (rank > nodeB.rank) {
+       nodeB.parent = nodeA;
+       nodeA.size += nodeB.size;
+       return nodeA.element;
+     }
+     nodeA.parent = nodeB;
+-    if (nodeA.rank == nodeB.rank) {
++    if (rank == nodeB.rank) {
+       nodeB.rank++;
+     }
+     nodeB.size += nodeA.size;

@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..6176eac 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -712,23 +712,26 @@
+             xAdj = 0.0f;
+ 
+         }
+-        else if (anchor == TextAnchor.TOP_CENTER
+-                || anchor == TextAnchor.CENTER
+-                || anchor == TextAnchor.BOTTOM_CENTER
+-                || anchor == TextAnchor.BASELINE_CENTER
+-                || anchor == TextAnchor.HALF_ASCENT_CENTER) {
+-
+-            xAdj = (float) bounds.getWidth() / 2.0f;
+-
+-        }
+-        else if (anchor == TextAnchor.TOP_RIGHT
+-                || anchor == TextAnchor.CENTER_RIGHT
+-                || anchor == TextAnchor.BOTTOM_RIGHT
+-                || anchor == TextAnchor.BASELINE_RIGHT
+-                || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
+-
+-            xAdj = (float) bounds.getWidth();
+-
++        else {
++            double width = bounds.getWidth();
++            if (anchor == TextAnchor.TOP_CENTER
++                    || anchor == TextAnchor.CENTER
++                    || anchor == TextAnchor.BOTTOM_CENTER
++                    || anchor == TextAnchor.BASELINE_CENTER
++                    || anchor == TextAnchor.HALF_ASCENT_CENTER) {
++    
++                xAdj = (float) width / 2.0f;
++    
++            }
++            else if (anchor == TextAnchor.TOP_RIGHT
++                    || anchor == TextAnchor.CENTER_RIGHT
++                    || anchor == TextAnchor.BOTTOM_RIGHT
++                    || anchor == TextAnchor.BASELINE_RIGHT
++                    || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
++    
++                xAdj = (float) width;
++    
++            }
+         }
+ 
+         if (anchor == TextAnchor.TOP_LEFT

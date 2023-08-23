@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/invocation/ArgumentsComparator.java b/src/org/mockito/internal/invocation/ArgumentsComparator.java
+index 00849fd..9ab650f 100644
+--- a/src/org/mockito/internal/invocation/ArgumentsComparator.java
++++ b/src/org/mockito/internal/invocation/ArgumentsComparator.java
+@@ -19,10 +19,11 @@
+     }
+ 
+     public boolean argumentsMatch(InvocationMatcher invocationMatcher, Object[] actualArgs) {
+-        if (actualArgs.length != invocationMatcher.getMatchers().size()) {
++        int length = actualArgs.length;
++        if (length != invocationMatcher.getMatchers().size()) {
+             return false;
+         }
+-        for (int i = 0; i < actualArgs.length; i++) {
++        for (int i = 0; i < length; i++) {
+             if (!invocationMatcher.getMatchers().get(i).matches(actualArgs[i])) {
+                 return false;
+             }

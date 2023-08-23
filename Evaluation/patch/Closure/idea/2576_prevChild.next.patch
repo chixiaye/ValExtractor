@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..34bef4a 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -736,7 +736,8 @@
+     // Copy over important information.
+     newChild.copyInformationFrom(prevChild);
+ 
+-    Node child = prevChild.next;
++      Node next1 = prevChild.next;
++      Node child = next1;
+     newChild.next = child.next;
+     newChild.parent = this;
+     prevChild.next = newChild;

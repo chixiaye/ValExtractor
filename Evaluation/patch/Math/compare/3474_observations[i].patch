@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+index 40e1d47..0ed88bf 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+@@ -247,7 +247,8 @@
+                     while ((i >= 0) && (curr.getX() < mI.getX())) {
+                         observations[i + 1] = mI;
+                         if (i-- != 0) {
+-                            mI = observations[i];
++                            WeightedObservedPoint var_3474 = observations[i];
++							mI = var_3474;
+                         }
+                     }
+                     observations[i + 1] = curr;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+index 40e1d47..93f1ca4 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+@@ -243,11 +243,12 @@
+                 if (curr.getX() < prec.getX()) {
+                     // the current element should be inserted closer to the beginning
+                     int i = j - 1;
+-                    WeightedObservedPoint mI = observations[i];
++                    WeightedObservedPoint var_3474 = observations[i];
++					WeightedObservedPoint mI = var_3474;
+                     while ((i >= 0) && (curr.getX() < mI.getX())) {
+                         observations[i + 1] = mI;
+                         if (i-- != 0) {
+-                            mI = observations[i];
++                            mI = var_3474;
+                         }
+                     }
+                     observations[i + 1] = curr;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+index 40e1d47..f96582b 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+@@ -243,11 +243,12 @@
+                 if (curr.getX() < prec.getX()) {
+                     // the current element should be inserted closer to the beginning
+                     int i = j - 1;
+-                    WeightedObservedPoint mI = observations[i];
++                    WeightedObservedPoint observation = observations[i];
++                    WeightedObservedPoint mI = observation;
+                     while ((i >= 0) && (curr.getX() < mI.getX())) {
+                         observations[i + 1] = mI;
+                         if (i-- != 0) {
+-                            mI = observations[i];
++                            mI = observation;
+                         }
+                     }
+                     observations[i + 1] = curr;

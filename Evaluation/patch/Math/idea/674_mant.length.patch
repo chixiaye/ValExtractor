@@ -1,0 +1,170 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..db81769 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1736,7 +1736,8 @@
+         }
+ 
+         /* Test for divide by zero */
+-        if (divisor.mant[mant.length-1] == 0) {
++        int length = mant.length;
++        if (divisor.mant[length -1] == 0) {
+             field.setIEEEFlagsBits(DfpField.FLAG_DIV_ZERO);
+             result = newInstance(getZero());
+             result.sign = (byte) (sign * divisor.sign);
+@@ -1745,21 +1746,21 @@
+             return result;
+         }
+ 
+-        dividend = new int[mant.length+1];  // one extra digit needed
+-        quotient = new int[mant.length+2];  // two extra digits needed 1 for overflow, 1 for rounding
+-        remainder = new int[mant.length+1]; // one extra digit needed
++        dividend = new int[length +1];  // one extra digit needed
++        quotient = new int[length +2];  // two extra digits needed 1 for overflow, 1 for rounding
++        remainder = new int[length +1]; // one extra digit needed
+ 
+         /* Initialize our most significant digits to zero */
+ 
+-        dividend[mant.length] = 0;
+-        quotient[mant.length] = 0;
+-        quotient[mant.length+1] = 0;
+-        remainder[mant.length] = 0;
++        dividend[length] = 0;
++        quotient[length] = 0;
++        quotient[length +1] = 0;
++        remainder[length] = 0;
+ 
+         /* copy our mantissa into the dividend, initialize the
+        quotient while we are at it */
+ 
+-        for (int i = 0; i < mant.length; i++) {
++        for (int i = 0; i < length; i++) {
+             dividend[i] = mant[i];
+             quotient[i] = 0;
+             remainder[i] = 0;
+@@ -1767,13 +1768,13 @@
+ 
+         /* outer loop.  Once per quotient digit */
+         nsqd = 0;
+-        for (qd = mant.length+1; qd >= 0; qd--) {
++        for (qd = length +1; qd >= 0; qd--) {
+             /* Determine outer limits of our quotient digit */
+ 
+             // r =  most sig 2 digits of dividend
+-            final int divMsb = dividend[mant.length]*RADIX+dividend[mant.length-1];
+-            int min = divMsb       / (divisor.mant[mant.length-1]+1);
+-            int max = (divMsb + 1) / divisor.mant[mant.length-1];
++            final int divMsb = dividend[length]*RADIX+dividend[length -1];
++            int min = divMsb       / (divisor.mant[length -1]+1);
++            int max = (divMsb + 1) / divisor.mant[length -1];
+ 
+             trialgood = false;
+             while (!trialgood) {
+@@ -1782,8 +1783,8 @@
+ 
+                 /* Multiply by divisor and store as remainder */
+                 int rh = 0;
+-                for (int i = 0; i < mant.length + 1; i++) {
+-                    int dm = (i<mant.length)?divisor.mant[i]:0;
++                for (int i = 0; i < length + 1; i++) {
++                    int dm = (i< length)?divisor.mant[i]:0;
+                     final int r = (dm * trial) + rh;
+                     rh = r / RADIX;
+                     remainder[i] = r - rh * RADIX;
+@@ -1791,7 +1792,7 @@
+ 
+                 /* subtract the remainder from the dividend */
+                 rh = 1;  // carry in to aid the subtraction
+-                for (int i = 0; i < mant.length + 1; i++) {
++                for (int i = 0; i < length + 1; i++) {
+                     final int r = ((RADIX-1) - remainder[i]) + dividend[i] + rh;
+                     rh = r / RADIX;
+                     remainder[i] = r - rh * RADIX;
+@@ -1805,8 +1806,8 @@
+                 }
+ 
+                 /* find out how far off the remainder is telling us we are */
+-                minadj = (remainder[mant.length] * RADIX)+remainder[mant.length-1];
+-                minadj = minadj / (divisor.mant[mant.length-1]+1);
++                minadj = (remainder[length] * RADIX)+remainder[length -1];
++                minadj = minadj / (divisor.mant[length -1]+1);
+ 
+                 if (minadj >= 2) {
+                     min = trial+minadj;  // update the minimum
+@@ -1816,7 +1817,7 @@
+                 /* May have a good one here, check more thoroughly.  Basically
+            its a good one if it is less than the divisor */
+                 trialgood = false;  // assume false
+-                for (int i = mant.length - 1; i >= 0; i--) {
++                for (int i = length - 1; i >= 0; i--) {
+                     if (divisor.mant[i] > remainder[i]) {
+                         trialgood = true;
+                     }
+@@ -1825,7 +1826,7 @@
+                     }
+                 }
+ 
+-                if (remainder[mant.length] != 0) {
++                if (remainder[length] != 0) {
+                     trialgood = false;
+                 }
+ 
+@@ -1840,26 +1841,26 @@
+                 nsqd++;
+             }
+ 
+-            if (field.getRoundingMode() == DfpField.RoundingMode.ROUND_DOWN && nsqd == mant.length) {
++            if (field.getRoundingMode() == DfpField.RoundingMode.ROUND_DOWN && nsqd == length) {
+                 // We have enough for this mode
+                 break;
+             }
+ 
+-            if (nsqd > mant.length) {
++            if (nsqd > length) {
+                 // We have enough digits
+                 break;
+             }
+ 
+             /* move the remainder into the dividend while left shifting */
+             dividend[0] = 0;
+-            for (int i = 0; i < mant.length; i++) {
++            for (int i = 0; i < length; i++) {
+                 dividend[i + 1] = remainder[i];
+             }
+         }
+ 
+         /* Find the most sig digit */
+-        md = mant.length;  // default
+-        for (int i = mant.length + 1; i >= 0; i--) {
++        md = length;  // default
++        for (int i = length + 1; i >= 0; i--) {
+             if (quotient[i] != 0) {
+                 md = i;
+                 break;
+@@ -1867,20 +1868,20 @@
+         }
+ 
+         /* Copy the digits into the result */
+-        for (int i=0; i<mant.length; i++) {
+-            result.mant[mant.length-i-1] = quotient[md-i];
++        for (int i = 0; i< length; i++) {
++            result.mant[length -i-1] = quotient[md-i];
+         }
+ 
+         /* Fixup the exponent. */
+-        result.exp = exp - divisor.exp + md - mant.length;
++        result.exp = exp - divisor.exp + md - length;
+         result.sign = (byte) ((sign == divisor.sign) ? 1 : -1);
+ 
+-        if (result.mant[mant.length-1] == 0) { // if result is zero, set exp to zero
++        if (result.mant[length -1] == 0) { // if result is zero, set exp to zero
+             result.exp = 0;
+         }
+ 
+-        if (md > (mant.length-1)) {
+-            excp = result.round(quotient[md-mant.length]);
++        if (md > (length -1)) {
++            excp = result.round(quotient[md- length]);
+         } else {
+             excp = result.round(0);
+         }

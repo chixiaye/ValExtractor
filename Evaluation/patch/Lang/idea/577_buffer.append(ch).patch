@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+index 09e636b..958cf36 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+@@ -492,8 +492,9 @@
+         final int sz = array.length;
+         for (int i = 0; i < sz; i++) {
+             final char ch = array[i];
++            StringBuilder append = buffer.append(ch);
+             if (inLiteral && ch != '\'') {
+-                buffer.append(ch); // buffer can't be null if inLiteral is true
++                append; // buffer can't be null if inLiteral is true
+                 continue;
+             }
+             Object value = null;
+@@ -535,7 +536,7 @@
+                     buffer = new StringBuilder();
+                     list.add(new Token(buffer));
+                 }
+-                buffer.append(ch);
++                append;
+             }
+ 
+             if (value != null) {

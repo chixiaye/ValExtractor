@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/PerformanceTracker.java b/src/com/google/javascript/jscomp/PerformanceTracker.java
+index 0c2bace..1a35d67 100644
+--- a/src/com/google/javascript/jscomp/PerformanceTracker.java
++++ b/src/com/google/javascript/jscomp/PerformanceTracker.java
+@@ -255,8 +255,9 @@
+         output.write(String.valueOf(stats.diff));
+         diff += stats.diff;
+         output.write(",");
+-        output.write(String.valueOf(stats.gzDiff));
+-        gzDiff += stats.gzDiff;
++          int gzDiff1 = stats.gzDiff;
++          output.write(String.valueOf(gzDiff1));
++        gzDiff += gzDiff1;
+         output.write("\n");
+       }
+       output.write("TOTAL");

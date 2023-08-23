@@ -1,0 +1,48 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..7c860f2 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2982,6 +2982,7 @@
+         int i = 0, start = 0;
+         boolean match = false;
+         boolean lastMatch = false;
++        boolean add = list.add(str.substring(start, i));
+         if (separatorChars == null) {
+             // Null separator means use whitespace
+             while (i < len) {
+@@ -2992,7 +2993,7 @@
+                             i = len;
+                             lastMatch = false;
+                         }
+-                        list.add(str.substring(start, i));
++                        add;
+                         match = false;
+                     }
+                     start = ++i;
+@@ -3013,7 +3014,7 @@
+                             i = len;
+                             lastMatch = false;
+                         }
+-                        list.add(str.substring(start, i));
++                        add;
+                         match = false;
+                     }
+                     start = ++i;
+@@ -3033,7 +3034,7 @@
+                             i = len;
+                             lastMatch = false;
+                         }
+-                        list.add(str.substring(start, i));
++                        add;
+                         match = false;
+                     }
+                     start = ++i;
+@@ -3045,7 +3046,7 @@
+             }
+         }
+         if (match || preserveAllTokens && lastMatch) {
+-            list.add(str.substring(start, i));
++            add;
+         }
+         return list.toArray(new String[list.size()]);
+     }

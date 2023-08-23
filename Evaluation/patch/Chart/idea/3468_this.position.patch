@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/title/Title.java b/source/org/jfree/chart/title/Title.java
+index 8774f91..0a43170 100644
+--- a/source/org/jfree/chart/title/Title.java
++++ b/source/org/jfree/chart/title/Title.java
+@@ -254,7 +254,8 @@
+         if (position == null) {
+             throw new IllegalArgumentException("Null 'position' argument.");
+         }
+-        if (this.position != position) {
++        RectangleEdge position1 = this.position;
++        if (position1 != position) {
+             this.position = position;
+             notifyListeners(new TitleChangeEvent(this));
+         }

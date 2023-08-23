@@ -1,0 +1,68 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..4c7064c 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1050,7 +1050,8 @@
+     sb.append(quote);
+     for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
+-      switch (c) {
++        StringBuilder append = sb.append(c);
++        switch (c) {
+         case '\0': sb.append("\\x00"); break;
+         case '\u000B':
+           if (useSlashV) {
+@@ -1076,7 +1077,7 @@
+         case '=':
+           // '=' is a syntactically signficant regexp character.
+           if (trustedStrings || isRegexp) {
+-            sb.append(c);
++            append;
+           } else {
+             sb.append("\\x3d");
+           }
+@@ -1084,7 +1085,7 @@
+ 
+         case '&':
+           if (trustedStrings || isRegexp) {
+-            sb.append(c);
++            append;
+           } else {
+             sb.append("\\x26");
+           }
+@@ -1106,7 +1107,7 @@
+                (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+             sb.append(GT_ESCAPED);
+           } else {
+-            sb.append(c);
++            append;
+           }
+           break;
+         case '<':
+@@ -1130,7 +1131,7 @@
+                                      START_COMMENT.length())) {
+             sb.append(LT_ESCAPED);
+           } else {
+-            sb.append(c);
++            append;
+           }
+           break;
+         default:
+@@ -1138,7 +1139,7 @@
+           //  character can be represented in this character set.
+           if (outputCharsetEncoder != null) {
+             if (outputCharsetEncoder.canEncode(c)) {
+-              sb.append(c);
++              append;
+             } else {
+               // Unicode-escape the character.
+               appendHexJavaScriptRepresentation(sb, c);
+@@ -1148,7 +1149,7 @@
+             // through, and escape the rest.  Doing the explicit character
+             // check is measurably faster than using the CharsetEncoder.
+             if (c > 0x1f && c < 0x7f) {
+-              sb.append(c);
++              append;
+             } else {
+               // Other characters can be misinterpreted by some JS parsers,
+               // or perhaps mangled by proxies along the way,

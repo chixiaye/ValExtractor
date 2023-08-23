@@ -1,0 +1,16 @@
+diff --git a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
+index 258834c23e..0da16e587a 100644
+--- a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
++++ b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
+@@ -967,9 +967,10 @@ public class FileStore implements SegmentStore, Closeable {
+             List<SegmentId> ids = newArrayList();
+             if (tarWriter != null) {
+                 for (UUID uuid : tarWriter.getUUIDs()) {
++                    long lsb = uuid.getLeastSignificantBits();
+                     ids.add(tracker.getSegmentId(
+                             uuid.getMostSignificantBits(),
+-                            uuid.getLeastSignificantBits()));
++                            lsb));
+                 }
+             }
+             for (TarReader reader : readers) {

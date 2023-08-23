@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPlot.java b/source/org/jfree/chart/plot/dial/DialPlot.java
+index acb9f7c..091863a 100644
+--- a/source/org/jfree/chart/plot/dial/DialPlot.java
++++ b/source/org/jfree/chart/plot/dial/DialPlot.java
+@@ -587,15 +587,16 @@
+         }
+ 
+         // draw the cap if there is one...
+-        if (this.cap != null && this.cap.isVisible()) {
+-            if (this.cap.isClippedToWindow()) {
++        DialLayer cap1 = this.cap;
++        if (cap1 != null && cap1.isVisible()) {
++            if (cap1.isClippedToWindow()) {
+                 Shape savedClip = g2.getClip();
+                 g2.clip(this.dialFrame.getWindow(frame));
+-                this.cap.draw(g2, this, frame, area);
++                cap1.draw(g2, this, frame, area);
+                 g2.setClip(savedClip);
+             }
+             else {
+-                this.cap.draw(g2, this, frame, area);
++                cap1.draw(g2, this, frame, area);
+             }
+         }
+ 

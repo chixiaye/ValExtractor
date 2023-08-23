@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..ab90079 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -402,8 +402,9 @@
+ 
+     private boolean addTransition(ArrayList<Transition> transitions, Transition tr) {
+         int size = transitions.size();
++        boolean add = transitions.add(tr);
+         if (size == 0) {
+-            transitions.add(tr);
++            add;
+             return true;
+         }
+ 
+@@ -424,7 +425,7 @@
+         long newLocal = tr.getMillis() + offsetForNew;
+ 
+         if (newLocal != lastLocal) {
+-            transitions.add(tr);
++            add;
+             return true;
+         }
+ 

@@ -1,0 +1,16 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+index e970d3a..1c8d0f4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+@@ -334,8 +334,9 @@
+       Preconditions.checkState(line < lineCount);
+       Preconditions.checkState(entry.getSourceFileId() == UNMAPPED
+           || entry.getSourceFileId() < sources.length);
+-      Preconditions.checkState(entry.getNameId() == UNMAPPED
+-          || entry.getNameId() < names.length);
++        int nameId = entry.getNameId();
++        Preconditions.checkState(nameId == UNMAPPED
++          || nameId < names.length);
+     }
+ 
+     /**

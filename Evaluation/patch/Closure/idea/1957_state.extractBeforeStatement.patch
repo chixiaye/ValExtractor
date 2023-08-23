@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ExpressionDecomposer.java b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+index 2344537..25ec84c 100644
+--- a/src/com/google/javascript/jscomp/ExpressionDecomposer.java
++++ b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+@@ -320,7 +320,8 @@
+       // Either there were preexisting side-effects, or this node has
+       // side-effects.
+       state.sideEffects = true;
+-      state.extractBeforeStatement = extractExpression(
++        Node extractBeforeStatement = state.extractBeforeStatement;
++        extractBeforeStatement = extractExpression(
+           n, state.extractBeforeStatement);
+     }
+   }

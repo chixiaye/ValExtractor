@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/KeyedObjects.java b/source/org/jfree/data/KeyedObjects.java
+index e8dc01f..b30691d 100644
+--- a/source/org/jfree/data/KeyedObjects.java
++++ b/source/org/jfree/data/KeyedObjects.java
+@@ -323,7 +323,8 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         KeyedObjects clone = (KeyedObjects) super.clone();
+-        clone.data = new java.util.ArrayList();
++        List data1 = clone.data;
++        data1 = new java.util.ArrayList();
+         Iterator iterator = this.data.iterator();
+         while (iterator.hasNext()) {
+             KeyedObject ko = (KeyedObject) iterator.next();

@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterManager.java b/src/main/java/org/joda/time/convert/ConverterManager.java
+index 0b029aa..11c94b6 100644
+--- a/src/main/java/org/joda/time/convert/ConverterManager.java
++++ b/src/main/java/org/joda/time/convert/ConverterManager.java
+@@ -418,13 +418,14 @@
+      * equally well
+      */
+     public PeriodConverter getPeriodConverter(Object object) {
++        Class<?> aClass = object.getClass();
+         PeriodConverter converter =
+-            (PeriodConverter)iPeriodConverters.select(object == null ? null : object.getClass());
++            (PeriodConverter)iPeriodConverters.select(object == null ? null : aClass);
+         if (converter != null) {
+             return converter;
+         }
+         throw new IllegalArgumentException("No period converter found for type: " +
+-            (object == null ? "null" : object.getClass().getName()));
++            (object == null ? "null" : aClass.getName()));
+     }
+     
+     //-----------------------------------------------------------------------

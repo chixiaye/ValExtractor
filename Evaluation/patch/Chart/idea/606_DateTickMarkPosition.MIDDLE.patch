@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/axis/DateTickMarkPosition.java b/source/org/jfree/chart/axis/DateTickMarkPosition.java
+index b64db68..e01ae05 100644
+--- a/source/org/jfree/chart/axis/DateTickMarkPosition.java
++++ b/source/org/jfree/chart/axis/DateTickMarkPosition.java
+@@ -120,11 +120,14 @@
+         if (this.equals(DateTickMarkPosition.START)) {
+             return DateTickMarkPosition.START;
+         }
+-        else if (this.equals(DateTickMarkPosition.MIDDLE)) {
+-            return DateTickMarkPosition.MIDDLE;
+-        }
+-        else if (this.equals(DateTickMarkPosition.END)) {
+-            return DateTickMarkPosition.END;
++        else {
++            DateTickMarkPosition middle = DateTickMarkPosition.MIDDLE;
++            if (this.equals(middle)) {
++                return middle;
++            }
++            else if (this.equals(DateTickMarkPosition.END)) {
++                return DateTickMarkPosition.END;
++            }
+         }
+         return null;
+     }

@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+index ed52ae78..933586d9 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java
+@@ -308,10 +308,11 @@ public class TarArchiveOutputStream extends ArchiveOutputStream {
+             paxHeaders.put("path", entryName);
+         }
+ 
++        String linkName = entry.getLinkName();
+         if (addPaxHeadersForNonAsciiNames
+             && (entry.isLink() || entry.isSymbolicLink())
+-            && !ASCII.canEncode(entry.getLinkName())) {
+-            paxHeaders.put("linkpath", entry.getLinkName());
++            && !ASCII.canEncode(linkName)) {
++            paxHeaders.put("linkpath", linkName);
+         }
+ 
+         if (paxHeaders.size() > 0) {

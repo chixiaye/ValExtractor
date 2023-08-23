@@ -1,0 +1,43 @@
+diff --git a/src/com/google/javascript/jscomp/NodeNameExtractor.java b/src/com/google/javascript/jscomp/NodeNameExtractor.java
+index c393861..a431976 100644
+--- a/src/com/google/javascript/jscomp/NodeNameExtractor.java
++++ b/src/com/google/javascript/jscomp/NodeNameExtractor.java
+@@ -45,12 +45,13 @@
+    * looking like "a$b$$c" if this.delimiter = '$'.)
+    */
+   String getName(Node node) {
+-    switch (node.getType()) {
++      Node firstChild = node.getFirstChild();
++      switch (node.getType()) {
+       case Token.FUNCTION:
+-        Node functionNameNode = node.getFirstChild();
++        Node functionNameNode = firstChild;
+         return functionNameNode.getString();
+       case Token.GETPROP:
+-        Node lhsOfDot = node.getFirstChild();
++        Node lhsOfDot = firstChild;
+         Node rhsOfDot = lhsOfDot.getNext();
+         String lhsOfDotName = getName(lhsOfDot);
+         String rhsOfDotName = getName(rhsOfDot);
+@@ -60,7 +61,7 @@
+           return lhsOfDotName + delimiter + rhsOfDotName;
+         }
+       case Token.GETELEM:
+-        Node outsideBrackets = node.getFirstChild();
++        Node outsideBrackets = firstChild;
+         Node insideBrackets = outsideBrackets.getNext();
+         String nameOutsideBrackets = getName(outsideBrackets);
+         String nameInsideBrackets = getName(insideBrackets);
+@@ -80,10 +81,10 @@
+       case Token.THIS:
+         return "this";
+       case Token.CALL:
+-        return getName(node.getFirstChild());
++        return getName(firstChild);
+       default:
+         StringBuilder sb = new StringBuilder();
+-        for (Node child = node.getFirstChild(); child != null;
++        for (Node child = firstChild; child != null;
+              child = child.getNext()) {
+           if (sb.length() > 0) {
+             sb.append(delimiter);

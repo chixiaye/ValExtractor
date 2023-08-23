@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+index d05eb2f..e603489 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+@@ -252,6 +252,7 @@
+             this.plotLines = true;
+         }
+         if (type == SHAPES_AND_LINES) {
++            boolean plotShapes1 = this.plotShapes;
+             this.plotShapes = true;
+             this.plotLines = true;
+         }

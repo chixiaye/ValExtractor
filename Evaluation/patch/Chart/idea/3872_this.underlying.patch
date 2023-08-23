@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java b/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
+index be09f04..16f89cc 100644
+--- a/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
++++ b/source/org/jfree/data/gantt/SlidingGanttCategoryDataset.java
+@@ -603,8 +603,9 @@
+     public Object clone() throws CloneNotSupportedException {
+         SlidingGanttCategoryDataset clone
+                 = (SlidingGanttCategoryDataset) super.clone();
+-        if (this.underlying instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.underlying;
++        GanttCategoryDataset underlying1 = this.underlying;
++        if (underlying1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) underlying1;
+             clone.underlying = (GanttCategoryDataset) pc.clone();
+         }
+         return clone;

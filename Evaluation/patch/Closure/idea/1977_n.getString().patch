@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/OptimizeParameters.java b/src/com/google/javascript/jscomp/OptimizeParameters.java
+index 76e12a5..d59ffb4 100644
+--- a/src/com/google/javascript/jscomp/OptimizeParameters.java
++++ b/src/com/google/javascript/jscomp/OptimizeParameters.java
+@@ -355,10 +355,11 @@
+         // moved.
+         return false;
+       case Token.NAME:
+-        if (n.getString().equals("arguments")) {
++          String string = n.getString();
++          if (string.equals("arguments")) {
+           return false;
+         } else {
+-          Var v = s.getVar(n.getString());
++          Var v = s.getVar(string);
+           // Make sure that the variable is global. A caught exception, while
+           // it is in the global scope object in the compiler, it is not a
+           // global variable.

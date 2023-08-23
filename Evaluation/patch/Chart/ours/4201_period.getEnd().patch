@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValuesCollection.java b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+index ba52bd7..b790fef 100644
+--- a/source/org/jfree/data/time/TimePeriodValuesCollection.java
++++ b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+@@ -52,6 +52,7 @@
+ package org.jfree.data.time;
+ 
+ import java.io.Serializable;
++import java.util.Date;
+ import java.util.Iterator;
+ import java.util.List;
+ 
+@@ -257,8 +258,9 @@
+             return period.getStart().getTime();
+         }
+         else if (this.xPosition == TimePeriodAnchor.MIDDLE) {
+-            return period.getStart().getTime()
+-                / 2 + period.getEnd().getTime() / 2;
++            Date var_4201 = period.getEnd();
++			return period.getStart().getTime()
++                / 2 + var_4201.getTime() / 2;
+         }
+         else if (this.xPosition == TimePeriodAnchor.END) {
+             return period.getEnd().getTime();

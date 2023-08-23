@@ -1,0 +1,60 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..763cce4 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -114,7 +114,7 @@
+                     value = -value;
+                 } else {
+                     for (; size > 19; size--) {
+-                        buf.append('0');
++                        StringBuffer var_502 = buf.append('0');
+                     }
+                     buf.append("9223372036854775808");
+                     return;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..763cce4 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -114,7 +114,7 @@
+                     value = -value;
+                 } else {
+                     for (; size > 19; size--) {
+-                        buf.append('0');
++                        StringBuffer var_502 = buf.append('0');
+                     }
+                     buf.append("9223372036854775808");
+                     return;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..29aa039 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -108,13 +108,14 @@
+         } else if (size <= 19) {
+             buf.append(Long.toString(value));
+         } else {
++            StringBuffer append = buf.append('0');
+             if (value < 0) {
+                 buf.append('-');
+                 if (value != Long.MIN_VALUE) {
+                     value = -value;
+                 } else {
+                     for (; size > 19; size--) {
+-                        buf.append('0');
++                        append;
+                     }
+                     buf.append("9223372036854775808");
+                     return;
+@@ -122,7 +123,7 @@
+             }
+             int digits = (int)(Math.log(value) / LOG_10) + 1;
+             for (; size > digits; size--) {
+-                buf.append('0');
++                append;
+             }
+             buf.append(Long.toString(value));
+         }

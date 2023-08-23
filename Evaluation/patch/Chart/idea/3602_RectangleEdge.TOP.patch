@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..b38c327 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -208,8 +208,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         RectangleEdge result = null;
+-        if (this.equals(RectangleEdge.TOP)) {
+-            result = RectangleEdge.TOP;
++        RectangleEdge top = RectangleEdge.TOP;
++        if (this.equals(top)) {
++            result = top;
+         }
+         else if (this.equals(RectangleEdge.BOTTOM)) {
+             result = RectangleEdge.BOTTOM;

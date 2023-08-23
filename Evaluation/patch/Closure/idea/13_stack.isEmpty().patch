@@ -1,0 +1,29 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..76ac5a0 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -525,12 +525,13 @@
+       // positions give us enough information to rebuild the stack and this
+       // allows the building of the source map in O(n) time.
+       Deque<Mapping> stack = new ArrayDeque<Mapping>();
+-      for (Mapping m : mappings) {
++        boolean empty = stack.isEmpty();
++        for (Mapping m : mappings) {
+         // Find the closest ancestor of the current mapping:
+         // An overlapping mapping is an ancestor of the current mapping, any
+         // non-overlapping mappings are siblings (or cousins) and must be
+         // closed in the reverse order of when they encountered.
+-        while (!stack.isEmpty() && !isOverlapped(stack.peek(), m)) {
++        while (!empty && !isOverlapped(stack.peek(), m)) {
+           Mapping previous = stack.pop();
+           maybeVisit(v, previous);
+         }
+@@ -545,7 +546,7 @@
+ 
+       // There are no more children to be had, simply close the remaining
+       // mappings in the reverse order of when they encountered.
+-      while (!stack.isEmpty()) {
++      while (!empty) {
+         Mapping m = stack.pop();
+         maybeVisit(v, m);
+       }

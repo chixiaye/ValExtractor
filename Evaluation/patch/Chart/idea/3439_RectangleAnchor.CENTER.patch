@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/LegendGraphic.java b/source/org/jfree/chart/title/LegendGraphic.java
+index 3db85f5..297f78e 100644
+--- a/source/org/jfree/chart/title/LegendGraphic.java
++++ b/source/org/jfree/chart/title/LegendGraphic.java
+@@ -161,8 +161,9 @@
+         }
+         this.shapeVisible = true;
+         this.shape = shape;
+-        this.shapeAnchor = RectangleAnchor.CENTER;
+-        this.shapeLocation = RectangleAnchor.CENTER;
++        RectangleAnchor center = RectangleAnchor.CENTER;
++        this.shapeAnchor = center;
++        this.shapeLocation = center;
+         this.shapeFilled = true;
+         this.fillPaint = fillPaint;
+         this.fillPaintTransformer = new StandardGradientPaintTransformer();

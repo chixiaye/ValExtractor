@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/xy/DefaultWindDataset.java b/source/org/jfree/data/xy/DefaultWindDataset.java
+index 456abb8..996ff27 100644
+--- a/source/org/jfree/data/xy/DefaultWindDataset.java
++++ b/source/org/jfree/data/xy/DefaultWindDataset.java
+@@ -129,12 +129,13 @@
+         if (seriesKeys == null) {
+             throw new IllegalArgumentException("Null 'seriesKeys' argument.");
+         }
+-        if (seriesKeys.size() != data.length) {
++        int length = data.length;
++        if (seriesKeys.size() != length) {
+             throw new IllegalArgumentException("The number of series keys does "
+                     + "not match the number of series in the data array.");
+         }
+         this.seriesKeys = seriesKeys;
+-        int seriesCount = data.length;
++        int seriesCount = length;
+         this.allSeriesData = new java.util.ArrayList(seriesCount);
+ 
+         for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {

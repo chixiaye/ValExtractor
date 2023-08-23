@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..e96f99c 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -609,9 +609,10 @@
+         // the map, then map(a-b) = map(a)-map(b).
+         // To speed things up, only consider cases where len(b) <= 10
+         List<String> errors = Lists.newArrayList();
+-        for (Map.Entry<String, String> b : cssNames.entrySet()) {
++          Set<Map.Entry<String, String>> entries = cssNames.entrySet();
++          for (Map.Entry<String, String> b : entries) {
+           if (b.getKey().length() > 10) continue;
+-          for (Map.Entry<String, String> a : cssNames.entrySet()) {
++          for (Map.Entry<String, String> a : entries) {
+             String combined = cssNames.get(a.getKey() + "-" + b.getKey());
+             if (combined != null &&
+                 !combined.equals(a.getValue() + "-" + b.getValue())) {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+index 8d6a50b..1bae420 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+@@ -899,7 +899,8 @@
+                 return;
+             }
+             int pk                  = permutation[nextColumn];
+-            permutation[nextColumn] = permutation[k];
++            int i = permutation[nextColumn];
++            i = permutation[k];
+             permutation[k]          = pk;
+ 
+             // choose alpha such that Hk.u = alpha ek

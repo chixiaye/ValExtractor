@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..6d653b7 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -256,7 +256,8 @@
+         theme.plotOutlinePaint = Color.yellow;
+         theme.baselinePaint = Color.white;
+         theme.crosshairPaint = Color.red;
+-        theme.labelLinkPaint = Color.lightGray;
++        Color lightGray = Color.lightGray;
++        theme.labelLinkPaint = lightGray;
+         theme.tickLabelPaint = Color.white;
+         theme.axisLabelPaint = Color.white;
+         theme.shadowPaint = Color.darkGray;
+@@ -274,7 +275,7 @@
+                 new Stroke[] {new BasicStroke(0.5f)},
+                 DefaultDrawingSupplier.DEFAULT_SHAPE_SEQUENCE);
+         theme.wallPaint = Color.darkGray;
+-        theme.errorIndicatorPaint = Color.lightGray;
++        theme.errorIndicatorPaint = lightGray;
+         theme.gridBandPaint = new Color(255, 255, 255, 20);
+         theme.gridBandAlternatePaint = new Color(255, 255, 255, 40);
+         return theme;

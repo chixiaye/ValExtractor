@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..fb0a1ab 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -588,11 +588,12 @@
+                                                     Rectangle2D dataArea) {
+         double min = 0;
+         double max = 0;
+-        if (plot.getOrientation() == PlotOrientation.VERTICAL) {
++        PlotOrientation orientation = plot.getOrientation();
++        if (orientation == PlotOrientation.VERTICAL) {
+             min = dataArea.getMinY();
+             max = dataArea.getMaxY();
+         }
+-        else if (plot.getOrientation() ==  PlotOrientation.HORIZONTAL) {
++        else if (orientation ==  PlotOrientation.HORIZONTAL) {
+             min = dataArea.getMinX();
+             max = dataArea.getMaxX();
+         }

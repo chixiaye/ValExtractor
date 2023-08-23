@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..d0adc07 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -236,12 +236,13 @@
+      */
+     public ArrayRealVector(RealVector v1, ArrayRealVector v2) {
+         final int l1 = v1.getDimension();
+-        final int l2 = v2.data.length;
++        double[] data1 = v2.data;
++        final int l2 = data1.length;
+         data = new double[l1 + l2];
+         for (int i = 0; i < l1; ++i) {
+             data[i] = v1.getEntry(i);
+         }
+-        System.arraycopy(v2.data, 0, data, l1, l2);
++        System.arraycopy(data1, 0, data, l1, l2);
+     }
+ 
+     /**

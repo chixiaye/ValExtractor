@@ -1,0 +1,234 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..d048412 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1157,123 +1157,126 @@
+         tempArea = new Area(innerStem);
+         innerThermometer.add(tempArea);
+ 
+-        if ((this.dataset != null) && (this.dataset.getValue() != null)) {
+-            double current = this.dataset.getValue().doubleValue();
+-            double ds = this.rangeAxis.valueToJava2D(current, dataArea,
+-                    RectangleEdge.LEFT);
++        if ((this.dataset != null)) {
++            Number value1 = this.dataset.getValue();
++            if (value1 != null) {
++                double current = value1.doubleValue();
++                double ds = this.rangeAxis.valueToJava2D(current, dataArea,
++                        RectangleEdge.LEFT);
+ 
+-            int i = getColumnDiameter() - getGap() * 2; // already calculated
+-            int j = getColumnRadius() - getGap(); // already calculated
+-            int l = (i / 2);
+-            int k = (int) Math.round(ds);
+-            if (k < (getGap() + interior.getMinY())) {
+-                k = (int) (getGap() + interior.getMinY());
+-                l = getBulbRadius();
+-            }
+-
+-            Area mercury = new Area(innerBulb);
+-
+-            if (k < (stemBottom + getBulbRadius())) {
+-                mercuryStem.setRoundRect(midX - j, k, i,
+-                        (stemBottom + getBulbRadius()) - k, l, l);
+-                tempArea = new Area(mercuryStem);
+-                mercury.add(tempArea);
+-            }
+-
+-            g2.setPaint(getCurrentPaint());
+-            g2.fill(mercury);
+-
+-            // draw range indicators...
+-            if (this.subrangeIndicatorsVisible) {
+-                g2.setStroke(this.subrangeIndicatorStroke);
+-                Range range = this.rangeAxis.getRange();
+-
+-                // draw start of normal range
+-                double value = this.subrangeInfo[NORMAL][RANGE_LOW];
+-                if (range.contains(value)) {
+-                    double x = midX + getColumnRadius() + 2;
+-                    double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
+-                    Line2D line = new Line2D.Double(x, y, x + 10, y);
+-                    g2.setPaint(this.subrangePaint[NORMAL]);
+-                    g2.draw(line);
++                int i = getColumnDiameter() - getGap() * 2; // already calculated
++                int j = getColumnRadius() - getGap(); // already calculated
++                int l = (i / 2);
++                int k = (int) Math.round(ds);
++                if (k < (getGap() + interior.getMinY())) {
++                    k = (int) (getGap() + interior.getMinY());
++                    l = getBulbRadius();
+                 }
+ 
+-                // draw start of warning range
+-                value = this.subrangeInfo[WARNING][RANGE_LOW];
+-                if (range.contains(value)) {
+-                    double x = midX + getColumnRadius() + 2;
+-                    double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
+-                    Line2D line = new Line2D.Double(x, y, x + 10, y);
+-                    g2.setPaint(this.subrangePaint[WARNING]);
+-                    g2.draw(line);
++                Area mercury = new Area(innerBulb);
++
++                if (k < (stemBottom + getBulbRadius())) {
++                    mercuryStem.setRoundRect(midX - j, k, i,
++                            (stemBottom + getBulbRadius()) - k, l, l);
++                    tempArea = new Area(mercuryStem);
++                    mercury.add(tempArea);
+                 }
+ 
+-                // draw start of critical range
+-                value = this.subrangeInfo[CRITICAL][RANGE_LOW];
+-                if (range.contains(value)) {
+-                    double x = midX + getColumnRadius() + 2;
+-                    double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
+-                    Line2D line = new Line2D.Double(x, y, x + 10, y);
+-                    g2.setPaint(this.subrangePaint[CRITICAL]);
+-                    g2.draw(line);
++                g2.setPaint(getCurrentPaint());
++                g2.fill(mercury);
++
++                // draw range indicators...
++                if (this.subrangeIndicatorsVisible) {
++                    g2.setStroke(this.subrangeIndicatorStroke);
++                    Range range = this.rangeAxis.getRange();
++
++                    // draw start of normal range
++                    double value = this.subrangeInfo[NORMAL][RANGE_LOW];
++                    if (range.contains(value)) {
++                        double x = midX + getColumnRadius() + 2;
++                        double y = this.rangeAxis.valueToJava2D(value, dataArea,
++                                RectangleEdge.LEFT);
++                        Line2D line = new Line2D.Double(x, y, x + 10, y);
++                        g2.setPaint(this.subrangePaint[NORMAL]);
++                        g2.draw(line);
++                    }
++
++                    // draw start of warning range
++                    value = this.subrangeInfo[WARNING][RANGE_LOW];
++                    if (range.contains(value)) {
++                        double x = midX + getColumnRadius() + 2;
++                        double y = this.rangeAxis.valueToJava2D(value, dataArea,
++                                RectangleEdge.LEFT);
++                        Line2D line = new Line2D.Double(x, y, x + 10, y);
++                        g2.setPaint(this.subrangePaint[WARNING]);
++                        g2.draw(line);
++                    }
++
++                    // draw start of critical range
++                    value = this.subrangeInfo[CRITICAL][RANGE_LOW];
++                    if (range.contains(value)) {
++                        double x = midX + getColumnRadius() + 2;
++                        double y = this.rangeAxis.valueToJava2D(value, dataArea,
++                                RectangleEdge.LEFT);
++                        Line2D line = new Line2D.Double(x, y, x + 10, y);
++                        g2.setPaint(this.subrangePaint[CRITICAL]);
++                        g2.draw(line);
++                    }
+                 }
+-            }
+ 
+-            // draw the axis...
+-            if ((this.rangeAxis != null) && (this.axisLocation != NONE)) {
+-                int drawWidth = AXIS_GAP;
+-                Rectangle2D drawArea;
+-                double cursor = 0;
++                // draw the axis...
++                if ((this.rangeAxis != null) && (this.axisLocation != NONE)) {
++                    int drawWidth = AXIS_GAP;
++                    Rectangle2D drawArea;
++                    double cursor = 0;
+ 
+-                switch (this.axisLocation) {
++                    switch (this.axisLocation) {
++                        case RIGHT:
++                            cursor = midX + getColumnRadius();
++                            drawArea = new Rectangle2D.Double(cursor,
++                                    stemTop, drawWidth, (stemBottom - stemTop + 1));
++                            this.rangeAxis.draw(g2, cursor, area, drawArea,
++                                    RectangleEdge.RIGHT, null);
++                            break;
++
++                        case LEFT:
++                        default:
++                            //cursor = midX - COLUMN_RADIUS - AXIS_GAP;
++                            cursor = midX - getColumnRadius();
++                            drawArea = new Rectangle2D.Double(cursor, stemTop,
++                                    drawWidth, (stemBottom - stemTop + 1));
++                            this.rangeAxis.draw(g2, cursor, area, drawArea,
++                                    RectangleEdge.LEFT, null);
++                            break;
++                    }
++
++                }
++
++                // draw text value on screen
++                g2.setFont(this.valueFont);
++                g2.setPaint(this.valuePaint);
++                metrics = g2.getFontMetrics();
++                switch (this.valueLocation) {
+                     case RIGHT:
+-                        cursor = midX + getColumnRadius();
+-                        drawArea = new Rectangle2D.Double(cursor,
+-                                stemTop, drawWidth, (stemBottom - stemTop + 1));
+-                        this.rangeAxis.draw(g2, cursor, area, drawArea,
+-                                RectangleEdge.RIGHT, null);
++                        g2.drawString(this.valueFormat.format(current),
++                                midX + getColumnRadius() + getGap(), midY);
+                         break;
+-
+                     case LEFT:
+-                    default:
+-                        //cursor = midX - COLUMN_RADIUS - AXIS_GAP;
+-                        cursor = midX - getColumnRadius();
+-                        drawArea = new Rectangle2D.Double(cursor, stemTop,
+-                                drawWidth, (stemBottom - stemTop + 1));
+-                        this.rangeAxis.draw(g2, cursor, area, drawArea,
+-                                RectangleEdge.LEFT, null);
++                        String valueString = this.valueFormat.format(current);
++                        int stringWidth = metrics.stringWidth(valueString);
++                        g2.drawString(valueString, midX - getColumnRadius()
++                                - getGap() - stringWidth, midY);
+                         break;
++                    case BULB:
++                        temp = this.valueFormat.format(current);
++                        i = metrics.stringWidth(temp) / 2;
++                        g2.drawString(temp, midX - i,
++                                stemBottom + getBulbRadius() + getGap());
++                        break;
++                    default:
+                 }
+-
++                /***/
+             }
+-
+-            // draw text value on screen
+-            g2.setFont(this.valueFont);
+-            g2.setPaint(this.valuePaint);
+-            metrics = g2.getFontMetrics();
+-            switch (this.valueLocation) {
+-                case RIGHT:
+-                    g2.drawString(this.valueFormat.format(current),
+-                            midX + getColumnRadius() + getGap(), midY);
+-                    break;
+-                case LEFT:
+-                    String valueString = this.valueFormat.format(current);
+-                    int stringWidth = metrics.stringWidth(valueString);
+-                    g2.drawString(valueString, midX - getColumnRadius()
+-                            - getGap() - stringWidth, midY);
+-                    break;
+-                case BULB:
+-                    temp = this.valueFormat.format(current);
+-                    i = metrics.stringWidth(temp) / 2;
+-                    g2.drawString(temp, midX - i,
+-                            stemBottom + getBulbRadius() + getGap());
+-                    break;
+-                default:
+-            }
+-            /***/
+         }
+ 
+         g2.setPaint(this.thermometerPaint);

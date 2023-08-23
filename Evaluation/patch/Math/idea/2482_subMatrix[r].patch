@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..e775bc6 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -470,8 +470,9 @@
+         }
+ 
+         for (int r = 1; r < nRows; ++r) {
+-            if (subMatrix[r].length != nCols) {
+-                throw new DimensionMismatchException(nCols, subMatrix[r].length);
++            T[] subMatrix1 = subMatrix[r];
++            if (subMatrix1.length != nCols) {
++                throw new DimensionMismatchException(nCols, subMatrix1.length);
+             }
+         }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java b/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
+index e8159b6..9226676 100644
+--- a/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
++++ b/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
+@@ -174,7 +174,8 @@
+         }
+ 
+         // parse '/'
+-        final int startIndex = pos.getIndex();
++        int var_1062 = pos.getIndex();
++		final int startIndex = var_1062;
+         final char c = parseNextCharacter(source, pos);
+         switch (c) {
+         case 0 :

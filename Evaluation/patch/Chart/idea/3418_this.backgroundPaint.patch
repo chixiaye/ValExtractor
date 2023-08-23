@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..4fa0250 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -536,8 +536,9 @@
+ 
+         Rectangle2D target = (Rectangle2D) area.clone();
+         target = trimMargin(target);
+-        if (this.backgroundPaint != null) {
+-            g2.setPaint(this.backgroundPaint);
++        Paint backgroundPaint1 = this.backgroundPaint;
++        if (backgroundPaint1 != null) {
++            g2.setPaint(backgroundPaint1);
+             g2.fill(target);
+         }
+         getFrame().draw(g2, target);

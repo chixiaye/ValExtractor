@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..7564c03 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -1060,8 +1060,9 @@
+     public Object clone() throws CloneNotSupportedException {
+ 
+         PolarPlot clone = (PolarPlot) super.clone();
+-        if (this.axis != null) {
+-            clone.axis = (ValueAxis) ObjectUtilities.clone(this.axis);
++        ValueAxis axis1 = this.axis;
++        if (axis1 != null) {
++            clone.axis = (ValueAxis) ObjectUtilities.clone(axis1);
+             clone.axis.setPlot(clone);
+             clone.axis.addChangeListener(clone);
+         }

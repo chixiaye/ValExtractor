@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/NelderMeadSimplex.java b/src/main/java/org/apache/commons/math3/optimization/direct/NelderMeadSimplex.java
+index f822fba..21497c6 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/NelderMeadSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/NelderMeadSimplex.java
+@@ -259,8 +259,9 @@
+                 for (int j = 0; j < n; j++) {
+                     xC[j] = centroid[j] - gamma * (centroid[j] - xWorst[j]);
+                 }
++                double value = evaluationFunction.value(xC);
+                 final PointValuePair inContracted
+-                    = new PointValuePair(xC, evaluationFunction.value(xC), false);
++                    = new PointValuePair(xC, value, false);
+ 
+                 if (comparator.compare(inContracted, worst) < 0) {
+                     // Accept the contraction point.

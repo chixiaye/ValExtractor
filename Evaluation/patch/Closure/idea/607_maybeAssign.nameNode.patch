@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..1a13703 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -212,10 +212,11 @@
+         if (maybeAssign != null) {
+           // Put this in the assign map. It might count as a reference,
+           // but we won't know that until we have an index of all assigns.
+-          var = scope.getVar(maybeAssign.nameNode.getString());
++            Node nameNode = maybeAssign.nameNode;
++            var = scope.getVar(nameNode.getString());
+           if (var != null) {
+             assignsByVar.put(var, maybeAssign);
+-            assignsByNode.put(maybeAssign.nameNode, maybeAssign);
++            assignsByNode.put(nameNode, maybeAssign);
+ 
+             if (isRemovableVar(var) &&
+                 !maybeAssign.mayHaveSecondarySideEffects) {

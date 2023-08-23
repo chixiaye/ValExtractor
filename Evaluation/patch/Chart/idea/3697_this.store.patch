@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/PaintMap.java b/source/org/jfree/chart/util/PaintMap.java
+index d8c2790..7f3ce1d 100644
+--- a/source/org/jfree/chart/util/PaintMap.java
++++ b/source/org/jfree/chart/util/PaintMap.java
+@@ -149,10 +149,11 @@
+             return false;
+         }
+         PaintMap that = (PaintMap) obj;
+-        if (this.store.size() != that.store.size()) {
++        Map store1 = this.store;
++        if (store1.size() != that.store.size()) {
+             return false;
+         }
+-        Set keys = this.store.keySet();
++        Set keys = store1.keySet();
+         Iterator iterator = keys.iterator();
+         while (iterator.hasNext()) {
+             Comparable key = (Comparable) iterator.next();

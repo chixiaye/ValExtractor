@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+index 3a5d3e0..fc25795 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+@@ -450,7 +450,8 @@
+             return;
+         }
+ 
+-        double value = meanValue.doubleValue();
++        double v = meanValue.doubleValue();
++        double value = v;
+         double base = 0.0;
+         double lclip = rangeAxis.getLowerBound();
+         double uclip = rangeAxis.getUpperBound();
+@@ -518,9 +519,9 @@
+         Number n = dataset.getStdDevValue(row, column);
+         if (n != null) {
+             double valueDelta = n.doubleValue();
+-            double highVal = rangeAxis.valueToJava2D(meanValue.doubleValue()
++            double highVal = rangeAxis.valueToJava2D(v
+                     + valueDelta, dataArea, yAxisLocation);
+-            double lowVal = rangeAxis.valueToJava2D(meanValue.doubleValue()
++            double lowVal = rangeAxis.valueToJava2D(v
+                     - valueDelta, dataArea, yAxisLocation);
+ 
+             if (this.errorIndicatorPaint != null) {

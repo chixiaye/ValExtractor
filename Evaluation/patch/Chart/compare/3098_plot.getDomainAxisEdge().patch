@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..5463f62 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -177,6 +177,7 @@
+ import org.jfree.chart.util.ObjectUtilities;
+ import org.jfree.chart.util.PublicCloneable;
+ import org.jfree.chart.util.RectangleAnchor;
++import org.jfree.chart.util.RectangleEdge;
+ import org.jfree.chart.util.RectangleInsets;
+ import org.jfree.data.Range;
+ import org.jfree.data.general.DatasetUtilities;
+@@ -1141,10 +1142,11 @@
+     public void fillDomainGridBand(Graphics2D g2, XYPlot plot, ValueAxis axis,
+             Rectangle2D dataArea, double start, double end) {
+ 
++        RectangleEdge var_3098 = plot.getDomainAxisEdge();
+         double x1 = axis.valueToJava2D(start, dataArea,
+-                plot.getDomainAxisEdge());
++                var_3098);
+         double x2 = axis.valueToJava2D(end, dataArea,
+-                plot.getDomainAxisEdge());
++                var_3098);
+         Rectangle2D band;
+         if (plot.getOrientation() == PlotOrientation.VERTICAL) {
+             band = new Rectangle2D.Double(Math.min(x1, x2), dataArea.getMinY(),
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..5463f62 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -177,6 +177,7 @@
+ import org.jfree.chart.util.ObjectUtilities;
+ import org.jfree.chart.util.PublicCloneable;
+ import org.jfree.chart.util.RectangleAnchor;
++import org.jfree.chart.util.RectangleEdge;
+ import org.jfree.chart.util.RectangleInsets;
+ import org.jfree.data.Range;
+ import org.jfree.data.general.DatasetUtilities;
+@@ -1141,10 +1142,11 @@
+     public void fillDomainGridBand(Graphics2D g2, XYPlot plot, ValueAxis axis,
+             Rectangle2D dataArea, double start, double end) {
+ 
++        RectangleEdge var_3098 = plot.getDomainAxisEdge();
+         double x1 = axis.valueToJava2D(start, dataArea,
+-                plot.getDomainAxisEdge());
++                var_3098);
+         double x2 = axis.valueToJava2D(end, dataArea,
+-                plot.getDomainAxisEdge());
++                var_3098);
+         Rectangle2D band;
+         if (plot.getOrientation() == PlotOrientation.VERTICAL) {
+             band = new Rectangle2D.Double(Math.min(x1, x2), dataArea.getMinY(),
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..44d3be7 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -170,14 +170,7 @@
+ import org.jfree.chart.renderer.AbstractRenderer;
+ import org.jfree.chart.text.TextUtilities;
+ import org.jfree.chart.urls.XYURLGenerator;
+-import org.jfree.chart.util.GradientPaintTransformer;
+-import org.jfree.chart.util.Layer;
+-import org.jfree.chart.util.LengthAdjustmentType;
+-import org.jfree.chart.util.ObjectList;
+-import org.jfree.chart.util.ObjectUtilities;
+-import org.jfree.chart.util.PublicCloneable;
+-import org.jfree.chart.util.RectangleAnchor;
+-import org.jfree.chart.util.RectangleInsets;
++import org.jfree.chart.util.*;
+ import org.jfree.data.Range;
+ import org.jfree.data.general.DatasetUtilities;
+ import org.jfree.data.xy.SelectableXYDataset;
+@@ -1141,10 +1134,11 @@
+     public void fillDomainGridBand(Graphics2D g2, XYPlot plot, ValueAxis axis,
+             Rectangle2D dataArea, double start, double end) {
+ 
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         double x1 = axis.valueToJava2D(start, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         double x2 = axis.valueToJava2D(end, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         Rectangle2D band;
+         if (plot.getOrientation() == PlotOrientation.VERTICAL) {
+             band = new Rectangle2D.Double(Math.min(x1, x2), dataArea.getMinY(),

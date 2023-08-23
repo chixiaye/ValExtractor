@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..e605036 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -767,9 +767,10 @@
+     boolean thenBranchIsExpressionBlock = isFoldableExpressBlock(thenBranch);
+     boolean elseBranchIsExpressionBlock = isFoldableExpressBlock(elseBranch);
+ 
+-    if (thenBranchIsExpressionBlock && elseBranchIsExpressionBlock) {
++      Node blockExpression = getBlockExpression(elseBranch);
++      if (thenBranchIsExpressionBlock && elseBranchIsExpressionBlock) {
+       Node thenOp = getBlockExpression(thenBranch).getFirstChild();
+-      Node elseOp = getBlockExpression(elseBranch).getFirstChild();
++      Node elseOp = blockExpression.getFirstChild();
+       if (thenOp.getType() == elseOp.getType()) {
+         // if(x)a=1;else a=2; -> a=x?1:2;
+         if (NodeUtil.isAssignmentOp(thenOp)) {
+@@ -814,10 +815,10 @@
+ 
+     // if(x)var y=1;else y=2  ->  var y=x?1:2
+     if (thenBranchIsVar && elseBranchIsExpressionBlock &&
+-        getBlockExpression(elseBranch).getFirstChild().isAssign()) {
++        blockExpression.getFirstChild().isAssign()) {
+ 
+       Node var = getBlockVar(thenBranch);
+-      Node elseAssign = getBlockExpression(elseBranch).getFirstChild();
++      Node elseAssign = blockExpression.getFirstChild();
+ 
+       Node name1 = var.getFirstChild();
+       Node maybeName2 = elseAssign.getFirstChild();

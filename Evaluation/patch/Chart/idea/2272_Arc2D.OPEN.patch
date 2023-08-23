@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialRange.java b/source/org/jfree/chart/plot/dial/StandardDialRange.java
+index e2cb6ca..edac713 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialRange.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialRange.java
+@@ -330,10 +330,11 @@
+         double angleMin = scale.valueToAngle(this.lowerBound);
+         double angleMax = scale.valueToAngle(this.upperBound);
+ 
++        int open = Arc2D.OPEN;
+         Arc2D arcInner = new Arc2D.Double(arcRectInner, angleMin,
+-                angleMax - angleMin, Arc2D.OPEN);
++                angleMax - angleMin, open);
+         Arc2D arcOuter = new Arc2D.Double(arcRectOuter, angleMax,
+-                angleMin - angleMax, Arc2D.OPEN);
++                angleMin - angleMax, open);
+ 
+         g2.setPaint(this.paint);
+         g2.setStroke(new BasicStroke(2.0f));

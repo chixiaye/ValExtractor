@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/Period.java b/src/main/java/org/joda/time/Period.java
+index 5ea67a7..4ab4522 100644
+--- a/src/main/java/org/joda/time/Period.java
++++ b/src/main/java/org/joda/time/Period.java
+@@ -893,8 +893,9 @@
+      */
+     public Period withYears(int years) {
+         int[] values = getValues();  // cloned
+-        getPeriodType().setIndexedField(this, PeriodType.YEAR_INDEX, values, years);
+-        return new Period(values, getPeriodType());
++        PeriodType periodType = getPeriodType();
++        periodType.setIndexedField(this, PeriodType.YEAR_INDEX, values, years);
++        return new Period(values, periodType);
+     }
+ 
+     /**

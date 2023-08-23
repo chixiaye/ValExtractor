@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..57e9b66 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3621,8 +3621,9 @@
+             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+                     getBackgroundAlpha()));
+             for (int i = 0; i < 4; i++) {
+-                if (this.quadrantPaint[i] != null && r[i] != null) {
+-                    g2.setPaint(this.quadrantPaint[i]);
++                Paint paint = this.quadrantPaint[i];
++                if (paint != null && r[i] != null) {
++                    g2.setPaint(paint);
+                     g2.fill(r[i]);
+                 }
+             }

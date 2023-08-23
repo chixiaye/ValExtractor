@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..8563291 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -207,6 +207,7 @@
+ 
+         super();
+ 
++        XYDataset dataset1 = this.dataset;
+         this.dataset = dataset;
+         if (this.dataset != null) {
+             this.dataset.addChangeListener(this);

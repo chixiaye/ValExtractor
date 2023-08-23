@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..547a4c8 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -695,7 +695,8 @@
+     public Object clone() throws CloneNotSupportedException {
+ 
+         CombinedDomainXYPlot result = (CombinedDomainXYPlot) super.clone();
+-        result.subplots = (List) ObjectUtilities.deepClone(this.subplots);
++        List subplots1 = result.subplots;
++        subplots1 = (List) ObjectUtilities.deepClone(this.subplots);
+         for (Iterator it = result.subplots.iterator(); it.hasNext();) {
+             Plot child = (Plot) it.next();
+             child.setParent(result);

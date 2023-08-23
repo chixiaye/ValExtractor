@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/urls/CustomPieURLGenerator.java b/source/org/jfree/chart/urls/CustomPieURLGenerator.java
+index 9def977..859f65e 100644
+--- a/source/org/jfree/chart/urls/CustomPieURLGenerator.java
++++ b/source/org/jfree/chart/urls/CustomPieURLGenerator.java
+@@ -170,11 +170,12 @@
+ 
+         if (o instanceof CustomPieURLGenerator) {
+             CustomPieURLGenerator generator = (CustomPieURLGenerator) o;
+-            if (getListCount() != generator.getListCount()) {
++            int listCount = getListCount();
++            if (listCount != generator.getListCount()) {
+                 return false;
+             }
+             Set keySet;
+-            for (int pieItem = 0; pieItem < getListCount(); pieItem++) {
++            for (int pieItem = 0; pieItem < listCount; pieItem++) {
+                 if (getURLCount(pieItem) != generator.getURLCount(pieItem)) {
+                     return false;
+                 }

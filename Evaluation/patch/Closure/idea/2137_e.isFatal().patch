@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+index fcdcce0..a24ddfd 100644
+--- a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
++++ b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+@@ -179,12 +179,13 @@
+           }
+         } catch (ParseException e) {
+           // Inform the error handler of the exception.
+-          errorManager.report(
+-              e.isFatal() ? CheckLevel.ERROR : CheckLevel.WARNING,
++            boolean fatal = e.isFatal();
++            errorManager.report(
++              fatal ? CheckLevel.ERROR : CheckLevel.WARNING,
+               JSError.make(filePath, lineNum, 0 /* char offset */,
+-                  e.isFatal() ? PARSE_ERROR : PARSE_WARNING,
++                  fatal ? PARSE_ERROR : PARSE_WARNING,
+                   e.getMessage(), line));
+-          parseSucceeded = parseSucceeded && !e.isFatal();
++          parseSucceeded = parseSucceeded && !fatal;
+         }
+       }
+     } catch (IOException e) {

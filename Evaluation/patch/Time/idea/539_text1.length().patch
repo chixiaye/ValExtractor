@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+index c3dd8cc..6d9ffa6 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+@@ -955,16 +955,17 @@
+ 
+         public int scan(String periodStr, final int position) {
+             String text1 = iPluralText;
+-            String text2 = iSingularText; 
++            String text2 = iSingularText;
+ 
+-            if (text1.length() < text2.length()) {
++            int length = text1.length();
++            if (length < text2.length()) {
+                 // Swap in order to match longer one first.
+                 String temp = text1;
+                 text1 = text2;
+                 text2 = temp;
+             }
+ 
+-            int textLength1 = text1.length();
++            int textLength1 = length;
+             int textLength2 = text2.length();
+ 
+             int sourceLength = periodStr.length();

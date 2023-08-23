@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+index 75ed7c6..b7b83a7 100644
+--- a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+@@ -220,8 +220,9 @@
+       } else {
+           interpolatedState                = new double[dimension];
+           interpolatedDerivatives          = new double[dimension];
+-          interpolatedPrimaryState         = new double[primaryMapper.getDimension()];
+-          interpolatedPrimaryDerivatives   = new double[primaryMapper.getDimension()];
++          int dimension1 = primaryMapper.getDimension();
++          interpolatedPrimaryState         = new double[dimension1];
++          interpolatedPrimaryDerivatives   = new double[dimension1];
+           if (secondaryMappers == null) {
+               interpolatedSecondaryState       = null;
+               interpolatedSecondaryDerivatives = null;

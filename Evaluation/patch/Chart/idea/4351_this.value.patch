@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValue.java b/source/org/jfree/data/time/TimePeriodValue.java
+index 825ba0a..aa59b32 100644
+--- a/source/org/jfree/data/time/TimePeriodValue.java
++++ b/source/org/jfree/data/time/TimePeriodValue.java
+@@ -156,7 +156,8 @@
+     public int hashCode() {
+         int result;
+         result = (this.period != null ? this.period.hashCode() : 0);
+-        result = 29 * result + (this.value != null ? this.value.hashCode() : 0);
++        Number value1 = this.value;
++        result = 29 * result + (value1 != null ? value1.hashCode() : 0);
+         return result;
+     }
+ 

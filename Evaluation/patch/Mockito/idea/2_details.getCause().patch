@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/exceptions/Reporter.java b/src/org/mockito/exceptions/Reporter.java
+index 6e0b3bd..7ed398a 100644
+--- a/src/org/mockito/exceptions/Reporter.java
++++ b/src/org/mockito/exceptions/Reporter.java
+@@ -692,10 +692,11 @@
+     }
+ 
+     private String exceptionCauseMessageIfAvailable(Exception details) {
+-        if (details.getCause() == null) {
++        Throwable cause = details.getCause();
++        if (cause == null) {
+             return details.getMessage();
+         }
+-        return details.getCause().getMessage();
++        return cause.getMessage();
+     }
+ 
+     public void mockedTypeIsInconsistentWithDelegatedInstanceType(Class mockedType, Object delegatedInstance) {

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..b2dfc7b 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -932,7 +932,8 @@
+      */
+     public void setInverted(boolean flag) {
+ 
+-        if (this.inverted != flag) {
++        boolean inverted1 = this.inverted;
++        if (inverted1 != flag) {
+             this.inverted = flag;
+             notifyListeners(new AxisChangeEvent(this));
+         }

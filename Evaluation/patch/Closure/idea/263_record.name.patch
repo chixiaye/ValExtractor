@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/FunctionNames.java b/src/com/google/javascript/jscomp/FunctionNames.java
+index de4189e..77ec694 100644
+--- a/src/com/google/javascript/jscomp/FunctionNames.java
++++ b/src/com/google/javascript/jscomp/FunctionNames.java
+@@ -163,7 +163,8 @@
+     public final void setFunctionName(String name, Node fnNode) {
+       FunctionRecord record = functionMap.get(fnNode);
+       assert(record != null);
+-      assert(record.name.isEmpty());
++        String name1 = record.name;
++        assert(name1.isEmpty());
+       record.name = name;
+     }
+ 

@@ -1,0 +1,21 @@
+diff --git a/oak-core/src/main/java/org/apache/jackrabbit/oak/security/user/UserContext.java b/oak-core/src/main/java/org/apache/jackrabbit/oak/security/user/UserContext.java
+index 24cdedd006..d50956a488 100644
+--- a/oak-core/src/main/java/org/apache/jackrabbit/oak/security/user/UserContext.java
++++ b/oak-core/src/main/java/org/apache/jackrabbit/oak/security/user/UserContext.java
+@@ -41,12 +41,13 @@ final class UserContext implements Context, UserConstants {
+     @Override
+     public boolean definesProperty(Tree parent, PropertyState property) {
+         String ntName = TreeUtil.getPrimaryTypeName(parent);
++        String propName = property.getName();
+         if (NT_REP_USER.equals(ntName)) {
+-            return USER_PROPERTY_NAMES.contains(property.getName());
++            return USER_PROPERTY_NAMES.contains(propName);
+         } else if (NT_REP_GROUP.equals(ntName)) {
+-            return GROUP_PROPERTY_NAMES.contains(property.getName());
++            return GROUP_PROPERTY_NAMES.contains(propName);
+         } else if (NT_REP_PASSWORD.equals(ntName)) {
+-            return PWD_PROPERTY_NAMES.contains(property.getName());
++            return PWD_PROPERTY_NAMES.contains(propName);
+         } else if (NT_REP_MEMBERS.equals(ntName)) {
+             return true;
+         }

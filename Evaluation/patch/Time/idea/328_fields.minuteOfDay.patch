@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/StrictChronology.java b/src/main/java/org/joda/time/chrono/StrictChronology.java
+index 898445d..576089e 100644
+--- a/src/main/java/org/joda/time/chrono/StrictChronology.java
++++ b/src/main/java/org/joda/time/chrono/StrictChronology.java
+@@ -102,7 +102,8 @@
+         fields.secondOfMinute = convertField(fields.secondOfMinute);
+         fields.secondOfDay = convertField(fields.secondOfDay);
+         fields.minuteOfHour = convertField(fields.minuteOfHour);
+-        fields.minuteOfDay = convertField(fields.minuteOfDay);
++        DateTimeField minuteOfDay = fields.minuteOfDay;
++        minuteOfDay = convertField(fields.minuteOfDay);
+         fields.hourOfDay = convertField(fields.hourOfDay);
+         fields.hourOfHalfday = convertField(fields.hourOfHalfday);
+         fields.clockhourOfDay = convertField(fields.clockhourOfDay);

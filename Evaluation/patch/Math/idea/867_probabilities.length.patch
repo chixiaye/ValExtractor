@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java b/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
+index d457434..568659a 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/EnumeratedRealDistribution.java
+@@ -87,8 +87,9 @@
+         throws DimensionMismatchException, NotPositiveException, MathArithmeticException,
+                NotFiniteNumberException, NotANumberException {
+         super(rng);
+-        if (singletons.length != probabilities.length) {
+-            throw new DimensionMismatchException(probabilities.length, singletons.length);
++        int length = probabilities.length;
++        if (singletons.length != length) {
++            throw new DimensionMismatchException(length, singletons.length);
+         }
+ 
+         List<Pair<Double, Double>> samples = new ArrayList<Pair<Double, Double>>(singletons.length);

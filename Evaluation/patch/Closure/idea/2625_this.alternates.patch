@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionType.java b/src/com/google/javascript/rhino/jstype/UnionType.java
+index 585bd8f..bc5d995 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionType.java
++++ b/src/com/google/javascript/rhino/jstype/UnionType.java
+@@ -80,7 +80,8 @@
+    */
+   UnionType(JSTypeRegistry registry, Collection<JSType> alternates) {
+     super(registry);
+-    this.alternates = alternates;
++      Collection<JSType> alternates1 = this.alternates;
++      this.alternates = alternates;
+     this.hashcode = this.alternates.hashCode();
+   }
+ 

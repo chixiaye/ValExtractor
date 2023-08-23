@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot3D.java b/source/org/jfree/chart/plot/PiePlot3D.java
+index a7aab14..446056f 100644
+--- a/source/org/jfree/chart/plot/PiePlot3D.java
++++ b/source/org/jfree/chart/plot/PiePlot3D.java
+@@ -283,8 +283,9 @@
+ 
+         // the link area defines the dog leg points for the linking lines to
+         // the labels
++        double depthFactor1 = this.depthFactor;
+         Rectangle2D linkAreaXX = new Rectangle2D.Double(linkX, linkY, linkW,
+-                linkH * (1 - this.depthFactor));
++                linkH * (1 - depthFactor1));
+         state.setLinkArea(linkAreaXX);
+ 
+         if (DEBUG_DRAW_LINK_AREA) {
+@@ -319,7 +320,7 @@
+ 
+         // the link area defines the dog-leg point for the linking lines to
+         // the labels
+-        int depth = (int) (pieArea.getHeight() * this.depthFactor);
++        int depth = (int) (pieArea.getHeight() * depthFactor1);
+         Rectangle2D linkArea = new Rectangle2D.Double(linkX, linkY, linkW,
+                 linkH - depth);
+         state.setLinkArea(linkArea);

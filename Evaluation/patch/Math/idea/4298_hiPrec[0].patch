@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..456b0af 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -878,7 +878,8 @@
+                 /* exp(1.494140625) is nearly a machine number... */
+                 final double result = exp(x+1.494140625, extra, hiPrec) / 4.455505956692756620;
+                 if (hiPrec != null) {
+-                    hiPrec[0] /= 4.455505956692756620;
++                    double v = hiPrec[0];
++                    v /= 4.455505956692756620;
+                     hiPrec[1] /= 4.455505956692756620;
+                 }
+                 return result;

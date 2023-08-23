@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..cd3e410 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -364,6 +364,7 @@
+             /// Determine max and min values.
+             if (this.rows.size() < 1) {
+                 this.maxValue = 0.0;
++                double minValue1 = this.minValue;
+                 this.minValue = 0.0;
+             }
+             else {

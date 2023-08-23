@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/PieLabelDistributor.java b/source/org/jfree/chart/plot/PieLabelDistributor.java
+index 01d2d44..b239dc8 100644
+--- a/source/org/jfree/chart/plot/PieLabelDistributor.java
++++ b/source/org/jfree/chart/plot/PieLabelDistributor.java
+@@ -75,15 +75,16 @@
+ //            adjustInwards();
+ //        }
+         // if still overlapping, do something else...
+-        if (isOverlap()) {
++        boolean overlap = isOverlap();
++        if (overlap) {
+             adjustDownwards(minY, height);
+         }
+ 
+-        if (isOverlap()) {
++        if (overlap) {
+             adjustUpwards(minY, height);
+         }
+ 
+-        if (isOverlap()) {
++        if (overlap) {
+             spreadEvenly(minY, height);
+         }
+     }

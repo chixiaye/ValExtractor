@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/rhino/jstype/NamedType.java b/src/com/google/javascript/rhino/jstype/NamedType.java
+index 9fb2191..02a39f6 100644
+--- a/src/com/google/javascript/rhino/jstype/NamedType.java
++++ b/src/com/google/javascript/rhino/jstype/NamedType.java
+@@ -291,10 +291,11 @@
+       if (parentClass == null) {
+         return null;
+       }
+-      if (componentNames[i].length() == 0) {
++        String componentName = componentNames[i];
++        if (componentName.length() == 0) {
+         return null;
+       }
+-      value = parentClass.getPropertyType(componentNames[i]);
++      value = parentClass.getPropertyType(componentName);
+     }
+     return value;
+   }

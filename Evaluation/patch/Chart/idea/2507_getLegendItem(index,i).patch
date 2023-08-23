@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..0d1761d 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1801,7 +1801,8 @@
+         if (plot.getRowRenderingOrder().equals(SortOrder.ASCENDING)) {
+             for (int i = 0; i < seriesCount; i++) {
+                 if (isSeriesVisibleInLegend(i)) {
+-                    LegendItem item = getLegendItem(index, i);
++                    LegendItem legendItem = getLegendItem(index, i);
++                    LegendItem item = legendItem;
+                     if (item != null) {
+                         result.add(item);
+                     }

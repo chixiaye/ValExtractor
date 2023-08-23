@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/MutableDateTime.java b/src/main/java/org/joda/time/MutableDateTime.java
+index 9aa8602..052a802 100644
+--- a/src/main/java/org/joda/time/MutableDateTime.java
++++ b/src/main/java/org/joda/time/MutableDateTime.java
+@@ -1303,8 +1303,9 @@
+          * Reads the property from a safe serialization format.
+          */
+         private void readObject(ObjectInputStream oos) throws IOException, ClassNotFoundException {
+-            iInstant = (MutableDateTime) oos.readObject();
+-            DateTimeFieldType type = (DateTimeFieldType) oos.readObject();
++            Object o = oos.readObject();
++            iInstant = (MutableDateTime) o;
++            DateTimeFieldType type = (DateTimeFieldType) o;
+             iField = type.getField(iInstant.getChronology());
+         }
+ 

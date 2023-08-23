@@ -1,0 +1,135 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..aad1810 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -1014,7 +1014,8 @@
+ 
+             if (ntrits > 0) {
+                 for (int k = 0; k < npt; k++) {
+-                    lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex));
++                    double var_3088 = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++					lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - var_3088);
+                     work3.setEntry(k, ZERO);
+                 }
+                 for (int j = 0; j < nptm; j++) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..015b2fa 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -437,7 +437,9 @@
+         // call of RESCUE that makes a call of CALFUN.
+ 
+         int state = 20;
+-        for(;;) switch (state) {
++        for(;;) {
++			double var_3088 = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			switch (state) {
+         case 20: {
+             printState(20); // XXX
+             if (trustRegionCenterInterpolationPointIndex != kbase) {
+@@ -832,7 +834,7 @@
+             // Use the quadratic model to predict the change in F due to the step D,
+             //   and set DIFF to the error of this prediction.
+ 
+-            final double fopt = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			    final double fopt = var_3088;
+             double vquad = ZERO;
+             int ih = 0;
+             for (int j = 0; j < n; j++) {
+@@ -1014,7 +1016,7 @@
+ 
+             if (ntrits > 0) {
+                 for (int k = 0; k < npt; k++) {
+-                    lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex));
++			            lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - var_3088);
+                     work3.setEntry(k, ZERO);
+                 }
+                 for (int j = 0; j < nptm; j++) {
+@@ -1190,7 +1192,7 @@
+         }
+         case 720: {
+             printState(720); // XXX
+-            if (fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex) <= fsave) {
++			    if (var_3088 <= fsave) {
+                 for (int i = 0; i < n; i++) {
+                     // Computing MIN
+                     // Computing MAX
+@@ -1206,13 +1208,14 @@
+                         currentBest.setEntry(i, upperBound[i]);
+                     }
+                 }
+-                f = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++			        f = var_3088;
+             }
+             return f;
+         }
+         default: {
+             throw new MathIllegalStateException(LocalizedFormats.SIMPLE_MESSAGE, "bobyqb");
+         }}
++		}
+     } // bobyqb
+ 
+     // ----------------------------------------------------------------------------------------
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..3c6b60f 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -437,7 +437,9 @@
+         // call of RESCUE that makes a call of CALFUN.
+ 
+         int state = 20;
+-        for(;;) switch (state) {
++        for(;;) {
++            double entry = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++            switch (state) {
+         case 20: {
+             printState(20); // XXX
+             if (trustRegionCenterInterpolationPointIndex != kbase) {
+@@ -832,7 +834,7 @@
+             // Use the quadratic model to predict the change in F due to the step D,
+             //   and set DIFF to the error of this prediction.
+ 
+-            final double fopt = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++                final double fopt = entry;
+             double vquad = ZERO;
+             int ih = 0;
+             for (int j = 0; j < n; j++) {
+@@ -1014,7 +1016,7 @@
+ 
+             if (ntrits > 0) {
+                 for (int k = 0; k < npt; k++) {
+-                    lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex));
++                        lagrangeValuesAtNewPoint.setEntry(k, fAtInterpolationPoints.getEntry(k) - entry);
+                     work3.setEntry(k, ZERO);
+                 }
+                 for (int j = 0; j < nptm; j++) {
+@@ -1190,7 +1192,7 @@
+         }
+         case 720: {
+             printState(720); // XXX
+-            if (fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex) <= fsave) {
++                if (entry <= fsave) {
+                 for (int i = 0; i < n; i++) {
+                     // Computing MIN
+                     // Computing MAX
+@@ -1206,13 +1208,14 @@
+                         currentBest.setEntry(i, upperBound[i]);
+                     }
+                 }
+-                f = fAtInterpolationPoints.getEntry(trustRegionCenterInterpolationPointIndex);
++                    f = entry;
+             }
+             return f;
+         }
+         default: {
+             throw new MathIllegalStateException(LocalizedFormats.SIMPLE_MESSAGE, "bobyqb");
+         }}
++        }
+     } // bobyqb
+ 
+     // ----------------------------------------------------------------------------------------

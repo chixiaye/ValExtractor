@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..31c3010 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -276,7 +276,8 @@
+         // Define one-based centuryOfEra and yearOfCentury.
+         DateTimeField field = new OffsetDateTimeField(
+             fields.yearOfEra, 99);
+-        fields.centuryOfEra = new DividedDateTimeField(
++        DateTimeField centuryOfEra = fields.centuryOfEra;
++        centuryOfEra = new DividedDateTimeField(
+             field, DateTimeFieldType.centuryOfEra(), 100);
+         fields.centuries = fields.centuryOfEra.getDurationField();
+         

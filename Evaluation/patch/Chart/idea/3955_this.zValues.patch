@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/general/DefaultHeatMapDataset.java b/source/org/jfree/data/general/DefaultHeatMapDataset.java
+index 7840965..8dd1de5 100644
+--- a/source/org/jfree/data/general/DefaultHeatMapDataset.java
++++ b/source/org/jfree/data/general/DefaultHeatMapDataset.java
+@@ -113,6 +113,7 @@
+         this.maxX = maxX;
+         this.minY = minY;
+         this.maxY = maxY;
++        double[][] zValues1 = this.zValues;
+         this.zValues = new double[xSamples][];
+         for (int x = 0; x < xSamples; x++) {
+             this.zValues[x] = new double[ySamples];

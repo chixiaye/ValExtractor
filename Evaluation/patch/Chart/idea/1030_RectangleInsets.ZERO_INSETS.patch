@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/block/AbstractBlock.java b/source/org/jfree/chart/block/AbstractBlock.java
+index cb9f84a..1ccff73 100644
+--- a/source/org/jfree/chart/block/AbstractBlock.java
++++ b/source/org/jfree/chart/block/AbstractBlock.java
+@@ -111,9 +111,10 @@
+         this.width = 0.0;
+         this.height = 0.0;
+         this.bounds = new Rectangle2D.Float();
+-        this.margin = RectangleInsets.ZERO_INSETS;
++        RectangleInsets zeroInsets = RectangleInsets.ZERO_INSETS;
++        this.margin = zeroInsets;
+         this.frame = BlockBorder.NONE;
+-        this.padding = RectangleInsets.ZERO_INSETS;
++        this.padding = zeroInsets;
+     }
+ 
+     /**

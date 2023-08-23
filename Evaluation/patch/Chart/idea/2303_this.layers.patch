@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPlot.java b/source/org/jfree/chart/plot/dial/DialPlot.java
+index acb9f7c..5b42e78 100644
+--- a/source/org/jfree/chart/plot/dial/DialPlot.java
++++ b/source/org/jfree/chart/plot/dial/DialPlot.java
+@@ -356,11 +356,12 @@
+      * @param index  the index.
+      */
+     public void removeLayer(int index) {
+-        DialLayer layer = (DialLayer) this.layers.get(index);
++        List layers1 = this.layers;
++        DialLayer layer = (DialLayer) layers1.get(index);
+         if (layer != null) {
+             layer.removeChangeListener(this);
+         }
+-        this.layers.remove(index);
++        layers1.remove(index);
+         fireChangeEvent();
+     }
+ 

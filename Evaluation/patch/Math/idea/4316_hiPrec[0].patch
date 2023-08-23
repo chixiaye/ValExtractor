@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..a5bd958 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1404,9 +1404,10 @@
+             return lores;
+         }
+ 
+-        final double tmp = hiPrec[0] * HEX_40000000;
+-        final double lna = hiPrec[0] + tmp - tmp;
+-        final double lnb = hiPrec[0] - lna + hiPrec[1];
++        double v = hiPrec[0];
++        final double tmp = v * HEX_40000000;
++        final double lna = v + tmp - tmp;
++        final double lnb = v - lna + hiPrec[1];
+ 
+         final double rln10a = 0.4342944622039795;
+         final double rln10b = 1.9699272335463627E-8;

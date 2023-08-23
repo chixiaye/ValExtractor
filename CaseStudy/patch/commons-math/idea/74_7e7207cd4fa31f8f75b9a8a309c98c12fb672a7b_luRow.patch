@@ -1,0 +1,20 @@
+diff --git a/src/java/org/apache/commons/math/linear/RealMatrixImpl.java b/src/java/org/apache/commons/math/linear/RealMatrixImpl.java
+index 8c5b96c12..7157ce738 100644
+--- a/src/java/org/apache/commons/math/linear/RealMatrixImpl.java
++++ b/src/java/org/apache/commons/math/linear/RealMatrixImpl.java
+@@ -806,11 +806,12 @@ public class RealMatrixImpl implements RealMatrix, Serializable {
+             int max = col; // permutation row
+             double largest = 0d;
+             for (int row = col; row < nRows; row++) {
+-                sum = lu[row][col];
++                double[] luRow = lu[row];
++                sum = luRow[col];
+                 for (int i = 0; i < col; i++) {
+-                    sum -= lu[row][i] * lu[i][col];
++                    sum -= luRow[i] * lu[i][col];
+                 }
+-                lu[row][col] = sum;
++                luRow[col] = sum;
+ 
+                 // maintain best permutation choice
+                 if (Math.abs(sum) > largest) {

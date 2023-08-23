@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/urls/StandardPieURLGenerator.java b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+index dfe9acd..98520d0 100644
+--- a/source/org/jfree/chart/urls/StandardPieURLGenerator.java
++++ b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+@@ -147,11 +147,12 @@
+         catch (UnsupportedEncodingException e) {
+             encodedKey = key.toString();
+         }
++        String categoryParameterName1 = this.categoryParameterName;
+         if (url.indexOf("?") > -1) {
+-            url += "&amp;" + this.categoryParameterName + "=" + encodedKey;
++            url += "&amp;" + categoryParameterName1 + "=" + encodedKey;
+         }
+         else {
+-            url += "?" + this.categoryParameterName + "=" + encodedKey;
++            url += "?" + categoryParameterName1 + "=" + encodedKey;
+         }
+         if (this.indexParameterName != null) {
+             url += "&amp;" + this.indexParameterName + "="

@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/SpiderWebPlot.java b/source/org/jfree/chart/plot/SpiderWebPlot.java
+index 06e0bc2..840ed00 100644
+--- a/source/org/jfree/chart/plot/SpiderWebPlot.java
++++ b/source/org/jfree/chart/plot/SpiderWebPlot.java
+@@ -1656,11 +1656,12 @@
+         this.baseSeriesPaint = SerialUtilities.readPaint(stream);
+         this.seriesOutlinePaint = SerialUtilities.readPaint(stream);
+         this.baseSeriesOutlinePaint = SerialUtilities.readPaint(stream);
+-        this.seriesOutlineStroke = SerialUtilities.readStroke(stream);
+-        this.baseSeriesOutlineStroke = SerialUtilities.readStroke(stream);
++        Stroke seriesOutlineStroke1 = SerialUtilities.readStroke(stream);
++        this.seriesOutlineStroke = seriesOutlineStroke1;
++        this.baseSeriesOutlineStroke = seriesOutlineStroke1;
+         this.labelPaint = SerialUtilities.readPaint(stream);
+         this.axisLinePaint = SerialUtilities.readPaint(stream);
+-        this.axisLineStroke = SerialUtilities.readStroke(stream);
++        this.axisLineStroke = seriesOutlineStroke1;
+         if (this.dataset != null) {
+             this.dataset.addChangeListener(this);
+         }

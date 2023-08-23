@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..5bfacad 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1128,7 +1128,8 @@
+ 						if (o instanceof Number){
+ 							double v = ((Number) o).doubleValue();
+ 							if (!Double.isNaN(v)){
+-	                            minimum = Math.min(minimum, v);
++                                double min = Math.min(minimum, v);
++                                minimum = min;
+ 	                            maximum = Math.max(maximum, v);
+ 							}
+ 						}

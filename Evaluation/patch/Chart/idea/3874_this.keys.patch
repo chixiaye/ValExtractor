@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/gantt/TaskSeriesCollection.java b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+index 882799a..c3f080e 100644
+--- a/source/org/jfree/data/gantt/TaskSeriesCollection.java
++++ b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+@@ -260,9 +260,10 @@
+         while (iterator.hasNext()) {
+             Task task = (Task) iterator.next();
+             String key = task.getDescription();
+-            int index = this.keys.indexOf(key);
++            List keys1 = this.keys;
++            int index = keys1.indexOf(key);
+             if (index < 0) {
+-                this.keys.add(key);
++                keys1.add(key);
+             }
+         }
+         fireDatasetChanged(new DatasetChangeInfo());

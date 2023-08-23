@@ -1,0 +1,39 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCCategoryDataset.java b/source/org/jfree/data/jdbc/JDBCCategoryDataset.java
+index e9c9c03..75cf6f2 100644
+--- a/source/org/jfree/data/jdbc/JDBCCategoryDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCCategoryDataset.java
+@@ -236,6 +236,7 @@
+                     Comparable columnKey = metaData.getColumnName(column);
+                     int columnType = metaData.getColumnType(column);
+ 
++                    Object object = resultSet.getObject(column);
+                     switch (columnType) {
+                         case Types.TINYINT:
+                         case Types.SMALLINT:
+@@ -246,7 +247,7 @@
+                         case Types.DECIMAL:
+                         case Types.NUMERIC:
+                         case Types.REAL: {
+-                            Number value = (Number) resultSet.getObject(column);
++                            Number value = (Number) object;
+                             if (this.transpose) {
+                                 setValue(value, columnKey, rowKey);
+                             }
+@@ -258,7 +259,7 @@
+                         case Types.DATE:
+                         case Types.TIME:
+                         case Types.TIMESTAMP: {
+-                            Date date = (Date) resultSet.getObject(column);
++                            Date date = (Date) object;
+                             Number value = new Long(date.getTime());
+                             if (this.transpose) {
+                                 setValue(value, columnKey, rowKey);
+@@ -272,7 +273,7 @@
+                         case Types.VARCHAR:
+                         case Types.LONGVARCHAR: {
+                             String string
+-                                = (String) resultSet.getObject(column);
++                                = (String) object;
+                             try {
+                                 Number value = Double.valueOf(string);
+                                 if (this.transpose) {

@@ -1,0 +1,29 @@
+diff --git a/src/com/google/javascript/jscomp/NodeNameExtractor.java b/src/com/google/javascript/jscomp/NodeNameExtractor.java
+index c393861..252718b 100644
+--- a/src/com/google/javascript/jscomp/NodeNameExtractor.java
++++ b/src/com/google/javascript/jscomp/NodeNameExtractor.java
+@@ -45,7 +45,8 @@
+    * looking like "a$b$$c" if this.delimiter = '$'.)
+    */
+   String getName(Node node) {
+-    switch (node.getType()) {
++      String string = node.getString();
++      switch (node.getType()) {
+       case Token.FUNCTION:
+         Node functionNameNode = node.getFirstChild();
+         return functionNameNode.getString();
+@@ -70,11 +71,11 @@
+           return nameOutsideBrackets + delimiter + nameInsideBrackets;
+         }
+       case Token.NAME:
+-        return node.getString();
++        return string;
+       case Token.STRING:
+       case Token.STRING_KEY:
+-        return TokenStream.isJSIdentifier(node.getString()) ?
+-            node.getString() : ("__" + nextUniqueInt++);
++        return TokenStream.isJSIdentifier(string) ?
++                string : ("__" + nextUniqueInt++);
+       case Token.NUMBER:
+         return NodeUtil.getStringValue(node);
+       case Token.THIS:

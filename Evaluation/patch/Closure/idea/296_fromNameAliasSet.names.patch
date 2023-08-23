@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..5771d83 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1150,8 +1150,9 @@
+       resultSet = new AliasSet(toName, fromName);
+     } else if (toNameAliasSet != null && fromNameAliasSet != null) {
+       resultSet = toNameAliasSet;
+-      resultSet.names.addAll(fromNameAliasSet.names);
+-      for (String name : fromNameAliasSet.names) {
++        Set<String> names = fromNameAliasSet.names;
++        resultSet.names.addAll(names);
++      for (String name : names) {
+         aliases.put(name, resultSet);
+       }
+     } else if (toNameAliasSet != null) {

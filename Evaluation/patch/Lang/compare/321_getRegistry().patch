@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index f41a3ea..68979af 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -184,7 +184,8 @@
+      */
+     static void register(final Object value) {
+         if (value != null) {
+-            final Map<Object, Object> m = getRegistry();
++            Map<Object, Object> var_321 = getRegistry();
++			final Map<Object, Object> m = var_321;
+             if (m == null) {
+                 REGISTRY.set(new WeakHashMap<Object, Object>());
+             }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index f41a3ea..1d16878 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -184,11 +184,12 @@
+      */
+     static void register(final Object value) {
+         if (value != null) {
+-            final Map<Object, Object> m = getRegistry();
++            Map<Object, Object> var_321 = getRegistry();
++			final Map<Object, Object> m = var_321;
+             if (m == null) {
+                 REGISTRY.set(new WeakHashMap<Object, Object>());
+             }
+-            getRegistry().put(value, null);
++            var_321.put(value, null);
+         }
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index f41a3ea..710a83f 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -184,11 +184,12 @@
+      */
+     static void register(final Object value) {
+         if (value != null) {
+-            final Map<Object, Object> m = getRegistry();
++            Map<Object, Object> registry = getRegistry();
++            final Map<Object, Object> m = registry;
+             if (m == null) {
+                 REGISTRY.set(new WeakHashMap<Object, Object>());
+             }
+-            getRegistry().put(value, null);
++            registry.put(value, null);
+         }
+     }
+ 

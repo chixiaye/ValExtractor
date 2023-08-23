@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..73739c2 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1599,12 +1599,13 @@
+         parent = parent.getParent();
+       }
+ 
+-      if (parent.isName()) {
+-        return scopes.get(parent);
++        List<NameInformation> nameInformations = scopes.get(parent);
++        if (parent.isName()) {
++        return nameInformations;
+       }
+ 
+       if (parent.isAssign()) {
+-        return scopes.get(parent);
++        return nameInformations;
+       }
+     }
+ 

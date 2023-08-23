@@ -1,0 +1,46 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..7a81f10 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -617,8 +617,9 @@
+       // Handle the @lends annotation.
+       JSType type = null;
+       JSDocInfo info = objectLit.getJSDocInfo();
+-      if (info != null && info.getLendsName() != null) {
+-        String lendsName = info.getLendsName();
++      String var_1211 = info.getLendsName();
++	if (info != null && var_1211 != null) {
++        String lendsName = var_1211;
+         Var lendsVar = scope.getVar(lendsName);
+         if (lendsVar == null) {
+           compiler.report(
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..b03438e 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -617,8 +617,10 @@
+       // Handle the @lends annotation.
+       JSType type = null;
+       JSDocInfo info = objectLit.getJSDocInfo();
+-      if (info != null && info.getLendsName() != null) {
+-        String lendsName = info.getLendsName();
++      if (info != null) {
++          String lendsName1 = info.getLendsName();
++          if (lendsName1 != null) {
++              String lendsName = lendsName1;
+         Var lendsVar = scope.getVar(lendsName);
+         if (lendsVar == null) {
+           compiler.report(
+@@ -638,6 +640,7 @@
+           }
+         }
+       }
++      }
+ 
+       info = NodeUtil.getBestJSDocInfo(objectLit);
+       Node lValue = NodeUtil.getBestLValue(objectLit);

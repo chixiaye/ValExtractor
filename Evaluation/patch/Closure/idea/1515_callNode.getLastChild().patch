@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..9802bda 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -431,10 +431,11 @@
+           maybeInheritsExpr.isExprResult() &&
+           maybeInheritsExpr.getFirstChild().isCall()) {
+         Node callNode = maybeInheritsExpr.getFirstChild();
+-        if ("goog.inherits".equals(
++          Node lastChild = callNode.getLastChild();
++          if ("goog.inherits".equals(
+                 callNode.getFirstChild().getQualifiedName()) &&
+-            callNode.getLastChild().isQualifiedName()) {
+-          baseClassNode = callNode.getLastChild();
++            lastChild.isQualifiedName()) {
++          baseClassNode = lastChild;
+         }
+       }
+ 

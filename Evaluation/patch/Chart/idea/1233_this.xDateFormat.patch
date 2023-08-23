@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+index a4eb52c..a50b839 100644
+--- a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+@@ -278,8 +278,9 @@
+         result[0] = dataset.getSeriesKey(series).toString();
+ 
+         double x = dataset.getXValue(series, item);
+-        if (this.xDateFormat != null) {
+-            result[1] = this.xDateFormat.format(new Date((long) x));
++        DateFormat xDateFormat1 = this.xDateFormat;
++        if (xDateFormat1 != null) {
++            result[1] = xDateFormat1.format(new Date((long) x));
+         }
+         else {
+             result[1] = this.xFormat.format(x);

@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/traverser/B_LP_O_S_SE_SL_Traverser.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/traverser/B_LP_O_S_SE_SL_Traverser.java
+index 8c669925f2..15954585a1 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/traverser/B_LP_O_S_SE_SL_Traverser.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/traverser/B_LP_O_S_SE_SL_Traverser.java
+@@ -66,7 +66,8 @@ public class B_LP_O_S_SE_SL_Traverser<T> extends B_O_S_SE_SL_Traverser<T> {
+     public <R> Traverser.Admin<R> split(final R r, final Step<T, R> step) {
+         final B_LP_O_S_SE_SL_Traverser<R> clone = (B_LP_O_S_SE_SL_Traverser<R>) super.split(r, step);
+         clone.path = clone.path.clone();
+-        if (!step.getLabels().isEmpty()) clone.path = clone.path.extend(r, step.getLabels());
++        Set<String> labels = step.getLabels();
++        if (!labels.isEmpty()) clone.path = clone.path.extend(r, labels);
+         return clone;
+     }
+ 

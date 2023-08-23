@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..0d33775 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2295,8 +2295,9 @@
+         if (percent > 0.0) {
+             double range = getRangeAxis().getRange().getLength();
+             double scaledRange = range * percent;
+-            getRangeAxis().setRange(this.anchorValue - scaledRange / 2.0,
+-                    this.anchorValue + scaledRange / 2.0);
++            double anchorValue1 = this.anchorValue;
++            getRangeAxis().setRange(anchorValue1 - scaledRange / 2.0,
++                    anchorValue1 + scaledRange / 2.0);
+         }
+         else {
+             getRangeAxis().setAutoRange(true);

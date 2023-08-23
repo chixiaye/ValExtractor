@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..156dbed 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -89,10 +89,11 @@
+      */
+     protected AbstractRegion(final Collection<SubHyperplane<S>> boundary) {
+ 
++        final Boolean aTrue = Boolean.TRUE;
+         if (boundary.size() == 0) {
+ 
+             // the tree represents the whole space
+-            tree = new BSPTree<S>(Boolean.TRUE);
++            tree = new BSPTree<S>(aTrue);
+ 
+         } else {
+ 
+@@ -127,7 +128,7 @@
+                 /** {@inheritDoc} */
+                 public void visitLeafNode(final BSPTree<S> node) {
+                     node.setAttribute((node == node.getParent().getPlus()) ?
+-                                                                            Boolean.FALSE : Boolean.TRUE);
++                                                                            Boolean.FALSE : aTrue);
+                 }
+             });
+ 

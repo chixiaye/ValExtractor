@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
+index ac1e894..2e4483b 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/PolyhedronsSet.java
+@@ -365,10 +365,11 @@
+                 final Vector2D tP00   = tPlane.toSubSpace(apply(p00));
+                 final Vector2D tP10   = tPlane.toSubSpace(apply(p10));
+                 final Vector2D tP01   = tPlane.toSubSpace(apply(p01));
++                double x = tP00.getX();
+                 final AffineTransform at =
+-                    new AffineTransform(tP10.getX() - tP00.getX(), tP10.getY() - tP00.getY(),
+-                                        tP01.getX() - tP00.getX(), tP01.getY() - tP00.getY(),
+-                                        tP00.getX(), tP00.getY());
++                    new AffineTransform(tP10.getX() - x, tP10.getY() - tP00.getY(),
++                                        tP01.getX() - x, tP01.getY() - tP00.getY(),
++                            x, tP00.getY());
+ 
+                 cachedOriginal  = (Plane) original;
+                 cachedTransform = org.apache.commons.math3.geometry.euclidean.twod.Line.getTransform(at);

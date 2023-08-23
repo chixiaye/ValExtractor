@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/block/ColumnArrangement.java b/source/org/jfree/chart/block/ColumnArrangement.java
+index ad240d9..3ded9dc 100644
+--- a/source/org/jfree/chart/block/ColumnArrangement.java
++++ b/source/org/jfree/chart/block/ColumnArrangement.java
+@@ -218,6 +218,7 @@
+                 maxWidth = Math.max(maxWidth, size.width);
+             }
+             else {
++                double horizontalGap1 = this.horizontalGap;
+                 if (itemsInColumn.isEmpty()) {
+                     // place in this column (truncated) anyway
+                     block.setBounds(
+@@ -226,12 +227,12 @@
+                         )
+                     );
+                     y = 0.0;
+-                    x = x + size.width + this.horizontalGap;
++                    x = x + size.width + horizontalGap1;
+                 }
+                 else {
+                     // start new column
+                     itemsInColumn.clear();
+-                    x = x + maxWidth + this.horizontalGap;
++                    x = x + maxWidth + horizontalGap1;
+                     y = 0.0;
+                     maxWidth = size.width;
+                     block.setBounds(

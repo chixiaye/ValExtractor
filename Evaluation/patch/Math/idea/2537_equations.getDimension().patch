@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+index 3898435..c3b45fe 100644
+--- a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+@@ -229,11 +229,12 @@
+         throws DimensionMismatchException, NumberIsTooSmallException,
+                MaxCountExceededException, NoBracketingException {
+ 
+-        if (y0.length != equations.getDimension()) {
+-            throw new DimensionMismatchException(y0.length, equations.getDimension());
++        int dimension = equations.getDimension();
++        if (y0.length != dimension) {
++            throw new DimensionMismatchException(y0.length, dimension);
+         }
+-        if (y.length != equations.getDimension()) {
+-            throw new DimensionMismatchException(y.length, equations.getDimension());
++        if (y.length != dimension) {
++            throw new DimensionMismatchException(y.length, dimension);
+         }
+ 
+         // prepare expandable stateful equations

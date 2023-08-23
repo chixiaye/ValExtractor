@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/title/TextTitle.java b/source/org/jfree/chart/title/TextTitle.java
+index 74e534a..b9a401a 100644
+--- a/source/org/jfree/chart/title/TextTitle.java
++++ b/source/org/jfree/chart/title/TextTitle.java
+@@ -495,11 +495,12 @@
+             }
+         }
+         else if (w == LengthConstraintType.RANGE) {
++            Range widthRange = cc.getWidthRange();
+             if (h == LengthConstraintType.NONE) {
+-                contentSize = arrangeRN(g2, cc.getWidthRange());
++                contentSize = arrangeRN(g2, widthRange);
+             }
+             else if (h == LengthConstraintType.RANGE) {
+-                contentSize = arrangeRR(g2, cc.getWidthRange(),
++                contentSize = arrangeRR(g2, widthRange,
+                         cc.getHeightRange());
+             }
+             else if (h == LengthConstraintType.FIXED) {

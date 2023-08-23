@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..0b26e36 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1258,8 +1258,9 @@
+ 
+     // Output the maps.
+     if (variableMapOutputPath != null) {
+-      if (compiler.getVariableMap() != null) {
+-        compiler.getVariableMap().save(variableMapOutputPath);
++        VariableMap variableMap = compiler.getVariableMap();
++        if (variableMap != null) {
++        variableMap.save(variableMapOutputPath);
+       }
+     }
+ 

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..110e8c7 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1281,10 +1281,11 @@
+ 
+         //  draw units indicator
+         metrics = g2.getFontMetrics();
++        String unit = UNITS[this.units];
+         int tickX1 = midX - getColumnRadius() - getGap() * 2
+-                     - metrics.stringWidth(UNITS[this.units]);
++                     - metrics.stringWidth(unit);
+         if (tickX1 > area.getMinX()) {
+-            g2.drawString(UNITS[this.units], tickX1,
++            g2.drawString(unit, tickX1,
+                     (int) (area.getMinY() + 20));
+         }
+ 

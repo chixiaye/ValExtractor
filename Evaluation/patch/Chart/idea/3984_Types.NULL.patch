@@ -1,0 +1,59 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..0a9811c 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -245,6 +245,7 @@
+             int numberOfColumns = metaData.getColumnCount();
+             int numberOfValidColumns = 0;
+             int [] columnTypes = new int[numberOfColumns];
++            final int aNull = Types.NULL;
+             for (int column = 0; column < numberOfColumns; column++) {
+                 try {
+                     int type = metaData.getColumnType(column + 1);
+@@ -266,12 +267,12 @@
+                             columnTypes[column] = type;
+                             break;
+                         default:
+-                            columnTypes[column] = Types.NULL;
++                            columnTypes[column] = aNull;
+                             break;
+                     }
+                 }
+                 catch (SQLException e) {
+-                    columnTypes[column] = Types.NULL;
++                    columnTypes[column] = aNull;
+                     throw e;
+                 }
+             }
+@@ -288,7 +289,7 @@
+             /// Get the column names and cache them.
+             int currentColumn = 0;
+             for (int column = 1; column < numberOfColumns; column++) {
+-                if (columnTypes[column] != Types.NULL) {
++                if (columnTypes[column] != aNull) {
+                     this.columnNames[currentColumn]
+                         = metaData.getColumnLabel(column + 1);
+                     ++currentColumn;
+@@ -339,11 +340,11 @@
+                         case Types.TIMESTAMP:
+                             newRow.add(new Long(((Date) xObject).getTime()));
+                             break;
+-                        case Types.NULL:
++                        case aNull:
+                             break;
+                         default:
+                             System.err.println("Unknown data");
+-                            columnTypes[column] = Types.NULL;
++                            columnTypes[column] = aNull;
+                             break;
+                     }
+                 }
+@@ -354,7 +355,7 @@
+             if (this.rows.size() == 0) {
+                 ArrayList newRow = new ArrayList();
+                 for (int column = 0; column < numberOfColumns; column++) {
+-                    if (columnTypes[column] != Types.NULL) {
++                    if (columnTypes[column] != aNull) {
+                         newRow.add(new Integer(0));
+                     }
+                 }

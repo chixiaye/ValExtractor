@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..5c1076a 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1335,7 +1335,9 @@
+             // handle special case of IntervalXYDataset
+             IntervalXYDataset ixyd = (IntervalXYDataset) dataset;
+             Iterator iterator = visibleSeriesKeys.iterator();
+-            while (iterator.hasNext()) {
++            while (true) {
++                boolean b = iterator.hasNext();
++                if (!b) break;
+                 Comparable seriesKey = (Comparable) iterator.next();
+                 int series = dataset.indexOf(seriesKey);
+                 int itemCount = dataset.getItemCount(series);

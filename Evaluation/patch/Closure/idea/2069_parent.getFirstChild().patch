@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..97be7d1 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -1691,23 +1691,24 @@
+    * WHILE, WITH, or IF node.
+    */
+   static boolean isControlStructureCodeBlock(Node parent, Node n) {
+-    switch (parent.getType()) {
++      Node firstChild = parent.getFirstChild();
++      switch (parent.getType()) {
+       case Token.FOR:
+       case Token.WHILE:
+       case Token.LABEL:
+       case Token.WITH:
+         return parent.getLastChild() == n;
+       case Token.DO:
+-        return parent.getFirstChild() == n;
++        return firstChild == n;
+       case Token.IF:
+-        return parent.getFirstChild() != n;
++        return firstChild != n;
+       case Token.TRY:
+-        return parent.getFirstChild() == n || parent.getLastChild() == n;
++        return firstChild == n || parent.getLastChild() == n;
+       case Token.CATCH:
+         return parent.getLastChild() == n;
+       case Token.SWITCH:
+       case Token.CASE:
+-        return parent.getFirstChild() != n;
++        return firstChild != n;
+       case Token.DEFAULT_CASE:
+         return true;
+       default:

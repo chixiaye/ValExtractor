@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..f8a9f21 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1577,13 +1577,14 @@
+             DateTickMarkPosition position) {
+         Date result = time;
+         DateTickUnitType t = unit.getUnitType();
++        Locale locale1 = this.locale;
+         if (t.equals(DateTickUnitType.MONTH)) {
+             result = calculateDateForPosition(new Month(time,
+-                    this.timeZone, this.locale), position);
++                    this.timeZone, locale1), position);
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+             result = calculateDateForPosition(new Year(time,
+-                    this.timeZone, this.locale), position);
++                    this.timeZone, locale1), position);
+         }
+         return result;
+     }

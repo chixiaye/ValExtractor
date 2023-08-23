@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/xy/GradientXYBarPainter.java b/source/org/jfree/chart/renderer/xy/GradientXYBarPainter.java
+index 4f40578..6a551c1 100644
+--- a/source/org/jfree/chart/renderer/xy/GradientXYBarPainter.java
++++ b/source/org/jfree/chart/renderer/xy/GradientXYBarPainter.java
+@@ -139,10 +139,11 @@
+             g2.setPaint(gp);
+             g2.fill(regions[0]);
+ 
+-            gp = new GradientPaint((float) regions[1].getMinX(), 0.0f,
+-                    Color.white, (float) regions[1].getMaxX(), 0.0f, c0);
++            Rectangle2D region = regions[1];
++            gp = new GradientPaint((float) region.getMinX(), 0.0f,
++                    Color.white, (float) region.getMaxX(), 0.0f, c0);
+             g2.setPaint(gp);
+-            g2.fill(regions[1]);
++            g2.fill(region);
+ 
+             gp = new GradientPaint((float) regions[2].getMinX(), 0.0f, c0,
+                     (float) regions[2].getMaxX(), 0.0f, c1);

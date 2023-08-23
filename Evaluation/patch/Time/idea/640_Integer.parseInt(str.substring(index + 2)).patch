@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..6b0fcaa 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -560,14 +560,15 @@
+                             advance = false;
+                         } catch (NumberFormatException e) {
+                             int index = str.indexOf(">=");
++                            int day1 = Integer.parseInt(str.substring(index + 2));
+                             if (index > 0) {
+-                                day = Integer.parseInt(str.substring(index + 2));
++                                day = day1;
+                                 dayOfWeek = parseDayOfWeek(str.substring(0, index));
+                                 advance = true;
+                             } else {
+                                 index = str.indexOf("<=");
+                                 if (index > 0) {
+-                                    day = Integer.parseInt(str.substring(index + 2));
++                                    day = day1;
+                                     dayOfWeek = parseDayOfWeek(str.substring(0, index));
+                                     advance = false;
+                                 } else {

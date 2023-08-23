@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/block/LabelBlock.java b/source/org/jfree/chart/block/LabelBlock.java
+index dd5c709..0d65968 100644
+--- a/source/org/jfree/chart/block/LabelBlock.java
++++ b/source/org/jfree/chart/block/LabelBlock.java
+@@ -205,6 +205,7 @@
+         if (paint == null) {
+             throw new IllegalArgumentException("Null 'paint' argument.");
+         }
++        Paint paint1 = this.paint;
+         this.paint = paint;
+         this.label = TextUtilities.createTextBlock(this.text, this.font,
+                 this.paint);

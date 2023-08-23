@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/axis/LogAxis.java b/source/org/jfree/chart/axis/LogAxis.java
+index f01eade..e5320ec 100644
+--- a/source/org/jfree/chart/axis/LogAxis.java
++++ b/source/org/jfree/chart/axis/LogAxis.java
+@@ -696,11 +696,12 @@
+         // start with the current tick unit...
+         TickUnitSource tickUnits = getStandardTickUnits();
+         TickUnit unit1 = tickUnits.getCeilingTickUnit(getTickUnit());
+-        double unitHeight = exponentLengthToJava2D(unit1.getSize(), dataArea,
++        double size = unit1.getSize();
++        double unitHeight = exponentLengthToJava2D(size, dataArea,
+                 edge);
+ 
+         // then extrapolate...
+-        double guess = (tickLabelHeight / unitHeight) * unit1.getSize();
++        double guess = (tickLabelHeight / unitHeight) * size;
+ 
+         NumberTickUnit unit2 = (NumberTickUnit)
+                 tickUnits.getCeilingTickUnit(guess);

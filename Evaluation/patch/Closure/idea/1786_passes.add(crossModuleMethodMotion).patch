@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..5dd8e10 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -474,7 +474,8 @@
+ 
+     passes.addAll(getMainOptimizationLoop());
+ 
+-    if (options.specializeInitialModule) {
++      boolean add = passes.add(crossModuleMethodMotion);
++      if (options.specializeInitialModule) {
+       // When specializing the initial module, we want our fixups to be
+       // as lean as possible, so we run the entire optimization loop to a
+       // fixed point before specializing, then specialize, and then run the
+@@ -485,7 +486,7 @@
+       }
+ 
+       if (options.crossModuleMethodMotion) {
+-        passes.add(crossModuleMethodMotion);
++        add;
+       }
+ 
+       passes.add(specializeInitialModule);
+@@ -499,7 +500,7 @@
+     }
+ 
+     if (options.crossModuleMethodMotion) {
+-      passes.add(crossModuleMethodMotion);
++      add;
+     }
+ 
+     passes.add(createEmptyPass("afterModuleMotion"));

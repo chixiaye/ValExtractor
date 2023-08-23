@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..7318169 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -297,8 +297,9 @@
+                         - valueDelta, dataArea, yAxisLocation);
+             }
+ 
+-            if (this.errorIndicatorPaint != null) {
+-                g2.setPaint(this.errorIndicatorPaint);
++            Paint errorIndicatorPaint1 = this.errorIndicatorPaint;
++            if (errorIndicatorPaint1 != null) {
++                g2.setPaint(errorIndicatorPaint1);
+             }
+             else {
+                 g2.setPaint(getItemPaint(row, column, selected));

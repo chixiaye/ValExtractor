@@ -1,0 +1,16 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+index 67ffbe1..75a1b5d 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+@@ -355,8 +355,9 @@
+     protected Iterator<Traverser<Map<String, E>>> computerAlgorithm() throws NoSuchElementException {
+         while (true) {
+             final Traverser.Admin traverser = this.starts.next();
+-            if (!traverser.path().hasLabel(this.getId()))
+-                traverser.path().addLabel(this.getId()); // so the traverser never returns to this branch ever again
++            Path path = traverser.path();
++			if (!path.hasLabel(this.getId()))
++                path.addLabel(this.getId()); // so the traverser never returns to this branch ever again
+ 
+             if (!this.isDuplicate(traverser)) {
+                 if (hasMatched(this.conjunction, traverser)) {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java b/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
+index 74f6ff1..541a900 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
+@@ -270,7 +270,8 @@
+         for (int i = 0; i < dimension; i++) {
+             if (comparator.compare(simplex[i], pointValuePair) > 0) {
+                 PointValuePair tmp = simplex[i];
+-                simplex[i] = pointValuePair;
++                PointValuePair simplex1 = simplex[i];
++                simplex1 = pointValuePair;
+                 pointValuePair = tmp;
+             }
+         }

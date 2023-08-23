@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/annotations/XYPointerAnnotation.java b/source/org/jfree/chart/annotations/XYPointerAnnotation.java
+index 5ea9d1e..6e5f416 100644
+--- a/source/org/jfree/chart/annotations/XYPointerAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYPointerAnnotation.java
+@@ -402,15 +402,16 @@
+         double arrowBaseX = endX + Math.cos(this.angle) * this.arrowLength;
+         double arrowBaseY = endY + Math.sin(this.angle) * this.arrowLength;
+ 
++        double arrowWidth1 = this.arrowWidth;
+         double arrowLeftX = arrowBaseX
+-                + Math.cos(this.angle + Math.PI / 2.0) * this.arrowWidth;
++                + Math.cos(this.angle + Math.PI / 2.0) * arrowWidth1;
+         double arrowLeftY = arrowBaseY
+-                + Math.sin(this.angle + Math.PI / 2.0) * this.arrowWidth;
++                + Math.sin(this.angle + Math.PI / 2.0) * arrowWidth1;
+ 
+         double arrowRightX = arrowBaseX
+-                - Math.cos(this.angle + Math.PI / 2.0) * this.arrowWidth;
++                - Math.cos(this.angle + Math.PI / 2.0) * arrowWidth1;
+         double arrowRightY = arrowBaseY
+-                - Math.sin(this.angle + Math.PI / 2.0) * this.arrowWidth;
++                - Math.sin(this.angle + Math.PI / 2.0) * arrowWidth1;
+ 
+         GeneralPath arrow = new GeneralPath();
+         arrow.moveTo((float) endX, (float) endY);

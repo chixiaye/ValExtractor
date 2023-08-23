@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..ca45a96 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -341,8 +341,9 @@
+   }
+ 
+   private boolean isPropAccess(AstNode node) {
+-    return node.getType() == com.google.javascript.rhino.head.Token.GETPROP
+-        || node.getType() == com.google.javascript.rhino.head.Token.GETELEM;
++      int type = node.getType();
++      return type == com.google.javascript.rhino.head.Token.GETPROP
++        || type == com.google.javascript.rhino.head.Token.GETELEM;
+   }
+ 
+   private boolean isExprStmt(AstNode node) {

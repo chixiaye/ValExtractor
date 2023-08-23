@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..8d4704c 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -166,7 +166,8 @@
+         } else if (workingFields.contains(DateTimeFieldType.dayOfYear())) {
+             reducedPrec = dateByOrdinal(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.weekOfWeekyear())) {
+-            reducedPrec = dateByWeek(bld, workingFields, extended, strictISO);
++            boolean var_568 = dateByWeek(bld, workingFields, extended, strictISO);
++			reducedPrec = var_568;
+         } else if (workingFields.contains(DateTimeFieldType.dayOfMonth())) {
+             reducedPrec = dateByMonth(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.dayOfWeek())) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..6afe93f 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -165,12 +165,14 @@
+             reducedPrec = dateByMonth(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.dayOfYear())) {
+             reducedPrec = dateByOrdinal(bld, workingFields, extended, strictISO);
+-        } else if (workingFields.contains(DateTimeFieldType.weekOfWeekyear())) {
+-            reducedPrec = dateByWeek(bld, workingFields, extended, strictISO);
++        } else {
++			boolean var_568 = dateByWeek(bld, workingFields, extended, strictISO);
++			if (workingFields.contains(DateTimeFieldType.weekOfWeekyear())) {
++			    reducedPrec = var_568;
+         } else if (workingFields.contains(DateTimeFieldType.dayOfMonth())) {
+             reducedPrec = dateByMonth(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.dayOfWeek())) {
+-            reducedPrec = dateByWeek(bld, workingFields, extended, strictISO);
++			    reducedPrec = var_568;
+         } else if (workingFields.remove(DateTimeFieldType.year())) {
+             bld.append(Constants.ye);
+             reducedPrec = true;
+@@ -178,6 +180,7 @@
+             bld.append(Constants.we);
+             reducedPrec = true;
+         }
++		}
+         boolean datePresent = (workingFields.size() < inputSize);
+         
+         // time
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..6c55e2f 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -165,12 +165,14 @@
+             reducedPrec = dateByMonth(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.dayOfYear())) {
+             reducedPrec = dateByOrdinal(bld, workingFields, extended, strictISO);
+-        } else if (workingFields.contains(DateTimeFieldType.weekOfWeekyear())) {
+-            reducedPrec = dateByWeek(bld, workingFields, extended, strictISO);
++        } else {
++            boolean reducedPrec1 = dateByWeek(bld, workingFields, extended, strictISO);
++            if (workingFields.contains(DateTimeFieldType.weekOfWeekyear())) {
++                reducedPrec = reducedPrec1;
+         } else if (workingFields.contains(DateTimeFieldType.dayOfMonth())) {
+             reducedPrec = dateByMonth(bld, workingFields, extended, strictISO);
+         } else if (workingFields.contains(DateTimeFieldType.dayOfWeek())) {
+-            reducedPrec = dateByWeek(bld, workingFields, extended, strictISO);
++                reducedPrec = reducedPrec1;
+         } else if (workingFields.remove(DateTimeFieldType.year())) {
+             bld.append(Constants.ye);
+             reducedPrec = true;
+@@ -178,6 +180,7 @@
+             bld.append(Constants.we);
+             reducedPrec = true;
+         }
++        }
+         boolean datePresent = (workingFields.size() < inputSize);
+         
+         // time

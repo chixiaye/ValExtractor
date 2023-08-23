@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..42c3133 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -628,8 +628,9 @@
+                 this.axis.draw(g2, target.getMaxX() - this.stripWidth
+                         - this.axisOffset, target, target, RectangleEdge.LEFT,
+                         null);
+-            }
+-            else if (axisEdge == RectangleEdge.RIGHT) {
++            } else {
++				RectangleEdge var_3426 = RectangleEdge.RIGHT;
++				if (axisEdge == var_3426) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+@@ -651,10 +652,11 @@
+                             target.getHeight()));
+                 }
+                 this.axis.draw(g2, target.getMinX() + this.stripWidth
+-                        + this.axisOffset, target, target, RectangleEdge.RIGHT,
++				            + this.axisOffset, target, target, var_3426,
+                         null);
+             }
+         }
++        }
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..42c3133 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -628,8 +628,9 @@
+                 this.axis.draw(g2, target.getMaxX() - this.stripWidth
+                         - this.axisOffset, target, target, RectangleEdge.LEFT,
+                         null);
+-            }
+-            else if (axisEdge == RectangleEdge.RIGHT) {
++            } else {
++				RectangleEdge var_3426 = RectangleEdge.RIGHT;
++				if (axisEdge == var_3426) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+@@ -651,10 +652,11 @@
+                             target.getHeight()));
+                 }
+                 this.axis.draw(g2, target.getMinX() + this.stripWidth
+-                        + this.axisOffset, target, target, RectangleEdge.RIGHT,
++				            + this.axisOffset, target, target, var_3426,
+                         null);
+             }
+         }
++        }
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..63cfcbd 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -629,7 +629,9 @@
+                         - this.axisOffset, target, target, RectangleEdge.LEFT,
+                         null);
+             }
+-            else if (axisEdge == RectangleEdge.RIGHT) {
++            else {
++                RectangleEdge right = RectangleEdge.RIGHT;
++                if (axisEdge == right) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+                     Paint p = this.scale.getPaint(v);
+@@ -651,10 +653,11 @@
+                             target.getHeight()));
+                 }
+                 this.axis.draw(g2, target.getMinX() + this.stripWidth
+-                        + this.axisOffset, target, target, RectangleEdge.RIGHT,
++                            + this.axisOffset, target, target, right,
+                         null);
+             }
+         }
++        }
+         return null;
+     }
+ 

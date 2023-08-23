@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+index 2ff86a0..9079480 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+@@ -241,7 +241,8 @@
+               }
+           } else {
+               for (int i = 0; i < scale.length; ++i) {
+-                scale[i] = vecAbsoluteTolerance[i] + vecRelativeTolerance[i] * FastMath.abs(y[i]);
++                  double abs = FastMath.abs(y[i]);
++                  scale[i] = vecAbsoluteTolerance[i] + vecRelativeTolerance[i] * abs;
+               }
+           }
+           hNew = initializeStep(forward, getOrder(), scale,

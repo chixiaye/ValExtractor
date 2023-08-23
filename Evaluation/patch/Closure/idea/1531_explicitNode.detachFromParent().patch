@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..c6cfb6d 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -861,8 +861,9 @@
+ 
+       // Handle the case where there is a duplicate definition for an explicitly
+       // provided symbol.
+-      if (candidateDefinition != null && explicitNode != null) {
+-        explicitNode.detachFromParent();
++        Node node = explicitNode.detachFromParent();
++        if (candidateDefinition != null && explicitNode != null) {
++        node;
+         compiler.reportCodeChange();
+ 
+         // Does this need a VAR keyword?
+@@ -911,7 +912,7 @@
+           }
+         }
+         if (explicitNode != null) {
+-          explicitNode.detachFromParent();
++          node;
+         }
+         compiler.reportCodeChange();
+       }

@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..3734714 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -1096,7 +1096,8 @@
+                 // Remember, the add is being reversed. Since subtrahend is
+                 // Julian, convert minuend to Julian to match.
+                 minuendInstant = gregorianToJulian(minuendInstant);
+-                return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++                long var_260 = iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++				return var_260;
+             } else {
+                 if (subtrahendInstant < iCutover) {
+                     return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..728d58c 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -1089,6 +1089,7 @@
+         }
+ 
+         public long getDifferenceAsLong(long minuendInstant, long subtrahendInstant) {
++            long var_260 = iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
+             if (minuendInstant >= iCutover) {
+                 if (subtrahendInstant >= iCutover) {
+                     return iGregorianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
+@@ -1096,10 +1097,10 @@
+                 // Remember, the add is being reversed. Since subtrahend is
+                 // Julian, convert minuend to Julian to match.
+                 minuendInstant = gregorianToJulian(minuendInstant);
+-                return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++                return var_260;
+             } else {
+                 if (subtrahendInstant < iCutover) {
+-                    return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++                    return var_260;
+                 }
+                 // Remember, the add is being reversed. Since subtrahend is
+                 // Gregorian, convert minuend to Gregorian to match.
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..34bc2aa 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -1089,6 +1089,7 @@
+         }
+ 
+         public long getDifferenceAsLong(long minuendInstant, long subtrahendInstant) {
++            long differenceAsLong = iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
+             if (minuendInstant >= iCutover) {
+                 if (subtrahendInstant >= iCutover) {
+                     return iGregorianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
+@@ -1096,10 +1097,10 @@
+                 // Remember, the add is being reversed. Since subtrahend is
+                 // Julian, convert minuend to Julian to match.
+                 minuendInstant = gregorianToJulian(minuendInstant);
+-                return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++                return differenceAsLong;
+             } else {
+                 if (subtrahendInstant < iCutover) {
+-                    return iJulianField.getDifferenceAsLong(minuendInstant, subtrahendInstant);
++                    return differenceAsLong;
+                 }
+                 // Remember, the add is being reversed. Since subtrahend is
+                 // Gregorian, convert minuend to Gregorian to match.

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrMatcher.java b/src/main/java/org/apache/commons/lang3/text/StrMatcher.java
+index 1514818..a4ac5ec 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrMatcher.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrMatcher.java
+@@ -283,6 +283,7 @@
+          */
+         CharSetMatcher(final char chars[]) {
+             super();
++            char[] chars1 = this.chars;
+             this.chars = chars.clone();
+             Arrays.sort(this.chars);
+         }

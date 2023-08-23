@@ -1,0 +1,24 @@
+diff --git a/src/org/mockito/internal/configuration/SpyAnnotationEngine.java b/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
+index aef8ceb..c2efa68 100644
+--- a/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
++++ b/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
+@@ -86,8 +86,9 @@
+                 .defaultAnswer(Mockito.CALLS_REAL_METHODS)
+                 .name(field.getName());
+         Class<?> type = field.getType();
++        Object mock = Mockito.mock(type, settings.useConstructor());
+         if (type.isInterface()) {
+-            return Mockito.mock(type, settings.useConstructor());
++            return mock;
+         }
+         if (!Modifier.isStatic(type.getModifiers())) {
+             Class<?> enclosing = type.getEnclosingClass();
+@@ -114,7 +115,7 @@
+             return Mockito.mock(type, settings
+                     .spiedInstance(constructor.newInstance()));
+         } else {
+-            return Mockito.mock(type, settings.useConstructor());
++            return mock;
+         }
+     }
+ 

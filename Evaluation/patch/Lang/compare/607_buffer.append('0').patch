@@ -1,0 +1,56 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..83a1d7a 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -840,7 +840,7 @@
+         public final void appendTo(final StringBuffer buffer, final int value) {
+             if (value < 100) {
+                 for (int i = mSize; --i >= 2; ) {
+-                    buffer.append('0');
++                    StringBuffer var_607 = buffer.append('0');
+                 }
+                 buffer.append((char)(value / 10 + '0'));
+                 buffer.append((char)(value % 10 + '0'));
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..83a1d7a 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -840,7 +840,7 @@
+         public final void appendTo(final StringBuffer buffer, final int value) {
+             if (value < 100) {
+                 for (int i = mSize; --i >= 2; ) {
+-                    buffer.append('0');
++                    StringBuffer var_607 = buffer.append('0');
+                 }
+                 buffer.append((char)(value / 10 + '0'));
+                 buffer.append((char)(value % 10 + '0'));
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..c8548ba 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -838,9 +838,10 @@
+          */
+         @Override
+         public final void appendTo(final StringBuffer buffer, final int value) {
++            StringBuffer append = buffer.append('0');
+             if (value < 100) {
+                 for (int i = mSize; --i >= 2; ) {
+-                    buffer.append('0');
++                    append;
+                 }
+                 buffer.append((char)(value / 10 + '0'));
+                 buffer.append((char)(value % 10 + '0'));
+@@ -853,7 +854,7 @@
+                     digits = Integer.toString(value).length();
+                 }
+                 for (int i = mSize; --i >= digits; ) {
+-                    buffer.append('0');
++                    append;
+                 }
+                 buffer.append(Integer.toString(value));
+             }

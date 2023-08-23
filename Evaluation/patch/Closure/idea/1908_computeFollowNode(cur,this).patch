@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..d828405 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -591,10 +591,11 @@
+       }
+       previous = cur;
+     }
+-    if (lastJump == node) {
+-      createEdge(lastJump, Branch.UNCOND, computeFollowNode(cur, this));
++      Node toNode = computeFollowNode(cur, this);
++      if (lastJump == node) {
++      createEdge(lastJump, Branch.UNCOND, toNode);
+     } else {
+-      finallyMap.put(lastJump, computeFollowNode(cur, this));
++      finallyMap.put(lastJump, toNode);
+     }
+   }
+ 

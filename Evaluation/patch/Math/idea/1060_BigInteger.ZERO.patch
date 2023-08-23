@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java b/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
+index e8159b6..698d082 100644
+--- a/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
++++ b/src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java
+@@ -97,10 +97,11 @@
+         BigInteger whole = num.divide(den);
+         num = num.remainder(den);
+ 
+-        if (!BigInteger.ZERO.equals(whole)) {
++        BigInteger zero = BigInteger.ZERO;
++        if (!zero.equals(whole)) {
+             getWholeFormat().format(whole, toAppendTo, pos);
+             toAppendTo.append(' ');
+-            if (num.compareTo(BigInteger.ZERO) < 0) {
++            if (num.compareTo(zero) < 0) {
+                 num = num.negate();
+             }
+         }

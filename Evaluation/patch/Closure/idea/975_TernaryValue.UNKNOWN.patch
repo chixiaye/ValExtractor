@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..791892a 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -645,7 +645,8 @@
+         JSType leftTypeRestricted = leftType.restrictByNotNullOrUndefined();
+         JSType rightTypeRestricted = rightType.restrictByNotNullOrUndefined();
+ 
+-        TernaryValue result = TernaryValue.UNKNOWN;
++          TernaryValue unknown = TernaryValue.UNKNOWN;
++          TernaryValue result = unknown;
+         if (n.getType() == Token.EQ || n.getType() == Token.NE) {
+           result = leftTypeRestricted.testForEquality(rightTypeRestricted);
+           if (n.isNE()) {
+@@ -660,7 +661,7 @@
+           }
+         }
+ 
+-        if (result != TernaryValue.UNKNOWN) {
++        if (result != unknown) {
+           report(t, n, DETERMINISTIC_TEST, leftType.toString(),
+               rightType.toString(), result.toString());
+         }

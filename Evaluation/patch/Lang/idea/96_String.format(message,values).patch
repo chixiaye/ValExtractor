@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Validate.java b/src/main/java/org/apache/commons/lang3/Validate.java
+index eb477d1..3b57bd2 100644
+--- a/src/main/java/org/apache/commons/lang3/Validate.java
++++ b/src/main/java/org/apache/commons/lang3/Validate.java
+@@ -391,11 +391,12 @@
+      * @see #notEmpty(CharSequence)
+      */
+     public static <T extends CharSequence> T notEmpty(final T chars, final String message, final Object... values) {
++        String format = String.format(message, values);
+         if (chars == null) {
+-            throw new NullPointerException(String.format(message, values));
++            throw new NullPointerException(format);
+         }
+         if (chars.length() == 0) {
+-            throw new IllegalArgumentException(String.format(message, values));
++            throw new IllegalArgumentException(format);
+         }
+         return chars;
+     }

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Crosshair.java b/source/org/jfree/chart/plot/Crosshair.java
+index 652e907..210a267 100644
+--- a/source/org/jfree/chart/plot/Crosshair.java
++++ b/source/org/jfree/chart/plot/Crosshair.java
+@@ -224,7 +224,8 @@
+      * @see #getValue()
+      */
+     public void setValue(double value) {
+-        Double oldValue = new Double(this.value);
++        double value1 = this.value;
++        Double oldValue = new Double(value1);
+         this.value = value;
+         this.pcs.firePropertyChange("value", oldValue, new Double(value));
+     }

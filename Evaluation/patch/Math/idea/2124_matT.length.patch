@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..8b6391e 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -730,8 +730,9 @@
+         final SchurTransformer schurTransform = new SchurTransformer(matrix);
+         final double[][] matT = schurTransform.getT().getData();
+ 
+-        realEigenvalues = new double[matT.length];
+-        imagEigenvalues = new double[matT.length];
++        int length = matT.length;
++        realEigenvalues = new double[length];
++        imagEigenvalues = new double[length];
+ 
+         for (int i = 0; i < realEigenvalues.length; i++) {
+             if (i == (realEigenvalues.length - 1) ||

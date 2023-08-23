@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..0478562 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2263,7 +2263,8 @@
+                 if (nans == FINITE && mant[mant.length-1] == 0) {
+                     //  0/0
+                     def = newInstance(getZero());
+-                    def.nans = QNAN;
++                    byte nans1 = def.nans;
++                    nans1 = QNAN;
+                 }
+ 
+                 if (nans == INFINITE || nans == QNAN) {

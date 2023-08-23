@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..ae9c23d 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1092,7 +1092,7 @@
+ 
+         case '>':
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(GT_ESCAPED);
++            StringBuilder var_1574 = sb.append(GT_ESCAPED);
+             break;
+           }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..ae9c23d 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1092,7 +1092,7 @@
+ 
+         case '>':
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(GT_ESCAPED);
++            StringBuilder var_1574 = sb.append(GT_ESCAPED);
+             break;
+           }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..f246a94 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1091,8 +1091,9 @@
+           break;
+ 
+         case '>':
++            StringBuilder append = sb.append(GT_ESCAPED);
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(GT_ESCAPED);
++            append;
+             break;
+           }
+ 
+@@ -1104,7 +1105,7 @@
+           if (i >= 2 &&
+               ((s.charAt(i - 1) == '-' && s.charAt(i - 2) == '-') ||
+                (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+-            sb.append(GT_ESCAPED);
++            append;
+           } else {
+             sb.append(c);
+           }

@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..c283ff7 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -139,7 +139,8 @@
+           addAlternate(unionAlt);
+         }
+       } else {
+-        if (alternates.size() > maxUnionSize) {
++          int size = alternates.size();
++          if (size > maxUnionSize) {
+           return this;
+         }
+ 
+@@ -268,7 +269,7 @@
+         if (alternate.isFunctionType()) {
+           // See the comments on functionTypePosition above.
+           Preconditions.checkState(functionTypePosition == -1);
+-          functionTypePosition = alternates.size();
++          functionTypePosition = size;
+         }
+ 
+         alternates.add(alternate);

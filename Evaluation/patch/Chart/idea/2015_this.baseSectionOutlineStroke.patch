@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..5999d7d 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -1389,6 +1389,7 @@
+         }
+ 
+         // nothing defined - do we autoPopulate?
++        Stroke baseSectionOutlineStroke1 = this.baseSectionOutlineStroke;
+         if (autoPopulate) {
+             DrawingSupplier ds = getDrawingSupplier();
+             if (ds != null) {
+@@ -1396,11 +1397,11 @@
+                 this.sectionOutlineStrokeMap.put(key, result);
+             }
+             else {
+-                result = this.baseSectionOutlineStroke;
++                result = baseSectionOutlineStroke1;
+             }
+         }
+         else {
+-            result = this.baseSectionOutlineStroke;
++            result = baseSectionOutlineStroke1;
+         }
+         return result;
+     }

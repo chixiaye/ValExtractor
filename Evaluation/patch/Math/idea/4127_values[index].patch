@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+index 2b007b2..b3428fb 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+@@ -414,7 +414,8 @@
+         }
+         keys[index]   = key;
+         states[index] = FULL;
+-        values[index] = value;
++        double value1 = values[index];
++        value1 = value;
+         if (newMapping) {
+             ++size;
+             if (shouldGrowTable()) {

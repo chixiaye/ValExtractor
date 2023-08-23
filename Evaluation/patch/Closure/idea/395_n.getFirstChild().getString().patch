@@ -1,0 +1,105 @@
+diff --git a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+index 709e6f1..4b7e026 100644
+--- a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
++++ b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+@@ -82,53 +82,54 @@
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+       if (n.isCall() && n.getFirstChild() != null &&
+-          n.getFirstChild().isName() &&
+-          "define".equals(n.getFirstChild().getString())) {
+-        Scope.Var define = t.getScope().getVar(n.getFirstChild().
+-            getString());
+-        if (define != null && !define.isGlobal()) {
+-          // Ignore non-global define.
+-          return;
+-        }
+-        if (!(parent.isExprResult() && parent.getParent().isScript())) {
+-          t.report(n, NON_TOP_LEVEL_STATEMENT_DEFINE_ERROR);
+-          return;
+-        }
+-        Node script = parent.getParent();
+-        Node requiresNode = null;
+-        Node callback = null;
+-        int defineArity = n.getChildCount() - 1;
+-        if (defineArity == 0) {
+-          unsupportedDefineError(t, n);
+-          return;
+-        } else if (defineArity == 1) {
+-          callback = n.getChildAtIndex(1);
+-          if (callback.isObjectLit()) {
+-            handleDefineObjectLiteral(parent, callback, script);
+-            return;
++              n.getFirstChild().isName()) {
++          String string = n.getFirstChild().getString();
++          if ("define".equals(string)) {
++              Scope.Var define = t.getScope().getVar(string);
++              if (define != null && !define.isGlobal()) {
++                  // Ignore non-global define.
++                  return;
++              }
++              if (!(parent.isExprResult() && parent.getParent().isScript())) {
++                  t.report(n, NON_TOP_LEVEL_STATEMENT_DEFINE_ERROR);
++                  return;
++              }
++              Node script = parent.getParent();
++              Node requiresNode = null;
++              Node callback = null;
++              int defineArity = n.getChildCount() - 1;
++              if (defineArity == 0) {
++                  unsupportedDefineError(t, n);
++                  return;
++              } else if (defineArity == 1) {
++                  callback = n.getChildAtIndex(1);
++                  if (callback.isObjectLit()) {
++                      handleDefineObjectLiteral(parent, callback, script);
++                      return;
++                  }
++              } else if (defineArity == 2) {
++                  requiresNode = n.getChildAtIndex(1);
++                  callback = n.getChildAtIndex(2);
++              } else if (defineArity >= 3) {
++                  unsupportedDefineError(t, n);
++                  return;
++              }
++
++              if (!callback.isFunction() ||
++                      (requiresNode != null && !requiresNode.isArrayLit())) {
++                  unsupportedDefineError(t, n);
++                  return;
++              }
++
++              handleRequiresAndParamList(t, n, script, requiresNode, callback);
++
++              Node callbackBlock = callback.getChildAtIndex(2);
++              NodeTraversal.traverse(compiler, callbackBlock,
++                      new DefineCallbackReturnCallback());
++
++              moveCallbackContentToTopLevel(parent, script, callbackBlock);
++              compiler.reportCodeChange();
+           }
+-        } else if (defineArity == 2) {
+-          requiresNode = n.getChildAtIndex(1);
+-          callback = n.getChildAtIndex(2);
+-        } else if (defineArity >= 3) {
+-          unsupportedDefineError(t, n);
+-          return;
+-        }
+-
+-        if (!callback.isFunction() ||
+-            (requiresNode != null && !requiresNode.isArrayLit())) {
+-          unsupportedDefineError(t, n);
+-          return;
+-        }
+-
+-        handleRequiresAndParamList(t, n, script, requiresNode, callback);
+-
+-        Node callbackBlock = callback.getChildAtIndex(2);
+-        NodeTraversal.traverse(compiler, callbackBlock,
+-            new DefineCallbackReturnCallback());
+-
+-        moveCallbackContentToTopLevel(parent, script, callbackBlock);
+-        compiler.reportCodeChange();
+       }
+     }
+ 

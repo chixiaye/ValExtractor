@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/jsonml/JsonML.java b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+index 76b78d5..3b6a4ee 100644
+--- a/src/com/google/javascript/jscomp/jsonml/JsonML.java
++++ b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+@@ -231,7 +231,7 @@
+         if (first) {
+           first = false;
+         } else {
+-          sb.append(", ");
++          StringBuilder var_2225 = sb.append(", ");
+         }
+         sb.append('"');
+         escapeStringOnto(entry.getKey().toString(), sb);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/jsonml/JsonML.java b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+index 76b78d5..3b6a4ee 100644
+--- a/src/com/google/javascript/jscomp/jsonml/JsonML.java
++++ b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+@@ -231,7 +231,7 @@
+         if (first) {
+           first = false;
+         } else {
+-          sb.append(", ");
++          StringBuilder var_2225 = sb.append(", ");
+         }
+         sb.append('"');
+         escapeStringOnto(entry.getKey().toString(), sb);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/jsonml/JsonML.java b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+index 76b78d5..f4f7d57 100644
+--- a/src/com/google/javascript/jscomp/jsonml/JsonML.java
++++ b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+@@ -224,6 +224,7 @@
+     escapeStringOnto(type.name(), sb);
+     sb.append('"');
+ 
++      StringBuilder append = sb.append(", ");
+     if (printAttributes) {
+       sb.append(", {");
+       boolean first = true;
+@@ -231,7 +232,7 @@
+         if (first) {
+           first = false;
+         } else {
+-          sb.append(", ");
++          append;
+         }
+         sb.append('"');
+         escapeStringOnto(entry.getKey().toString(), sb);
+@@ -252,7 +253,7 @@
+ 
+     if (printChildren) {
+       for (JsonML child : children) {
+-        sb.append(", ");
++        append;
+         sb.append(child.toString());
+       }
+     }

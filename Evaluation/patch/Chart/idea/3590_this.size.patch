@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/util/AbstractObjectList.java b/source/org/jfree/chart/util/AbstractObjectList.java
+index eac3110..18ab344 100644
+--- a/source/org/jfree/chart/util/AbstractObjectList.java
++++ b/source/org/jfree/chart/util/AbstractObjectList.java
+@@ -129,6 +129,7 @@
+             this.objects = enlarged;
+         }
+         this.objects[index] = object;
++        int size1 = this.size;
+         this.size = Math.max(this.size, index + 1);
+     }
+ 

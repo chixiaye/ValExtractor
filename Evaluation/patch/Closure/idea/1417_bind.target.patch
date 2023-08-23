@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..178a0a3 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -240,9 +240,10 @@
+     Bind bind = getCodingConvention().describeFunctionBind(callTarget, false);
+     if (bind != null) {
+       // replace the call target
+-      bind.target.detachFromParent();
+-      n.replaceChild(callTarget, bind.target);
+-      callTarget = bind.target;
++        Node target = bind.target;
++        target.detachFromParent();
++      n.replaceChild(callTarget, target);
++      callTarget = target;
+ 
+       // push the parameters
+       addParameterAfter(bind.parameters, callTarget);

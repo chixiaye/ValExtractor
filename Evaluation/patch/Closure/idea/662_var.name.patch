@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..487063e 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -137,10 +137,11 @@
+ 
+       // Additionally, exclude global variables for now.
+ 
+-      return var.isGlobal()
++        String name = var.name;
++        return var.isGlobal()
+           || var.isExtern()
+-          || compiler.getCodingConvention().isExported(var.name)
+-          || RenameProperties.RENAME_PROPERTY_FUNCTION_NAME.equals(var.name)
++          || compiler.getCodingConvention().isExported(name)
++          || RenameProperties.RENAME_PROPERTY_FUNCTION_NAME.equals(name)
+           || staleVars.contains(var);
+     }
+ 

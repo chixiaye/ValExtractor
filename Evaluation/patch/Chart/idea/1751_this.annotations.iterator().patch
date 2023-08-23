@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..126c898 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4531,13 +4531,14 @@
+ 
+         // is it a domain axis?
+         int domainIndex = getDomainAxisIndex(axis);
++        Iterator iterator1 = this.annotations.iterator();
+         if (domainIndex >= 0) {
+             isDomainAxis = true;
+             mappedDatasets.addAll(getDatasetsMappedToDomainAxis(
+                     new Integer(domainIndex)));
+             if (domainIndex == 0) {
+                 // grab the plot's annotations
+-                Iterator iterator = this.annotations.iterator();
++                Iterator iterator = iterator1;
+                 while (iterator.hasNext()) {
+                     XYAnnotation annotation = (XYAnnotation) iterator.next();
+                     if (annotation instanceof XYAnnotationBoundsInfo) {
+@@ -4554,7 +4555,7 @@
+             mappedDatasets.addAll(getDatasetsMappedToRangeAxis(
+                     new Integer(rangeIndex)));
+             if (rangeIndex == 0) {
+-                Iterator iterator = this.annotations.iterator();
++                Iterator iterator = iterator1;
+                 while (iterator.hasNext()) {
+                     XYAnnotation annotation = (XYAnnotation) iterator.next();
+                     if (annotation instanceof XYAnnotationBoundsInfo) {

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..4126231 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -118,6 +118,7 @@
+         interior.add(new JLabel(""));
+         interior.add(new JLabel(localizationResources.getString(
+                 "Background_paint")));
++        PaintSample background1 = this.background;
+         this.background = new PaintSample(chart.getBackgroundPaint());
+         interior.add(this.background);
+         JButton button = new JButton(localizationResources.getString(

@@ -1,0 +1,45 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..c3f31b2 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -1160,11 +1160,12 @@
+         state.init();
+         state.refineSolution(x);
+         IterativeLinearSolverEvent event;
++        double normOfResidual = state.getNormOfResidual();
+         event = new DefaultIterativeLinearSolverEvent(this,
+                                                       manager.getIterations(),
+                                                       x,
+                                                       b,
+-                                                      state.getNormOfResidual());
++                normOfResidual);
+         if (state.bEqualsNullVector()) {
+             /* If b = 0 exactly, stop with x = 0. */
+             manager.fireTerminationEvent(event);
+@@ -1181,7 +1182,7 @@
+                                                               manager.getIterations(),
+                                                               x,
+                                                               b,
+-                                                              state.getNormOfResidual());
++                        normOfResidual);
+                 manager.fireIterationStartedEvent(event);
+                 state.update();
+                 state.refineSolution(x);
+@@ -1189,7 +1190,7 @@
+                                                               manager.getIterations(),
+                                                               x,
+                                                               b,
+-                                                              state.getNormOfResidual());
++                        normOfResidual);
+                 manager.fireIterationPerformedEvent(event);
+             } while (!state.hasConverged());
+         }
+@@ -1197,7 +1198,7 @@
+                                                       manager.getIterations(),
+                                                       x,
+                                                       b,
+-                                                      state.getNormOfResidual());
++                normOfResidual);
+         manager.fireTerminationEvent(event);
+         return x;
+     }

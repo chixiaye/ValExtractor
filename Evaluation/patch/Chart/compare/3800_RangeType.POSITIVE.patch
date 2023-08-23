@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/RangeType.java b/source/org/jfree/data/RangeType.java
+index 47e5cda..3e6681f 100644
+--- a/source/org/jfree/data/RangeType.java
++++ b/source/org/jfree/data/RangeType.java
+@@ -126,13 +126,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(RangeType.FULL)) {
+             return RangeType.FULL;
+-        }
+-        else if (this.equals(RangeType.POSITIVE)) {
+-            return RangeType.POSITIVE;
++        } else {
++			RangeType var_3800 = RangeType.POSITIVE;
++			if (this.equals(var_3800)) {
++			    return var_3800;
+         }
+         else if (this.equals(RangeType.NEGATIVE)) {
+             return RangeType.NEGATIVE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/RangeType.java b/source/org/jfree/data/RangeType.java
+index 47e5cda..3e6681f 100644
+--- a/source/org/jfree/data/RangeType.java
++++ b/source/org/jfree/data/RangeType.java
+@@ -126,13 +126,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(RangeType.FULL)) {
+             return RangeType.FULL;
+-        }
+-        else if (this.equals(RangeType.POSITIVE)) {
+-            return RangeType.POSITIVE;
++        } else {
++			RangeType var_3800 = RangeType.POSITIVE;
++			if (this.equals(var_3800)) {
++			    return var_3800;
+         }
+         else if (this.equals(RangeType.NEGATIVE)) {
+             return RangeType.NEGATIVE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/RangeType.java b/source/org/jfree/data/RangeType.java
+index 47e5cda..1d6ea67 100644
+--- a/source/org/jfree/data/RangeType.java
++++ b/source/org/jfree/data/RangeType.java
+@@ -127,12 +127,15 @@
+         if (this.equals(RangeType.FULL)) {
+             return RangeType.FULL;
+         }
+-        else if (this.equals(RangeType.POSITIVE)) {
+-            return RangeType.POSITIVE;
++        else {
++            RangeType positive = RangeType.POSITIVE;
++            if (this.equals(positive)) {
++                return positive;
+         }
+         else if (this.equals(RangeType.NEGATIVE)) {
+             return RangeType.NEGATIVE;
+         }
++        }
+         return null;
+     }
+ 

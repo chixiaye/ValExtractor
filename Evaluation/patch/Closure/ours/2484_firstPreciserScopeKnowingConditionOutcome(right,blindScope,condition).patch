@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..9d7836e 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -322,8 +322,9 @@
+     JSType restrictedLeftType = (leftType == null) ? null :
+         leftType.getRestrictedTypeGivenToBooleanOutcome(condition);
+     if (restrictedLeftType == null) {
+-      return firstPreciserScopeKnowingConditionOutcome(
+-          right, blindScope, condition);
++      FlowScope var_2484 = firstPreciserScopeKnowingConditionOutcome(
++		      right, blindScope, condition);
++	return var_2484;
+     }
+ 
+     // right type

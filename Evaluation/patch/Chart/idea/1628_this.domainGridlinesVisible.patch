@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..532f451 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -1826,7 +1826,8 @@
+      * @see #isDomainGridlinesVisible()
+      */
+     public void setDomainGridlinesVisible(boolean visible) {
+-        if (this.domainGridlinesVisible != visible) {
++        boolean domainGridlinesVisible1 = this.domainGridlinesVisible;
++        if (domainGridlinesVisible1 != visible) {
+             this.domainGridlinesVisible = visible;
+             fireChangeEvent();
+         }

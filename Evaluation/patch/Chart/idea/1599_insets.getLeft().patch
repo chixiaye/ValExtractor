@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..004d3f5 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -437,9 +437,10 @@
+ 
+         // adjust the drawing area for plot insets (if any)...
+         RectangleInsets insets = getInsets();
+-        area.setRect(area.getX() + insets.getLeft(),
++        double left = insets.getLeft();
++        area.setRect(area.getX() + left,
+                 area.getY() + insets.getTop(),
+-                area.getWidth() - insets.getLeft() - insets.getRight(),
++                area.getWidth() - left - insets.getRight(),
+                 area.getHeight() - insets.getTop() - insets.getBottom());
+ 
+ 

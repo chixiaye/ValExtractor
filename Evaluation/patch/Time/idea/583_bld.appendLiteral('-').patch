@@ -1,0 +1,42 @@
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..e6a8391 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -322,6 +322,7 @@
+         boolean strictISO) {
+         
+         boolean reducedPrec = false;
++        DateTimeFormatterBuilder dateTimeFormatterBuilder = bld.appendLiteral('-');
+         if (fields.remove(DateTimeFieldType.weekyear())) {
+             bld.append(Constants.we);
+             if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+@@ -342,7 +343,7 @@
+                     checkNotStrictISO(fields, strictISO);
+                     appendSeparator(bld, extended);
+                     bld.appendLiteral('W');
+-                    bld.appendLiteral('-');
++                    dateTimeFormatterBuilder;
+                     bld.appendDayOfWeek(1);
+                 } else {
+                     // YYYY/YYYY
+@@ -351,7 +352,7 @@
+             }
+             
+         } else if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+             bld.appendLiteral('W');
+             bld.appendWeekOfWeekyear(2);
+             if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+@@ -364,9 +365,9 @@
+             }
+         } else if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+             // -W-D/-W-D
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+             bld.appendLiteral('W');
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
+             bld.appendDayOfWeek(1);
+         }
+         return reducedPrec;

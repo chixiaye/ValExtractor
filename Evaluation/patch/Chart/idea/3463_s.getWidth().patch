@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/title/ShortTextTitle.java b/source/org/jfree/chart/title/ShortTextTitle.java
+index e060d30..f8fbbcd 100644
+--- a/source/org/jfree/chart/title/ShortTextTitle.java
++++ b/source/org/jfree/chart/title/ShortTextTitle.java
+@@ -154,10 +154,11 @@
+      */
+     protected Size2D arrangeRN(Graphics2D g2, Range widthRange) {
+         Size2D s = arrangeNN(g2);
+-        if (widthRange.contains(s.getWidth())) {
++        double width = s.getWidth();
++        if (widthRange.contains(width)) {
+             return s;
+         }
+-        double ww = widthRange.constrain(s.getWidth());
++        double ww = widthRange.constrain(width);
+         return arrangeFN(g2, ww);
+     }
+ 

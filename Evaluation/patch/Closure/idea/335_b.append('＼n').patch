@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index f8750ca..c351b48 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -88,10 +88,10 @@
+     b.append(" - ");
+ 
+     b.append(error.description);
+-    b.append('\n');
+-    if (sourceExcerpt != null) {
++      StringBuilder append = b.append('\n');
++      if (sourceExcerpt != null) {
+       b.append(sourceExcerpt);
+-      b.append('\n');
++      append;
+       int charno = error.getCharno();
+ 
+       // padding equal to the excerpt and arrow at the end

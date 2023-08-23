@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java b/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
+index 83ddf1d..04e9590 100644
+--- a/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java
+@@ -87,8 +87,9 @@
+ 
+     /** {@inheritDoc} */
+     public double nextDouble() {
+-        final long high = ((long) next(26)) << 26;
+-        final int  low  = next(26);
++        int next = next(26);
++        final long high = ((long) next) << 26;
++        final int  low  = next;
+         return (high | low) * 0x1.0p-52d;
+     }
+ 

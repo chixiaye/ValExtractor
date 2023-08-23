@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..d75bd7c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3719,8 +3719,9 @@
+         AxisCollection axisCollection = new AxisCollection();
+ 
+         // add domain axes to lists...
+-        for (int index = 0; index < this.domainAxes.size(); index++) {
+-            ValueAxis axis = (ValueAxis) this.domainAxes.get(index);
++        ObjectList domainAxes1 = this.domainAxes;
++        for (int index = 0; index < domainAxes1.size(); index++) {
++            ValueAxis axis = (ValueAxis) domainAxes1.get(index);
+             if (axis != null) {
+                 axisCollection.add(axis, getDomainAxisEdge(index));
+             }

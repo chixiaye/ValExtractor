@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/genetics/RandomKey.java b/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
+index 75ae2be..f1642cb 100644
+--- a/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
++++ b/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
+@@ -118,8 +118,9 @@
+         int l = sequence.size();
+ 
+         // the size of the three lists must be equal
+-        if (representation.size() != l) {
+-            throw new DimensionMismatchException(representation.size(), l);
++        int size = representation.size();
++        if (size != l) {
++            throw new DimensionMismatchException(size, l);
+         }
+         if (sortedRepr.size() != l) {
+             throw new DimensionMismatchException(sortedRepr.size(), l);

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..1694e26 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -686,7 +686,8 @@
+     }
+ 
+     if (documentation.markers == null) {
+-      documentation.markers = Lists.newArrayList();
++        List<Marker> markers = documentation.markers;
++        markers = Lists.newArrayList();
+     }
+ 
+     Marker marker = new Marker();

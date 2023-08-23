@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..ae39a53 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1043,7 +1043,8 @@
+      * @see #getBackgroundImageAlignment()
+      */
+     public void setBackgroundImageAlignment(int alignment) {
+-        if (this.backgroundImageAlignment != alignment) {
++        int backgroundImageAlignment1 = this.backgroundImageAlignment;
++        if (backgroundImageAlignment1 != alignment) {
+             this.backgroundImageAlignment = alignment;
+             fireChartChanged();
+         }

@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
+index f802943..660994f 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
+@@ -137,16 +137,17 @@
+         negInf  = false;
+         nan     = false;
+         for (int i = 0; i < components.length; ++i) {
+-            if (Double.isInfinite(components[i])) {
+-                if (components[i] < 0) {
++            double component = components[i];
++            if (Double.isInfinite(component)) {
++                if (component < 0) {
+                     negInf = true;
+                 } else {
+                     posInf = true;
+                 }
+-            } else if (Double.isNaN(components[i])) {
++            } else if (Double.isNaN(component)) {
+                 nan = true;
+             } else {
+-                final long b = Double.doubleToLongBits(components[i]);
++                final long b = Double.doubleToLongBits(component);
+                 final long m = mantissa(b);
+                 if (m != 0) {
+                     final int e = exponent(b);

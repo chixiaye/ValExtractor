@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunction.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunction.java
+index 7437838..74bfb3b 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunction.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/TricubicSplineInterpolatingFunction.java
+@@ -230,8 +230,9 @@
+                 if (dFdY[i][j].length != zLen) {
+                     throw new DimensionMismatchException(dFdY[i][j].length, zLen);
+                 }
+-                if (dFdZ[i][j].length != zLen) {
+-                    throw new DimensionMismatchException(dFdZ[i][j].length, zLen);
++                int length = dFdZ[i][j].length;
++                if (length != zLen) {
++                    throw new DimensionMismatchException(length, zLen);
+                 }
+                 if (d2FdXdY[i][j].length != zLen) {
+                     throw new DimensionMismatchException(d2FdXdY[i][j].length, zLen);

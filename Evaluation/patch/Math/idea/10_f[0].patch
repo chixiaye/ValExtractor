@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..a7216f1 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -164,9 +164,11 @@
+     public static UnivariateDifferentiableFunction add(final UnivariateDifferentiableFunction ... f) {
+         return new UnivariateDifferentiableFunction() {
+ 
++            private final UnivariateDifferentiableFunction univariateDifferentiableFunction = f[0];
++
+             /** {@inheritDoc} */
+             public double value(final double t) {
+-                double r = f[0].value(t);
++                double r = univariateDifferentiableFunction.value(t);
+                 for (int i = 1; i < f.length; i++) {
+                     r += f[i].value(t);
+                 }
+@@ -178,7 +180,7 @@
+              */
+             public DerivativeStructure value(final DerivativeStructure t)
+                 throws DimensionMismatchException {
+-                DerivativeStructure r = f[0].value(t);
++                DerivativeStructure r = univariateDifferentiableFunction.value(t);
+                 for (int i = 1; i < f.length; i++) {
+                     r = r.add(f[i].value(t));
+                 }

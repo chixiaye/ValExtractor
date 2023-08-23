@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..840ae15 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -429,11 +429,12 @@
+     * @return the slope of the regression line
+     */
+     public double getSlope() {
++        double naN = Double.NaN;
+         if (n < 2) {
+-            return Double.NaN; //not enough data
++            return naN; //not enough data
+         }
+         if (FastMath.abs(sumXX) < 10 * Double.MIN_VALUE) {
+-            return Double.NaN; //not enough variation in x
++            return naN; //not enough variation in x
+         }
+         return sumXY / sumXX;
+     }

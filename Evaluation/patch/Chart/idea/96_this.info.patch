@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..2562ec2 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2064,8 +2064,9 @@
+         int y = (int) ((e.getY() - insets.top) / this.scaleY);
+ 
+         ChartEntity entity = null;
+-        if (this.info != null) {
+-            EntityCollection entities = this.info.getEntityCollection();
++        ChartRenderingInfo info1 = this.info;
++        if (info1 != null) {
++            EntityCollection entities = info1.getEntityCollection();
+             if (entities != null) {
+                 entity = entities.getEntity(x, y);
+             }

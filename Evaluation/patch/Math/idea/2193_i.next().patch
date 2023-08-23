@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RealVector.java b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+index d8e5017..ce675ec 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+@@ -1311,7 +1311,8 @@
+ 
+                     /** {@inheritDoc} */
+                     public Entry next() {
+-                        e.setIndex(i.next().getIndex());
++                        Entry next = i.next();
++                        e.setIndex(next.getIndex());
+                         return e;
+                     }
+ 

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/DormandPrince853StepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/DormandPrince853StepInterpolator.java
+index 15450f4..d3519d5 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/DormandPrince853StepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/DormandPrince853StepInterpolator.java
+@@ -346,6 +346,7 @@
+           v[0][i] = B_01 * yDot1  + B_06 * yDot6 + B_07 * yDot7 +
+                     B_08 * yDot8  + B_09 * yDot9 + B_10 * yDot10 +
+                     B_11 * yDot11 + B_12 * yDot12;
++          double v1 = v[1][i];
+           v[1][i] = yDot1 - v[0][i];
+           v[2][i] = v[0][i] - v[1][i] - yDotK[12][i];
+           for (int k = 0; k < D.length; ++k) {

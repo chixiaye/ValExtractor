@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..ec09b95 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2790,6 +2790,7 @@
+             JMenu zoomInMenu = new JMenu(
+                     localizationResources.getString("Zoom_In"));
+ 
++            JMenuItem zoomInBothMenuItem1 = this.zoomInBothMenuItem;
+             this.zoomInBothMenuItem = new JMenuItem(
+                     localizationResources.getString("All_Axes"));
+             this.zoomInBothMenuItem.setActionCommand(ZOOM_IN_BOTH_COMMAND);

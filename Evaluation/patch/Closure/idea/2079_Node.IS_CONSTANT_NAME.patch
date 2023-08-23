@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..1245b2c 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -2259,8 +2259,9 @@
+    * @param destination
+    */
+   static void copyNameAnnotations(Node source, Node destination) {
+-    if (source.getBooleanProp(Node.IS_CONSTANT_NAME)) {
+-      destination.putBooleanProp(Node.IS_CONSTANT_NAME, true);
++      int isConstantName = Node.IS_CONSTANT_NAME;
++      if (source.getBooleanProp(isConstantName)) {
++      destination.putBooleanProp(isConstantName, true);
+     }
+   }
+ 

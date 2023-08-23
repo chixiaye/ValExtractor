@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..6072d13 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -99,10 +99,11 @@
+             return false;
+         if (!Arrays.equals(parameterTypes, other.parameterTypes))
+             return false;
++        Class<?> returnType1 = other.returnType;
+         if (returnType == null) {
+-            if (other.returnType != null)
++            if (returnType1 != null)
+                 return false;
+-        } else if (!returnType.equals(other.returnType))
++        } else if (!returnType.equals(returnType1))
+             return false;
+         return true;
+     }

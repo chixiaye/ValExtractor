@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..61a8217 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1183,10 +1183,11 @@
+                                 Marker marker,
+                                 Rectangle2D dataArea) {
+ 
++        Range range1 = axis.getRange();
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+-            Range range = axis.getRange();
++            Range range = range1;
+ 
+             if (!range.contains(value)) {
+                 return;
+@@ -1233,7 +1234,7 @@
+             IntervalMarker im = (IntervalMarker) marker;
+             double start = im.getStartValue();
+             double end = im.getEndValue();
+-            Range range = axis.getRange();
++            Range range = range1;
+             if (!(range.intersects(start, end))) {
+                 return;
+             }

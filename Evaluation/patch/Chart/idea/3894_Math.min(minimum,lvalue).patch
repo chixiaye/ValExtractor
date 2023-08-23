@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..8a154e0 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -747,6 +747,7 @@
+         int seriesCount = dataset.getSeriesCount();
+         double lvalue;
+         double uvalue;
++        double min = Math.min(minimum, lvalue);
+         if (includeInterval && dataset instanceof IntervalXYDataset) {
+             IntervalXYDataset intervalXYData = (IntervalXYDataset) dataset;
+             for (int series = 0; series < seriesCount; series++) {
+@@ -760,7 +761,7 @@
+                         maximum = Math.max(maximum, value);
+                     }
+                     if (!Double.isNaN(lvalue)) {
+-                        minimum = Math.min(minimum, lvalue);
++                        minimum = min;
+                         maximum = Math.max(maximum, lvalue);
+                     }
+                     if (!Double.isNaN(uvalue)) {
+@@ -777,7 +778,7 @@
+                     lvalue = dataset.getXValue(series, item);
+                     uvalue = lvalue;
+                     if (!Double.isNaN(lvalue)) {
+-                        minimum = Math.min(minimum, lvalue);
++                        minimum = min;
+                         maximum = Math.max(maximum, uvalue);
+                     }
+                 }

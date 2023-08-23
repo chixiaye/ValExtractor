@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ui/FontDisplayField.java b/source/org/jfree/chart/ui/FontDisplayField.java
+index 1ef763f..6270b48 100644
+--- a/source/org/jfree/chart/ui/FontDisplayField.java
++++ b/source/org/jfree/chart/ui/FontDisplayField.java
+@@ -92,6 +92,7 @@
+      * @param font  the font.
+      */
+     public void setDisplayFont(Font font) {
++        Font displayFont1 = this.displayFont;
+         this.displayFont = font;
+         setText(fontToString(this.displayFont));
+     }

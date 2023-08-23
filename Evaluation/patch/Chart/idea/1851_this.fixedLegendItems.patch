@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..5e3f3ba 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2233,8 +2233,9 @@
+      * @return The legend items.
+      */
+     public LegendItemCollection getLegendItems() {
+-        if (this.fixedLegendItems != null) {
+-            return this.fixedLegendItems;
++        LegendItemCollection fixedLegendItems1 = this.fixedLegendItems;
++        if (fixedLegendItems1 != null) {
++            return fixedLegendItems1;
+         }
+         LegendItemCollection result = new LegendItemCollection();
+             // get the legend items for the datasets...

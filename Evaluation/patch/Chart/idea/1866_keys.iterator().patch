@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..b2a6268 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2480,7 +2480,8 @@
+     public void clearDomainMarkers() {
+         if (this.backgroundDomainMarkers != null) {
+             Set keys = this.backgroundDomainMarkers.keySet();
+-            Iterator iterator = keys.iterator();
++            Iterator iterator1 = keys.iterator();
++            Iterator iterator = iterator1;
+             while (iterator.hasNext()) {
+                 Integer key = (Integer) iterator.next();
+                 clearDomainMarkers(key.intValue());

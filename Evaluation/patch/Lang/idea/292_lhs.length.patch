@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
+index 8182fa6..0e8e1f6 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/CompareToBuilder.java
+@@ -779,11 +779,12 @@
+             comparison = +1;
+             return this;
+         }
+-        if (lhs.length != rhs.length) {
+-            comparison = (lhs.length < rhs.length) ? -1 : +1;
++        int length = lhs.length;
++        if (length != rhs.length) {
++            comparison = (length < rhs.length) ? -1 : +1;
+             return this;
+         }
+-        for (int i = 0; i < lhs.length && comparison == 0; i++) {
++        for (int i = 0; i < length && comparison == 0; i++) {
+             append(lhs[i], rhs[i]);
+         }
+         return this;

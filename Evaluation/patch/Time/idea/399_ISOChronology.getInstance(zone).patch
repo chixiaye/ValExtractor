@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/convert/ReadableInstantConverter.java b/src/main/java/org/joda/time/convert/ReadableInstantConverter.java
+index cc02b0a..be1e1ce 100644
+--- a/src/main/java/org/joda/time/convert/ReadableInstantConverter.java
++++ b/src/main/java/org/joda/time/convert/ReadableInstantConverter.java
+@@ -56,14 +56,15 @@
+      */
+     public Chronology getChronology(Object object, DateTimeZone zone) {
+         Chronology chrono = ((ReadableInstant) object).getChronology();
++        ISOChronology instance = ISOChronology.getInstance(zone);
+         if (chrono == null) {
+-            return ISOChronology.getInstance(zone);
++            return instance;
+         }
+         DateTimeZone chronoZone = chrono.getZone();
+         if (chronoZone != zone) {
+             chrono = chrono.withZone(zone);
+             if (chrono == null) {
+-                return ISOChronology.getInstance(zone);
++                return instance;
+             }
+         }
+         return chrono;

@@ -1,0 +1,37 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..32022f5 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1624,6 +1624,7 @@
+         Dfp result = newInstance(this);
+ 
+         /* handle special cases */
++        int flagInvalid = DfpField.FLAG_INVALID;
+         if (nans != FINITE) {
+             if (isNaN()) {
+                 return this;
+@@ -1635,20 +1636,20 @@
+             }
+ 
+             if (nans == INFINITE && x == 0) {
+-                field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++                field.setIEEEFlagsBits(flagInvalid);
+                 result = newInstance(getZero());
+                 result.nans = QNAN;
+-                result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(getZero()), result);
++                result = dotrap(flagInvalid, MULTIPLY_TRAP, newInstance(getZero()), result);
+                 return result;
+             }
+         }
+ 
+         /* range check x */
+         if (x < 0 || x >= RADIX) {
+-            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++            field.setIEEEFlagsBits(flagInvalid);
+             result = newInstance(getZero());
+             result.nans = QNAN;
+-            result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, result, result);
++            result = dotrap(flagInvalid, MULTIPLY_TRAP, result, result);
+             return result;
+         }
+ 

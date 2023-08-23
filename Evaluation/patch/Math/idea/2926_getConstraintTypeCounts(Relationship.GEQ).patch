@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/linear/SimplexTableau.java b/src/main/java/org/apache/commons/math3/optim/linear/SimplexTableau.java
+index 07f397b..39323cb 100644
+--- a/src/main/java/org/apache/commons/math3/optim/linear/SimplexTableau.java
++++ b/src/main/java/org/apache/commons/math3/optim/linear/SimplexTableau.java
+@@ -164,10 +164,11 @@
+         this.cutOff                 = cutOff;
+         this.numDecisionVariables   = f.getCoefficients().getDimension() +
+                                       (restrictToNonNegative ? 0 : 1);
++        int constraintTypeCounts = getConstraintTypeCounts(Relationship.GEQ);
+         this.numSlackVariables      = getConstraintTypeCounts(Relationship.LEQ) +
+-                                      getConstraintTypeCounts(Relationship.GEQ);
++                constraintTypeCounts;
+         this.numArtificialVariables = getConstraintTypeCounts(Relationship.EQ) +
+-                                      getConstraintTypeCounts(Relationship.GEQ);
++                constraintTypeCounts;
+         this.tableau = createTableau(goalType == GoalType.MAXIMIZE);
+         initializeColumnLabels();
+     }

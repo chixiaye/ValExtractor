@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..6b6cc22 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1487,8 +1487,9 @@
+     public String getToolTipText(MouseEvent e) {
+ 
+         String result = null;
+-        if (this.info != null) {
+-            EntityCollection entities = this.info.getEntityCollection();
++        ChartRenderingInfo info1 = this.info;
++        if (info1 != null) {
++            EntityCollection entities = info1.getEntityCollection();
+             if (entities != null) {
+                 Insets insets = getInsets();
+                 ChartEntity entity = entities.getEntity(

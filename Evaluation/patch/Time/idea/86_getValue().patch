@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/Hours.java b/src/main/java/org/joda/time/Hours.java
+index fbca006..0c0d284 100644
+--- a/src/main/java/org/joda/time/Hours.java
++++ b/src/main/java/org/joda/time/Hours.java
+@@ -468,10 +468,11 @@
+      * @return true if this hours instance is less than the specified one
+      */
+     public boolean isLessThan(Hours other) {
++        int value = getValue();
+         if (other == null) {
+-            return getValue() < 0;
++            return value < 0;
+         }
+-        return getValue() < other.getValue();
++        return value < other.getValue();
+     }
+ 
+     //-----------------------------------------------------------------------

@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/lang3/tuple/Pair.java b/src/main/java/org/apache/commons/lang3/tuple/Pair.java
+index 36d97a3..0d5ee9f 100644
+--- a/src/main/java/org/apache/commons/lang3/tuple/Pair.java
++++ b/src/main/java/org/apache/commons/lang3/tuple/Pair.java
+@@ -147,8 +147,9 @@
+     @Override
+     public int hashCode() {
+         // see Map.Entry API specification
++        R value = getValue();
+         return (getKey() == null ? 0 : getKey().hashCode()) ^
+-                (getValue() == null ? 0 : getValue().hashCode());
++                (value == null ? 0 : value.hashCode());
+     }
+ 
+     /**

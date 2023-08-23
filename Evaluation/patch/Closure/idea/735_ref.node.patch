@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CollapseProperties.java b/src/com/google/javascript/jscomp/CollapseProperties.java
+index 3dc9204..111c2f1 100644
+--- a/src/com/google/javascript/jscomp/CollapseProperties.java
++++ b/src/com/google/javascript/jscomp/CollapseProperties.java
+@@ -762,7 +762,8 @@
+     }
+ 
+     Ref ref = n.getDeclaration();
+-    String name = ref.node.getString();
++      Node node = ref.node;
++      String name = node.getString();
+     Node rvalue = ref.node.getFirstChild();
+     Node varNode = ref.node.getParent();
+     Node gramps = varNode.getParent();

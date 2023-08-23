@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/CategoryLabelWidthType.java b/source/org/jfree/chart/axis/CategoryLabelWidthType.java
+index 8fc16bb..d70deed 100644
+--- a/source/org/jfree/chart/axis/CategoryLabelWidthType.java
++++ b/source/org/jfree/chart/axis/CategoryLabelWidthType.java
+@@ -120,8 +120,11 @@
+         if (this.equals(CategoryLabelWidthType.CATEGORY)) {
+             return CategoryLabelWidthType.CATEGORY;
+         }
+-        else if (this.equals(CategoryLabelWidthType.RANGE)) {
+-            return CategoryLabelWidthType.RANGE;
++        else {
++            CategoryLabelWidthType range = CategoryLabelWidthType.RANGE;
++            if (this.equals(range)) {
++                return range;
++            }
+         }
+         return null;
+     }

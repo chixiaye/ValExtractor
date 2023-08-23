@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/PeriodType.java b/src/main/java/org/joda/time/PeriodType.java
+index e06b379..5be8eae 100644
+--- a/src/main/java/org/joda/time/PeriodType.java
++++ b/src/main/java/org/joda/time/PeriodType.java
+@@ -711,7 +711,8 @@
+         if (realIndex == -1) {
+             throw new UnsupportedOperationException("Field is not supported");
+         }
+-        values[realIndex] = FieldUtils.safeAdd(values[realIndex], valueToAdd);
++        int value = values[realIndex];
++        value = FieldUtils.safeAdd(values[realIndex], valueToAdd);
+         return true;
+     }
+ 

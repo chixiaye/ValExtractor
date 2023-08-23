@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+index 1e1571d..cc3cda4 100644
+--- a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
++++ b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+@@ -675,7 +675,8 @@
+     Preconditions.checkNotNull(parent);
+     int type = n.getType();
+     Node cond = n.getFirstChild();
+-    Node thenBody = cond.getNext();
++      Node next = cond.getNext();
++      Node thenBody = next;
+     Node elseBody = thenBody.getNext();
+ 
+     // if (x) { .. } else { } --> if (x) { ... }
+@@ -693,7 +694,7 @@
+       n.replaceChild(cond, notCond);
+       notCond.addChildToFront(cond);
+       cond = notCond;
+-      thenBody = cond.getNext();
++      thenBody = next;
+       elseBody = null;
+       reportCodeChange();
+     }

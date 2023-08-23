@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..1ab7601 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1607,14 +1607,15 @@
+     String functionPrivateName = n.getFirstChild().getString();
+     if (functionType.isConstructor()) {
+       FunctionType baseConstructor = functionType.getSuperClassConstructor();
+-      if (baseConstructor != getNativeType(OBJECT_FUNCTION_TYPE) &&
++        JSType nativeType = getNativeType(OBJECT_FUNCTION_TYPE);
++        if (baseConstructor != nativeType &&
+           baseConstructor != null &&
+           baseConstructor.isInterface()) {
+         compiler.report(
+             t.makeError(n, CONFLICTING_EXTENDED_TYPE,
+                         "constructor", functionPrivateName));
+       } else {
+-        if (baseConstructor != getNativeType(OBJECT_FUNCTION_TYPE)) {
++        if (baseConstructor != nativeType) {
+           ObjectType proto = functionType.getPrototype();
+           if (functionType.makesStructs() && !proto.isStruct()) {
+             compiler.report(t.makeError(n, CONFLICTING_EXTENDED_TYPE,

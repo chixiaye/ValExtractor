@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..8318f88 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -358,24 +358,25 @@
+   }
+ 
+   private void escapeParameters(MustDef output) {
+-    for (Iterator<Var> i = jsScope.getVars(); i.hasNext();) {
++      Map<Var, Definition> reachingDef = output.reachingDef;
++      for (Iterator<Var> i = jsScope.getVars(); i.hasNext();) {
+       Var v = i.next();
+       if (isParameter(v)) {
+         // Assume we no longer know where the parameter comes from
+         // anymore.
+-        output.reachingDef.put(v, null);
++        reachingDef.put(v, null);
+       }
+     }
+ 
+     // Also, assume we no longer know anything that depends on a parameter.
+-    for (Entry<Var, Definition> pair: output.reachingDef.entrySet()) {
++    for (Entry<Var, Definition> pair: reachingDef.entrySet()) {
+       Definition value = pair.getValue();
+       if (value == null) {
+         continue;
+       }
+       for (Var dep : value.depends) {
+         if (isParameter(dep)) {
+-          output.reachingDef.put(pair.getKey(), null);
++          reachingDef.put(pair.getKey(), null);
+         }
+       }
+     }

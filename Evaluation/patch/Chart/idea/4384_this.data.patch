@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..ccbf65d 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -431,8 +431,9 @@
+         }
+         boolean savedState = this.propagateEvents;
+         this.propagateEvents = false;
+-        for (int s = 0; s < this.data.size(); s++) {
+-            XYSeries series = (XYSeries) this.data.get(s);
++        List data1 = this.data;
++        for (int s = 0; s < data1.size(); s++) {
++            XYSeries series = (XYSeries) data1.get(s);
+             series.remove(x);
+         }
+         this.propagateEvents = savedState;

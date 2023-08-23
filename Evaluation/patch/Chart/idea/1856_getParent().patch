@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..7e4fa13 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2313,8 +2313,9 @@
+      * @since 1.0.14
+      */
+     public void annotationChanged(AnnotationChangeEvent event) {
+-        if (getParent() != null) {
+-            getParent().annotationChanged(event);
++        Plot parent = getParent();
++        if (parent != null) {
++            parent.annotationChanged(event);
+         }
+         else {
+             PlotChangeEvent e = new PlotChangeEvent(this);

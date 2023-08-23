@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..fabf4bd 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -261,7 +261,8 @@
+         long middle = start + ((end - start) / 2);
+ 
+         if (this.minStartIndex >= 0) {
+-            long minStart = getDataItem(this.minStartIndex).getPeriod()
++            int minStartIndex1 = this.minStartIndex;
++            long minStart = getDataItem(minStartIndex1).getPeriod()
+                 .getStart().getTime();
+             if (start < minStart) {
+                 this.minStartIndex = index;           

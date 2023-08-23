@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+index 4848ab3..5e326ff 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+@@ -200,7 +200,8 @@
+         for (int i = 0; i < n; i++) {
+             final double[] x = getPoint(i).getPointRef();
+             for (int j = 0; j < n; j++) {
+-                centroid[j] += x[j];
++                double x1 = x[j];
++                centroid[j] += x1;
+             }
+         }
+         final double scaling = 1.0 / n;

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/LegendTitle.java b/source/org/jfree/chart/title/LegendTitle.java
+index 674edcc..28b41d4 100644
+--- a/source/org/jfree/chart/title/LegendTitle.java
++++ b/source/org/jfree/chart/title/LegendTitle.java
+@@ -536,8 +536,9 @@
+             sec.add(new TitleEntity(hotspot,this));
+         }
+         target = trimMargin(target);
+-        if (this.backgroundPaint != null) {
+-            g2.setPaint(this.backgroundPaint);
++        Paint backgroundPaint1 = this.backgroundPaint;
++        if (backgroundPaint1 != null) {
++            g2.setPaint(backgroundPaint1);
+             g2.fill(target);
+         }
+         BlockFrame border = getFrame();

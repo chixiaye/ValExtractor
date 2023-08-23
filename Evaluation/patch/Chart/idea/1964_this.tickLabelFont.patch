@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..5cc1b00 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -499,7 +499,8 @@
+         if (font == null) {
+             throw new IllegalArgumentException("Null 'font' argument.");
+         }
+-        if (!this.tickLabelFont.equals(font)) {
++        Font tickLabelFont1 = this.tickLabelFont;
++        if (!tickLabelFont1.equals(font)) {
+             this.tickLabelFont = font;
+             fireChangeEvent();
+         }

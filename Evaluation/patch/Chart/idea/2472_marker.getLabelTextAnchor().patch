@@ -1,0 +1,38 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..44ff73e 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -156,6 +156,7 @@
+ import org.jfree.chart.plot.PlotRenderingInfo;
+ import org.jfree.chart.plot.ValueMarker;
+ import org.jfree.chart.renderer.AbstractRenderer;
++import org.jfree.chart.text.TextAnchor;
+ import org.jfree.chart.text.TextUtilities;
+ import org.jfree.chart.urls.CategoryURLGenerator;
+ import org.jfree.chart.util.GradientPaintTransformer;
+@@ -1183,6 +1184,7 @@
+                                 Marker marker,
+                                 Rectangle2D dataArea) {
+ 
++        TextAnchor labelTextAnchor = marker.getLabelTextAnchor();
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+@@ -1225,7 +1227,7 @@
+                         anchor);
+                 TextUtilities.drawAlignedString(label, g2,
+                         (float) coordinates.getX(), (float) coordinates.getY(),
+-                        marker.getLabelTextAnchor());
++                        labelTextAnchor);
+             }
+             g2.setComposite(savedComposite);
+         }
+@@ -1327,7 +1329,7 @@
+                         anchor);
+                 TextUtilities.drawAlignedString(label, g2,
+                         (float) coordinates.getX(), (float) coordinates.getY(),
+-                        marker.getLabelTextAnchor());
++                        labelTextAnchor);
+             }
+             g2.setComposite(savedComposite);
+         }

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/LiveVariablesAnalysis.java b/src/com/google/javascript/jscomp/LiveVariablesAnalysis.java
+index 888fd39..06356f2 100644
+--- a/src/com/google/javascript/jscomp/LiveVariablesAnalysis.java
++++ b/src/com/google/javascript/jscomp/LiveVariablesAnalysis.java
+@@ -204,7 +204,8 @@
+         } else {
+           // for(x in y) {...}
+           Node lhs = n.getFirstChild();
+-          Node rhs = lhs.getNext();
++            Node next = lhs.getNext();
++            Node rhs = next;
+           if (lhs.isVar()) {
+             // for(var x in y) {...}
+             lhs = lhs.getLastChild();

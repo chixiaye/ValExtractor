@@ -1,0 +1,255 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/TokenStream.java b/src/com/google/javascript/rhino/TokenStream.java
+index 73fed17..4f36e8a 100644
+--- a/src/com/google/javascript/rhino/TokenStream.java
++++ b/src/com/google/javascript/rhino/TokenStream.java
+@@ -60,6 +60,7 @@
+         complete: {
+             String X = null;
+             int c;
++            char var_2590 = s.charAt(2);
+             partial: switch (s.length()) {
+             case 2: c=s.charAt(1);
+                 if (c=='f') {
+@@ -72,58 +73,58 @@
+                 break partial;
+             case 3: switch (s.charAt(0)) {
+                 case 'f':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='o') {
++                  if (var_2590=='r' && s.charAt(1)=='o') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'i':
+-                  if (s.charAt(2)=='t' && s.charAt(1)=='n') {
++                  if (var_2590=='t' && s.charAt(1)=='n') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'n':
+-                  if (s.charAt(2)=='w' && s.charAt(1)=='e') {
++                  if (var_2590=='w' && s.charAt(1)=='e') {
+                     id=true; break complete;
+                   } break partial;
+                 case 't':
+-                  if (s.charAt(2)=='y' && s.charAt(1)=='r') {
++                  if (var_2590=='y' && s.charAt(1)=='r') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'v':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='a') {
++                  if (var_2590=='r' && s.charAt(1)=='a') {
+                     id=true; break complete;
+                   } break partial;
+                 } break partial;
+             case 4: switch (s.charAt(0)) {
+                 case 'b': X="byte";id=true; break partial;
+                 case 'c': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='a') {
++                    if (c=='e') { if (var_2590=='s' && s.charAt(1)=='a') {
+                             id=true; break complete;} }
+                     else if (c=='r') {
+-                      if (s.charAt(2)=='a' && s.charAt(1)=='h') {
++                      if (var_2590=='a' && s.charAt(1)=='h') {
+                         id=true; break complete;
+                       }
+                     }
+                     break partial;
+                 case 'e': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='l') {
++                    if (c=='e') { if (var_2590=='s' && s.charAt(1)=='l') {
+                             id=true; break complete;} }
+                     else if (c=='m') {
+-                      if (s.charAt(2)=='u' && s.charAt(1)=='n') {
++                      if (var_2590=='u' && s.charAt(1)=='n') {
+                             id=true; break complete;} }
+                     break partial;
+                 case 'g': X="goto";id=true; break partial;
+                 case 'l': X="long";id=true; break partial;
+                 case 'n': X="null";id=true; break partial;
+                 case 't': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='u' && s.charAt(1)=='r') {
++                    if (c=='e') { if (var_2590=='u' && s.charAt(1)=='r') {
+                             id=true; break complete;} }
+                     else if (c=='s') {
+-                      if (s.charAt(2)=='i' && s.charAt(1)=='h') {
++                      if (var_2590=='i' && s.charAt(1)=='h') {
+                             id=true; break complete;} }
+                     break partial;
+                 case 'v': X="void";id=true; break partial;
+                 case 'w': X="with";id=true; break partial;
+                 } break partial;
+-            case 5: switch (s.charAt(2)) {
++            case 5: switch (var_2590) {
+                 case 'a': X="class";id=true; break partial;
+                 case 'e': X="break";id=true; break partial;
+                 case 'i': X="while";id=true; break partial;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/TokenStream.java b/src/com/google/javascript/rhino/TokenStream.java
+index 73fed17..4f36e8a 100644
+--- a/src/com/google/javascript/rhino/TokenStream.java
++++ b/src/com/google/javascript/rhino/TokenStream.java
+@@ -60,6 +60,7 @@
+         complete: {
+             String X = null;
+             int c;
++            char var_2590 = s.charAt(2);
+             partial: switch (s.length()) {
+             case 2: c=s.charAt(1);
+                 if (c=='f') {
+@@ -72,58 +73,58 @@
+                 break partial;
+             case 3: switch (s.charAt(0)) {
+                 case 'f':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='o') {
++                  if (var_2590=='r' && s.charAt(1)=='o') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'i':
+-                  if (s.charAt(2)=='t' && s.charAt(1)=='n') {
++                  if (var_2590=='t' && s.charAt(1)=='n') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'n':
+-                  if (s.charAt(2)=='w' && s.charAt(1)=='e') {
++                  if (var_2590=='w' && s.charAt(1)=='e') {
+                     id=true; break complete;
+                   } break partial;
+                 case 't':
+-                  if (s.charAt(2)=='y' && s.charAt(1)=='r') {
++                  if (var_2590=='y' && s.charAt(1)=='r') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'v':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='a') {
++                  if (var_2590=='r' && s.charAt(1)=='a') {
+                     id=true; break complete;
+                   } break partial;
+                 } break partial;
+             case 4: switch (s.charAt(0)) {
+                 case 'b': X="byte";id=true; break partial;
+                 case 'c': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='a') {
++                    if (c=='e') { if (var_2590=='s' && s.charAt(1)=='a') {
+                             id=true; break complete;} }
+                     else if (c=='r') {
+-                      if (s.charAt(2)=='a' && s.charAt(1)=='h') {
++                      if (var_2590=='a' && s.charAt(1)=='h') {
+                         id=true; break complete;
+                       }
+                     }
+                     break partial;
+                 case 'e': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='l') {
++                    if (c=='e') { if (var_2590=='s' && s.charAt(1)=='l') {
+                             id=true; break complete;} }
+                     else if (c=='m') {
+-                      if (s.charAt(2)=='u' && s.charAt(1)=='n') {
++                      if (var_2590=='u' && s.charAt(1)=='n') {
+                             id=true; break complete;} }
+                     break partial;
+                 case 'g': X="goto";id=true; break partial;
+                 case 'l': X="long";id=true; break partial;
+                 case 'n': X="null";id=true; break partial;
+                 case 't': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='u' && s.charAt(1)=='r') {
++                    if (c=='e') { if (var_2590=='u' && s.charAt(1)=='r') {
+                             id=true; break complete;} }
+                     else if (c=='s') {
+-                      if (s.charAt(2)=='i' && s.charAt(1)=='h') {
++                      if (var_2590=='i' && s.charAt(1)=='h') {
+                             id=true; break complete;} }
+                     break partial;
+                 case 'v': X="void";id=true; break partial;
+                 case 'w': X="with";id=true; break partial;
+                 } break partial;
+-            case 5: switch (s.charAt(2)) {
++            case 5: switch (var_2590) {
+                 case 'a': X="class";id=true; break partial;
+                 case 'e': X="break";id=true; break partial;
+                 case 'i': X="while";id=true; break partial;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/TokenStream.java b/src/com/google/javascript/rhino/TokenStream.java
+index 73fed17..7dd5116 100644
+--- a/src/com/google/javascript/rhino/TokenStream.java
++++ b/src/com/google/javascript/rhino/TokenStream.java
+@@ -60,7 +60,9 @@
+         complete: {
+             String X = null;
+             int c;
+-            partial: switch (s.length()) {
++            partial:
++            char c1 = s.charAt(2);
++            switch (s.length()) {
+             case 2: c=s.charAt(1);
+                 if (c=='f') {
+                   if (s.charAt(0)=='i') {id=true; break complete;}
+@@ -72,49 +74,49 @@
+                 break partial;
+             case 3: switch (s.charAt(0)) {
+                 case 'f':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='o') {
++                  if (c1 =='r' && s.charAt(1)=='o') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'i':
+-                  if (s.charAt(2)=='t' && s.charAt(1)=='n') {
++                  if (c1 =='t' && s.charAt(1)=='n') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'n':
+-                  if (s.charAt(2)=='w' && s.charAt(1)=='e') {
++                  if (c1 =='w' && s.charAt(1)=='e') {
+                     id=true; break complete;
+                   } break partial;
+                 case 't':
+-                  if (s.charAt(2)=='y' && s.charAt(1)=='r') {
++                  if (c1 =='y' && s.charAt(1)=='r') {
+                     id=true; break complete;
+                   } break partial;
+                 case 'v':
+-                  if (s.charAt(2)=='r' && s.charAt(1)=='a') {
++                  if (c1 =='r' && s.charAt(1)=='a') {
+                     id=true; break complete;
+                   } break partial;
+                 } break partial;
+             case 4: switch (s.charAt(0)) {
+                 case 'b': X="byte";id=true; break partial;
+                 case 'c': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='a') {
++                    if (c=='e') { if (c1 =='s' && s.charAt(1)=='a') {
+                             id=true; break complete;} }
+                     else if (c=='r') {
+-                      if (s.charAt(2)=='a' && s.charAt(1)=='h') {
++                      if (c1 =='a' && s.charAt(1)=='h') {
+                         id=true; break complete;
+                       }
+                     }
+                     break partial;
+                 case 'e': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='s' && s.charAt(1)=='l') {
++                    if (c=='e') { if (c1 =='s' && s.charAt(1)=='l') {
+                             id=true; break complete;} }
+                     else if (c=='m') {
+-                      if (s.charAt(2)=='u' && s.charAt(1)=='n') {
++                      if (c1 =='u' && s.charAt(1)=='n') {
+                             id=true; break complete;} }
+                     break partial;
+                 case 'g': X="goto";id=true; break partial;
+                 case 'l': X="long";id=true; break partial;
+                 case 'n': X="null";id=true; break partial;
+                 case 't': c=s.charAt(3);
+-                    if (c=='e') { if (s.charAt(2)=='u' && s.charAt(1)=='r') {
++                    if (c=='e') { if (c1 =='u' && s.charAt(1)=='r') {
+                             id=true; break complete;} }
+                     else if (c=='s') {
+                       if (s.charAt(2)=='i' && s.charAt(1)=='h') {
+@@ -123,7 +125,7 @@
+                 case 'v': X="void";id=true; break partial;
+                 case 'w': X="with";id=true; break partial;
+                 } break partial;
+-            case 5: switch (s.charAt(2)) {
++            case 5: switch (c1) {
+                 case 'a': X="class";id=true; break partial;
+                 case 'e': X="break";id=true; break partial;
+                 case 'i': X="while";id=true; break partial;

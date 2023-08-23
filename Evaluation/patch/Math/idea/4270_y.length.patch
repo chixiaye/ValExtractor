@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/MathArrays.java b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+index ff729ac..e6aa930 100644
+--- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
++++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+@@ -694,8 +694,9 @@
+             if (y == null) {
+                 throw new NullArgumentException();
+             }
+-            if (y.length != len) {
+-                throw new DimensionMismatchException(y.length, len);
++            int length = y.length;
++            if (length != len) {
++                throw new DimensionMismatchException(length, len);
+             }
+         }
+ 

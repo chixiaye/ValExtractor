@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..f29ebb1 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -416,7 +416,8 @@
+             }
+             if (nextField == null) {
+                 if (fieldIndex == 0) {
+-                    valueToAdd -= (min - 1) - values[fieldIndex];
++                    int value = values[fieldIndex];
++                    valueToAdd -= (min - 1) - value;
+                     values[fieldIndex] = getMaximumValue(instant, values);
+                     continue;
+                 }

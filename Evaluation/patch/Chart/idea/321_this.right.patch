@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/AxisSpace.java b/source/org/jfree/chart/axis/AxisSpace.java
+index d869ec6..9e5bc92 100644
+--- a/source/org/jfree/chart/axis/AxisSpace.java
++++ b/source/org/jfree/chart/axis/AxisSpace.java
+@@ -191,6 +191,7 @@
+         this.top = Math.max(this.top, space.top);
+         this.bottom = Math.max(this.bottom, space.bottom);
+         this.left = Math.max(this.left, space.left);
++        double right1 = this.right;
+         this.right = Math.max(this.right, space.right);
+     }
+ 

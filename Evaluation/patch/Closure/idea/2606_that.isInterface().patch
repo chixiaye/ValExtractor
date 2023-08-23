@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..d07d51c 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -891,13 +891,14 @@
+       }
+       return false;
+     }
+-    if (isInterface()) {
+-      if (that.isInterface()) {
++      boolean anInterface = that.isInterface();
++      if (isInterface()) {
++      if (anInterface) {
+         return getReferenceName().equals(that.getReferenceName());
+       }
+       return false;
+     }
+-    if (that.isInterface()) {
++    if (anInterface) {
+       return false;
+     }
+ 

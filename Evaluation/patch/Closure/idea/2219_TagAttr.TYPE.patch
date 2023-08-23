@@ -1,0 +1,37 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Writer.java b/src/com/google/javascript/jscomp/jsonml/Writer.java
+index b357eb9..f0a2beb 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Writer.java
++++ b/src/com/google/javascript/jscomp/jsonml/Writer.java
+@@ -559,25 +559,26 @@
+ 
+   private void processLiteral(Node node, JsonML currentParent) {
+     JsonML element = new JsonML(TagType.LiteralExpr);
+-    switch (node.getType()) {
++      TagAttr type = TagAttr.TYPE;
++      switch (node.getType()) {
+       case Token.NUMBER:
+-        element.setAttribute(TagAttr.TYPE, "number");
++        element.setAttribute(type, "number");
+         element.setAttribute(TagAttr.VALUE, node.getDouble());
+         break;
+       case Token.STRING:
+-        element.setAttribute(TagAttr.TYPE, "string");
++        element.setAttribute(type, "string");
+         element.setAttribute(TagAttr.VALUE, node.getString());
+         break;
+       case Token.NULL:
+-        element.setAttribute(TagAttr.TYPE, "null");
++        element.setAttribute(type, "null");
+         element.setAttribute(TagAttr.VALUE, null);
+         break;
+       case Token.TRUE:
+-        element.setAttribute(TagAttr.TYPE, "boolean");
++        element.setAttribute(type, "boolean");
+         element.setAttribute(TagAttr.VALUE, true);
+         break;
+       case Token.FALSE:
+-        element.setAttribute(TagAttr.TYPE, "boolean");
++        element.setAttribute(type, "boolean");
+         element.setAttribute(TagAttr.VALUE, false);
+         break;
+       default:

@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..3d75c51 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1011,8 +1011,11 @@
+       if (rValue != null && rValue.isQualifiedName()) {
+         // Handle an aliased enum.
+         Var var = scope.getVar(rValue.getQualifiedName());
+-        if (var != null && var.getType() instanceof EnumType) {
+-          enumType = (EnumType) var.getType();
++        if (var != null) {
++            JSType type = var.getType();
++            if (type instanceof EnumType) {
++                enumType = (EnumType) type;
++            }
+         }
+       }
+ 

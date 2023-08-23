@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/urls/StandardPieURLGenerator.java b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+index dfe9acd..44801bf 100644
+--- a/source/org/jfree/chart/urls/StandardPieURLGenerator.java
++++ b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+@@ -141,11 +141,12 @@
+             int pieIndex) {
+         String url = this.prefix;
+         String encodedKey = null;
++        String s = key.toString();
+         try {
+-            encodedKey = URLEncoder.encode(key.toString(), "UTF-8");
++            encodedKey = URLEncoder.encode(s, "UTF-8");
+         }
+         catch (UnsupportedEncodingException e) {
+-            encodedKey = key.toString();
++            encodedKey = s;
+         }
+         if (url.indexOf("?") > -1) {
+             url += "&amp;" + this.categoryParameterName + "=" + encodedKey;

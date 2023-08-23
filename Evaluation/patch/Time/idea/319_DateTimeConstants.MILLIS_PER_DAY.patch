@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/chrono/JulianChronology.java b/src/main/java/org/joda/time/chrono/JulianChronology.java
+index 3433e19..4278c10 100644
+--- a/src/main/java/org/joda/time/chrono/JulianChronology.java
++++ b/src/main/java/org/joda/time/chrono/JulianChronology.java
+@@ -229,12 +229,13 @@
+                 leapYears++;
+             }
+         }
+-        
+-        long millis = (relativeYear * 365L + leapYears) * (long)DateTimeConstants.MILLIS_PER_DAY;
++
++        int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
++        long millis = (relativeYear * 365L + leapYears) * (long) millisPerDay;
+ 
+         // Adjust to account for difference between 1968-01-01 and 1969-12-19.
+ 
+-        return millis - (366L + 352) * DateTimeConstants.MILLIS_PER_DAY;
++        return millis - (366L + 352) * millisPerDay;
+     }
+ 
+     int getMinYear() {

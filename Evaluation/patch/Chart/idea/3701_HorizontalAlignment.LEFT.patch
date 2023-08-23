@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/HorizontalAlignment.java b/source/org/jfree/chart/util/HorizontalAlignment.java
+index 9a3e4e3..c15a4b2 100644
+--- a/source/org/jfree/chart/util/HorizontalAlignment.java
++++ b/source/org/jfree/chart/util/HorizontalAlignment.java
+@@ -126,8 +126,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         HorizontalAlignment result = null;
+-        if (this.equals(HorizontalAlignment.LEFT)) {
+-            result = HorizontalAlignment.LEFT;
++        HorizontalAlignment left = HorizontalAlignment.LEFT;
++        if (this.equals(left)) {
++            result = left;
+         }
+         else if (this.equals(HorizontalAlignment.RIGHT)) {
+             result = HorizontalAlignment.RIGHT;

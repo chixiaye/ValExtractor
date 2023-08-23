@@ -1,0 +1,56 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..02c122d 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -275,8 +275,9 @@
+             RectangleEdge yAxisLocation = plot.getRangeAxisEdge();
+             double valueDelta = sdv.doubleValue();
+             double highVal, lowVal;
++            double var_2529 = rangeAxis.getRange().getUpperBound();
+             if ((meanValue.doubleValue() + valueDelta)
+-                    > rangeAxis.getRange().getUpperBound()) {
++                    > var_2529) {
+                 highVal = rangeAxis.valueToJava2D(
+                         rangeAxis.getRange().getUpperBound(), dataArea,
+                         yAxisLocation);
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..04c9c52 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -275,10 +275,11 @@
+             RectangleEdge yAxisLocation = plot.getRangeAxisEdge();
+             double valueDelta = sdv.doubleValue();
+             double highVal, lowVal;
++            double var_2529 = rangeAxis.getRange().getUpperBound();
+             if ((meanValue.doubleValue() + valueDelta)
+-                    > rangeAxis.getRange().getUpperBound()) {
++                    > var_2529) {
+                 highVal = rangeAxis.valueToJava2D(
+-                        rangeAxis.getRange().getUpperBound(), dataArea,
++                        var_2529, dataArea,
+                         yAxisLocation);
+             }
+             else {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..7c6cf66 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -275,10 +275,11 @@
+             RectangleEdge yAxisLocation = plot.getRangeAxisEdge();
+             double valueDelta = sdv.doubleValue();
+             double highVal, lowVal;
++            double upperBound = rangeAxis.getRange().getUpperBound();
+             if ((meanValue.doubleValue() + valueDelta)
+-                    > rangeAxis.getRange().getUpperBound()) {
++                    > upperBound) {
+                 highVal = rangeAxis.valueToJava2D(
+-                        rangeAxis.getRange().getUpperBound(), dataArea,
++                        upperBound, dataArea,
+                         yAxisLocation);
+             }
+             else {

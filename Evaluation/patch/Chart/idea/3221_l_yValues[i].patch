@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..fe78d3b 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -1048,8 +1048,9 @@
+                     l_x = Math.rint(l_x);
+                 }
+ 
++                Object lYValue = l_yValues[i];
+                 l_y = x_rangeAxis.valueToJava2D((
+-                        (Double) l_yValues[i]).doubleValue(), x_dataArea,
++                        (Double) lYValue).doubleValue(), x_dataArea,
+                         l_rangeAxisLocation);
+                 l_path.lineTo((float) l_x, (float) l_y);
+             }

@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..9147c8d 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -213,7 +213,8 @@
+                 }
+                 // case 3: leave current, add alternate
+               } else if (!alternate.isParameterizedType()) {
+-                if (current.isSubtype(alternate)) {
++                boolean var_2695 = current.isSubtype(alternate);
++				if (var_2695) {
+                   // case 4, 5
+                   removeCurrent = true;
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..854d8c0 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -189,6 +189,7 @@
+             // building the subtype.
+             //
+ 
++            boolean var_2695 = current.isSubtype(alternate);
+             if (alternate.isParameterizedType() || current.isParameterizedType()) {
+               // Cases:
+               // 1) alternate:Array.<string> and current:Object ==> Object
+@@ -213,7 +214,7 @@
+                 }
+                 // case 3: leave current, add alternate
+               } else if (!alternate.isParameterizedType()) {
+-                if (current.isSubtype(alternate)) {
++                if (var_2695) {
+                   // case 4, 5
+                   removeCurrent = true;
+                 }
+@@ -246,7 +247,7 @@
+             } else if (alternate.isSubtype(current)) {
+               // Alternate is unnecessary.
+               return this;
+-            } else if (current.isSubtype(alternate)) {
++            } else if (var_2695) {
+               // Alternate makes current obsolete
+               removeCurrent = true;
+             }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..033c47b 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -189,6 +189,7 @@
+             // building the subtype.
+             //
+ 
++              boolean subtype = current.isSubtype(alternate);
+             if (alternate.isParameterizedType() || current.isParameterizedType()) {
+               // Cases:
+               // 1) alternate:Array.<string> and current:Object ==> Object
+@@ -213,7 +214,7 @@
+                 }
+                 // case 3: leave current, add alternate
+               } else if (!alternate.isParameterizedType()) {
+-                if (current.isSubtype(alternate)) {
++                if (subtype) {
+                   // case 4, 5
+                   removeCurrent = true;
+                 }
+@@ -246,7 +247,7 @@
+             } else if (alternate.isSubtype(current)) {
+               // Alternate is unnecessary.
+               return this;
+-            } else if (current.isSubtype(alternate)) {
++            } else if (subtype) {
+               // Alternate makes current obsolete
+               removeCurrent = true;
+             }

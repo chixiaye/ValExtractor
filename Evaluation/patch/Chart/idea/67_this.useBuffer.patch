@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..0b81c7d 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1650,7 +1650,8 @@
+                 drawHeight);
+ 
+         // are we using the chart buffer?
+-        if (this.useBuffer) {
++        boolean useBuffer1 = this.useBuffer;
++        if (useBuffer1) {
+ 
+             // do we need to resize the buffer?
+             if ((this.chartBuffer == null)
+@@ -1729,8 +1730,8 @@
+         // redraw the zoom rectangle (if present) - if useBuffer is false,
+         // we use XOR so we can XOR the rectangle away again without redrawing
+         // the chart
+-        drawZoomRectangle(g2, !this.useBuffer);
+-        drawSelectionShape(g2, !this.useBuffer);
++        drawZoomRectangle(g2, !useBuffer1);
++        drawSelectionShape(g2, !useBuffer1);
+         g2.dispose();
+ 
+         this.anchor = null;

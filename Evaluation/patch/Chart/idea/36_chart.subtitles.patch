@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..29e505c 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1722,7 +1722,8 @@
+             chart.title.addChangeListener(chart);
+         }
+ 
+-        chart.subtitles = new ArrayList();
++        List subtitles1 = chart.subtitles;
++        subtitles1 = new ArrayList();
+         for (int i = 0; i < getSubtitleCount(); i++) {
+             Title subtitle = (Title) getSubtitle(i).clone();
+             chart.subtitles.add(subtitle);

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/pie/DefaultPieDataset.java b/source/org/jfree/data/pie/DefaultPieDataset.java
+index 87c13c4..a18ff1b 100644
+--- a/source/org/jfree/data/pie/DefaultPieDataset.java
++++ b/source/org/jfree/data/pie/DefaultPieDataset.java
+@@ -202,13 +202,14 @@
+      *     <code>null</code>.
+      */
+     public void setValue(Comparable key, Number value) {
+-        int index = this.data.getIndex(key);
++        KeyedObjects data1 = this.data;
++        int index = data1.getIndex(key);
+         PieDatasetChangeType ct = PieDatasetChangeType.ADD;
+         if (index >= 0) {
+             ct = PieDatasetChangeType.UPDATE;
+         }
+ 
+-        this.data.setObject(key, new SelectableValue(value));
++        data1.setObject(key, new SelectableValue(value));
+         PieDatasetChangeInfo info = new PieDatasetChangeInfo(ct, index, index);
+         fireDatasetChanged(info);
+     }

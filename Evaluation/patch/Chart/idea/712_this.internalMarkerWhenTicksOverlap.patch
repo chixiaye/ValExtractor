@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..605e475 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -988,6 +988,7 @@
+             Rectangle2D plotArea, Rectangle2D dataArea, RectangleEdge edge,
+             PlotRenderingInfo info) {
+ 
++        boolean internalMarkerWhenTicksOverlap1 = this.internalMarkerWhenTicksOverlap;
+         this.internalMarkerWhenTicksOverlap = false;
+         AxisState ret = super.drawTickMarksAndLabels(g2, cursor, plotArea,
+                 dataArea, edge, info);

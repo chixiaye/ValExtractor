@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..a0c057c 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -5121,7 +5121,8 @@
+         }
+         clone.datasetToDomainAxesMap = new TreeMap();
+         clone.datasetToDomainAxesMap.putAll(this.datasetToDomainAxesMap);
+-        clone.datasetToRangeAxesMap = new TreeMap();
++        TreeMap datasetToRangeAxesMap1 = clone.datasetToRangeAxesMap;
++        datasetToRangeAxesMap1 = new TreeMap();
+         clone.datasetToRangeAxesMap.putAll(this.datasetToRangeAxesMap);
+ 
+         clone.renderers = (ObjectList) this.renderers.clone();

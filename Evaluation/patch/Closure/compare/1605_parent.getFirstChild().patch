@@ -1,0 +1,126 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..4e03b85 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -390,9 +390,10 @@
+         case Token.GETPROP:
+           // This may be a namespaced name get or set.
+           if (parent != null) {
++            Node var_1605 = parent.getFirstChild();
+             switch (parent.getType()) {
+               case Token.ASSIGN:
+-                if (parent.getFirstChild() == n) {
++                if (var_1605 == n) {
+                   isSet = true;
+                   type = getValueType(n.getNext());
+                   isPropAssign = true;
+@@ -407,7 +408,7 @@
+                 return;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+-                    parent.getFirstChild() == n) {
++                    var_1605 == n) {
+                   isSet = true;
+                   type = Name.Type.OTHER;
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..7b8154d 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -323,6 +323,7 @@
+       Name.Type type = Name.Type.OTHER;
+       boolean isPropAssign = false;
+ 
++      Node var_1605 = parent.getFirstChild();
+       switch (n.getType()) {
+         case Token.GETTER_DEF:
+         case Token.SETTER_DEF:
+@@ -358,7 +359,7 @@
+                 type = rvalue == null ? Name.Type.OTHER : getValueType(rvalue);
+                 break;
+               case Token.ASSIGN:
+-                if (parent.getFirstChild() == n) {
++                if (var_1605 == n) {
+                   isSet = true;
+                   type = getValueType(n.getNext());
+                 }
+@@ -379,7 +380,7 @@
+                 break;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+-                    parent.getFirstChild() == n) {
++                    var_1605 == n) {
+                   isSet = true;
+                   type = Name.Type.OTHER;
+                 }
+@@ -392,7 +393,7 @@
+           if (parent != null) {
+             switch (parent.getType()) {
+               case Token.ASSIGN:
+-                if (parent.getFirstChild() == n) {
++                if (var_1605 == n) {
+                   isSet = true;
+                   type = getValueType(n.getNext());
+                   isPropAssign = true;
+@@ -407,7 +408,7 @@
+                 return;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+-                    parent.getFirstChild() == n) {
++                    var_1605 == n) {
+                   isSet = true;
+                   type = Name.Type.OTHER;
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..84cac61 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -323,6 +323,7 @@
+       Name.Type type = Name.Type.OTHER;
+       boolean isPropAssign = false;
+ 
++        Node firstChild = parent.getFirstChild();
+       switch (n.getType()) {
+         case Token.GETTER_DEF:
+         case Token.SETTER_DEF:
+@@ -358,7 +359,7 @@
+                 type = rvalue == null ? Name.Type.OTHER : getValueType(rvalue);
+                 break;
+               case Token.ASSIGN:
+-                if (parent.getFirstChild() == n) {
++                if (firstChild == n) {
+                   isSet = true;
+                   type = getValueType(n.getNext());
+                 }
+@@ -379,7 +380,7 @@
+                 break;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+-                    parent.getFirstChild() == n) {
++                    firstChild == n) {
+                   isSet = true;
+                   type = Name.Type.OTHER;
+                 }
+@@ -392,7 +393,7 @@
+           if (parent != null) {
+             switch (parent.getType()) {
+               case Token.ASSIGN:
+-                if (parent.getFirstChild() == n) {
++                if (firstChild == n) {
+                   isSet = true;
+                   type = getValueType(n.getNext());
+                   isPropAssign = true;
+@@ -407,7 +408,7 @@
+                 return;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+-                    parent.getFirstChild() == n) {
++                    firstChild == n) {
+                   isSet = true;
+                   type = Name.Type.OTHER;
+                 }

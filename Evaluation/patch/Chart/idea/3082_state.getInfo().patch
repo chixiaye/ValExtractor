@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/xy/XYLineAndShapeRenderer.java
+index 5f2b6ba..77fb4aa 100644
+--- a/source/org/jfree/chart/renderer/xy/XYLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYLineAndShapeRenderer.java
+@@ -785,8 +785,9 @@
+ 
+             // setup for collecting optional entity info...
+             EntityCollection entities = null;
+-            if (state.getInfo() != null) {
+-                entities = state.getInfo().getOwner().getEntityCollection();
++            PlotRenderingInfo info = state.getInfo();
++            if (info != null) {
++                entities = info.getOwner().getEntityCollection();
+             }
+ 
+             drawShape2(g2, dataArea, plot, dataset, pass, series, item,

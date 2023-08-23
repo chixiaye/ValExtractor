@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
+index 0c47b5c..462f2b7 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java
+@@ -205,7 +205,8 @@
+                 final UnivariatePointValuePair optimum = line.search(x, d);
+                 fVal = optimum.getValue();
+                 alphaMin = optimum.getPoint();
+-                final double[][] result = newPointAndDirection(x, d, alphaMin);
++                double[][] doubles = newPointAndDirection(x, d, alphaMin);
++                final double[][] result = doubles;
+                 x = result[0];
+ 
+                 if ((fX2 - fVal) > delta) {

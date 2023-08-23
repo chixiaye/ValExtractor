@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..603db5c 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -406,10 +406,11 @@
+         }
+ 
+         // fetch the series, remove the change listener, then remove the series.
+-        XYSeries s = (XYSeries) this.data.get(series);
++        List data1 = this.data;
++        XYSeries s = (XYSeries) data1.get(series);
+         s.removeChangeListener(this);
+-        this.data.remove(series);
+-        if (this.data.size() == 0) {
++        data1.remove(series);
++        if (data1.size() == 0) {
+             this.xPoints.clear();
+         }
+         else if (this.autoPrune) {

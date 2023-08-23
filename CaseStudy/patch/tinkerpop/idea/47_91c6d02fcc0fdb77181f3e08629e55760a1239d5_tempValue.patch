@@ -1,0 +1,14 @@
+diff --git a/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/MultiMetaNeo4jTrait.java b/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/MultiMetaNeo4jTrait.java
+index bd6142d35a..ed2c4e101d 100644
+--- a/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/MultiMetaNeo4jTrait.java
++++ b/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/MultiMetaNeo4jTrait.java
+@@ -155,7 +155,8 @@ public class MultiMetaNeo4jTrait implements Neo4jTrait {
+                 } else {
+                     Neo4jNode vertexPropertyNode = graph.createNode(VERTEX_PROPERTY_LABEL, key);
+                     vertexPropertyNode.setProperty(T.key.getAccessor(), key);
+-                    vertexPropertyNode.setProperty(T.value.getAccessor(), node.removeProperty(key));
++                    Object tempValue = node.removeProperty(key);
++                    vertexPropertyNode.setProperty(T.value.getAccessor(), tempValue);
+                     node.connectTo(vertexPropertyNode, prefixedKey);
+                     node.setProperty(key, VERTEX_PROPERTY_TOKEN);
+                     vertexPropertyNode = graph.createNode(VERTEX_PROPERTY_LABEL, key);

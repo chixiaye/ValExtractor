@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..577cc65 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -611,15 +611,16 @@
+         // 4) If this is a stub, define it.
+         // 5) Otherwise, do not define the type, but declare it in the registry
+         //    so that we can use it for missing property checks.
+-        if (objectType.hasProperty(propName) || !objectType.isInstanceType()) {
++          boolean b = objectType.defineInferredProperty(propName, rightType, getprop);
++          if (objectType.hasProperty(propName) || !objectType.isInstanceType()) {
+           if ("prototype".equals(propName)) {
+             objectType.defineDeclaredProperty(propName, rightType, getprop);
+           } else {
+-            objectType.defineInferredProperty(propName, rightType, getprop);
++            b;
+           }
+         } else if (obj.isThis() &&
+                    getJSType(syntacticScope.getRootNode()).isConstructor()) {
+-          objectType.defineInferredProperty(propName, rightType, getprop);
++          b;
+         } else {
+           registry.registerPropertyOnType(propName, objectType);
+         }

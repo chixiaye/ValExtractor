@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..7ff96fa 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -537,9 +537,10 @@
+         throws OutOfRangeException, MatrixDimensionMismatchException {
+         checkColumnIndex(column);
+         final int nRows = getRowDimension();
+-        if ((matrix.getRowDimension() != nRows) ||
++        int rowDimension = matrix.getRowDimension();
++        if ((rowDimension != nRows) ||
+             (matrix.getColumnDimension() != 1)) {
+-            throw new MatrixDimensionMismatchException(matrix.getRowDimension(),
++            throw new MatrixDimensionMismatchException(rowDimension,
+                                                        matrix.getColumnDimension(),
+                                                        nRows, 1);
+         }

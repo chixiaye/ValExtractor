@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..3191e82 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1718,7 +1718,8 @@
+         // private transient Paint borderPaint;
+ 
+         if (this.title != null) {
+-            chart.title = (TextTitle) this.title.clone();
++            TextTitle title1 = chart.title;
++            title1 = (TextTitle) this.title.clone();
+             chart.title.addChangeListener(chart);
+         }
+ 

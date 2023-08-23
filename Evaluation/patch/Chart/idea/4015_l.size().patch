@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..0f3b542 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -204,14 +204,17 @@
+         List l = (List) this.data.getObject(row, column);
+         double average = 0.0d;
+         int count = 0;
+-        if (l != null && l.size() > 0) {
+-            for (int i = 0; i < l.size(); i++) {
+-                Number n = (Number) l.get(i);
+-                average += n.doubleValue();
+-                count += 1;
+-            }
+-            if (count > 0) {
+-                average = average / count;
++        if (l != null) {
++            int size = l.size();
++            if (size > 0) {
++                for (int i = 0; i < size; i++) {
++                    Number n = (Number) l.get(i);
++                    average += n.doubleValue();
++                    count += 1;
++                }
++                if (count > 0) {
++                    average = average / count;
++                }
+             }
+         }
+         if (count == 0) {

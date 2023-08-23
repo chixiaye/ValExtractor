@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..18ccdb1 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1081,14 +1081,15 @@
+      * @param notify  notify listeners?
+      */
+     public void setRangeAxis(int index, ValueAxis axis, boolean notify) {
+-        ValueAxis existing = (ValueAxis) this.rangeAxes.get(index);
++        ObjectList rangeAxes1 = this.rangeAxes;
++        ValueAxis existing = (ValueAxis) rangeAxes1.get(index);
+         if (existing != null) {
+             existing.removeChangeListener(this);
+         }
+         if (axis != null) {
+             axis.setPlot(this);
+         }
+-        this.rangeAxes.set(index, axis);
++        rangeAxes1.set(index, axis);
+         if (axis != null) {
+             axis.configure();
+             axis.addChangeListener(this);

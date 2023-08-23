@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..7901f07 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -261,7 +261,8 @@
+         if (pos < limit && pattern.charAt(pos) == '?') {
+           if (pos + 1 < limit) {
+             capturing = false;
+-            char ch = pattern.charAt(pos + 1);
++              char c = pattern.charAt(pos + 1);
++              char ch = c;
+             switch (ch) {
+               case ':':  // A (?:...) style non-capturing group.
+                 pos += 2;

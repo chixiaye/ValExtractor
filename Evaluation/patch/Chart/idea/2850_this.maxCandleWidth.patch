@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..92711e4 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -742,9 +742,10 @@
+             }
+             xxWidth -= 2 * this.autoWidthGap;
+             xxWidth *= this.autoWidthFactor;
+-            xxWidth = Math.min(xxWidth, this.maxCandleWidth);
+-            volumeWidth = Math.max(Math.min(1, this.maxCandleWidth), xxWidth);
+-            stickWidth = Math.max(Math.min(3, this.maxCandleWidth), xxWidth);
++            double maxCandleWidth1 = this.maxCandleWidth;
++            xxWidth = Math.min(xxWidth, maxCandleWidth1);
++            volumeWidth = Math.max(Math.min(1, maxCandleWidth1), xxWidth);
++            stickWidth = Math.max(Math.min(3, maxCandleWidth1), xxWidth);
+         }
+ 
+         Paint p = getItemPaint(series, item, selected);

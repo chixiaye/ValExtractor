@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..20c5289 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3851,8 +3851,9 @@
+                         for (int item = firstItem; item <= lastItem; item++) {
+                             boolean selected = false;
+                             if (selectionState != null) {
+-                                selected = selectionState.isSelected(series,
++                                boolean selected1 = selectionState.isSelected(series,
+                                         item);
++                                selected = selected1;
+                             }
+                             renderer.drawItem(g2, state, dataArea, this,
+                                     xAxis, yAxis, dataset, series, item,

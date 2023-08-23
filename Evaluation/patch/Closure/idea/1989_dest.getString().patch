@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/AliasExternals.java b/src/com/google/javascript/jscomp/AliasExternals.java
+index fc43f34..ccce481 100644
+--- a/src/com/google/javascript/jscomp/AliasExternals.java
++++ b/src/com/google/javascript/jscomp/AliasExternals.java
+@@ -472,9 +472,10 @@
+         case Token.GETPROP:
+         case Token.GETELEM:
+           Node dest = n.getFirstChild().getNext();
+-          if (dest.isString() &&
+-              (whitelist.isEmpty() || whitelist.contains(dest.getString()))) {
+-            props.put(dest.getString(), newSymbolForProperty(dest.getString()));
++            String string = dest.getString();
++            if (dest.isString() &&
++              (whitelist.isEmpty() || whitelist.contains(string))) {
++            props.put(string, newSymbolForProperty(string));
+           }
+       }
+     }

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/field/RemainderDateTimeField.java b/src/main/java/org/joda/time/field/RemainderDateTimeField.java
+index 30a835a..ecdacda 100644
+--- a/src/main/java/org/joda/time/field/RemainderDateTimeField.java
++++ b/src/main/java/org/joda/time/field/RemainderDateTimeField.java
+@@ -164,8 +164,9 @@
+      */
+     public long set(long instant, int value) {
+         FieldUtils.verifyValueBounds(this, value, 0, iDivisor - 1);
+-        int divided = getDivided(getWrappedField().get(instant));
+-        return getWrappedField().set(instant, divided * iDivisor + value);
++        DateTimeField wrappedField = getWrappedField();
++        int divided = getDivided(wrappedField.get(instant));
++        return wrappedField.set(instant, divided * iDivisor + value);
+     }
+ 
+     @Override

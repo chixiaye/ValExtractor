@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+index fa7d47d..fc2277d 100644
+--- a/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+@@ -187,8 +187,9 @@
+     new Visitor<JSType>() {
+       @Override
+       public JSType caseEnumElementType(EnumElementType enumElementType) {
+-        JSType type = enumElementType.getPrimitiveType().visit(this);
+-        if (type != null && enumElementType.getPrimitiveType().isEquivalentTo(type)) {
++          JSType primitiveType = enumElementType.getPrimitiveType();
++          JSType type = primitiveType.visit(this);
++        if (type != null && primitiveType.isEquivalentTo(type)) {
+           return enumElementType;
+         } else {
+           return type;

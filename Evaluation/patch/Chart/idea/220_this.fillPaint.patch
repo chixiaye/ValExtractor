@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYShapeAnnotation.java b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+index 2fae007..623bd21 100644
+--- a/source/org/jfree/chart/annotations/XYShapeAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYShapeAnnotation.java
+@@ -201,8 +201,9 @@
+             s = t.createTransformedShape(this.shape);
+         }
+ 
+-        if (this.fillPaint != null) {
+-            g2.setPaint(this.fillPaint);
++        Paint fillPaint1 = this.fillPaint;
++        if (fillPaint1 != null) {
++            g2.setPaint(fillPaint1);
+             g2.fill(s);
+         }
+ 

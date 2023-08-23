@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+index b3412e0..33b5939 100644
+--- a/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/QRDecomposition.java
+@@ -237,6 +237,7 @@
+              * succession to the result
+              */
+             for (int minor = m - 1; minor >= FastMath.min(m, n); minor--) {
++                double v = qta[minor][minor];
+                 qta[minor][minor] = 1.0d;
+             }
+ 

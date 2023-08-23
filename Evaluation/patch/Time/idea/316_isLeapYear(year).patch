@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicGJChronology.java b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+index 5b651e5..933a392 100644
+--- a/src/main/java/org/joda/time/chrono/BasicGJChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+@@ -177,15 +177,16 @@
+         int millisOfDay = getMillisOfDay(instant);
+ 
+         if (dayOfYear > (31 + 28)) { // after Feb 28
++            boolean leapYear = isLeapYear(year);
+             if (isLeapYear(thisYear)) {
+                 // Current date is Feb 29 or later.
+-                if (!isLeapYear(year)) {
++                if (!leapYear) {
+                     // Moving to a non-leap year, Feb 29 does not exist.
+                     dayOfYear--;
+                 }
+             } else {
+                 // Current date is Mar 01 or later.
+-                if (isLeapYear(year)) {
++                if (leapYear) {
+                     // Moving to a leap year, account for Feb 29.
+                     dayOfYear++;
+                 }

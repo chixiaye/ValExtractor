@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/panel/RegionSelectionHandler.java b/source/org/jfree/chart/panel/RegionSelectionHandler.java
+index f7f4e5d..946954c 100644
+--- a/source/org/jfree/chart/panel/RegionSelectionHandler.java
++++ b/source/org/jfree/chart/panel/RegionSelectionHandler.java
+@@ -212,7 +212,8 @@
+         Point pt = e.getPoint();
+         Point2D pt2 = ShapeUtilities.getPointInRectangle(pt.x, pt.y,
+                 panel.getScreenDataArea());
+-        if (pt2.distance(this.lastPoint) > 5) {
++        Point2D lastPoint1 = this.lastPoint;
++        if (pt2.distance(lastPoint1) > 5) {
+             this.selection.lineTo((float) pt2.getX(), (float) pt2.getY());
+             this.lastPoint = pt2;
+         }

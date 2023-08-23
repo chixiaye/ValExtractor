@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java b/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
+index cc7b318..e1605e4 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
++++ b/src/main/java/org/apache/commons/math3/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java
+@@ -204,6 +204,7 @@
+                     gammaSums[j] += gamma[i][j];
+ 
+                     for (int col = 0; col < numCols; col++) {
++                        double v = gammaDataProdSums[j][col];
+                         gammaDataProdSums[j][col] += gamma[i][j] * data[i][col];
+                     }
+                 }

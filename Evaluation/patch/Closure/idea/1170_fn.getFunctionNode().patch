@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/InlineFunctions.java b/src/com/google/javascript/jscomp/InlineFunctions.java
+index 008ffe5..7538b28 100644
+--- a/src/com/google/javascript/jscomp/InlineFunctions.java
++++ b/src/com/google/javascript/jscomp/InlineFunctions.java
+@@ -351,12 +351,13 @@
+     }
+ 
+     // Don't inline if we are specializing and the function can't be fixed up
+-    if (specializationState != null &&
+-        !specializationState.canFixupFunction(fn.getFunctionNode())) {
++      Node functionNode = fn.getFunctionNode();
++      if (specializationState != null &&
++        !specializationState.canFixupFunction(functionNode)) {
+       return false;
+     }
+ 
+-    Node fnNode = fn.getFunctionNode();
++    Node fnNode = functionNode;
+     return injector.doesFunctionMeetMinimumRequirements(fnName, fnNode);
+   }
+ 

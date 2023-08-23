@@ -1,0 +1,19 @@
+diff --git a/src/org/mockito/internal/invocation/ArgumentsProcessor.java b/src/org/mockito/internal/invocation/ArgumentsProcessor.java
+index d0a6a5e..3a56367 100644
+--- a/src/org/mockito/internal/invocation/ArgumentsProcessor.java
++++ b/src/org/mockito/internal/invocation/ArgumentsProcessor.java
+@@ -25,11 +25,12 @@
+ 
+         final int nonVarArgsCount = args.length - 1;
+         Object[] varArgs;
+-        if (args[nonVarArgsCount] == null) {
++        Object arg = args[nonVarArgsCount];
++        if (arg == null) {
+             // in case someone deliberately passed null varArg array
+             varArgs = new Object[] { null };
+         } else {
+-            varArgs = ArrayEquals.createObjectArray(args[nonVarArgsCount]);
++            varArgs = ArrayEquals.createObjectArray(arg);
+         }
+         final int varArgsCount = varArgs.length;
+         Object[] newArgs = new Object[nonVarArgsCount + varArgsCount];

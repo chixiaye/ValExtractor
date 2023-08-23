@@ -1,0 +1,93 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..f4b12dd 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1512,7 +1512,8 @@
+             builder.append('*');
+           }
+ 
+-          token = next();
++          JsDocToken var_2337 = next();
++		token = var_2337;
+           continue;
+ 
+         case EOL:
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..91cee50 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1497,6 +1497,7 @@
+     boolean ignoreStar = true;
+ 
+     do {
++      JsDocToken var_2337 = next();
+       switch (token) {
+         case ANNOTATION:
+         case EOC:
+@@ -1512,13 +1513,13 @@
+             builder.append('*');
+           }
+ 
+-          token = next();
++          token = var_2337;
+           continue;
+ 
+         case EOL:
+           ignoreStar = true;
+           builder.append('\n');
+-          token = next();
++          token = var_2337;
+           continue;
+ 
+         default:
+@@ -1533,7 +1534,7 @@
+           String line = stream.getRemainingJSDocLine();
+           line = trimEnd(line);
+           builder.append(line);
+-          token = next();
++          token = var_2337;
+       }
+     } while (true);
+   }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..9678d87 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1497,6 +1497,7 @@
+     boolean ignoreStar = true;
+ 
+     do {
++        JsDocToken next = next();
+       switch (token) {
+         case ANNOTATION:
+         case EOC:
+@@ -1512,13 +1513,13 @@
+             builder.append('*');
+           }
+ 
+-          token = next();
++          token = next;
+           continue;
+ 
+         case EOL:
+           ignoreStar = true;
+           builder.append('\n');
+-          token = next();
++          token = next;
+           continue;
+ 
+         default:
+@@ -1533,7 +1534,7 @@
+           String line = stream.getRemainingJSDocLine();
+           line = trimEnd(line);
+           builder.append(line);
+-          token = next();
++          token = next;
+       }
+     } while (true);
+   }

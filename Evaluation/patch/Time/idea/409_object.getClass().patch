@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterManager.java b/src/main/java/org/joda/time/convert/ConverterManager.java
+index 0b029aa..5fda2cd 100644
+--- a/src/main/java/org/joda/time/convert/ConverterManager.java
++++ b/src/main/java/org/joda/time/convert/ConverterManager.java
+@@ -244,13 +244,14 @@
+      * equally well
+      */
+     public PartialConverter getPartialConverter(Object object) {
++        Class<?> aClass = object.getClass();
+         PartialConverter converter =
+-            (PartialConverter)iPartialConverters.select(object == null ? null : object.getClass());
++            (PartialConverter)iPartialConverters.select(object == null ? null : aClass);
+         if (converter != null) {
+             return converter;
+         }
+         throw new IllegalArgumentException("No partial converter found for type: " +
+-            (object == null ? "null" : object.getClass().getName()));
++            (object == null ? "null" : aClass.getName()));
+     }
+     
+     //-----------------------------------------------------------------------

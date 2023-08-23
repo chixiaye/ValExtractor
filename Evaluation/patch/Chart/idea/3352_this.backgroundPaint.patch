@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..e1d20f6 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -276,8 +276,9 @@
+             g2.setPaint(this.shadowPaint);
+             g2.fill(shadow);
+         }
+-        if (this.backgroundPaint != null) {
+-            g2.setPaint(this.backgroundPaint);
++        Paint backgroundPaint1 = this.backgroundPaint;
++        if (backgroundPaint1 != null) {
++            g2.setPaint(backgroundPaint1);
+             g2.fill(bounds);
+         }
+ 

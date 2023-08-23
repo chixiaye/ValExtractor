@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..56e0b87 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2904,8 +2904,9 @@
+                 this.zoomResetDomainMenuItem.setEnabled(isDomainZoomable);
+             }
+ 
+-            if (this.zoomInRangeMenuItem != null) {
+-                this.zoomInRangeMenuItem.setEnabled(isRangeZoomable);
++            JMenuItem zoomInRangeMenuItem1 = this.zoomInRangeMenuItem;
++            if (zoomInRangeMenuItem1 != null) {
++                zoomInRangeMenuItem1.setEnabled(isRangeZoomable);
+             }
+             if (this.zoomOutRangeMenuItem != null) {
+                 this.zoomOutRangeMenuItem.setEnabled(isRangeZoomable);

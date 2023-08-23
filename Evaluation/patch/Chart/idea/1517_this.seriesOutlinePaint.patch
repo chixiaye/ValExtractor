@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/SpiderWebPlot.java b/source/org/jfree/chart/plot/SpiderWebPlot.java
+index 06e0bc2..f3bc339 100644
+--- a/source/org/jfree/chart/plot/SpiderWebPlot.java
++++ b/source/org/jfree/chart/plot/SpiderWebPlot.java
+@@ -785,8 +785,9 @@
+      */
+     public Paint getSeriesOutlinePaint(int series) {
+         // return the override, if there is one...
+-        if (this.seriesOutlinePaint != null) {
+-            return this.seriesOutlinePaint;
++        Paint seriesOutlinePaint1 = this.seriesOutlinePaint;
++        if (seriesOutlinePaint1 != null) {
++            return seriesOutlinePaint1;
+         }
+         // otherwise look up the paint list
+         Paint result = this.seriesOutlinePaintList.getPaint(series);

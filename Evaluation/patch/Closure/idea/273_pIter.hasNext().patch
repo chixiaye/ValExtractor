@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..6874166 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -245,9 +245,11 @@
+         out.append(" (CLASS)\n");
+         out.append(" - FUNCTIONS: ");
+         Iterator<String> pIter = prototypeNames.iterator();
+-        while (pIter.hasNext()) {
+-          out.append(pIter.next());
+-          if (pIter.hasNext()) {
++        while (true) {
++            boolean b = pIter.hasNext();
++            if (!b) break;
++            out.append(pIter.next());
++          if (b) {
+             out.append(", ");
+           }
+         }

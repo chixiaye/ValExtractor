@@ -1,0 +1,43 @@
+diff --git a/source/org/jfree/chart/block/CenterArrangement.java b/source/org/jfree/chart/block/CenterArrangement.java
+index 832bf4e..d852214 100644
+--- a/source/org/jfree/chart/block/CenterArrangement.java
++++ b/source/org/jfree/chart/block/CenterArrangement.java
+@@ -94,6 +94,7 @@
+ 
+         LengthConstraintType w = constraint.getWidthConstraintType();
+         LengthConstraintType h = constraint.getHeightConstraintType();
++        LengthConstraintType range = LengthConstraintType.RANGE;
+         if (w == LengthConstraintType.NONE) {
+             if (h == LengthConstraintType.NONE) {
+                 return arrangeNN(container, g2);
+@@ -101,7 +102,7 @@
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not implemented.");
+             }
+         }
+@@ -112,18 +113,18 @@
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not implemented.");
+             }
+         }
+-        else if (w == LengthConstraintType.RANGE) {
++        else if (w == range) {
+             if (h == LengthConstraintType.NONE) {
+                 return arrangeRN(container, g2, constraint);
+             }
+             else if (h == LengthConstraintType.FIXED) {
+                 return arrangeRF(container, g2, constraint);
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 return arrangeRR(container, g2, constraint);
+             }
+         }

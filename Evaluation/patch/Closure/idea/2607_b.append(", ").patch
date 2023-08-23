@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..aa256b0 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -943,15 +943,16 @@
+       b.append(typeOfThis.toStringHelper(forAnnotations));
+     }
+     if (paramNum > 0) {
+-      if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        StringBuilder append = b.append(", ");
++        if (hasKnownTypeOfThis) {
++        append;
+       }
+       Node p = call.parameters.getFirstChild();
+       appendArgString(b, p, forAnnotations);
+ 
+       p = p.getNext();
+       while (p != null) {
+-        b.append(", ");
++        append;
+         appendArgString(b, p, forAnnotations);
+         p = p.getNext();
+       }

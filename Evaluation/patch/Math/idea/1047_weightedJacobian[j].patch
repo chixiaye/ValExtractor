@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..da25513 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -954,7 +954,8 @@
+             for (int i = k; i < nC; ++i) {
+                 double norm2 = 0;
+                 for (int j = k; j < nR; ++j) {
+-                    double aki = weightedJacobian[j][permutation[i]];
++                    double[] doubles = weightedJacobian[j];
++                    double aki = doubles[permutation[i]];
+                     norm2 += aki * aki;
+                 }
+                 if (Double.isInfinite(norm2) || Double.isNaN(norm2)) {

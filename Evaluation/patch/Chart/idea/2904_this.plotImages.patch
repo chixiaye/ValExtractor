@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+index aa90f2b..bd49ffa 100644
+--- a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+@@ -485,7 +485,8 @@
+      * @see #getPlotImages()
+      */
+     public void setPlotImages(boolean flag) {
+-        if (this.plotImages != flag) {
++        boolean plotImages1 = this.plotImages;
++        if (plotImages1 != flag) {
+             this.plotImages = flag;
+             fireChangeEvent();
+         }

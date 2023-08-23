@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+index c5c8ecf..7173d8c 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+@@ -611,7 +611,8 @@
+             // cos (psi), -sin (psi) cos (phi2), sin (psi) sin (phi2)
+             // and we can choose to have psi in the interval [0 ; PI]
+             final FieldVector3D<T> v1 = applyTo(vector(1, 0, 0));
+-            final FieldVector3D<T> v2 = applyInverseTo(vector(1, 0, 0));
++            FieldVector3D<T> var_1250 = vector(1, 0, 0);
++			final FieldVector3D<T> v2 = applyInverseTo(var_1250);
+             if ((v2.getX().getReal() < -0.9999999999) || (v2.getX().getReal() > 0.9999999999)) {
+                 throw new CardanEulerSingularityException(false);
+             }

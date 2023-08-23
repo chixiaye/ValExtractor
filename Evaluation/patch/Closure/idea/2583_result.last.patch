@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..81509cf 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -1692,7 +1692,8 @@
+       Node n2clone = n2.cloneTree();
+       n2clone.parent = result;
+       if (result.last != null) {
+-        result.last.next = n2clone;
++          Node last1 = result.last;
++          last1.next = n2clone;
+       }
+       if (result.first == null) {
+         result.first = n2clone;

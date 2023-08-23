@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..82aedd4 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -273,8 +273,9 @@
+      * @see #removeCornerTextItem(String)
+      */
+     public void clearCornerTextItems() {
+-        if (this.cornerTextItems.size() > 0) {
+-            this.cornerTextItems.clear();
++        List cornerTextItems1 = this.cornerTextItems;
++        if (cornerTextItems1.size() > 0) {
++            cornerTextItems1.clear();
+             fireChangeEvent();
+         }
+     }

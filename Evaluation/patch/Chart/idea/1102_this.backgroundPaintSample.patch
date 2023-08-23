@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..88f91fb 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -167,6 +167,7 @@
+      */
+     public DefaultPlotEditor(Plot plot) {
+         this.plotInsets = plot.getInsets();
++        PaintSample backgroundPaintSample1 = this.backgroundPaintSample;
+         this.backgroundPaintSample = new PaintSample(plot.getBackgroundPaint());
+         this.outlineStrokeSample = new StrokeSample(plot.getOutlineStroke());
+         this.outlinePaintSample = new PaintSample(plot.getOutlinePaint());

@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..bab3e80 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -1132,7 +1132,8 @@
+     switch (n.getType()) {
+       case Token.NOT:
+         Node first = n.getFirstChild();
+-        switch (first.getType()) {
++          int type1 = first.getType();
++          switch (type1) {
+           case Token.NOT: {
+               Node newRoot = first.removeFirstChild();
+               parent.replaceChild(n, newRoot);
+@@ -1163,7 +1164,7 @@
+                 // If an expression has higher precedence than && or ||,
+                 // but lower precedence than NOT, an additional () is needed
+                 // Thus we do not preceed
+-                int op_precedence = NodeUtil.precedence(first.getType());
++                int op_precedence = NodeUtil.precedence(type1);
+                 if ((isLowerPrecedence(leftParent, NOT_PRECEDENCE)
+                     && isHigherPrecedence(leftParent, op_precedence))
+                     || (isLowerPrecedence(rightParent, NOT_PRECEDENCE)

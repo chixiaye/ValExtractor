@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..04134ed 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -662,7 +662,8 @@
+ 
+         CombinedDomainCategoryPlot result
+             = (CombinedDomainCategoryPlot) super.clone();
+-        result.subplots = (List) ObjectUtilities.deepClone(this.subplots);
++        List subplots1 = result.subplots;
++        subplots1 = (List) ObjectUtilities.deepClone(this.subplots);
+         for (Iterator it = result.subplots.iterator(); it.hasNext();) {
+             Plot child = (Plot) it.next();
+             child.setParent(result);

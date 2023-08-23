@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/Well512a.java b/src/main/java/org/apache/commons/math3/random/Well512a.java
+index aa20c52..ddeb438 100644
+--- a/src/main/java/org/apache/commons/math3/random/Well512a.java
++++ b/src/main/java/org/apache/commons/math3/random/Well512a.java
+@@ -85,7 +85,8 @@
+ 
+         final int indexRm1 = iRm1[index];
+ 
+-        final int vi = v[index];
++        int i = v[index];
++        final int vi = i;
+         final int vi1 = v[i1[index]];
+         final int vi2 = v[i2[index]];
+         final int z0 = v[indexRm1];

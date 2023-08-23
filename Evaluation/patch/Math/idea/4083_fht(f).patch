@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastHadamardTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastHadamardTransformer.java
+index 1a31e86..30ef744 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastHadamardTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastHadamardTransformer.java
+@@ -49,10 +49,11 @@
+      * not a power of two
+      */
+     public double[] transform(final double[] f, final TransformType type) {
++        double[] fht = fht(f);
+         if (type == TransformType.FORWARD) {
+-            return fht(f);
++            return fht;
+         }
+-        return TransformUtils.scaleArray(fht(f), 1.0 / f.length);
++        return TransformUtils.scaleArray(fht, 1.0 / f.length);
+     }
+ 
+     /**

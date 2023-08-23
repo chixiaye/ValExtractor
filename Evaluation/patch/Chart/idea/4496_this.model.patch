@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYDatasetTableModel.java b/source/org/jfree/data/xy/XYDatasetTableModel.java
+index 52b1b98..458acf9 100644
+--- a/source/org/jfree/data/xy/XYDatasetTableModel.java
++++ b/source/org/jfree/data/xy/XYDatasetTableModel.java
+@@ -82,6 +82,7 @@
+      */
+     public XYDatasetTableModel(TableXYDataset dataset) {
+         this();
++        TableXYDataset model1 = this.model;
+         this.model = dataset;
+         this.model.addChangeListener(this);
+     }

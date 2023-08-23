@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/deps/DepsGenerator.java b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+index 135c87c..76752fc 100644
+--- a/src/com/google/javascript/jscomp/deps/DepsGenerator.java
++++ b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+@@ -119,7 +119,8 @@
+     Map<String, DependencyInfo> jsFiles = parseSources(depsFiles.keySet());
+ 
+     // Check if there were any parse errors.
+-    if (errorManager.getErrorCount() > 0) {
++      int errorCount = errorManager.getErrorCount();
++      if (errorCount > 0) {
+       return null;
+     }
+ 
+@@ -128,7 +129,7 @@
+     // Check for missing provides or other semantic inconsistencies.
+     validateDependencies(depsFiles.values(), jsFiles.values());
+ 
+-    if (errorManager.getErrorCount() > 0) {
++    if (errorCount > 0) {
+       return null;
+     }
+ 

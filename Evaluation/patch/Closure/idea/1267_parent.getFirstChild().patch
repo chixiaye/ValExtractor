@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+index d61f9e9..b779df8 100644
+--- a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
++++ b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+@@ -137,10 +137,11 @@
+ 
+         Node gParent = parent.getParent();
+         Node ggParent = gParent.getParent();
+-        if (parent.isAssign() &&
+-            NodeUtil.isPrototypeProperty(parent.getFirstChild())) {
++          Node firstChild = parent.getFirstChild();
++          if (parent.isAssign() &&
++            NodeUtil.isPrototypeProperty(firstChild)) {
+           pushContainingFunction(
+-              recordPrototypePropDefinition(t, parent.getFirstChild(), type,
++              recordPrototypePropDefinition(t, firstChild, type,
+                   parent, gParent, ggParent));
+         } else {
+           pushContainingFunction(

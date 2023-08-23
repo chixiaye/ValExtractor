@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..7a52a0a 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -276,15 +276,16 @@
+       String name = id.getString();
+       String instanceId = getIdForGeneratorNode(
+           nameGenerator.getRenameStrategy() == RenameStrategy.CONSISTENT, id);
+-      if (nameGenerator.getRenameStrategy() == RenameStrategy.CONSISTENT) {
++        String name1 = nameGenerator.getName(instanceId, name);
++        if (nameGenerator.getRenameStrategy() == RenameStrategy.CONSISTENT) {
+         Map<String, String> entry = consistNameMap.get(callName);
+         rename = entry.get(instanceId);
+         if (rename == null) {
+-          rename = nameGenerator.getName(instanceId, name);
++          rename = name1;
+           entry.put(instanceId, rename);
+         }
+       } else {
+-        rename = nameGenerator.getName(instanceId, name);
++        rename = name1;
+       }
+ 
+       parent.replaceChild(n, IR.string(rename));

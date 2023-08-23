@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..3117b10 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -286,8 +286,10 @@
+          */
+         Node getLargest() {
+             Node node = this;
+-            while (node.right != null) {
+-                node = node.right;
++            while (true) {
++                Node right1 = node.right;
++                if (!(right1 != null)) break;
++                node = right1;
+             }
+             return node;
+         }

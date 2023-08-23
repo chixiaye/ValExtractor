@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..dede224 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -436,13 +436,14 @@
+     // to the DEFAULT or the EMPTY node.
+     Node next = getNextSiblingOfType(
+         node.getFirstChild().getNext(), Token.CASE, Token.EMPTY);
+-    if (next != null) { // Has at least one CASE or EMPTY
+-      createEdge(node, Branch.UNCOND, next);
++      Branch uncond = Branch.UNCOND;
++      if (next != null) { // Has at least one CASE or EMPTY
++      createEdge(node, uncond, next);
+     } else { // Has no CASE but possibly a DEFAULT
+       if (node.getFirstChild().getNext() != null) {
+-        createEdge(node, Branch.UNCOND, node.getFirstChild().getNext());
++        createEdge(node, uncond, node.getFirstChild().getNext());
+       } else { // No CASE, no DEFAULT
+-        createEdge(node, Branch.UNCOND, computeFollowNode(node, this));
++        createEdge(node, uncond, computeFollowNode(node, this));
+       }
+     }
+     connectToPossibleExceptionHandler(node, node.getFirstChild());

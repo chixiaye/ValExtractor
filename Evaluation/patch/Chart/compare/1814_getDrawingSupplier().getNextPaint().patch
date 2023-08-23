@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/MultiplePiePlot.java b/source/org/jfree/chart/plot/MultiplePiePlot.java
+index f85acab..72e59d8 100644
+--- a/source/org/jfree/chart/plot/MultiplePiePlot.java
++++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
+@@ -532,7 +532,8 @@
+                 if (p == null) {
+                     p = (Paint) this.sectionPaints.get(key);
+                     if (p == null) {
+-                        p = getDrawingSupplier().getNextPaint();
++                        Paint var_1814 = getDrawingSupplier().getNextPaint();
++						p = var_1814;
+                     }
+                 }
+                 this.sectionPaints.put(key, p);
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/MultiplePiePlot.java b/source/org/jfree/chart/plot/MultiplePiePlot.java
+index f85acab..2add307 100644
+--- a/source/org/jfree/chart/plot/MultiplePiePlot.java
++++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
+@@ -524,6 +524,7 @@
+ 
+         PiePlot piePlot = (PiePlot) getPieChart().getPlot();
+ 
++        Paint var_1814 = getDrawingSupplier().getNextPaint();
+         if (this.dataExtractOrder == TableOrder.BY_ROW) {
+             // column keys provide potential keys for individual pies
+             for (int c = 0; c < this.dataset.getColumnCount(); c++) {
+@@ -532,7 +533,7 @@
+                 if (p == null) {
+                     p = (Paint) this.sectionPaints.get(key);
+                     if (p == null) {
+-                        p = getDrawingSupplier().getNextPaint();
++                        p = var_1814;
+                     }
+                 }
+                 this.sectionPaints.put(key, p);
+@@ -546,7 +547,7 @@
+                 if (p == null) {
+                     p = (Paint) this.sectionPaints.get(key);
+                     if (p == null) {
+-                        p = getDrawingSupplier().getNextPaint();
++                        p = var_1814;
+                     }
+                 }
+                 this.sectionPaints.put(key, p);
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/MultiplePiePlot.java b/source/org/jfree/chart/plot/MultiplePiePlot.java
+index f85acab..ebb1743 100644
+--- a/source/org/jfree/chart/plot/MultiplePiePlot.java
++++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
+@@ -524,6 +524,7 @@
+ 
+         PiePlot piePlot = (PiePlot) getPieChart().getPlot();
+ 
++        Paint nextPaint = getDrawingSupplier().getNextPaint();
+         if (this.dataExtractOrder == TableOrder.BY_ROW) {
+             // column keys provide potential keys for individual pies
+             for (int c = 0; c < this.dataset.getColumnCount(); c++) {
+@@ -532,7 +533,7 @@
+                 if (p == null) {
+                     p = (Paint) this.sectionPaints.get(key);
+                     if (p == null) {
+-                        p = getDrawingSupplier().getNextPaint();
++                        p = nextPaint;
+                     }
+                 }
+                 this.sectionPaints.put(key, p);
+@@ -546,7 +547,7 @@
+                 if (p == null) {
+                     p = (Paint) this.sectionPaints.get(key);
+                     if (p == null) {
+-                        p = getDrawingSupplier().getNextPaint();
++                        p = nextPaint;
+                     }
+                 }
+                 this.sectionPaints.put(key, p);

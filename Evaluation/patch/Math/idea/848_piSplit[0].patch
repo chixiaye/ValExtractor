@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..728d212 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -918,12 +918,13 @@
+ 
+         Dfp y = atanInternal(x);
+ 
++        Dfp dfp = piSplit[0];
+         if (sub) {
+-            y = y.add(piSplit[0].divide(8)).add(piSplit[1].divide(8));
++            y = y.add(dfp.divide(8)).add(piSplit[1].divide(8));
+         }
+ 
+         if (recp) {
+-            y = piSplit[0].divide(2).subtract(y).add(piSplit[1].divide(2));
++            y = dfp.divide(2).subtract(y).add(piSplit[1].divide(2));
+         }
+ 
+         if (neg) {

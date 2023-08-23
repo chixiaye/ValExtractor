@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..c58b2f1 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -1226,11 +1226,12 @@
+       }
+       Node p = call.parameters.getFirstChild();
+       b.append(getDebugHashCodeStringOf(p.getJSType()));
+-      p = p.getNext();
++        Node next = p.getNext();
++        p = next;
+       while (p != null) {
+         b.append(", ");
+         b.append(getDebugHashCodeStringOf(p.getJSType()));
+-        p = p.getNext();
++        p = next;
+       }
+     }
+     b.append(")");

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+index def4410..334ad89 100644
+--- a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
++++ b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+@@ -197,6 +197,7 @@
+                                 "The number of category keys does not match "
+                                 + "the number of categories in the data.");
+                     }
++                    Comparable[] categoryKeys1 = this.categoryKeys;
+                     this.categoryKeys = categoryKeys;
+                 }
+                 else {

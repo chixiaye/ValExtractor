@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..3533e35 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -217,8 +217,11 @@
+         else if (this.equals(RectangleEdge.LEFT)) {
+             result = RectangleEdge.LEFT;
+         }
+-        else if (this.equals(RectangleEdge.RIGHT)) {
+-            result = RectangleEdge.RIGHT;
++        else {
++            RectangleEdge right = RectangleEdge.RIGHT;
++            if (this.equals(right)) {
++                result = right;
++            }
+         }
+         return result;
+     }

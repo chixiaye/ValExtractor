@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..eb6f035 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1871,8 +1871,9 @@
+      * the variable is marked true
+      */
+     CommandLineConfig setDefine(List<String> define) {
+-      this.define.clear();
+-      this.define.addAll(define);
++        List<String> define1 = this.define;
++        define1.clear();
++      define1.addAll(define);
+       return this;
+     }
+ 

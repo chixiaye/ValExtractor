@@ -1,0 +1,46 @@
+diff --git a/source/org/jfree/chart/block/FlowArrangement.java b/source/org/jfree/chart/block/FlowArrangement.java
+index ac17808..20436bf 100644
+--- a/source/org/jfree/chart/block/FlowArrangement.java
++++ b/source/org/jfree/chart/block/FlowArrangement.java
+@@ -186,34 +186,35 @@
+         for (int i = 0; i < blocks.size(); i++) {
+             Block block = (Block) blocks.get(i);
+             Size2D size = block.arrange(g2, RectangleConstraint.NONE);
++            double height = size.height;
+             if (x + size.width <= width) {
+                 itemsInRow.add(block);
+                 block.setBounds(
+-                    new Rectangle2D.Double(x, y, size.width, size.height)
++                    new Rectangle2D.Double(x, y, size.width, height)
+                 );
+                 x = x + size.width + this.horizontalGap;
+-                maxHeight = Math.max(maxHeight, size.height);
++                maxHeight = Math.max(maxHeight, height);
+             }
+             else {
+                 if (itemsInRow.isEmpty()) {
+                     // place in this row (truncated) anyway
+                     block.setBounds(
+                         new Rectangle2D.Double(
+-                            x, y, Math.min(size.width, width - x), size.height
++                            x, y, Math.min(size.width, width - x), height
+                         )
+                     );
+                     x = 0.0;
+-                    y = y + size.height + this.verticalGap;
++                    y = y + height + this.verticalGap;
+                 }
+                 else {
+                     // start new row
+                     itemsInRow.clear();
+                     x = 0.0;
+                     y = y + maxHeight + this.verticalGap;
+-                    maxHeight = size.height;
++                    maxHeight = height;
+                     block.setBounds(
+                         new Rectangle2D.Double(
+-                            x, y, Math.min(size.width, width), size.height
++                            x, y, Math.min(size.width, width), height
+                         )
+                     );
+                     x = size.width + this.horizontalGap;

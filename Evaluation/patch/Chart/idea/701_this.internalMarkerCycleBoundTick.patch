@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..48e3b90 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -713,6 +713,7 @@
+                 tickLabel, anchor, rotationAnchor, angle
+             );
+             if (currentTickValue == cycleBound) {
++                Tick internalMarkerCycleBoundTick1 = this.internalMarkerCycleBoundTick;
+                 this.internalMarkerCycleBoundTick = tick;
+             }
+             result.add(tick);

@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..0f4e20c 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -224,11 +224,12 @@
+   private Node transformBlock(AstNode node) {
+     Node irNode = transform(node);
+     if (!irNode.isBlock()) {
+-      if (irNode.isEmpty()) {
+-        irNode.setType(Token.BLOCK);
++        int block = Token.BLOCK;
++        if (irNode.isEmpty()) {
++        irNode.setType(block);
+         irNode.setWasEmptyNode(true);
+       } else {
+-        Node newBlock = newNode(Token.BLOCK, irNode);
++        Node newBlock = newNode(block, irNode);
+         newBlock.setLineno(irNode.getLineno());
+         newBlock.setCharno(irNode.getCharno());
+         maybeSetLengthFrom(newBlock, node);

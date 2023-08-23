@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..d68101e 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -503,9 +503,10 @@
+   }
+ 
+   private void writeResult(String source) {
+-    if (this.outputFile.getParentFile().mkdirs()) {
++      File parentFile = this.outputFile.getParentFile();
++      if (parentFile.mkdirs()) {
+       log("Created missing parent directory " +
+-          this.outputFile.getParentFile(), Project.MSG_DEBUG);
++              parentFile, Project.MSG_DEBUG);
+     }
+ 
+     try {

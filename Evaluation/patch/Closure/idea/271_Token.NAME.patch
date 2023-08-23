@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalThis.java b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+index 3d8e0f1..05e6ef7 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalThis.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+@@ -186,9 +186,10 @@
+     Node parent = n.getParent();
+     if (jsDoc == null) {
+       int parentType = parent.getType();
+-      if (parentType == Token.NAME || parentType == Token.ASSIGN) {
++        int name = Token.NAME;
++        if (parentType == name || parentType == Token.ASSIGN) {
+         jsDoc = parent.getJSDocInfo();
+-        if (jsDoc == null && parentType == Token.NAME) {
++        if (jsDoc == null && parentType == name) {
+           Node gramps = parent.getParent();
+           if (gramps.isVar()) {
+             jsDoc = gramps.getJSDocInfo();

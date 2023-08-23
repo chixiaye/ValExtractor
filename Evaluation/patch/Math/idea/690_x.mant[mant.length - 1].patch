@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..19e63a5 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2021,7 +2021,8 @@
+                 x.mant[mant.length-1] = 1500;
+                 break;
+             case 3:
+-                x.mant[mant.length-1] = 2200;
++                int i = x.mant[mant.length - 1];
++                i = 2200;
+                 break;
+             default:
+                 x.mant[mant.length-1] = 3000;

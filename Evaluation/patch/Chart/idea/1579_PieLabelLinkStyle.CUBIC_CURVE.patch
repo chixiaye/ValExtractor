@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PieLabelLinkStyle.java b/source/org/jfree/chart/plot/PieLabelLinkStyle.java
+index cb02b53..49108f2 100644
+--- a/source/org/jfree/chart/plot/PieLabelLinkStyle.java
++++ b/source/org/jfree/chart/plot/PieLabelLinkStyle.java
+@@ -130,8 +130,11 @@
+         else if (this.equals(PieLabelLinkStyle.QUAD_CURVE)) {
+             result = PieLabelLinkStyle.QUAD_CURVE;
+         }
+-        else if (this.equals(PieLabelLinkStyle.CUBIC_CURVE)) {
+-            result = PieLabelLinkStyle.CUBIC_CURVE;
++        else {
++            PieLabelLinkStyle cubicCurve = PieLabelLinkStyle.CUBIC_CURVE;
++            if (this.equals(cubicCurve)) {
++                result = cubicCurve;
++            }
+         }
+         return result;
+     }

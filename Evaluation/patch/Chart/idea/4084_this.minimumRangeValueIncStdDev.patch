@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..461a009 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -613,6 +613,7 @@
+ 
+                         // update the min value
+                         if (Double.isNaN(this.minimumRangeValueIncStdDev)) {
++                            double minimumRangeValueIncStdDev1 = this.minimumRangeValueIncStdDev;
+                             this.minimumRangeValueIncStdDev = m - sd;
+                             this.minimumRangeValueIncStdDevRow = r;
+                             this.minimumRangeValueIncStdDevColumn = c;

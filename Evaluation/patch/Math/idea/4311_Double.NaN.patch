@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..53db3e2 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1140,11 +1140,12 @@
+ 
+         /* Handle special cases of negative input, and NaN */
+         if (((bits & 0x8000000000000000L) != 0 || x != x) && x != 0.0) {
++            double naN = Double.NaN;
+             if (hiPrec != null) {
+-                hiPrec[0] = Double.NaN;
++                hiPrec[0] = naN;
+             }
+ 
+-            return Double.NaN;
++            return naN;
+         }
+ 
+         /* Handle special cases of Positive infinity. */

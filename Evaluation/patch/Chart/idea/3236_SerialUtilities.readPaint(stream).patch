@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..f2e3a19 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -1218,8 +1218,9 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.positivePaint = SerialUtilities.readPaint(stream);
+-        this.negativePaint = SerialUtilities.readPaint(stream);
++        Paint positivePaint1 = SerialUtilities.readPaint(stream);
++        this.positivePaint = positivePaint1;
++        this.negativePaint = positivePaint1;
+         this.legendLine = SerialUtilities.readShape(stream);
+     }
+ 

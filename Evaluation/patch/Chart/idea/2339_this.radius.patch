@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialValueIndicator.java b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+index ee99219..f29310e 100644
+--- a/source/org/jfree/chart/plot/dial/DialValueIndicator.java
++++ b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+@@ -587,8 +587,9 @@
+             Rectangle2D view) {
+ 
+         // work out the anchor point
+-        Rectangle2D f = DialPlot.rectangleByRadius(frame, this.radius,
+-                this.radius);
++        double radius1 = this.radius;
++        Rectangle2D f = DialPlot.rectangleByRadius(frame, radius1,
++                radius1);
+         Arc2D arc = new Arc2D.Double(f, this.angle, 0.0, Arc2D.OPEN);
+         Point2D pt = arc.getStartPoint();
+ 

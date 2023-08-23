@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..5fa74d6 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -512,9 +512,10 @@
+       out.append(",");
+       out.append(String.valueOf(m.originalPosition.getColumn()));
+ 
+-      if (m.originalName != null) {
++        String originalName = m.originalName;
++        if (originalName != null) {
+         out.append(",");
+-        out.append(String.valueOf(getNameId(m.originalName)));
++        out.append(String.valueOf(getNameId(originalName)));
+       }
+ 
+       out.append("],\n");

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/ClosureRewriteClass.java b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+index 4c1fcea..63b279f 100644
+--- a/src/com/google/javascript/jscomp/ClosureRewriteClass.java
++++ b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+@@ -322,16 +322,17 @@
+           .srcref(exprRoot))).setJSDocInfo(cls.constructor.info));
+     }
+ 
+-    if (cls.superClass != null) {
++      Node superClass = cls.superClass;
++      if (superClass != null) {
+       // example: goog.inherits(ctr, superClass)
+       block.addChildToBack(
+           fixupSrcref(IR.exprResult(
+               IR.call(
+                   NodeUtil.newQualifiedNameNode(
+                       compiler.getCodingConvention(), "goog.inherits")
+-                      .srcrefTree(cls.superClass),
++                      .srcrefTree(superClass),
+                   cls.name.cloneTree(),
+-                  cls.superClass.cloneTree()).srcref(cls.superClass))));
++                  superClass.cloneTree()).srcref(superClass))));
+     }
+ 
+     for (MemberDefinition def : cls.staticProps) {

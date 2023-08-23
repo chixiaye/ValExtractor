@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..0151658 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -422,7 +422,8 @@
+                 for (int j = 0; j < solvedCols; ++j) {
+                     int pj = permutation[j];
+                     lmDir[pj] = -lmDir[pj];
+-                    currentPoint[pj] = oldX[pj] + lmDir[pj];
++                    double oldX1 = oldX[pj];
++                    currentPoint[pj] = oldX1 + lmDir[pj];
+                     double s = diag[pj] * lmDir[pj];
+                     lmNorm  += s * s;
+                 }

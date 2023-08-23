@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..7b1f9c3 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -287,7 +287,8 @@
+ 
+         Minute result;
+         if (this.minute != LAST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute + 1, getHour());
++            Hour var_4335 = getHour();
++			result = new Minute(this.minute + 1, var_4335);
+         }
+         else { // we are at the last minute in the hour...
+             Hour nextHour = (Hour) getHour().next();

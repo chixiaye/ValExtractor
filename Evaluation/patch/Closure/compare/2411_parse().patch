@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..bbb91e4 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -135,7 +135,8 @@
+ 
+       RegExpTree parseTopLevel() {
+         this.pos = 0;
+-        RegExpTree out = parse();
++        RegExpTree var_2411 = parse();
++		RegExpTree out = var_2411;
+         if (pos < limit) {  // Unmatched closed paren maybe.
+           throw new IllegalArgumentException(pattern.substring(pos));
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..bbb91e4 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -135,7 +135,8 @@
+ 
+       RegExpTree parseTopLevel() {
+         this.pos = 0;
+-        RegExpTree out = parse();
++        RegExpTree var_2411 = parse();
++		RegExpTree out = var_2411;
+         if (pos < limit) {  // Unmatched closed paren maybe.
+           throw new IllegalArgumentException(pattern.substring(pos));
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..3a1e847 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -126,6 +126,7 @@
+ 
+     /** A recursive descent parser that closes over pattern and flags above. */
+     class Parser {
++        private RegExpTree parse = parse();
+       /** The number of characters in pattern consumed. */
+       int pos;
+       /** The number of capturing groups seen so far. */
+@@ -135,7 +136,7 @@
+ 
+       RegExpTree parseTopLevel() {
+         this.pos = 0;
+-        RegExpTree out = parse();
++        RegExpTree out = parse;
+         if (pos < limit) {  // Unmatched closed paren maybe.
+           throw new IllegalArgumentException(pattern.substring(pos));
+         }
+@@ -277,7 +278,7 @@
+             }
+           }
+         }
+-        RegExpTree body = parse();
++        RegExpTree body = parse;
+         if (pos < limit && pattern.charAt(pos) == ')') {
+           ++pos;
+         } else {

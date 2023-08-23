@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/needle/MiddlePinNeedle.java b/source/org/jfree/chart/needle/MiddlePinNeedle.java
+index 8a08060..9b6333b 100644
+--- a/source/org/jfree/chart/needle/MiddlePinNeedle.java
++++ b/source/org/jfree/chart/needle/MiddlePinNeedle.java
+@@ -81,9 +81,10 @@
+         int maxY = (int) (plotArea.getMaxY());
+         int midY = ((maxY - minY) / 2) + minY;
+ 
+-        int midX = (int) (plotArea.getMinX() + (plotArea.getWidth() / 2));
++        double width = plotArea.getWidth();
++        int midX = (int) (plotArea.getMinX() + (width / 2));
+         //int midY = (int) (plotArea.getMinY() + (plotArea.getHeight() / 2));
+-        int lenX = (int) (plotArea.getWidth() / 10);
++        int lenX = (int) (width / 10);
+         if (lenX < 2) {
+             lenX = 2;
+         }

@@ -1,0 +1,38 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..98c3f0d 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -633,7 +633,8 @@
+ 
+       Ref.Type type = Ref.Type.DIRECT_GET;
+       if (parent != null) {
+-        switch (parent.getType()) {
++          Ref.Type aliasingGet = Ref.Type.ALIASING_GET;
++          switch (parent.getType()) {
+           case Token.IF:
+           case Token.TYPEOF:
+           case Token.VOID:
+@@ -645,12 +646,12 @@
+           case Token.CALL:
+             type = n == parent.getFirstChild()
+                    ? Ref.Type.CALL_GET
+-                   : Ref.Type.ALIASING_GET;
++                   : aliasingGet;
+             break;
+           case Token.NEW:
+             type = n == parent.getFirstChild()
+                    ? Ref.Type.DIRECT_GET
+-                   : Ref.Type.ALIASING_GET;
++                   : aliasingGet;
+             break;
+           case Token.OR:
+           case Token.AND:
+@@ -672,7 +673,7 @@
+             type = Ref.Type.DELETE_PROP;
+             break;
+           default:
+-            type = Ref.Type.ALIASING_GET;
++            type = aliasingGet;
+             break;
+         }
+       }

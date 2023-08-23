@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..6727a6e 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -832,10 +832,11 @@
+     // the CodePrinter specifically wants to keep them.
+     if (n.isBlock()) {
+       int count = getNonEmptyChildCount(n, 2);
+-      if (count == 0) {
++        boolean shouldEndLine = cc.breakAfterBlockFor(n, context == Context.STATEMENT);
++        if (count == 0) {
+         if (cc.shouldPreserveExtraBlocks()) {
+           cc.beginBlock();
+-          cc.endBlock(cc.breakAfterBlockFor(n, context == Context.STATEMENT));
++          cc.endBlock(shouldEndLine);
+         } else {
+           cc.endStatement(true);
+         }
+@@ -852,7 +853,7 @@
+           cc.beginBlock();
+           add(firstAndOnlyChild, Context.STATEMENT);
+           cc.maybeLineBreak();
+-          cc.endBlock(cc.breakAfterBlockFor(n, context == Context.STATEMENT));
++          cc.endBlock(shouldEndLine);
+           return;
+         } else {
+           // Continue with the only child.

@@ -1,0 +1,20 @@
+diff --git a/src/org/mockito/internal/util/reflection/SuperTypesLastSorter.java b/src/org/mockito/internal/util/reflection/SuperTypesLastSorter.java
+index 4aa026c..2e31ab8 100644
+--- a/src/org/mockito/internal/util/reflection/SuperTypesLastSorter.java
++++ b/src/org/mockito/internal/util/reflection/SuperTypesLastSorter.java
+@@ -30,11 +30,13 @@
+ 
+         int i = 0;
+ 
+-        while (i < fields.size() - 1) {
++        while (true) {
++            int size = fields.size();
++            if (!(i < size - 1)) break;
+             Field f = fields.get(i);
+             Class<?> ft = f.getType();
+             int newPos = i;
+-            for (int j = i + 1; j < fields.size(); j++) {
++            for (int j = i + 1; j < size; j++) {
+                 Class<?> t = fields.get(j).getType();
+ 
+                 if (ft != t && ft.isAssignableFrom(t)) {

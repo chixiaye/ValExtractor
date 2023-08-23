@@ -1,0 +1,75 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..4410476 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -127,7 +127,7 @@
+     if (retType != null && !retType.isUnknownType() && !retType.isEmptyType()) {
+       sb.append(" * ");
+       appendAnnotation(sb, "return", retType.toAnnotationString());
+-      sb.append("\n");
++      StringBuilder var_1830 = sb.append("\n");
+     }
+ 
+     // Constructor/interface
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..4410476 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -127,7 +127,7 @@
+     if (retType != null && !retType.isUnknownType() && !retType.isEmptyType()) {
+       sb.append(" * ");
+       appendAnnotation(sb, "return", retType.toAnnotationString());
+-      sb.append("\n");
++      StringBuilder var_1830 = sb.append("\n");
+     }
+ 
+     // Constructor/interface
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..ba5956a 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -124,10 +124,11 @@
+ 
+     // Return type
+     JSType retType = funType.getReturnType();
++      StringBuilder append = sb.append("\n");
+     if (retType != null && !retType.isUnknownType() && !retType.isEmptyType()) {
+       sb.append(" * ");
+       appendAnnotation(sb, "return", retType.toAnnotationString());
+-      sb.append("\n");
++      append;
+     }
+ 
+     // Constructor/interface
+@@ -141,7 +142,7 @@
+         if (!superInstance.toString().equals("Object")) {
+           sb.append(" * ");
+           appendAnnotation(sb, "extends", superInstance.toAnnotationString());
+-          sb.append("\n");
++          append;
+         }
+       }
+ 
+@@ -149,7 +150,7 @@
+         for (ObjectType interfaceType : funType.getExtendedInterfaces()) {
+           sb.append(" * ");
+           appendAnnotation(sb, "extends", interfaceType.toAnnotationString());
+-          sb.append("\n");
++          append;
+         }
+       }
+ 
+@@ -161,7 +162,7 @@
+       for (String interfaze : interfaces) {
+         sb.append(" * ");
+         appendAnnotation(sb, "implements", interfaze);
+-        sb.append("\n");
++        append;
+       }
+ 
+       if (funType.isConstructor()) {

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/statistics/Regression.java b/source/org/jfree/data/statistics/Regression.java
+index 962b978..6c0d962 100644
+--- a/source/org/jfree/data/statistics/Regression.java
++++ b/source/org/jfree/data/statistics/Regression.java
+@@ -327,12 +327,13 @@
+      */
+     private static double[][] calculateSubMatrix(double[][] matrix){
+         int equations = matrix.length;
+-        int coefficients = matrix[0].length;
++        double[] matrix1 = matrix[0];
++        int coefficients = matrix1.length;
+         double[][] result = new double[equations - 1][coefficients - 1];
+         for (int eq = 1; eq < equations; eq++) {
+-            double factor = matrix[0][0] / matrix[eq][0];
++            double factor = matrix1[0] / matrix[eq][0];
+             for (int coe = 1; coe < coefficients; coe++) {
+-                result[eq - 1][coe -1] = matrix[0][coe] - matrix[eq][coe]
++                result[eq - 1][coe -1] = matrix1[coe] - matrix[eq][coe]
+                         * factor;
+             }
+         }

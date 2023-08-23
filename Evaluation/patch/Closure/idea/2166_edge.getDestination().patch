@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/graph/FixedPointGraphTraversal.java b/src/com/google/javascript/jscomp/graph/FixedPointGraphTraversal.java
+index d30ecf8..b613ff4 100644
+--- a/src/com/google/javascript/jscomp/graph/FixedPointGraphTraversal.java
++++ b/src/com/google/javascript/jscomp/graph/FixedPointGraphTraversal.java
+@@ -116,9 +116,10 @@
+ 
+       List<DiGraphEdge<N, E>> outEdges = source.getOutEdges();
+       for (DiGraphEdge<N, E> edge : outEdges) {
+-        N destNode = edge.getDestination().getValue();
++          DiGraphNode<N, E> destination = edge.getDestination();
++          N destNode = destination.getValue();
+         if (callback.traverseEdge(sourceValue, edge.getValue(), destNode)) {
+-          workSet.add(edge.getDestination());
++          workSet.add(destination);
+         }
+       }
+     }

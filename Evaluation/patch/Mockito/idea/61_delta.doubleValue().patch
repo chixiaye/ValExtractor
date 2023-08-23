@@ -1,0 +1,17 @@
+diff --git a/src/org/mockito/internal/matchers/EqualsWithDelta.java b/src/org/mockito/internal/matchers/EqualsWithDelta.java
+index 7e99b08..c486214 100644
+--- a/src/org/mockito/internal/matchers/EqualsWithDelta.java
++++ b/src/org/mockito/internal/matchers/EqualsWithDelta.java
+@@ -33,9 +33,10 @@
+             return true;
+         }
+ 
+-        return wanted.doubleValue() - delta.doubleValue() <= actualNumber.doubleValue()
++        double v = delta.doubleValue();
++        return wanted.doubleValue() - v <= actualNumber.doubleValue()
+                 && actualNumber.doubleValue() <= wanted.doubleValue()
+-                        + delta.doubleValue();
++                        + v;
+     }
+ 
+     public void describeTo(Description description) {

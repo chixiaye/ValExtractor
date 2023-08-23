@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+index fd55902..d697f19 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+@@ -427,7 +427,8 @@
+         }
+         keys[index]   = key;
+         states[index] = FULL;
+-        values[index] = value;
++        T value1 = values[index];
++        value1 = value;
+         if (newMapping) {
+             ++size;
+             if (shouldGrowTable()) {

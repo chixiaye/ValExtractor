@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+index f8c3051..af8d945 100644
+--- a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+@@ -344,11 +344,12 @@
+             }
+         }
+ 
+-        g2.setPaint(getItemPaint(row, column, selected));
++        Paint itemPaint1 = getItemPaint(row, column, selected);
++        g2.setPaint(itemPaint1);
+         g2.setStroke(getItemStroke(row, column, selected));
+ 
+         //  Get series Paint and Stroke
+-        Paint itemPaint = getItemPaint(row, column, selected);
++        Paint itemPaint = itemPaint1;
+         if (pass == 0) {
+             g2.setPaint(itemPaint);
+             g2.fill(left);

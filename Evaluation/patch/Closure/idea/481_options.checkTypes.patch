@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..d49ef6b 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -287,7 +287,8 @@
+ 
+     // DiagnosticGroups override the plain checkTypes option.
+     if (options.enables(DiagnosticGroups.CHECK_TYPES)) {
+-      options.checkTypes = true;
++        boolean checkTypes = options.checkTypes;
++        checkTypes = true;
+     } else if (options.disables(DiagnosticGroups.CHECK_TYPES)) {
+       options.checkTypes = false;
+     } else if (!options.checkTypes) {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/MultiDirectionalSimplex.java b/src/main/java/org/apache/commons/math3/optimization/direct/MultiDirectionalSimplex.java
+index be4ebc5..2182bd3 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/MultiDirectionalSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/MultiDirectionalSimplex.java
+@@ -206,7 +206,8 @@
+             final double[] xOriginal = original[i].getPointRef();
+             final double[] xTransformed = new double[dim];
+             for (int j = 0; j < dim; j++) {
+-                xTransformed[j] = xSmallest[j] + coeff * (xSmallest[j] - xOriginal[j]);
++                double v = xSmallest[j];
++                xTransformed[j] = v + coeff * (v - xOriginal[j]);
+             }
+             setPoint(i, new PointValuePair(xTransformed, Double.NaN, false));
+         }

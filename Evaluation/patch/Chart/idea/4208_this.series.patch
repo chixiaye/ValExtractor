@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/time/TimeSeriesTableModel.java b/source/org/jfree/data/time/TimeSeriesTableModel.java
+index 098b602..dec169c 100644
+--- a/source/org/jfree/data/time/TimeSeriesTableModel.java
++++ b/source/org/jfree/data/time/TimeSeriesTableModel.java
+@@ -168,13 +168,14 @@
+      */
+     public Object getValueAt(int row, int column) {
+ 
+-        if (row < this.series.getItemCount()) {
++        TimeSeries series1 = this.series;
++        if (row < series1.getItemCount()) {
+             if (column == 0) {
+-                return this.series.getTimePeriod(row);
++                return series1.getTimePeriod(row);
+             }
+             else {
+                 if (column == 1) {
+-                    return this.series.getValue(row);
++                    return series1.getValue(row);
+                 }
+                 else {
+                     return null;

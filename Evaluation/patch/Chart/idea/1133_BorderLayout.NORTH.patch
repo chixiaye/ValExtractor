@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..44d060a 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -236,7 +236,8 @@
+ 
+         general.add(interior);
+ 
+-        add(general, BorderLayout.NORTH);
++        String north = BorderLayout.NORTH;
++        add(general, north);
+ 
+         this.slot1 = new JPanel(new BorderLayout());
+ 
+@@ -284,7 +285,7 @@
+         this.slot1.add(other);
+ 
+         this.slot2 = new JPanel(new BorderLayout());
+-        this.slot2.add(this.slot1, BorderLayout.NORTH);
++        this.slot2.add(this.slot1, north);
+         add(this.slot2);
+ 
+     }

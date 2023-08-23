@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..22eaf99 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -301,10 +301,11 @@
+      * @since 1.0.13
+      */
+     private void findBoundsByIteration() {
+-        this.minX = Double.NaN;
+-        this.maxX = Double.NaN;
+-        this.minY = Double.NaN;
+-        this.maxY = Double.NaN;
++        double naN = Double.NaN;
++        this.minX = naN;
++        this.maxX = naN;
++        this.minY = naN;
++        this.maxY = naN;
+         Iterator iterator = this.data.iterator();
+         while (iterator.hasNext()) {
+             XYDataItem item = (XYDataItem) iterator.next();

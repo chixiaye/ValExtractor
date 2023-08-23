@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+index 8b2415a..bf5807e 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+@@ -465,7 +465,8 @@
+      */
+     static void register(final Object value) {
+         synchronized (HashCodeBuilder.class) {
+-            if (getRegistry() == null) {
++            Set<IDKey> var_335 = getRegistry();
++			if (var_335 == null) {
+                 REGISTRY.set(new HashSet<IDKey>());
+             }
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+index 8b2415a..58852e4 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+@@ -464,12 +464,13 @@
+      *            The object to register.
+      */
+     static void register(final Object value) {
++        Set<IDKey> var_335 = getRegistry();
+         synchronized (HashCodeBuilder.class) {
+-            if (getRegistry() == null) {
++            if (var_335 == null) {
+                 REGISTRY.set(new HashSet<IDKey>());
+             }
+         }
+-        getRegistry().add(new IDKey(value));
++        var_335.add(new IDKey(value));
+     }
+ 
+     /**
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+index 8b2415a..9a07561 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+@@ -464,12 +464,13 @@
+      *            The object to register.
+      */
+     static void register(final Object value) {
++        Set<IDKey> registry = getRegistry();
+         synchronized (HashCodeBuilder.class) {
+-            if (getRegistry() == null) {
++            if (registry == null) {
+                 REGISTRY.set(new HashSet<IDKey>());
+             }
+         }
+-        getRegistry().add(new IDKey(value));
++        registry.add(new IDKey(value));
+     }
+ 
+     /**

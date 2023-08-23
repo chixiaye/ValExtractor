@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/PeriodType.java b/src/main/java/org/joda/time/PeriodType.java
+index e06b379..35b22eb 100644
+--- a/src/main/java/org/joda/time/PeriodType.java
++++ b/src/main/java/org/joda/time/PeriodType.java
+@@ -812,10 +812,11 @@
+         
+         int[] indices = new int[8];
+         for (int i = 0; i < indices.length; i++) {
++            int iIndex = iIndices[i];
+             if (i < indicesIndex) {
+-                indices[i] = iIndices[i];
++                indices[i] = iIndex;
+             } else if (i > indicesIndex) {
+-                indices[i] = (iIndices[i] == -1 ? -1 : iIndices[i] - 1);
++                indices[i] = (iIndex == -1 ? -1 : iIndex - 1);
+             } else {
+                 indices[i] = -1;
+             }

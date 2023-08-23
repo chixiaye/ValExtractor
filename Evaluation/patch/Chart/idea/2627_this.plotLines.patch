@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+index eaf0b57..f0a7b8b 100644
+--- a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
++++ b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+@@ -168,7 +168,8 @@
+      * @see #isDrawLines()
+      */
+     public void setDrawLines(boolean draw) {
+-        if (this.plotLines != draw) {
++        boolean plotLines1 = this.plotLines;
++        if (plotLines1 != draw) {
+             this.plotLines = draw;
+             fireChangeEvent();
+         }

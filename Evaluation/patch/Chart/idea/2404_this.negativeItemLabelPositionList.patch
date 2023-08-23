@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..e9d1ff8 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3235,9 +3235,10 @@
+         // 'baseItemLabelAnchor' : immutable, no need to clone reference
+ 
+         // 'negativeItemLabelAnchor' : immutable, no need to clone reference
+-        if (this.negativeItemLabelPositionList != null) {
++        ObjectList negativeItemLabelPositionList1 = this.negativeItemLabelPositionList;
++        if (negativeItemLabelPositionList1 != null) {
+             clone.negativeItemLabelPositionList
+-                = (ObjectList) this.negativeItemLabelPositionList.clone();
++                = (ObjectList) negativeItemLabelPositionList1.clone();
+         }
+         // 'baseNegativeItemLabelAnchor' : immutable, no need to clone reference
+ 

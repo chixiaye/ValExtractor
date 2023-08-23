@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/ExpandableStatefulODE.java b/src/main/java/org/apache/commons/math3/ode/ExpandableStatefulODE.java
+index 842e582..b732b7e 100644
+--- a/src/main/java/org/apache/commons/math3/ode/ExpandableStatefulODE.java
++++ b/src/main/java/org/apache/commons/math3/ode/ExpandableStatefulODE.java
+@@ -267,8 +267,9 @@
+         throws DimensionMismatchException {
+ 
+         // safety checks
+-        if (completeState.length != getTotalDimension()) {
+-            throw new DimensionMismatchException(completeState.length, getTotalDimension());
++        int totalDimension = getTotalDimension();
++        if (completeState.length != totalDimension) {
++            throw new DimensionMismatchException(completeState.length, totalDimension);
+         }
+ 
+         // set the data

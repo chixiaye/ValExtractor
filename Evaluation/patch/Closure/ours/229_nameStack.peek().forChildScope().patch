@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+index 3743287..d38a82c 100644
+--- a/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
++++ b/src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java
+@@ -124,7 +124,8 @@
+         break;
+ 
+       case Token.PARAM_LIST: {
+-          Renamer renamer = nameStack.peek().forChildScope();
++          Renamer var_229 = nameStack.peek().forChildScope();
++		Renamer renamer = var_229;
+ 
+           // Add the function parameters
+           for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {

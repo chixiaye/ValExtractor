@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..a735418 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -386,6 +386,7 @@
+         Arc2D notch = null;
+         Rectangle2D waferFrame = waferEdge.getFrame();
+         double notchDiameter = waferFrame.getWidth() * 0.04;
++        int open = Arc2D.OPEN;
+         if (this.orientation == PlotOrientation.HORIZONTAL) {
+             Rectangle2D notchFrame =
+                 new Rectangle2D.Double(
+@@ -394,7 +395,7 @@
+                     + (waferFrame.getHeight() / 2) - (notchDiameter / 2),
+                     notchDiameter, notchDiameter
+                 );
+-            notch = new Arc2D.Double(notchFrame, 90d, 180d, Arc2D.OPEN);
++            notch = new Arc2D.Double(notchFrame, 90d, 180d, open);
+         }
+         else {
+             Rectangle2D notchFrame =
+@@ -404,7 +405,7 @@
+                     + waferFrame.getHeight() - (notchDiameter / 2),
+                     notchDiameter, notchDiameter
+                 );
+-            notch = new Arc2D.Double(notchFrame, 0d, 180d, Arc2D.OPEN);
++            notch = new Arc2D.Double(notchFrame, 0d, 180d, open);
+         }
+         g2.setColor(Color.white);
+         g2.fill(notch);

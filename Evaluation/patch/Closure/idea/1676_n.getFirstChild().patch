@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/AstValidator.java b/src/com/google/javascript/jscomp/AstValidator.java
+index dececfe..7c90fde 100644
+--- a/src/com/google/javascript/jscomp/AstValidator.java
++++ b/src/com/google/javascript/jscomp/AstValidator.java
+@@ -544,9 +544,10 @@
+   private void validateSwitch(Node n) {
+     validateNodeType(Token.SWITCH, n);
+     validateMinimumChildCount(n, 1);
+-    validateExpression(n.getFirstChild());
++      Node firstChild = n.getFirstChild();
++      validateExpression(firstChild);
+     int defaults = 0;
+-    for (Node c = n.getFirstChild().getNext(); c != null; c = c.getNext()) {
++    for (Node c = firstChild.getNext(); c != null; c = c.getNext()) {
+       validateSwitchMember(n.getLastChild());
+       if (c.isDefaultCase()) {
+         defaults++;

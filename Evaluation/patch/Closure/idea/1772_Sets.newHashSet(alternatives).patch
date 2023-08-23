@@ -1,0 +1,40 @@
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..9f079f3 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -29,10 +29,7 @@
+ import com.google.javascript.rhino.jstype.StaticSlot;
+ import com.google.javascript.rhino.jstype.UnknownType;
+ 
+-import java.util.Collection;
+-import java.util.Collections;
+-import java.util.List;
+-import java.util.Set;
++import java.util.*;
+ 
+ /**
+  * Represents a reference type for which the exact definition in the source is
+@@ -566,11 +563,12 @@
+     @Override ConcreteUnionType toUnion() { return this; }
+ 
+     @Override ConcreteType unionWith(ConcreteType other) {
+-      if (other.isSingleton()) {
++        HashSet<ConcreteType> concreteTypes = Sets.newHashSet(alternatives);
++        if (other.isSingleton()) {
+         if (alternatives.contains(other)) {
+           return this;
+         } else {
+-          Set<ConcreteType> alts = Sets.newHashSet(alternatives);
++          Set<ConcreteType> alts = concreteTypes;
+           alts.add(other);
+           return new ConcreteUnionType(alts);
+         }
+@@ -581,7 +579,7 @@
+         } else if (otherUnion.alternatives.containsAll(alternatives)) {
+           return otherUnion;
+         } else {
+-          Set<ConcreteType> alts = Sets.newHashSet(alternatives);
++          Set<ConcreteType> alts = concreteTypes;
+           alts.addAll(otherUnion.alternatives);
+           return new ConcreteUnionType(alts);
+         }

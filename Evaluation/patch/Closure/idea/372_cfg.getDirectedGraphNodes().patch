@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/CoalesceVariableNames.java b/src/com/google/javascript/jscomp/CoalesceVariableNames.java
+index 11bb585..45628cc 100644
+--- a/src/com/google/javascript/jscomp/CoalesceVariableNames.java
++++ b/src/com/google/javascript/jscomp/CoalesceVariableNames.java
+@@ -261,8 +261,9 @@
+         // Go through every CFG node in the program and look at
+         // this variable pair. If they are both live at the same
+         // time, add an edge between them and continue to the next pair.
+-        NEXT_CROSS_CFG_NODE:
+-        for (DiGraphNode<Node, Branch> cfgNode : cfg.getDirectedGraphNodes()) {
++          Iterable<DiGraphNode<Node, Branch>> directedGraphNodes = cfg.getDirectedGraphNodes();
++          NEXT_CROSS_CFG_NODE:
++        for (DiGraphNode<Node, Branch> cfgNode : directedGraphNodes) {
+           if (cfg.isImplicitReturn(cfgNode)) {
+             continue NEXT_CROSS_CFG_NODE;
+           }
+@@ -280,7 +281,7 @@
+         // one last sanity check that we have to do: we have to check
+         // if there's a collision *within* the cfg node.
+         NEXT_INTRA_CFG_NODE:
+-        for (DiGraphNode<Node, Branch> cfgNode : cfg.getDirectedGraphNodes()) {
++        for (DiGraphNode<Node, Branch> cfgNode : directedGraphNodes) {
+           if (cfg.isImplicitReturn(cfgNode)) {
+             continue NEXT_INTRA_CFG_NODE;
+           }

@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+index 497be42..5321efa 100644
+--- a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
++++ b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+@@ -148,10 +148,11 @@
+   public void visit(NodeTraversal t, Node n, Node parent) {
+     if (n.isName()) {
+       Var v;
+-      if (n.getString().equals("arguments")) {
++        String string = n.getString();
++        if (string.equals("arguments")) {
+         v = t.getScope().getArgumentsVar();
+       } else {
+-        v = t.getScope().getVar(n.getString());
++        v = t.getScope().getVar(string);
+       }
+       if (v != null && varFilter.apply(v)) {
+         addReference(t, v, new Reference(n, t, blockStack.peek()));

@@ -1,0 +1,37 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..ebf1750 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -275,8 +275,9 @@
+      */
+     public void addObservation(final double[] x,final double y)
+     throws ModelSpecificationException {
+-        if( x == null || x.length == 0 ){
+-            throw new ModelSpecificationException(LocalizedFormats.INVALID_REGRESSION_OBSERVATION,x!=null?x.length:0, 1);
++        int var_3914 = x.length;
++		if( x == null || var_3914 == 0 ){
++            throw new ModelSpecificationException(LocalizedFormats.INVALID_REGRESSION_OBSERVATION,x!=null?var_3914:0, 1);
+         }
+         addData( x[0], y );
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..b8a0542 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -275,8 +275,9 @@
+      */
+     public void addObservation(final double[] x,final double y)
+     throws ModelSpecificationException {
+-        if( x == null || x.length == 0 ){
+-            throw new ModelSpecificationException(LocalizedFormats.INVALID_REGRESSION_OBSERVATION,x!=null?x.length:0, 1);
++        int length = x.length;
++        if( x == null || length == 0 ){
++            throw new ModelSpecificationException(LocalizedFormats.INVALID_REGRESSION_OBSERVATION,x!=null? length :0, 1);
+         }
+         addData( x[0], y );
+     }

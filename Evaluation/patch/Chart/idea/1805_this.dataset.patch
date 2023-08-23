@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/MultiplePiePlot.java b/source/org/jfree/chart/plot/MultiplePiePlot.java
+index f85acab..2563a4a 100644
+--- a/source/org/jfree/chart/plot/MultiplePiePlot.java
++++ b/source/org/jfree/chart/plot/MultiplePiePlot.java
+@@ -195,7 +195,8 @@
+         // if there is an existing dataset, remove the plot from the list of
+         // change listeners...
+         if (this.dataset != null) {
+-            this.dataset.removeChangeListener(this);
++            CategoryDataset dataset1 = this.dataset;
++            dataset1.removeChangeListener(this);
+         }
+ 
+         // set the new dataset, and register the chart as a change listener...

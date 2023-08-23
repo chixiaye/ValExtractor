@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..e5059ae 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -429,9 +429,10 @@
+       }
+ 
+       b.append(")");
+-      if (getReturnSlot().getType() != null) {
++        StaticSlot<ConcreteType> returnSlot = getReturnSlot();
++        if (returnSlot.getType() != null) {
+         b.append(": ");
+-        b.append(getReturnSlot().getType().toString());
++        b.append(returnSlot.getType().toString());
+       }
+       return b.toString();
+     }

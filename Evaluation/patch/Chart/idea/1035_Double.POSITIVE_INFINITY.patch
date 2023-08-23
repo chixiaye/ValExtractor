@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/block/AbstractBlock.java b/source/org/jfree/chart/block/AbstractBlock.java
+index cb9f84a..bb7be9c 100644
+--- a/source/org/jfree/chart/block/AbstractBlock.java
++++ b/source/org/jfree/chart/block/AbstractBlock.java
+@@ -453,11 +453,12 @@
+             return null;
+         }
+         double lowerBound = 0.0;
+-        double upperBound = Double.POSITIVE_INFINITY;
++        double positiveInfinity = Double.POSITIVE_INFINITY;
++        double upperBound = positiveInfinity;
+         if (r.getLowerBound() > 0.0) {
+             lowerBound = trimToContentHeight(r.getLowerBound());
+         }
+-        if (r.getUpperBound() < Double.POSITIVE_INFINITY) {
++        if (r.getUpperBound() < positiveInfinity) {
+             upperBound = trimToContentHeight(r.getUpperBound());
+         }
+         return new Range(lowerBound, upperBound);

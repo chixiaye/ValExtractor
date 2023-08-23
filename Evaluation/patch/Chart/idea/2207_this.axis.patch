@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..46cc607 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -311,7 +311,8 @@
+         }
+ 
+         // plot is likely registered as a listener with the existing axis...
+-        if (this.axis != null) {
++        ValueAxis axis1 = this.axis;
++        if (axis1 != null) {
+             this.axis.removeChangeListener(this);
+         }
+ 

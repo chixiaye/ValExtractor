@@ -1,0 +1,41 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..60e289c 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -144,7 +144,8 @@
+ 
+     cc.startSourceMapping(n);
+ 
+-    switch (type) {
++      Context startOfExpr = Context.START_OF_EXPR;
++      switch (type) {
+       case Token.TRY: {
+         Preconditions.checkState(first.getNext().isBlock() &&
+                 !first.getNext().hasMoreThanOneChild());
+@@ -307,7 +308,7 @@
+           throw new Error("Unexpected Node subclass.");
+         }
+         Preconditions.checkState(childCount == 3);
+-        boolean funcNeedsParens = (context == Context.START_OF_EXPR);
++        boolean funcNeedsParens = (context == startOfExpr);
+         if (funcNeedsParens) {
+           add("(");
+         }
+@@ -620,7 +621,7 @@
+ 
+       case Token.EXPR_RESULT:
+         Preconditions.checkState(childCount == 1);
+-        add(first, Context.START_OF_EXPR);
++        add(first, startOfExpr);
+         cc.endStatement();
+         break;
+ 
+@@ -665,7 +666,7 @@
+         break;
+ 
+       case Token.OBJECTLIT: {
+-        boolean needsParens = (context == Context.START_OF_EXPR);
++        boolean needsParens = (context == startOfExpr);
+         if (needsParens) {
+           add("(");
+         }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+index c3dd8cc..fd38094 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+@@ -1416,7 +1416,8 @@
+                 value = period.get(DurationFieldType.minutes());
+                 break;
+             case SECONDS:
+-                value = period.get(DurationFieldType.seconds());
++                int var_548 = period.get(DurationFieldType.seconds());
++				value = var_548;
+                 break;
+             case MILLIS:
+                 value = period.get(DurationFieldType.millis());

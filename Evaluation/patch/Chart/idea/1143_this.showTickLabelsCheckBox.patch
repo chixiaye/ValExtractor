@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..2a7ee76 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -251,6 +251,7 @@
+         JPanel ticks = new JPanel(new LCBLayout(3));
+         ticks.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+ 
++        JCheckBox showTickLabelsCheckBox1 = this.showTickLabelsCheckBox;
+         this.showTickLabelsCheckBox = new JCheckBox(
+             localizationResources.getString("Show_tick_labels"),
+             axis.isTickLabelsVisible()

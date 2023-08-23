@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..67691a1 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -3085,14 +3085,17 @@
+       return parent.getFirstChild();
+     } else if (isObjectLitKey(parent, parent.getParent())) {
+       return parent;
+-    } else if (
+-        (parent.isHook() && parent.getFirstChild() != n) ||
+-        parent.isOr() ||
+-        parent.isAnd() ||
+-        (parent.isComma() && parent.getFirstChild() != n)) {
+-      return getBestLValue(parent);
+-    } else if (parent.isCast()) {
+-      return getBestLValue(parent);
++    } else {
++        Node bestLValue = getBestLValue(parent);
++        if (
++            (parent.isHook() && parent.getFirstChild() != n) ||
++            parent.isOr() ||
++            parent.isAnd() ||
++            (parent.isComma() && parent.getFirstChild() != n)) {
++          return bestLValue;
++        } else if (parent.isCast()) {
++          return bestLValue;
++        }
+     }
+     return null;
+   }

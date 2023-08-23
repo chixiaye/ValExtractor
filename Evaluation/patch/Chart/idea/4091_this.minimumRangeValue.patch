@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..8ee1297 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -589,7 +589,8 @@
+                         this.minimumRangeValueColumn = c;
+                     }
+                     else {
+-                        if (m < this.minimumRangeValue) {
++                        double minimumRangeValue1 = this.minimumRangeValue;
++                        if (m < minimumRangeValue1) {
+                             this.minimumRangeValue = m;
+                             this.minimumRangeValueRow = r;
+                             this.minimumRangeValueColumn = c;

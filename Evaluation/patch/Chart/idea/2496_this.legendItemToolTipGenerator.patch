@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..91fc10a 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1431,8 +1431,9 @@
+                 series);
+         String description = label;
+         String toolTipText = null;
+-        if (this.legendItemToolTipGenerator != null) {
+-            toolTipText = this.legendItemToolTipGenerator.generateLabel(
++        CategorySeriesLabelGenerator legendItemToolTipGenerator1 = this.legendItemToolTipGenerator;
++        if (legendItemToolTipGenerator1 != null) {
++            toolTipText = legendItemToolTipGenerator1.generateLabel(
+                     dataset, series);
+         }
+         String urlText = null;

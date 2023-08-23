@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..0ce4b52 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2810,6 +2810,7 @@
+     public void addRangeMarker(int index, Marker marker, Layer layer,
+             boolean notify) {
+         Collection markers;
++        boolean add = markers.add(marker);
+         if (layer == Layer.FOREGROUND) {
+             markers = (Collection) this.foregroundRangeMarkers.get(
+                     new Integer(index));
+@@ -2817,7 +2818,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundRangeMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundRangeMarkers.get(
+@@ -2826,7 +2827,7 @@
+                 markers = new java.util.ArrayList();
+                 this.backgroundRangeMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         marker.addChangeListener(this);
+         if (notify) {

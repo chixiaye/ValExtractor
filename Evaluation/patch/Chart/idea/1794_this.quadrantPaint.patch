@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..48bcd40 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5785,6 +5785,7 @@
+         this.domainTickBandPaint = SerialUtilities.readPaint(stream);
+         this.rangeTickBandPaint = SerialUtilities.readPaint(stream);
+         this.quadrantOrigin = SerialUtilities.readPoint2D(stream);
++        Paint[] quadrantPaint1 = this.quadrantPaint;
+         this.quadrantPaint = new Paint[4];
+         for (int i = 0; i < 4; i++) {
+             this.quadrantPaint[i] = SerialUtilities.readPaint(stream);

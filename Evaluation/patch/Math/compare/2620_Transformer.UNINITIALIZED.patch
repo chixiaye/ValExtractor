@@ -1,0 +1,108 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+index 438df05..4a54862 100644
+--- a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
++++ b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+@@ -268,6 +268,7 @@
+         @Override
+         protected  Transformer selectTransformer(final Transformer previous,
+                                                  final double g, final boolean forward) {
++            Transformer var_2620 = Transformer.UNINITIALIZED;
+             if (forward) {
+                 switch (previous) {
+                     case UNINITIALIZED :
+@@ -281,7 +282,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return var_2620;
+                         }
+                     case PLUS  :
+                         if (g <= 0) {
+@@ -336,7 +337,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return var_2620;
+                         }
+                     case PLUS  :
+                         if (g >= 0) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+index 438df05..4a54862 100644
+--- a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
++++ b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+@@ -268,6 +268,7 @@
+         @Override
+         protected  Transformer selectTransformer(final Transformer previous,
+                                                  final double g, final boolean forward) {
++            Transformer var_2620 = Transformer.UNINITIALIZED;
+             if (forward) {
+                 switch (previous) {
+                     case UNINITIALIZED :
+@@ -281,7 +282,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return var_2620;
+                         }
+                     case PLUS  :
+                         if (g <= 0) {
+@@ -336,7 +337,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return var_2620;
+                         }
+                     case PLUS  :
+                         if (g >= 0) {
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+index 438df05..6796c04 100644
+--- a/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
++++ b/src/main/java/org/apache/commons/math3/ode/events/FilterType.java
+@@ -268,9 +268,10 @@
+         @Override
+         protected  Transformer selectTransformer(final Transformer previous,
+                                                  final double g, final boolean forward) {
++            final Transformer uninitialized = Transformer.UNINITIALIZED;
+             if (forward) {
+                 switch (previous) {
+-                    case UNINITIALIZED :
++                    case uninitialized:
+                         // we are initializing the first point
+                         if (g > 0) {
+                             // initialize as if previous root (i.e. backward one) was a triggered increasing event
+@@ -281,7 +282,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return uninitialized;
+                         }
+                     case PLUS  :
+                         if (g <= 0) {
+@@ -325,7 +326,7 @@
+                 }
+             } else {
+                 switch (previous) {
+-                    case UNINITIALIZED :
++                    case uninitialized:
+                         // we are initializing the first point
+                         if (g > 0) {
+                             // initialize as if previous root (i.e. forward one) was an ignored decreasing event
+@@ -336,7 +337,7 @@
+                         } else {
+                             // we are exactly at a root, we don't know if it is an increasing
+                             // or a decreasing event, we remain in uninitialized state
+-                            return Transformer.UNINITIALIZED;
++                            return uninitialized;
+                         }
+                     case PLUS  :
+                         if (g >= 0) {

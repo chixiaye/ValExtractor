@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialValueIndicator.java b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+index ee99219..143878a 100644
+--- a/source/org/jfree/chart/plot/dial/DialValueIndicator.java
++++ b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+@@ -786,9 +786,10 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.paint = SerialUtilities.readPaint(stream);
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
++        Paint backgroundPaint1 = SerialUtilities.readPaint(stream);
++        this.paint = backgroundPaint1;
++        this.backgroundPaint = backgroundPaint1;
++        this.outlinePaint = backgroundPaint1;
+         this.outlineStroke = SerialUtilities.readStroke(stream);
+     }
+ 

@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..3df027a 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1687,8 +1687,9 @@
+         long result = 0;
+         
+         // Fragments bigger than a day require a breakdown to days
++        final int year = Calendar.YEAR;
+         switch (fragment) {
+-            case Calendar.YEAR:
++            case year:
+                 result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+                 break;
+             case Calendar.MONTH:
+@@ -1698,7 +1699,7 @@
+ 
+         switch (fragment) {
+             // Number of days already calculated for these cases
+-            case Calendar.YEAR:
++            case year:
+             case Calendar.MONTH:
+             
+             // The rest of the valid cases

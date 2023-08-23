@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..bd5f880 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -778,13 +778,14 @@
+     // Should this check for
+     // (type.isNominalConstructor() || type.isFunctionPrototypeType())
+     // ?
+-    if (sym.getName().equals(type.getReferenceName())) {
++      String name = sym.getName();
++      if (name.equals(type.getReferenceName())) {
+       return true;
+     }
+ 
+     // Enums
+     if (type.isEnumType() &&
+-        sym.getName().equals(
++        name.equals(
+             type.toMaybeEnumType().getElementsType().getReferenceName())) {
+       return true;
+     }

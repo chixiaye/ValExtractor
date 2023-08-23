@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+index 65185d3..117676f 100644
+--- a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+@@ -352,7 +352,8 @@
+                 final double[] bpCol = bp[col];
+                 for (int i = col + 1; i < m; i++) {
+                     final double[] bpI = bp[i];
+-                    final double luICol = lu[i][col];
++                    double v = lu[i][col];
++                    final double luICol = v;
+                     for (int j = 0; j < nColB; j++) {
+                         bpI[j] -= bpCol[j] * luICol;
+                     }

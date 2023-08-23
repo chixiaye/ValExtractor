@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..657f566 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -961,6 +961,7 @@
+     public Range getRangeBounds(boolean includeInterval) {
+         if (this.valueRange == null) {
+             double max = getRangeUpperBound(includeInterval);
++            Range valueRange1 = this.valueRange;
+             this.valueRange = new Range(0.0, max);
+         }
+         return this.valueRange;

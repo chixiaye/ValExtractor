@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/renderer/AreaRendererEndType.java b/source/org/jfree/chart/renderer/AreaRendererEndType.java
+index 7963927..54d27c0 100644
+--- a/source/org/jfree/chart/renderer/AreaRendererEndType.java
++++ b/source/org/jfree/chart/renderer/AreaRendererEndType.java
+@@ -128,11 +128,14 @@
+         if (this.equals(AreaRendererEndType.LEVEL)) {
+             result = AreaRendererEndType.LEVEL;
+         }
+-        else if (this.equals(AreaRendererEndType.TAPER)) {
+-            result = AreaRendererEndType.TAPER;
+-        }
+-        else if (this.equals(AreaRendererEndType.TRUNCATE)) {
+-            result = AreaRendererEndType.TRUNCATE;
++        else {
++            AreaRendererEndType taper = AreaRendererEndType.TAPER;
++            if (this.equals(taper)) {
++                result = taper;
++            }
++            else if (this.equals(AreaRendererEndType.TRUNCATE)) {
++                result = AreaRendererEndType.TRUNCATE;
++            }
+         }
+         return result;
+     }

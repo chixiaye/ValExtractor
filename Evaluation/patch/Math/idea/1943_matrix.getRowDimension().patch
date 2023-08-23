@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+index c6b1a04..4ef20b1 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+@@ -889,9 +889,10 @@
+         throws MatrixDimensionMismatchException, OutOfRangeException {
+         checkRowIndex(row);
+         final int nCols = getColumnDimension();
+-        if ((matrix.getRowDimension() != 1) ||
++        int rowDimension = matrix.getRowDimension();
++        if ((rowDimension != 1) ||
+             (matrix.getColumnDimension() != nCols)) {
+-            throw new MatrixDimensionMismatchException(matrix.getRowDimension(),
++            throw new MatrixDimensionMismatchException(rowDimension,
+                                                        matrix.getColumnDimension(),
+                                                        1, nCols);
+         }

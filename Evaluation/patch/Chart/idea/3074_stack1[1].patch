@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+index b17bcd4..6f3ad16 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer2.java
+@@ -279,9 +279,10 @@
+         GeneralPath left = new GeneralPath();
+         GeneralPath right = new GeneralPath();
+         if (y1 >= 0.0) {  // handle positive value
+-            transY1 = (float) rangeAxis.valueToJava2D(y1 + stack1[1], dataArea,
++            double v = stack1[1];
++            transY1 = (float) rangeAxis.valueToJava2D(y1 + v, dataArea,
+                     edge1);
+-            float transStack1 = (float) rangeAxis.valueToJava2D(stack1[1],
++            float transStack1 = (float) rangeAxis.valueToJava2D(v,
+                     dataArea, edge1);
+             float transStackLeft = (float) rangeAxis.valueToJava2D(
+                     adjStackLeft[1], dataArea, edge1);

@@ -1,0 +1,64 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..0e2a29c 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -439,7 +439,7 @@
+           Preconditions.checkNotNull(prev);
+           // + 2 for the quotes.
+           foldedSize += sb.length() + 2;
+-          arrayFoldedChildren.add(
++          boolean var_1718 = arrayFoldedChildren.add(
+               IR.string(sb.toString()).copyInformationFrom(prev));
+           sb = null;
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..0e2a29c 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -439,7 +439,7 @@
+           Preconditions.checkNotNull(prev);
+           // + 2 for the quotes.
+           foldedSize += sb.length() + 2;
+-          arrayFoldedChildren.add(
++          boolean var_1718 = arrayFoldedChildren.add(
+               IR.string(sb.toString()).copyInformationFrom(prev));
+           sb = null;
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..feb503d 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -426,6 +426,8 @@
+     Node prev = null;
+     Node elem = arrayNode.getFirstChild();
+     // Merges adjacent String nodes.
++      boolean add = arrayFoldedChildren.add(
++              IR.string(sb.toString()).copyInformationFrom(prev));
+     while (elem != null) {
+       if (NodeUtil.isImmutableValue(elem) || elem.isEmpty()) {
+         if (sb == null) {
+@@ -439,8 +441,7 @@
+           Preconditions.checkNotNull(prev);
+           // + 2 for the quotes.
+           foldedSize += sb.length() + 2;
+-          arrayFoldedChildren.add(
+-              IR.string(sb.toString()).copyInformationFrom(prev));
++          add;
+           sb = null;
+         }
+         foldedSize += InlineCostEstimator.getCost(elem);
+@@ -454,8 +455,7 @@
+       Preconditions.checkNotNull(prev);
+       // + 2 for the quotes.
+       foldedSize += sb.length() + 2;
+-      arrayFoldedChildren.add(
+-          IR.string(sb.toString()).copyInformationFrom(prev));
++      add;
+     }
+     // one for each comma.
+     foldedSize += arrayFoldedChildren.size() - 1;

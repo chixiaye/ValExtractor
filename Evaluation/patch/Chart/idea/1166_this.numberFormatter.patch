@@ -1,0 +1,31 @@
+diff --git a/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java b/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
+index 289bdf9..f020835 100644
+--- a/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
+@@ -135,21 +135,22 @@
+             if (x != null) {
+                 Date date = new Date(x.longValue());
+                 result = result + "--> Date=" + this.dateFormatter.format(date);
++                NumberFormat numberFormatter1 = this.numberFormatter;
+                 if (high != null) {
+                     result = result + " High=" 
+-                             + this.numberFormatter.format(high.doubleValue());
++                             + numberFormatter1.format(high.doubleValue());
+                 }
+                 if (low != null) {
+                     result = result + " Low=" 
+-                             + this.numberFormatter.format(low.doubleValue());
++                             + numberFormatter1.format(low.doubleValue());
+                 }
+                 if (open != null) {
+                     result = result + " Open=" 
+-                             + this.numberFormatter.format(open.doubleValue());
++                             + numberFormatter1.format(open.doubleValue());
+                 }
+                 if (close != null) {
+                     result = result + " Close=" 
+-                             + this.numberFormatter.format(close.doubleValue());
++                             + numberFormatter1.format(close.doubleValue());
+                 }
+             }
+ 

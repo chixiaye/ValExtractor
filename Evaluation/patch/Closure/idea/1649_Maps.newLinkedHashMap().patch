@@ -1,0 +1,31 @@
+diff --git a/src/com/google/javascript/jscomp/SpecializeModule.java b/src/com/google/javascript/jscomp/SpecializeModule.java
+index 8c0b12c..2eba453 100644
+--- a/src/com/google/javascript/jscomp/SpecializeModule.java
++++ b/src/com/google/javascript/jscomp/SpecializeModule.java
+@@ -22,11 +22,8 @@
+ import com.google.common.collect.Sets;
+ import com.google.javascript.rhino.IR;
+ import com.google.javascript.rhino.Node;
+-import java.util.Collection;
+-import java.util.Collections;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
++
++import java.util.*;
+ 
+ /**
+  * Beginnings of an optimization to specialize the initial module at the cost of
+@@ -194,9 +191,10 @@
+    */
+   private Node copyModuleInputs(JSModule module) {
+ 
+-    specializedInputRootsByOriginal = Maps.newLinkedHashMap();
++      LinkedHashMap<Node, Node> specializedInputRootsByOriginal1 = Maps.newLinkedHashMap();
++      specializedInputRootsByOriginal = specializedInputRootsByOriginal1;
+ 
+-    functionInfoBySpecializedFunctionNode = Maps.newLinkedHashMap();
++    functionInfoBySpecializedFunctionNode = specializedInputRootsByOriginal1;
+ 
+     Node syntheticModuleJsRoot = IR.block();
+     syntheticModuleJsRoot.setIsSyntheticBlock(true);

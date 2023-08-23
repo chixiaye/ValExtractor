@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..5fcb9fb 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1143,10 +1143,11 @@
+         g2.clip(area);
+         String message = this.noDataMessage;
+         if (message != null) {
+-            g2.setFont(this.noDataMessageFont);
++            Font noDataMessageFont1 = this.noDataMessageFont;
++            g2.setFont(noDataMessageFont1);
+             g2.setPaint(this.noDataMessagePaint);
+             TextBlock block = TextUtilities.createTextBlock(
+-                    this.noDataMessage, this.noDataMessageFont,
++                    this.noDataMessage, noDataMessageFont1,
+                     this.noDataMessagePaint, 0.9f * (float) area.getWidth(),
+                     new G2TextMeasurer(g2));
+             block.draw(g2, (float) area.getCenterX(),

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/Regression.java b/source/org/jfree/data/statistics/Regression.java
+index 962b978..8f76107 100644
+--- a/source/org/jfree/data/statistics/Regression.java
++++ b/source/org/jfree/data/statistics/Regression.java
+@@ -281,6 +281,7 @@
+                 for(int coe = 0; coe < coefficients - 1; coe++){
+                     matrix[eq][coe] += Math.pow(data[0][item],eq + coe);
+                 }
++                double matrix1 = matrix[eq][coefficients - 1];
+                 matrix[eq][coefficients - 1] += data[1][item]
+                         * Math.pow(data[0][item],eq);
+             }

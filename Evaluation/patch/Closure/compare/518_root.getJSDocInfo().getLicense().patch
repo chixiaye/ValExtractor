@@ -1,0 +1,45 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..8bcb39b 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1748,10 +1748,11 @@
+           cb.append(delimiter)
+             .append("\n");
+         }
++        String var_518 = root.getJSDocInfo().getLicense();
+         if (root.getJSDocInfo() != null &&
+-            root.getJSDocInfo().getLicense() != null) {
++            var_518 != null) {
+           cb.append("/*\n")
+-            .append(root.getJSDocInfo().getLicense())
++            .append(var_518)
+             .append("*/\n");
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..1b13e53 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1748,12 +1748,14 @@
+           cb.append(delimiter)
+             .append("\n");
+         }
+-        if (root.getJSDocInfo() != null &&
+-            root.getJSDocInfo().getLicense() != null) {
++        if (root.getJSDocInfo() != null) {
++            String license = root.getJSDocInfo().getLicense();
++            if (license != null) {
+           cb.append("/*\n")
+-            .append(root.getJSDocInfo().getLicense())
++                        .append(license)
+             .append("*/\n");
+         }
++        }
+ 
+         // If there is a valid source map, then indicate to it that the current
+         // root node's mappings are offset by the given string builder buffer.

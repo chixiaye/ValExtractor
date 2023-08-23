@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.java b/src/main/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.java
+index 86baaef..89c3d4a 100644
+--- a/src/main/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.java
++++ b/src/main/java/org/apache/commons/lang3/concurrent/MultiBackgroundInitializer.java
+@@ -204,10 +204,11 @@
+         final Map<String, Object> results = new HashMap<String, Object>();
+         final Map<String, ConcurrentException> excepts = new HashMap<String, ConcurrentException>();
+         for (final Map.Entry<String, BackgroundInitializer<?>> e : inits.entrySet()) {
++            String key = e.getKey();
+             try {
+-                results.put(e.getKey(), e.getValue().get());
++                results.put(key, e.getValue().get());
+             } catch (final ConcurrentException cex) {
+-                excepts.put(e.getKey(), cex);
++                excepts.put(key, cex);
+             }
+         }
+ 

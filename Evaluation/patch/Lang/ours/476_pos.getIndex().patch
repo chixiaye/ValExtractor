@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..94a9789 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -163,7 +163,8 @@
+             case START_FE:
+                 fmtCount++;
+                 seekNonWs(pattern, pos);
+-                final int start = pos.getIndex();
++                int var_476 = pos.getIndex();
++				final int start = var_476;
+                 final int index = readArgumentIndex(pattern, next(pos));
+                 stripCustom.append(START_FE).append(index);
+                 seekNonWs(pattern, pos);

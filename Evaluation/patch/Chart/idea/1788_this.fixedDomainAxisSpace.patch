@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..911dd34 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5704,9 +5704,10 @@
+         clone.backgroundRangeMarkers = (Map) ObjectUtilities.clone(
+                 this.backgroundRangeMarkers);
+         clone.annotations = (List) ObjectUtilities.deepClone(this.annotations);
+-        if (this.fixedDomainAxisSpace != null) {
++        AxisSpace fixedDomainAxisSpace1 = this.fixedDomainAxisSpace;
++        if (fixedDomainAxisSpace1 != null) {
+             clone.fixedDomainAxisSpace = (AxisSpace) ObjectUtilities.clone(
+-                    this.fixedDomainAxisSpace);
++                    fixedDomainAxisSpace1);
+         }
+         if (this.fixedRangeAxisSpace != null) {
+             clone.fixedRangeAxisSpace = (AxisSpace) ObjectUtilities.clone(

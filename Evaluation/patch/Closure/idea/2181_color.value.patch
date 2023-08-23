@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/graph/GraphColoring.java b/src/com/google/javascript/jscomp/graph/GraphColoring.java
+index 14900a4..eff38b0 100644
+--- a/src/com/google/javascript/jscomp/graph/GraphColoring.java
++++ b/src/com/google/javascript/jscomp/graph/GraphColoring.java
+@@ -72,9 +72,10 @@
+     Preconditions.checkNotNull(colorToNodeMap,
+         "No coloring founded. color() should be called first.");
+     Color color = graph.getNode(node).getAnnotation();
+-    N headNode = colorToNodeMap[color.value];
++      int value = color.value;
++      N headNode = colorToNodeMap[value];
+     if (headNode == null) {
+-      colorToNodeMap[color.value] = node;
++      colorToNodeMap[value] = node;
+       return node;
+     } else {
+       return headNode;

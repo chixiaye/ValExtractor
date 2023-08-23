@@ -1,0 +1,97 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..9250a43 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -517,7 +517,8 @@
+             recurseSides(node.getPlus(), split.getPlus(), sides);
+ 
+             // if needed, explore the minus sub-tree
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            boolean var_1685 = sides.plusFound();
++			if (!(var_1685 && sides.minusFound())) {
+                 recurseSides(node.getMinus(), split.getMinus(), sides);
+             }
+             break;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..de0cc5c 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -478,6 +478,7 @@
+         }
+ 
+         final Hyperplane<S> hyperplane = node.getCut().getHyperplane();
++        boolean var_1685 = sides.plusFound();
+         switch (sub.side(hyperplane)) {
+         case PLUS :
+             // the sub-hyperplane is entirely in the plus sub-tree
+@@ -490,7 +491,7 @@
+                     sides.rememberMinusFound();
+                 }
+             }
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(var_1685 && sides.minusFound())) {
+                 recurseSides(node.getPlus(), sub, sides);
+             }
+             break;
+@@ -505,7 +506,7 @@
+                     sides.rememberMinusFound();
+                 }
+             }
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(var_1685 && sides.minusFound())) {
+                 recurseSides(node.getMinus(), sub, sides);
+             }
+             break;
+@@ -517,7 +518,7 @@
+             recurseSides(node.getPlus(), split.getPlus(), sides);
+ 
+             // if needed, explore the minus sub-tree
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(var_1685 && sides.minusFound())) {
+                 recurseSides(node.getMinus(), split.getMinus(), sides);
+             }
+             break;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..13c6333 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -478,6 +478,7 @@
+         }
+ 
+         final Hyperplane<S> hyperplane = node.getCut().getHyperplane();
++        boolean b = sides.plusFound();
+         switch (sub.side(hyperplane)) {
+         case PLUS :
+             // the sub-hyperplane is entirely in the plus sub-tree
+@@ -490,7 +491,7 @@
+                     sides.rememberMinusFound();
+                 }
+             }
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(b && sides.minusFound())) {
+                 recurseSides(node.getPlus(), sub, sides);
+             }
+             break;
+@@ -505,7 +506,7 @@
+                     sides.rememberMinusFound();
+                 }
+             }
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(b && sides.minusFound())) {
+                 recurseSides(node.getMinus(), sub, sides);
+             }
+             break;
+@@ -517,7 +518,7 @@
+             recurseSides(node.getPlus(), split.getPlus(), sides);
+ 
+             // if needed, explore the minus sub-tree
+-            if (!(sides.plusFound() && sides.minusFound())) {
++            if (!(b && sides.minusFound())) {
+                 recurseSides(node.getMinus(), split.getMinus(), sides);
+             }
+             break;

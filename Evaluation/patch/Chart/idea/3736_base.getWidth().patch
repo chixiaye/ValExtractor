@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/util/RectangleInsets.java b/source/org/jfree/chart/util/RectangleInsets.java
+index 47f58a5..4d38af0 100644
+--- a/source/org/jfree/chart/util/RectangleInsets.java
++++ b/source/org/jfree/chart/util/RectangleInsets.java
+@@ -312,14 +312,15 @@
+         }
+         double leftMargin = 0.0;
+         double rightMargin = 0.0;
++        double width = base.getWidth();
+         if (horizontal) {
+-            leftMargin = calculateLeftInset(base.getWidth());
+-            rightMargin = calculateRightInset(base.getWidth());
++            leftMargin = calculateLeftInset(width);
++            rightMargin = calculateRightInset(width);
+         }
+         return new Rectangle2D.Double(
+             base.getX() + leftMargin,
+             base.getY() + topMargin,
+-            base.getWidth() - leftMargin - rightMargin,
++            width - leftMargin - rightMargin,
+             base.getHeight() - topMargin - bottomMargin
+         );
+     }

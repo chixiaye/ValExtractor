@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..cf43447 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3894,8 +3894,9 @@
+         Map axisStateMap = new HashMap();
+ 
+         // draw the top axes
++        double height = dataArea.getHeight();
+         double cursor = dataArea.getMinY() - this.axisOffset.calculateTopOutset(
+-                dataArea.getHeight());
++                height);
+         Iterator iterator = axisCollection.getAxesAtTop().iterator();
+         while (iterator.hasNext()) {
+             Axis axis = (Axis) iterator.next();
+@@ -3909,7 +3910,7 @@
+ 
+         // draw the bottom axes
+         cursor = dataArea.getMaxY()
+-                 + this.axisOffset.calculateBottomOutset(dataArea.getHeight());
++                 + this.axisOffset.calculateBottomOutset(height);
+         iterator = axisCollection.getAxesAtBottom().iterator();
+         while (iterator.hasNext()) {
+             Axis axis = (Axis) iterator.next();

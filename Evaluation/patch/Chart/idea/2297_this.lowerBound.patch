@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialScale.java b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+index b40e93d..1541bc3 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialScale.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+@@ -847,9 +847,10 @@
+      * @see #angleToValue(double)
+      */
+     public double valueToAngle(double value) {
+-        double range = this.upperBound - this.lowerBound;
++        double lowerBound1 = this.lowerBound;
++        double range = this.upperBound - lowerBound1;
+         double unit = this.extent / range;
+-        return this.startAngle + unit * (value - this.lowerBound);
++        return this.startAngle + unit * (value - lowerBound1);
+     }
+ 
+     /**

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..fa32ed0 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -275,6 +275,7 @@
+             long maxStart = getDataItem(this.maxStartIndex).getPeriod()
+                 .getStart().getTime();
+             if (start > maxStart) {
++                int maxStartIndex1 = this.maxStartIndex;
+                 this.maxStartIndex = index;           
+             }
+         }

@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..64b6751 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -522,10 +522,11 @@
+                 final double bdtol = errbig / rho;
+                 for (int j = 0; j < n; j++) {
+                     double bdtest = bdtol;
+-                    if (newPoint.getEntry(j) == lowerDifference.getEntry(j)) {
++                    double entry = newPoint.getEntry(j);
++                    if (entry == lowerDifference.getEntry(j)) {
+                         bdtest = work1.getEntry(j);
+                     }
+-                    if (newPoint.getEntry(j) == upperDifference.getEntry(j)) {
++                    if (entry == upperDifference.getEntry(j)) {
+                         bdtest = -work1.getEntry(j);
+                     }
+                     if (bdtest < bdtol) {

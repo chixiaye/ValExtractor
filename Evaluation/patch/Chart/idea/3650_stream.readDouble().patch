@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..9760eb3 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -448,8 +448,9 @@
+         Point2D result = null;
+         boolean isNull = stream.readBoolean();
+         if (!isNull) {
+-            double x = stream.readDouble();
+-            double y = stream.readDouble();
++            double v = stream.readDouble();
++            double x = v;
++            double y = v;
+             result = new Point2D.Double(x, y);
+         }
+         return result;

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..78836e7 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -807,7 +807,8 @@
+       if (n.isFor()) {
+         if (!NodeUtil.isForIn(n)) {
+           Node decl = n.getFirstChild();
+-          Node pred = decl.getNext();
++            Node next = decl.getNext();
++            Node pred = next;
+           Node step = pred.getNext();
+           addSimplifiedExpression(decl, n);
+           addSimplifiedExpression(pred, n);

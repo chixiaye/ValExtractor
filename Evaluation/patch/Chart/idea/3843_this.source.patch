@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/category/CategoryToPieDataset.java b/source/org/jfree/data/category/CategoryToPieDataset.java
+index e5e9960..8be7a80 100644
+--- a/source/org/jfree/data/category/CategoryToPieDataset.java
++++ b/source/org/jfree/data/category/CategoryToPieDataset.java
+@@ -175,11 +175,12 @@
+             throw new IndexOutOfBoundsException(
+                     "The 'item' index is out of bounds.");
+         }
++        CategoryDataset source1 = this.source;
+         if (this.extract == TableOrder.BY_ROW) {
+-            result = this.source.getValue(this.index, item);
++            result = source1.getValue(this.index, item);
+         }
+         else if (this.extract == TableOrder.BY_COLUMN) {
+-            result = this.source.getValue(item, this.index);
++            result = source1.getValue(item, this.index);
+         }
+         return result;
+     }

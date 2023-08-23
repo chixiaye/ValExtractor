@@ -1,0 +1,42 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..fbf10ec 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -48,7 +48,8 @@
+         // Check the hashtable first.
+         Entry[] entries = iSelectEntries;
+         int length = entries.length;
+-        int index = type == null ? 0 : type.hashCode() & (length - 1);
++        int var_386 = type.hashCode();
++		int index = type == null ? 0 : var_386 & (length - 1);
+ 
+         Entry e;
+         // This loop depends on there being at least one null slot.
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..452a9f4 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -48,7 +48,8 @@
+         // Check the hashtable first.
+         Entry[] entries = iSelectEntries;
+         int length = entries.length;
+-        int index = type == null ? 0 : type.hashCode() & (length - 1);
++        int i1 = type.hashCode();
++        int index = type == null ? 0 : i1 & (length - 1);
+ 
+         Entry e;
+         // This loop depends on there being at least one null slot.
+@@ -97,7 +98,7 @@
+         for (int i=0; i<length; i++) {
+             e = entries[i];
+             type = e.iType;
+-            index = type == null ? 0 : type.hashCode() & (newLength - 1);
++            index = type == null ? 0 : i1 & (newLength - 1);
+             while (newEntries[index] != null) {
+                 if (++index >= newLength) {
+                     index = 0;

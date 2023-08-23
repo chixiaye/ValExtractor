@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ui/LCBLayout.java b/source/org/jfree/chart/ui/LCBLayout.java
+index b63c82b..b093396 100644
+--- a/source/org/jfree/chart/ui/LCBLayout.java
++++ b/source/org/jfree/chart/ui/LCBLayout.java
+@@ -146,7 +146,8 @@
+                         this.colWidth[c] = d.width;
+                     }
+                     if (this.rowHeight[r] < d.height) {
+-                        this.rowHeight[r] = d.height;
++                        int i = this.rowHeight[r];
++                        i = d.height;
+                     }
+                 }
+             }

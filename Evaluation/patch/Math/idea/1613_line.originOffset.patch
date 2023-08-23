@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+index 7ff678c..9fe5352 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+@@ -227,8 +227,9 @@
+      * @return offset of the line
+      */
+     public double getOffset(final Line line) {
++        double originOffset1 = line.originOffset;
+         return originOffset +
+-               ((cos * line.cos + sin * line.sin > 0) ? -line.originOffset : line.originOffset);
++               ((cos * line.cos + sin * line.sin > 0) ? -originOffset1 : originOffset1);
+     }
+ 
+     /** {@inheritDoc} */

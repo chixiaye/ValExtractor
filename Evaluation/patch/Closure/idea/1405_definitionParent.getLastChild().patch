@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..cb1bbd3 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -337,12 +337,13 @@
+ 
+       Node definition;
+ 
+-      switch (definitionParent.getType()) {
++        Node lastChild = definitionParent.getLastChild();
++        switch (definitionParent.getType()) {
+         case Token.ASSIGN:
+-          definition = definitionParent.getLastChild();
++          definition = lastChild;
+           break;
+         case Token.VAR:
+-          definition = definitionParent.getLastChild().getLastChild();
++          definition = lastChild.getLastChild();
+           break;
+         default:
+             return null;

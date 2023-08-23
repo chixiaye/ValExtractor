@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessCommonJSModules.java b/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
+index 6777957..de61469 100644
+--- a/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
++++ b/src/com/google/javascript/jscomp/ProcessCommonJSModules.java
+@@ -86,9 +86,10 @@
+    * and replaces - with _. All moduleNames get a "module$" prefix.
+    */
+   public static String toModuleName(String filename) {
+-    return MODULE_NAME_PREFIX +
+-        filename.replaceAll("^\\." + Pattern.quote(MODULE_SLASH), "")
+-            .replaceAll(Pattern.quote(MODULE_SLASH), MODULE_NAME_SEPARATOR)
++      String quote = Pattern.quote(MODULE_SLASH);
++      return MODULE_NAME_PREFIX +
++        filename.replaceAll("^\\." + quote, "")
++            .replaceAll(quote, MODULE_NAME_SEPARATOR)
+             .replaceAll("\\.js$", "").replaceAll("-", "_");
+   }
+ 

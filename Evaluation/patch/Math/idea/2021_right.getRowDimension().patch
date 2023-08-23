@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+index 5b91780..1ce4255 100644
+--- a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
++++ b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+@@ -603,9 +603,10 @@
+     public static void checkMultiplicationCompatible(final AnyMatrix left, final AnyMatrix right)
+         throws DimensionMismatchException {
+ 
+-        if (left.getColumnDimension() != right.getRowDimension()) {
++        int rowDimension = right.getRowDimension();
++        if (left.getColumnDimension() != rowDimension) {
+             throw new DimensionMismatchException(left.getColumnDimension(),
+-                                                 right.getRowDimension());
++                    rowDimension);
+         }
+     }
+ 

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/xy/DefaultIntervalXYDataset.java b/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
+index 5c5ff5b..ca42aba 100644
+--- a/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
+@@ -536,13 +536,14 @@
+             double[] xxStart = new double[xStart.length];
+             double[] xxEnd = new double[xEnd.length];
+             double[] yy = new double[y.length];
+-            double[] yyStart = new double[yStart.length];
++            int length = yStart.length;
++            double[] yyStart = new double[length];
+             double[] yyEnd = new double[yEnd.length];
+             System.arraycopy(x, 0, xx, 0, x.length);
+             System.arraycopy(xStart, 0, xxStart, 0, xStart.length);
+             System.arraycopy(xEnd, 0, xxEnd, 0, xEnd.length);
+             System.arraycopy(y, 0, yy, 0, y.length);
+-            System.arraycopy(yStart, 0, yyStart, 0, yStart.length);
++            System.arraycopy(yStart, 0, yyStart, 0, length);
+             System.arraycopy(yEnd, 0, yyEnd, 0, yEnd.length);
+             clone.seriesList.add(i, new double[][] {xx, xxStart, xxEnd, yy,
+                     yyStart, yyEnd});

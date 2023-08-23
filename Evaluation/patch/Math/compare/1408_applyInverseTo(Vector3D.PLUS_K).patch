@@ -1,0 +1,137 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+index fbdafa3..671af71 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+@@ -759,7 +759,8 @@
+       // -sin (theta) cos (psi2), sin (theta) sin (psi2), cos (theta)
+       // and we can choose to have theta in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++      Vector3D var_1408 = applyInverseTo(Vector3D.PLUS_K);
++	Vector3D v2 = var_1408;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+index fbdafa3..9dbcc77 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+@@ -625,7 +625,9 @@
+         FastMath.atan2(-(v2.getZ()), v2.getY())
+       };
+ 
+-    } else if (order == RotationOrder.ZXY) {
++    } else {
++		Vector3D var_1408 = applyInverseTo(Vector3D.PLUS_K);
++		if (order == RotationOrder.ZXY) {
+ 
+       // r (Vector3D.plusJ) coordinates are :
+       // -cos (phi) sin (psi), cos (phi) cos (psi), sin (phi)
+@@ -633,7 +635,7 @@
+       // -sin (theta) cos (phi), sin (phi), cos (theta) cos (phi)
+       // and we can choose to have phi in the interval [-PI/2 ; +PI/2]
+       Vector3D v1 = applyTo(Vector3D.PLUS_J);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++		  Vector3D v2 = var_1408;
+       if ((v2.getY() < -0.9999999999) || (v2.getY() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(true);
+       }
+@@ -651,7 +653,7 @@
+       // -sin (theta), sin (phi) cos (theta), cos (phi) cos (theta)
+       // and we can choose to have theta in the interval [-PI/2 ; +PI/2]
+       Vector3D v1 = applyTo(Vector3D.PLUS_I);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++		  Vector3D v2 = var_1408;
+       if ((v2.getX() < -0.9999999999) || (v2.getX() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(true);
+       }
+@@ -741,7 +743,7 @@
+       // sin (phi) sin (psi2), sin (phi) cos (psi2), cos (phi)
+       // and we can choose to have phi in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++		  Vector3D v2 = var_1408;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }
+@@ -759,7 +761,7 @@
+       // -sin (theta) cos (psi2), sin (theta) sin (psi2), cos (theta)
+       // and we can choose to have theta in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++		  Vector3D v2 = var_1408;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }
+@@ -770,6 +772,7 @@
+       };
+ 
+     }
++	}
+ 
+   }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+index fbdafa3..ae03a76 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+@@ -625,7 +625,9 @@
+         FastMath.atan2(-(v2.getZ()), v2.getY())
+       };
+ 
+-    } else if (order == RotationOrder.ZXY) {
++    } else {
++        Vector3D vector3D = applyInverseTo(Vector3D.PLUS_K);
++        if (order == RotationOrder.ZXY) {
+ 
+       // r (Vector3D.plusJ) coordinates are :
+       // -cos (phi) sin (psi), cos (phi) cos (psi), sin (phi)
+@@ -633,7 +635,7 @@
+       // -sin (theta) cos (phi), sin (phi), cos (theta) cos (phi)
+       // and we can choose to have phi in the interval [-PI/2 ; +PI/2]
+       Vector3D v1 = applyTo(Vector3D.PLUS_J);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++          Vector3D v2 = vector3D;
+       if ((v2.getY() < -0.9999999999) || (v2.getY() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(true);
+       }
+@@ -651,7 +653,7 @@
+       // -sin (theta), sin (phi) cos (theta), cos (phi) cos (theta)
+       // and we can choose to have theta in the interval [-PI/2 ; +PI/2]
+       Vector3D v1 = applyTo(Vector3D.PLUS_I);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++          Vector3D v2 = vector3D;
+       if ((v2.getX() < -0.9999999999) || (v2.getX() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(true);
+       }
+@@ -741,7 +743,7 @@
+       // sin (phi) sin (psi2), sin (phi) cos (psi2), cos (phi)
+       // and we can choose to have phi in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++          Vector3D v2 = vector3D;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }
+@@ -759,7 +761,7 @@
+       // -sin (theta) cos (psi2), sin (theta) sin (psi2), cos (theta)
+       // and we can choose to have theta in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++          Vector3D v2 = vector3D;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }
+@@ -770,6 +772,7 @@
+       };
+ 
+     }
++    }
+ 
+   }
+ 

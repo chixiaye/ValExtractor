@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..3a3004f 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -1108,9 +1108,10 @@
+         throws IOException, ClassNotFoundException {
+ 
+         stream.defaultReadObject();
+-        this.angleGridlineStroke = SerialUtilities.readStroke(stream);
++        Stroke angleGridlineStroke1 = SerialUtilities.readStroke(stream);
++        this.angleGridlineStroke = angleGridlineStroke1;
+         this.angleGridlinePaint = SerialUtilities.readPaint(stream);
+-        this.radiusGridlineStroke = SerialUtilities.readStroke(stream);
++        this.radiusGridlineStroke = angleGridlineStroke1;
+         this.radiusGridlinePaint = SerialUtilities.readPaint(stream);
+         this.angleLabelPaint = SerialUtilities.readPaint(stream);
+ 

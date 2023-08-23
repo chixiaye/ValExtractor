@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
+index de58d7b..a959444 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java
+@@ -266,9 +266,10 @@
+             // jacobian[1][2] is already set to 0 at allocation time
+ 
+             // row representing the gradient of phi
+-            jacobian[2][0] = x * z / (rho * r2);
+-            jacobian[2][1] = y * z / (rho * r2);
+-            jacobian[2][2] = -rho / r2;
++            double[] doubles = jacobian[2];
++            doubles[0] = x * z / (rho * r2);
++            doubles[1] = y * z / (rho * r2);
++            doubles[2] = -rho / r2;
+ 
+         }
+     }

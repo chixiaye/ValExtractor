@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..c873ca7 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2253,14 +2253,15 @@
+                 break;
+ 
+             case DfpField.FLAG_DIV_ZERO:
+-                if (nans == FINITE && mant[mant.length-1] != 0) {
++                int i = mant[mant.length - 1];
++                if (nans == FINITE && i != 0) {
+                     // normal case, we are finite, non-zero
+                     def = newInstance(getZero());
+                     def.sign = (byte)(sign*oper.sign);
+                     def.nans = INFINITE;
+                 }
+ 
+-                if (nans == FINITE && mant[mant.length-1] == 0) {
++                if (nans == FINITE && i == 0) {
+                     //  0/0
+                     def = newInstance(getZero());
+                     def.nans = QNAN;

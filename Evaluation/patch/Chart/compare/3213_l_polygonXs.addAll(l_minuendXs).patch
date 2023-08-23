@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..6be4774 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -712,7 +712,7 @@
+             if (b_intersect) {
+                 // create the polygon
+                 // add the minuend's points to polygon
+-                l_polygonXs.addAll(l_minuendXs);
++                boolean var_3213 = l_polygonXs.addAll(l_minuendXs);
+                 l_polygonYs.addAll(l_minuendYs);
+ 
+                 // add intersection point to the polygon
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..6be4774 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -712,7 +712,7 @@
+             if (b_intersect) {
+                 // create the polygon
+                 // add the minuend's points to polygon
+-                l_polygonXs.addAll(l_minuendXs);
++                boolean var_3213 = l_polygonXs.addAll(l_minuendXs);
+                 l_polygonYs.addAll(l_minuendYs);
+ 
+                 // add intersection point to the polygon
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..d65eaff 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -568,6 +568,7 @@
+         }
+ 
+         // start of algorithm
++        boolean b = l_polygonXs.addAll(l_minuendXs);
+         while (!b_minuendDone && !b_subtrahendDone) {
+             if (!b_minuendDone && !b_minuendFastForward && b_minuendAdvanced) {
+                 l_x1 = x_dataset.getXValue(0, l_minuendItem);
+@@ -712,7 +713,7 @@
+             if (b_intersect) {
+                 // create the polygon
+                 // add the minuend's points to polygon
+-                l_polygonXs.addAll(l_minuendXs);
++                b;
+                 l_polygonYs.addAll(l_minuendYs);
+ 
+                 // add intersection point to the polygon
+@@ -810,7 +811,7 @@
+ 
+         // create the polygon
+         // add the minuend's points to polygon
+-        l_polygonXs.addAll(l_minuendXs);
++        b;
+         l_polygonYs.addAll(l_minuendYs);
+ 
+         // add the subtrahend's points to the polygon in reverse

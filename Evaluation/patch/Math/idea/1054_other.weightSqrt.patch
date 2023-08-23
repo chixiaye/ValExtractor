@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
+index 247ad23..94cb7ea 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/AbstractLeastSquaresOptimizer.java
+@@ -74,7 +74,8 @@
+         target = other.target == null ? null : other.target.clone();
+         start = other.start == null ? null : other.start.clone();
+         weight = other.weight == null ? null : other.weight.copy();
+-        weightSqrt = other.weightSqrt == null ? null : other.weightSqrt.copy();
++        RealMatrix weightSqrt1 = other.weightSqrt;
++        weightSqrt = weightSqrt1 == null ? null : weightSqrt1.copy();
+         model = other.model; // XXX Not thread-safe
+         jacobian = other.jacobian; // XXX Not thread-safe
+     }

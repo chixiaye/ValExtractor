@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/annotations/XYTitleAnnotation.java b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+index 2178436..ad0bb30 100644
+--- a/source/org/jfree/chart/annotations/XYTitleAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+@@ -299,7 +299,8 @@
+         RectangleConstraint rc = new RectangleConstraint(
+                 new Range(0, maxW), new Range(0, maxH));
+ 
+-        Size2D size = this.title.arrange(g2, rc);
++        Title title1 = this.title;
++        Size2D size = title1.arrange(g2, rc);
+         Rectangle2D titleRect = new Rectangle2D.Double(0, 0, size.width,
+                 size.height);
+         Point2D anchorPoint = RectangleAnchor.coordinates(titleRect,
+@@ -313,7 +314,7 @@
+                 p.setGenerateEntities(true);
+             }
+         }
+-        Object result = this.title.draw(g2, titleRect, p);
++        Object result = title1.draw(g2, titleRect, p);
+         if (info != null) {
+             if (result instanceof EntityBlockResult) {
+                 EntityBlockResult ebr = (EntityBlockResult) result;

@@ -1,0 +1,15 @@
+diff --git a/src/com/google/javascript/jscomp/AstChangeProxy.java b/src/com/google/javascript/jscomp/AstChangeProxy.java
+index 5cb90af..fcc015a 100644
+--- a/src/com/google/javascript/jscomp/AstChangeProxy.java
++++ b/src/com/google/javascript/jscomp/AstChangeProxy.java
+@@ -111,8 +111,8 @@
+     if (parentType == Token.LABEL && size != 1) {
+       Node block = IR.block();
+       for (Node newChild : replacements) {
+-        newChild.copyInformationFrom(node);
+-        Node oldParent = newChild.getParent();
++          Node node1 = newChild.copyInformationFrom(node);
++          Node oldParent = newChild.getParent();
+         block.addChildToBack(newChild);
+       }
+ 

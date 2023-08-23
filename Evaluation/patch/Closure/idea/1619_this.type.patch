@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..e5a1da4 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -1049,7 +1049,8 @@
+     }
+ 
+     boolean isGetOrSetDefinition() {
+-      return this.type == Type.GET || this.type == Type.SET;
++        Type type1 = this.type;
++        return type1 == Type.GET || type1 == Type.SET;
+     }
+ 
+     boolean canCollapseUnannotatedChildNames() {

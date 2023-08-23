@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..1e4a9ab 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1469,11 +1469,12 @@
+      *              disable tooltips.
+      */
+     public void setDisplayToolTips(boolean flag) {
++        ToolTipManager toolTipManager = ToolTipManager.sharedInstance();
+         if (flag) {
+-            ToolTipManager.sharedInstance().registerComponent(this);
++            toolTipManager.registerComponent(this);
+         }
+         else {
+-            ToolTipManager.sharedInstance().unregisterComponent(this);
++            toolTipManager.unregisterComponent(this);
+         }
+     }
+ 

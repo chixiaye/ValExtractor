@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..8790aef 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -596,7 +596,8 @@
+     // TODO(user): handle object literals like { a: new Foo };
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+-      switch (n.getType()) {
++        Node lastChild = n.getLastChild();
++        switch (n.getType()) {
+         case Token.VAR:
+           // Variable declaration, e.g. var a = b;
+           Node name;
+@@ -632,7 +633,7 @@
+                   break;
+                 }
+                 type = createUnionWithSubTypes(type);
+-                Node nameNode = n.getLastChild();
++                Node nameNode = lastChild;
+                 scope.declareSlot(nameNode.getString(), n, type);
+               }
+             }
+@@ -695,7 +696,7 @@
+             }
+             scope.declareSlot(lhs.getLastChild().getString(), n, type);
+           } else {
+-            addActions(createAssignmentActions(lhs, n.getLastChild(), n));
++            addActions(createAssignmentActions(lhs, lastChild, n));
+           }
+           break;
+ 

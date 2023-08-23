@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/BuddhistChronology.java b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+index fc6a1ec..9d13225 100644
+--- a/src/main/java/org/joda/time/chrono/BuddhistChronology.java
++++ b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+@@ -234,7 +234,8 @@
+                     new SkipUndoDateTimeField(this, field), BUDDHIST_OFFSET);
+             
+             field = new OffsetDateTimeField(fields.yearOfEra, 99);
+-            fields.centuryOfEra = new DividedDateTimeField(
++            DateTimeField centuryOfEra = fields.centuryOfEra;
++            centuryOfEra = new DividedDateTimeField(
+                 field, fields.eras, DateTimeFieldType.centuryOfEra(), 100);
+             fields.centuries = fields.centuryOfEra.getDurationField();
+             

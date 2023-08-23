@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+index 4c20a64..81caac8 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+@@ -210,7 +210,8 @@
+             mant[i] = 0;
+         }
+ 
+-        mant[lsd] = lsb / lsbthreshold * lsbthreshold;
++        int i1 = mant[lsd];
++        i1 = lsb / lsbthreshold * lsbthreshold;
+ 
+         final boolean inc;
+         switch (getField().getRoundingMode()) {

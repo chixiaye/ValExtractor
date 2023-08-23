@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..fbf00eb 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -713,7 +713,8 @@
+ 
+         // if there is an existing dataset, remove the plot from the list of
+         // change listeners...
+-        ValueDataset existing = this.dataset;
++        ValueDataset dataset1 = this.dataset;
++        ValueDataset existing = dataset1;
+         if (existing != null) {
+             existing.removeChangeListener(this);
+         }

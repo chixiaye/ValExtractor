@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterManager.java b/src/main/java/org/joda/time/convert/ConverterManager.java
+index 0b029aa..d34a3a1 100644
+--- a/src/main/java/org/joda/time/convert/ConverterManager.java
++++ b/src/main/java/org/joda/time/convert/ConverterManager.java
+@@ -123,8 +123,9 @@
+             NullConverter.INSTANCE,
+         });
+ 
++        ReadableDurationConverter instance = ReadableDurationConverter.INSTANCE;
+         iDurationConverters = new ConverterSet(new Converter[] {
+-            ReadableDurationConverter.INSTANCE,
++                instance,
+             ReadableIntervalConverter.INSTANCE,
+             StringConverter.INSTANCE,
+             LongConverter.INSTANCE,
+@@ -132,7 +133,7 @@
+         });
+ 
+         iPeriodConverters = new ConverterSet(new Converter[] {
+-            ReadableDurationConverter.INSTANCE,
++                instance,
+             ReadablePeriodConverter.INSTANCE,
+             ReadableIntervalConverter.INSTANCE,
+             StringConverter.INSTANCE,

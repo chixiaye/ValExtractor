@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..a451ebc 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -210,9 +210,10 @@
+         RectangleEdge result = null;
+         if (this.equals(RectangleEdge.TOP)) {
+             result = RectangleEdge.TOP;
+-        }
+-        else if (this.equals(RectangleEdge.BOTTOM)) {
+-            result = RectangleEdge.BOTTOM;
++        } else {
++			RectangleEdge var_3604 = RectangleEdge.BOTTOM;
++			if (this.equals(var_3604)) {
++			    result = var_3604;
+         }
+         else if (this.equals(RectangleEdge.LEFT)) {
+             result = RectangleEdge.LEFT;
+@@ -220,6 +221,7 @@
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..a451ebc 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -210,9 +210,10 @@
+         RectangleEdge result = null;
+         if (this.equals(RectangleEdge.TOP)) {
+             result = RectangleEdge.TOP;
+-        }
+-        else if (this.equals(RectangleEdge.BOTTOM)) {
+-            result = RectangleEdge.BOTTOM;
++        } else {
++			RectangleEdge var_3604 = RectangleEdge.BOTTOM;
++			if (this.equals(var_3604)) {
++			    result = var_3604;
+         }
+         else if (this.equals(RectangleEdge.LEFT)) {
+             result = RectangleEdge.LEFT;
+@@ -220,6 +221,7 @@
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..f9c3cbc 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -211,8 +211,10 @@
+         if (this.equals(RectangleEdge.TOP)) {
+             result = RectangleEdge.TOP;
+         }
+-        else if (this.equals(RectangleEdge.BOTTOM)) {
+-            result = RectangleEdge.BOTTOM;
++        else {
++            RectangleEdge bottom = RectangleEdge.BOTTOM;
++            if (this.equals(bottom)) {
++                result = bottom;
+         }
+         else if (this.equals(RectangleEdge.LEFT)) {
+             result = RectangleEdge.LEFT;
+@@ -220,6 +222,7 @@
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++        }
+         return result;
+     }
+ 

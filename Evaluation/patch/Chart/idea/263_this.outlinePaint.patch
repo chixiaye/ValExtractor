@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+index e6fbbd8..dc086da 100644
+--- a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+@@ -254,8 +254,9 @@
+             g2.fill(area);
+         }
+ 
+-        if (this.stroke != null && this.outlinePaint != null) {
+-            g2.setPaint(this.outlinePaint);
++        Paint outlinePaint1 = this.outlinePaint;
++        if (this.stroke != null && outlinePaint1 != null) {
++            g2.setPaint(outlinePaint1);
+             g2.setStroke(this.stroke);
+             g2.draw(area);
+         }

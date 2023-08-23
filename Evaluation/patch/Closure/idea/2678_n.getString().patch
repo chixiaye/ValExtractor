@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..6f1423c 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -1571,17 +1571,18 @@
+         return getNativeType(VOID_TYPE);
+ 
+       case Token.STRING:
+-        JSType namedType = getType(scope, n.getString(), sourceName,
++          String string = n.getString();
++          JSType namedType = getType(scope, string, sourceName,
+             n.getLineno(), n.getCharno());
+         if (resolveMode != ResolveMode.LAZY_NAMES) {
+           namedType = namedType.resolveInternal(reporter, scope);
+         }
+         if ((namedType instanceof ObjectType) &&
+-            !(nonNullableTypeNames.contains(n.getString()))) {
++            !(nonNullableTypeNames.contains(string))) {
+           Node typeList = n.getFirstChild();
+           if (typeList != null &&
+-              ("Array".equals(n.getString()) ||
+-               "Object".equals(n.getString()))) {
++              ("Array".equals(string) ||
++               "Object".equals(string))) {
+             JSType parameterType =
+                 createFromTypeNodesInternal(
+                     typeList.getLastChild(), sourceName, scope);

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+index 773b7ad..8461bda 100644
+--- a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
++++ b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+@@ -135,11 +135,12 @@
+             Node nodeToInsertAfter,
+             @Nullable ObjectType interfaceType) {
+ 
+-      if (funType.getSource() == null) {
++        Node source = funType.getSource();
++        if (source == null) {
+         return nodeToInsertAfter;
+       }
+ 
+-      String className = NodeUtil.getFunctionName(funType.getSource());
++      String className = NodeUtil.getFunctionName(source);
+ 
+       // This can happen with anonymous classes declared with the type
+       // {@code Function}.

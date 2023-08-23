@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..d938d37 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -567,8 +567,9 @@
+     register(getNativeType(JSTypeNative.BOOLEAN_OBJECT_TYPE));
+     register(getNativeType(JSTypeNative.BOOLEAN_TYPE));
+     register(getNativeType(JSTypeNative.DATE_TYPE));
+-    register(getNativeType(JSTypeNative.NULL_TYPE));
+-    register(getNativeType(JSTypeNative.NULL_TYPE), "Null");
++      JSType nativeType = getNativeType(JSTypeNative.NULL_TYPE);
++      register(nativeType);
++    register(nativeType, "Null");
+     register(getNativeType(JSTypeNative.NUMBER_OBJECT_TYPE));
+     register(getNativeType(JSTypeNative.NUMBER_TYPE));
+     register(getNativeType(JSTypeNative.OBJECT_TYPE));

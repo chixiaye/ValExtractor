@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..17c2549 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -320,9 +320,10 @@
+           VariableMap.load(config.variableMapInputFile);
+     }
+ 
+-    if (!config.propertyMapInputFile.equals("")) {
++      String propertyMapInputFile = config.propertyMapInputFile;
++      if (!propertyMapInputFile.equals("")) {
+       options.inputPropertyMap =
+-          VariableMap.load(config.propertyMapInputFile);
++          VariableMap.load(propertyMapInputFile);
+     }
+ 
+     if (config.languageIn.length() > 0) {

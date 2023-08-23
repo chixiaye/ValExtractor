@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/CompilerInput.java b/src/com/google/javascript/jscomp/CompilerInput.java
+index 4259a88..39cb5c6 100644
+--- a/src/com/google/javascript/jscomp/CompilerInput.java
++++ b/src/com/google/javascript/jscomp/CompilerInput.java
+@@ -75,8 +75,11 @@
+ 
+     // TODO(nicksantos): Add a precondition check here. People are passing
+     // in null, but they should not be.
+-    if (ast != null && ast.getSourceFile() != null) {
+-      ast.getSourceFile().setIsExtern(isExtern);
++    if (ast != null) {
++        SourceFile sourceFile = ast.getSourceFile();
++        if (sourceFile != null) {
++            sourceFile.setIsExtern(isExtern);
++        }
+     }
+   }
+ 

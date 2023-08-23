@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..834631f 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2042,7 +2042,8 @@
+      * @see #isRangeGridlinesVisible()
+      */
+     public void setRangeGridlinesVisible(boolean visible) {
+-        if (this.rangeGridlinesVisible != visible) {
++        boolean rangeGridlinesVisible1 = this.rangeGridlinesVisible;
++        if (rangeGridlinesVisible1 != visible) {
+             this.rangeGridlinesVisible = visible;
+             fireChangeEvent();
+         }

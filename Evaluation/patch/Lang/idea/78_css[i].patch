@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..1805c31 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -6496,13 +6496,14 @@
+         // sure we are not exceeding the length of the string each time through
+         // the bottom loop.
+         for (int i = 0; i < arrayLen; i++) {
+-            if (css[i] == null) {
++            CharSequence css1 = css[i];
++            if (css1 == null) {
+                 anyStringNull = true;
+                 shortestStrLen = 0;
+             } else {
+                 allStringsNull = false;
+-                shortestStrLen = Math.min(css[i].length(), shortestStrLen);
+-                longestStrLen = Math.max(css[i].length(), longestStrLen);
++                shortestStrLen = Math.min(css1.length(), shortestStrLen);
++                longestStrLen = Math.max(css1.length(), longestStrLen);
+             }
+         }
+ 

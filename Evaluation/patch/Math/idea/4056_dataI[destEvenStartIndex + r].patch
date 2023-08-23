@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+index 22d8a3d..47c7346 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+@@ -339,7 +339,8 @@
+ 
+                     // dest[destEvenStartIndex + r] = Gr + WsubN0ToR * Hr
+                     dataR[destEvenStartIndex + r] = grR + wSubN0ToRR * hrR - wSubN0ToRI * hrI;
+-                    dataI[destEvenStartIndex + r] = grI + wSubN0ToRR * hrI + wSubN0ToRI * hrR;
++                    double v = dataI[destEvenStartIndex + r];
++                    v = grI + wSubN0ToRR * hrI + wSubN0ToRI * hrR;
+                     // dest[destOddStartIndex + r] = Gr - WsubN0ToR * Hr
+                     dataR[destOddStartIndex + r] = grR - (wSubN0ToRR * hrR - wSubN0ToRI * hrI);
+                     dataI[destOddStartIndex + r] = grI - (wSubN0ToRR * hrI + wSubN0ToRI * hrR);

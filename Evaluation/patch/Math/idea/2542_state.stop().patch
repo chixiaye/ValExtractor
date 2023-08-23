@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+index 3898435..d4c6d2a 100644
+--- a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+@@ -422,7 +422,8 @@
+             }
+             for (final EventState state : eventsStates) {
+                 state.stepAccepted(currentT, currentY);
+-                isLastStep = isLastStep || state.stop();
++                boolean stop = state.stop();
++                isLastStep = isLastStep || stop;
+             }
+             isLastStep = isLastStep || Precision.equals(currentT, tEnd, 1);
+ 

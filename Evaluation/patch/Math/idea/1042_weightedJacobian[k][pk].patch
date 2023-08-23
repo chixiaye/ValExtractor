@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..1f8a4b9 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -981,6 +981,7 @@
+ 
+             // transform the current column
+             diagR[pk] = alpha;
++            double v = weightedJacobian[k][pk];
+             weightedJacobian[k][pk] -= alpha;
+ 
+             // transform the remaining columns

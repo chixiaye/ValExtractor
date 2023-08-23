@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/LookupPaintScale.java b/source/org/jfree/chart/renderer/LookupPaintScale.java
+index 02830c8..5634905 100644
+--- a/source/org/jfree/chart/renderer/LookupPaintScale.java
++++ b/source/org/jfree/chart/renderer/LookupPaintScale.java
+@@ -276,7 +276,8 @@
+             return this.defaultPaint;
+         }
+ 
+-        int count = this.lookupTable.size();
++        int size = this.lookupTable.size();
++        int count = size;
+         if (count == 0) {
+             return this.defaultPaint;
+         }
+@@ -289,7 +290,7 @@
+ 
+         // for value in bounds, do the lookup...
+         int low = 0;
+-        int high = this.lookupTable.size() - 1;
++        int high = size - 1;
+         while (high - low > 1) {
+             int current = (low + high) / 2;
+             item = (PaintItem) this.lookupTable.get(current);

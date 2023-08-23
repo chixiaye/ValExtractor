@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..b678621 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1111,7 +1111,7 @@
+           break;
+         case '<':
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(LT_ESCAPED);
++            StringBuilder var_1575 = sb.append(LT_ESCAPED);
+             break;
+           }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..b678621 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1111,7 +1111,7 @@
+           break;
+         case '<':
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(LT_ESCAPED);
++            StringBuilder var_1575 = sb.append(LT_ESCAPED);
+             break;
+           }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..70b6375 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -1110,8 +1110,9 @@
+           }
+           break;
+         case '<':
++            StringBuilder append = sb.append(LT_ESCAPED);
+           if (!trustedStrings && !isRegexp) {
+-            sb.append(LT_ESCAPED);
++            append;
+             break;
+           }
+ 
+@@ -1125,10 +1126,10 @@
+ 
+           if (s.regionMatches(true, i + 1, END_SCRIPT, 0,
+                               END_SCRIPT.length())) {
+-            sb.append(LT_ESCAPED);
++            append;
+           } else if (s.regionMatches(false, i + 1, START_COMMENT, 0,
+                                      START_COMMENT.length())) {
+-            sb.append(LT_ESCAPED);
++            append;
+           } else {
+             sb.append(c);
+           }

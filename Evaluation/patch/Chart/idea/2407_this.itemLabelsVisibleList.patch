@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..2bb13cd 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3207,9 +3207,10 @@
+         }
+ 
+         // 'itemLabelsVisible' : immutable, no need to clone reference
+-        if (this.itemLabelsVisibleList != null) {
++        BooleanList itemLabelsVisibleList1 = this.itemLabelsVisibleList;
++        if (itemLabelsVisibleList1 != null) {
+             clone.itemLabelsVisibleList
+-                = (BooleanList) this.itemLabelsVisibleList.clone();
++                = (BooleanList) itemLabelsVisibleList1.clone();
+         }
+         // 'basePaint' : immutable, no need to clone reference
+ 

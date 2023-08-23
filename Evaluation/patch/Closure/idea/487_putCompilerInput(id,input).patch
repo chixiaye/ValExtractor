@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..199c625 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -519,7 +519,8 @@
+     inputsById = new HashMap<InputId, CompilerInput>();
+     for (CompilerInput input : externs) {
+       InputId id = input.getInputId();
+-      CompilerInput previous = putCompilerInput(id, input);
++        CompilerInput compilerInput = putCompilerInput(id, input);
++        CompilerInput previous = compilerInput;
+       if (previous != null) {
+         report(JSError.make(DUPLICATE_EXTERN_INPUT, input.getName()));
+       }

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..326f468 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -412,10 +412,11 @@
+       case Token.FOR:
+         if (childCount == 4) {
+           add("for(");
+-          if (first.isVar()) {
+-            add(first, Context.IN_FOR_INIT_CLAUSE);
++            Context inForInitClause = Context.IN_FOR_INIT_CLAUSE;
++            if (first.isVar()) {
++            add(first, inForInitClause);
+           } else {
+-            addExpr(first, 0, Context.IN_FOR_INIT_CLAUSE);
++            addExpr(first, 0, inForInitClause);
+           }
+           add(";");
+           add(first.getNext());

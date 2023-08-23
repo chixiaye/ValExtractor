@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/Well512a.java b/src/main/java/org/apache/commons/math3/random/Well512a.java
+index aa20c52..43f47a1 100644
+--- a/src/main/java/org/apache/commons/math3/random/Well512a.java
++++ b/src/main/java/org/apache/commons/math3/random/Well512a.java
+@@ -97,7 +97,8 @@
+         final int z4 = (z0 ^ (z0 << 2)) ^ (z1 ^ (z1 << 18)) ^ (z2 << 28) ^ (z3 ^ ((z3 << 5) & 0xda442d24));
+ 
+         v[index] = z3;
+-        v[indexRm1]  = z4;
++        int i = v[indexRm1];
++        i  = z4;
+         index    = indexRm1;
+ 
+         return z4 >>> (32 - bits);

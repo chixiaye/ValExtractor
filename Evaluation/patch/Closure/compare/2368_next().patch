@@ -1,0 +1,80 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..81474b8 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2046,7 +2046,8 @@
+     do {
+       if (expr != null) {
+         skipEOLs();
+-        token = next();
++        JsDocToken var_2368 = next();
++		token = var_2368;
+         Preconditions.checkState(
+             token == JsDocToken.PIPE || token == JsDocToken.COMMA);
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..83cc449 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2046,7 +2046,8 @@
+     do {
+       if (expr != null) {
+         skipEOLs();
+-        token = next();
++        JsDocToken var_2368 = next();
++		token = var_2368;
+         Preconditions.checkState(
+             token == JsDocToken.PIPE || token == JsDocToken.COMMA);
+ 
+@@ -2056,7 +2057,7 @@
+           next();
+         }
+         skipEOLs();
+-        token = next();
++        token = var_2368;
+       }
+       expr = parseTypeExpression(token);
+       if (expr == null) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..a7e7593 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2043,20 +2043,21 @@
+     }
+ 
+     Node expr = null;
++      JsDocToken next = next();
+     do {
+       if (expr != null) {
+         skipEOLs();
+-        token = next();
++        token = next;
+         Preconditions.checkState(
+             token == JsDocToken.PIPE || token == JsDocToken.COMMA);
+ 
+         boolean isPipe = token == JsDocToken.PIPE;
+         if (isPipe && match(JsDocToken.PIPE)) {
+           // We support double pipes for backwards compatibility.
+-          next();
++          next;
+         }
+         skipEOLs();
+-        token = next();
++        token = next;
+       }
+       expr = parseTypeExpression(token);
+       if (expr == null) {
+@@ -2072,7 +2073,7 @@
+       if (!match(JsDocToken.RP)) {
+         return reportTypeSyntaxWarning("msg.jsdoc.missing.rp");
+       }
+-      next();
++      next;
+     }
+     return union;
+   }

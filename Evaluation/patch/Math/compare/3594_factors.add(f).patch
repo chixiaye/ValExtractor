@@ -1,0 +1,54 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+index c0f1448..931ea6b 100644
+--- a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
++++ b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+@@ -103,7 +103,7 @@
+         while (f <= maxFactor) {
+             if (0 == n % f) {
+                 n = n / f;
+-                factors.add(f);
++                boolean var_3594 = factors.add(f);
+                 break;
+             }
+             f += 4;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+index c0f1448..931ea6b 100644
+--- a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
++++ b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+@@ -103,7 +103,7 @@
+         while (f <= maxFactor) {
+             if (0 == n % f) {
+                 n = n / f;
+-                factors.add(f);
++                boolean var_3594 = factors.add(f);
+                 break;
+             }
+             f += 4;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+index c0f1448..83e0a57 100644
+--- a/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
++++ b/src/main/java/org/apache/commons/math3/primes/SmallPrimes.java
+@@ -101,15 +101,16 @@
+         int f = PRIMES_LAST + 2;
+         // no check is done about n >= f
+         while (f <= maxFactor) {
++            boolean add = factors.add(f);
+             if (0 == n % f) {
+                 n = n / f;
+-                factors.add(f);
++                add;
+                 break;
+             }
+             f += 4;
+             if (0 == n % f) {
+                 n = n / f;
+-                factors.add(f);
++                add;
+                 break;
+             }
+             f += 2;

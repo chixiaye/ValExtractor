@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+index 14c48c6..183ffd9 100644
+--- a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
++++ b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+@@ -215,7 +215,8 @@
+             transformed = matrix.copy();
+         }
+ 
+-        for (int i = 0; i < transformed.getColumnDimension(); i++) {
++        int var_3715 = transformed.getColumnDimension();
++		for (int i = 0; i < var_3715; i++) {
+             transformed.setColumn(i, rankingAlgorithm.rank(transformed.getColumn(i)));
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+index 14c48c6..a8bba85 100644
+--- a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
++++ b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+@@ -194,6 +194,7 @@
+     private RealMatrix rankTransform(final RealMatrix matrix) {
+         RealMatrix transformed = null;
+ 
++        int var_3715 = transformed.getColumnDimension();
+         if (rankingAlgorithm instanceof NaturalRanking &&
+                 ((NaturalRanking) rankingAlgorithm).getNanStrategy() == NaNStrategy.REMOVED) {
+             final Set<Integer> nanPositions = new HashSet<Integer>();
+@@ -205,7 +206,7 @@
+             if (!nanPositions.isEmpty()) {
+                 transformed = new BlockRealMatrix(matrix.getRowDimension() - nanPositions.size(),
+                                                   matrix.getColumnDimension());
+-                for (int i = 0; i < transformed.getColumnDimension(); i++) {
++                for (int i = 0; i < var_3715; i++) {
+                     transformed.setColumn(i, removeValues(matrix.getColumn(i), nanPositions));
+                 }
+             }
+@@ -215,7 +216,7 @@
+             transformed = matrix.copy();
+         }
+ 
+-        for (int i = 0; i < transformed.getColumnDimension(); i++) {
++        for (int i = 0; i < var_3715; i++) {
+             transformed.setColumn(i, rankingAlgorithm.rank(transformed.getColumn(i)));
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+index 14c48c6..c5be939 100644
+--- a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
++++ b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+@@ -194,6 +194,7 @@
+     private RealMatrix rankTransform(final RealMatrix matrix) {
+         RealMatrix transformed = null;
+ 
++        int columnDimension = transformed.getColumnDimension();
+         if (rankingAlgorithm instanceof NaturalRanking &&
+                 ((NaturalRanking) rankingAlgorithm).getNanStrategy() == NaNStrategy.REMOVED) {
+             final Set<Integer> nanPositions = new HashSet<Integer>();
+@@ -205,7 +206,7 @@
+             if (!nanPositions.isEmpty()) {
+                 transformed = new BlockRealMatrix(matrix.getRowDimension() - nanPositions.size(),
+                                                   matrix.getColumnDimension());
+-                for (int i = 0; i < transformed.getColumnDimension(); i++) {
++                for (int i = 0; i < columnDimension; i++) {
+                     transformed.setColumn(i, removeValues(matrix.getColumn(i), nanPositions));
+                 }
+             }
+@@ -215,7 +216,7 @@
+             transformed = matrix.copy();
+         }
+ 
+-        for (int i = 0; i < transformed.getColumnDimension(); i++) {
++        for (int i = 0; i < columnDimension; i++) {
+             transformed.setColumn(i, rankingAlgorithm.rank(transformed.getColumn(i)));
+         }
+ 

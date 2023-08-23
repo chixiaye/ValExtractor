@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/servlet/ServletUtilities.java b/source/org/jfree/chart/servlet/ServletUtilities.java
+index c84e2e7..d6508dc 100644
+--- a/source/org/jfree/chart/servlet/ServletUtilities.java
++++ b/source/org/jfree/chart/servlet/ServletUtilities.java
+@@ -345,13 +345,14 @@
+ 
+         String mimeType = null;
+         String filename = file.getName();
+-        if (filename.length() > 5) {
+-            if (filename.substring(filename.length() - 5,
+-                    filename.length()).equals(".jpeg")) {
++        int length = filename.length();
++        if (length > 5) {
++            if (filename.substring(length - 5,
++                    length).equals(".jpeg")) {
+                 mimeType = "image/jpeg";
+             }
+-            else if (filename.substring(filename.length() - 4,
+-                    filename.length()).equals(".png")) {
++            else if (filename.substring(length - 4,
++                    length).equals(".png")) {
+                 mimeType = "image/png";
+             }
+         }

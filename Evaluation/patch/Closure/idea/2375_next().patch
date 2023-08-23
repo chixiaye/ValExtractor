@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..04f2877 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2344,9 +2344,9 @@
+    */
+   private void skipEOLs() {
+     while (match(JsDocToken.EOL)) {
+-      next();
+-      if (match(JsDocToken.STAR)) {
+-        next();
++        JsDocToken next = next();
++        if (match(JsDocToken.STAR)) {
++        next;
+       }
+     }
+   }

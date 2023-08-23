@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..f14958c 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -860,12 +860,13 @@
+      * @return The index.
+      */
+     public int indexOf(Number x) {
++        List data1 = this.data;
+         if (this.autoSort) {
+-            return Collections.binarySearch(this.data, new XYDataItem(x, null));
++            return Collections.binarySearch(data1, new XYDataItem(x, null));
+         }
+         else {
+-            for (int i = 0; i < this.data.size(); i++) {
+-                XYDataItem item = (XYDataItem) this.data.get(i);
++            for (int i = 0; i < data1.size(); i++) {
++                XYDataItem item = (XYDataItem) data1.get(i);
+                 if (item.getX().equals(x)) {
+                     return i;
+                 }

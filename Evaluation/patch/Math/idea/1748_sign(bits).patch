@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
+index f802943..b1d0f21 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/OrderedTuple.java
+@@ -416,13 +416,16 @@
+         final int e = exponent(bits);
+         if ((k < e) || (k > offset)) {
+             return 0;
+-        } else if (k == offset) {
+-            return (sign(bits) == 0L) ? 1 : 0;
+-        } else if (k > (e + 52)) {
+-            return (sign(bits) == 0L) ? 0 : 1;
+         } else {
+-            final long m = (sign(bits) == 0L) ? mantissa(bits) : -mantissa(bits);
+-            return (int) ((m >> (k - e)) & 0x1L);
++            long sign = sign(bits);
++            if (k == offset) {
++                return (sign == 0L) ? 1 : 0;
++            } else if (k > (e + 52)) {
++                return (sign == 0L) ? 0 : 1;
++            } else {
++                final long m = (sign == 0L) ? mantissa(bits) : -mantissa(bits);
++                return (int) ((m >> (k - e)) & 0x1L);
++            }
+         }
+     }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..f6a59b0 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -733,7 +733,8 @@
+                     X = 0.0;
+                 }
+                 if (d1 < this.epsilon || Math.abs(X) < this.epsilon) {
+-                    d[m] = d2;
++                    double v = d[m];
++                    v = d2;
+                     d[mp1] = d1;
+                     r[m1] = 0.0;
+                     for (int col = m + 2; col < nvars; col++) {

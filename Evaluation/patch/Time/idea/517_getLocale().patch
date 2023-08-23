@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatter.java b/src/main/java/org/joda/time/format/PeriodFormatter.java
+index 5a80b31..c203c10 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatter.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatter.java
+@@ -158,7 +158,8 @@
+      * @return the new formatter
+      */
+     public PeriodFormatter withLocale(Locale locale) {
+-        if (locale == getLocale() || (locale != null && locale.equals(getLocale()))) {
++        Locale locale1 = getLocale();
++        if (locale == locale1 || (locale != null && locale.equals(locale1))) {
+             return this;
+         }
+         return new PeriodFormatter(iPrinter, iParser, locale, iParseType);

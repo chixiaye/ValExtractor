@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..bc644f1 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -729,7 +729,8 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
++        Paint var_3438 = SerialUtilities.readPaint(stream);
++		this.backgroundPaint = var_3438;
+         this.stripOutlinePaint = SerialUtilities.readPaint(stream);
+         this.stripOutlineStroke = SerialUtilities.readStroke(stream);
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..98720a0 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -729,8 +729,9 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.stripOutlinePaint = SerialUtilities.readPaint(stream);
++        Paint var_3438 = SerialUtilities.readPaint(stream);
++		this.backgroundPaint = var_3438;
++        this.stripOutlinePaint = var_3438;
+         this.stripOutlineStroke = SerialUtilities.readStroke(stream);
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..de28719 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -729,8 +729,9 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.stripOutlinePaint = SerialUtilities.readPaint(stream);
++        Paint backgroundPaint1 = SerialUtilities.readPaint(stream);
++        this.backgroundPaint = backgroundPaint1;
++        this.stripOutlinePaint = backgroundPaint1;
+         this.stripOutlineStroke = SerialUtilities.readStroke(stream);
+     }
+ 

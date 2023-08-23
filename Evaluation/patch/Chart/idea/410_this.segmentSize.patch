@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..583ce0e 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -677,9 +677,10 @@
+ 
+             // skip all whole exception segments in the range
+             long exceptionSegmentCount;
++            long segmentSize1 = this.segmentSize;
+             while ((exceptionSegmentCount = getExceptionSegmentCount(
+-                 lastIndex, (result.millisecond / this.segmentSize)
+-                 * this.segmentSize - 1)) > 0
++                 lastIndex, (result.millisecond / segmentSize1)
++                 * segmentSize1 - 1)) > 0
+             ) {
+                 lastIndex = result.segmentStart;
+                 // move forward exceptionSegmentCount segments skipping
+@@ -696,7 +697,7 @@
+             // skip exception or excluded segments we may fall on
+             while (result.inExceptionSegments() || result.inExcludeSegments()) {
+                 result.inc();
+-                lastIndex += this.segmentSize;
++                lastIndex += segmentSize1;
+             }
+ 
+             lastIndex++;

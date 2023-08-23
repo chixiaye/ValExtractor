@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..b1d8e01 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1673,8 +1673,9 @@
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+         this.borderStroke = SerialUtilities.readStroke(stream);
+-        this.borderPaint = SerialUtilities.readPaint(stream);
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
++        Paint borderPaint1 = SerialUtilities.readPaint(stream);
++        this.borderPaint = borderPaint1;
++        this.backgroundPaint = borderPaint1;
+         this.progressListeners = new EventListenerList();
+         this.changeListeners = new EventListenerList();
+         this.renderingHints = new RenderingHints(

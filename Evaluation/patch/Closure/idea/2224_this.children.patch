@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/JsonML.java b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+index 76b78d5..f8c3b2e 100644
+--- a/src/com/google/javascript/jscomp/jsonml/JsonML.java
++++ b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+@@ -198,8 +198,9 @@
+    * @param children a comma separated list of JsonML elements
+    */
+   public void setChildren(JsonML... children) {
+-    this.children.clear();
+-      this.children.addAll(Arrays.asList(children));
++      List<JsonML> children1 = this.children;
++      children1.clear();
++      children1.addAll(Arrays.asList(children));
+   }
+ 
+   /**

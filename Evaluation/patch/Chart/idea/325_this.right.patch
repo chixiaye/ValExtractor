@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/AxisSpace.java b/source/org/jfree/chart/axis/AxisSpace.java
+index d869ec6..bebd7a5 100644
+--- a/source/org/jfree/chart/axis/AxisSpace.java
++++ b/source/org/jfree/chart/axis/AxisSpace.java
+@@ -218,7 +218,8 @@
+             }
+         }
+         else if (edge == RectangleEdge.RIGHT) {
+-            if (this.right < space) {
++            double right1 = this.right;
++            if (right1 < space) {
+                 this.right = space;
+             }
+         }

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..2550b3f 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -708,9 +708,10 @@
+     private JSType getDeclaredTypeInAnnotation(String sourceName,
+         Node node, JSDocInfo info) {
+       JSType jsType = null;
+-      Node objNode =
++        Node parent = node.getParent();
++        Node objNode =
+           node.isGetProp() ? node.getFirstChild() :
+-          NodeUtil.isObjectLitKey(node, node.getParent()) ? node.getParent() :
++          NodeUtil.isObjectLitKey(node, parent) ? parent :
+           null;
+       if (info != null) {
+         if (info.hasType()) {

@@ -1,0 +1,100 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..124aba5 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1513,13 +1513,14 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+             }
+-        }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        } else {
++			RectangleEdge var_2128 = RectangleEdge.LEFT;
++			if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 result = RectangleEdge.TOP;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2128;
+             }
+         }
+         else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+@@ -1535,7 +1536,8 @@
+                 result = RectangleEdge.BOTTOM;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2128;
++			    }
+             }
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..124aba5 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1513,13 +1513,14 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+             }
+-        }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        } else {
++			RectangleEdge var_2128 = RectangleEdge.LEFT;
++			if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 result = RectangleEdge.TOP;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2128;
+             }
+         }
+         else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+@@ -1535,7 +1536,8 @@
+                 result = RectangleEdge.BOTTOM;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++			        result = var_2128;
++			    }
+             }
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..a675578 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1514,12 +1514,14 @@
+                 result = RectangleEdge.RIGHT;
+             }
+         }
+-        else if (location == AxisLocation.TOP_OR_LEFT) {
++        else {
++            RectangleEdge left = RectangleEdge.LEFT;
++            if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 result = RectangleEdge.TOP;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++                    result = left;
+             }
+         }
+         else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+@@ -1535,7 +1537,8 @@
+                 result = RectangleEdge.BOTTOM;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+-                result = RectangleEdge.LEFT;
++                    result = left;
++                }
+             }
+         }
+ 

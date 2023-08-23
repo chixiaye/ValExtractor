@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..c52a84c 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -991,7 +991,8 @@
+         }
+         if (count > 1) {
+             XYDataItem item = getRawDataItem(count - 1);
+-            result = 29 * result + item.hashCode();
++            int i = item.hashCode();
++            result = 29 * result + i;
+         }
+         if (count > 2) {
+             XYDataItem item = getRawDataItem(count / 2);

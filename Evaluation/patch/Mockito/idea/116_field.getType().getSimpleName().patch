@@ -1,0 +1,24 @@
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..517f5db 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -249,6 +249,7 @@
+         public FieldInitializationReport instantiate() {
+             final AccessibilityChanger changer = new AccessibilityChanger();
+             Constructor<?> constructor = null;
++            String simpleName = field.getType().getSimpleName();
+             try {
+                 constructor = biggestConstructor(field.getType());
+                 changer.enableAccess(constructor);
+@@ -259,9 +260,9 @@
+ 
+                 return new FieldInitializationReport(field.get(testClass), false, true);
+             } catch (IllegalArgumentException e) {
+-                throw new MockitoException("internal error : argResolver provided incorrect types for constructor " + constructor + " of type " + field.getType().getSimpleName(), e);
++                throw new MockitoException("internal error : argResolver provided incorrect types for constructor " + constructor + " of type " + simpleName, e);
+             } catch (InvocationTargetException e) {
+-                throw new MockitoException("the constructor of type '" + field.getType().getSimpleName() + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
++                throw new MockitoException("the constructor of type '" + simpleName + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
+             } catch (InstantiationException e) {
+                 throw new MockitoException("InstantiationException (see the stack trace for cause): " + e.toString(), e);
+             } catch (IllegalAccessException e) {

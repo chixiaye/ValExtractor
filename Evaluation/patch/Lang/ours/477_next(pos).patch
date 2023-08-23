@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..9bcf113 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -170,8 +170,9 @@
+                 Format format = null;
+                 String formatDescription = null;
+                 if (c[pos.getIndex()] == START_FMT) {
+-                    formatDescription = parseFormatDescription(pattern,
+-                            next(pos));
++                    ParsePosition var_477 = next(pos);
++					formatDescription = parseFormatDescription(pattern,
++                            var_477);
+                     format = getFormat(formatDescription);
+                     if (format == null) {
+                         stripCustom.append(START_FMT).append(formatDescription);

@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/AstValidator.java b/src/com/google/javascript/jscomp/AstValidator.java
+index dececfe..73c20cd 100644
+--- a/src/com/google/javascript/jscomp/AstValidator.java
++++ b/src/com/google/javascript/jscomp/AstValidator.java
+@@ -604,7 +604,8 @@
+   }
+ 
+   private void validateAssignmentTarget(Node n) {
+-    switch (n.getType()) {
++      int type = n.getType();
++      switch (type) {
+       case Token.NAME:
+       case Token.GETELEM:
+       case Token.GETPROP:
+@@ -612,7 +613,7 @@
+         return;
+       default:
+         violation("Expected assignment target expression but was "
+-            + Token.name(n.getType()), n);
++            + Token.name(type), n);
+     }
+   }
+ 

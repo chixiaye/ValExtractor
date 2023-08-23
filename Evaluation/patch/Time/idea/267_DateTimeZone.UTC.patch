@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/chrono/LimitChronology.java b/src/main/java/org/joda/time/chrono/LimitChronology.java
+index 89325ad..8191c13 100644
+--- a/src/main/java/org/joda/time/chrono/LimitChronology.java
++++ b/src/main/java/org/joda/time/chrono/LimitChronology.java
+@@ -142,7 +142,8 @@
+             return this;
+         }
+ 
+-        if (zone == DateTimeZone.UTC && iWithUTC != null) {
++        DateTimeZone utc = DateTimeZone.UTC;
++        if (zone == utc && iWithUTC != null) {
+             return iWithUTC;
+         }
+ 
+@@ -163,7 +164,7 @@
+         LimitChronology chrono = getInstance
+             (getBase().withZone(zone), lowerLimit, upperLimit);
+ 
+-        if (zone == DateTimeZone.UTC) {
++        if (zone == utc) {
+             iWithUTC = chrono;
+         }
+ 

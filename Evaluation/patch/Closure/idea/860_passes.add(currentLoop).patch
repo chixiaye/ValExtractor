@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/PhaseOptimizer.java b/src/com/google/javascript/jscomp/PhaseOptimizer.java
+index 4278d96..7bf17b8 100644
+--- a/src/com/google/javascript/jscomp/PhaseOptimizer.java
++++ b/src/com/google/javascript/jscomp/PhaseOptimizer.java
+@@ -133,10 +133,11 @@
+   void consume(List<PassFactory> factories) {
+     Loop currentLoop = new Loop();
+     boolean isCurrentLoopPopulated = false;
+-    for (PassFactory factory : factories) {
++      boolean add = passes.add(currentLoop);
++      for (PassFactory factory : factories) {
+       if (factory.isOneTimePass()) {
+         if (isCurrentLoopPopulated) {
+-          passes.add(currentLoop);
++          add;
+           currentLoop = new Loop();
+           isCurrentLoopPopulated = false;
+         }
+@@ -148,7 +149,7 @@
+     }
+ 
+     if (isCurrentLoopPopulated) {
+-      passes.add(currentLoop);
++      add;
+     }
+   }
+ 

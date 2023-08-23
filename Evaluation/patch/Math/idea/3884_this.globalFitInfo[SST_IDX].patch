@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+index 8b9d8e0..51c8f7a 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+@@ -115,7 +115,8 @@
+         Arrays.fill(this.globalFitInfo, Double.NaN);
+ 
+         if (rank > 0) {
+-            this.globalFitInfo[SST_IDX] = containsConstant ?
++            double v = this.globalFitInfo[SST_IDX];
++            v = containsConstant ?
+                     (sumysq - sumy * sumy / nobs) : sumysq;
+         }
+ 

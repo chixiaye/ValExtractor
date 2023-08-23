@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/Scope.java b/src/com/google/javascript/jscomp/Scope.java
+index 7ed2b6f..89f21ea 100644
+--- a/src/com/google/javascript/jscomp/Scope.java
++++ b/src/com/google/javascript/jscomp/Scope.java
+@@ -439,8 +439,10 @@
+ 
+   Scope getGlobalScope() {
+     Scope result = this;
+-    while (result.getParent() != null) {
+-      result = result.getParent();
++    while (true) {
++        Scope parent1 = result.getParent();
++        if (!(parent1 != null)) break;
++        result = parent1;
+     }
+     return result;
+   }

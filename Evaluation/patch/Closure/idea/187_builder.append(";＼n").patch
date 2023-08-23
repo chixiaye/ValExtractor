@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/DotFormatter.java b/src/com/google/javascript/jscomp/DotFormatter.java
+index 54988ed..3325393 100644
+--- a/src/com/google/javascript/jscomp/DotFormatter.java
++++ b/src/com/google/javascript/jscomp/DotFormatter.java
+@@ -266,10 +266,11 @@
+     // of the implementation of the graph data structure.
+     Arrays.sort(nodeNames);
+ 
+-    for (String nodeName : nodeNames) {
++      StringBuilder append = builder.append(";\n");
++      for (String nodeName : nodeNames) {
+       builder.append(INDENT);
+       builder.append(nodeName);
+-      builder.append(";\n");
++      append;
+     }
+ 
+     List<GraphvizEdge> edges = graph.getGraphvizEdges();
+@@ -287,7 +288,7 @@
+     for (String edgeName : edgeNames) {
+       builder.append(INDENT);
+       builder.append(edgeName);
+-      builder.append(";\n");
++      append;
+     }
+ 
+     builder.append("}\n");

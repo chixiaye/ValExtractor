@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..a55c522 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -642,6 +642,7 @@
+                             lastTick.getText(), anchor, anchor,
+                             lastTick.getAngle())
+                         );
++                        boolean internalMarkerWhenTicksOverlap1 = this.internalMarkerWhenTicksOverlap;
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+                             ? TextAnchor.BOTTOM_RIGHT : TextAnchor.BOTTOM_LEFT;

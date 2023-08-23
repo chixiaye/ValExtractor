@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..94a8c07 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -2874,8 +2874,9 @@
+         } else if (array.length == 0) {
+             return EMPTY_INTEGER_OBJECT_ARRAY;
+         }
+-        final Integer[] result = new Integer[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        int var_181 = array.length;
++		final Integer[] result = new Integer[var_181];
++        for (int i = 0; i < var_181; i++) {
+             result[i] = Integer.valueOf(array[i]);
+         }
+         return result;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..47fdbad 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -2869,13 +2869,14 @@
+      * @return an {@code Integer} array, {@code null} if null array input
+      */
+     public static Integer[] toObject(final int[] array) {
++        int var_181 = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (var_181 == 0) {
+             return EMPTY_INTEGER_OBJECT_ARRAY;
+         }
+-        final Integer[] result = new Integer[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final Integer[] result = new Integer[var_181];
++        for (int i = 0; i < var_181; i++) {
+             result[i] = Integer.valueOf(array[i]);
+         }
+         return result;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..044a0e8 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -2869,13 +2869,14 @@
+      * @return an {@code Integer} array, {@code null} if null array input
+      */
+     public static Integer[] toObject(final int[] array) {
++        int length = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (length == 0) {
+             return EMPTY_INTEGER_OBJECT_ARRAY;
+         }
+-        final Integer[] result = new Integer[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final Integer[] result = new Integer[length];
++        for (int i = 0; i < length; i++) {
+             result[i] = Integer.valueOf(array[i]);
+         }
+         return result;

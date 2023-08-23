@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..252d359 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -369,7 +369,8 @@
+ 
+     // Abstract method removal works best on minimally modified code, and also
+     // only needs to run once.
+-    if (options.closurePass &&
++      boolean closurePass = options.closurePass;
++      if (closurePass &&
+         (options.removeAbstractMethods || options.removeClosureAsserts)) {
+       passes.add(closureCodeRemoval);
+     }
+@@ -440,7 +441,7 @@
+ 
+     // This needs to come after the inline constants pass, which is run within
+     // the code removing passes.
+-    if (options.closurePass) {
++    if (closurePass) {
+       passes.add(closureOptimizePrimitives);
+     }
+ 

@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/TraversalVertexProgram.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/TraversalVertexProgram.java
+index b98d90790c..287b3fa77d 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/TraversalVertexProgram.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/TraversalVertexProgram.java
+@@ -425,7 +425,8 @@ public final class TraversalVertexProgram implements VertexProgram<TraverserSet<
+                 traversal.getGraph().ifPresent(parentTraversal::setGraph);
+                 parentTraversal.setStrategies(traversal.getStrategies());
+                 parentTraversal.getStrategies().addStrategies(ComputerVerificationStrategy.instance(), new VertexProgramStrategy(Graph::compute));
+-                parentTraversal.setSideEffects(new MemoryTraversalSideEffects(traversal.getSideEffects()));
++                MemoryTraversalSideEffects memoryTraversalSideEffects = new MemoryTraversalSideEffects(traversal.getSideEffects());
++                parentTraversal.setSideEffects(memoryTraversalSideEffects);
+                 parentTraversal.addStep(new TraversalVertexProgramStep(parentTraversal, traversal));
+                 traversal = ((TraversalVertexProgramStep) parentTraversal.getStartStep()).getGlobalChildren().get(0);
+             }

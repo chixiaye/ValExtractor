@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/axis/TickUnits.java b/source/org/jfree/chart/axis/TickUnits.java
+index 233653f..37ad3bb 100644
+--- a/source/org/jfree/chart/axis/TickUnits.java
++++ b/source/org/jfree/chart/axis/TickUnits.java
+@@ -127,7 +127,8 @@
+      */
+     public TickUnit getLargerTickUnit(TickUnit unit) {
+ 
+-        int index = Collections.binarySearch(this.tickUnits, unit);
++        List tickUnits1 = this.tickUnits;
++        int index = Collections.binarySearch(tickUnits1, unit);
+         if (index >= 0) {
+             index = index + 1;
+         }
+@@ -135,8 +136,8 @@
+             index = -index;
+         }
+ 
+-        return (TickUnit) this.tickUnits.get(Math.min(index,
+-                this.tickUnits.size() - 1));
++        return (TickUnit) tickUnits1.get(Math.min(index,
++                tickUnits1.size() - 1));
+ 
+     }
+ 

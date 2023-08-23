@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..fc7d903 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -103,7 +103,7 @@
+       // with MinimizeExitPoints.
+ 
+       case Token.NOT:
+-        tryMinimizeCondition(node.getFirstChild());
++        Node var_1414 = tryMinimizeCondition(node.getFirstChild());
+         return tryMinimizeNot(node);
+ 
+       case Token.IF:
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..fc7d903 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -103,7 +103,7 @@
+       // with MinimizeExitPoints.
+ 
+       case Token.NOT:
+-        tryMinimizeCondition(node.getFirstChild());
++        Node var_1414 = tryMinimizeCondition(node.getFirstChild());
+         return tryMinimizeNot(node);
+ 
+       case Token.IF:
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..7f646b5 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -78,6 +78,7 @@
+   @Override
+   @SuppressWarnings("fallthrough")
+   public Node optimizeSubtree(Node node) {
++      Node node1 = tryMinimizeCondition(node.getFirstChild());
+     switch(node.getType()) {
+       case Token.RETURN: {
+         Node result = tryRemoveRedundantExit(node);
+@@ -103,19 +104,19 @@
+       // with MinimizeExitPoints.
+ 
+       case Token.NOT:
+-        tryMinimizeCondition(node.getFirstChild());
++        node1;
+         return tryMinimizeNot(node);
+ 
+       case Token.IF:
+-        tryMinimizeCondition(node.getFirstChild());
++        node1;
+         return tryMinimizeIf(node);
+ 
+       case Token.EXPR_RESULT:
+-        tryMinimizeCondition(node.getFirstChild());
++        node1;
+         return node;
+ 
+       case Token.HOOK:
+-        tryMinimizeCondition(node.getFirstChild());
++        node1;
+         return node;
+ 
+       case Token.WHILE:

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/RangeType.java b/source/org/jfree/data/RangeType.java
+index 47e5cda..343f2bd 100644
+--- a/source/org/jfree/data/RangeType.java
++++ b/source/org/jfree/data/RangeType.java
+@@ -130,8 +130,11 @@
+         else if (this.equals(RangeType.POSITIVE)) {
+             return RangeType.POSITIVE;
+         }
+-        else if (this.equals(RangeType.NEGATIVE)) {
+-            return RangeType.NEGATIVE;
++        else {
++            RangeType negative = RangeType.NEGATIVE;
++            if (this.equals(negative)) {
++                return negative;
++            }
+         }
+         return null;
+     }

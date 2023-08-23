@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..0f4b104 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -283,9 +283,10 @@
+         }
+         else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+             result = RectangleAnchor.TOP_LEFT;
+-        }
+-        else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+-            result = RectangleAnchor.TOP_RIGHT;
++        } else {
++			RectangleAnchor var_3686 = RectangleAnchor.TOP_RIGHT;
++			if (this.equals(var_3686)) {
++			    result = var_3686;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+@@ -293,6 +294,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..0f4b104 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -283,9 +283,10 @@
+         }
+         else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+             result = RectangleAnchor.TOP_LEFT;
+-        }
+-        else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+-            result = RectangleAnchor.TOP_RIGHT;
++        } else {
++			RectangleAnchor var_3686 = RectangleAnchor.TOP_RIGHT;
++			if (this.equals(var_3686)) {
++			    result = var_3686;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+@@ -293,6 +294,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..eddbe75 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -284,8 +284,10 @@
+         else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+             result = RectangleAnchor.TOP_LEFT;
+         }
+-        else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+-            result = RectangleAnchor.TOP_RIGHT;
++        else {
++            RectangleAnchor topRight = RectangleAnchor.TOP_RIGHT;
++            if (this.equals(topRight)) {
++                result = topRight;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+@@ -293,6 +295,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++        }
+         return result;
+     }
+ 

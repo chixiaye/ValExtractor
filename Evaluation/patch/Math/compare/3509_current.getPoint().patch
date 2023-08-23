@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..c3d3a48 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -375,7 +375,8 @@
+                 // Convergence has been reached.
+                 setCost(currentCost);
+                 // Update (deprecated) "point" field.
+-                point = current.getPoint();
++                double[] var_3509 = current.getPoint();
++				point = var_3509;
+                 return current;
+             }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..20aafdc 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -371,11 +371,12 @@
+                     }
+                 }
+             }
++            double[] var_3509 = current.getPoint();
+             if (maxCosine <= orthoTolerance) {
+                 // Convergence has been reached.
+                 setCost(currentCost);
+                 // Update (deprecated) "point" field.
+-                point = current.getPoint();
++                point = var_3509;
+                 return current;
+             }
+ 
+@@ -483,7 +484,7 @@
+                     if (checker != null && checker.converged(iter, previous, current)) {
+                         setCost(currentCost);
+                         // Update (deprecated) "point" field.
+-                        point = current.getPoint();
++                        point = var_3509;
+                         return current;
+                     }
+                 } else {
+@@ -510,7 +511,7 @@
+                     delta <= parRelativeTolerance * xNorm) {
+                     setCost(currentCost);
+                     // Update (deprecated) "point" field.
+-                    point = current.getPoint();
++                    point = var_3509;
+                     return current;
+                 }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..2cb5793 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -371,11 +371,12 @@
+                     }
+                 }
+             }
++            double[] point1 = current.getPoint();
+             if (maxCosine <= orthoTolerance) {
+                 // Convergence has been reached.
+                 setCost(currentCost);
+                 // Update (deprecated) "point" field.
+-                point = current.getPoint();
++                point = point1;
+                 return current;
+             }
+ 
+@@ -483,7 +484,7 @@
+                     if (checker != null && checker.converged(iter, previous, current)) {
+                         setCost(currentCost);
+                         // Update (deprecated) "point" field.
+-                        point = current.getPoint();
++                        point = point1;
+                         return current;
+                     }
+                 } else {
+@@ -510,7 +511,7 @@
+                     delta <= parRelativeTolerance * xNorm) {
+                     setCost(currentCost);
+                     // Update (deprecated) "point" field.
+-                    point = current.getPoint();
++                    point = point1;
+                     return current;
+                 }
+ 

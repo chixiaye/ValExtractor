@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/Frequency.java b/src/main/java/org/apache/commons/math3/stat/Frequency.java
+index 0f663d7..79801c8 100644
+--- a/src/main/java/org/apache/commons/math3/stat/Frequency.java
++++ b/src/main/java/org/apache/commons/math3/stat/Frequency.java
+@@ -619,11 +619,12 @@
+             return false;
+         }
+         Frequency other = (Frequency) obj;
++        TreeMap<Comparable<?>, Long> freqTable1 = other.freqTable;
+         if (freqTable == null) {
+-            if (other.freqTable != null) {
++            if (freqTable1 != null) {
+                 return false;
+             }
+-        } else if (!freqTable.equals(other.freqTable)) {
++        } else if (!freqTable.equals(freqTable1)) {
+             return false;
+         }
+         return true;

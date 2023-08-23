@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+index 813f094..4a51c55 100644
+--- a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
++++ b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+@@ -414,8 +414,9 @@
+         if (observed1.length < 2) {
+             throw new DimensionMismatchException(observed1.length, 2);
+         }
+-        if (observed1.length != observed2.length) {
+-            throw new DimensionMismatchException(observed1.length, observed2.length);
++        int length = observed2.length;
++        if (observed1.length != length) {
++            throw new DimensionMismatchException(observed1.length, length);
+         }
+ 
+         // Ensure non-negative counts

@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/util/RelativeDateFormat.java b/source/org/jfree/chart/util/RelativeDateFormat.java
+index f9515fe..da8fed8 100644
+--- a/source/org/jfree/chart/util/RelativeDateFormat.java
++++ b/source/org/jfree/chart/util/RelativeDateFormat.java
+@@ -168,13 +168,14 @@
+         this.showZeroDays = false;
+         this.showZeroHours = true;
+         this.positivePrefix = "";
+-        this.dayFormatter = NumberFormat.getNumberInstance();
++        NumberFormat numberInstance = NumberFormat.getNumberInstance();
++        this.dayFormatter = numberInstance;
+         this.daySuffix = "d";
+-        this.hourFormatter = NumberFormat.getNumberInstance();
++        this.hourFormatter = numberInstance;
+         this.hourSuffix = "h";
+-        this.minuteFormatter = NumberFormat.getNumberInstance();
++        this.minuteFormatter = numberInstance;
+         this.minuteSuffix = "m";
+-        this.secondFormatter = NumberFormat.getNumberInstance();
++        this.secondFormatter = numberInstance;
+         this.secondFormatter.setMaximumFractionDigits(3);
+         this.secondFormatter.setMinimumFractionDigits(3);
+         this.secondSuffix = "s";

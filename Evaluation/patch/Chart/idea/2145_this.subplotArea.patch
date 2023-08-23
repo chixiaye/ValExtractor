@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java b/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
+index 439eb47..e14e28e 100644
+--- a/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
+@@ -283,6 +283,7 @@
+         }
+         // calculate plotAreas of all sub-plots, maximum vertical/horizontal
+         // axis width/height
++        Rectangle2D[] subplotArea1 = this.subplotArea;
+         this.subplotArea = new Rectangle2D[n];
+         double x = adjustedPlotArea.getX();
+         double y = adjustedPlotArea.getY();

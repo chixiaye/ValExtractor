@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/TextTitle.java b/source/org/jfree/chart/title/TextTitle.java
+index 74e534a..70fbc5a 100644
+--- a/source/org/jfree/chart/title/TextTitle.java
++++ b/source/org/jfree/chart/title/TextTitle.java
+@@ -706,8 +706,9 @@
+             }
+         }
+         area = trimBorder(area);
+-        if (this.backgroundPaint != null) {
+-            g2.setPaint(this.backgroundPaint);
++        Paint backgroundPaint1 = this.backgroundPaint;
++        if (backgroundPaint1 != null) {
++            g2.setPaint(backgroundPaint1);
+             g2.fill(area);
+         }
+         area = trimPadding(area);

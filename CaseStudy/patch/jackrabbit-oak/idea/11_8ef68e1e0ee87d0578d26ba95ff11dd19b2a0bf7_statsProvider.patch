@@ -1,0 +1,42 @@
+diff --git a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
+index 15e4469fe5..7bd0d75f2e 100644
+--- a/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
++++ b/oak-segment-tar/src/main/java/org/apache/jackrabbit/oak/segment/file/FileStore.java
+@@ -126,16 +126,17 @@ public class FileStore extends AbstractFileStore {
+         SegmentNodeStorePersistence persistence = builder.getPersistence();
+         repositoryLock = persistence.lockRepository();
+ 
++        StatisticsProvider statsProvider = builder.getStatsProvider();
+         this.segmentWriter = defaultSegmentWriterBuilder("sys")
+                 .withGeneration(() -> getGcGeneration().nonGC())
+                 .withWriterPool()
+                 .with(builder.getCacheManager()
+-                        .withAccessTracking("WRITE", builder.getStatsProvider()))
++                        .withAccessTracking("WRITE", statsProvider))
+                 .build(this);
+ 
+         newManifestChecker(persistence, builder.getStrictVersionCheck()).checkAndUpdateManifest();
+ 
+-        this.stats = new FileStoreStats(builder.getStatsProvider(), this, 0);
++        this.stats = new FileStoreStats(statsProvider, this, 0);
+ 
+         TarFiles.Builder tarFilesBuilder = TarFiles.builder()
+                 .withDirectory(directory)
+@@ -173,7 +174,7 @@ public class FileStore extends AbstractFileStore {
+             this::flush,
+             generation ->
+                 defaultSegmentWriterBuilder("c")
+-                    .with(builder.getCacheManager().withAccessTracking("COMPACT", builder.getStatsProvider()))
++                    .with(builder.getCacheManager().withAccessTracking("COMPACT", statsProvider))
+                     .withGeneration(generation)
+                     .withoutWriterPool()
+                     .build(this)
+@@ -181,7 +182,7 @@ public class FileStore extends AbstractFileStore {
+ 
+         this.snfeListener = builder.getSnfeListener();
+ 
+-        TimerStats flushTimer = builder.getStatsProvider().getTimer("oak.segment.flush", METRICS_ONLY);
++        TimerStats flushTimer = statsProvider.getTimer("oak.segment.flush", METRICS_ONLY);
+         fileStoreScheduler.scheduleWithFixedDelay(format("TarMK flush [%s]", directory), 5, SECONDS, () -> {
+             Context timer = flushTimer.time();
+             try {

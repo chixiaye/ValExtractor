@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..c174f1d 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2130,7 +2130,8 @@
+      * @since 1.0.13
+      */
+     public void setRangeMinorGridlinesVisible(boolean visible) {
+-        if (this.rangeMinorGridlinesVisible != visible) {
++        boolean rangeMinorGridlinesVisible1 = this.rangeMinorGridlinesVisible;
++        if (rangeMinorGridlinesVisible1 != visible) {
+             this.rangeMinorGridlinesVisible = visible;
+             fireChangeEvent();
+         }

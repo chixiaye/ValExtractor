@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/title/ImageTitle.java b/source/org/jfree/chart/title/ImageTitle.java
+index 61d5d46..082b32c 100644
+--- a/source/org/jfree/chart/title/ImageTitle.java
++++ b/source/org/jfree/chart/title/ImageTitle.java
+@@ -235,11 +235,12 @@
+         leftSpace = padding.calculateLeftOutset(w);
+         rightSpace = padding.calculateRightOutset(w);
+ 
++        double y = chartArea.getY();
+         if (getPosition() == RectangleEdge.TOP) {
+-            startY = chartArea.getY() + topSpace;
++            startY = y + topSpace;
+         }
+         else {
+-            startY = chartArea.getY() + chartArea.getHeight() - bottomSpace - h;
++            startY = y + chartArea.getHeight() - bottomSpace - h;
+         }
+ 
+         // what is our alignment?

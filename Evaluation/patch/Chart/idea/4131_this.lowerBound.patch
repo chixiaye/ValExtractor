@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/statistics/SimpleHistogramBin.java b/source/org/jfree/data/statistics/SimpleHistogramBin.java
+index 9782cd2..e11a838 100644
+--- a/source/org/jfree/data/statistics/SimpleHistogramBin.java
++++ b/source/org/jfree/data/statistics/SimpleHistogramBin.java
+@@ -202,13 +202,14 @@
+         if (Double.isNaN(value)) {
+             return false;
+         }
+-        if (value < this.lowerBound) {
++        double lowerBound1 = this.lowerBound;
++        if (value < lowerBound1) {
+             return false;
+         }
+         if (value > this.upperBound) {
+             return false;
+         }
+-        if (value == this.lowerBound) {
++        if (value == lowerBound1) {
+             return this.includeLowerBound;
+         }
+         if (value == this.upperBound) {

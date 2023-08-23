@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+index 07c0bdc..a8062ee 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+@@ -405,7 +405,8 @@
+         final double a = 1.0 - b;
+ 
+         if (in[0] == 0.0) {
+-            in[0] = in[1];
++            double v = in[1];
++            in[0] = v;
+             in[1] = 0.0;
+         }
+ 

@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..252489e 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1524,11 +1524,12 @@
+     protected void applyToCategoryAxis(CategoryAxis axis) {
+         axis.setLabelFont(this.largeFont);
+         axis.setLabelPaint(this.axisLabelPaint);
+-        axis.setTickLabelFont(this.regularFont);
++        Font regularFont1 = this.regularFont;
++        axis.setTickLabelFont(regularFont1);
+         axis.setTickLabelPaint(this.tickLabelPaint);
+         if (axis instanceof SubCategoryAxis) {
+             SubCategoryAxis sca = (SubCategoryAxis) axis;
+-            sca.setSubLabelFont(this.regularFont);
++            sca.setSubLabelFont(regularFont1);
+             sca.setSubLabelPaint(this.tickLabelPaint);
+         }
+     }

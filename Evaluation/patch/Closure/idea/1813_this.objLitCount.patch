@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/RenamePrototypes.java b/src/com/google/javascript/jscomp/RenamePrototypes.java
+index c051306..c3aaea0 100644
+--- a/src/com/google/javascript/jscomp/RenamePrototypes.java
++++ b/src/com/google/javascript/jscomp/RenamePrototypes.java
+@@ -90,10 +90,11 @@
+     }
+ 
+     boolean canRename() {
+-      if (this.prototypeCount > 0 && this.objLitCount == 0) {
++        int objLitCount1 = this.objLitCount;
++        if (this.prototypeCount > 0 && objLitCount1 == 0) {
+         return canRenamePrototypeProperty();
+       }
+-      if (this.objLitCount > 0 && this.prototypeCount == 0) {
++      if (objLitCount1 > 0 && this.prototypeCount == 0) {
+         return canRenameObjLitProperty();
+       }
+       // We're not sure what kind of property this is, so we're conservative.

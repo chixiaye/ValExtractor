@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/FastScatterPlot.java b/source/org/jfree/chart/plot/FastScatterPlot.java
+index c5a3b1d..9c99fdf 100644
+--- a/source/org/jfree/chart/plot/FastScatterPlot.java
++++ b/source/org/jfree/chart/plot/FastScatterPlot.java
+@@ -208,8 +208,9 @@
+         this.domainAxis.setPlot(this);
+         this.domainAxis.addChangeListener(this);
+         this.rangeAxis = rangeAxis;
+-        this.rangeAxis.setPlot(this);
+-        this.rangeAxis.addChangeListener(this);
++        ValueAxis rangeAxis1 = this.rangeAxis;
++        rangeAxis1.setPlot(this);
++        rangeAxis1.addChangeListener(this);
+ 
+         this.paint = Color.red;
+ 

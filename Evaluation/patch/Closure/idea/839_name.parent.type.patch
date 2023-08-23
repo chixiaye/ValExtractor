@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalNames.java b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+index d035d9d..305a1df 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalNames.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+@@ -273,11 +273,12 @@
+       return false;
+     }
+ 
+-    if (name.parent.type == Name.Type.OBJECTLIT) {
++      Name.Type type = name.parent.type;
++      if (type == Name.Type.OBJECTLIT) {
+       return true;
+     }
+ 
+-    if (name.parent.type == Name.Type.FUNCTION &&
++    if (type == Name.Type.FUNCTION &&
+         name.parent.isDeclaredType() &&
+         !functionPrototypeProps.contains(name.getBaseName())) {
+       return true;

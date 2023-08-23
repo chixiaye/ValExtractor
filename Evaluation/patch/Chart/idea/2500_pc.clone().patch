@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..6125015 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1692,8 +1692,9 @@
+             if (this.baseItemLabelGenerator instanceof PublicCloneable) {
+                 PublicCloneable pc
+                         = (PublicCloneable) this.baseItemLabelGenerator;
++                Object clone1 = pc.clone();
+                 clone.baseItemLabelGenerator
+-                        = (CategoryItemLabelGenerator) pc.clone();
++                        = (CategoryItemLabelGenerator) clone1;
+             }
+             else {
+                 throw new CloneNotSupportedException(

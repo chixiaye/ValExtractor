@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..ef5e74d 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -200,7 +200,8 @@
+             Class c = (Class) stream.readObject();
+             if (c.equals(BasicStroke.class)) {
+                 float width = stream.readFloat();
+-                int cap = stream.readInt();
++                int var_3640 = stream.readInt();
++				int cap = var_3640;
+                 int join = stream.readInt();
+                 float miterLimit = stream.readFloat();
+                 float[] dash = (float[]) stream.readObject();
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..326044f 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -200,8 +200,9 @@
+             Class c = (Class) stream.readObject();
+             if (c.equals(BasicStroke.class)) {
+                 float width = stream.readFloat();
+-                int cap = stream.readInt();
+-                int join = stream.readInt();
++                int var_3640 = stream.readInt();
++				int cap = var_3640;
++                int join = var_3640;
+                 float miterLimit = stream.readFloat();
+                 float[] dash = (float[]) stream.readObject();
+                 float dashPhase = stream.readFloat();
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..e356dff 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -200,8 +200,9 @@
+             Class c = (Class) stream.readObject();
+             if (c.equals(BasicStroke.class)) {
+                 float width = stream.readFloat();
+-                int cap = stream.readInt();
+-                int join = stream.readInt();
++                int i = stream.readInt();
++                int cap = i;
++                int join = i;
+                 float miterLimit = stream.readFloat();
+                 float[] dash = (float[]) stream.readObject();
+                 float dashPhase = stream.readFloat();

@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..7f37dd1 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -411,6 +411,7 @@
+         int depth = 0;
+         while (pos.getIndex() < pattern.length()) {
+             final char c = pattern.charAt(pos.getIndex());
++            ParsePosition next = next(pos);
+             switch (c) {
+             case QUOTE:
+                 appendQuotedString(pattern, pos, sb, false);
+@@ -420,7 +421,7 @@
+                 if (depth == 1) {
+                     fe++;
+                     sb.append(START_FE).append(
+-                            readArgumentIndex(pattern, next(pos)));
++                            readArgumentIndex(pattern, next));
+                     final String customPattern = customPatterns.get(fe);
+                     if (customPattern != null) {
+                         sb.append(START_FMT).append(customPattern);
+@@ -432,7 +433,7 @@
+                 //$FALL-THROUGH$
+             default:
+                 sb.append(c);
+-                next(pos);
++                next;
+             }
+         }
+         return sb.toString();

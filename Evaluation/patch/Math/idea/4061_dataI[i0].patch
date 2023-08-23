@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+index 22d8a3d..c3d2e85 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+@@ -289,7 +289,8 @@
+                 final int i3 = i0 + 3;
+ 
+                 final double srcR0 = dataR[i0];
+-                final double srcI0 = dataI[i0];
++                double v = dataI[i0];
++                final double srcI0 = v;
+                 final double srcR1 = dataR[i2];
+                 final double srcI1 = dataI[i2];
+                 final double srcR2 = dataR[i1];

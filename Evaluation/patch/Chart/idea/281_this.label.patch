@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..1b2fb0e 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -392,7 +392,8 @@
+      */
+     public void setLabel(String label) {
+ 
+-        String existing = this.label;
++        String label1 = this.label;
++        String existing = label1;
+         if (existing != null) {
+             if (!existing.equals(label)) {
+                 this.label = label;

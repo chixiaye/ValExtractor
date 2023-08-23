@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+index 813f094..43bfddb 100644
+--- a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
++++ b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+@@ -105,12 +105,13 @@
+         }
+         double sumSq = 0.0d;
+         for (int i = 0; i < observed.length; i++) {
++            double v = expected[i];
+             if (rescale) {
+-                final double dev = observed[i] - ratio * expected[i];
+-                sumSq += dev * dev / (ratio * expected[i]);
++                final double dev = observed[i] - ratio * v;
++                sumSq += dev * dev / (ratio * v);
+             } else {
+-                final double dev = observed[i] - expected[i];
+-                sumSq += dev * dev / expected[i];
++                final double dev = observed[i] - v;
++                sumSq += dev * dev / v;
+             }
+         }
+         return sumSq;

@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+index 3359942..6f9a39f 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+@@ -47,7 +47,8 @@
+     public <V> V of(final String variable, final V value) {
+         if (null == MAP.get())
+             MAP.set(new HashMap<>());
+-        MAP.get().put(value, variable);
++        Map<Object, String> map = MAP.get();
++		map.put(value, variable);
+         return value;
+     }
+ 

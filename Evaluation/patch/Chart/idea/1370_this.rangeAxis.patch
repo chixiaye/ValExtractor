@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/plot/FastScatterPlot.java b/source/org/jfree/chart/plot/FastScatterPlot.java
+index c5a3b1d..bd486d2 100644
+--- a/source/org/jfree/chart/plot/FastScatterPlot.java
++++ b/source/org/jfree/chart/plot/FastScatterPlot.java
+@@ -981,16 +981,17 @@
+      */
+     public void panRangeAxes(double percent, PlotRenderingInfo info,
+             Point2D source) {
+-        if (!isRangePannable() || this.rangeAxis == null) {
++        ValueAxis rangeAxis1 = this.rangeAxis;
++        if (!isRangePannable() || rangeAxis1 == null) {
+             return;
+         }
+-        double length = this.rangeAxis.getRange().getLength();
++        double length = rangeAxis1.getRange().getLength();
+         double adj = percent * length;
+-        if (this.rangeAxis.isInverted()) {
++        if (rangeAxis1.isInverted()) {
+             adj = -adj;
+         }
+-        this.rangeAxis.setRange(this.rangeAxis.getLowerBound() + adj,
+-                this.rangeAxis.getUpperBound() + adj);
++        rangeAxis1.setRange(rangeAxis1.getLowerBound() + adj,
++                rangeAxis1.getUpperBound() + adj);
+     }
+ 
+     /**

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/xml/ValueHandler.java b/source/org/jfree/data/xml/ValueHandler.java
+index 274deeb..0752840 100644
+--- a/source/org/jfree/data/xml/ValueHandler.java
++++ b/source/org/jfree/data/xml/ValueHandler.java
+@@ -137,8 +137,9 @@
+      * @param length  the length of the valid character data.
+      */
+     public void characters(char[] ch, int start, int length) {
+-        if (this.currentText != null) {
+-            this.currentText.append(String.copyValueOf(ch, start, length));
++        StringBuffer currentText1 = this.currentText;
++        if (currentText1 != null) {
++            currentText1.append(String.copyValueOf(ch, start, length));
+         }
+     }
+ 

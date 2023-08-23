@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..75071da 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -179,7 +179,8 @@
+      * @see #getRangeDescription()
+      */
+     public void setRangeDescription(String description) {
+-        String old = this.range;
++        String range1 = this.range;
++        String old = range1;
+         this.range = description;
+         firePropertyChange("Range", old, description);
+     }

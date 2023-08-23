@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+index a2ea88e..25f1071 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+@@ -185,6 +185,7 @@
+                     for (int i = 0; i <= iu; i++) {
+                         z = matrixT[i][iu - 1];
+                         matrixT[i][iu - 1] = q * z + p * matrixT[i][iu];
++                        double v = matrixT[i][iu];
+                         matrixT[i][iu] = q * matrixT[i][iu] - p * z;
+                     }
+ 

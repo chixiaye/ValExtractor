@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+index 3e7fff7..53c4936 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+@@ -707,7 +707,8 @@
+         if (source.max == source.maxImpl) {
+             dest.max = (Max) dest.maxImpl;
+         } else {
+-            Max.copy(source.max, dest.max);
++            Max max1 = dest.max;
++            Max.copy(source.max, max1);
+         }
+         if (source.mean == source.meanImpl) {
+             dest.mean = (Mean) dest.meanImpl;

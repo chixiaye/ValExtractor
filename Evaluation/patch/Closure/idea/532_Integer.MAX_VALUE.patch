@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/ScopedAliases.java b/src/com/google/javascript/jscomp/ScopedAliases.java
+index e2f0538..7cbdbf2 100644
+--- a/src/com/google/javascript/jscomp/ScopedAliases.java
++++ b/src/com/google/javascript/jscomp/ScopedAliases.java
+@@ -283,8 +283,9 @@
+         testNode = testNode.getParent();
+       }
+ 
+-      int endLine = next == null ? Integer.MAX_VALUE : next.getLineno();
+-      int endChar = next == null ? Integer.MAX_VALUE : next.getCharno();
++        int maxValue = Integer.MAX_VALUE;
++        int endLine = next == null ? maxValue : next.getLineno();
++      int endChar = next == null ? maxValue : next.getCharno();
+       SourcePosition<AliasTransformation> pos =
+           new SourcePosition<AliasTransformation>() {};
+       pos.setPositionInformation(

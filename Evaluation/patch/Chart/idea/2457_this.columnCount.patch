@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..6ea4057 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -860,6 +860,7 @@
+         setPlot(plot);
+         if (dataset != null) {
+             this.rowCount = dataset.getRowCount();
++            int columnCount1 = this.columnCount;
+             this.columnCount = dataset.getColumnCount();
+         }
+         else {

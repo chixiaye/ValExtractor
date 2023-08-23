@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..c993f77 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -138,9 +138,10 @@
+ 
+         result = new Dfp[2];
+ 
+-        result[0] = a[0].divide(b[0]);
+-        result[1] = a[1].multiply(b[0]).subtract(a[0].multiply(b[1]));
+-        result[1] = result[1].divide(b[0].multiply(b[0]).add(b[0].multiply(b[1])));
++        Dfp dfp = b[0];
++        result[0] = a[0].divide(dfp);
++        result[1] = a[1].multiply(dfp).subtract(a[0].multiply(b[1]));
++        result[1] = result[1].divide(dfp.multiply(dfp).add(dfp.multiply(b[1])));
+ 
+         return result;
+     }

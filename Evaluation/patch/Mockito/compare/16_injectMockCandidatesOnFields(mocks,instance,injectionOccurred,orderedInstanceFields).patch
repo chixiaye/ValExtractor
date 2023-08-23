@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+index 67126af..9d303d2 100644
+--- a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
++++ b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+@@ -102,7 +102,8 @@
+         boolean injectionOccurred = false;
+         List<Field> orderedInstanceFields = orderedInstanceFieldsFrom(awaitingInjectionClazz);
+         // pass 1
+-        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        boolean var_16 = injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++		injectionOccurred |= var_16;
+         // pass 2
+         injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
+         return injectionOccurred;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+index 67126af..4dec392 100644
+--- a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
++++ b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+@@ -102,9 +102,10 @@
+         boolean injectionOccurred = false;
+         List<Field> orderedInstanceFields = orderedInstanceFieldsFrom(awaitingInjectionClazz);
+         // pass 1
+-        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        boolean var_16 = injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++		injectionOccurred |= var_16;
+         // pass 2
+-        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        injectionOccurred |= var_16;
+         return injectionOccurred;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+index 67126af..e8cb3a1 100644
+--- a/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
++++ b/src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java
+@@ -102,9 +102,10 @@
+         boolean injectionOccurred = false;
+         List<Field> orderedInstanceFields = orderedInstanceFieldsFrom(awaitingInjectionClazz);
+         // pass 1
+-        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        boolean injectionOccurred1 = injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        injectionOccurred |= injectionOccurred1;
+         // pass 2
+-        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
++        injectionOccurred |= injectionOccurred1;
+         return injectionOccurred;
+     }
+ 

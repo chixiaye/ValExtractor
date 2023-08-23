@@ -1,0 +1,56 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..a88da08 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -291,8 +291,9 @@
+      */
+     public LegendItemCollection getLegendCollection() {
+         LegendItemCollection result = new LegendItemCollection();
+-        if (this.paintIndex != null && this.paintIndex.size() > 0) {
+-            if (this.paintIndex.size() <= this.paintLimit) {
++        int var_2363 = this.paintIndex.size();
++		if (this.paintIndex != null && var_2363 > 0) {
++            if (var_2363 <= this.paintLimit) {
+                 for (Iterator i = this.paintIndex.entrySet().iterator();
+                      i.hasNext();) {
+                     // in this case, every color has a unique value
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..a2e824a 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -291,8 +291,10 @@
+      */
+     public LegendItemCollection getLegendCollection() {
+         LegendItemCollection result = new LegendItemCollection();
+-        if (this.paintIndex != null && this.paintIndex.size() > 0) {
+-            if (this.paintIndex.size() <= this.paintLimit) {
++        if (this.paintIndex != null) {
++            int size = this.paintIndex.size();
++            if (size > 0) {
++                if (size <= this.paintLimit) {
+                 for (Iterator i = this.paintIndex.entrySet().iterator();
+                      i.hasNext();) {
+                     // in this case, every color has a unique value
+@@ -309,8 +311,7 @@
+                             null, shape, paint, outlineStroke, outlinePaint));
+ 
+                 }
+-            }
+-            else {
++                } else {
+                 // in this case, every color has a range of values
+                 Set unique = new HashSet();
+                 for (Iterator i = this.paintIndex.entrySet().iterator();
+@@ -336,6 +337,7 @@
+                 } // end foreach map entry
+             } // end else
+         }
++        }
+         return result;
+     }
+ 

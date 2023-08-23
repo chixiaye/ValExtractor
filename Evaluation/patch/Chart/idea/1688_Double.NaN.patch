@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..87e0b82 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3265,8 +3265,9 @@
+         crosshairState.setCrosshairDistance(Double.POSITIVE_INFINITY);
+         crosshairState.setAnchor(anchor);
+ 
+-        crosshairState.setAnchorX(Double.NaN);
+-        crosshairState.setAnchorY(Double.NaN);
++        double naN = Double.NaN;
++        crosshairState.setAnchorX(naN);
++        crosshairState.setAnchorY(naN);
+         if (anchor != null) {
+             ValueAxis domainAxis = getDomainAxis();
+             if (domainAxis != null) {

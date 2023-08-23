@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/DefaultHighLowDataset.java b/source/org/jfree/data/xy/DefaultHighLowDataset.java
+index 3a05299..fad7431 100644
+--- a/source/org/jfree/data/xy/DefaultHighLowDataset.java
++++ b/source/org/jfree/data/xy/DefaultHighLowDataset.java
+@@ -112,6 +112,7 @@
+             throw new IllegalArgumentException("Null 'date' argument.");
+         }
+         this.seriesKey = seriesKey;
++        Date[] date1 = this.date;
+         this.date = date;
+         this.selected = new boolean[this.date.length];
+         this.high = createNumberArray(high);

@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..6d5ae7a 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3163,17 +3163,18 @@
+         }
+ 
+         // reserve some space for the range axis...
+-        if (this.fixedRangeAxisSpace != null) {
++        AxisSpace fixedRangeAxisSpace1 = this.fixedRangeAxisSpace;
++        if (fixedRangeAxisSpace1 != null) {
+             if (this.orientation == PlotOrientation.HORIZONTAL) {
+-                space.ensureAtLeast(this.fixedRangeAxisSpace.getTop(),
++                space.ensureAtLeast(fixedRangeAxisSpace1.getTop(),
+                         RectangleEdge.TOP);
+-                space.ensureAtLeast(this.fixedRangeAxisSpace.getBottom(),
++                space.ensureAtLeast(fixedRangeAxisSpace1.getBottom(),
+                         RectangleEdge.BOTTOM);
+             }
+             else if (this.orientation == PlotOrientation.VERTICAL) {
+-                space.ensureAtLeast(this.fixedRangeAxisSpace.getLeft(),
++                space.ensureAtLeast(fixedRangeAxisSpace1.getLeft(),
+                         RectangleEdge.LEFT);
+-                space.ensureAtLeast(this.fixedRangeAxisSpace.getRight(),
++                space.ensureAtLeast(fixedRangeAxisSpace1.getRight(),
+                         RectangleEdge.RIGHT);
+             }
+         }

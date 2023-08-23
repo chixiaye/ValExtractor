@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..766acb7 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4722,7 +4722,8 @@
+      * @see #isDomainCrosshairLockedOnData()
+      */
+     public void setDomainCrosshairLockedOnData(boolean flag) {
+-        if (this.domainCrosshairLockedOnData != flag) {
++        boolean domainCrosshairLockedOnData1 = this.domainCrosshairLockedOnData;
++        if (domainCrosshairLockedOnData1 != flag) {
+             this.domainCrosshairLockedOnData = flag;
+             fireChangeEvent();
+         }

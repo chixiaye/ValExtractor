@@ -1,0 +1,47 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..fe4235e 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1747,12 +1747,13 @@
+     int ordinal = 0;
+     Node parameter = null;
+     Node argument = null;
++    boolean var_1020 = parameters.hasNext();
+     while (arguments.hasNext() &&
+-           (parameters.hasNext() ||
++           (var_1020 ||
+             parameter != null && parameter.isVarArgs())) {
+       // If there are no parameters left in the list, then the while loop
+       // above implies that this must be a var_args function.
+-      if (parameters.hasNext()) {
++      if (var_1020) {
+         parameter = parameters.next();
+       }
+       argument = arguments.next();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..b52077b 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1747,12 +1747,13 @@
+     int ordinal = 0;
+     Node parameter = null;
+     Node argument = null;
+-    while (arguments.hasNext() &&
+-           (parameters.hasNext() ||
+-            parameter != null && parameter.isVarArgs())) {
++    while (arguments.hasNext()) {
++        boolean b = parameters.hasNext();
++        if (!(b ||
++                    parameter != null && parameter.isVarArgs())) break;
+       // If there are no parameters left in the list, then the while loop
+       // above implies that this must be a var_args function.
+-      if (parameters.hasNext()) {
++      if (b) {
+         parameter = parameters.next();
+       }
+       argument = arguments.next();

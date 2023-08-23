@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..60ac881 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -786,6 +786,7 @@
+ 
+         this.overlays = new java.util.ArrayList();
+ 
++        List availableMouseHandlers1 = this.availableMouseHandlers;
+         this.availableMouseHandlers = new java.util.ArrayList();
+ 
+         this.zoomHandler = new ZoomHandler();

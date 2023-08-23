@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/axis/CategoryAxis.java b/source/org/jfree/chart/axis/CategoryAxis.java
+index 9c5f5bc..17a69f8 100644
+--- a/source/org/jfree/chart/axis/CategoryAxis.java
++++ b/source/org/jfree/chart/axis/CategoryAxis.java
+@@ -479,11 +479,12 @@
+         if (category == null) {
+             throw new IllegalArgumentException("Null 'category' argument.");
+         }
++        Map tickLabelPaintMap1 = this.tickLabelPaintMap;
+         if (paint == null) {
+-            this.tickLabelPaintMap.remove(category);
++            tickLabelPaintMap1.remove(category);
+         }
+         else {
+-            this.tickLabelPaintMap.put(category, paint);
++            tickLabelPaintMap1.put(category, paint);
+         }
+         notifyListeners(new AxisChangeEvent(this));
+     }

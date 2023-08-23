@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..05d6d5a 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -384,7 +384,8 @@
+                     plot.getRangeAxisEdge());
+ 
+             // avoid possible sun.dc.pr.PRException: endPath: bad path
+-            transY2 = restrictValueToDataArea(transY2, plot, dataArea);
++            double transY21 = restrictValueToDataArea(transY2, plot, dataArea);
++            transY2 = transY21;
+ 
+             // The first point is (x, this.baseYValue)
+             if (orientation == PlotOrientation.VERTICAL) {

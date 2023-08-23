@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..c898c58 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -618,7 +618,8 @@
+                 for (int item = 0; item < highLowDataset.getItemCount(series);
+                      item++) {
+                     double volume = highLowDataset.getVolumeValue(series, item);
+-                    if (volume > this.maxVolume) {
++                    double maxVolume1 = this.maxVolume;
++                    if (volume > maxVolume1) {
+                         this.maxVolume = volume;
+                     }
+ 

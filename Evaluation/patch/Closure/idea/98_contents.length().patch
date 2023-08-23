@@ -1,0 +1,20 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..7b11ad1 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -58,12 +58,13 @@
+ 
+     /** Reads a line, returning null at EOF. */
+     String readLineOrNull() {
+-      if (currentPosition >= contents.length()) {
++        int length = contents.length();
++        if (currentPosition >= length) {
+         return null;
+       }
+       int index = contents.indexOf('\n', currentPosition);
+       if (index < 0) {
+-        index = contents.length();
++        index = length;
+       }
+       String line = contents.substring(currentPosition, index);
+       currentPosition = index + 1;

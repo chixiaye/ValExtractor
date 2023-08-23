@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+index 51e7778..40de11e 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+@@ -133,7 +133,8 @@
+                                                    new BSPTree<Euclidean2D>(l2DMinus, new BSPTree<Euclidean2D>(Boolean.FALSE),
+                                                                             splitTree.getMinus(), null);
+ 
+-        return new SplitSubHyperplane<Euclidean3D>(new SubPlane(thisPlane.copySelf(), new PolygonsSet(plusTree)),
++        Plane var_1474 = thisPlane.copySelf();
++		return new SplitSubHyperplane<Euclidean3D>(new SubPlane(var_1474, new PolygonsSet(plusTree)),
+                                                    new SubPlane(thisPlane.copySelf(), new PolygonsSet(minusTree)));
+ 
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+index 51e7778..d61654b 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+@@ -133,8 +133,9 @@
+                                                    new BSPTree<Euclidean2D>(l2DMinus, new BSPTree<Euclidean2D>(Boolean.FALSE),
+                                                                             splitTree.getMinus(), null);
+ 
+-        return new SplitSubHyperplane<Euclidean3D>(new SubPlane(thisPlane.copySelf(), new PolygonsSet(plusTree)),
+-                                                   new SubPlane(thisPlane.copySelf(), new PolygonsSet(minusTree)));
++        Plane var_1474 = thisPlane.copySelf();
++		return new SplitSubHyperplane<Euclidean3D>(new SubPlane(var_1474, new PolygonsSet(plusTree)),
++                                                   new SubPlane(var_1474, new PolygonsSet(minusTree)));
+ 
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+index 51e7778..11b4b7d 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java
+@@ -133,8 +133,9 @@
+                                                    new BSPTree<Euclidean2D>(l2DMinus, new BSPTree<Euclidean2D>(Boolean.FALSE),
+                                                                             splitTree.getMinus(), null);
+ 
+-        return new SplitSubHyperplane<Euclidean3D>(new SubPlane(thisPlane.copySelf(), new PolygonsSet(plusTree)),
+-                                                   new SubPlane(thisPlane.copySelf(), new PolygonsSet(minusTree)));
++        Plane hyperplane1 = thisPlane.copySelf();
++        return new SplitSubHyperplane<Euclidean3D>(new SubPlane(hyperplane1, new PolygonsSet(plusTree)),
++                                                   new SubPlane(hyperplane1, new PolygonsSet(minusTree)));
+ 
+     }
+ 

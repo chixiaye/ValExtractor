@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/xy/XYIntervalSeriesCollection.java b/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
+index 9438968..d7f1850 100644
+--- a/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
++++ b/source/org/jfree/data/xy/XYIntervalSeriesCollection.java
+@@ -340,11 +340,12 @@
+     public void removeAllSeries() {
+         // Unregister the collection as a change listener to each series in
+         // the collection.
+-        for (int i = 0; i < this.data.size(); i++) {
+-          XYIntervalSeries series = (XYIntervalSeries) this.data.get(i);
++        List data1 = this.data;
++        for (int i = 0; i < data1.size(); i++) {
++          XYIntervalSeries series = (XYIntervalSeries) data1.get(i);
+           series.removeChangeListener(this);
+         }
+-        this.data.clear();
++        data1.clear();
+         fireDatasetChanged(new DatasetChangeInfo());
+         //TODO: fill in real change info
+     }

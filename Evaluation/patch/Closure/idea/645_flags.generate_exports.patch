@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
+index 2d3b139..9b3b41a 100644
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
+@@ -773,8 +773,9 @@
+       level.setTypeBasedOptimizationOptions(options);
+     }
+ 
+-    if (flags.generate_exports) {
+-      options.setGenerateExports(flags.generate_exports);
++      boolean generateExports = flags.generate_exports;
++      if (generateExports) {
++      options.setGenerateExports(generateExports);
+     }
+ 
+     WarningLevel wLevel = flags.warning_level;

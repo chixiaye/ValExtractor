@@ -1,0 +1,17 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+index 33599421b6..0af728be23 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/Bindings.java
+@@ -45,9 +45,10 @@ public final class Bindings {
+     private static final ThreadLocal<Map<Object, String>> MAP = new ThreadLocal<>();
+ 
+     public <V> V of(final String variable, final V value) {
+-        if (null == MAP.get())
++        Map<Object, String> map = MAP.get();
++        if (null == map)
+             MAP.set(new HashMap<>());
+-        MAP.get().put(value, variable);
++        map.put(value, variable);
+         return value;
+     }
+ 

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..ce41b17 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2543,9 +2543,10 @@
+      */
+     public void clearDomainMarkers(int index) {
+         Integer key = new Integer(index);
+-        if (this.backgroundDomainMarkers != null) {
++        Map backgroundDomainMarkers1 = this.backgroundDomainMarkers;
++        if (backgroundDomainMarkers1 != null) {
+             Collection markers
+-                = (Collection) this.backgroundDomainMarkers.get(key);
++                = (Collection) backgroundDomainMarkers1.get(key);
+             if (markers != null) {
+                 Iterator iterator = markers.iterator();
+                 while (iterator.hasNext()) {

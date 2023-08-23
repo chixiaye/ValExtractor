@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java b/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
+index 74f6ff1..73af849 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/AbstractSimplex.java
+@@ -250,7 +250,8 @@
+             final PointValuePair vertex = simplex[i];
+             final double[] point = vertex.getPointRef();
+             if (Double.isNaN(vertex.getValue())) {
+-                simplex[i] = new PointValuePair(point, evaluationFunction.value(point), false);
++                PointValuePair simplex1 = simplex[i];
++                simplex1 = new PointValuePair(point, evaluationFunction.value(point), false);
+             }
+         }
+ 

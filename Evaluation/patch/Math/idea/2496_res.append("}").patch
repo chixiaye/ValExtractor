@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..6ff4b95 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -953,6 +953,7 @@
+         String shortClassName = fullClassName.substring(fullClassName.lastIndexOf('.') + 1);
+         res.append(shortClassName).append("{");
+ 
++        StringBuffer append = res.append("}");
+         for (int i = 0; i < nRows; ++i) {
+             if (i > 0) {
+                 res.append(",");
+@@ -964,10 +965,10 @@
+                 }
+                 res.append(getEntry(i, j));
+             }
+-            res.append("}");
++            append;
+         }
+ 
+-        res.append("}");
++        append;
+         return res.toString();
+     }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..84e4e5b 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -471,7 +471,8 @@
+     parent = null;
+     if (children.length != 0) {
+       this.first = children[0];
+-      this.last = children[children.length - 1];
++        Node last1 = this.last;
++        this.last = children[children.length - 1];
+ 
+       for (int i = 1; i < children.length; i++) {
+         if (null != children[i - 1].next) {

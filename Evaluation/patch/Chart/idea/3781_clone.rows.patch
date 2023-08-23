@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/KeyedObjects2D.java b/source/org/jfree/data/KeyedObjects2D.java
+index 9d812bc..18cd1fc 100644
+--- a/source/org/jfree/data/KeyedObjects2D.java
++++ b/source/org/jfree/data/KeyedObjects2D.java
+@@ -510,7 +510,8 @@
+         KeyedObjects2D clone = (KeyedObjects2D) super.clone();
+         clone.columnKeys = new java.util.ArrayList(this.columnKeys);
+         clone.rowKeys = new java.util.ArrayList(this.rowKeys);
+-        clone.rows = new java.util.ArrayList(this.rows.size());
++        List rows1 = clone.rows;
++        rows1 = new java.util.ArrayList(this.rows.size());
+         Iterator iterator = this.rows.iterator();
+         while (iterator.hasNext()) {
+             KeyedObjects row = (KeyedObjects) iterator.next();

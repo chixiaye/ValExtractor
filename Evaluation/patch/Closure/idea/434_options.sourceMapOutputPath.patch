@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..9e46b2b 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1029,8 +1029,9 @@
+    * source map pattern include the %outname% variable.
+    */
+   private boolean shouldGenerateMapPerModule(B options) {
+-    return options.sourceMapOutputPath != null
+-        && options.sourceMapOutputPath.contains("%outname%");
++      String sourceMapOutputPath = options.sourceMapOutputPath;
++      return sourceMapOutputPath != null
++        && sourceMapOutputPath.contains("%outname%");
+   }
+ 
+   /**

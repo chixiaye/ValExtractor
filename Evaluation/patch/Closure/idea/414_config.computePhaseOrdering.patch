@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..7a977b9 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -373,7 +373,8 @@
+   final public void run() {
+     int result = 0;
+     int runs = 1;
+-    if (config.computePhaseOrdering) {
++      boolean computePhaseOrdering = config.computePhaseOrdering;
++      if (computePhaseOrdering) {
+       runs = NUM_RUNS_TO_DETERMINE_OPTIMAL_ORDER;
+       PhaseOptimizer.randomizeLoops();
+     }
+@@ -391,7 +392,7 @@
+       result = -2;
+     }
+ 
+-    if (config.computePhaseOrdering) {
++    if (computePhaseOrdering) {
+       runTimeStats.outputBestPhaseOrdering();
+     }
+ 

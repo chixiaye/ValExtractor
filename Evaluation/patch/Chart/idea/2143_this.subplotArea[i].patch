@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java b/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
+index 439eb47..50188f2 100644
+--- a/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedRangeCategoryPlot.java
+@@ -300,7 +300,8 @@
+             // calculate sub-plot area
+             if (orientation == PlotOrientation.VERTICAL) {
+                 double w = usableSize * plot.getWeight() / totalWeight;
+-                this.subplotArea[i] = new Rectangle2D.Double(x, y, w,
++                Rectangle2D rectangle2D = this.subplotArea[i];
++                rectangle2D = new Rectangle2D.Double(x, y, w,
+                         adjustedPlotArea.getHeight());
+                 x = x + w + this.gap;
+             }

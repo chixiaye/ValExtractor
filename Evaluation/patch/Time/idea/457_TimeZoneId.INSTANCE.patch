@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..4461b79 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -1065,7 +1065,8 @@
+      * @return this DateTimeFormatterBuilder, for chaining
+      */
+     public DateTimeFormatterBuilder appendTimeZoneId() {
+-        return append0(TimeZoneId.INSTANCE, TimeZoneId.INSTANCE);
++        TimeZoneId instance = TimeZoneId.INSTANCE;
++        return append0(instance, instance);
+     }
+ 
+     /**

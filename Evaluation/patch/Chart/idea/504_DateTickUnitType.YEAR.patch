@@ -1,0 +1,38 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..f9f8eac 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1250,20 +1250,21 @@
+                 DateTickUnitType.MONTH, 1, f6));
+ 
+         // years
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 1,
++        DateTickUnitType year = DateTickUnitType.YEAR;
++        units.add(new DateTickUnit(year, 1,
+                 DateTickUnitType.MONTH, 1, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 2,
++        units.add(new DateTickUnit(year, 2,
+                 DateTickUnitType.MONTH, 3, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 5,
+-                DateTickUnitType.YEAR, 1, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 10,
+-                DateTickUnitType.YEAR, 1, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 25,
+-                DateTickUnitType.YEAR, 5, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 50,
+-                DateTickUnitType.YEAR, 10, f7));
+-        units.add(new DateTickUnit(DateTickUnitType.YEAR, 100,
+-                DateTickUnitType.YEAR, 20, f7));
++        units.add(new DateTickUnit(year, 5,
++                year, 1, f7));
++        units.add(new DateTickUnit(year, 10,
++                year, 1, f7));
++        units.add(new DateTickUnit(year, 25,
++                year, 5, f7));
++        units.add(new DateTickUnit(year, 50,
++                year, 10, f7));
++        units.add(new DateTickUnit(year, 100,
++                year, 20, f7));
+ 
+         return units;
+ 

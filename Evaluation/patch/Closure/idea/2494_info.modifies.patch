@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..bcd31c8 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -744,7 +744,8 @@
+     lazyInitInfo();
+ 
+     if (info.modifies == null) {
+-      info.modifies = Sets.newHashSet();
++        Set<String> modifies1 = info.modifies;
++        modifies1 = Sets.newHashSet();
+     }
+     info.modifies.add(modifies);
+   }

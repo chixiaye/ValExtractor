@@ -1,0 +1,34 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..5a1904e 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -328,15 +328,16 @@
+      * @return argument index
+      */
+     private int readArgumentIndex(final String pattern, final ParsePosition pos) {
+-        final int start = pos.getIndex();
++        int index = pos.getIndex();
++        final int start = index;
+         seekNonWs(pattern, pos);
+         final StringBuilder result = new StringBuilder();
+         boolean error = false;
+-        for (; !error && pos.getIndex() < pattern.length(); next(pos)) {
+-            char c = pattern.charAt(pos.getIndex());
++        for (; !error && index < pattern.length(); next(pos)) {
++            char c = pattern.charAt(index);
+             if (Character.isWhitespace(c)) {
+                 seekNonWs(pattern, pos);
+-                c = pattern.charAt(pos.getIndex());
++                c = pattern.charAt(index);
+                 if (c != START_FMT && c != END_FE) {
+                     error = true;
+                     continue;
+@@ -356,7 +357,7 @@
+         if (error) {
+             throw new IllegalArgumentException(
+                     "Invalid format argument index at position " + start + ": "
+-                            + pattern.substring(start, pos.getIndex()));
++                            + pattern.substring(start, index));
+         }
+         throw new IllegalArgumentException(
+                 "Unterminated format element at position " + start);

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/title/Title.java b/source/org/jfree/chart/title/Title.java
+index 8774f91..cb0f121 100644
+--- a/source/org/jfree/chart/title/Title.java
++++ b/source/org/jfree/chart/title/Title.java
+@@ -306,7 +306,8 @@
+         if (alignment == null) {
+             throw new IllegalArgumentException("Null 'alignment' argument.");
+         }
+-        if (this.verticalAlignment != alignment) {
++        VerticalAlignment verticalAlignment1 = this.verticalAlignment;
++        if (verticalAlignment1 != alignment) {
+             this.verticalAlignment = alignment;
+             notifyListeners(new TitleChangeEvent(this));
+         }

@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..09812f5 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -705,17 +705,18 @@
+ 
+           String name = currentNode.getQualifiedName();
+           if (name != null) {
+-            Symbol namespace =
+-                isAnySymbolDeclared(name, currentNode, root.scope);
++              SymbolScope scope = root.scope;
++              Symbol namespace =
++                isAnySymbolDeclared(name, currentNode, scope);
+             if (namespace == null) {
+-              namespace = root.scope.getQualifiedSlot(name);
++              namespace = scope.getQualifiedSlot(name);
+             }
+ 
+-            if (namespace == null && root.scope.isGlobalScope()) {
++            if (namespace == null && scope.isGlobalScope()) {
+               namespace = declareSymbol(name,
+                   registry.getNativeType(JSTypeNative.UNKNOWN_TYPE),
+                   true,
+-                  root.scope,
++                      scope,
+                   currentNode,
+                   null /* JsDoc info */);
+             }

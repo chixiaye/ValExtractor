@@ -1,0 +1,45 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalThis.java b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+index 3d8e0f1..e941c67 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalThis.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+@@ -112,9 +112,10 @@
+       Node gramps = parent.getParent();
+       if (NodeUtil.isObjectLitKey(parent, gramps)) {
+         JSDocInfo maybeLends = gramps.getJSDocInfo();
++        String var_270 = maybeLends.getLendsName();
+         if (maybeLends != null &&
+-            maybeLends.getLendsName() != null &&
+-            maybeLends.getLendsName().endsWith(".prototype")) {
++            var_270 != null &&
++            var_270.endsWith(".prototype")) {
+           return false;
+         }
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalThis.java b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+index 3d8e0f1..a97bf79 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalThis.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalThis.java
+@@ -112,13 +112,15 @@
+       Node gramps = parent.getParent();
+       if (NodeUtil.isObjectLitKey(parent, gramps)) {
+         JSDocInfo maybeLends = gramps.getJSDocInfo();
+-        if (maybeLends != null &&
+-            maybeLends.getLendsName() != null &&
+-            maybeLends.getLendsName().endsWith(".prototype")) {
++        if (maybeLends != null) {
++            String lendsName = maybeLends.getLendsName();
++            if (lendsName != null &&
++                    lendsName.endsWith(".prototype")) {
+           return false;
+         }
+       }
+     }
++    }
+ 
+     if (parent != null && parent.isAssign()) {
+       Node lhs = parent.getFirstChild();

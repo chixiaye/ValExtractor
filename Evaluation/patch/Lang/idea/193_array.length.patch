@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..95c20ad 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -3141,13 +3141,14 @@
+      * @return a {@code Float} array, {@code null} if null array input
+      */
+     public static Float[] toObject(final float[] array) {
++        int length = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (length == 0) {
+             return EMPTY_FLOAT_OBJECT_ARRAY;
+         }
+-        final Float[] result = new Float[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final Float[] result = new Float[length];
++        for (int i = 0; i < length; i++) {
+             result[i] = Float.valueOf(array[i]);
+         }
+         return result;

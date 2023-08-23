@@ -1,0 +1,46 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..7dfb38e 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -232,8 +232,9 @@
+         List l = (List) this.data.getObject(row, column);
+         double average = 0.0d;
+         int count = 0;
+-        if (l != null && l.size() > 0) {
+-            for (int i = 0; i < l.size(); i++) {
++        int var_4016 = l.size();
++		if (l != null && var_4016 > 0) {
++            for (int i = 0; i < var_4016; i++) {
+                 Number n = (Number) l.get(i);
+                 average += n.doubleValue();
+                 count += 1;
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..cf7f047 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -232,8 +232,10 @@
+         List l = (List) this.data.getObject(row, column);
+         double average = 0.0d;
+         int count = 0;
+-        if (l != null && l.size() > 0) {
+-            for (int i = 0; i < l.size(); i++) {
++        if (l != null) {
++            int size = l.size();
++            if (size > 0) {
++                for (int i = 0; i < size; i++) {
+                 Number n = (Number) l.get(i);
+                 average += n.doubleValue();
+                 count += 1;
+@@ -242,6 +244,7 @@
+                 average = average / count;
+             }
+         }
++        }
+         if (count == 0) {
+             return null;
+         }

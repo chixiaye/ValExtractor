@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..46588f8 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1111,17 +1111,18 @@
+                     final Dfp half = newInstance("0.5");
+                     Dfp a = subtract(result);  // difference between this and result
+                     a.sign = 1;            // force positive (take abs)
++                    Dfp add = result.add(a);
+                     if (a.greaterThan(half)) {
+                         a = newInstance(getOne());
+                         a.sign = sign;
+-                        result = result.add(a);
++                        result = add;
+                     }
+ 
+                     /** If exactly equal to 1/2 and odd then increment */
+                     if (a.equals(half) && result.exp > 0 && (result.mant[mant.length-result.exp]&1) != 0) {
+                         a = newInstance(getOne());
+                         a.sign = sign;
+-                        result = result.add(a);
++                        result = add;
+                     }
+                     break;
+             }

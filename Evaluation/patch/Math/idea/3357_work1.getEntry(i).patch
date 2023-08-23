@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..7231642 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -606,7 +606,8 @@
+                     }
+                     for (int i = 0; i < n; i++) {
+                         final int ip = i + npt;
+-                        final double temp = work1.getEntry(i);
++                        double entry = work1.getEntry(i);
++                        final double temp = entry;
+                         for (int j = 0; j <= i; j++) {
+                             bMatrix.setEntry(ip, j,
+                                           bMatrix.getEntry(ip, j)

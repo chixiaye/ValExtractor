@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..0da54b6 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3241,9 +3241,10 @@
+         }
+         // 'baseNegativeItemLabelAnchor' : immutable, no need to clone reference
+ 
+-        if (this.createEntitiesList != null) {
++        BooleanList createEntitiesList1 = this.createEntitiesList;
++        if (createEntitiesList1 != null) {
+             clone.createEntitiesList
+-                    = (BooleanList) this.createEntitiesList.clone();
++                    = (BooleanList) createEntitiesList1.clone();
+         }
+ 
+         if (this.legendShapeList != null) {

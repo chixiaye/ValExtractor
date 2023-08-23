@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.java b/src/main/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.java
+index 8b12d23..552d3f6 100644
+--- a/src/main/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.java
++++ b/src/main/java/org/apache/commons/math3/stat/clustering/KMeansPlusPlusClusterer.java
+@@ -356,7 +356,8 @@
+                             double d = p.distanceFrom(pointList.get(j));
+                             double d2 = d * d;
+                             if (d2 < minDistSquared[j]) {
+-                                minDistSquared[j] = d2;
++                                double v = minDistSquared[j];
++                                v = d2;
+                             }
+                         }
+                     }

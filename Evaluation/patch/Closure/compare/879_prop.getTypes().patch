@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..141deaf 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -572,7 +572,8 @@
+ 
+     for (Property prop : properties.values()) {
+       if (prop.shouldRename()) {
+-        Map<T, String> propNames = buildPropNames(prop.getTypes(), prop.name);
++        UnionFind<T> var_879 = prop.getTypes();
++		Map<T, String> propNames = buildPropNames(var_879, prop.name);
+ 
+         ++propsRenamed;
+         prop.expandTypesToSkip();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..83045d1 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -572,11 +572,12 @@
+ 
+     for (Property prop : properties.values()) {
+       if (prop.shouldRename()) {
+-        Map<T, String> propNames = buildPropNames(prop.getTypes(), prop.name);
++        UnionFind<T> var_879 = prop.getTypes();
++		Map<T, String> propNames = buildPropNames(var_879, prop.name);
+ 
+         ++propsRenamed;
+         prop.expandTypesToSkip();
+-        UnionFind<T> types = prop.getTypes();
++        UnionFind<T> types = var_879;
+         for (Node node : prop.renameNodes) {
+           T rootType = prop.rootTypes.get(node);
+           if (prop.shouldRename(rootType)) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..3186d5d 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -572,11 +572,12 @@
+ 
+     for (Property prop : properties.values()) {
+       if (prop.shouldRename()) {
+-        Map<T, String> propNames = buildPropNames(prop.getTypes(), prop.name);
++          UnionFind<T> types1 = prop.getTypes();
++          Map<T, String> propNames = buildPropNames(types1, prop.name);
+ 
+         ++propsRenamed;
+         prop.expandTypesToSkip();
+-        UnionFind<T> types = prop.getTypes();
++        UnionFind<T> types = types1;
+         for (Node node : prop.renameNodes) {
+           T rootType = prop.rootTypes.get(node);
+           if (prop.shouldRename(rootType)) {

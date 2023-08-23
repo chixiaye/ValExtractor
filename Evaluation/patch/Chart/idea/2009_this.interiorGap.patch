@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..fa6122b 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -777,7 +777,8 @@
+                 "Invalid 'percent' (" + percent + ") argument.");
+         }
+ 
+-        if (this.interiorGap != percent) {
++        double interiorGap1 = this.interiorGap;
++        if (interiorGap1 != percent) {
+             this.interiorGap = percent;
+             fireChangeEvent();
+         }

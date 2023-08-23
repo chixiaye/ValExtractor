@@ -1,0 +1,50 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index f8750ca..b735840 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -166,7 +166,7 @@
+ 
+         // end & update
+         if (end < 0) {
+-          builder.append(line);
++          StringBuilder var_338 = builder.append(line);
+           start = -1;
+         } else {
+           builder.append(line);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index f8750ca..b735840 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -166,7 +166,7 @@
+ 
+         // end & update
+         if (end < 0) {
+-          builder.append(line);
++          StringBuilder var_338 = builder.append(line);
+           start = -1;
+         } else {
+           builder.append(line);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index f8750ca..07a1dd8 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -165,11 +165,12 @@
+         builder.append("| ");
+ 
+         // end & update
++          StringBuilder append = builder.append(line);
+         if (end < 0) {
+-          builder.append(line);
++          append;
+           start = -1;
+         } else {
+-          builder.append(line);
++          append;
+           builder.append('\n');
+           start = end + 1;
+           end = code.indexOf('\n', start);

@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..a18167a 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -633,9 +633,10 @@
+     /** {@inheritDoc} */
+     @Override
+     public RealVector append(double in) {
+-        final double[] out = new double[data.length + 1];
+-        System.arraycopy(data, 0, out, 0, data.length);
+-        out[data.length] = in;
++        int length = data.length;
++        final double[] out = new double[length + 1];
++        System.arraycopy(data, 0, out, 0, length);
++        out[length] = in;
+         return new ArrayRealVector(out, false);
+     }
+ 

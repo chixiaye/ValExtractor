@@ -1,0 +1,17 @@
+diff --git a/src/org/mockito/internal/matchers/ArrayEquals.java b/src/org/mockito/internal/matchers/ArrayEquals.java
+index c6cdf33..9773ebd 100644
+--- a/src/org/mockito/internal/matchers/ArrayEquals.java
++++ b/src/org/mockito/internal/matchers/ArrayEquals.java
+@@ -54,9 +54,10 @@
+ 
+     private void appendArray(Object[] array, Description description) {
+         description.appendText("[");
+-        for (int i = 0; i < array.length; i++) {
++        int length = array.length;
++        for (int i = 0; i < length; i++) {
+             new Equals(array[i]).describeTo(description);
+-            if (i != array.length - 1) {
++            if (i != length - 1) {
+                 description.appendText(", ");
+             }
+         }

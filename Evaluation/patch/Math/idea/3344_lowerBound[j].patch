@@ -1,0 +1,33 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..1366c0d 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -299,15 +299,16 @@
+ 
+         for (int j = 0; j < n; j++) {
+             final double boundDiff = boundDifference[j];
+-            lowerDifference.setEntry(j, lowerBound[j] - currentBest.getEntry(j));
++            double value = lowerBound[j];
++            lowerDifference.setEntry(j, value - currentBest.getEntry(j));
+             upperDifference.setEntry(j, upperBound[j] - currentBest.getEntry(j));
+             if (lowerDifference.getEntry(j) >= -initialTrustRegionRadius) {
+                 if (lowerDifference.getEntry(j) >= ZERO) {
+-                    currentBest.setEntry(j, lowerBound[j]);
++                    currentBest.setEntry(j, value);
+                     lowerDifference.setEntry(j, ZERO);
+                     upperDifference.setEntry(j, boundDiff);
+                 } else {
+-                    currentBest.setEntry(j, lowerBound[j] + initialTrustRegionRadius);
++                    currentBest.setEntry(j, value + initialTrustRegionRadius);
+                     lowerDifference.setEntry(j, -initialTrustRegionRadius);
+                     // Computing MAX
+                     final double deltaOne = upperBound[j] - currentBest.getEntry(j);
+@@ -321,7 +322,7 @@
+                 } else {
+                     currentBest.setEntry(j, upperBound[j] - initialTrustRegionRadius);
+                     // Computing MIN
+-                    final double deltaOne = lowerBound[j] - currentBest.getEntry(j);
++                    final double deltaOne = value - currentBest.getEntry(j);
+                     final double deltaTwo = -initialTrustRegionRadius;
+                     lowerDifference.setEntry(j, Math.min(deltaOne, deltaTwo));
+                     upperDifference.setEntry(j, initialTrustRegionRadius);

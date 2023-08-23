@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/Skewness.java b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/Skewness.java
+index 7d23b5a..d307d16 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/Skewness.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/Skewness.java
+@@ -108,10 +108,11 @@
+     @Override
+     public double getResult() {
+ 
+-        if (moment.n < 3) {
++        long n = moment.n;
++        if (n < 3) {
+             return Double.NaN;
+         }
+-        double variance = moment.m2 / (moment.n - 1);
++        double variance = moment.m2 / (n - 1);
+         if (variance < 10E-20) {
+             return 0.0d;
+         } else {

@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+index 372c699..7abe79e 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
++++ b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+@@ -265,6 +265,7 @@
+             final Dfp xTol = absoluteAccuracy.add(relativeAccuracy.multiply(maxX));
+             if (xB.subtract(xA).subtract(xTol).negativeOrNull() ||
+                 maxY.lessThan(functionValueAccuracy)) {
++                boolean b = yA.lessThan(zero);
+                 switch (allowedSolution) {
+                 case ANY_SIDE :
+                     return absYA.lessThan(absYB) ? xA : xB;
+@@ -273,9 +274,9 @@
+                 case RIGHT_SIDE :
+                     return xB;
+                 case BELOW_SIDE :
+-                    return yA.lessThan(zero) ? xA : xB;
++                    return b ? xA : xB;
+                 case ABOVE_SIDE :
+-                    return yA.lessThan(zero) ? xB : xA;
++                    return b ? xB : xA;
+                 default :
+                     // this should never happen
+                     throw new MathInternalError(null);

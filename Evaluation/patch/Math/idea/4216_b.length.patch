@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/Decimal64.java b/src/main/java/org/apache/commons/math3/util/Decimal64.java
+index e1acef0..62838de 100644
+--- a/src/main/java/org/apache/commons/math3/util/Decimal64.java
++++ b/src/main/java/org/apache/commons/math3/util/Decimal64.java
+@@ -617,10 +617,11 @@
+      */
+     public Decimal64 linearCombination(final double[] a, final Decimal64[] b)
+         throws DimensionMismatchException {
+-        if (a.length != b.length) {
+-            throw new DimensionMismatchException(a.length, b.length);
++        int length = b.length;
++        if (a.length != length) {
++            throw new DimensionMismatchException(a.length, length);
+         }
+-        final double[] bDouble = new double[b.length];
++        final double[] bDouble = new double[length];
+         for (int i = 0; i < a.length; ++i) {
+             bDouble[i] = b[i].value;
+         }

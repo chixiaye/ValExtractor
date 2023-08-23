@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..bc499fa 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -551,10 +551,11 @@
+         final double[] uB = getUpperBound();
+ 
+         if (inputSigma != null) {
+-            if (inputSigma.length != init.length) {
+-                throw new DimensionMismatchException(inputSigma.length, init.length);
++            int length = init.length;
++            if (inputSigma.length != length) {
++                throw new DimensionMismatchException(inputSigma.length, length);
+             }
+-            for (int i = 0; i < init.length; i++) {
++            for (int i = 0; i < length; i++) {
+                 if (inputSigma[i] > uB[i] - lB[i]) {
+                     throw new OutOfRangeException(inputSigma[i], 0, uB[i] - lB[i]);
+                 }

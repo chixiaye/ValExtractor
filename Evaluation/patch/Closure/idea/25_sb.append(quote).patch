@@ -1,0 +1,24 @@
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..1bb8717 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -41,8 +41,8 @@
+                           String backslashEscape,
+                           CharsetEncoder outputCharsetEncoder) {
+     StringBuilder sb = new StringBuilder(s.length() + 2);
+-    sb.append(quote);
+-    for (int i = 0; i < s.length(); i++) {
++      StringBuilder append = sb.append(quote);
++      for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
+       switch (c) {
+         case '\n': sb.append("\\n"); break;
+@@ -102,7 +102,7 @@
+           }
+       }
+     }
+-    sb.append(quote);
++    append;
+     return sb.toString();
+   }
+ 

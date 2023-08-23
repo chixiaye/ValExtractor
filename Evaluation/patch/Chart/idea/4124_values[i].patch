@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/HistogramDataset.java b/source/org/jfree/data/statistics/HistogramDataset.java
+index bd7563c..c6c1c96 100644
+--- a/source/org/jfree/data/statistics/HistogramDataset.java
++++ b/source/org/jfree/data/statistics/HistogramDataset.java
+@@ -250,8 +250,9 @@
+         }
+         double max = -Double.MAX_VALUE;
+         for (int i = 0; i < values.length; i++) {
+-            if (values[i] > max) {
+-                max = values[i];
++            double value = values[i];
++            if (value > max) {
++                max = value;
+             }
+         }
+         return max;

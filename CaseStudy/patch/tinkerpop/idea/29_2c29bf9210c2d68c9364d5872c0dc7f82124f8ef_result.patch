@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/step/map/VertexProgramStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/step/map/VertexProgramStep.java
+index 7398710c84..3d537de822 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/step/map/VertexProgramStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/computer/traversal/step/map/VertexProgramStep.java
+@@ -48,7 +48,8 @@ public abstract class VertexProgramStep extends AbstractStep<ComputerResult, Com
+             if (this.first && this.getPreviousStep() instanceof EmptyStep) {
+                 this.first = false;
+                 final Graph graph = this.getTraversal().getGraph().get();
+-                return this.getTraversal().getTraverserGenerator().generate(this.generateComputer(graph).program(this.generateProgram(graph)).submit().get(), this, 1l);
++                ComputerResult result = this.generateComputer(graph).program(this.generateProgram(graph)).submit().get();
++                return this.getTraversal().getTraverserGenerator().generate(result, this, 1l);
+             } else {
+                 final Traverser.Admin<ComputerResult> traverser = this.starts.next();
+                 final Graph graph = traverser.get().graph();

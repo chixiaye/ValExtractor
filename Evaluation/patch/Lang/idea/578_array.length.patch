@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+index 09e636b..2563ba0 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java
+@@ -482,14 +482,15 @@
+      */
+     static Token[] lexx(final String format) {
+         final char[] array = format.toCharArray();
+-        final ArrayList<Token> list = new ArrayList<Token>(array.length);
++        int length = array.length;
++        final ArrayList<Token> list = new ArrayList<Token>(length);
+ 
+         boolean inLiteral = false;
+         // Although the buffer is stored in a Token, the Tokens are only
+         // used internally, so cannot be accessed by other threads
+         StringBuilder buffer = null;
+         Token previous = null;
+-        final int sz = array.length;
++        final int sz = length;
+         for (int i = 0; i < sz; i++) {
+             final char ch = array[i];
+             if (inLiteral && ch != '\'') {

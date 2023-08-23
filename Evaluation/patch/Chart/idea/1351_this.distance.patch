@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CrosshairState.java b/source/org/jfree/chart/plot/CrosshairState.java
+index d2ff04d..1a7d90a 100644
+--- a/source/org/jfree/chart/plot/CrosshairState.java
++++ b/source/org/jfree/chart/plot/CrosshairState.java
+@@ -225,7 +225,8 @@
+                     + (transY - yy) * (transY - yy);
+             }
+ 
+-            if (d < this.distance) {
++            double distance1 = this.distance;
++            if (d < distance1) {
+                 this.crosshairX = x;
+                 this.crosshairY = y;
+                 this.domainAxisIndex = domainAxisIndex;

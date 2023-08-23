@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..abce2ce 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -399,6 +399,7 @@
+                                            RectangleEdge edge) {
+         if (tick instanceof CycleBoundTick) {
+             boolean mapsav = this.boundMappedToLastCycle;
++            boolean boundMappedToLastCycle1 = this.boundMappedToLastCycle;
+             this.boundMappedToLastCycle
+                 = ((CycleBoundTick) tick).mapToLastCycle;
+             float[] ret = super.calculateAnchorPoint(

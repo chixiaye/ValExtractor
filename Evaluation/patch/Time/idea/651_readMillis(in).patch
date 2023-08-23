@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..8477b4a 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -109,8 +109,9 @@
+     public static DateTimeZone readFrom(DataInput in, String id) throws IOException {
+         switch (in.readUnsignedByte()) {
+         case 'F':
++            long l = readMillis(in);
+             DateTimeZone fixed = new FixedDateTimeZone
+-                (id, in.readUTF(), (int)readMillis(in), (int)readMillis(in));
++                (id, in.readUTF(), (int) l, (int) l);
+             if (fixed.equals(DateTimeZone.UTC)) {
+                 fixed = DateTimeZone.UTC;
+             }

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/Marker.java b/source/org/jfree/chart/plot/Marker.java
+index c6dbbd3..6d2906a 100644
+--- a/source/org/jfree/chart/plot/Marker.java
++++ b/source/org/jfree/chart/plot/Marker.java
+@@ -671,9 +671,10 @@
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+         this.paint = SerialUtilities.readPaint(stream);
+-        this.stroke = SerialUtilities.readStroke(stream);
++        Stroke stroke1 = SerialUtilities.readStroke(stream);
++        this.stroke = stroke1;
+         this.outlinePaint = SerialUtilities.readPaint(stream);
+-        this.outlineStroke = SerialUtilities.readStroke(stream);
++        this.outlineStroke = stroke1;
+         this.labelPaint = SerialUtilities.readPaint(stream);
+         this.listenerList = new EventListenerList();
+     }

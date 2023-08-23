@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..c435a86 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -729,8 +729,9 @@
+                         rotationAnchor = TextAnchor.CENTER_RIGHT;
+                     }
+                     else {
+-                        anchor = TextAnchor.CENTER_LEFT;
+-                        rotationAnchor = TextAnchor.CENTER_LEFT;
++                        TextAnchor centerLeft = TextAnchor.CENTER_LEFT;
++                        anchor = centerLeft;
++                        rotationAnchor = centerLeft;
+                     }
+                 }
+                 Tick tick = new NumberTick(new Double(currentTickValue),

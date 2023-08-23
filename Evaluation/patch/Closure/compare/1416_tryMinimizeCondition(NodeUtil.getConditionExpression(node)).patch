@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..cc4c3ab 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -120,7 +120,7 @@
+ 
+       case Token.WHILE:
+       case Token.DO:
+-        tryMinimizeCondition(NodeUtil.getConditionExpression(node));
++        Node var_1416 = tryMinimizeCondition(NodeUtil.getConditionExpression(node));
+         return node;
+ 
+       case Token.FOR:
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..cc4c3ab 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -120,7 +120,7 @@
+ 
+       case Token.WHILE:
+       case Token.DO:
+-        tryMinimizeCondition(NodeUtil.getConditionExpression(node));
++        Node var_1416 = tryMinimizeCondition(NodeUtil.getConditionExpression(node));
+         return node;
+ 
+       case Token.FOR:
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..43dfc0e 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -78,6 +78,7 @@
+   @Override
+   @SuppressWarnings("fallthrough")
+   public Node optimizeSubtree(Node node) {
++      Node node1 = tryMinimizeCondition(NodeUtil.getConditionExpression(node));
+     switch(node.getType()) {
+       case Token.RETURN: {
+         Node result = tryRemoveRedundantExit(node);
+@@ -120,13 +121,13 @@
+ 
+       case Token.WHILE:
+       case Token.DO:
+-        tryMinimizeCondition(NodeUtil.getConditionExpression(node));
++        node1;
+         return node;
+ 
+       case Token.FOR:
+         if (!NodeUtil.isForIn(node)) {
+           tryJoinForCondition(node);
+-          tryMinimizeCondition(NodeUtil.getConditionExpression(node));
++          node1;
+         }
+         return node;
+ 

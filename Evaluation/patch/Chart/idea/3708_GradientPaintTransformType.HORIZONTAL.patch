@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/GradientPaintTransformType.java b/source/org/jfree/chart/util/GradientPaintTransformType.java
+index c2a310e..d96994a 100644
+--- a/source/org/jfree/chart/util/GradientPaintTransformType.java
++++ b/source/org/jfree/chart/util/GradientPaintTransformType.java
+@@ -135,8 +135,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         GradientPaintTransformType result = null;
+-        if (this.equals(GradientPaintTransformType.HORIZONTAL)) {
+-            result = GradientPaintTransformType.HORIZONTAL;
++        GradientPaintTransformType horizontal = GradientPaintTransformType.HORIZONTAL;
++        if (this.equals(horizontal)) {
++            result = horizontal;
+         }
+         else if (this.equals(GradientPaintTransformType.VERTICAL)) {
+             result = GradientPaintTransformType.VERTICAL;

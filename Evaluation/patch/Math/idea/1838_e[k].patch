@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..342a2de 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -164,7 +164,8 @@
+                 }
+                 if (e[k] != 0) {
+                     if (e[k + 1] < 0) {
+-                        e[k] = -e[k];
++                        double v = e[k];
++                        e[k] = -v;
+                     }
+                     for (int i = k + 1; i < n; i++) {
+                         e[i] /= e[k];

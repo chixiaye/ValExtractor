@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..7110509 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2822,11 +2822,12 @@
+      */
+     public Dfp linearCombination(final double[] a, final Dfp[] b)
+         throws DimensionMismatchException {
+-        if (a.length != b.length) {
+-            throw new DimensionMismatchException(a.length, b.length);
++        int length = a.length;
++        if (length != b.length) {
++            throw new DimensionMismatchException(length, b.length);
+         }
+         Dfp r = getZero();
+-        for (int i = 0; i < a.length; ++i) {
++        for (int i = 0; i < length; ++i) {
+             r = r.add(b[i].multiply(a[i]));
+         }
+         return r;

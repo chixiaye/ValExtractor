@@ -1,0 +1,41 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormat.java b/src/main/java/org/joda/time/format/DateTimeFormat.java
+index 4558eb7..566e09a 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormat.java
+@@ -594,15 +594,16 @@
+         int length = pattern.length();
+ 
+         char c = pattern.charAt(i);
++        StringBuilder append = buf.append(c);
+         if (c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z') {
+             // Scan a run of the same character, which indicates a time
+             // pattern.
+-            buf.append(c);
++            append;
+ 
+             while (i + 1 < length) {
+                 char peek = pattern.charAt(i + 1);
+                 if (peek == c) {
+-                    buf.append(c);
++                    append;
+                     i++;
+                 } else {
+                     break;
+@@ -621,7 +622,7 @@
+                     if (i + 1 < length && pattern.charAt(i + 1) == '\'') {
+                         // '' is treated as escaped '
+                         i++;
+-                        buf.append(c);
++                        append;
+                     } else {
+                         inLiteral = !inLiteral;
+                     }
+@@ -630,7 +631,7 @@
+                     i--;
+                     break;
+                 } else {
+-                    buf.append(c);
++                    append;
+                 }
+             }
+         }

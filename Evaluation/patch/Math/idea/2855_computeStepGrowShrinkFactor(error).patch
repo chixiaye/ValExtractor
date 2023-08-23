@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsBashforthIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsBashforthIntegrator.java
+index d15dc73..f931eec 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsBashforthIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsBashforthIntegrator.java
+@@ -227,6 +227,7 @@
+         do {
+ 
+             double error = 10;
++            double v = computeStepGrowShrinkFactor(error);
+             while (error >= 1.0) {
+ 
+                 stepSize = hNew;
+@@ -245,7 +246,7 @@
+ 
+                 if (error >= 1.0) {
+                     // reject the step and attempt to reduce error by stepsize control
+-                    final double factor = computeStepGrowShrinkFactor(error);
++                    final double factor = v;
+                     hNew = filterStep(stepSize * factor, forward, false);
+                     interpolator.rescale(hNew);
+ 
+@@ -297,7 +298,7 @@
+                 }
+ 
+                 // stepsize control for next step
+-                final double  factor     = computeStepGrowShrinkFactor(error);
++                final double  factor     = v;
+                 final double  scaledH    = stepSize * factor;
+                 final double  nextT      = stepStart + scaledH;
+                 final boolean nextIsLast = forward ? (nextT >= t) : (nextT <= t);

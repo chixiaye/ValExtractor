@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+index a4eb52c..5d2d783 100644
+--- a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+@@ -370,8 +370,9 @@
+         if (this.xDateFormat != null) {
+             clone.xDateFormat = (DateFormat) this.xDateFormat.clone();
+         }
+-        if (this.yDateFormat != null) {
+-            clone.yDateFormat = (DateFormat) this.yDateFormat.clone();
++        DateFormat yDateFormat1 = this.yDateFormat;
++        if (yDateFormat1 != null) {
++            clone.yDateFormat = (DateFormat) yDateFormat1.clone();
+         }
+         return clone;
+     }

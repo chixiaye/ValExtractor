@@ -1,0 +1,52 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..f7d38de 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -536,12 +536,13 @@
+          * @return true if the parent tree should be reSkew.BALANCED too
+          */
+         private boolean rebalanceRightShrunk() {
++            final Skew leftHigh = Skew.LEFT_HIGH;
+             switch (skew) {
+             case RIGHT_HIGH:
+                 skew = Skew.BALANCED;
+                 return true;
+-            case LEFT_HIGH:
+-                if (left.skew == Skew.LEFT_HIGH) {
++            case leftHigh:
++                if (left.skew == leftHigh) {
+                     rotateCW();
+                     skew       = Skew.BALANCED;
+                     right.skew = Skew.BALANCED;
+@@ -549,19 +550,19 @@
+                 } else if (left.skew == Skew.BALANCED) {
+                     rotateCW();
+                     skew       = Skew.RIGHT_HIGH;
+-                    right.skew = Skew.LEFT_HIGH;
++                    right.skew = leftHigh;
+                     return false;
+                 } else {
+                     final Skew s = left.right.skew;
+                     left.rotateCCW();
+                     rotateCW();
+                     switch (s) {
+-                    case LEFT_HIGH:
++                    case leftHigh:
+                         left.skew  = Skew.BALANCED;
+                         right.skew = Skew.RIGHT_HIGH;
+                         break;
+                     case RIGHT_HIGH:
+-                        left.skew  = Skew.LEFT_HIGH;
++                        left.skew  = leftHigh;
+                         right.skew = Skew.BALANCED;
+                         break;
+                     default:
+@@ -572,7 +573,7 @@
+                     return true;
+                 }
+             default:
+-                skew = Skew.LEFT_HIGH;
++                skew = leftHigh;
+                 return false;
+             }
+         }

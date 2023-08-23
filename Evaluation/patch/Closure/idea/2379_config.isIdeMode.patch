@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/ParserRunner.java b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+index 2c78855..52adadf 100644
+--- a/src/com/google/javascript/jscomp/parsing/ParserRunner.java
++++ b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+@@ -126,13 +126,14 @@
+         config.languageMode == LanguageMode.ECMASCRIPT3);
+ 
+     // Do our own identifier check for ECMASCRIPT 5
+-    boolean acceptEs5 =
+-        config.isIdeMode || config.languageMode != LanguageMode.ECMASCRIPT3;
++      boolean isIdeMode = config.isIdeMode;
++      boolean acceptEs5 =
++        isIdeMode || config.languageMode != LanguageMode.ECMASCRIPT3;
+     compilerEnv.setReservedKeywordAsIdentifier(acceptEs5);
+ 
+     compilerEnv.setAllowMemberExprAsFunctionName(false);
+-    compilerEnv.setIdeMode(config.isIdeMode);
+-    compilerEnv.setRecoverFromErrors(config.isIdeMode);
++    compilerEnv.setIdeMode(isIdeMode);
++    compilerEnv.setRecoverFromErrors(isIdeMode);
+ 
+     Parser p = new Parser(compilerEnv, errorReporter);
+     AstRoot astRoot = null;

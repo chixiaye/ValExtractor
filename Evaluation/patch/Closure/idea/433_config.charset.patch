@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..2a3437a 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1007,12 +1007,13 @@
+    * @throws FlagUsageException if flag is not a valid Charset name.
+    */
+   private Charset getOutputCharset2() throws FlagUsageException {
+-    if (!config.charset.isEmpty()) {
+-      if (!Charset.isSupported(config.charset)) {
+-        throw new FlagUsageException(config.charset +
++      String charset = config.charset;
++      if (!charset.isEmpty()) {
++      if (!Charset.isSupported(charset)) {
++        throw new FlagUsageException(charset +
+             " is not a valid charset name.");
+       }
+-      return Charset.forName(config.charset);
++      return Charset.forName(charset);
+     }
+     return Charsets.UTF_8;
+   }

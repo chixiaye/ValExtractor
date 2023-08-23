@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java b/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
+index 4a14898..e235ef6 100644
+--- a/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
+@@ -509,10 +509,11 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.firstBarPaint = SerialUtilities.readPaint(stream);
+-        this.lastBarPaint = SerialUtilities.readPaint(stream);
+-        this.positiveBarPaint = SerialUtilities.readPaint(stream);
+-        this.negativeBarPaint = SerialUtilities.readPaint(stream);
++        Paint firstBarPaint1 = SerialUtilities.readPaint(stream);
++        this.firstBarPaint = firstBarPaint1;
++        this.lastBarPaint = firstBarPaint1;
++        this.positiveBarPaint = firstBarPaint1;
++        this.negativeBarPaint = firstBarPaint1;
+     }
+ 
+ }

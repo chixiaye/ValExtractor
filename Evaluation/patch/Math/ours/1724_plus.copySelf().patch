@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+index aca170e..472b701 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+@@ -545,9 +545,10 @@
+             return split;
+         }
+         default :
+-            return cHyperplane.sameOrientationAs(sHyperplane) ?
++            BSPTree<S> var_1724 = plus.copySelf();
++			return cHyperplane.sameOrientationAs(sHyperplane) ?
+                    new BSPTree<S>(sub, plus.copySelf(),  minus.copySelf(), attribute) :
+-                   new BSPTree<S>(sub, minus.copySelf(), plus.copySelf(),  attribute);
++                   new BSPTree<S>(sub, minus.copySelf(), var_1724,  attribute);
+         }
+ 
+     }

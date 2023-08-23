@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..3d7ae81 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -289,7 +289,8 @@
+         fields.dayOfWeek = new GJDayOfWeekDateTimeField(this, fields.days);
+         fields.dayOfMonth = new BasicDayOfMonthDateTimeField(this, fields.days);
+         fields.dayOfYear = new BasicDayOfYearDateTimeField(this, fields.days);
+-        fields.monthOfYear = new GJMonthOfYearDateTimeField(this);
++        DateTimeField monthOfYear = fields.monthOfYear;
++        monthOfYear = new GJMonthOfYearDateTimeField(this);
+         fields.weekyear = new BasicWeekyearDateTimeField(this);
+         fields.weekOfWeekyear = new BasicWeekOfWeekyearDateTimeField(this, fields.weeks);
+         

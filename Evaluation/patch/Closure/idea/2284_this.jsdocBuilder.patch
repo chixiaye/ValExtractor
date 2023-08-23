@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..8243b3a 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -135,7 +135,8 @@
+     this.sourceFile = associatedNode == null
+         ? null : associatedNode.getStaticSourceFile();
+ 
+-    this.jsdocBuilder = new JSDocInfoBuilder(config.parseJsDocDocumentation);
++      JSDocInfoBuilder jsdocBuilder1 = this.jsdocBuilder;
++      this.jsdocBuilder = new JSDocInfoBuilder(config.parseJsDocDocumentation);
+     if (commentNode != null) {
+       this.jsdocBuilder.recordOriginalCommentString(commentNode.getValue());
+     }

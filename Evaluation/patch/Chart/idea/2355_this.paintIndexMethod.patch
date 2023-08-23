@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..8df49ef 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -122,6 +122,7 @@
+             this.paintLimit = paintLimit.intValue();
+         }
+ 
++        int paintIndexMethod1 = this.paintIndexMethod;
+         this.paintIndexMethod = VALUE_INDEX;
+         if (paintIndexMethod != null) {
+             if (isMethodValid(paintIndexMethod.intValue())) {

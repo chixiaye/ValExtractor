@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Crosshair.java b/source/org/jfree/chart/plot/Crosshair.java
+index 652e907..cf283a0 100644
+--- a/source/org/jfree/chart/plot/Crosshair.java
++++ b/source/org/jfree/chart/plot/Crosshair.java
+@@ -274,7 +274,8 @@
+      * @see #getStroke()
+      */
+     public void setStroke(Stroke stroke) {
+-        Stroke old = this.stroke;
++        Stroke stroke1 = this.stroke;
++        Stroke old = stroke1;
+         this.stroke = stroke;
+         this.pcs.firePropertyChange("stroke", old, stroke);
+     }

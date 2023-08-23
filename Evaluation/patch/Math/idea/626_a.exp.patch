@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..a7fda3f 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1325,7 +1325,8 @@
+         }
+ 
+         if (a.mant[mant.length-1] == 0) {
+-            a.exp = b.exp;
++            int exp1 = a.exp;
++            exp1 = b.exp;
+         }
+ 
+         /* align number with the smaller exponent */

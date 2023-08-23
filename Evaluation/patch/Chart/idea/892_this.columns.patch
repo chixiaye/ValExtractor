@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/block/GridArrangement.java b/source/org/jfree/chart/block/GridArrangement.java
+index 7aa4631..92224e7 100644
+--- a/source/org/jfree/chart/block/GridArrangement.java
++++ b/source/org/jfree/chart/block/GridArrangement.java
+@@ -399,9 +399,10 @@
+         RectangleConstraint bc = constraint.toFixedHeight(height);
+         List blocks = container.getBlocks();
+         double maxW = 0.0;
++        int columns1 = this.columns;
+         for (int r = 0; r < this.rows; r++) {
+-            for (int c = 0; c < this.columns; c++) {
+-                int index = r * this.columns + c;
++            for (int c = 0; c < columns1; c++) {
++                int index = r * columns1 + c;
+                 if (index >= blocks.size()) {
+                     break;
+                 }
+@@ -412,7 +413,7 @@
+                 }
+             }
+         }
+-        RectangleConstraint cc = constraint.toFixedWidth(maxW * this.columns);
++        RectangleConstraint cc = constraint.toFixedWidth(maxW * columns1);
+         return arrange(container, g2, cc);
+     }
+ 

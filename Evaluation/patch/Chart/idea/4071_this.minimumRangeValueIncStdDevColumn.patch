@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..ebc6c47 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -364,6 +364,7 @@
+         // update cached range values
+         int r = this.data.getColumnIndex(columnKey);
+         int c = this.data.getRowIndex(rowKey);
++        int minimumRangeValueIncStdDevColumn1 = this.minimumRangeValueIncStdDevColumn;
+         if ((r == this.maximumRangeValueRow && c
+                 == this.maximumRangeValueColumn) || (r
+                 == this.maximumRangeValueIncStdDevRow && c
+@@ -371,7 +372,7 @@
+                 == this.minimumRangeValueRow && c
+                 == this.minimumRangeValueColumn) || (r
+                 == this.minimumRangeValueIncStdDevRow && c
+-                == this.minimumRangeValueIncStdDevColumn)) {
++                == minimumRangeValueIncStdDevColumn1)) {
+ 
+             // iterate over all data items and update mins and maxes
+             updateBounds();

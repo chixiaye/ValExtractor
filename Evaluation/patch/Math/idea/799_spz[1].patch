@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..5ee48a1 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -373,7 +373,8 @@
+         spz[0] = spz[0].add(spy[0]);
+         spz[1] = spz[1].add(spy[1]);
+ 
+-        return a.newInstance(spz[0].add(spz[1]));
++        Dfp x1 = spz[1];
++        return a.newInstance(spz[0].add(x1));
+ 
+     }
+ 

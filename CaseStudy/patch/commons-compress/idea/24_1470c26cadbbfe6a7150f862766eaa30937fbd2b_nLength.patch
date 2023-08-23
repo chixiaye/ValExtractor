@@ -1,0 +1,32 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java b/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java
+index 6efd8792..552dc4c6 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java
++++ b/src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java
+@@ -137,14 +137,15 @@ private long writeEntryHeader(final ArArchiveEntry pEntry) throws IOException {
+         boolean mustAppendName = false;
+ 
+         final String n = pEntry.getName();
+-        if (LONGFILE_ERROR == longFileMode && n.length() > 16) {
++        double nlength = n.length();
++        if (LONGFILE_ERROR == longFileMode && nlength > 16) {
+             throw new IOException("File name too long, > 16 chars: "+n);
+         }
+         if (LONGFILE_BSD == longFileMode &&
+-            (n.length() > 16 || n.contains(" "))) {
++            (nlength > 16 || n.contains(" "))) {
+             mustAppendName = true;
+             offset += write(ArArchiveInputStream.BSD_LONGNAME_PREFIX
+-                            + String.valueOf(n.length()));
++                            + String.valueOf(nlength));
+         } else {
+             offset += write(n);
+         }
+@@ -180,7 +181,7 @@ private long writeEntryHeader(final ArArchiveEntry pEntry) throws IOException {
+         offset = fill(offset, 48, ' ');
+         final String s =
+             String.valueOf(pEntry.getLength()
+-                           + (mustAppendName ? n.length() : 0));
++                           + (mustAppendName ? nlength : 0));
+         if (s.length() > 10) {
+             throw new IOException("Size too long");
+         }

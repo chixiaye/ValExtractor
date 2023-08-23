@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/annotations/XYTitleAnnotation.java b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+index 2178436..b5c9ddf 100644
+--- a/source/org/jfree/chart/annotations/XYTitleAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+@@ -258,12 +258,13 @@
+         Range yRange = rangeAxis.getRange();
+         double anchorX = 0.0;
+         double anchorY = 0.0;
++        double x1 = this.x;
+         if (this.coordinateType == XYCoordinateType.RELATIVE) {
+-            anchorX = xRange.getLowerBound() + (this.x * xRange.getLength());
++            anchorX = xRange.getLowerBound() + (x1 * xRange.getLength());
+             anchorY = yRange.getLowerBound() + (this.y * yRange.getLength());
+         }
+         else {
+-            anchorX = domainAxis.valueToJava2D(this.x, dataArea, domainEdge);
++            anchorX = domainAxis.valueToJava2D(x1, dataArea, domainEdge);
+             anchorY = rangeAxis.valueToJava2D(this.y, dataArea, rangeEdge);
+         }
+ 

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..693809c 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -932,9 +932,10 @@
+      * @see #getSubrangePaint(int)
+      */
+     public void setSubrangePaint(int range, Paint paint) {
++        Paint[] subrangePaint1 = this.subrangePaint;
+         if ((range >= 0)
+-                && (range < this.subrangePaint.length) && (paint != null)) {
+-            this.subrangePaint[range] = paint;
++                && (range < subrangePaint1.length) && (paint != null)) {
++            subrangePaint1[range] = paint;
+             fireChangeEvent();
+         }
+     }

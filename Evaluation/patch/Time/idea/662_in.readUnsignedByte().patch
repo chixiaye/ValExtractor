@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..6b7e530 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -479,10 +479,11 @@
+      */
+     private static final class OfYear {
+         static OfYear readFrom(DataInput in) throws IOException {
+-            return new OfYear((char)in.readUnsignedByte(),
+-                              (int)in.readUnsignedByte(),
++            int i = in.readUnsignedByte();
++            return new OfYear((char) i,
++                              (int) i,
+                               (int)in.readByte(),
+-                              (int)in.readUnsignedByte(),
++                              (int) i,
+                               in.readBoolean(),
+                               (int)readMillis(in));
+         }

@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..03bd19c 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -300,8 +300,9 @@
+      */
+     public void validateMinimum() {
+         double newMin;
++        JTextField minimumRangeValue1 = this.minimumRangeValue;
+         try {
+-            newMin = Double.parseDouble(this.minimumRangeValue.getText());
++            newMin = Double.parseDouble(minimumRangeValue1.getText());
+             if (newMin >= this.maximumValue) {
+                 newMin = this.minimumValue;
+             }
+@@ -311,7 +312,7 @@
+         }
+ 
+         this.minimumValue = newMin;
+-        this.minimumRangeValue.setText(Double.toString(this.minimumValue));
++        minimumRangeValue1.setText(Double.toString(this.minimumValue));
+     }
+ 
+     /**

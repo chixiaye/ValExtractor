@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..01c95d1 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -853,6 +853,7 @@
+          * intPartA will have the upper 22 bits, intPartB will have the lower
+          * 52 bits.
+          */
++        double[] expIntTableA = ExpIntTable.EXP_INT_TABLE_A;
+         if (x < 0.0) {
+             intVal = (int) -x;
+ 
+@@ -886,7 +887,7 @@
+ 
+             intVal++;
+ 
+-            intPartA = ExpIntTable.EXP_INT_TABLE_A[EXP_INT_TABLE_MAX_INDEX-intVal];
++            intPartA = expIntTableA[EXP_INT_TABLE_MAX_INDEX-intVal];
+             intPartB = ExpIntTable.EXP_INT_TABLE_B[EXP_INT_TABLE_MAX_INDEX-intVal];
+ 
+             intVal = -intVal;
+@@ -901,7 +902,7 @@
+                 return Double.POSITIVE_INFINITY;
+             }
+ 
+-            intPartA = ExpIntTable.EXP_INT_TABLE_A[EXP_INT_TABLE_MAX_INDEX+intVal];
++            intPartA = expIntTableA[EXP_INT_TABLE_MAX_INDEX+intVal];
+             intPartB = ExpIntTable.EXP_INT_TABLE_B[EXP_INT_TABLE_MAX_INDEX+intVal];
+         }
+ 

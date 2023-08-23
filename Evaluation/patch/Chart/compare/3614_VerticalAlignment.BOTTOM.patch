@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/VerticalAlignment.java b/source/org/jfree/chart/util/VerticalAlignment.java
+index 8a13ee0..dfae4df 100644
+--- a/source/org/jfree/chart/util/VerticalAlignment.java
++++ b/source/org/jfree/chart/util/VerticalAlignment.java
+@@ -128,9 +128,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(VerticalAlignment.TOP)) {
+             return VerticalAlignment.TOP;
+-        }
+-        else if (this.equals(VerticalAlignment.BOTTOM)) {
+-            return VerticalAlignment.BOTTOM;
++        } else {
++			VerticalAlignment var_3614 = VerticalAlignment.BOTTOM;
++			if (this.equals(var_3614)) {
++			    return var_3614;
+         }
+         else if (this.equals(VerticalAlignment.CENTER)) {
+             return VerticalAlignment.CENTER;
+@@ -139,5 +140,6 @@
+             return null;  // this should never happen
+         }
+     }
++    }
+ 
+ }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/VerticalAlignment.java b/source/org/jfree/chart/util/VerticalAlignment.java
+index 8a13ee0..dfae4df 100644
+--- a/source/org/jfree/chart/util/VerticalAlignment.java
++++ b/source/org/jfree/chart/util/VerticalAlignment.java
+@@ -128,9 +128,10 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(VerticalAlignment.TOP)) {
+             return VerticalAlignment.TOP;
+-        }
+-        else if (this.equals(VerticalAlignment.BOTTOM)) {
+-            return VerticalAlignment.BOTTOM;
++        } else {
++			VerticalAlignment var_3614 = VerticalAlignment.BOTTOM;
++			if (this.equals(var_3614)) {
++			    return var_3614;
+         }
+         else if (this.equals(VerticalAlignment.CENTER)) {
+             return VerticalAlignment.CENTER;
+@@ -139,5 +140,6 @@
+             return null;  // this should never happen
+         }
+     }
++    }
+ 
+ }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/VerticalAlignment.java b/source/org/jfree/chart/util/VerticalAlignment.java
+index 8a13ee0..25167ea 100644
+--- a/source/org/jfree/chart/util/VerticalAlignment.java
++++ b/source/org/jfree/chart/util/VerticalAlignment.java
+@@ -129,8 +129,10 @@
+         if (this.equals(VerticalAlignment.TOP)) {
+             return VerticalAlignment.TOP;
+         }
+-        else if (this.equals(VerticalAlignment.BOTTOM)) {
+-            return VerticalAlignment.BOTTOM;
++        else {
++            VerticalAlignment bottom = VerticalAlignment.BOTTOM;
++            if (this.equals(bottom)) {
++                return bottom;
+         }
+         else if (this.equals(VerticalAlignment.CENTER)) {
+             return VerticalAlignment.CENTER;
+@@ -139,5 +141,6 @@
+             return null;  // this should never happen
+         }
+     }
++    }
+ 
+ }

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..4606ed2 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -387,10 +387,11 @@
+         final ArrayRealVector work2 = new ArrayRealVector(npt);
+         final ArrayRealVector work3 = new ArrayRealVector(npt);
+ 
+-        double cauchy = Double.NaN;
+-        double alpha = Double.NaN;
+-        double dsq = Double.NaN;
+-        double crvmin = Double.NaN;
++        double naN = Double.NaN;
++        double cauchy = naN;
++        double alpha = naN;
++        double dsq = naN;
++        double crvmin = naN;
+ 
+         // Set some constants.
+         // Parameter adjustments

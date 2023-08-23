@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java b/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
+index e38600c..04df6be 100644
+--- a/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
+@@ -198,7 +198,8 @@
+                 final double g = (ort[m] > 0) ? -FastMath.sqrt(h) : FastMath.sqrt(h);
+ 
+                 h = h - ort[m] * g;
+-                ort[m] = ort[m] - g;
++                double v = ort[m];
++                ort[m] = v - g;
+ 
+                 // Apply Householder similarity transformation
+                 // H = (I - u*u' / h) * H * (I - u*u' / h)

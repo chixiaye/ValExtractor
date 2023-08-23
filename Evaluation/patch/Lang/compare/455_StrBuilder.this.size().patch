@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..e03b493 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -2873,11 +2873,12 @@
+             if (len == 0) {
+                 return 0;
+             }
+-            if (pos >= StrBuilder.this.size()) {
++            int var_455 = StrBuilder.this.size();
++			if (pos >= var_455) {
+                 return -1;
+             }
+             if (pos + len > size()) {
+-                len = StrBuilder.this.size() - pos;
++                len = var_455 - pos;
+             }
+             StrBuilder.this.getChars(pos, pos + len, b, off);
+             pos += len;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..e03b493 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -2873,11 +2873,12 @@
+             if (len == 0) {
+                 return 0;
+             }
+-            if (pos >= StrBuilder.this.size()) {
++            int var_455 = StrBuilder.this.size();
++			if (pos >= var_455) {
+                 return -1;
+             }
+             if (pos + len > size()) {
+-                len = StrBuilder.this.size() - pos;
++                len = var_455 - pos;
+             }
+             StrBuilder.this.getChars(pos, pos + len, b, off);
+             pos += len;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..e6054aa 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -2873,11 +2873,12 @@
+             if (len == 0) {
+                 return 0;
+             }
+-            if (pos >= StrBuilder.this.size()) {
++            int size1 = StrBuilder.this.size();
++            if (pos >= size1) {
+                 return -1;
+             }
+-            if (pos + len > size()) {
+-                len = StrBuilder.this.size() - pos;
++            if (pos + len > size1) {
++                len = size1 - pos;
+             }
+             StrBuilder.this.getChars(pos, pos + len, b, off);
+             pos += len;

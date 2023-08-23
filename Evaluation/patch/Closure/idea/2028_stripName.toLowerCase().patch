@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/StripCode.java b/src/com/google/javascript/jscomp/StripCode.java
+index 94c384a..95c56e6 100644
+--- a/src/com/google/javascript/jscomp/StripCode.java
++++ b/src/com/google/javascript/jscomp/StripCode.java
+@@ -569,7 +569,8 @@
+ 
+       String lcName = name.toLowerCase();
+       for (String stripName : stripNamePrefixes) {
+-        if (lcName.startsWith(stripName.toLowerCase())) {
++          String prefix = stripName.toLowerCase();
++          if (lcName.startsWith(prefix)) {
+           return true;
+         }
+       }

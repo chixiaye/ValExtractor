@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..29addd1 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -1408,9 +1408,10 @@
+      * @return the indices in inverse order (last is first).
+      */
+     private static int[] reverse(final int[] indices) {
+-        final int[] reverse = new int[indices.length];
+-        for (int i = 0; i < indices.length; i++) {
+-            reverse[i] = indices[indices.length - i - 1];
++        int length = indices.length;
++        final int[] reverse = new int[length];
++        for (int i = 0; i < length; i++) {
++            reverse[i] = indices[length - i - 1];
+         }
+         return reverse;
+     }

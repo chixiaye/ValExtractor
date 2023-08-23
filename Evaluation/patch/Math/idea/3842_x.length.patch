@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java b/src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java
+index cb12075..68617aa 100644
+--- a/src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java
++++ b/src/main/java/org/apache/commons/math3/stat/inference/MannWhitneyUTest.java
+@@ -87,10 +87,11 @@
+      * @return concatenated array
+      */
+     private double[] concatenateSamples(final double[] x, final double[] y) {
+-        final double[] z = new double[x.length + y.length];
++        int length = x.length;
++        final double[] z = new double[length + y.length];
+ 
+-        System.arraycopy(x, 0, z, 0, x.length);
+-        System.arraycopy(y, 0, z, x.length, y.length);
++        System.arraycopy(x, 0, z, 0, length);
++        System.arraycopy(y, 0, z, length, y.length);
+ 
+         return z;
+     }

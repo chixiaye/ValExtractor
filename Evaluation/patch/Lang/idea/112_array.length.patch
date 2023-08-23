@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..d361009 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -235,8 +235,9 @@
+         if (array == null) {
+             return null;
+         }
+-        final Map<Object, Object> map = new HashMap<Object, Object>((int) (array.length * 1.5));
+-        for (int i = 0; i < array.length; i++) {
++        int length = array.length;
++        final Map<Object, Object> map = new HashMap<Object, Object>((int) (length * 1.5));
++        for (int i = 0; i < length; i++) {
+             final Object object = array[i];
+             if (object instanceof Map.Entry<?, ?>) {
+                 final Map.Entry<?,?> entry = (Map.Entry<?,?>) object;

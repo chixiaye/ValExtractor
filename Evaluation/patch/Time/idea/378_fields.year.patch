@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..aa714e3 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -271,7 +271,8 @@
+         // chronologies.
+ 
+         fields.year = new BasicYearDateTimeField(this);
+-        fields.yearOfEra = new GJYearOfEraDateTimeField(fields.year, this);
++        DateTimeField year = fields.year;
++        fields.yearOfEra = new GJYearOfEraDateTimeField(year, this);
+ 
+         // Define one-based centuryOfEra and yearOfCentury.
+         DateTimeField field = new OffsetDateTimeField(
+@@ -300,7 +301,7 @@
+         
+         // The remaining (imprecise) durations are available from the newly
+         // created datetime fields.
+-        fields.years = fields.year.getDurationField();
++        fields.years = year.getDurationField();
+         fields.months = fields.monthOfYear.getDurationField();
+         fields.weekyears = fields.weekyear.getDurationField();
+     }

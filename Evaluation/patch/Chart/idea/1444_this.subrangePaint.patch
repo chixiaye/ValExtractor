@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..39c26ed 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1517,8 +1517,9 @@
+         if (this.gap != that.gap) {
+             return false;
+         }
+-        for (int i = 0; i < this.subrangePaint.length; i++) {
+-            if (!PaintUtilities.equal(this.subrangePaint[i],
++        Paint[] subrangePaint1 = this.subrangePaint;
++        for (int i = 0; i < subrangePaint1.length; i++) {
++            if (!PaintUtilities.equal(subrangePaint1[i],
+                     that.subrangePaint[i])) {
+                 return false;
+             }

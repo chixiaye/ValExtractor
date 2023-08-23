@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..969cd4c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2754,14 +2754,15 @@
+      * @see #clearRangeMarkers()
+      */
+     public void clearRangeMarkers() {
+-        if (this.backgroundRangeMarkers != null) {
+-            Set keys = this.backgroundRangeMarkers.keySet();
++        Map backgroundRangeMarkers1 = this.backgroundRangeMarkers;
++        if (backgroundRangeMarkers1 != null) {
++            Set keys = backgroundRangeMarkers1.keySet();
+             Iterator iterator = keys.iterator();
+             while (iterator.hasNext()) {
+                 Integer key = (Integer) iterator.next();
+                 clearRangeMarkers(key.intValue());
+             }
+-            this.backgroundRangeMarkers.clear();
++            backgroundRangeMarkers1.clear();
+         }
+         if (this.foregroundRangeMarkers != null) {
+             Set keys = this.foregroundRangeMarkers.keySet();

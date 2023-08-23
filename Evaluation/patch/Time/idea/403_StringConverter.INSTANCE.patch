@@ -1,0 +1,50 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterManager.java b/src/main/java/org/joda/time/convert/ConverterManager.java
+index 0b029aa..4e12de5 100644
+--- a/src/main/java/org/joda/time/convert/ConverterManager.java
++++ b/src/main/java/org/joda/time/convert/ConverterManager.java
+@@ -104,9 +104,10 @@
+     protected ConverterManager() {
+         super();
+ 
++        StringConverter instance = StringConverter.INSTANCE;
+         iInstantConverters = new ConverterSet(new Converter[] {
+             ReadableInstantConverter.INSTANCE,
+-            StringConverter.INSTANCE,
++                instance,
+             CalendarConverter.INSTANCE,
+             DateConverter.INSTANCE,
+             LongConverter.INSTANCE,
+@@ -116,7 +117,7 @@
+         iPartialConverters = new ConverterSet(new Converter[] {
+             ReadablePartialConverter.INSTANCE,
+             ReadableInstantConverter.INSTANCE,
+-            StringConverter.INSTANCE,
++                instance,
+             CalendarConverter.INSTANCE,
+             DateConverter.INSTANCE,
+             LongConverter.INSTANCE,
+@@ -126,7 +127,7 @@
+         iDurationConverters = new ConverterSet(new Converter[] {
+             ReadableDurationConverter.INSTANCE,
+             ReadableIntervalConverter.INSTANCE,
+-            StringConverter.INSTANCE,
++                instance,
+             LongConverter.INSTANCE,
+             NullConverter.INSTANCE,
+         });
+@@ -135,13 +136,13 @@
+             ReadableDurationConverter.INSTANCE,
+             ReadablePeriodConverter.INSTANCE,
+             ReadableIntervalConverter.INSTANCE,
+-            StringConverter.INSTANCE,
++                instance,
+             NullConverter.INSTANCE,
+         });
+ 
+         iIntervalConverters = new ConverterSet(new Converter[] {
+             ReadableIntervalConverter.INSTANCE,
+-            StringConverter.INSTANCE,
++                instance,
+             NullConverter.INSTANCE,
+         });
+     }

@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..db195b1 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -1222,7 +1222,7 @@
+     }
+     if (paramNum > 0) {
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        StringBuilder var_2616 = b.append(", ");
+       }
+       Node p = call.parameters.getFirstChild();
+       b.append(getDebugHashCodeStringOf(p.getJSType()));
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..db195b1 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -1222,7 +1222,7 @@
+     }
+     if (paramNum > 0) {
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        StringBuilder var_2616 = b.append(", ");
+       }
+       Node p = call.parameters.getFirstChild();
+       b.append(getDebugHashCodeStringOf(p.getJSType()));
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..770c890 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -1221,14 +1221,15 @@
+       b.append(getDebugHashCodeStringOf(typeOfThis));
+     }
+     if (paramNum > 0) {
++        StringBuilder append = b.append(", ");
+       if (hasKnownTypeOfThis) {
+-        b.append(", ");
++        append;
+       }
+       Node p = call.parameters.getFirstChild();
+       b.append(getDebugHashCodeStringOf(p.getJSType()));
+       p = p.getNext();
+       while (p != null) {
+-        b.append(", ");
++        append;
+         b.append(getDebugHashCodeStringOf(p.getJSType()));
+         p = p.getNext();
+       }

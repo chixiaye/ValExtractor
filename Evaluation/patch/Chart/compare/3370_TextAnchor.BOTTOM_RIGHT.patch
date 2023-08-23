@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/text/TextAnchor.java b/source/org/jfree/chart/text/TextAnchor.java
+index d829de4..e106dcb 100644
+--- a/source/org/jfree/chart/text/TextAnchor.java
++++ b/source/org/jfree/chart/text/TextAnchor.java
+@@ -191,9 +191,10 @@
+         }
+         else if (this.equals(TextAnchor.BOTTOM_CENTER)) {
+             result = TextAnchor.BOTTOM_CENTER;
+-        }
+-        else if (this.equals(TextAnchor.BOTTOM_RIGHT)) {
+-            result = TextAnchor.BOTTOM_RIGHT;
++        } else {
++			TextAnchor var_3370 = TextAnchor.BOTTOM_RIGHT;
++			if (this.equals(var_3370)) {
++			    result = var_3370;
+         }
+         else if (this.equals(TextAnchor.BASELINE_LEFT)) {
+             result = TextAnchor.BASELINE_LEFT;
+@@ -222,6 +223,7 @@
+         else if (this.equals(TextAnchor.HALF_ASCENT_RIGHT)) {
+             result = TextAnchor.HALF_ASCENT_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/text/TextAnchor.java b/source/org/jfree/chart/text/TextAnchor.java
+index d829de4..e106dcb 100644
+--- a/source/org/jfree/chart/text/TextAnchor.java
++++ b/source/org/jfree/chart/text/TextAnchor.java
+@@ -191,9 +191,10 @@
+         }
+         else if (this.equals(TextAnchor.BOTTOM_CENTER)) {
+             result = TextAnchor.BOTTOM_CENTER;
+-        }
+-        else if (this.equals(TextAnchor.BOTTOM_RIGHT)) {
+-            result = TextAnchor.BOTTOM_RIGHT;
++        } else {
++			TextAnchor var_3370 = TextAnchor.BOTTOM_RIGHT;
++			if (this.equals(var_3370)) {
++			    result = var_3370;
+         }
+         else if (this.equals(TextAnchor.BASELINE_LEFT)) {
+             result = TextAnchor.BASELINE_LEFT;
+@@ -222,6 +223,7 @@
+         else if (this.equals(TextAnchor.HALF_ASCENT_RIGHT)) {
+             result = TextAnchor.HALF_ASCENT_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/text/TextAnchor.java b/source/org/jfree/chart/text/TextAnchor.java
+index d829de4..6feb60b 100644
+--- a/source/org/jfree/chart/text/TextAnchor.java
++++ b/source/org/jfree/chart/text/TextAnchor.java
+@@ -192,8 +192,10 @@
+         else if (this.equals(TextAnchor.BOTTOM_CENTER)) {
+             result = TextAnchor.BOTTOM_CENTER;
+         }
+-        else if (this.equals(TextAnchor.BOTTOM_RIGHT)) {
+-            result = TextAnchor.BOTTOM_RIGHT;
++        else {
++            TextAnchor bottomRight = TextAnchor.BOTTOM_RIGHT;
++            if (this.equals(bottomRight)) {
++                result = bottomRight;
+         }
+         else if (this.equals(TextAnchor.BASELINE_LEFT)) {
+             result = TextAnchor.BASELINE_LEFT;
+@@ -222,6 +224,7 @@
+         else if (this.equals(TextAnchor.HALF_ASCENT_RIGHT)) {
+             result = TextAnchor.HALF_ASCENT_RIGHT;
+         }
++        }
+         return result;
+     }
+ 

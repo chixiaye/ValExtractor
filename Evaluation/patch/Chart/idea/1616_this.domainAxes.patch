@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..b802432 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -816,8 +816,9 @@
+      */
+     public ValueAxis getDomainAxis(int index) {
+         ValueAxis result = null;
+-        if (index < this.domainAxes.size()) {
+-            result = (ValueAxis) this.domainAxes.get(index);
++        ObjectList domainAxes1 = this.domainAxes;
++        if (index < domainAxes1.size()) {
++            result = (ValueAxis) domainAxes1.get(index);
+         }
+         if (result == null) {
+             Plot parent = getParent();

@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/DefaultKeyedValues2D.java b/source/org/jfree/data/DefaultKeyedValues2D.java
+index 5f5b69c..352150b 100644
+--- a/source/org/jfree/data/DefaultKeyedValues2D.java
++++ b/source/org/jfree/data/DefaultKeyedValues2D.java
+@@ -468,7 +468,8 @@
+         if (columnKey == null) {
+             throw new IllegalArgumentException("Null 'columnKey' argument.");
+         }
+-        if (!this.columnKeys.contains(columnKey)) {
++        List columnKeys1 = this.columnKeys;
++        if (!columnKeys1.contains(columnKey)) {
+             throw new UnknownKeyException("Unknown key: " + columnKey);
+         }
+         Iterator iterator = this.rows.iterator();
+@@ -479,7 +480,7 @@
+                 rowData.removeValue(columnKey);
+             }
+         }
+-        this.columnKeys.remove(columnKey);
++        columnKeys1.remove(columnKey);
+     }
+ 
+     /**

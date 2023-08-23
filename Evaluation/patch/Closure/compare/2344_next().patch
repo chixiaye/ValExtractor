@@ -1,0 +1,54 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..2455a6c 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1649,7 +1649,8 @@
+   private Node parseTypeNameAnnotation(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       skipEOLs();
+-      Node typeNode = parseTypeName(next());
++      JsDocToken var_2344 = next();
++	Node typeNode = parseTypeName(var_2344);
+       if (typeNode != null) {
+         skipEOLs();
+         if (!match(JsDocToken.RC)) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..2455a6c 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1649,7 +1649,8 @@
+   private Node parseTypeNameAnnotation(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       skipEOLs();
+-      Node typeNode = parseTypeName(next());
++      JsDocToken var_2344 = next();
++	Node typeNode = parseTypeName(var_2344);
+       if (typeNode != null) {
+         skipEOLs();
+         if (!match(JsDocToken.RC)) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..045a343 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1649,13 +1649,14 @@
+   private Node parseTypeNameAnnotation(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       skipEOLs();
+-      Node typeNode = parseTypeName(next());
++        JsDocToken next = next();
++        Node typeNode = parseTypeName(next);
+       if (typeNode != null) {
+         skipEOLs();
+         if (!match(JsDocToken.RC)) {
+           reportTypeSyntaxWarning("msg.jsdoc.missing.rc");
+         } else {
+-          next();
++          next;
+         }
+       }
+ 

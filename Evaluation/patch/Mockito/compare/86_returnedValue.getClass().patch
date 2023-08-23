@@ -1,0 +1,46 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+index ea12b44..853f11a 100644
+--- a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
++++ b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+@@ -91,11 +91,12 @@
+ 
+     public void validateDefaultAnswerReturnedValue(Invocation invocation, Object returnedValue) {
+         MethodInfo methodInfo = new MethodInfo(invocation);
+-        if (returnedValue != null && !methodInfo.isValidReturnType(returnedValue.getClass())) {
++        Class<? extends Object> var_86 = returnedValue.getClass();
++		if (returnedValue != null && !methodInfo.isValidReturnType(var_86)) {
+             reporter.wrongTypeReturnedByDefaultAnswer(
+                     invocation.getMock(),
+                     methodInfo.printMethodReturnType(),
+-                    returnedValue.getClass().getSimpleName(),
++                    var_86.getSimpleName(),
+                     methodInfo.getMethodName());
+         }
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+index ea12b44..2324436 100644
+--- a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
++++ b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+@@ -91,12 +91,15 @@
+ 
+     public void validateDefaultAnswerReturnedValue(Invocation invocation, Object returnedValue) {
+         MethodInfo methodInfo = new MethodInfo(invocation);
+-        if (returnedValue != null && !methodInfo.isValidReturnType(returnedValue.getClass())) {
++        if (returnedValue != null) {
++            Class<?> aClass = returnedValue.getClass();
++            if (!methodInfo.isValidReturnType(aClass)) {
+             reporter.wrongTypeReturnedByDefaultAnswer(
+                     invocation.getMock(),
+                     methodInfo.printMethodReturnType(),
+-                    returnedValue.getClass().getSimpleName(),
++                        aClass.getSimpleName(),
+                     methodInfo.getMethodName());
+         }
+     }
+ }
++}

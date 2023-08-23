@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..55b8d39 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1841,7 +1841,8 @@
+      * @see #isDomainGridlinesVisible()
+      */
+     public void setDomainGridlinesVisible(boolean visible) {
+-        if (this.domainGridlinesVisible != visible) {
++        boolean domainGridlinesVisible1 = this.domainGridlinesVisible;
++        if (domainGridlinesVisible1 != visible) {
+             this.domainGridlinesVisible = visible;
+             fireChangeEvent();
+         }

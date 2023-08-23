@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..7f47ad7 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -679,10 +679,11 @@
+     public Range getRangeBounds(boolean includeInterval) {
+         Range result = null;
+         if (includeInterval) {
++            double maximumRangeValueIncStdDev1 = this.maximumRangeValueIncStdDev;
+             if (!Double.isNaN(this.minimumRangeValueIncStdDev)
+-                    && !Double.isNaN(this.maximumRangeValueIncStdDev)) {
++                    && !Double.isNaN(maximumRangeValueIncStdDev1)) {
+                 result = new Range(this.minimumRangeValueIncStdDev,
+-                        this.maximumRangeValueIncStdDev);
++                        maximumRangeValueIncStdDev1);
+             }
+         }
+         else {

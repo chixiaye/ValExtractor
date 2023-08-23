@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/JsMessageVisitor.java b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+index becd724..3a9a8d2 100644
+--- a/src/com/google/javascript/jscomp/JsMessageVisitor.java
++++ b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+@@ -910,9 +910,10 @@
+       throw new MalformedException(
+           "Expected node type " + type + "; found: null", node);
+     }
+-    if (node.getType() != type) {
++      int type1 = node.getType();
++      if (type1 != type) {
+       throw new MalformedException(
+-          "Expected node type " + type + "; found: " + node.getType(), node);
++          "Expected node type " + type + "; found: " + type1, node);
+     }
+   }
+ 

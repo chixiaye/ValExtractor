@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..2936179 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -352,6 +352,7 @@
+                 weightedJacobian[k][pk] = diagR[pk];
+             }
+ 
++            double sqrt = FastMath.sqrt(xNorm);
+             if (firstIteration) {
+                 // scale the point according to the norms of the columns
+                 // of the initial jacobian
+@@ -365,7 +366,7 @@
+                     xNorm  += xk * xk;
+                     diag[k] = dk;
+                 }
+-                xNorm = FastMath.sqrt(xNorm);
++                xNorm = sqrt;
+ 
+                 // initialize the step bound delta
+                 delta = (xNorm == 0) ? initialStepBoundFactor : (initialStepBoundFactor * xNorm);
+@@ -491,7 +492,7 @@
+                         double xK = diag[k] * currentPoint[k];
+                         xNorm += xK * xK;
+                     }
+-                    xNorm = FastMath.sqrt(xNorm);
++                    xNorm = sqrt;
+ 
+                     // tests for convergence.
+                     if (checker != null && checker.converged(getIterations(), previous, current)) {

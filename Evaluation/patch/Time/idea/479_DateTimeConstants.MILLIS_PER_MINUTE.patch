@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..807ed22 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -2230,7 +2230,8 @@
+                 return;
+             }
+ 
+-            int minutes = displayOffset / DateTimeConstants.MILLIS_PER_MINUTE;
++            int millisPerMinute = DateTimeConstants.MILLIS_PER_MINUTE;
++            int minutes = displayOffset / millisPerMinute;
+             if (iShowSeparators) {
+                 out.write(':');
+             }
+@@ -2238,7 +2239,7 @@
+             if (iMaxFields == 2) {
+                 return;
+             }
+-            displayOffset -= minutes * DateTimeConstants.MILLIS_PER_MINUTE;
++            displayOffset -= minutes * millisPerMinute;
+             if (displayOffset == 0 && iMinFields == 2) {
+                 return;
+             }

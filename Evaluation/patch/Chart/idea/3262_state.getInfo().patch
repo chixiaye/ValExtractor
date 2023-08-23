@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
+index e7013ab..0c4b659 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
+@@ -514,8 +514,9 @@
+ 
+         // setup for collecting optional entity info...
+         EntityCollection entities = null;
+-        if (state.getInfo() != null) {
+-            entities = state.getInfo().getOwner().getEntityCollection();
++        PlotRenderingInfo info = state.getInfo();
++        if (info != null) {
++            entities = info.getOwner().getEntityCollection();
+         }
+ 
+         BoxAndWhiskerXYDataset boxAndWhiskerData

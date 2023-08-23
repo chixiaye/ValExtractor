@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+index 7535574..a8fdd66 100644
+--- a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+@@ -266,7 +266,8 @@
+                         count++;
+                     } else {
+                         // low surrogate, insert high surrogate after putting it in
+-                        buffer[count] = ch;
++                        char c = buffer[count];
++                        c = ch;
+                         count--;
+                         buffer[count] = (char) (55296 + random.nextInt(128));
+                     }

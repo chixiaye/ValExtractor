@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..46c430b 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -623,7 +623,8 @@
+         }
+         //autoboxing:
+         if (autoboxing) {
+-            if (cls.isPrimitive() && !toClass.isPrimitive()) {
++            boolean var_227 = toClass.isPrimitive();
++			if (cls.isPrimitive() && !var_227) {
+                 cls = primitiveToWrapper(cls);
+                 if (cls == null) {
+                     return false;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..46c430b 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -623,7 +623,8 @@
+         }
+         //autoboxing:
+         if (autoboxing) {
+-            if (cls.isPrimitive() && !toClass.isPrimitive()) {
++            boolean var_227 = toClass.isPrimitive();
++			if (cls.isPrimitive() && !var_227) {
+                 cls = primitiveToWrapper(cls);
+                 if (cls == null) {
+                     return false;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..3b624f7 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -618,18 +618,19 @@
+             return false;
+         }
+         // have to check for null, as isAssignableFrom doesn't
++        boolean primitive = toClass.isPrimitive();
+         if (cls == null) {
+-            return !toClass.isPrimitive();
++            return !primitive;
+         }
+         //autoboxing:
+         if (autoboxing) {
+-            if (cls.isPrimitive() && !toClass.isPrimitive()) {
++            if (cls.isPrimitive() && !primitive) {
+                 cls = primitiveToWrapper(cls);
+                 if (cls == null) {
+                     return false;
+                 }
+             }
+-            if (toClass.isPrimitive() && !cls.isPrimitive()) {
++            if (primitive && !cls.isPrimitive()) {
+                 cls = wrapperToPrimitive(cls);
+                 if (cls == null) {
+                     return false;
+@@ -640,7 +641,7 @@
+             return true;
+         }
+         if (cls.isPrimitive()) {
+-            if (toClass.isPrimitive() == false) {
++            if (primitive == false) {
+                 return false;
+             }
+             if (Integer.TYPE.equals(cls)) {

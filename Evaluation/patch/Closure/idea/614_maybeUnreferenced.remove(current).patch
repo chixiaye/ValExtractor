@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..67c3202 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -731,8 +731,9 @@
+       // we traverse it.
+       for (int current = 0; current < maybeUnreferenced.size(); current++) {
+         Var var = maybeUnreferenced.get(current);
+-        if (referenced.contains(var)) {
+-          maybeUnreferenced.remove(current);
++          Var remove = maybeUnreferenced.remove(current);
++          if (referenced.contains(var)) {
++          remove;
+           current--;
+         } else {
+           boolean assignedToUnknownValue = false;
+@@ -764,7 +765,7 @@
+ 
+           if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {
+             changes = markReferencedVar(var) || changes;
+-            maybeUnreferenced.remove(current);
++            remove;
+             current--;
+           }
+         }

@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+index 773b7ad..473d2f1 100644
+--- a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
++++ b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+@@ -252,7 +252,8 @@
+ 
+         if (checkNode == null) {
+           // We don't know how to check this parameter type.
+-          paramName = paramName.getNext();
++          Node var_205 = paramName.getNext();
++		paramName = var_205;
+           continue;
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+index 773b7ad..af858a1 100644
+--- a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
++++ b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+@@ -250,9 +250,10 @@
+         Node checkNode = createCheckTypeCallNode(
+             paramType.getJSType(), paramName.cloneTree());
+ 
++        Node var_205 = paramName.getNext();
+         if (checkNode == null) {
+           // We don't know how to check this parameter type.
+-          paramName = paramName.getNext();
++          paramName = var_205;
+           continue;
+         }
+ 
+@@ -264,7 +265,7 @@
+         }
+ 
+         compiler.reportCodeChange();
+-        paramName = paramName.getNext();
++        paramName = var_205;
+         insertionPoint = checkNode;
+       }
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+index 773b7ad..d71689e 100644
+--- a/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
++++ b/src/com/google/javascript/jscomp/RuntimeTypeCheck.java
+@@ -250,9 +250,10 @@
+         Node checkNode = createCheckTypeCallNode(
+             paramType.getJSType(), paramName.cloneTree());
+ 
++          Node next = paramName.getNext();
+         if (checkNode == null) {
+           // We don't know how to check this parameter type.
+-          paramName = paramName.getNext();
++          paramName = next;
+           continue;
+         }
+ 
+@@ -264,7 +265,7 @@
+         }
+ 
+         compiler.reportCodeChange();
+-        paramName = paramName.getNext();
++        paramName = next;
+         insertionPoint = checkNode;
+       }
+     }

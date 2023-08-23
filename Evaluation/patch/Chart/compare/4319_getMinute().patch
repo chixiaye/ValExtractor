@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/time/Second.java b/source/org/jfree/data/time/Second.java
+index 0800081..033cc9a 100644
+--- a/source/org/jfree/data/time/Second.java
++++ b/source/org/jfree/data/time/Second.java
+@@ -253,7 +253,8 @@
+ 
+         Second result = null;
+         if (this.second != LAST_SECOND_IN_MINUTE) {
+-            result = new Second(this.second + 1, getMinute());
++            Minute var_4319 = getMinute();
++			result = new Second(this.second + 1, var_4319);
+         }
+         else {
+             Minute next = (Minute) getMinute().next();
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/time/Second.java b/source/org/jfree/data/time/Second.java
+index 0800081..82b02e6 100644
+--- a/source/org/jfree/data/time/Second.java
++++ b/source/org/jfree/data/time/Second.java
+@@ -252,11 +252,12 @@
+     public RegularTimePeriod next() {
+ 
+         Second result = null;
++        Minute var_4319 = getMinute();
+         if (this.second != LAST_SECOND_IN_MINUTE) {
+-            result = new Second(this.second + 1, getMinute());
++            result = new Second(this.second + 1, var_4319);
+         }
+         else {
+-            Minute next = (Minute) getMinute().next();
++            Minute next = (Minute) var_4319.next();
+             if (next != null) {
+                 result = new Second(FIRST_SECOND_IN_MINUTE, next);
+             }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/time/Second.java b/source/org/jfree/data/time/Second.java
+index 0800081..d7813dd 100644
+--- a/source/org/jfree/data/time/Second.java
++++ b/source/org/jfree/data/time/Second.java
+@@ -252,11 +252,12 @@
+     public RegularTimePeriod next() {
+ 
+         Second result = null;
++        Minute minute1 = getMinute();
+         if (this.second != LAST_SECOND_IN_MINUTE) {
+-            result = new Second(this.second + 1, getMinute());
++            result = new Second(this.second + 1, minute1);
+         }
+         else {
+-            Minute next = (Minute) getMinute().next();
++            Minute next = (Minute) minute1.next();
+             if (next != null) {
+                 result = new Second(FIRST_SECOND_IN_MINUTE, next);
+             }

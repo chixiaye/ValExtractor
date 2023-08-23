@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..75b31eb 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -147,10 +147,12 @@
+ 
+             if (this.minimumRangeValue == null) {
+                 this.minimumRangeValue = new Double(minval);
+-            }
+-            else if (minval < this.minimumRangeValue.doubleValue()) {
++            } else {
++				double var_4011 = this.minimumRangeValue.doubleValue();
++				if (minval < var_4011) {
+                 this.minimumRangeValue = new Double(minval);
+             }
++			}
+             this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),
+                     this.maximumRangeValue.doubleValue());
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..93bec97 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -145,13 +145,14 @@
+                 this.maximumRangeValue = new Double(maxval);
+             }
+ 
++            double var_4011 = this.minimumRangeValue.doubleValue();
+             if (this.minimumRangeValue == null) {
+                 this.minimumRangeValue = new Double(minval);
+             }
+-            else if (minval < this.minimumRangeValue.doubleValue()) {
++            else if (minval < var_4011) {
+                 this.minimumRangeValue = new Double(minval);
+             }
+-            this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),
++            this.rangeBounds = new Range(var_4011,
+                     this.maximumRangeValue.doubleValue());
+         }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..b81905d 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -145,13 +145,14 @@
+                 this.maximumRangeValue = new Double(maxval);
+             }
+ 
++            double v = this.minimumRangeValue.doubleValue();
+             if (this.minimumRangeValue == null) {
+                 this.minimumRangeValue = new Double(minval);
+             }
+-            else if (minval < this.minimumRangeValue.doubleValue()) {
++            else if (minval < v) {
+                 this.minimumRangeValue = new Double(minval);
+             }
+-            this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),
++            this.rangeBounds = new Range(v,
+                     this.maximumRangeValue.doubleValue());
+         }
+ 

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+index 1bf17de..ecf8dae 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+@@ -226,8 +226,9 @@
+         if ((x == null) || (y == null)) {
+             throw new NullArgumentException();
+         }
+-        if (x.length != y.length) {
+-            throw new DimensionMismatchException(y.length, x.length);
++        int length = y.length;
++        if (x.length != length) {
++            throw new DimensionMismatchException(length, x.length);
+         }
+         if (x.length == 0) {  // Must be no y data either
+             throw new NoDataException();

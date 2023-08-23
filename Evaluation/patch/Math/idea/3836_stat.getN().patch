@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/inference/TTest.java b/src/main/java/org/apache/commons/math3/stat/inference/TTest.java
+index 13e5e3a..1fb4bba 100644
+--- a/src/main/java/org/apache/commons/math3/stat/inference/TTest.java
++++ b/src/main/java/org/apache/commons/math3/stat/inference/TTest.java
+@@ -1171,10 +1171,11 @@
+         if (stat == null) {
+             throw new NullArgumentException();
+         }
+-        if (stat.getN() < 2) {
++        long n = stat.getN();
++        if (n < 2) {
+             throw new NumberIsTooSmallException(
+                     LocalizedFormats.INSUFFICIENT_DATA_FOR_T_STATISTIC,
+-                    stat.getN(), 2, true);
++                    n, 2, true);
+         }
+ 
+     }

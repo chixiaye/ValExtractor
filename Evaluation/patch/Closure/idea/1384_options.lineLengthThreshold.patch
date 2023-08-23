@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/CodePrinter.java b/src/com/google/javascript/jscomp/CodePrinter.java
+index fd77e51..6127e50 100644
+--- a/src/com/google/javascript/jscomp/CodePrinter.java
++++ b/src/com/google/javascript/jscomp/CodePrinter.java
+@@ -648,16 +648,17 @@
+     Preconditions.checkState(options.sourceMapDetailLevel != null);
+ 
+     boolean createSourceMap = (sourceMap != null);
+-    MappedCodePrinter mcp =
++      int lineLengthThreshold = options.lineLengthThreshold;
++      MappedCodePrinter mcp =
+         outputFormat == Format.COMPACT
+         ? new CompactCodePrinter(
+             options.lineBreak,
+             options.preferLineBreakAtEndOfFile,
+-            options.lineLengthThreshold,
++                lineLengthThreshold,
+             createSourceMap,
+             options.sourceMapDetailLevel)
+         : new PrettyCodePrinter(
+-            options.lineLengthThreshold,
++                lineLengthThreshold,
+             createSourceMap,
+             options.sourceMapDetailLevel);
+     CodeGenerator cg =

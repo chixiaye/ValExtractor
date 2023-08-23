@@ -1,0 +1,44 @@
+diff --git a/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java b/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java
+index 51839d0390..6fb591405b 100644
+--- a/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java
++++ b/nifi-nar-bundles/nifi-framework-bundle/nifi-framework/nifi-framework-core/src/main/java/org/apache/nifi/groups/StandardProcessGroup.java
+@@ -93,24 +93,7 @@ import org.apache.nifi.processor.StandardProcessContext;
+ import org.apache.nifi.registry.ComponentVariableRegistry;
+ import org.apache.nifi.registry.VariableDescriptor;
+ import org.apache.nifi.registry.client.NiFiRegistryException;
+-import org.apache.nifi.registry.flow.Bundle;
+-import org.apache.nifi.registry.flow.ConnectableComponent;
+-import org.apache.nifi.registry.flow.FlowRegistry;
+-import org.apache.nifi.registry.flow.FlowRegistryClient;
+-import org.apache.nifi.registry.flow.StandardVersionControlInformation;
+-import org.apache.nifi.registry.flow.VersionControlInformation;
+-import org.apache.nifi.registry.flow.VersionedConnection;
+-import org.apache.nifi.registry.flow.VersionedControllerService;
+-import org.apache.nifi.registry.flow.VersionedFlow;
+-import org.apache.nifi.registry.flow.VersionedFlowCoordinates;
+-import org.apache.nifi.registry.flow.VersionedFlowSnapshot;
+-import org.apache.nifi.registry.flow.VersionedFunnel;
+-import org.apache.nifi.registry.flow.VersionedLabel;
+-import org.apache.nifi.registry.flow.VersionedPort;
+-import org.apache.nifi.registry.flow.VersionedProcessGroup;
+-import org.apache.nifi.registry.flow.VersionedProcessor;
+-import org.apache.nifi.registry.flow.VersionedRemoteGroupPort;
+-import org.apache.nifi.registry.flow.VersionedRemoteProcessGroup;
++import org.apache.nifi.registry.flow.*;
+ import org.apache.nifi.registry.flow.diff.ComparableDataFlow;
+ import org.apache.nifi.registry.flow.diff.DifferenceType;
+ import org.apache.nifi.registry.flow.diff.EvolvingDifferenceDescriptor;
+@@ -3748,9 +3731,10 @@ public final class StandardProcessGroup implements ProcessGroup {
+     private RemoteProcessGroupPortDescriptor createPortDescriptor(final VersionedRemoteGroupPort proposed) {
+         final StandardRemoteProcessGroupPortDescriptor descriptor = new StandardRemoteProcessGroupPortDescriptor();
+         descriptor.setVersionedComponentId(proposed.getIdentifier());
+-        descriptor.setBatchCount(proposed.getBatchSize().getCount());
+-        descriptor.setBatchDuration(proposed.getBatchSize().getDuration());
+-        descriptor.setBatchSize(proposed.getBatchSize().getSize());
++        BatchSize batchSize = proposed.getBatchSize();
++        descriptor.setBatchCount(batchSize.getCount());
++        descriptor.setBatchDuration(batchSize.getDuration());
++        descriptor.setBatchSize(batchSize.getSize());
+         descriptor.setComments(proposed.getComments());
+         descriptor.setConcurrentlySchedulableTaskCount(proposed.getConcurrentlySchedulableTaskCount());
+         descriptor.setGroupId(proposed.getGroupId());

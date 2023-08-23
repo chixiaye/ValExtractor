@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+index 6ed0a41..2232176 100644
+--- a/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
++++ b/source/org/jfree/data/statistics/BoxAndWhiskerCalculator.java
+@@ -129,9 +129,10 @@
+         double upperFaroutThreshold = q3 + (interQuartileRange * 2.0);
+         double lowerFaroutThreshold = q1 - (interQuartileRange * 2.0);
+ 
+-        double minRegularValue = Double.POSITIVE_INFINITY;
++        double positiveInfinity = Double.POSITIVE_INFINITY;
++        double minRegularValue = positiveInfinity;
+         double maxRegularValue = Double.NEGATIVE_INFINITY;
+-        double minOutlier = Double.POSITIVE_INFINITY;
++        double minOutlier = positiveInfinity;
+         double maxOutlier = Double.NEGATIVE_INFINITY;
+         List outliers = new ArrayList();
+ 

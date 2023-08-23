@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..43b88e0 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -791,7 +791,8 @@
+             // the vector of residual sums of squares (RSS).
+             m1 = vorder[m];
+             vorder[m] = vorder[mp1];
+-            vorder[mp1] = m1;
++            int i = vorder[mp1];
++            i = m1;
+             X = tol[m];
+             tol[m] = tol[mp1];
+             tol[mp1] = X;

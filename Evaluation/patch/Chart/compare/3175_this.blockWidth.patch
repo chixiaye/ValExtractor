@@ -1,0 +1,169 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..5ce5ea8 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -242,13 +242,14 @@
+         if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_LEFT)) {
+             this.xOffset = 0.0;
+             this.yOffset = 0.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++        } else {
++			double var_3175 = this.blockWidth;
++			if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
+@@ -256,11 +257,11 @@
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.CENTER)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_LEFT)) {
+@@ -268,14 +269,15 @@
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = -this.blockHeight;
+         }
+     }
++    }
+ 
+     /**
+      * Returns the lower and upper bounds (range) of the x-values in the
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..5ce5ea8 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -242,13 +242,14 @@
+         if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_LEFT)) {
+             this.xOffset = 0.0;
+             this.yOffset = 0.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++        } else {
++			double var_3175 = this.blockWidth;
++			if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
+@@ -256,11 +257,11 @@
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.CENTER)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_LEFT)) {
+@@ -268,14 +269,15 @@
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++			    this.xOffset = -var_3175 / 2.0;
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++			    this.xOffset = -var_3175;
+             this.yOffset = -this.blockHeight;
+         }
+     }
++    }
+ 
+     /**
+      * Returns the lower and upper bounds (range) of the x-values in the
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..fd0bc6d 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -243,12 +243,14 @@
+             this.xOffset = 0.0;
+             this.yOffset = 0.0;
+         }
+-        else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++        else {
++            double blockWidth1 = this.blockWidth;
++            if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
++                this.xOffset = -blockWidth1 / 2.0;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++                this.xOffset = -blockWidth1;
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
+@@ -256,11 +258,11 @@
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.CENTER)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++                this.xOffset = -blockWidth1 / 2.0;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++                this.xOffset = -blockWidth1;
+             this.yOffset = -this.blockHeight / 2.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_LEFT)) {
+@@ -268,14 +270,15 @@
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP)) {
+-            this.xOffset = -this.blockWidth / 2.0;
++                this.xOffset = -blockWidth1 / 2.0;
+             this.yOffset = -this.blockHeight;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.TOP_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
++                this.xOffset = -blockWidth1;
+             this.yOffset = -this.blockHeight;
+         }
+     }
++    }
+ 
+     /**
+      * Returns the lower and upper bounds (range) of the x-values in the

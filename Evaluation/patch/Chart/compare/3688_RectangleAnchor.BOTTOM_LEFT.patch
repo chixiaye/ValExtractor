@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..7761884 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -286,13 +286,15 @@
+         }
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+-        }
+-        else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+-            result = RectangleAnchor.BOTTOM_LEFT;
++        } else {
++			RectangleAnchor var_3688 = RectangleAnchor.BOTTOM_LEFT;
++			if (this.equals(var_3688)) {
++			    result = var_3688;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..7761884 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -286,13 +286,15 @@
+         }
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+-        }
+-        else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+-            result = RectangleAnchor.BOTTOM_LEFT;
++        } else {
++			RectangleAnchor var_3688 = RectangleAnchor.BOTTOM_LEFT;
++			if (this.equals(var_3688)) {
++			    result = var_3688;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..14b30df 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -287,12 +287,15 @@
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+         }
+-        else if (this.equals(RectangleAnchor.BOTTOM_LEFT)) {
+-            result = RectangleAnchor.BOTTOM_LEFT;
++        else {
++            RectangleAnchor bottomLeft = RectangleAnchor.BOTTOM_LEFT;
++            if (this.equals(bottomLeft)) {
++                result = bottomLeft;
+         }
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++        }
+         return result;
+     }
+ 

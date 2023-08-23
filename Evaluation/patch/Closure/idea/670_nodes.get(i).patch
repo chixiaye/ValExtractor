@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..c4118c2 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -371,13 +371,14 @@
+         replacement = new Node(Token.COMMA);
+         Node cur = replacement;
+         int i;
+-        for (i = 0; i < nodes.size() - 2; i++) {
+-          cur.addChildToFront(nodes.get(i));
++          Node child = nodes.get(i);
++          for (i = 0; i < nodes.size() - 2; i++) {
++          cur.addChildToFront(child);
+           Node t = new Node(Token.COMMA);
+           cur.addChildToFront(t);
+           cur = t;
+         }
+-        cur.addChildToFront(nodes.get(i));
++        cur.addChildToFront(child);
+         cur.addChildToFront(nodes.get(i + 1));
+       }
+ 

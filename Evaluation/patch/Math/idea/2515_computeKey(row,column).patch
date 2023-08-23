@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/OpenMapRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/OpenMapRealMatrix.java
+index 31c5863..c3985eb 100644
+--- a/src/main/java/org/apache/commons/math3/linear/OpenMapRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/OpenMapRealMatrix.java
+@@ -259,10 +259,11 @@
+         throws OutOfRangeException {
+         MatrixUtils.checkRowIndex(this, row);
+         MatrixUtils.checkColumnIndex(this, column);
++        int key = computeKey(row, column);
+         if (value == 0.0) {
+-            entries.remove(computeKey(row, column));
++            entries.remove(key);
+         } else {
+-            entries.put(computeKey(row, column), value);
++            entries.put(key, value);
+         }
+     }
+ 

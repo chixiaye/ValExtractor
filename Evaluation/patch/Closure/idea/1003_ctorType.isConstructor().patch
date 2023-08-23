@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..1616caa 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1178,7 +1178,8 @@
+     boolean declaredOverride = info != null && info.isOverride();
+ 
+     boolean foundInterfaceProperty = false;
+-    if (ctorType.isConstructor()) {
++      boolean constructor = ctorType.isConstructor();
++      if (constructor) {
+       for (JSType implementedInterface :
+           ctorType.getAllImplementedInterfaces()) {
+         if (implementedInterface.isUnknownType() ||
+@@ -1215,7 +1216,7 @@
+     ObjectType topInstanceType = superClassHasDeclaredProperty ?
+         superClass.getTopMostDefiningType(propertyName) : null;
+     boolean declaredLocally =
+-        ctorType.isConstructor() &&
++        constructor &&
+         (ctorType.getPrototype().hasOwnProperty(propertyName) ||
+          ctorType.getInstanceType().hasOwnProperty(propertyName));
+     if (reportMissingOverride.isOn()

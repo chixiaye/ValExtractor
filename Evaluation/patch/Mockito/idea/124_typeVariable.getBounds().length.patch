@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+index a96dac4..3ee616d 100644
+--- a/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
++++ b/src/org/mockito/internal/util/reflection/GenericMetadataSupport.java
+@@ -536,8 +536,9 @@
+          * empty array if no other bound declared.
+          */
+         public Type[] interfaceBounds() {
+-            Type[] interfaceBounds = new Type[typeVariable.getBounds().length - 1];
+-            System.arraycopy(typeVariable.getBounds(), 1, interfaceBounds, 0, typeVariable.getBounds().length - 1);
++            int length = typeVariable.getBounds().length;
++            Type[] interfaceBounds = new Type[length - 1];
++            System.arraycopy(typeVariable.getBounds(), 1, interfaceBounds, 0, length - 1);
+             return interfaceBounds;
+         }
+ 

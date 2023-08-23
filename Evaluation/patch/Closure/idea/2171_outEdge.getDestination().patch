@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/graph/GraphPruner.java b/src/com/google/javascript/jscomp/graph/GraphPruner.java
+index 9e88230..8f71626 100644
+--- a/src/com/google/javascript/jscomp/graph/GraphPruner.java
++++ b/src/com/google/javascript/jscomp/graph/GraphPruner.java
+@@ -49,7 +49,8 @@
+       for (DiGraphEdge<N, E> inEdge : node.getInEdges()) {
+         for (DiGraphEdge<N, E> outEdge : node.getOutEdges()) {
+           N source = inEdge.getSource().getValue();
+-          N dest = outEdge.getDestination().getValue();
++            DiGraphNode<N, E> destination = outEdge.getDestination();
++            N dest = destination.getValue();
+           if (!workGraph.isConnectedInDirection(source, dest)) {
+             workGraph.connect(source, outEdge.getValue(), dest);
+           }

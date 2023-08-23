@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..70aa748 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -685,7 +685,8 @@
+       @Nullable Function<String, String> escaper)
+       throws IOException {
+     int pos = wrapper.indexOf(codePlaceholder);
+-    if (pos != -1) {
++      Appendable append = out.append('\n');
++      if (pos != -1) {
+       String prefix = "";
+ 
+       if (pos > 0) {
+@@ -701,7 +702,7 @@
+         out.append(wrapper.substring(suffixStart));
+       }
+       // Make sure we always end output with a line feed.
+-      out.append('\n');
++      append;
+ 
+       // If we have a source map, adjust its offsets to match
+       // the code WITHIN the wrapper.
+@@ -711,7 +712,7 @@
+ 
+     } else {
+       out.append(code);
+-      out.append('\n');
++      append;
+     }
+   }
+ 

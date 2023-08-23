@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java
+index 2b18368..70b82ce 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java
+@@ -143,8 +143,9 @@
+             if (attribute.getPlusOutside() != null) {
+                 addContribution(attribute.getPlusOutside(), false);
+             }
+-            if (attribute.getPlusInside() != null) {
+-                addContribution(attribute.getPlusInside(), true);
++            SubHyperplane<Euclidean3D> plusInside = attribute.getPlusInside();
++            if (plusInside != null) {
++                addContribution(plusInside, true);
+             }
+         }
+ 

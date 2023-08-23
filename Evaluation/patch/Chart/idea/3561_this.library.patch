@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ui/BasicProjectInfo.java b/source/org/jfree/chart/ui/BasicProjectInfo.java
+index cc45be5..cbe3ffc 100644
+--- a/source/org/jfree/chart/ui/BasicProjectInfo.java
++++ b/source/org/jfree/chart/ui/BasicProjectInfo.java
+@@ -100,7 +100,8 @@
+          * @return The library.
+          */
+         public Library getLibrary() {
+-            if (this.library == null) {
++            Library library1 = this.library;
++            if (library1 == null) {
+                 this.library = loadLibrary(this.libraryClass);
+             }
+             return this.library;

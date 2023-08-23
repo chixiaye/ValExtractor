@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.java
+index cc55dbe..ee6fce6 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/RungeKuttaIntegrator.java
+@@ -102,13 +102,14 @@
+ 
+     // create some internal working arrays
+     final double[] y0      = equations.getCompleteState();
+-    final double[] y       = y0.clone();
++      double[] clone = y0.clone();
++      final double[] y       = clone;
+     final int stages       = c.length + 1;
+     final double[][] yDotK = new double[stages][];
+     for (int i = 0; i < stages; ++i) {
+       yDotK [i] = new double[y0.length];
+     }
+-    final double[] yTmp    = y0.clone();
++    final double[] yTmp    = clone;
+     final double[] yDotTmp = new double[y0.length];
+ 
+     // set up an interpolator sharing the integrator arrays

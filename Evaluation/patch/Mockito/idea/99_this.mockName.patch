@@ -1,0 +1,12 @@
+diff --git a/src/org/mockito/internal/util/MockNameImpl.java b/src/org/mockito/internal/util/MockNameImpl.java
+index c55080d..2bf9c5d 100644
+--- a/src/org/mockito/internal/util/MockNameImpl.java
++++ b/src/org/mockito/internal/util/MockNameImpl.java
+@@ -17,6 +17,7 @@
+     @SuppressWarnings("unchecked")
+     public MockNameImpl(String mockName, Class classToMock) {
+         if (mockName == null) {
++            String mockName1 = this.mockName;
+             this.mockName = toInstanceName(classToMock);
+             this.defaultName = true;
+         } else {

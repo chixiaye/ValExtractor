@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..261990a 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -491,7 +491,8 @@
+      * @see #getDrawVolume()
+      */
+     public void setDrawVolume(boolean flag) {
+-        if (this.drawVolume != flag) {
++        boolean drawVolume1 = this.drawVolume;
++        if (drawVolume1 != flag) {
+             this.drawVolume = flag;
+             fireChangeEvent();
+         }

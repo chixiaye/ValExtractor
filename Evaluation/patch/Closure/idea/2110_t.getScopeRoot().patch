@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/ChainCalls.java b/src/com/google/javascript/jscomp/ChainCalls.java
+index 2a1d792..0418c3f 100644
+--- a/src/com/google/javascript/jscomp/ChainCalls.java
++++ b/src/com/google/javascript/jscomp/ChainCalls.java
+@@ -68,17 +68,18 @@
+     public void enterScope(NodeTraversal t) {
+       ControlFlowGraph<Node> cfg = t.getControlFlowGraph();
+ 
+-      for (DiGraphEdge<Node, Branch> s : cfg.getImplicitReturn().getInEdges()) {
++        Node scopeRoot = t.getScopeRoot();
++        for (DiGraphEdge<Node, Branch> s : cfg.getImplicitReturn().getInEdges()) {
+         Node exitNode = s.getSource().getValue();
+         if (!exitNode.isReturn() ||
+             exitNode.getFirstChild() == null ||
+             !exitNode.getFirstChild().isThis()) {
+-          badFunctionNodes.add(t.getScopeRoot());
++          badFunctionNodes.add(scopeRoot);
+           return;
+         }
+       }
+ 
+-      goodFunctionNodes.add(t.getScopeRoot());
++      goodFunctionNodes.add(scopeRoot);
+     }
+ 
+     @Override

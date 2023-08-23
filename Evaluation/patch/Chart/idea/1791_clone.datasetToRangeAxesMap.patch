@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..3651230 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5681,7 +5681,8 @@
+ 
+         clone.datasetToDomainAxesMap = new TreeMap();
+         clone.datasetToDomainAxesMap.putAll(this.datasetToDomainAxesMap);
+-        clone.datasetToRangeAxesMap = new TreeMap();
++        Map datasetToRangeAxesMap1 = clone.datasetToRangeAxesMap;
++        datasetToRangeAxesMap1 = new TreeMap();
+         clone.datasetToRangeAxesMap.putAll(this.datasetToRangeAxesMap);
+ 
+         clone.renderers = (ObjectList) ObjectUtilities.clone(this.renderers);

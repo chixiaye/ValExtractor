@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/LegendRenderingOrder.java b/source/org/jfree/chart/LegendRenderingOrder.java
+index 975299a..db13ecb 100644
+--- a/source/org/jfree/chart/LegendRenderingOrder.java
++++ b/source/org/jfree/chart/LegendRenderingOrder.java
+@@ -113,8 +113,11 @@
+         if (this.equals(LegendRenderingOrder.STANDARD)) {
+             return LegendRenderingOrder.STANDARD;
+         }
+-        else if (this.equals(LegendRenderingOrder.REVERSE)) {
+-            return LegendRenderingOrder.REVERSE;
++        else {
++            LegendRenderingOrder reverse = LegendRenderingOrder.REVERSE;
++            if (this.equals(reverse)) {
++                return reverse;
++            }
+         }
+         return null;
+     }

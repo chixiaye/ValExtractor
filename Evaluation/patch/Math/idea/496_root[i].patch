@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/solvers/LaguerreSolver.java b/src/main/java/org/apache/commons/math3/analysis/solvers/LaguerreSolver.java
+index 326a68b..78b154e 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/solvers/LaguerreSolver.java
++++ b/src/main/java/org/apache/commons/math3/analysis/solvers/LaguerreSolver.java
+@@ -165,8 +165,9 @@
+             // Solve all roots and select the one we are seeking.
+             Complex[] root = complexSolver.solveAll(c, initial);
+             for (int i = 0; i < root.length; i++) {
+-                if (complexSolver.isRoot(lo, hi, root[i])) {
+-                    r = root[i].getReal();
++                Complex z1 = root[i];
++                if (complexSolver.isRoot(lo, hi, z1)) {
++                    r = z1.getReal();
+                     break;
+                 }
+             }

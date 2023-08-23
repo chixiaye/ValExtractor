@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/HighLowRenderer.java b/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
+index 878a686..c85a99f 100644
+--- a/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/HighLowRenderer.java
+@@ -372,8 +372,9 @@
+                 if (!Double.isNaN(yOpen)) {
+                     double yyOpen = rangeAxis.valueToJava2D(yOpen, dataArea,
+                             location);
+-                    if (this.openTickPaint != null) {
+-                        g2.setPaint(this.openTickPaint);
++                    Paint openTickPaint1 = this.openTickPaint;
++                    if (openTickPaint1 != null) {
++                        g2.setPaint(openTickPaint1);
+                     }
+                     else {
+                         g2.setPaint(itemPaint);

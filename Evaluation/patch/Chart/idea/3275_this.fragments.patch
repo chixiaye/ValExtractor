@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/text/TextLine.java b/source/org/jfree/chart/text/TextLine.java
+index d79bb18..8476de0 100644
+--- a/source/org/jfree/chart/text/TextLine.java
++++ b/source/org/jfree/chart/text/TextLine.java
+@@ -193,8 +193,9 @@
+      */
+     public TextFragment getFirstTextFragment() {
+         TextFragment result = null;
+-        if (this.fragments.size() > 0) {
+-            result = (TextFragment) this.fragments.get(0);
++        List fragments1 = this.fragments;
++        if (fragments1.size() > 0) {
++            result = (TextFragment) fragments1.get(0);
+         }
+         return result;
+     }

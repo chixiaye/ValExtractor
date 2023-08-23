@@ -1,0 +1,38 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..6fb356e 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -2595,26 +2595,27 @@
+         state.setPieHRadius(pieArea.getHeight() / 2.0);
+ 
+         // plot the data (unless the dataset is null)...
+-        if ((this.dataset != null) && (this.dataset.getKeys().size() > 0)) {
++        PieDataset dataset1 = this.dataset;
++        if ((dataset1 != null) && (dataset1.getKeys().size() > 0)) {
+ 
+             PieDatasetSelectionState ss = findSelectionStateForDataset(
+-                    this.dataset, state);
+-            List keys = this.dataset.getKeys();
++                    dataset1, state);
++            List keys = dataset1.getKeys();
+             double totalValue = DatasetUtilities.calculatePieDatasetTotal(
+-                    this.dataset);
++                    dataset1);
+ 
+             int passesRequired = state.getPassesRequired();
+             for (int pass = 0; pass < passesRequired; pass++) {
+                 double runningTotal = 0.0;
+                 for (int section = 0; section < keys.size(); section++) {
+-                    Number n = this.dataset.getValue(section);
++                    Number n = dataset1.getValue(section);
+                     if (n != null) {
+                         double value = n.doubleValue();
+                         if (value > 0.0) {
+                             runningTotal += value;
+                             boolean selected = false;
+                             if (ss != null) {
+-                                selected = ss.isSelected(this.dataset.getKey(section));
++                                selected = ss.isSelected(dataset1.getKey(section));
+                             }
+                             drawItem(g2, section, selected, explodeArea, state,
+                                     pass);

@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..b189b25 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -341,10 +341,11 @@
+         int pos;
+         double total;
+         final double eps = this.epsilon;
++        double[] var_3967 = this.work_tolset;
+         for (int i = 0; i < nvars; i++) {
+-            this.work_tolset[i] = Math.sqrt(d[i]);
++            var_3967[i] = Math.sqrt(d[i]);
+         }
+-        tol[0] = eps * this.work_tolset[0];
++        tol[0] = eps * var_3967[0];
+         for (int col = 1; col < nvars; col++) {
+             pos = col - 1;
+             total = work_tolset[col];
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..b189b25 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -341,10 +341,11 @@
+         int pos;
+         double total;
+         final double eps = this.epsilon;
++        double[] var_3967 = this.work_tolset;
+         for (int i = 0; i < nvars; i++) {
+-            this.work_tolset[i] = Math.sqrt(d[i]);
++            var_3967[i] = Math.sqrt(d[i]);
+         }
+-        tol[0] = eps * this.work_tolset[0];
++        tol[0] = eps * var_3967[0];
+         for (int col = 1; col < nvars; col++) {
+             pos = col - 1;
+             total = work_tolset[col];
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..cc0e8b5 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -341,15 +341,16 @@
+         int pos;
+         double total;
+         final double eps = this.epsilon;
++        double[] workTolset = this.work_tolset;
+         for (int i = 0; i < nvars; i++) {
+-            this.work_tolset[i] = Math.sqrt(d[i]);
++            workTolset[i] = Math.sqrt(d[i]);
+         }
+-        tol[0] = eps * this.work_tolset[0];
++        tol[0] = eps * workTolset[0];
+         for (int col = 1; col < nvars; col++) {
+             pos = col - 1;
+-            total = work_tolset[col];
++            total = workTolset[col];
+             for (int row = 0; row < col; row++) {
+-                total += Math.abs(r[pos]) * work_tolset[row];
++                total += Math.abs(r[pos]) * workTolset[row];
+                 pos += nvars - row - 2;
+             }
+             tol[col] = eps * total;

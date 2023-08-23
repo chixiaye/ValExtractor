@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..6caa9fe 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -1071,9 +1071,10 @@
+ 
+             long upper = Math.round(r.getUpperBound());
+             long lower = Math.round(r.getLowerBound());
+-            this.first = createInstance(this.autoRangeTimePeriodClass,
++            Class autoRangeTimePeriodClass1 = this.autoRangeTimePeriodClass;
++            this.first = createInstance(autoRangeTimePeriodClass1,
+                     new Date(lower), this.timeZone, this.locale);
+-            this.last = createInstance(this.autoRangeTimePeriodClass,
++            this.last = createInstance(autoRangeTimePeriodClass1,
+                     new Date(upper), this.timeZone, this.locale);
+             setRange(r, false, false);
+         }

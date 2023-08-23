@@ -1,0 +1,39 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..27084c0 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -64,9 +64,10 @@
+       Lists.<StaticSlot<ConcreteType>>newArrayList();
+ 
+   protected static ConcreteType createForTypes(Collection<ConcreteType> types) {
+-    if (types == null || types.size() == 0) {
++    int var_1753 = types.size();
++	if (types == null || var_1753 == 0) {
+       return NONE;
+-    } else if (types.size() == 1) {
++    } else if (var_1753 == 1) {
+       return types.iterator().next();
+     } else {
+       return new ConcreteUnionType(Sets.newHashSet(types));
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..34db41c 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -64,9 +64,10 @@
+       Lists.<StaticSlot<ConcreteType>>newArrayList();
+ 
+   protected static ConcreteType createForTypes(Collection<ConcreteType> types) {
+-    if (types == null || types.size() == 0) {
++      int size = types.size();
++      if (types == null || size == 0) {
+       return NONE;
+-    } else if (types.size() == 1) {
++    } else if (size == 1) {
+       return types.iterator().next();
+     } else {
+       return new ConcreteUnionType(Sets.newHashSet(types));

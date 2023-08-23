@@ -1,0 +1,72 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..a072f94 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2094,7 +2094,8 @@
+         token = next();
+       }
+       if (token == JsDocToken.ELLIPSIS) {
+-        arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++        JsDocToken var_2371 = next();
++		arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(var_2371));
+         hasVarArgs = true;
+       } else {
+         arg = parseTypeExpression(token);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..89f9974 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2088,13 +2088,14 @@
+     boolean hasVarArgs = false;
+ 
+     do {
++      JsDocToken var_2371 = next();
+       if (arg != null) {
+         next();
+         skipEOLs();
+-        token = next();
++        token = var_2371;
+       }
+       if (token == JsDocToken.ELLIPSIS) {
+-        arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++        arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(var_2371));
+         hasVarArgs = true;
+       } else {
+         arg = parseTypeExpression(token);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..149e124 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2087,14 +2087,15 @@
+     Node arg = null;
+     boolean hasVarArgs = false;
+ 
++      JsDocToken next = next();
+     do {
+       if (arg != null) {
+-        next();
++        next;
+         skipEOLs();
+-        token = next();
++        token = next;
+       }
+       if (token == JsDocToken.ELLIPSIS) {
+-        arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++        arg = wrapNode(Token.ELLIPSIS, parseTypeExpression(next));
+         hasVarArgs = true;
+       } else {
+         arg = parseTypeExpression(token);
+@@ -2114,7 +2115,7 @@
+     if (!match(JsDocToken.RB)) {
+       return reportTypeSyntaxWarning("msg.jsdoc.missing.rb");
+     }
+-    next();
++    next;
+     return array;
+   }
+ 

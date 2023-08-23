@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..315a821 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -416,7 +416,7 @@
+ 
+       Node n = getFirstParameter();
+       if (hasKnownTypeOfThis && n != null) {
+-        b.append(", ");
++        StringBuilder var_1765 = b.append(", ");
+       }
+       for (int i = 0; n != null; ++i, n = n.getNext()) {
+         String paramName = n.getString();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..315a821 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -416,7 +416,7 @@
+ 
+       Node n = getFirstParameter();
+       if (hasKnownTypeOfThis && n != null) {
+-        b.append(", ");
++        StringBuilder var_1765 = b.append(", ");
+       }
+       for (int i = 0; n != null; ++i, n = n.getNext()) {
+         String paramName = n.getString();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..5dc6015 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -415,8 +415,9 @@
+       }
+ 
+       Node n = getFirstParameter();
++        StringBuilder append = b.append(", ");
+       if (hasKnownTypeOfThis && n != null) {
+-        b.append(", ");
++        append;
+       }
+       for (int i = 0; n != null; ++i, n = n.getNext()) {
+         String paramName = n.getString();
+@@ -424,7 +425,7 @@
+         b.append(var.getType());
+         getParameterSlot(i).getType();
+         if (n.getNext() != null) {
+-          b.append(", ");
++          append;
+         }
+       }
+ 

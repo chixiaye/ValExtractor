@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..c1af0b6 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1697,9 +1697,11 @@
+ 
+       boolean isExtern = false;
+       JSDocInfo functionJSDocInfo = functionType.getJSDocInfo();
+-      if( functionJSDocInfo != null  &&
+-          functionJSDocInfo.getAssociatedNode() != null) {
+-        isExtern = functionJSDocInfo.getAssociatedNode().isFromExterns();
++      if(functionJSDocInfo != null) {
++          Node associatedNode = functionJSDocInfo.getAssociatedNode();
++          if (associatedNode != null) {
++              isExtern = associatedNode.isFromExterns();
++          }
+       }
+ 
+       // Non-native constructors should not be called directly

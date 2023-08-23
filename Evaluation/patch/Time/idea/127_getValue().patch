@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/Seconds.java b/src/main/java/org/joda/time/Seconds.java
+index f75ee92..7e540a9 100644
+--- a/src/main/java/org/joda/time/Seconds.java
++++ b/src/main/java/org/joda/time/Seconds.java
+@@ -449,10 +449,11 @@
+      * @return true if this seconds instance is less than the specified one
+      */
+     public boolean isLessThan(Seconds other) {
++        int value = getValue();
+         if (other == null) {
+-            return getValue() < 0;
++            return value < 0;
+         }
+-        return getValue() < other.getValue();
++        return value < other.getValue();
+     }
+ 
+     //-----------------------------------------------------------------------

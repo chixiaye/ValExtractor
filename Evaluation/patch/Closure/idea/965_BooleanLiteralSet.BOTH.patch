@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..6211dea 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1412,8 +1412,9 @@
+       }
+     } else {
+       type = null;
+-      literals = new BooleanOutcomePair(
+-          BooleanLiteralSet.BOTH, BooleanLiteralSet.BOTH,
++        BooleanLiteralSet both = BooleanLiteralSet.BOTH;
++        literals = new BooleanOutcomePair(
++                both, both,
+           leftLiterals.getJoinedFlowScope(),
+           rightLiterals.getJoinedFlowScope());
+     }

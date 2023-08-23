@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..e9ad468 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1311,7 +1311,8 @@
+     try {
+       // Parse externs sources.
+       for (CompilerInput input : externs) {
+-        Node n = input.getAstRoot(this);
++          Node astRoot = input.getAstRoot(this);
++          Node n = astRoot;
+         if (hasErrors()) {
+           return null;
+         }

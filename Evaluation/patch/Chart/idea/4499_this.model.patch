@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/xy/XYDatasetTableModel.java b/source/org/jfree/data/xy/XYDatasetTableModel.java
+index 52b1b98..7acad6a 100644
+--- a/source/org/jfree/data/xy/XYDatasetTableModel.java
++++ b/source/org/jfree/data/xy/XYDatasetTableModel.java
+@@ -115,10 +115,11 @@
+      * @return The number of columns in the model.
+      */
+     public int getColumnCount() {
+-        if (this.model == null) {
++        TableXYDataset model1 = this.model;
++        if (model1 == null) {
+             return 0;
+         }
+-        return this.model.getSeriesCount() + 1;
++        return model1.getSeriesCount() + 1;
+     }
+ 
+     /**

@@ -1,0 +1,68 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..3b40185 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -1110,10 +1110,11 @@
+                 return className;
+             } else {
+                 if (className.startsWith("L")) {
++                    int var_240 = className.length();
+                     className = className.substring(
+                         1,
+                         className.endsWith(";")
+-                            ? className.length() - 1
++                            ? var_240 - 1
+                             : className.length());
+                 } else {
+                     if (className.length() > 0) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..072a14a 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -1109,14 +1109,15 @@
+             if (dim < 1) {
+                 return className;
+             } else {
++                int var_240 = className.length();
+                 if (className.startsWith("L")) {
+                     className = className.substring(
+                         1,
+                         className.endsWith(";")
+-                            ? className.length() - 1
+-                            : className.length());
++                            ? var_240 - 1
++                            : var_240);
+                 } else {
+-                    if (className.length() > 0) {
++                    if (var_240 > 0) {
+                         className = reverseAbbreviationMap.get(className.substring(0, 1));
+                     }
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..af38112 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -1109,14 +1109,15 @@
+             if (dim < 1) {
+                 return className;
+             } else {
++                int length = className.length();
+                 if (className.startsWith("L")) {
+                     className = className.substring(
+                         1,
+                         className.endsWith(";")
+-                            ? className.length() - 1
+-                            : className.length());
++                            ? length - 1
++                            : length);
+                 } else {
+-                    if (className.length() > 0) {
++                    if (length > 0) {
+                         className = reverseAbbreviationMap.get(className.substring(0, 1));
+                     }
+                 }

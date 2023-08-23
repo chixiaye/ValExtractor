@@ -1,0 +1,42 @@
+diff --git a/source/org/jfree/chart/axis/DateTickUnitType.java b/source/org/jfree/chart/axis/DateTickUnitType.java
+index 273e6d3..6f7909e 100644
+--- a/source/org/jfree/chart/axis/DateTickUnitType.java
++++ b/source/org/jfree/chart/axis/DateTickUnitType.java
+@@ -153,20 +153,23 @@
+         else if (this.equals(DateTickUnitType.MONTH)) {
+             return DateTickUnitType.MONTH;
+         }
+-        else if (this.equals(DateTickUnitType.DAY)) {
+-            return DateTickUnitType.DAY;
+-        }
+-        else if (this.equals(DateTickUnitType.HOUR)) {
+-            return DateTickUnitType.HOUR;
+-        }
+-        else if (this.equals(DateTickUnitType.MINUTE)) {
+-            return DateTickUnitType.MINUTE;
+-        }
+-        else if (this.equals(DateTickUnitType.SECOND)) {
+-            return DateTickUnitType.SECOND;
+-        }
+-        else if (this.equals(DateTickUnitType.MILLISECOND)) {
+-            return DateTickUnitType.MILLISECOND;
++        else {
++            DateTickUnitType day = DateTickUnitType.DAY;
++            if (this.equals(day)) {
++                return day;
++            }
++            else if (this.equals(DateTickUnitType.HOUR)) {
++                return DateTickUnitType.HOUR;
++            }
++            else if (this.equals(DateTickUnitType.MINUTE)) {
++                return DateTickUnitType.MINUTE;
++            }
++            else if (this.equals(DateTickUnitType.SECOND)) {
++                return DateTickUnitType.SECOND;
++            }
++            else if (this.equals(DateTickUnitType.MILLISECOND)) {
++                return DateTickUnitType.MILLISECOND;
++            }
+         }
+         return null;
+     }

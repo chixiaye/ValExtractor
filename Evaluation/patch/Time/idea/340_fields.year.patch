@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/StrictChronology.java b/src/main/java/org/joda/time/chrono/StrictChronology.java
+index 898445d..7cd56e1 100644
+--- a/src/main/java/org/joda/time/chrono/StrictChronology.java
++++ b/src/main/java/org/joda/time/chrono/StrictChronology.java
+@@ -84,7 +84,8 @@
+     }
+ 
+     protected void assemble(Fields fields) {
+-        fields.year = convertField(fields.year);
++        DateTimeField year = fields.year;
++        year = convertField(fields.year);
+         fields.yearOfEra = convertField(fields.yearOfEra);
+         fields.yearOfCentury = convertField(fields.yearOfCentury);
+         fields.centuryOfEra = convertField(fields.centuryOfEra);

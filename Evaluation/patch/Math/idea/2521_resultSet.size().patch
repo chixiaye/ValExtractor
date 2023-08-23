@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.java b/src/main/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.java
+index ef19a7e..eb7cd70 100644
+--- a/src/main/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.java
++++ b/src/main/java/org/apache/commons/math3/ml/clustering/KMeansPlusPlusClusterer.java
+@@ -324,7 +324,9 @@
+             }
+         }
+ 
+-        while (resultSet.size() < k) {
++        while (true) {
++            int size = resultSet.size();
++            if (!(size < k)) break;
+ 
+             // Sum up the squared distances for the points in pointList not
+             // already taken.
+@@ -378,7 +380,7 @@
+                 // Mark it as taken.
+                 taken[nextPointIndex] = true;
+ 
+-                if (resultSet.size() < k) {
++                if (size < k) {
+                     // Now update elements of minDistSquared.  We only have to compute
+                     // the distance to the new center to do this.
+                     for (int j = 0; j < numPoints; j++) {

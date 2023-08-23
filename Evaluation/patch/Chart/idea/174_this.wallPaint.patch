@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..83ad938 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1621,15 +1621,16 @@
+         }
+ 
+         // BarRenderer3D
++        Paint wallPaint1 = this.wallPaint;
+         if (renderer instanceof BarRenderer3D) {
+             BarRenderer3D br3d = (BarRenderer3D) renderer;
+-            br3d.setWallPaint(this.wallPaint);
++            br3d.setWallPaint(wallPaint1);
+         }
+ 
+         // LineRenderer3D
+         if (renderer instanceof LineRenderer3D) {
+             LineRenderer3D lr3d = (LineRenderer3D) renderer;
+-            lr3d.setWallPaint(this.wallPaint);
++            lr3d.setWallPaint(wallPaint1);
+         }
+ 
+         //  StatisticalBarRenderer

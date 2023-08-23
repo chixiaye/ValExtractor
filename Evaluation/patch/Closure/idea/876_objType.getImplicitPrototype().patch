@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..cf051a1 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -346,9 +346,12 @@
+       typeSystem.addInvalidatingType(type);
+       recordInvalidationError(type, error);
+       ObjectType objType = ObjectType.cast(type);
+-      if (objType != null && objType.getImplicitPrototype() != null) {
+-        typeSystem.addInvalidatingType(objType.getImplicitPrototype());
+-        recordInvalidationError(objType.getImplicitPrototype(), error);
++      if (objType != null) {
++          ObjectType implicitPrototype = objType.getImplicitPrototype();
++          if (implicitPrototype != null) {
++              typeSystem.addInvalidatingType(implicitPrototype);
++              recordInvalidationError(implicitPrototype, error);
++          }
+       }
+     }
+   }

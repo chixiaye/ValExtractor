@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..821640f 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1656,8 +1656,9 @@
+      * The file containing JavaScript externs. You may specify multiple.
+      */
+     CommandLineConfig setExterns(List<String> externs) {
+-      this.externs.clear();
+-      this.externs.addAll(externs);
++        List<String> externs1 = this.externs;
++        externs1.clear();
++      externs1.addAll(externs);
+       return this;
+     }
+ 

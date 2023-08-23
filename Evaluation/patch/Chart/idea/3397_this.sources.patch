@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/LegendTitle.java b/source/org/jfree/chart/title/LegendTitle.java
+index 674edcc..41049c7 100644
+--- a/source/org/jfree/chart/title/LegendTitle.java
++++ b/source/org/jfree/chart/title/LegendTitle.java
+@@ -408,8 +408,9 @@
+         else {
+             this.items.setArrangement(this.vLayout);
+         }
+-        for (int s = 0; s < this.sources.length; s++) {
+-            LegendItemCollection legendItems = this.sources[s].getLegendItems();
++        LegendItemSource[] sources1 = this.sources;
++        for (int s = 0; s < sources1.length; s++) {
++            LegendItemCollection legendItems = sources1[s].getLegendItems();
+             if (legendItems != null) {
+                 for (int i = 0; i < legendItems.getItemCount(); i++) {
+                     LegendItem item = legendItems.get(i);

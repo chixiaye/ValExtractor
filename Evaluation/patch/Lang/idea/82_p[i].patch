@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..adab2ac 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -6684,7 +6684,8 @@
+         int cost; // cost
+ 
+         for (i = 0; i <= n; i++) {
+-            p[i] = i;
++            int i1 = p[i];
++            i1 = i;
+         }
+ 
+         for (j = 1; j <= m; j++) {

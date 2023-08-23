@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..84b21b1 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -814,7 +814,8 @@
+                 // Computing MAX
+                 final double d3 = lowerBound[i];
+                 final double d4 = originShift.getEntry(i) + newPoint.getEntry(i);
+-                final double d1 = Math.max(d3, d4);
++                double max = Math.max(d3, d4);
++                final double d1 = max;
+                 final double d2 = upperBound[i];
+                 currentBest.setEntry(i, Math.min(d1, d2));
+                 if (newPoint.getEntry(i) == lowerDifference.getEntry(i)) {

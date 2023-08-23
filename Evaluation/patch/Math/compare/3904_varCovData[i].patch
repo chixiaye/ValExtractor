@@ -1,0 +1,71 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+index 8b9d8e0..a26def2 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+@@ -401,10 +401,11 @@
+         if (this.isSymmetricVCD) {
+             if (this.varCovData.length > 1) {
+                 //could be stored in upper or lower triangular
++                double[] var_3904 = varCovData[i];
+                 if (i == j) {
+-                    return varCovData[i][i];
++                    return var_3904[i];
+                 } else if (i >= varCovData[j].length) {
+-                    return varCovData[i][j];
++                    return var_3904[j];
+                 } else {
+                     return varCovData[j][i];
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+index 8b9d8e0..a26def2 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+@@ -401,10 +401,11 @@
+         if (this.isSymmetricVCD) {
+             if (this.varCovData.length > 1) {
+                 //could be stored in upper or lower triangular
++                double[] var_3904 = varCovData[i];
+                 if (i == j) {
+-                    return varCovData[i][i];
++                    return var_3904[i];
+                 } else if (i >= varCovData[j].length) {
+-                    return varCovData[i][j];
++                    return var_3904[j];
+                 } else {
+                     return varCovData[j][i];
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+index 8b9d8e0..150230c 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/RegressionResults.java
+@@ -398,13 +398,14 @@
+      * @return the requested variance-covariance matrix entry
+      */
+     private double getVcvElement(int i, int j) {
++        double[] varCovDatum = varCovData[i];
+         if (this.isSymmetricVCD) {
+             if (this.varCovData.length > 1) {
+                 //could be stored in upper or lower triangular
+                 if (i == j) {
+-                    return varCovData[i][i];
++                    return varCovDatum[i];
+                 } else if (i >= varCovData[j].length) {
+-                    return varCovData[i][j];
++                    return varCovDatum[j];
+                 } else {
+                     return varCovData[j][i];
+                 }
+@@ -416,7 +417,7 @@
+                 }
+             }
+         } else {
+-            return this.varCovData[i][j];
++            return varCovDatum[j];
+         }
+     }
+ }

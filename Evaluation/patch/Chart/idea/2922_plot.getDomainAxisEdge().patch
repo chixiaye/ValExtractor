@@ -1,0 +1,32 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..60da807 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -73,6 +73,7 @@
+ import org.jfree.chart.plot.XYPlot;
+ import org.jfree.chart.urls.XYURLGenerator;
+ import org.jfree.chart.util.PublicCloneable;
++import org.jfree.chart.util.RectangleEdge;
+ import org.jfree.chart.util.ShapeUtilities;
+ import org.jfree.data.xy.XYDataset;
+ 
+@@ -366,8 +367,9 @@
+         double y1 = dataset.getYValue(series, item);
+         double x = x1;
+         double y = Double.isNaN(y1) ? getRangeBase() : y1;
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         double transX1 = domainAxis.valueToJava2D(x, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         double transY1 = rangeAxis.valueToJava2D(y, dataArea,
+                 plot.getRangeAxisEdge());
+ 
+@@ -409,7 +411,7 @@
+             x = x0;
+             y = Double.isNaN(y0) ? getRangeBase() : y0;
+             transX0 = domainAxis.valueToJava2D(x, dataArea,
+-                    plot.getDomainAxisEdge());
++                    domainAxisEdge);
+             transY0 = rangeAxis.valueToJava2D(y, dataArea,
+                     plot.getRangeAxisEdge());
+ 

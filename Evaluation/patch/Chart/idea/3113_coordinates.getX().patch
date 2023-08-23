@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..42d9b7e 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1378,8 +1378,9 @@
+                         g2, orientation, dataArea, line.getBounds2D(),
+                         marker.getLabelOffset(),
+                         LengthAdjustmentType.EXPAND, anchor);
++                double x = coordinates.getX();
+                 TextUtilities.drawAlignedString(label, g2,
+-                        (float) coordinates.getX(), (float) coordinates.getY(),
++                        (float) x, (float) coordinates.getY(),
+                         marker.getLabelTextAnchor());
+             }
+             g2.setComposite(originalComposite);

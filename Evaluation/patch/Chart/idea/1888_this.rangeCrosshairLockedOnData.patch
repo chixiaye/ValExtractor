@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..28fec53 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3197,7 +3197,8 @@
+      * @see #isRangeCrosshairLockedOnData()
+      */
+     public void setRangeCrosshairLockedOnData(boolean flag) {
+-        if (this.rangeCrosshairLockedOnData != flag) {
++        boolean rangeCrosshairLockedOnData1 = this.rangeCrosshairLockedOnData;
++        if (rangeCrosshairLockedOnData1 != flag) {
+             this.rangeCrosshairLockedOnData = flag;
+             fireChangeEvent();
+         }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.java b/src/main/java/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.java
+index 253fcf0..d70d41d 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.java
++++ b/src/main/java/org/apache/commons/math3/analysis/solvers/BaseAbstractUnivariateSolver.java
+@@ -205,7 +205,8 @@
+     public double solve(int maxEval, FUNC f, double startValue)
+         throws TooManyEvaluationsException,
+                NoBracketingException {
+-        return solve(maxEval, f, Double.NaN, Double.NaN, startValue);
++        double naN = Double.NaN;
++        return solve(maxEval, f, naN, naN, startValue);
+     }
+ 
+     /**

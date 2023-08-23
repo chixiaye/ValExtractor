@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..88d8d37 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1330,20 +1330,21 @@
+ 
+             for (int i = 0; i < n; i++) {
+                 final double tmp = interpolationPoints.getEntry(k, i) - trustRegionCenterOffset.getEntry(i);
++                double entry = upperDifference.getEntry(i);
+                 if (tmp > ZERO) {
+                     if (slbd * tmp < lowerDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) {
+                         slbd = (lowerDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) / tmp;
+                         ilbd = -i - 1;
+                     }
+-                    if (subd * tmp > upperDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) {
++                    if (subd * tmp > entry - trustRegionCenterOffset.getEntry(i)) {
+                         // Computing MAX
+                         subd = Math.max(sumin,
+-                                        (upperDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) / tmp);
++                                        (entry - trustRegionCenterOffset.getEntry(i)) / tmp);
+                         iubd = i + 1;
+                     }
+                 } else if (tmp < ZERO) {
+-                    if (slbd * tmp > upperDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) {
+-                        slbd = (upperDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) / tmp;
++                    if (slbd * tmp > entry - trustRegionCenterOffset.getEntry(i)) {
++                        slbd = (entry - trustRegionCenterOffset.getEntry(i)) / tmp;
+                         ilbd = i + 1;
+                     }
+                     if (subd * tmp < lowerDifference.getEntry(i) - trustRegionCenterOffset.getEntry(i)) {

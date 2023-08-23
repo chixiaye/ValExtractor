@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..3a1e847 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -126,7 +126,8 @@
+ 
+     /** A recursive descent parser that closes over pattern and flags above. */
+     class Parser {
+-      /** The number of characters in pattern consumed. */
++        private RegExpTree parse = parse();
++        /** The number of characters in pattern consumed. */
+       int pos;
+       /** The number of capturing groups seen so far. */
+       int numCapturingGroups = 0;
+@@ -135,7 +136,7 @@
+ 
+       RegExpTree parseTopLevel() {
+         this.pos = 0;
+-        RegExpTree out = parse();
++        RegExpTree out = parse;
+         if (pos < limit) {  // Unmatched closed paren maybe.
+           throw new IllegalArgumentException(pattern.substring(pos));
+         }
+@@ -277,7 +278,7 @@
+             }
+           }
+         }
+-        RegExpTree body = parse();
++        RegExpTree body = parse;
+         if (pos < limit && pattern.charAt(pos) == ')') {
+           ++pos;
+         } else {

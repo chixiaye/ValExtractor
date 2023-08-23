@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..989bdf2 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1038,8 +1038,9 @@
+      */
+     public ValueAxis getRangeAxis(int index) {
+         ValueAxis result = null;
+-        if (index < this.rangeAxes.size()) {
+-            result = (ValueAxis) this.rangeAxes.get(index);
++        ObjectList rangeAxes1 = this.rangeAxes;
++        if (index < rangeAxes1.size()) {
++            result = (ValueAxis) rangeAxes1.get(index);
+         }
+         if (result == null) {
+             Plot parent = getParent();

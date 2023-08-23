@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/SpecializeModule.java b/src/com/google/javascript/jscomp/SpecializeModule.java
+index 8c0b12c..16c0479 100644
+--- a/src/com/google/javascript/jscomp/SpecializeModule.java
++++ b/src/com/google/javascript/jscomp/SpecializeModule.java
+@@ -198,7 +198,8 @@
+ 
+     functionInfoBySpecializedFunctionNode = Maps.newLinkedHashMap();
+ 
+-    Node syntheticModuleJsRoot = IR.block();
++      Node block = IR.block();
++      Node syntheticModuleJsRoot = block;
+     syntheticModuleJsRoot.setIsSyntheticBlock(true);
+ 
+     for (CompilerInput input : module.getInputs()) {
+@@ -217,7 +218,7 @@
+ 
+     // The jsRoot needs a parent (in a normal compilation this would be the
+     // node that contains jsRoot and the externs).
+-    Node syntheticExternsAndJsRoot = IR.block();
++    Node syntheticExternsAndJsRoot = block;
+     syntheticExternsAndJsRoot.addChildToBack(syntheticModuleJsRoot);
+ 
+     return syntheticModuleJsRoot;

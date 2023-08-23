@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..9fd61a0 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1659,6 +1659,7 @@
+                 this.chartBufferWidth = (int) available.getWidth();
+                 this.chartBufferHeight = (int) available.getHeight();
+                 GraphicsConfiguration gc = g2.getDeviceConfiguration();
++                Image chartBuffer1 = this.chartBuffer;
+                 this.chartBuffer = gc.createCompatibleImage(
+                         this.chartBufferWidth, this.chartBufferHeight,
+                         Transparency.TRANSLUCENT);

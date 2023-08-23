@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..4a0b207 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -3119,13 +3119,14 @@
+      * @return a {@code float} array, {@code null} if null array input
+      */
+     public static float[] toPrimitive(final Float[] array, final float valueForNull) {
++        int length = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (length == 0) {
+             return EMPTY_FLOAT_ARRAY;
+         }
+-        final float[] result = new float[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final float[] result = new float[length];
++        for (int i = 0; i < length; i++) {
+             final Float b = array[i];
+             result[i] = (b == null ? valueForNull : b.floatValue());
+         }

@@ -1,0 +1,68 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..16adee4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -290,7 +290,7 @@
+     appendFieldStart(out, "mappings");
+     out.append("[");
+     (new MappingWriter()).appendMappings(out);
+-    out.append("]");
++    Appendable var_35 = out.append("]");
+     appendFieldEnd(out);
+ 
+     // Files names
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..16adee4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -290,7 +290,7 @@
+     appendFieldStart(out, "mappings");
+     out.append("[");
+     (new MappingWriter()).appendMappings(out);
+-    out.append("]");
++    Appendable var_35 = out.append("]");
+     appendFieldEnd(out);
+ 
+     // Files names
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..6e78c7b 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -283,28 +283,28 @@
+     appendFieldStart(out, "lineMaps");
+     out.append("[");
+     (new LineMapper(out)).appendLineMappings();
+-    out.append("]");
++      Appendable append = out.append("]");
+     appendFieldEnd(out);
+ 
+     // Add the mappings themselves.
+     appendFieldStart(out, "mappings");
+     out.append("[");
+     (new MappingWriter()).appendMappings(out);
+-    out.append("]");
++    append;
+     appendFieldEnd(out);
+ 
+     // Files names
+     appendFieldStart(out, "sources");
+     out.append("[");
+     addSourceNameMap(out);
+-    out.append("]");
++    append;
+     appendFieldEnd(out);
+ 
+     // Files names
+     appendFieldStart(out, "names");
+     out.append("[");
+     addOriginalNameMap(out);
+-    out.append("]");
++    append;
+     appendFieldEnd(out);
+ 
+     out.append("\n}\n");

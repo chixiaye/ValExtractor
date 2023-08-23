@@ -1,0 +1,33 @@
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialScale.java b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+index b40e93d..d1d0b27 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialScale.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialScale.java
+@@ -762,20 +762,21 @@
+     public void draw(Graphics2D g2, DialPlot plot, Rectangle2D frame,
+             Rectangle2D view) {
+ 
++        double tickRadius1 = this.tickRadius;
+         Rectangle2D arcRect = DialPlot.rectangleByRadius(frame,
+-                this.tickRadius, this.tickRadius);
++                tickRadius1, tickRadius1);
+         Rectangle2D arcRectMajor = DialPlot.rectangleByRadius(frame,
+-                this.tickRadius - this.majorTickLength,
+-                this.tickRadius - this.majorTickLength);
++                tickRadius1 - this.majorTickLength,
++                tickRadius1 - this.majorTickLength);
+         Rectangle2D arcRectMinor = arcRect;
+         if (this.minorTickCount > 0 && this.minorTickLength > 0.0) {
+             arcRectMinor = DialPlot.rectangleByRadius(frame,
+-                    this.tickRadius - this.minorTickLength,
+-                    this.tickRadius - this.minorTickLength);
++                    tickRadius1 - this.minorTickLength,
++                    tickRadius1 - this.minorTickLength);
+         }
+         Rectangle2D arcRectForLabels = DialPlot.rectangleByRadius(frame,
+-                this.tickRadius - this.tickLabelOffset,
+-                this.tickRadius - this.tickLabelOffset);
++                tickRadius1 - this.tickLabelOffset,
++                tickRadius1 - this.tickLabelOffset);
+ 
+         boolean firstLabel = true;
+ 

@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/JsMessageVisitor.java b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+index becd724..6613519 100644
+--- a/src/com/google/javascript/jscomp/JsMessageVisitor.java
++++ b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+@@ -489,8 +489,9 @@
+       if (info.isHidden()) {
+         builder.setIsHidden(true);
+       }
+-      if (info.getMeaning() != null) {
+-        builder.setMeaning(info.getMeaning());
++        String meaning = info.getMeaning();
++        if (meaning != null) {
++        builder.setMeaning(meaning);
+       }
+     }
+ 

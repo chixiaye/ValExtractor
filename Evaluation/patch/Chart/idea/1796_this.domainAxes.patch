@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..f1d38ab 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5795,9 +5795,10 @@
+ 
+         // register the plot as a listener with its axes, datasets, and
+         // renderers...
+-        int domainAxisCount = this.domainAxes.size();
++        ObjectList domainAxes1 = this.domainAxes;
++        int domainAxisCount = domainAxes1.size();
+         for (int i = 0; i < domainAxisCount; i++) {
+-            Axis axis = (Axis) this.domainAxes.get(i);
++            Axis axis = (Axis) domainAxes1.get(i);
+             if (axis != null) {
+                 axis.setPlot(this);
+                 axis.addChangeListener(this);

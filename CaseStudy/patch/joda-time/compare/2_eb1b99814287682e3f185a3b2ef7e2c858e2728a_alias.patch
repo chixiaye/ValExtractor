@@ -1,0 +1,35 @@
+diff --git a/Users/chixiaye/paper/CaseStudyPaper/patch/joda-time/eclipse/2_eb1b99814287682e3f185a3b2ef7e2c858e2728a_alias.patch b/Users/chixiaye/paper/CaseStudyPaper/patch/joda-time/ours/2_eb1b99814287682e3f185a3b2ef7e2c858e2728a_alias.patch
+index 870d73ea..c528718f 100644
+--- a/Users/chixiaye/paper/CaseStudyPaper/patch/joda-time/eclipse/2_eb1b99814287682e3f185a3b2ef7e2c858e2728a_alias.patch
++++ b/Users/chixiaye/paper/CaseStudyPaper/patch/joda-time/ours/2_eb1b99814287682e3f185a3b2ef7e2c858e2728a_alias.patch
+@@ -1,25 +1,14 @@
+ diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+-index b03549f..28c6303 100644
++index b03549f..256f006 100644
+ --- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+ +++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+-@@ -493,7 +493,8 @@
+-             }
+- 
+-             if (st.hasMoreTokens()) {
+--                String token = st.nextToken();
+-+                String alias = st.nextToken();
+-+				String token = alias;
+-                 if (token.equalsIgnoreCase("Rule")) {
+-                     Rule r = new Rule(st);
+-                     RuleSet rs = iRuleSets.get(r.iName);
+-@@ -506,8 +507,8 @@
+-                 } else if (token.equalsIgnoreCase("Zone")) {
++@@ -507,7 +507,8 @@
+                      zone = new Zone(st);
+                  } else if (token.equalsIgnoreCase("Link")) {
++                     iLinks.add(st.nextToken());
+ -                    iLinks.add(st.nextToken());
+--                    iLinks.add(st.nextToken());
+-+                    iLinks.add(alias);
+-+                    iLinks.add(alias);
+++                    String alias = st.nextToken();
+++					iLinks.add(alias);
+                  } else {
+                      System.out.println("Unknown line: " + line);
+                  }

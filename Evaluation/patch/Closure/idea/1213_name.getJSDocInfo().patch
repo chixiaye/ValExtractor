@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..2afb457 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -756,7 +756,8 @@
+           compiler.report(JSError.make(sourceName, n, MULTIPLE_VAR_DEF));
+         }
+         for (Node name : n.children()) {
+-          defineName(name, n, name.getJSDocInfo());
++            JSDocInfo jsDocInfo = name.getJSDocInfo();
++            defineName(name, n, jsDocInfo);
+         }
+       } else {
+         Node name = n.getFirstChild();

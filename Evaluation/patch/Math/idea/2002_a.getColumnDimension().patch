@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/IterativeLinearSolver.java b/src/main/java/org/apache/commons/math3/linear/IterativeLinearSolver.java
+index 172d041..8dc9c6e 100644
+--- a/src/main/java/org/apache/commons/math3/linear/IterativeLinearSolver.java
++++ b/src/main/java/org/apache/commons/math3/linear/IterativeLinearSolver.java
+@@ -78,17 +78,18 @@
+         MathUtils.checkNotNull(a);
+         MathUtils.checkNotNull(b);
+         MathUtils.checkNotNull(x0);
+-        if (a.getRowDimension() != a.getColumnDimension()) {
++        int columnDimension = a.getColumnDimension();
++        if (a.getRowDimension() != columnDimension) {
+             throw new NonSquareOperatorException(a.getRowDimension(),
+-                                                       a.getColumnDimension());
++                    columnDimension);
+         }
+         if (b.getDimension() != a.getRowDimension()) {
+             throw new DimensionMismatchException(b.getDimension(),
+                                                  a.getRowDimension());
+         }
+-        if (x0.getDimension() != a.getColumnDimension()) {
++        if (x0.getDimension() != columnDimension) {
+             throw new DimensionMismatchException(x0.getDimension(),
+-                                                 a.getColumnDimension());
++                    columnDimension);
+         }
+     }
+ 

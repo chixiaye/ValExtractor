@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/block/BlockBorder.java b/source/org/jfree/chart/block/BlockBorder.java
+index 666988c..b3800ae 100644
+--- a/source/org/jfree/chart/block/BlockBorder.java
++++ b/source/org/jfree/chart/block/BlockBorder.java
+@@ -163,14 +163,15 @@
+     public void draw(Graphics2D g2, Rectangle2D area) {
+         // this default implementation will just fill the available
+         // border space with a single color
+-        double t = this.insets.calculateTopInset(area.getHeight());
+-        double b = this.insets.calculateBottomInset(area.getHeight());
++        double height = area.getHeight();
++        double t = this.insets.calculateTopInset(height);
++        double b = this.insets.calculateBottomInset(height);
+         double l = this.insets.calculateLeftInset(area.getWidth());
+         double r = this.insets.calculateRightInset(area.getWidth());
+         double x = area.getX();
+         double y = area.getY();
+         double w = area.getWidth();
+-        double h = area.getHeight();
++        double h = height;
+         g2.setPaint(this.paint);
+         Rectangle2D rect = new Rectangle2D.Double();
+         if (t > 0.0) {

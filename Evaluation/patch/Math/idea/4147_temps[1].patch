@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+index 07c0bdc..9705865 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMathCalc.java
+@@ -141,7 +141,8 @@
+                 splitMult(ys, ys, as);
+                 splitMult(xs, xs, temps);
+                 temps[0] = -temps[0];
+-                temps[1] = -temps[1];
++                double temp = temps[1];
++                temps[1] = -temp;
+                 splitAdd(as, temps, result);
+                 COSINE_TABLE_A[i] = result[0];
+                 COSINE_TABLE_B[i] = result[1];

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+index a8877eb..ff139b0 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+@@ -1221,7 +1221,8 @@
+             // P_n(x) = (1+t^2) P_(n-1)'(t)
+             // as per polynomial parity, we can store coefficients of both P_(n-1) and P_n in the same array
+             final double[] p = new double[order + 2];
+-            p[1] = 1;
++            double v1 = p[1];
++            v1 = 1;
+             final double t2 = t * t;
+             for (int n = 1; n <= order; ++n) {
+ 

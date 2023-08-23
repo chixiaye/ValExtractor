@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/RenameVars.java b/src/com/google/javascript/jscomp/RenameVars.java
+index 27c69c3..dce7fcb 100644
+--- a/src/com/google/javascript/jscomp/RenameVars.java
++++ b/src/com/google/javascript/jscomp/RenameVars.java
+@@ -420,13 +420,14 @@
+    */
+   private void reusePreviouslyUsedVariableMap() {
+     for (Assignment a : assignments.values()) {
+-      String prevNewName = prevUsedRenameMap.lookupNewName(a.oldName);
++        String oldName = a.oldName;
++        String prevNewName = prevUsedRenameMap.lookupNewName(oldName);
+       if (prevNewName == null || reservedNames.contains(prevNewName)) {
+         continue;
+       }
+ 
+-      if (a.oldName.startsWith(LOCAL_VAR_PREFIX)
+-          || (!externNames.contains(a.oldName)
++      if (oldName.startsWith(LOCAL_VAR_PREFIX)
++          || (!externNames.contains(oldName)
+               && prevNewName.startsWith(prefix))) {
+         reservedNames.add(prevNewName);
+         finalizeNameAssignment(a, prevNewName);

@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..732401d 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2487,14 +2487,15 @@
+             }
+             this.backgroundDomainMarkers.clear();
+         }
+-        if (this.foregroundDomainMarkers != null) {
+-            Set keys = this.foregroundDomainMarkers.keySet();
++        Map foregroundDomainMarkers1 = this.foregroundDomainMarkers;
++        if (foregroundDomainMarkers1 != null) {
++            Set keys = foregroundDomainMarkers1.keySet();
+             Iterator iterator = keys.iterator();
+             while (iterator.hasNext()) {
+                 Integer key = (Integer) iterator.next();
+                 clearDomainMarkers(key.intValue());
+             }
+-            this.foregroundDomainMarkers.clear();
++            foregroundDomainMarkers1.clear();
+         }
+         fireChangeEvent();
+     }

@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..7ba6610 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -727,10 +727,13 @@
+             return str1 == str2;
+         } else if (str1 == str2) {
+             return true;
+-        } else if (str1.length() != str2.length()) {
+-            return false;
+         } else {
+-            return CharSequenceUtils.regionMatches(str1, true, 0, str2, 0, str1.length());
++            int length = str1.length();
++            if (length != str2.length()) {
++                return false;
++            } else {
++                return CharSequenceUtils.regionMatches(str1, true, 0, str2, 0, length);
++            }
+         }
+     }
+ 

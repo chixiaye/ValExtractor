@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+index 1bf17de..a5b8e7c 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+@@ -253,8 +253,11 @@
+         if (x.length != covariance.length) {
+             throw new DimensionMismatchException(x.length, covariance.length);
+         }
+-        if (covariance.length > 0 && covariance.length != covariance[0].length) {
+-            throw new NonSquareMatrixException(covariance.length, covariance[0].length);
++        if (covariance.length > 0) {
++            int length = covariance[0].length;
++            if (covariance.length != length) {
++                throw new NonSquareMatrixException(covariance.length, length);
++            }
+         }
+     }
+ 

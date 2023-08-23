@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/chrono/LimitChronology.java b/src/main/java/org/joda/time/chrono/LimitChronology.java
+index 89325ad..e9dc871 100644
+--- a/src/main/java/org/joda/time/chrono/LimitChronology.java
++++ b/src/main/java/org/joda/time/chrono/LimitChronology.java
+@@ -364,7 +364,8 @@
+             buf.append(" instant is ");
+ 
+             DateTimeFormatter p = ISODateTimeFormat.dateTime();
+-            p = p.withChronology(getBase());
++            Chronology base = getBase();
++            p = p.withChronology(base);
+             if (iIsLow) {
+                 buf.append("below the supported minimum of ");
+                 p.printTo(buf, getLowerLimit().getMillis());
+@@ -374,7 +375,7 @@
+             }
+             
+             buf.append(" (");
+-            buf.append(getBase());
++            buf.append(base);
+             buf.append(')');
+ 
+             return buf.toString();

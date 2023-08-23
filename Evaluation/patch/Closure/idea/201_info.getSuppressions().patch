@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+index e1caa71..ea21f57 100644
+--- a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
++++ b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+@@ -22,6 +22,8 @@
+ import com.google.javascript.rhino.Node;
+ import com.google.javascript.rhino.Token;
+ 
++import java.util.Set;
++
+ 
+ /**
+  * <p>The syntactic scope creator scans the parse tree to create a Scope object
+@@ -260,7 +262,8 @@
+     if (info == null) {
+       info = parent.getJSDocInfo();
+     }
+-    if (info != null && info.getSuppressions().contains("duplicate")) {
++      Set<String> suppressions = info.getSuppressions();
++      if (info != null && suppressions.contains("duplicate")) {
+       return true;
+     }
+ 
+@@ -268,7 +271,7 @@
+     if (info == null) {
+       info = origParent.getJSDocInfo();
+     }
+-    return (info != null && info.getSuppressions().contains("duplicate"));
++    return (info != null && suppressions.contains("duplicate"));
+   }
+ 
+   /**

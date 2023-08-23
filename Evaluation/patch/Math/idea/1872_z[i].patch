@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+index 6016825..6a1caf1 100644
+--- a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+@@ -224,7 +224,8 @@
+                         zI   += hIJ * hK[j];
+                         z[j] += hIJ * hKI;
+                     }
+-                    z[i] = beta * (z[i] + zI);
++                    double v = z[i];
++                    v = beta * (z[i] + zI);
+                 }
+ 
+                 // compute gamma = beta vT z / 2

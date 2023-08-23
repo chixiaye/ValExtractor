@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/DateTimeZone.java b/src/main/java/org/joda/time/DateTimeZone.java
+index 19fbc86..76a089e 100644
+--- a/src/main/java/org/joda/time/DateTimeZone.java
++++ b/src/main/java/org/joda/time/DateTimeZone.java
+@@ -673,10 +673,11 @@
+             return buf.toString();
+         }
+ 
+-        int seconds = offset / DateTimeConstants.MILLIS_PER_SECOND;
++        int millisPerSecond = DateTimeConstants.MILLIS_PER_SECOND;
++        int seconds = offset / millisPerSecond;
+         buf.append(':');
+         FormatUtils.appendPaddedInteger(buf, seconds, 2);
+-        offset -= seconds * DateTimeConstants.MILLIS_PER_SECOND;
++        offset -= seconds * millisPerSecond;
+         if (offset == 0) {
+             return buf.toString();
+         }

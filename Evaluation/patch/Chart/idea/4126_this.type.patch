@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/statistics/HistogramDataset.java b/source/org/jfree/data/statistics/HistogramDataset.java
+index bd7563c..4b5e492 100644
+--- a/source/org/jfree/data/statistics/HistogramDataset.java
++++ b/source/org/jfree/data/statistics/HistogramDataset.java
+@@ -378,13 +378,14 @@
+         double total = getTotal(series);
+         double binWidth = getBinWidth(series);
+ 
+-        if (this.type == HistogramType.FREQUENCY) {
++        HistogramType type1 = this.type;
++        if (type1 == HistogramType.FREQUENCY) {
+             return new Double(bin.getCount());
+         }
+-        else if (this.type == HistogramType.RELATIVE_FREQUENCY) {
++        else if (type1 == HistogramType.RELATIVE_FREQUENCY) {
+             return new Double(bin.getCount() / total);
+         }
+-        else if (this.type == HistogramType.SCALE_AREA_TO_1) {
++        else if (type1 == HistogramType.SCALE_AREA_TO_1) {
+             return new Double(bin.getCount() / (binWidth * total));
+         }
+         else { // pretty sure this shouldn't ever happen

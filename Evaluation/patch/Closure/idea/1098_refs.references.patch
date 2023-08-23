@@ -1,0 +1,37 @@
+diff --git a/src/com/google/javascript/jscomp/InlineVariables.java b/src/com/google/javascript/jscomp/InlineVariables.java
+index 5c7408d..688c27f 100644
+--- a/src/com/google/javascript/jscomp/InlineVariables.java
++++ b/src/com/google/javascript/jscomp/InlineVariables.java
+@@ -226,18 +226,21 @@
+       if (scope.isLocal()) {
+         Var arguments = scope.getArgumentsVar();
+         ReferenceCollection refs = referenceMap.getReferences(arguments);
+-        if (refs != null && !refs.references.isEmpty()) {
+-          for (Reference ref : refs.references) {
+-            Node refNode = ref.getNode();
+-            Node refParent = ref.getParent();
+-            // Any reference that is not a read of the arguments property
+-            // consider a escape of the arguments object.
+-            if (!(NodeUtil.isGet(refParent)
+-                && refNode == ref.getParent().getFirstChild()
+-                && !isLValue(refParent))) {
+-              return true;
++        if (refs != null) {
++            List<Reference> references = refs.references;
++            if (!references.isEmpty()) {
++                for (Reference ref : references) {
++                    Node refNode = ref.getNode();
++                    Node refParent = ref.getParent();
++                    // Any reference that is not a read of the arguments property
++                    // consider a escape of the arguments object.
++                    if (!(NodeUtil.isGet(refParent)
++                            && refNode == ref.getParent().getFirstChild()
++                            && !isLValue(refParent))) {
++                        return true;
++                    }
++                }
+             }
+-          }
+         }
+       }
+       return false;

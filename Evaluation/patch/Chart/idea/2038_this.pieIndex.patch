@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..f9ae81d 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -2719,12 +2719,13 @@
+                                     this.dataset, key);
+                         }
+                         String url = null;
++                        int pieIndex1 = this.pieIndex;
+                         if (this.urlGenerator != null) {
+                             url = this.urlGenerator.generateURL(this.dataset,
+-                                    key, this.pieIndex);
++                                    key, pieIndex1);
+                         }
+                         PieSectionEntity entity = new PieSectionEntity(
+-                                arc, this.dataset, this.pieIndex, section, key,
++                                arc, this.dataset, pieIndex1, section, key,
+                                 tip, url);
+                         entities.add(entity);
+                     }

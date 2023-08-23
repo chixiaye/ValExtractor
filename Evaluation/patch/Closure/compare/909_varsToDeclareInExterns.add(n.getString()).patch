@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/VarCheck.java b/src/com/google/javascript/jscomp/VarCheck.java
+index a497232..b9bbd74 100644
+--- a/src/com/google/javascript/jscomp/VarCheck.java
++++ b/src/com/google/javascript/jscomp/VarCheck.java
+@@ -245,7 +245,7 @@
+               Scope.Var var = scope.getVar(n.getString());
+               if (var == null) {
+                 t.report(n, UNDEFINED_EXTERN_VAR_ERROR, n.getString());
+-                varsToDeclareInExterns.add(n.getString());
++                boolean var_909 = varsToDeclareInExterns.add(n.getString());
+               }
+             }
+             break;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/VarCheck.java b/src/com/google/javascript/jscomp/VarCheck.java
+index a497232..b9bbd74 100644
+--- a/src/com/google/javascript/jscomp/VarCheck.java
++++ b/src/com/google/javascript/jscomp/VarCheck.java
+@@ -245,7 +245,7 @@
+               Scope.Var var = scope.getVar(n.getString());
+               if (var == null) {
+                 t.report(n, UNDEFINED_EXTERN_VAR_ERROR, n.getString());
+-                varsToDeclareInExterns.add(n.getString());
++                boolean var_909 = varsToDeclareInExterns.add(n.getString());
+               }
+             }
+             break;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/VarCheck.java b/src/com/google/javascript/jscomp/VarCheck.java
+index a497232..5af2e47 100644
+--- a/src/com/google/javascript/jscomp/VarCheck.java
++++ b/src/com/google/javascript/jscomp/VarCheck.java
+@@ -233,6 +233,7 @@
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+       if (n.isName()) {
++          boolean add = varsToDeclareInExterns.add(n.getString());
+         switch (parent.getType()) {
+           case Token.VAR:
+           case Token.FUNCTION:
+@@ -245,7 +246,7 @@
+               Scope.Var var = scope.getVar(n.getString());
+               if (var == null) {
+                 t.report(n, UNDEFINED_EXTERN_VAR_ERROR, n.getString());
+-                varsToDeclareInExterns.add(n.getString());
++                add;
+               }
+             }
+             break;
+@@ -255,7 +256,7 @@
+             Scope scope = t.getScope();
+             Scope.Var var = scope.getVar(n.getString());
+             if (var == null) {
+-              varsToDeclareInExterns.add(n.getString());
++              add;
+             }
+             break;
+         }

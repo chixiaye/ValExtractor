@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CrosshairState.java b/source/org/jfree/chart/plot/CrosshairState.java
+index d2ff04d..1e93e5e 100644
+--- a/source/org/jfree/chart/plot/CrosshairState.java
++++ b/source/org/jfree/chart/plot/CrosshairState.java
+@@ -267,7 +267,8 @@
+     public void updateCrosshairX(double candidateX, int domainAxisIndex) {
+ 
+         double d = Math.abs(candidateX - this.anchorX);
+-        if (d < this.distance) {
++        double distance1 = this.distance;
++        if (d < distance1) {
+             this.crosshairX = candidateX;
+             this.domainAxisIndex = domainAxisIndex;
+             this.distance = d;

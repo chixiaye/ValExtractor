@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/LocalTime.java b/src/main/java/org/joda/time/LocalTime.java
+index 6c3c577..5853920 100644
+--- a/src/main/java/org/joda/time/LocalTime.java
++++ b/src/main/java/org/joda/time/LocalTime.java
+@@ -715,8 +715,9 @@
+         if (partial instanceof LocalTime) {
+             LocalTime other = (LocalTime) partial;
+             if (iChronology.equals(other.iChronology)) {
+-                return (iLocalMillis < other.iLocalMillis ? -1 :
+-                            (iLocalMillis == other.iLocalMillis ? 0 : 1));
++                long iLocalMillis1 = other.iLocalMillis;
++                return (iLocalMillis < iLocalMillis1 ? -1 :
++                            (iLocalMillis == iLocalMillis1 ? 0 : 1));
+ 
+             }
+         }

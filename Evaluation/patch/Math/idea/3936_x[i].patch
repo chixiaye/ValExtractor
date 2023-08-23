@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+index 1bf17de..4b1d16c 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+@@ -128,11 +128,12 @@
+         int pointer = 0;
+         for (int i = 0; i < nobs; i++) {
+             y[i] = data[pointer++];
++            double[] x1 = x[i];
+             if (!noIntercept) {
+-                x[i][0] = 1.0d;
++                x1[0] = 1.0d;
+             }
+             for (int j = noIntercept ? 0 : 1; j < cols; j++) {
+-                x[i][j] = data[pointer++];
++                x1[j] = data[pointer++];
+             }
+         }
+         this.xMatrix = new Array2DRowRealMatrix(x);

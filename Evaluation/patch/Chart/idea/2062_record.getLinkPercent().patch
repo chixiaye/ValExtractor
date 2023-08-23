@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..3b24017 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3154,10 +3154,11 @@
+ 
+         if (this.labelLinksVisible) {
+             double theta = record.getAngle();
++            double linkPercent = record.getLinkPercent();
+             double linkX = state.getPieCenterX() + Math.cos(theta)
+-                    * state.getPieWRadius() * record.getLinkPercent();
++                    * state.getPieWRadius() * linkPercent;
+             double linkY = state.getPieCenterY() - Math.sin(theta)
+-                    * state.getPieHRadius() * record.getLinkPercent();
++                    * state.getPieHRadius() * linkPercent;
+             double elbowX = state.getPieCenterX() + Math.cos(theta)
+                     * state.getLinkArea().getWidth() / 2.0;
+             double elbowY = state.getPieCenterY() - Math.sin(theta)

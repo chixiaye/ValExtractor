@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/graph/LinkedUndirectedGraph.java b/src/com/google/javascript/jscomp/graph/LinkedUndirectedGraph.java
+index 45e6922..a747bdd 100644
+--- a/src/com/google/javascript/jscomp/graph/LinkedUndirectedGraph.java
++++ b/src/com/google/javascript/jscomp/graph/LinkedUndirectedGraph.java
+@@ -204,8 +204,9 @@
+       return false;
+     }
+     for (UndiGraphEdge<N, E> outEdge : dNode1.getNeighborEdges()) {
+-      if ((outEdge.getNodeA() == dNode1 && outEdge.getNodeB() == dNode2) ||
+-          (outEdge.getNodeA() == dNode2 && outEdge.getNodeB() == dNode1)) {
++        GraphNode<N, E> nodeA = outEdge.getNodeA();
++        if ((nodeA == dNode1 && outEdge.getNodeB() == dNode2) ||
++          (nodeA == dNode2 && outEdge.getNodeB() == dNode1)) {
+         if (edgePredicate.apply(outEdge.getValue())) {
+           return true;
+         }

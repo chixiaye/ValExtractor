@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/renderer/RenderAttributes.java b/source/org/jfree/chart/renderer/RenderAttributes.java
+index 0f75413..86a7224 100644
+--- a/source/org/jfree/chart/renderer/RenderAttributes.java
++++ b/source/org/jfree/chart/renderer/RenderAttributes.java
+@@ -122,13 +122,14 @@
+ 
+     public RenderAttributes(boolean allowNull) {
+         this.paintList = new PaintList();
+-        this.defaultPaint = allowNull ? null : Color.BLACK;
++        Color black = Color.BLACK;
++        this.defaultPaint = allowNull ? null : black;
+         this.strokeList = new StrokeList();
+         this.defaultStroke = allowNull ? null : new BasicStroke(1.0f);
+         this.fillPaintList = new PaintList();
+-        this.defaultFillPaint = allowNull ? null : Color.BLACK;
++        this.defaultFillPaint = allowNull ? null : black;
+         this.outlinePaintList = new PaintList();
+-        this.defaultOutlinePaint = allowNull ? null : Color.BLACK;
++        this.defaultOutlinePaint = allowNull ? null : black;
+         this.shapeList = new ShapeList();
+     }
+ 

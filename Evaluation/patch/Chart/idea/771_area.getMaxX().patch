@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/ModuloAxis.java b/source/org/jfree/chart/axis/ModuloAxis.java
+index cf1e3c9..ba50f3a 100644
+--- a/source/org/jfree/chart/axis/ModuloAxis.java
++++ b/source/org/jfree/chart/axis/ModuloAxis.java
+@@ -248,8 +248,9 @@
+         double min = 0.0;
+         double max = 0.0;
+         if (RectangleEdge.isTopOrBottom(edge)) {
+-            max = area.getMaxX();
+-            min = area.getMaxX() - area.getWidth() * length2
++            double maxX = area.getMaxX();
++            max = maxX;
++            min = maxX - area.getWidth() * length2
+                   / (length1 + length2);
+         }
+         else if (RectangleEdge.isLeftOrRight(edge)) {

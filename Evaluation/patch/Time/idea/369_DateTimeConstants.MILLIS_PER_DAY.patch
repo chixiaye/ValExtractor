@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..469b64b 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -80,10 +80,11 @@
+             (DurationFieldType.minutes(), DateTimeConstants.MILLIS_PER_MINUTE);
+         cHoursField = new PreciseDurationField
+             (DurationFieldType.hours(), DateTimeConstants.MILLIS_PER_HOUR);
++        int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
+         cHalfdaysField = new PreciseDurationField
+-            (DurationFieldType.halfdays(), DateTimeConstants.MILLIS_PER_DAY / 2);
++            (DurationFieldType.halfdays(), millisPerDay / 2);
+         cDaysField = new PreciseDurationField
+-            (DurationFieldType.days(), DateTimeConstants.MILLIS_PER_DAY);
++            (DurationFieldType.days(), millisPerDay);
+         cWeeksField = new PreciseDurationField
+             (DurationFieldType.weeks(), DateTimeConstants.MILLIS_PER_WEEK);
+ 

@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+index aca170e..57e222e 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+@@ -333,10 +333,11 @@
+      * explicitely from leaves to root.</p>
+      */
+     private void condense() {
++        Object attribute1 = plus.attribute;
+         if ((cut != null) && (plus.cut == null) && (minus.cut == null) &&
+-            (((plus.attribute == null) && (minus.attribute == null)) ||
+-             ((plus.attribute != null) && plus.attribute.equals(minus.attribute)))) {
+-            attribute = (plus.attribute == null) ? minus.attribute : plus.attribute;
++            (((attribute1 == null) && (minus.attribute == null)) ||
++             ((attribute1 != null) && attribute1.equals(minus.attribute)))) {
++            attribute = (attribute1 == null) ? minus.attribute : attribute1;
+             cut       = null;
+             plus      = null;
+             minus     = null;

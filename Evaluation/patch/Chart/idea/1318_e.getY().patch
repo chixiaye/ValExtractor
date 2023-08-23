@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/panel/ZoomHandler.java b/source/org/jfree/chart/panel/ZoomHandler.java
+index ab08810..c59d047 100644
+--- a/source/org/jfree/chart/panel/ZoomHandler.java
++++ b/source/org/jfree/chart/panel/ZoomHandler.java
+@@ -67,11 +67,12 @@
+ 
+     public void mousePressed(MouseEvent e) {
+         ChartPanel chartPanel = (ChartPanel) e.getSource();
++        int y = e.getY();
+         Rectangle2D screenDataArea = chartPanel.getScreenDataArea(e.getX(),
+-                e.getY());
++                y);
+         if (screenDataArea != null) {
+             this.zoomPoint = ShapeUtilities.getPointInRectangle(e.getX(),
+-                    e.getY(), screenDataArea);
++                    y, screenDataArea);
+         }
+         else {
+             this.zoomPoint = null;

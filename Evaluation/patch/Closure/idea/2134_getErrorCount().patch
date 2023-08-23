@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ant/AntErrorManager.java b/src/com/google/javascript/jscomp/ant/AntErrorManager.java
+index d17cdb5..0e61f19 100644
+--- a/src/com/google/javascript/jscomp/ant/AntErrorManager.java
++++ b/src/com/google/javascript/jscomp/ant/AntErrorManager.java
+@@ -54,14 +54,15 @@
+ 
+   @Override
+   protected void printSummary() {
+-    String message =
+-        getErrorCount() + " error(s), " + getWarningCount() + " warning(s)";
++      int errorCount = getErrorCount();
++      String message =
++        errorCount + " error(s), " + getWarningCount() + " warning(s)";
+ 
+     if (getTypedPercent() > 0.0) {
+       message += ", " + getTypedPercent() + " typed";
+     }
+ 
+-    int level = (getErrorCount() + getWarningCount() == 0) ?
++    int level = (errorCount + getWarningCount() == 0) ?
+         Project.MSG_INFO : Project.MSG_WARN;
+     this.task.log(message, level);
+   }

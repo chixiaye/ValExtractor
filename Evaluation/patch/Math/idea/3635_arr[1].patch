@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/ISAACRandom.java b/src/main/java/org/apache/commons/math3/random/ISAACRandom.java
+index 396d56c..d4d707c 100644
+--- a/src/main/java/org/apache/commons/math3/random/ISAACRandom.java
++++ b/src/main/java/org/apache/commons/math3/random/ISAACRandom.java
+@@ -248,7 +248,8 @@
+         arr[0] += arr[5];
+         arr[6] += arr[7];
+         arr[6] ^= arr[7] << 8;
+-        arr[1] += arr[6];
++        int i = arr[1];
++        i += arr[6];
+         arr[7] += arr[0];
+         arr[7] ^= arr[0] >>> 9;
+         arr[2] += arr[7];

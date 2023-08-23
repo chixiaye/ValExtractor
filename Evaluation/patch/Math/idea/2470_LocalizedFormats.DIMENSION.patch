@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..13066fa 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -74,12 +74,13 @@
+                                   final int rowDimension,
+                                   final int columnDimension)
+         throws NotStrictlyPositiveException {
++        LocalizedFormats dimension = LocalizedFormats.DIMENSION;
+         if (rowDimension <= 0) {
+-            throw new NotStrictlyPositiveException(LocalizedFormats.DIMENSION,
++            throw new NotStrictlyPositiveException(dimension,
+                                                    rowDimension);
+         }
+         if (columnDimension <= 0) {
+-            throw new NotStrictlyPositiveException(LocalizedFormats.DIMENSION,
++            throw new NotStrictlyPositiveException(dimension,
+                                                    columnDimension);
+         }
+         this.field = field;

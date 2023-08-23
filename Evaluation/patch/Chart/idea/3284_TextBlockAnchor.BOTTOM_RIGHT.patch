@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/text/TextBlockAnchor.java b/source/org/jfree/chart/text/TextBlockAnchor.java
+index 4b579f0..8acf6d4 100644
+--- a/source/org/jfree/chart/text/TextBlockAnchor.java
++++ b/source/org/jfree/chart/text/TextBlockAnchor.java
+@@ -176,8 +176,11 @@
+         else if (this.equals(TextBlockAnchor.BOTTOM_LEFT)) {
+             return TextBlockAnchor.BOTTOM_LEFT;
+         }
+-        else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
+-            return TextBlockAnchor.BOTTOM_RIGHT;
++        else {
++            TextBlockAnchor bottomRight = TextBlockAnchor.BOTTOM_RIGHT;
++            if (this.equals(bottomRight)) {
++                return bottomRight;
++            }
+         }
+         return null;
+     }

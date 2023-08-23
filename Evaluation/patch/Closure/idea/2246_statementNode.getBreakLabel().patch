@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..972e492 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -584,8 +584,9 @@
+     @Override
+     Node processBreakStatement(BreakStatement statementNode) {
+       Node node = newNode(Token.BREAK);
+-      if (statementNode.getBreakLabel() != null) {
+-        Node labelName = transform(statementNode.getBreakLabel());
++        Name breakLabel = statementNode.getBreakLabel();
++        if (breakLabel != null) {
++        Node labelName = transform(breakLabel);
+         // Change the NAME to LABEL_NAME
+         labelName.setType(Token.LABEL_NAME);
+         node.addChildToBack(labelName);

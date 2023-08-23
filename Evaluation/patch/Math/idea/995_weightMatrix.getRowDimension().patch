@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/GaussNewtonOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/GaussNewtonOptimizer.java
+index f818e8b..12516f4 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/GaussNewtonOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/GaussNewtonOptimizer.java
+@@ -115,8 +115,9 @@
+         final int nR = targetValues.length; // Number of observed data.
+ 
+         final RealMatrix weightMatrix = getWeight();
+-        if (weightMatrix.getRowDimension() != nR) {
+-            throw new DimensionMismatchException(weightMatrix.getRowDimension(), nR);
++        int rowDimension = weightMatrix.getRowDimension();
++        if (rowDimension != nR) {
++            throw new DimensionMismatchException(rowDimension, nR);
+         }
+         if (weightMatrix.getColumnDimension() != nR) {
+             throw new DimensionMismatchException(weightMatrix.getColumnDimension(), nR);

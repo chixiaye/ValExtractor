@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/complex/ComplexFormat.java b/src/main/java/org/apache/commons/math3/complex/ComplexFormat.java
+index 9e586bb..ab17cc1 100644
+--- a/src/main/java/org/apache/commons/math3/complex/ComplexFormat.java
++++ b/src/main/java/org/apache/commons/math3/complex/ComplexFormat.java
+@@ -409,7 +409,8 @@
+         CompositeFormat.parseAndIgnoreWhitespace(source, pos);
+ 
+         // parse imaginary
+-        Number im = CompositeFormat.parseNumber(source, getRealFormat(), pos);
++        Number var_533 = CompositeFormat.parseNumber(source, getRealFormat(), pos);
++		Number im = var_533;
+         if (im == null) {
+             // invalid imaginary number
+             // set index back to initial, error index should already be set

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..03ed899 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1955,7 +1955,8 @@
+                                  = positive[groupIndex[series]] + value;
+                     }
+                     if (value < 0.0) {
+-                        negative[groupIndex[series]]
++                        double v = negative[groupIndex[series]];
++                        v
+                                  = negative[groupIndex[series]] + value;
+                                  // '+', remember value is negative
+                     }

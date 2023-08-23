@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..3501021 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -752,6 +752,7 @@
+             g2.setComposite(AlphaComposite.getInstance(
+                     AlphaComposite.SRC_OVER, getForegroundAlpha()));
+ 
++            List angleTicks1 = this.angleTicks;
+             this.angleTicks = refreshAngleTicks();
+             drawGridlines(g2, dataArea, this.angleTicks, state.getTicks());
+ 

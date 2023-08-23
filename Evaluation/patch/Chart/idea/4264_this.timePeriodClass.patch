@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..53d3638 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -281,6 +281,7 @@
+         }
+         this.newestAt = nMoments - 1;
+         this.valueHistory = new ValueSequence[nSeries];
++        Class timePeriodClass1 = this.timePeriodClass;
+         this.timePeriodClass = timeSample.getClass();
+ 
+         /// Expand the following for all defined TimePeriods:

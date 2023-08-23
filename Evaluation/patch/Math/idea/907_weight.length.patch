@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateRealDistribution.java b/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateRealDistribution.java
+index f0750ed..fcd004c 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateRealDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateRealDistribution.java
+@@ -114,7 +114,8 @@
+         final double randomValue = random.nextDouble();
+         double sum = 0;
+ 
+-        for (int i = 0; i < weight.length; i++) {
++        int length = weight.length;
++        for (int i = 0; i < length; i++) {
+             sum += weight[i];
+             if (randomValue <= sum) {
+                 // pick model i
+@@ -127,7 +128,7 @@
+             // This should never happen, but it ensures we won't return a null in
+             // case the loop above has some floating point inequality problem on
+             // the final iteration.
+-            vals = distribution.get(weight.length - 1).sample();
++            vals = distribution.get(length - 1).sample();
+         }
+ 
+         return vals;

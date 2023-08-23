@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java b/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
+index 7de3221..f38c394 100644
+--- a/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
++++ b/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
+@@ -1079,10 +1079,11 @@
+      * @return true if array satisfies the contraction criteria
+      */
+     private synchronized boolean shouldContract() {
++        int length = internalArray.length;
+         if (expansionMode == ExpansionMode.MULTIPLICATIVE) {
+-            return (internalArray.length / ((float) numElements)) > contractionCriterion;
++            return (length / ((float) numElements)) > contractionCriterion;
+         } else {
+-            return (internalArray.length - numElements) > contractionCriterion;
++            return (length - numElements) > contractionCriterion;
+         }
+     }
+ 

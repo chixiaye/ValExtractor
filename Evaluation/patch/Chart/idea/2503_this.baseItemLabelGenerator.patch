@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..6ecdd4c 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1688,10 +1688,11 @@
+                     = (ObjectList) this.itemLabelGeneratorList.clone();
+         }
+ 
+-        if (this.baseItemLabelGenerator != null) {
+-            if (this.baseItemLabelGenerator instanceof PublicCloneable) {
++        CategoryItemLabelGenerator baseItemLabelGenerator1 = this.baseItemLabelGenerator;
++        if (baseItemLabelGenerator1 != null) {
++            if (baseItemLabelGenerator1 instanceof PublicCloneable) {
+                 PublicCloneable pc
+-                        = (PublicCloneable) this.baseItemLabelGenerator;
++                        = (PublicCloneable) baseItemLabelGenerator1;
+                 clone.baseItemLabelGenerator
+                         = (CategoryItemLabelGenerator) pc.clone();
+             }

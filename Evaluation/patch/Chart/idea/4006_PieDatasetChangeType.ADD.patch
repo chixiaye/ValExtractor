@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/pie/PieDatasetChangeType.java b/source/org/jfree/data/pie/PieDatasetChangeType.java
+index 73636ea..90c272e 100644
+--- a/source/org/jfree/data/pie/PieDatasetChangeType.java
++++ b/source/org/jfree/data/pie/PieDatasetChangeType.java
+@@ -151,8 +151,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         Object result = null;
+-        if (this.equals(PieDatasetChangeType.ADD)) {
+-            result = PieDatasetChangeType.ADD;
++        PieDatasetChangeType add = PieDatasetChangeType.ADD;
++        if (this.equals(add)) {
++            result = add;
+         }
+         // FIXME: Handle other types
+         return result;

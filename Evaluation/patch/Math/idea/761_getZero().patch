@@ -1,0 +1,66 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+index 4c20a64..4ba600d 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+@@ -295,9 +295,10 @@
+         final String trapName = "nextAfter";
+ 
+         // make sure we don't mix number with different precision
++        Dfp zero = getZero();
+         if (getField().getRadixDigits() != x.getField().getRadixDigits()) {
+             getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);
+-            final Dfp result = newInstance(getZero());
++            final Dfp result = newInstance(zero);
+             result.nans = QNAN;
+             return dotrap(DfpField.FLAG_INVALID, trapName, x, result);
+         }
+@@ -315,7 +316,7 @@
+             return newInstance(x);
+         }
+ 
+-        if (lessThan(getZero())) {
++        if (lessThan(zero)) {
+             up = !up;
+         }
+ 
+@@ -323,12 +324,12 @@
+             inc = power10(intLog10() - getDecimalDigits() + 1);
+             inc = copysign(inc, this);
+ 
+-            if (this.equals(getZero())) {
++            if (this.equals(zero)) {
+                 inc = power10K(MIN_EXP-mant.length-1);
+             }
+ 
+-            if (inc.equals(getZero())) {
+-                result = copysign(newInstance(getZero()), this);
++            if (inc.equals(zero)) {
++                result = copysign(newInstance(zero), this);
+             } else {
+                 result = add(inc);
+             }
+@@ -342,12 +343,12 @@
+                 inc = inc.divide(power10(getDecimalDigits() - 1));
+             }
+ 
+-            if (this.equals(getZero())) {
++            if (this.equals(zero)) {
+                 inc = power10K(MIN_EXP-mant.length-1);
+             }
+ 
+-            if (inc.equals(getZero())) {
+-                result = copysign(newInstance(getZero()), this);
++            if (inc.equals(zero)) {
++                result = copysign(newInstance(zero), this);
+             } else {
+                 result = subtract(inc);
+             }
+@@ -358,7 +359,7 @@
+             result = dotrap(DfpField.FLAG_INEXACT, trapName, x, result);
+         }
+ 
+-        if (result.equals(getZero()) && this.equals(getZero()) == false) {
++        if (result.equals(zero) && this.equals(zero) == false) {
+             getField().setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+             result = dotrap(DfpField.FLAG_INEXACT, trapName, x, result);
+         }

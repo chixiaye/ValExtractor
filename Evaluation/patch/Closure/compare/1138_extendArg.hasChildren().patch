@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..cbc86c2 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -197,7 +197,8 @@
+     }
+ 
+     // Check for an empty object literal
+-    if (!extendArg.hasChildren()) {
++    boolean var_1138 = extendArg.hasChildren();
++	if (!var_1138) {
+       return;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..aee262b 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -197,7 +197,8 @@
+     }
+ 
+     // Check for an empty object literal
+-    if (!extendArg.hasChildren()) {
++    boolean var_1138 = extendArg.hasChildren();
++	if (!var_1138) {
+       return;
+     }
+ 
+@@ -212,7 +213,7 @@
+       fncBlock.addChildrenToFront(IR.exprResult(assign).srcref(n));
+     }
+ 
+-    while (extendArg.hasChildren()) {
++    while (var_1138) {
+       Node currentProp = extendArg.removeFirstChild();
+       currentProp.setType(Token.STRING);
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..1a1e5a6 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -197,7 +197,8 @@
+     }
+ 
+     // Check for an empty object literal
+-    if (!extendArg.hasChildren()) {
++      boolean b = extendArg.hasChildren();
++      if (!b) {
+       return;
+     }
+ 
+@@ -212,7 +213,7 @@
+       fncBlock.addChildrenToFront(IR.exprResult(assign).srcref(n));
+     }
+ 
+-    while (extendArg.hasChildren()) {
++    while (b) {
+       Node currentProp = extendArg.removeFirstChild();
+       currentProp.setType(Token.STRING);
+ 

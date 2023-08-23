@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..0334dc5 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -683,7 +683,8 @@
+       try {
+         result = compilerExecutor.submit(bootCompilerThread).get();
+       } catch (InterruptedException e) {
+-        throw Throwables.propagate(e);
++          RuntimeException propagate = Throwables.propagate(e);
++          throw propagate;
+       } catch (ExecutionException e) {
+         throw Throwables.propagate(e);
+       }

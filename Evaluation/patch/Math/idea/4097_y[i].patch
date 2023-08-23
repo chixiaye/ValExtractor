@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastCosineTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastCosineTransformer.java
+index e1254a5..38c1b1f 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastCosineTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastCosineTransformer.java
+@@ -172,8 +172,9 @@
+         transformed[0] = y[0].getReal();
+         transformed[1] = t1;
+         for (int i = 1; i < (n >> 1); i++) {
+-            transformed[2 * i]     = y[i].getReal();
+-            transformed[2 * i + 1] = transformed[2 * i - 1] - y[i].getImaginary();
++            Complex complex = y[i];
++            transformed[2 * i]     = complex.getReal();
++            transformed[2 * i + 1] = transformed[2 * i - 1] - complex.getImaginary();
+         }
+         transformed[n] = y[n >> 1].getReal();
+ 

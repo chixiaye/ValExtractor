@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..f14667d 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -939,7 +939,8 @@
+                                     NumberFormat format
+                                         = getNumberFormatOverride();
+                                     if (format != null) {
+-                                        tickLabel = format.format(tickVal);
++                                        String format1 = format.format(tickVal);
++                                        tickLabel = format1;
+                                     }
+                                     else {
+                                         tickLabel = Long.toString((long)

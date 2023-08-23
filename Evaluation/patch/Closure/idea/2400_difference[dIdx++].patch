@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/regex/CharRanges.java b/src/com/google/javascript/jscomp/regex/CharRanges.java
+index 0736d68..593b753 100644
+--- a/src/com/google/javascript/jscomp/regex/CharRanges.java
++++ b/src/com/google/javascript/jscomp/regex/CharRanges.java
+@@ -320,7 +320,8 @@
+             System.arraycopy(difference, 0, newArr, 0, dIdx);
+             difference = newArr;
+           }
+-          difference[dIdx++] = pos;
++            int i = difference[dIdx++];
++            i = pos;
+           difference[dIdx++] = end;
+         }
+         pos = end;

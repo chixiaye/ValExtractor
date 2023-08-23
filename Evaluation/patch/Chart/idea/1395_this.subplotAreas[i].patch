@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CombinedRangeXYPlot.java b/source/org/jfree/chart/plot/CombinedRangeXYPlot.java
+index 1593333..f8365ba 100644
+--- a/source/org/jfree/chart/plot/CombinedRangeXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedRangeXYPlot.java
+@@ -344,7 +344,8 @@
+             }
+             else if (orientation == PlotOrientation.HORIZONTAL) {
+                 double h = usableSize * plot.getWeight() / totalWeight;
+-                this.subplotAreas[i] = new Rectangle2D.Double(x, y,
++                Rectangle2D subplotArea = this.subplotAreas[i];
++                subplotArea = new Rectangle2D.Double(x, y,
+                         adjustedPlotArea.getWidth(), h);
+                 y = y + h + this.gap;
+             }

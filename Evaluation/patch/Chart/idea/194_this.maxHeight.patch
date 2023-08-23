@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/annotations/XYTitleAnnotation.java b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+index 2178436..05aa2aa 100644
+--- a/source/org/jfree/chart/annotations/XYTitleAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYTitleAnnotation.java
+@@ -284,17 +284,18 @@
+ 
+         double maxW = dataArea.getWidth();
+         double maxH = dataArea.getHeight();
++        double maxHeight1 = this.maxHeight;
+         if (this.coordinateType == XYCoordinateType.RELATIVE) {
+             if (this.maxWidth > 0.0) {
+                 maxW = maxW * this.maxWidth;
+             }
+-            if (this.maxHeight > 0.0) {
+-                maxH = maxH * this.maxHeight;
++            if (maxHeight1 > 0.0) {
++                maxH = maxH * maxHeight1;
+             }
+         }
+         if (this.coordinateType == XYCoordinateType.DATA) {
+             maxW = this.maxWidth;
+-            maxH = this.maxHeight;
++            maxH = maxHeight1;
+         }
+         RectangleConstraint rc = new RectangleConstraint(
+                 new Range(0, maxW), new Range(0, maxH));

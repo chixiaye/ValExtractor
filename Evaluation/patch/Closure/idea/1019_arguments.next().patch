@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..771e7d6 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1741,9 +1741,9 @@
+   private void visitParameterList(NodeTraversal t, Node call,
+       FunctionType functionType) {
+     Iterator<Node> arguments = call.children().iterator();
+-    arguments.next(); // skip the function name
++      Node next = arguments.next();// skip the function name
+ 
+-    Iterator<Node> parameters = functionType.getParameters().iterator();
++      Iterator<Node> parameters = functionType.getParameters().iterator();
+     int ordinal = 0;
+     Node parameter = null;
+     Node argument = null;
+@@ -1755,7 +1755,7 @@
+       if (parameters.hasNext()) {
+         parameter = parameters.next();
+       }
+-      argument = arguments.next();
++      argument = next;
+       ordinal++;
+ 
+       validator.expectArgumentMatchesParameter(t, argument,

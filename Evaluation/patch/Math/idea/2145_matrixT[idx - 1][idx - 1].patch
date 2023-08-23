@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..6cb03f1 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -857,6 +857,7 @@
+                 } else {
+                     final Complex result = cdiv(0.0, -matrixT[idx - 1][idx],
+                                                 matrixT[idx - 1][idx - 1] - p, q);
++                    double v = matrixT[idx - 1][idx - 1];
+                     matrixT[idx - 1][idx - 1] = result.getReal();
+                     matrixT[idx - 1][idx]     = result.getImaginary();
+                 }

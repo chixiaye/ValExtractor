@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..0e38cc1 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -162,8 +162,9 @@
+             }
+             else if (paint instanceof GradientPaint) {
+                 GradientPaint gp = (GradientPaint) paint;
+-                stream.writeFloat((float) gp.getPoint1().getX());
+-                stream.writeFloat((float) gp.getPoint1().getY());
++                Point2D point1 = gp.getPoint1();
++                stream.writeFloat((float) point1.getX());
++                stream.writeFloat((float) point1.getY());
+                 stream.writeObject(gp.getColor1());
+                 stream.writeFloat((float) gp.getPoint2().getX());
+                 stream.writeFloat((float) gp.getPoint2().getY());

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/Well19937a.java b/src/main/java/org/apache/commons/math3/random/Well19937a.java
+index 56f352d..8f3f09d 100644
+--- a/src/main/java/org/apache/commons/math3/random/Well19937a.java
++++ b/src/main/java/org/apache/commons/math3/random/Well19937a.java
+@@ -97,7 +97,8 @@
+         final int z3 = z1      ^ z2;
+         final int z4 = z0 ^ (z1 ^ (z1 << 9)) ^ (z2 ^ (z2 << 21)) ^ (z3 ^ (z3 >>> 21));
+ 
+-        v[index]     = z3;
++        int i = v[index];
++        i     = z3;
+         v[indexRm1]  = z4;
+         v[indexRm2] &= 0x80000000;
+         index        = indexRm1;

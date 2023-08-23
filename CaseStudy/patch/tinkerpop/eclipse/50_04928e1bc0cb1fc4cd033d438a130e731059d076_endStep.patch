@@ -1,0 +1,14 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
+index 32f04d1..8fb29f2 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/dsl/graph/GraphTraversal.java
+@@ -707,7 +707,8 @@
+ 
+     public default GraphTraversal<S, E> as(final String stepLabel) {
+         if (this.asAdmin().getSteps().size() == 0) this.asAdmin().addStep(new StartStep<>(this.asAdmin()));
+-        this.asAdmin().getEndStep().addLabel(stepLabel);
++        Step<?, E> endStep = this.asAdmin().getEndStep();
++		endStep.addLabel(stepLabel);
+         return this;
+     }
+ 

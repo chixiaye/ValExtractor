@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Crosshair.java b/source/org/jfree/chart/plot/Crosshair.java
+index 652e907..ac23ec3 100644
+--- a/source/org/jfree/chart/plot/Crosshair.java
++++ b/source/org/jfree/chart/plot/Crosshair.java
+@@ -329,7 +329,8 @@
+         if (generator == null) {
+             throw new IllegalArgumentException("Null 'generator' argument.");
+         }
+-        CrosshairLabelGenerator old = this.labelGenerator;
++        CrosshairLabelGenerator labelGenerator1 = this.labelGenerator;
++        CrosshairLabelGenerator old = labelGenerator1;
+         this.labelGenerator = generator;
+         this.pcs.firePropertyChange("labelGenerator", old, generator);
+     }

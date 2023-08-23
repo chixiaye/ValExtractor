@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java b/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
+index da9463b..6ba9cc9 100644
+--- a/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
+@@ -175,7 +175,8 @@
+         if (xdf != null) {
+             result[1] = xdf.format(new Date((long) x));
+             result[2] = xdf.format(new Date((long) xs));
+-            result[3] = xdf.format(new Date((long) xe));
++            Object o = result[3];
++            o = xdf.format(new Date((long) xe));
+         }
+         else {
+             NumberFormat xnf = getXFormat();

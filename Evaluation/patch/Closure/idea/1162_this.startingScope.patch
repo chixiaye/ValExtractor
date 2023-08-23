@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+index 6219d26..aaa340b 100644
+--- a/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
++++ b/src/com/google/javascript/jscomp/ExpandJqueryAliases.java
+@@ -572,7 +572,8 @@
+      */
+     @Override
+     public void enterScope(NodeTraversal t) {
+-      if (this.startingScope == null) {
++        Scope startingScope1 = this.startingScope;
++        if (startingScope1 == null) {
+         this.startingScope = t.getScope();
+       }
+     }

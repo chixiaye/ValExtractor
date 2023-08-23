@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..2579a74 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -970,7 +970,7 @@
+             sb.append('{').append(min).append(",}");
+         }
+       } else if (min == 0 && max == 1) {
+-        sb.append('?');
++        StringBuilder var_2431 = sb.append('?');
+       } else if (min == max) {
+         if (min != 1) {
+           sb.append('{').append(min).append('}');
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..2579a74 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -970,7 +970,7 @@
+             sb.append('{').append(min).append(",}");
+         }
+       } else if (min == 0 && max == 1) {
+-        sb.append('?');
++        StringBuilder var_2431 = sb.append('?');
+       } else if (min == max) {
+         if (min != 1) {
+           sb.append('{').append(min).append('}');
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..89c024b 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -962,6 +962,7 @@
+         }
+       }
+ 
++        StringBuilder append = sb.append('?');
+       if (max == Integer.MAX_VALUE) {
+         switch (min) {
+           case 0: sb.append('*'); break;
+@@ -970,7 +971,7 @@
+             sb.append('{').append(min).append(",}");
+         }
+       } else if (min == 0 && max == 1) {
+-        sb.append('?');
++        append;
+       } else if (min == max) {
+         if (min != 1) {
+           sb.append('{').append(min).append('}');
+@@ -979,7 +980,7 @@
+         sb.append('{').append(min).append(',').append(max).append('}');
+       }
+       if (!greedy) {
+-        sb.append('?');
++        append;
+       }
+     }
+ 

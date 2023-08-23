@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..e384916 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -307,7 +307,8 @@
+      * @since 1.0.13
+      */
+     public void setMeanVisible(boolean visible) {
+-        if (this.meanVisible == visible) {
++        boolean meanVisible1 = this.meanVisible;
++        if (meanVisible1 == visible) {
+             return;
+         }
+         this.meanVisible = visible;

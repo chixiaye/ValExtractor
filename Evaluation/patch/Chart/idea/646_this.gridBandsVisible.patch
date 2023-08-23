@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..e6431d0 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -197,7 +197,8 @@
+      * @see #isGridBandsVisible()
+      */
+     public void setGridBandsVisible(boolean flag) {
+-        if (this.gridBandsVisible != flag) {
++        boolean gridBandsVisible1 = this.gridBandsVisible;
++        if (gridBandsVisible1 != flag) {
+             this.gridBandsVisible = flag;
+             notifyListeners(new AxisChangeEvent(this));
+         }

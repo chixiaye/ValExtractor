@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..f32a2eb 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -214,9 +214,10 @@
+         this.angleTickUnit = new NumberTickUnit(DEFAULT_ANGLE_TICK_UNIT_SIZE);
+ 
+         this.axis = radiusAxis;
+-        if (this.axis != null) {
+-            this.axis.setPlot(this);
+-            this.axis.addChangeListener(this);
++        ValueAxis axis1 = this.axis;
++        if (axis1 != null) {
++            axis1.setPlot(this);
++            axis1.addChangeListener(this);
+         }
+ 
+         this.renderer = renderer;

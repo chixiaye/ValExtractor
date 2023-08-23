@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..ad05938 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -5966,7 +5966,8 @@
+         }
+         final int sz = cs.length();
+         for (int i = 0; i < sz; i++) {
+-            if (Character.isDigit(cs.charAt(i)) == false && cs.charAt(i) != ' ') {
++            char ch = cs.charAt(i);
++            if (Character.isDigit(ch) == false && ch != ' ') {
+                 return false;
+             }
+         }

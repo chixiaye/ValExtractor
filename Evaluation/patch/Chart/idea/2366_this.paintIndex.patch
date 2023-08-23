@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..9cfa4c7 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -291,9 +291,10 @@
+      */
+     public LegendItemCollection getLegendCollection() {
+         LegendItemCollection result = new LegendItemCollection();
+-        if (this.paintIndex != null && this.paintIndex.size() > 0) {
+-            if (this.paintIndex.size() <= this.paintLimit) {
+-                for (Iterator i = this.paintIndex.entrySet().iterator();
++        Map paintIndex1 = this.paintIndex;
++        if (paintIndex1 != null && paintIndex1.size() > 0) {
++            if (paintIndex1.size() <= this.paintLimit) {
++                for (Iterator i = paintIndex1.entrySet().iterator();
+                      i.hasNext();) {
+                     // in this case, every color has a unique value
+                     Map.Entry entry =  (Map.Entry) i.next();
+@@ -313,7 +314,7 @@
+             else {
+                 // in this case, every color has a range of values
+                 Set unique = new HashSet();
+-                for (Iterator i = this.paintIndex.entrySet().iterator();
++                for (Iterator i = paintIndex1.entrySet().iterator();
+                      i.hasNext();) {
+                     Map.Entry entry = (Map.Entry) i.next();
+                     if (unique.add(entry.getValue())) {

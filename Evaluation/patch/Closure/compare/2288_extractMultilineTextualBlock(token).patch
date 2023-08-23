@@ -1,0 +1,152 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..be19e0b 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -586,8 +586,9 @@
+ 
+                   // Find the throw's description (if applicable).
+                   if (jsdocBuilder.shouldParseDocumentation()) {
++                    ExtractionInfo var_2288 = extractMultilineTextualBlock(token);
+                     ExtractionInfo descriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                        var_2288;
+ 
+                     String description = descriptionInfo.string;
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..3dfee06 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,7 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++              ExtractionInfo var_2288 = extractMultilineTextualBlock(token);
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -293,7 +294,7 @@
+ 
+                   // Find the reason/description, if any.
+                   ExtractionInfo reasonInfo =
+-                      extractMultilineTextualBlock(token);
++                      var_2288;
+ 
+                   String reason = reasonInfo.string;
+ 
+@@ -325,7 +326,7 @@
+                     continue retry;
+                   } else {
+                     ExtractionInfo descriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                        var_2288;
+ 
+                     String description = descriptionInfo.string;
+ 
+@@ -513,7 +514,7 @@
+ 
+                 case MEANING:
+                   ExtractionInfo meaningInfo =
+-                      extractMultilineTextualBlock(token);
++                      var_2288;
+                   String meaning = meaningInfo.string;
+                   token = meaningInfo.token;
+                   if (!jsdocBuilder.recordMeaning(meaning)) {
+@@ -587,7 +588,7 @@
+                   // Find the throw's description (if applicable).
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+                     ExtractionInfo descriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                        var_2288;
+ 
+                     String description = descriptionInfo.string;
+ 
+@@ -684,7 +685,7 @@
+                   // Find the parameter's description (if applicable).
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+                     ExtractionInfo paramDescriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                        var_2288;
+ 
+                     String paramDescription = paramDescriptionInfo.string;
+ 
+@@ -914,7 +915,7 @@
+                         // Find the return's description (if applicable).
+                         if (jsdocBuilder.shouldParseDocumentation()) {
+                           ExtractionInfo returnDescriptionInfo =
+-                              extractMultilineTextualBlock(token);
++                              var_2288;
+ 
+                           String returnDescription =
+                               returnDescriptionInfo.string;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..7ee660e 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,7 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++                ExtractionInfo extractionInfo = extractMultilineTextualBlock(token);
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -293,7 +294,7 @@
+ 
+                   // Find the reason/description, if any.
+                   ExtractionInfo reasonInfo =
+-                      extractMultilineTextualBlock(token);
++                          extractionInfo;
+ 
+                   String reason = reasonInfo.string;
+ 
+@@ -325,7 +326,7 @@
+                     continue retry;
+                   } else {
+                     ExtractionInfo descriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                            extractionInfo;
+ 
+                     String description = descriptionInfo.string;
+ 
+@@ -513,7 +514,7 @@
+ 
+                 case MEANING:
+                   ExtractionInfo meaningInfo =
+-                      extractMultilineTextualBlock(token);
++                          extractionInfo;
+                   String meaning = meaningInfo.string;
+                   token = meaningInfo.token;
+                   if (!jsdocBuilder.recordMeaning(meaning)) {
+@@ -587,7 +588,7 @@
+                   // Find the throw's description (if applicable).
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+                     ExtractionInfo descriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                            extractionInfo;
+ 
+                     String description = descriptionInfo.string;
+ 
+@@ -684,7 +685,7 @@
+                   // Find the parameter's description (if applicable).
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+                     ExtractionInfo paramDescriptionInfo =
+-                        extractMultilineTextualBlock(token);
++                            extractionInfo;
+ 
+                     String paramDescription = paramDescriptionInfo.string;
+ 
+@@ -914,7 +915,7 @@
+                         // Find the return's description (if applicable).
+                         if (jsdocBuilder.shouldParseDocumentation()) {
+                           ExtractionInfo returnDescriptionInfo =
+-                              extractMultilineTextualBlock(token);
++                                  extractionInfo;
+ 
+                           String returnDescription =
+                               returnDescriptionInfo.string;

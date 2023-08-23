@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..2900ca4 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -534,9 +534,10 @@
+         // family of addition methods need special attention. Override affected
+         // duration fields as well.
+         {
++            DateTimeField year = fields.year;
+             fields.year = new ImpreciseCutoverField(
+-                julian.year(), fields.year, iCutoverMillis);
+-            fields.years = fields.year.getDurationField();
++                julian.year(), year, iCutoverMillis);
++            fields.years = year.getDurationField();
+             fields.yearOfEra = new ImpreciseCutoverField(
+                 julian.yearOfEra(), fields.yearOfEra, fields.years, iCutoverMillis);
+             

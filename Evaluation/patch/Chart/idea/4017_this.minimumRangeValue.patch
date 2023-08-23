@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+index 95fee7a..2817e1c 100644
+--- a/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultMultiValueCategoryDataset.java
+@@ -338,8 +338,9 @@
+      */
+     public double getRangeLowerBound(boolean includeInterval) {
+         double result = Double.NaN;
+-        if (this.minimumRangeValue != null) {
+-            result = this.minimumRangeValue.doubleValue();
++        Number minimumRangeValue1 = this.minimumRangeValue;
++        if (minimumRangeValue1 != null) {
++            result = minimumRangeValue1.doubleValue();
+         }
+         return result;
+     }

@@ -1,0 +1,47 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+index d05eb2f..0ab8897 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+@@ -110,12 +110,7 @@
+ import org.jfree.chart.plot.XYCrosshairState;
+ import org.jfree.chart.plot.XYPlot;
+ import org.jfree.chart.urls.XYURLGenerator;
+-import org.jfree.chart.util.GradientPaintTransformer;
+-import org.jfree.chart.util.HashUtilities;
+-import org.jfree.chart.util.PublicCloneable;
+-import org.jfree.chart.util.SerialUtilities;
+-import org.jfree.chart.util.ShapeUtilities;
+-import org.jfree.chart.util.StandardGradientPaintTransformer;
++import org.jfree.chart.util.*;
+ import org.jfree.data.xy.XYDataset;
+ 
+ /**
+@@ -502,8 +497,9 @@
+         if (Double.isNaN(y1)) {
+             y1 = 0.0;
+         }
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         double transX1 = domainAxis.valueToJava2D(x1, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         double transY1 = rangeAxis.valueToJava2D(y1, dataArea,
+                 plot.getRangeAxisEdge());
+ 
+@@ -516,7 +512,7 @@
+             y0 = 0.0;
+         }
+         double transX0 = domainAxis.valueToJava2D(x0, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         double transY0 = rangeAxis.valueToJava2D(y0, dataArea,
+                 plot.getRangeAxisEdge());
+ 
+@@ -528,7 +524,7 @@
+             y2 = 0.0;
+         }
+         double transX2 = domainAxis.valueToJava2D(x2, dataArea,
+-                plot.getDomainAxisEdge());
++                domainAxisEdge);
+         double transY2 = rangeAxis.valueToJava2D(y2, dataArea,
+                 plot.getRangeAxisEdge());
+ 

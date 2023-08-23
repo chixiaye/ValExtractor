@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..770f02c 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -914,11 +914,13 @@
+             // cycle through all the segments contained in the BaseTimeline
+             // exception segment
+             Segment segment = getSegment(baseSegment.getSegmentStart());
+-            while (segment.getSegmentStart() <= baseSegment.getSegmentEnd()) {
++            while (true) {
++                long segmentStart = segment.getSegmentStart();
++                if (!(segmentStart <= baseSegment.getSegmentEnd())) break;
+                 if (segment.inIncludeSegments()) {
+ 
+                     // find all consecutive included segments
+-                    long fromDomainValue = segment.getSegmentStart();
++                    long fromDomainValue = segmentStart;
+                     long toDomainValue;
+                     do {
+                         toDomainValue = segment.getSegmentEnd();

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicGJChronology.java b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+index 5b651e5..6c76135 100644
+--- a/src/main/java/org/joda/time/chrono/BasicGJChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicGJChronology.java
+@@ -154,12 +154,13 @@
+     
+         // Balance leap year differences on remainders.
+         if (subtrahendRem >= FEB_29) {
++            int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
+             if (isLeapYear(subtrahendYear)) {
+                 if (!isLeapYear(minuendYear)) {
+-                    subtrahendRem -= DateTimeConstants.MILLIS_PER_DAY;
++                    subtrahendRem -= millisPerDay;
+                 }
+             } else if (minuendRem >= FEB_29 && isLeapYear(minuendYear)) {
+-                minuendRem -= DateTimeConstants.MILLIS_PER_DAY;
++                minuendRem -= millisPerDay;
+             }
+         }
+     

@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..8563c51 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -505,6 +505,7 @@
+             throw new IllegalArgumentException("Null 'item' argument.");
+         }
+         item = (XYDataItem) item.clone();
++        boolean add = this.data.add(item);
+         if (this.autoSort) {
+             int index = Collections.binarySearch(this.data, item);
+             if (index < 0) {
+@@ -522,7 +523,7 @@
+                         this.data.add(index, item);
+                     }
+                     else {
+-                        this.data.add(item);
++                        add;
+                     }
+                 }
+                 else {
+@@ -539,7 +540,7 @@
+                     throw new SeriesException("X-value already exists.");
+                 }
+             }
+-            this.data.add(item);
++            add;
+         }
+         updateBoundsForAddedItem(item);
+         if (getItemCount() > this.maximumItemCount) {

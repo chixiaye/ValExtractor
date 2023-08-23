@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..1e988f8 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1254,8 +1254,9 @@
+     private Rectangle2D createAlignedRectangle2D(Size2D dimensions,
+             Rectangle2D frame, HorizontalAlignment hAlign,
+             VerticalAlignment vAlign) {
+-        double x = Double.NaN;
+-        double y = Double.NaN;
++        double naN = Double.NaN;
++        double x = naN;
++        double y = naN;
+         if (hAlign == HorizontalAlignment.LEFT) {
+             x = frame.getX();
+         }

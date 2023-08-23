@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..f8218f4 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -193,8 +193,9 @@
+             continue;
+           }
+ 
+-          Node n = ref.node;
+-          Node parent = ref.node.getParent();
++            Node node = ref.node;
++            Node n = node;
++          Node parent = node.getParent();
+           JSDocInfo info = n.getJSDocInfo();
+           if (info == null &&
+               parent.isVar() && parent.hasOneChild()) {

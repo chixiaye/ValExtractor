@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..21c7b24 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -875,7 +875,8 @@
+                     .subtract(Cneg.scalarMultiply(negccov));
+             } else {
+                 // Adapt covariance matrix C - nonactive
+-                C = C.scalarMultiply(oldFac) // regard old matrix
++                RealMatrix var_3268 = C.scalarMultiply(oldFac);
++				C = var_3268 // regard old matrix
+                     .add(roneu) // plus rank one update
+                     .add(arpos.scalarMultiply(ccovmu) // plus rank mu update
+                          .multiply(times(repmat(weights, 1, dimension),
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..80efde5 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -836,6 +836,7 @@
+             // minor correction if hsig==false
+             double oldFac = hsig ? 0 : ccov1 * cc * (2 - cc);
+             oldFac += 1 - ccov1 - ccovmu;
++            RealMatrix var_3268 = C.scalarMultiply(oldFac);
+             if (isActiveCMA) {
+                 // Adapt covariance matrix C active CMA
+                 negccov = (1 - ccovmu) * 0.25 * mueff /
+@@ -866,7 +867,7 @@
+                 final RealMatrix artmp = BD.multiply(arzneg);
+                 final RealMatrix Cneg = artmp.multiply(diag(weights)).multiply(artmp.transpose());
+                 oldFac += negalphaold * negccov;
+-                C = C.scalarMultiply(oldFac)
++                C = var_3268
+                     .add(roneu) // regard old matrix
+                     .add(arpos.scalarMultiply( // plus rank one update
+                                               ccovmu + (1 - negalphaold) * negccov) // plus rank mu update
+@@ -875,7 +876,7 @@
+                     .subtract(Cneg.scalarMultiply(negccov));
+             } else {
+                 // Adapt covariance matrix C - nonactive
+-                C = C.scalarMultiply(oldFac) // regard old matrix
++                C = var_3268 // regard old matrix
+                     .add(roneu) // plus rank one update
+                     .add(arpos.scalarMultiply(ccovmu) // plus rank mu update
+                          .multiply(times(repmat(weights, 1, dimension),
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..0e5aeed 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -836,6 +836,7 @@
+             // minor correction if hsig==false
+             double oldFac = hsig ? 0 : ccov1 * cc * (2 - cc);
+             oldFac += 1 - ccov1 - ccovmu;
++            RealMatrix realMatrix = C.scalarMultiply(oldFac);
+             if (isActiveCMA) {
+                 // Adapt covariance matrix C active CMA
+                 negccov = (1 - ccovmu) * 0.25 * mueff /
+@@ -866,7 +867,7 @@
+                 final RealMatrix artmp = BD.multiply(arzneg);
+                 final RealMatrix Cneg = artmp.multiply(diag(weights)).multiply(artmp.transpose());
+                 oldFac += negalphaold * negccov;
+-                C = C.scalarMultiply(oldFac)
++                C = realMatrix
+                     .add(roneu) // regard old matrix
+                     .add(arpos.scalarMultiply( // plus rank one update
+                                               ccovmu + (1 - negalphaold) * negccov) // plus rank mu update
+@@ -875,7 +876,7 @@
+                     .subtract(Cneg.scalarMultiply(negccov));
+             } else {
+                 // Adapt covariance matrix C - nonactive
+-                C = C.scalarMultiply(oldFac) // regard old matrix
++                C = realMatrix // regard old matrix
+                     .add(roneu) // plus rank one update
+                     .add(arpos.scalarMultiply(ccovmu) // plus rank mu update
+                          .multiply(times(repmat(weights, 1, dimension),

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..1204450 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -2810,10 +2810,11 @@
+                     g2.setPaint(this.labelBackgroundPaint);
+                     g2.fill(bg);
+                 }
++                Stroke labelOutlineStroke1 = this.labelOutlineStroke;
+                 if (this.labelOutlinePaint != null
+-                        && this.labelOutlineStroke != null) {
++                        && labelOutlineStroke1 != null) {
+                     g2.setPaint(this.labelOutlinePaint);
+-                    g2.setStroke(this.labelOutlineStroke);
++                    g2.setStroke(labelOutlineStroke1);
+                     g2.draw(bg);
+                 }
+ 

@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+index c39fc5e..d1ac25d 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/FunctionUtils.java
+@@ -283,10 +283,12 @@
+     @Deprecated
+     public static DifferentiableUnivariateFunction multiply(final DifferentiableUnivariateFunction ... f) {
+         return new DifferentiableUnivariateFunction() {
++            private final int length = f.length;
++
+             /** {@inheritDoc} */
+             public double value(double x) {
+                 double r = f[0].value(x);
+-                for (int i = 1; i < f.length; i++) {
++                for (int i = 1; i < length; i++) {
+                     r *= f[i].value(x);
+                 }
+                 return r;
+@@ -298,9 +300,9 @@
+                     /** {@inheritDoc} */
+                     public double value(double x) {
+                         double sum = 0;
+-                        for (int i = 0; i < f.length; i++) {
++                        for (int i = 0; i < length; i++) {
+                             double prod = f[i].derivative().value(x);
+-                            for (int j = 0; j < f.length; j++) {
++                            for (int j = 0; j < length; j++) {
+                                 if (i != j) {
+                                     prod *= f[j].value(x);
+                                 }

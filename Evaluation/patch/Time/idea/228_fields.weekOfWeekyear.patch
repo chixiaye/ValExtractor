@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..5c1c62e 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -571,7 +571,8 @@
+ 
+         {
+             long cutover = gregorian.weekyear().roundCeiling(iCutoverMillis);
+-            fields.weekOfWeekyear = new CutoverField(
++            DateTimeField weekOfWeekyear = fields.weekOfWeekyear;
++            weekOfWeekyear = new CutoverField(
+                 julian.weekOfWeekyear(), fields.weekOfWeekyear, fields.weekyears, cutover, true);
+         }
+ 

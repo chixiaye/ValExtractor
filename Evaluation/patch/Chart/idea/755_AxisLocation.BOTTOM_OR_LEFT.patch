@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/AxisLocation.java b/source/org/jfree/chart/axis/AxisLocation.java
+index 03b9cd7..3ee0adb 100644
+--- a/source/org/jfree/chart/axis/AxisLocation.java
++++ b/source/org/jfree/chart/axis/AxisLocation.java
+@@ -176,8 +176,11 @@
+         else if (this.equals(AxisLocation.TOP_OR_LEFT)) {
+             return AxisLocation.TOP_OR_LEFT;
+         }
+-        else if (this.equals(AxisLocation.BOTTOM_OR_LEFT)) {
+-            return AxisLocation.BOTTOM_OR_LEFT;
++        else {
++            AxisLocation bottomOrLeft = AxisLocation.BOTTOM_OR_LEFT;
++            if (this.equals(bottomOrLeft)) {
++                return bottomOrLeft;
++            }
+         }
+         return null;
+     }

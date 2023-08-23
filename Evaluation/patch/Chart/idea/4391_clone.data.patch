@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..61e8c84 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -544,7 +544,8 @@
+     public Object clone() throws CloneNotSupportedException {
+         DefaultTableXYDataset clone = (DefaultTableXYDataset) super.clone();
+         int seriesCount = this.data.size();
+-        clone.data = new java.util.ArrayList(seriesCount);
++        List data1 = clone.data;
++        data1 = new java.util.ArrayList(seriesCount);
+         for (int i = 0; i < seriesCount; i++) {
+             XYSeries series = (XYSeries) this.data.get(i);
+             clone.data.add(series.clone());

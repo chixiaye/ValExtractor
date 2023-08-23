@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/util/StrokeMap.java b/source/org/jfree/chart/util/StrokeMap.java
+index 437adec..dff661c 100644
+--- a/source/org/jfree/chart/util/StrokeMap.java
++++ b/source/org/jfree/chart/util/StrokeMap.java
+@@ -204,6 +204,7 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
++        Map store1 = this.store;
+         this.store = new TreeMap();
+         int keyCount = stream.readInt();
+         for (int i = 0; i < keyCount; i++) {

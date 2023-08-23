@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+index e6fbbd8..93f7bd8 100644
+--- a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+@@ -249,8 +249,9 @@
+        }
+ 
+ 
+-        if (this.fillPaint != null) {
+-            g2.setPaint(this.fillPaint);
++        Paint fillPaint1 = this.fillPaint;
++        if (fillPaint1 != null) {
++            g2.setPaint(fillPaint1);
+             g2.fill(area);
+         }
+ 

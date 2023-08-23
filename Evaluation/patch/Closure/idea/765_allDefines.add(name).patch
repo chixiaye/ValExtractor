@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..eb2ec3c 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -175,11 +175,12 @@
+     List<Name> allDefines = Lists.newArrayList();
+     for (Name name : namespace.getNameIndex().values()) {
+       Ref decl = name.getDeclaration();
+-      if (name.docInfo != null && name.docInfo.isDefine()) {
++        boolean add = allDefines.add(name);
++        if (name.docInfo != null && name.docInfo.isDefine()) {
+         // Process defines should not depend on check types being enabled,
+         // so we look for the JSDoc instead of the inferred type.
+         if (isValidDefineType(name.docInfo.getType())) {
+-          allDefines.add(name);
++          add;
+         } else {
+           JSError error = JSError.make(
+               decl.getSourceName(),
+@@ -202,7 +203,7 @@
+           }
+ 
+           if (info != null && info.isDefine()) {
+-            allDefines.add(name);
++            add;
+             break;
+           }
+         }

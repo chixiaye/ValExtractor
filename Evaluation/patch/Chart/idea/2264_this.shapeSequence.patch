@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..7cfb986 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -496,6 +496,7 @@
+         }
+ 
+         int shapeCount = stream.readInt();
++        Shape[] shapeSequence1 = this.shapeSequence;
+         this.shapeSequence = new Shape[shapeCount];
+         for (int i = 0; i < shapeCount; i++) {
+             this.shapeSequence[i] = SerialUtilities.readShape(stream);

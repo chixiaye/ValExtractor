@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+index a4eb52c..0f4d45c 100644
+--- a/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/AbstractXYItemLabelGenerator.java
+@@ -287,7 +287,8 @@
+ 
+         double y = dataset.getYValue(series, item);
+         if (Double.isNaN(y) && dataset.getY(series, item) == null) {
+-            result[2] = this.nullYString;
++            Object o = result[2];
++            o = this.nullYString;
+         }
+         else {
+             if (this.yDateFormat != null) {

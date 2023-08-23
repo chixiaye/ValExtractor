@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..0fd59ca 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1382,8 +1382,9 @@
+         plot.setRangeZeroBaselinePaint(this.baselinePaint);
+         plot.setDomainGridlinePaint(this.domainGridlinePaint);
+         plot.setRangeGridlinePaint(this.rangeGridlinePaint);
+-        plot.setDomainCrosshairPaint(this.crosshairPaint);
+-        plot.setRangeCrosshairPaint(this.crosshairPaint);
++        Paint crosshairPaint1 = this.crosshairPaint;
++        plot.setDomainCrosshairPaint(crosshairPaint1);
++        plot.setRangeCrosshairPaint(crosshairPaint1);
+         // process all domain axes
+         int domainAxisCount = plot.getDomainAxisCount();
+         for (int i = 0; i < domainAxisCount; i++) {

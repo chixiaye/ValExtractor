@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..0c7fa59 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1763,8 +1763,9 @@
+                 TextAnchor rotationAnchor = null;
+                 double angle = 0.0;
+                 if (isVerticalTickLabels()) {
+-                    anchor = TextAnchor.BOTTOM_CENTER;
+-                    rotationAnchor = TextAnchor.BOTTOM_CENTER;
++                    TextAnchor bottomCenter = TextAnchor.BOTTOM_CENTER;
++                    anchor = bottomCenter;
++                    rotationAnchor = bottomCenter;
+                     if (edge == RectangleEdge.LEFT) {
+                         angle = -Math.PI / 2.0;
+                     }

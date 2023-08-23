@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..0788bb5 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -758,7 +758,8 @@
+         if (orientation == null) {
+             throw new IllegalArgumentException("Null 'orientation' argument.");
+         }
+-        if (orientation != this.orientation) {
++        PlotOrientation orientation1 = this.orientation;
++        if (orientation != orientation1) {
+             this.orientation = orientation;
+             fireChangeEvent();
+         }

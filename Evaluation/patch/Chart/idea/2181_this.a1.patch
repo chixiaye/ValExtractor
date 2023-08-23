@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CompassPlot.java b/source/org/jfree/chart/plot/CompassPlot.java
+index 2963422..ea76700 100644
+--- a/source/org/jfree/chart/plot/CompassPlot.java
++++ b/source/org/jfree/chart/plot/CompassPlot.java
+@@ -607,6 +607,7 @@
+             diameter - 30, diameter - 30
+         );
+         g2.setPaint(this.rosePaint);
++        Area a11 = this.a1;
+         this.a1 = new Area(this.circle1);
+         this.a2 = new Area(this.circle2);
+         this.a1.subtract(this.a2);

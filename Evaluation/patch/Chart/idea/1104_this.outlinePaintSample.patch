@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..3101c87 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -169,6 +169,7 @@
+         this.plotInsets = plot.getInsets();
+         this.backgroundPaintSample = new PaintSample(plot.getBackgroundPaint());
+         this.outlineStrokeSample = new StrokeSample(plot.getOutlineStroke());
++        PaintSample outlinePaintSample1 = this.outlinePaintSample;
+         this.outlinePaintSample = new PaintSample(plot.getOutlinePaint());
+         if (plot instanceof CategoryPlot) {
+             this.plotOrientation = ((CategoryPlot) plot).getOrientation();

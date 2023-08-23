@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..1d17128 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -213,13 +213,15 @@
+         }
+         else if (this.equals(RectangleEdge.BOTTOM)) {
+             result = RectangleEdge.BOTTOM;
+-        }
+-        else if (this.equals(RectangleEdge.LEFT)) {
+-            result = RectangleEdge.LEFT;
++        } else {
++			RectangleEdge var_3605 = RectangleEdge.LEFT;
++			if (this.equals(var_3605)) {
++			    result = var_3605;
+         }
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..1d17128 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -213,13 +213,15 @@
+         }
+         else if (this.equals(RectangleEdge.BOTTOM)) {
+             result = RectangleEdge.BOTTOM;
+-        }
+-        else if (this.equals(RectangleEdge.LEFT)) {
+-            result = RectangleEdge.LEFT;
++        } else {
++			RectangleEdge var_3605 = RectangleEdge.LEFT;
++			if (this.equals(var_3605)) {
++			    result = var_3605;
+         }
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleEdge.java b/source/org/jfree/chart/util/RectangleEdge.java
+index 10d91f0..f575457 100644
+--- a/source/org/jfree/chart/util/RectangleEdge.java
++++ b/source/org/jfree/chart/util/RectangleEdge.java
+@@ -214,12 +214,15 @@
+         else if (this.equals(RectangleEdge.BOTTOM)) {
+             result = RectangleEdge.BOTTOM;
+         }
+-        else if (this.equals(RectangleEdge.LEFT)) {
+-            result = RectangleEdge.LEFT;
++        else {
++            RectangleEdge left = RectangleEdge.LEFT;
++            if (this.equals(left)) {
++                result = left;
+         }
+         else if (this.equals(RectangleEdge.RIGHT)) {
+             result = RectangleEdge.RIGHT;
+         }
++        }
+         return result;
+     }
+ 

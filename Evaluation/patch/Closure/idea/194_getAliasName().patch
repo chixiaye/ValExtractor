@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AliasKeywords.java b/src/com/google/javascript/jscomp/AliasKeywords.java
+index 947a1bf..ecfb735 100644
+--- a/src/com/google/javascript/jscomp/AliasKeywords.java
++++ b/src/com/google/javascript/jscomp/AliasKeywords.java
+@@ -277,8 +277,9 @@
+ 
+     @Override
+     protected void aliasNode(Node n, Node parent) {
+-      Node aliasNode = NodeUtil.newName(
+-          compiler.getCodingConvention(), getAliasName(), n, getAliasName());
++        String aliasName = getAliasName();
++        Node aliasNode = NodeUtil.newName(
++          compiler.getCodingConvention(), aliasName, n, aliasName);
+       parent.replaceChild(n, aliasNode);
+     }
+ 

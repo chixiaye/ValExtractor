@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/GanttRenderer.java b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+index fc9e2ef..ee232ca 100644
+--- a/source/org/jfree/chart/renderer/category/GanttRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+@@ -624,8 +624,9 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.completePaint = SerialUtilities.readPaint(stream);
+-        this.incompletePaint = SerialUtilities.readPaint(stream);
++        Paint completePaint1 = SerialUtilities.readPaint(stream);
++        this.completePaint = completePaint1;
++        this.incompletePaint = completePaint1;
+     }
+ 
+ }

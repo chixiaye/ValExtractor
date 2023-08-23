@@ -1,0 +1,16 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..96d05c6 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -488,8 +488,9 @@
+       this.lineOffsets = Preconditions.checkNotNull(lineOffsets);
+       this.columns = Preconditions.checkNotNull(columns);
+       this.identifiers = Preconditions.checkNotNull(identifiers);
+-      Preconditions.checkArgument(lineOffsets.length == columns.length &&
+-          columns.length == identifiers.length);
++        int length = columns.length;
++        Preconditions.checkArgument(lineOffsets.length == length &&
++          length == identifiers.length);
+     }
+ 
+     private SourceFile(int startMapId) {

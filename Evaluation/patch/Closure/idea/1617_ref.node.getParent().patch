@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..7e12c7a 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -1033,8 +1033,9 @@
+       if (getRefs().size() == 1) {
+         Ref ref = refs.get(0);
+         JSDocInfo info = ref.node.getJSDocInfo();
+-        if (ref.node.getParent() != null &&
+-            ref.node.getParent().isExprResult()) {
++          Node parent1 = ref.node.getParent();
++          if (parent1 != null &&
++            parent1.isExprResult()) {
+           return true;
+         }
+       }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+index 581b69d..43dc58f 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractFieldMatrix.java
+@@ -282,7 +282,8 @@
+         }
+ 
+         if (p == 1) {
+-            return this.copy();
++            FieldMatrix<T> var_2472 = this.copy();
++			return var_2472;
+         }
+ 
+         final int power = p - 1;

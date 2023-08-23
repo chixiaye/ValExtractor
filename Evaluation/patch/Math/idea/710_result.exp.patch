@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..44836c6 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2284,7 +2284,8 @@
+                 } else {
+                     def = newInstance(result);  // gradual underflow
+                 }
+-                result.exp = result.exp + ERR_SCALE;
++                int exp1 = result.exp;
++                exp1 = result.exp + ERR_SCALE;
+                 break;
+ 
+             case DfpField.FLAG_OVERFLOW:

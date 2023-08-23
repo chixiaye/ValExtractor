@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..853d21e 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -699,7 +699,8 @@
+      * @param upperPercent  the new upper bound.
+      */
+     public void zoomRange(double lowerPercent, double upperPercent) {
+-        double startLog = switchedLog10(getRange().getLowerBound());
++        Range var_448 = getRange();
++		double startLog = switchedLog10(var_448.getLowerBound());
+         double lengthLog = switchedLog10(getRange().getUpperBound()) -
+                            startLog;
+         Range adjusted;

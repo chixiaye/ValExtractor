@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..743dbaf 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -82,7 +82,7 @@
+           //  character can be represented in this character set.
+           if (outputCharsetEncoder != null) {
+             if (outputCharsetEncoder.canEncode(c)) {
+-              sb.append(c);
++              StringBuilder var_28 = sb.append(c);
+             } else {
+               // Unicode-escape the character.
+               appendCharAsHex(sb, c);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..743dbaf 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -82,7 +82,7 @@
+           //  character can be represented in this character set.
+           if (outputCharsetEncoder != null) {
+             if (outputCharsetEncoder.canEncode(c)) {
+-              sb.append(c);
++              StringBuilder var_28 = sb.append(c);
+             } else {
+               // Unicode-escape the character.
+               appendCharAsHex(sb, c);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..f6adfdb 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -44,6 +44,7 @@
+     sb.append(quote);
+     for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
++        StringBuilder append = sb.append(c);
+       switch (c) {
+         case '\n': sb.append("\\n"); break;
+         case '\r': sb.append("\\r"); break;
+@@ -57,7 +58,7 @@
+                (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+             sb.append("\\>");
+           } else {
+-            sb.append(c);
++            append;
+           }
+           break;
+         case '<':
+@@ -74,7 +75,7 @@
+                                      START_COMMENT.length())) {
+             sb.append("<\\");
+           } else {
+-            sb.append(c);
++            append;
+           }
+           break;
+         default:
+@@ -82,7 +83,7 @@
+           //  character can be represented in this character set.
+           if (outputCharsetEncoder != null) {
+             if (outputCharsetEncoder.canEncode(c)) {
+-              sb.append(c);
++              append;
+             } else {
+               // Unicode-escape the character.
+               appendCharAsHex(sb, c);
+@@ -92,7 +93,7 @@
+             // through, and escape the rest.  Doing the explicit character
+             // check is measurably faster than using the CharsetEncoder.
+             if (c > 0x1f && c <= 0x7f) {
+-              sb.append(c);
++              append;
+             } else {
+               // Other characters can be misinterpreted by some JS parsers,
+               // or perhaps mangled by proxies along the way,

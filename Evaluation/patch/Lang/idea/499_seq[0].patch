@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java b/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
+index 9cf45f8..a994f89 100644
+--- a/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
++++ b/src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java
+@@ -48,8 +48,9 @@
+         int _longest = 0;
+         if (lookup != null) {
+             for (final CharSequence[] seq : lookup) {
+-                this.lookupMap.put(seq[0].toString(), seq[1]);
+-                final int sz = seq[0].length();
++                CharSequence charSequence = seq[0];
++                this.lookupMap.put(charSequence.toString(), seq[1]);
++                final int sz = charSequence.length();
+                 if (sz < _shortest) {
+                     _shortest = sz;
+                 }

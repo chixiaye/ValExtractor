@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..499d877 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -280,13 +280,15 @@
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
+             result = ItemLabelAnchor.OUTSIDE10;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+-            result = ItemLabelAnchor.OUTSIDE11;
++        } else {
++			ItemLabelAnchor var_1208 = ItemLabelAnchor.OUTSIDE11;
++			if (this.equals(var_1208)) {
++			    result = var_1208;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..499d877 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -280,13 +280,15 @@
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
+             result = ItemLabelAnchor.OUTSIDE10;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+-            result = ItemLabelAnchor.OUTSIDE11;
++        } else {
++			ItemLabelAnchor var_1208 = ItemLabelAnchor.OUTSIDE11;
++			if (this.equals(var_1208)) {
++			    result = var_1208;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..6f24551 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -281,12 +281,15 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
+             result = ItemLabelAnchor.OUTSIDE10;
+         }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+-            result = ItemLabelAnchor.OUTSIDE11;
++        else {
++            ItemLabelAnchor outside11 = ItemLabelAnchor.OUTSIDE11;
++            if (this.equals(outside11)) {
++                result = outside11;
+         }
+         else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+             result = ItemLabelAnchor.OUTSIDE12;
+         }
++        }
+         return result;
+     }
+ 

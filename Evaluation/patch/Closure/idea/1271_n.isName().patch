@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+index d61f9e9..578c739 100644
+--- a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
++++ b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+@@ -346,8 +346,9 @@
+      * @return true if n MUST be a static name reference.
+      */
+     private boolean isStaticNameReference(Node n, Scope scope) {
+-      Preconditions.checkArgument(n.isName() || n.isGetProp());
+-      if (n.isName()) {
++        boolean name = n.isName();
++        Preconditions.checkArgument(name || n.isGetProp());
++      if (name) {
+         return true;
+       }
+       String qName = n.getQualifiedName();

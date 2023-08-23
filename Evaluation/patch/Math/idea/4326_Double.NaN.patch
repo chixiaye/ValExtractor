@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..00dd4bf 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -2246,8 +2246,9 @@
+             return 0.0;
+         }
+ 
++        double naN = Double.NaN;
+         if (xa != xa || xa == Double.POSITIVE_INFINITY) {
+-            return Double.NaN;
++            return naN;
+         }
+ 
+         /* Perform any argument reduction */
+@@ -2281,7 +2282,7 @@
+             case 3:
+                 return -cosQ(xa, xb);
+             default:
+-                return Double.NaN;
++                return naN;
+         }
+     }
+ 

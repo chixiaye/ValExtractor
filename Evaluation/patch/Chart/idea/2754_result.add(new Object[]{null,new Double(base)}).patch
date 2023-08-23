@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+index 311459c..145a363 100644
+--- a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+@@ -350,9 +350,10 @@
+             if (asPercentages) {
+                 v = v / total;
+             }
++            boolean add = result.add(new Object[]{null, new Double(base)});
+             if ((v > 0.0) || (!this.ignoreZeroValues && v >= 0.0)) {
+                 if (baseIndex < 0) {
+-                    result.add(new Object[] {null, new Double(base)});
++                    add;
+                     baseIndex = 0;
+                 }
+                 posBase = posBase + v;
+@@ -360,7 +361,7 @@
+             }
+             else if (v < 0.0) {
+                 if (baseIndex < 0) {
+-                    result.add(new Object[] {null, new Double(base)});
++                    add;
+                     baseIndex = 0;
+                 }
+                 negBase = negBase + v; // '+' because v is negative

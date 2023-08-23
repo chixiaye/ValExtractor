@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/statistics/HistogramDataset.java b/source/org/jfree/data/statistics/HistogramDataset.java
+index bd7563c..ff64ce6 100644
+--- a/source/org/jfree/data/statistics/HistogramDataset.java
++++ b/source/org/jfree/data/statistics/HistogramDataset.java
+@@ -378,14 +378,15 @@
+         double total = getTotal(series);
+         double binWidth = getBinWidth(series);
+ 
++        int count = bin.getCount();
+         if (this.type == HistogramType.FREQUENCY) {
+-            return new Double(bin.getCount());
++            return new Double(count);
+         }
+         else if (this.type == HistogramType.RELATIVE_FREQUENCY) {
+-            return new Double(bin.getCount() / total);
++            return new Double(count / total);
+         }
+         else if (this.type == HistogramType.SCALE_AREA_TO_1) {
+-            return new Double(bin.getCount() / (binWidth * total));
++            return new Double(count / (binWidth * total));
+         }
+         else { // pretty sure this shouldn't ever happen
+             throw new IllegalStateException();

@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..ad6ad87 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -286,11 +286,12 @@
+     public RegularTimePeriod next() {
+ 
+         Minute result;
++        Hour hour1 = getHour();
+         if (this.minute != LAST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute + 1, getHour());
++            result = new Minute(this.minute + 1, hour1);
+         }
+         else { // we are at the last minute in the hour...
+-            Hour nextHour = (Hour) getHour().next();
++            Hour nextHour = (Hour) hour1.next();
+             if (nextHour != null) {
+                 result = new Minute(FIRST_MINUTE_IN_HOUR, nextHour);
+             }

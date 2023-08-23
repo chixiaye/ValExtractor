@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..794b10b 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -1464,16 +1464,17 @@
+                         System.out.println("Fixing duplicate recurrent name key - " +
+                                            tailZone.iStartRecurrence.getNameKey());
+                     }
++                    int iStandardOffset = tailZone.iStandardOffset;
+                     if (tailZone.iStartRecurrence.getSaveMillis() > 0) {
+                         tailZone = new DSTZone(
+                             tailZone.getID(),
+-                            tailZone.iStandardOffset,
++                                iStandardOffset,
+                             tailZone.iStartRecurrence.renameAppend("-Summer"),
+                             tailZone.iEndRecurrence);
+                     } else {
+                         tailZone = new DSTZone(
+                             tailZone.getID(),
+-                            tailZone.iStandardOffset,
++                                iStandardOffset,
+                             tailZone.iStartRecurrence,
+                             tailZone.iEndRecurrence.renameAppend("-Summer"));
+                     }

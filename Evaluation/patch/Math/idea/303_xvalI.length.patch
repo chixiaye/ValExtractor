@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
+index 2139e68..dcb22c8 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/MicrosphereInterpolatingFunction.java
+@@ -175,8 +175,9 @@
+             if (xvalI == null) {
+                 throw new NullArgumentException();
+             }
+-            if (xvalI.length != dimension) {
+-                throw new DimensionMismatchException(xvalI.length, dimension);
++            int length = xvalI.length;
++            if (length != dimension) {
++                throw new DimensionMismatchException(length, dimension);
+             }
+ 
+             samples.put(new ArrayRealVector(xvalI), yval[i]);

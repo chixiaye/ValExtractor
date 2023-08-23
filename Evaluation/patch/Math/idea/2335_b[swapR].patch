@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
+index 56d0110..1c89862 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/RectangularCholeskyDecomposition.java
+@@ -111,7 +111,8 @@
+                 index[r]              = index[swapR];
+                 index[swapR]          = tmpIndex;
+                 final double[] tmpRow = b[r];
+-                b[r]                  = b[swapR];
++                double[] doubles = b[swapR];
++                b[r]                  = doubles;
+                 b[swapR]              = tmpRow;
+             }
+ 

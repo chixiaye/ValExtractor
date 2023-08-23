@@ -1,0 +1,31 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..86c51cd 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -785,15 +785,18 @@
+   private PropListItem removeProp(PropListItem item, int propType) {
+     if (item == null) {
+       return null;
+-    } else if (item.getType() == propType) {
+-      return item.getNext();
+     } else {
+-      PropListItem result = removeProp(item.getNext(), propType);
+-      if (result != item.getNext()) {
+-        return item.chain(result);
+-      } else {
+-        return item;
+-      }
++        PropListItem next1 = item.getNext();
++        if (item.getType() == propType) {
++          return next1;
++        } else {
++          PropListItem result = removeProp(next1, propType);
++          if (result != next1) {
++            return item.chain(result);
++          } else {
++            return item;
++          }
++        }
+     }
+   }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..7a9c7a2 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -444,7 +444,8 @@
+                     lineno = stream.getLineno();
+                     charno = stream.getCharno();
+ 
+-                    typeNode = wrapNode(Token.BANG, typeNode);
++                      Node typeNode1 = wrapNode(Token.BANG, typeNode);
++                      typeNode = typeNode1;
+                     type = createJSTypeExpression(typeNode);
+ 
+                     if (annotation == Annotation.EXTENDS) {

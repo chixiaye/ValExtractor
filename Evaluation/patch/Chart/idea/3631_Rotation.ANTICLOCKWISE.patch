@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/Rotation.java b/source/org/jfree/chart/util/Rotation.java
+index 64341e3..1007dd9 100644
+--- a/source/org/jfree/chart/util/Rotation.java
++++ b/source/org/jfree/chart/util/Rotation.java
+@@ -148,8 +148,11 @@
+         if (this.equals(Rotation.CLOCKWISE)) {
+             return Rotation.CLOCKWISE;
+         }
+-        else if (this.equals(Rotation.ANTICLOCKWISE)) {
+-            return Rotation.ANTICLOCKWISE;
++        else {
++            Rotation anticlockwise = Rotation.ANTICLOCKWISE;
++            if (this.equals(anticlockwise)) {
++                return anticlockwise;
++            }
+         }
+         return null;
+     }

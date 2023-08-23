@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..a05ac0b 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2817,9 +2817,10 @@
+      */
+     public void clearRangeMarkers(int index) {
+         Integer key = new Integer(index);
+-        if (this.backgroundRangeMarkers != null) {
++        Map backgroundRangeMarkers1 = this.backgroundRangeMarkers;
++        if (backgroundRangeMarkers1 != null) {
+             Collection markers
+-                = (Collection) this.backgroundRangeMarkers.get(key);
++                = (Collection) backgroundRangeMarkers1.get(key);
+             if (markers != null) {
+                 Iterator iterator = markers.iterator();
+                 while (iterator.hasNext()) {

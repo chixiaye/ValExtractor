@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..27a7bc1 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -943,8 +943,9 @@
+ 
+             final double[] repaired = new double[x.length];
+             for (int i = 0; i < x.length; i++) {
+-                if (x[i] < lB[i]) {
+-                    repaired[i] = lB[i];
++                double v = lB[i];
++                if (x[i] < v) {
++                    repaired[i] = v;
+                 } else if (x[i] > uB[i]) {
+                     repaired[i] = uB[i];
+                 } else {

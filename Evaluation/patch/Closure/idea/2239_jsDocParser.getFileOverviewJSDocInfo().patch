@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..f408377 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -257,8 +257,9 @@
+    */
+   private boolean handlePossibleFileOverviewJsDoc(
+       JsDocInfoParser jsDocParser) {
+-    if (jsDocParser.getFileOverviewJSDocInfo() != fileOverviewInfo) {
+-      fileOverviewInfo = jsDocParser.getFileOverviewJSDocInfo();
++      JSDocInfo fileOverviewJSDocInfo = jsDocParser.getFileOverviewJSDocInfo();
++      if (fileOverviewJSDocInfo != fileOverviewInfo) {
++      fileOverviewInfo = fileOverviewJSDocInfo;
+       return true;
+     }
+     return false;

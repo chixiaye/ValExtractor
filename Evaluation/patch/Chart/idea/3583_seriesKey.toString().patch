@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/urls/TimeSeriesURLGenerator.java b/source/org/jfree/chart/urls/TimeSeriesURLGenerator.java
+index 884ef10..73a28d8 100644
+--- a/source/org/jfree/chart/urls/TimeSeriesURLGenerator.java
++++ b/source/org/jfree/chart/urls/TimeSeriesURLGenerator.java
+@@ -182,11 +182,12 @@
+         if (seriesKey != null) {
+             result += firstParameter ? "?" : "&amp;";
+             String s = null;
++            String s1 = seriesKey.toString();
+             try {
+-                s = URLEncoder.encode(seriesKey.toString(), "UTF-8");
++                s = URLEncoder.encode(s1, "UTF-8");
+             }
+             catch (UnsupportedEncodingException e) {
+-                s = seriesKey.toString();
++                s = s1;
+             }
+             result += this.seriesParameterName + "=" + s;
+             firstParameter = false;

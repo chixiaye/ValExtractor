@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/Scope.java b/src/com/google/javascript/jscomp/Scope.java
+index 7ed2b6f..d28a126 100644
+--- a/src/com/google/javascript/jscomp/Scope.java
++++ b/src/com/google/javascript/jscomp/Scope.java
+@@ -554,8 +554,9 @@
+     if (scope.vars.containsKey(name))
+       return true;
+ 
+-    if (scope.parent != null && recurse) {
+-      return scope.parent.isDeclared(name, recurse);
++      Scope parent1 = scope.parent;
++      if (parent1 != null && recurse) {
++      return parent1.isDeclared(name, recurse);
+     }
+     return false;
+   }

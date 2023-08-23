@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/xy/MatrixSeries.java b/source/org/jfree/data/xy/MatrixSeries.java
+index cf94f76..c0d2d66 100644
+--- a/source/org/jfree/data/xy/MatrixSeries.java
++++ b/source/org/jfree/data/xy/MatrixSeries.java
+@@ -221,11 +221,12 @@
+         if (!(getRowCount() == that.getRowCount())) {
+             return false;
+         }
+-        if (!(getColumnsCount() == that.getColumnsCount())) {
++        int columnsCount = getColumnsCount();
++        if (!(columnsCount == that.getColumnsCount())) {
+             return false;
+         }
+         for (int r = 0; r < getRowCount(); r++) {
+-            for (int c = 0; c < getColumnsCount(); c++) {
++            for (int c = 0; c < columnsCount; c++) {
+                 if (get(r, c) != that.get(r, c)) {
+                     return false;
+                 }

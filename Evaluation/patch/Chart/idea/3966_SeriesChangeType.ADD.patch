@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/general/SeriesChangeType.java b/source/org/jfree/data/general/SeriesChangeType.java
+index 6579625..bd4a323 100644
+--- a/source/org/jfree/data/general/SeriesChangeType.java
++++ b/source/org/jfree/data/general/SeriesChangeType.java
+@@ -142,8 +142,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         Object result = null;
+-        if (this.equals(SeriesChangeType.ADD)) {
+-            result = SeriesChangeType.ADD;
++        SeriesChangeType add = SeriesChangeType.ADD;
++        if (this.equals(add)) {
++            result = add;
+         }
+         // FIXME: Handle other types
+         return result;

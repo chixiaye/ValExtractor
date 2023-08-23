@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceCssNames.java b/src/com/google/javascript/jscomp/ReplaceCssNames.java
+index caaaf08..8749ae4 100644
+--- a/src/com/google/javascript/jscomp/ReplaceCssNames.java
++++ b/src/com/google/javascript/jscomp/ReplaceCssNames.java
+@@ -216,7 +216,8 @@
+       String[] parts = name.split("-");
+       if (symbolMap != null) {
+         String replacement = null;
+-        switch (symbolMap.getStyle()) {
++          CssRenamingMap.Style style = symbolMap.getStyle();
++          switch (style) {
+           case BY_WHOLE:
+             replacement = symbolMap.get(name);
+             if (replacement == null) {
+@@ -241,7 +242,7 @@
+             break;
+           default:
+             throw new IllegalStateException(
+-              "Unknown replacement style: " + symbolMap.getStyle());
++              "Unknown replacement style: " + style);
+         }
+         n.setString(replacement);
+       }

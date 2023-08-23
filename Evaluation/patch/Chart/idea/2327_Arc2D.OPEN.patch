@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/dial/ArcDialFrame.java b/source/org/jfree/chart/plot/dial/ArcDialFrame.java
+index 73ee773..6475aba 100644
+--- a/source/org/jfree/chart/plot/dial/ArcDialFrame.java
++++ b/source/org/jfree/chart/plot/dial/ArcDialFrame.java
+@@ -362,11 +362,12 @@
+         Rectangle2D outerFrame = DialPlot.rectangleByRadius(frame,
+                 this.outerRadius + radiusMargin, this.outerRadius
+                 + radiusMargin);
++        int open = Arc2D.OPEN;
+         Arc2D inner = new Arc2D.Double(innerFrame, this.startAngle
+-                - angleMargin, this.extent + 2 * angleMargin, Arc2D.OPEN);
++                - angleMargin, this.extent + 2 * angleMargin, open);
+         Arc2D outer = new Arc2D.Double(outerFrame, this.startAngle
+                 + angleMargin + this.extent, -this.extent - 2 * angleMargin,
+-                Arc2D.OPEN);
++                open);
+         GeneralPath p = new GeneralPath();
+         Point2D point1 = inner.getStartPoint();
+         p.moveTo((float) point1.getX(), (float) point1.getY());

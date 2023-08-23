@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..76b896a 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -596,7 +596,8 @@
+       case Token.ARRAYLIT:
+         for (Node child = n.getFirstChild(); child != null;
+              child = child.getNext()) {
+-          if ((!child.isEmpty()) && !isLiteralValue(child, includeFunctions)) {
++            boolean literalValue = isLiteralValue(child, includeFunctions);
++            if ((!child.isEmpty()) && !literalValue) {
+             return false;
+           }
+         }

@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..6d013fe 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -757,7 +757,8 @@
+         case '.':
+         case '/':
+         case '?':
+-          sb.append('\\').append(ch);
++          StringBuilder var_2422 = sb.append('\\');
++		var_2422.append(ch);
+           break;
+         case '{':
+           // If possibly part of a repetition, then escape.
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..6d013fe 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -757,7 +757,8 @@
+         case '.':
+         case '/':
+         case '?':
+-          sb.append('\\').append(ch);
++          StringBuilder var_2422 = sb.append('\\');
++		var_2422.append(ch);
+           break;
+         case '{':
+           // If possibly part of a repetition, then escape.
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..388adcd 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -745,6 +745,7 @@
+      */
+     private static void escapeRegularCharOnto(
+         char ch, int next, StringBuilder sb) {
++        StringBuilder append = sb.append('\\');
+       switch (ch) {
+         case '$':
+         case '^':
+@@ -757,13 +758,13 @@
+         case '.':
+         case '/':
+         case '?':
+-          sb.append('\\').append(ch);
++          append.append(ch);
+           break;
+         case '{':
+           // If possibly part of a repetition, then escape.
+           // Concatenation is handled by the digitsMightBleed check.
+           if ('0' <= next && next <= '9') {
+-            sb.append('\\');
++            append;
+           }
+           sb.append(ch);
+           break;

@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..e79924a 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1528,13 +1528,14 @@
+ 
+   private BooleanOutcomePair newBooleanOutcomePair(
+       JSType jsType, FlowScope flowScope) {
+-    if (jsType == null) {
++      BooleanLiteralSet both = BooleanLiteralSet.BOTH;
++      if (jsType == null) {
+       return new BooleanOutcomePair(
+-          BooleanLiteralSet.BOTH, BooleanLiteralSet.BOTH, flowScope, flowScope);
++              both, both, flowScope, flowScope);
+     }
+     return new BooleanOutcomePair(jsType.getPossibleToBooleanOutcomes(),
+         registry.getNativeType(BOOLEAN_TYPE).isSubtype(jsType) ?
+-            BooleanLiteralSet.BOTH : BooleanLiteralSet.EMPTY,
++                both : BooleanLiteralSet.EMPTY,
+         flowScope, flowScope);
+   }
+ 

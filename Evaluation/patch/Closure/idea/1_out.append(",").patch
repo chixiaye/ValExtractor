@@ -1,0 +1,31 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..3f29ad4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -108,9 +108,9 @@
+       escapedSourceFile = lastSourceFileEscaped;
+ 
+       out.append(escapedSourceFile);
+-      out.append(",");
++        Appendable append = out.append(",");
+ 
+-      int line = m.originalPosition.getLine();
++        int line = m.originalPosition.getLine();
+       if (line != lastLine) {
+         lastLineString = String.valueOf(line);
+       }
+@@ -118,12 +118,12 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      append;
+       out.append(String.valueOf(
+           m.originalPosition.getColumn()));
+ 
+       if (m.originalName != null) {
+-        out.append(",");
++        append;
+         out.append(escapeString(m.originalName));
+       }
+ 

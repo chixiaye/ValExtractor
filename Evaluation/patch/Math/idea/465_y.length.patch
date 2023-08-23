@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+index 315c3dd..676c93a 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+@@ -130,8 +130,9 @@
+      * @return a fresh copy of the interpolating values array
+      */
+     public double[] getInterpolatingValues() {
+-        double[] out = new double[y.length];
+-        System.arraycopy(y, 0, out, 0, y.length);
++        int length = y.length;
++        double[] out = new double[length];
++        System.arraycopy(y, 0, out, 0, length);
+         return out;
+     }
+ 

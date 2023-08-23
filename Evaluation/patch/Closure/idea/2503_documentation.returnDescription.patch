@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..1b4d7ae 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -906,7 +906,8 @@
+       return true;
+     }
+ 
+-    if (documentation.returnDescription != null) {
++      String returnDescription = documentation.returnDescription;
++      if (returnDescription != null) {
+       return false;
+     }
+ 

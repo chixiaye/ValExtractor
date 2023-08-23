@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/editor/DefaultTitleEditor.java b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+index 55b846e..9eec862 100644
+--- a/source/org/jfree/chart/editor/DefaultTitleEditor.java
++++ b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+@@ -160,11 +160,12 @@
+         this.selectPaintButton = new JButton(
+             localizationResources.getString("Select...")
+         );
+-        this.selectPaintButton.setActionCommand("SelectPaint");
+-        this.selectPaintButton.addActionListener(this);
++        JButton selectPaintButton1 = this.selectPaintButton;
++        selectPaintButton1.setActionCommand("SelectPaint");
++        selectPaintButton1.addActionListener(this);
+         interior.add(colorLabel);
+         interior.add(this.titlePaint);
+-        interior.add(this.selectPaintButton);
++        interior.add(selectPaintButton1);
+ 
+         this.enableOrDisableControls();
+ 

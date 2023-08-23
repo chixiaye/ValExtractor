@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..e3d46f9 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -1078,7 +1078,8 @@
+                 } else if (x[i] > uB[i]) {
+                     repaired[i] = uB[i];
+                 } else {
+-                    repaired[i] = x[i];
++                    double v = repaired[i];
++                    v = x[i];
+                 }
+             }
+             return repaired;

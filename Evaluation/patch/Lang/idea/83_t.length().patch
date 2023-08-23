@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..1084b72 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -6654,7 +6654,8 @@
+          */
+ 
+         int n = s.length(); // length of s
+-        int m = t.length(); // length of t
++        int length = t.length();
++        int m = length; // length of t
+ 
+         if (n == 0) {
+             return m;
+@@ -6668,7 +6669,7 @@
+             s = t;
+             t = tmp;
+             n = m;
+-            m = t.length();
++            m = length;
+         }
+ 
+         int p[] = new int[n + 1]; //'previous' cost array, horizontally

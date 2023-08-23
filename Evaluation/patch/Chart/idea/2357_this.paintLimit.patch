@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..9bcb67a 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -116,6 +116,7 @@
+         this.paintIndex = new HashMap();
+ 
+         if (paintLimit == null) {
++            int paintLimit1 = this.paintLimit;
+             this.paintLimit = DEFAULT_PAINT_LIMIT;
+         }
+         else {

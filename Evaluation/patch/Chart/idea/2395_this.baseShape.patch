@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..4045df4 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3202,8 +3202,9 @@
+         if (this.shapeList != null) {
+             clone.shapeList = (ShapeList) this.shapeList.clone();
+         }
+-        if (this.baseShape != null) {
+-            clone.baseShape = ShapeUtilities.clone(this.baseShape);
++        Shape baseShape1 = this.baseShape;
++        if (baseShape1 != null) {
++            clone.baseShape = ShapeUtilities.clone(baseShape1);
+         }
+ 
+         // 'itemLabelsVisible' : immutable, no need to clone reference

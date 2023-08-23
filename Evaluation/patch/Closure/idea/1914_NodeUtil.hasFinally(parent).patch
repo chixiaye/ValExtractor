@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..aa641d8 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -747,15 +747,16 @@
+         return parent;
+       case Token.TRY:
+         // If we are coming out of the TRY block...
+-        if (parent.getFirstChild() == node) {
+-          if (NodeUtil.hasFinally(parent)) { // and have FINALLY block.
++          boolean b = NodeUtil.hasFinally(parent);
++          if (parent.getFirstChild() == node) {
++          if (b) { // and have FINALLY block.
+             return computeFallThrough(parent.getLastChild());
+           } else { // and have no FINALLY.
+             return computeFollowNode(fromNode, parent, cfa);
+           }
+         // CATCH block.
+         } else if (NodeUtil.getCatchBlock(parent) == node){
+-          if (NodeUtil.hasFinally(parent)) { // and have FINALLY block.
++          if (b) { // and have FINALLY block.
+             return computeFallThrough(node.getNext());
+           } else {
+             return computeFollowNode(fromNode, parent, cfa);

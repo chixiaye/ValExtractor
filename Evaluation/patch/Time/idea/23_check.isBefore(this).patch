@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/LocalDateTime.java b/src/main/java/org/joda/time/LocalDateTime.java
+index 44d2ee9..85d99b4 100644
+--- a/src/main/java/org/joda/time/LocalDateTime.java
++++ b/src/main/java/org/joda/time/LocalDateTime.java
+@@ -841,15 +841,16 @@
+         Calendar calendar = Calendar.getInstance(timeZone);
+         calendar.setTime(date);
+         LocalDateTime check = LocalDateTime.fromCalendarFields(calendar);
+-        if (check.isBefore(this)) {
++        boolean before = check.isBefore(this);
++        if (before) {
+             // DST gap
+             // move forward in units of one minute until equal/after
+-            while (check.isBefore(this)) {
++            while (before) {
+                 calendar.setTimeInMillis(calendar.getTimeInMillis() + 60000);
+                 check = LocalDateTime.fromCalendarFields(calendar);
+             }
+             // move back in units of one second until date wrong
+-            while (check.isBefore(this) == false) {
++            while (before == false) {
+                 calendar.setTimeInMillis(calendar.getTimeInMillis() - 1000);
+                 check = LocalDateTime.fromCalendarFields(calendar);
+             }

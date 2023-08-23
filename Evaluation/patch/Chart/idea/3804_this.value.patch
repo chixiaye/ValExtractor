@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/DefaultKeyedValue.java b/source/org/jfree/data/DefaultKeyedValue.java
+index 6c71f75..d8accc7 100644
+--- a/source/org/jfree/data/DefaultKeyedValue.java
++++ b/source/org/jfree/data/DefaultKeyedValue.java
+@@ -145,7 +145,8 @@
+     public int hashCode() {
+         int result;
+         result = (this.key != null ? this.key.hashCode() : 0);
+-        result = 29 * result + (this.value != null ? this.value.hashCode() : 0);
++        Number value1 = this.value;
++        result = 29 * result + (value1 != null ? value1.hashCode() : 0);
+         return result;
+     }
+ 

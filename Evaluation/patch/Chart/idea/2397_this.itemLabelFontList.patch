@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..52a0bfe 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3214,9 +3214,10 @@
+         // 'basePaint' : immutable, no need to clone reference
+ 
+         // 'itemLabelFont' : immutable, no need to clone reference
+-        if (this.itemLabelFontList != null) {
++        ObjectList itemLabelFontList1 = this.itemLabelFontList;
++        if (itemLabelFontList1 != null) {
+             clone.itemLabelFontList
+-                = (ObjectList) this.itemLabelFontList.clone();
++                = (ObjectList) itemLabelFontList1.clone();
+         }
+         // 'baseItemLabelFont' : immutable, no need to clone reference
+ 

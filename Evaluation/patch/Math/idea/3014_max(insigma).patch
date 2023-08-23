@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..2ddb328 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -577,11 +577,12 @@
+             sigmaArray[i][0] = inputSigma[i];
+         }
+         final RealMatrix insigma = new Array2DRowRealMatrix(sigmaArray, false);
+-        sigma = max(insigma); // overall standard deviation
++        double max = max(insigma);
++        sigma = max; // overall standard deviation
+ 
+         // initialize termination criteria
+-        stopTolUpX = 1e3 * max(insigma);
+-        stopTolX = 1e-11 * max(insigma);
++        stopTolUpX = 1e3 * max;
++        stopTolX = 1e-11 * max;
+         stopTolFun = 1e-12;
+         stopTolHistFun = 1e-13;
+ 

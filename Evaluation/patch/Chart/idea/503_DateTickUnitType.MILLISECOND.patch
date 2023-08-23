@@ -1,0 +1,47 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..14d2310 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1173,25 +1173,26 @@
+         f7.setTimeZone(zone);
+ 
+         // milliseconds
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 1, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 5,
+-                DateTickUnitType.MILLISECOND, 1, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 10,
+-                DateTickUnitType.MILLISECOND, 1, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 25,
+-                DateTickUnitType.MILLISECOND, 5, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 50,
+-                DateTickUnitType.MILLISECOND, 10, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 100,
+-                DateTickUnitType.MILLISECOND, 10, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 250,
+-                DateTickUnitType.MILLISECOND, 10, f1));
+-        units.add(new DateTickUnit(DateTickUnitType.MILLISECOND, 500,
+-                DateTickUnitType.MILLISECOND, 50, f1));
++        DateTickUnitType millisecond = DateTickUnitType.MILLISECOND;
++        units.add(new DateTickUnit(millisecond, 1, f1));
++        units.add(new DateTickUnit(millisecond, 5,
++                millisecond, 1, f1));
++        units.add(new DateTickUnit(millisecond, 10,
++                millisecond, 1, f1));
++        units.add(new DateTickUnit(millisecond, 25,
++                millisecond, 5, f1));
++        units.add(new DateTickUnit(millisecond, 50,
++                millisecond, 10, f1));
++        units.add(new DateTickUnit(millisecond, 100,
++                millisecond, 10, f1));
++        units.add(new DateTickUnit(millisecond, 250,
++                millisecond, 10, f1));
++        units.add(new DateTickUnit(millisecond, 500,
++                millisecond, 50, f1));
+ 
+         // seconds
+         units.add(new DateTickUnit(DateTickUnitType.SECOND, 1,
+-                DateTickUnitType.MILLISECOND, 50, f2));
++                millisecond, 50, f2));
+         units.add(new DateTickUnit(DateTickUnitType.SECOND, 5,
+                 DateTickUnitType.SECOND, 1, f2));
+         units.add(new DateTickUnit(DateTickUnitType.SECOND, 10,

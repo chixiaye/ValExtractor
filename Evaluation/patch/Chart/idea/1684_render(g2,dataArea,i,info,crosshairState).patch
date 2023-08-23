@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..d2b182f 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3374,7 +3374,8 @@
+ 
+             // render data items...
+             for (int i = 0; i < getDatasetCount(); i++) {
+-                foundData = render(g2, dataArea, i, info, crosshairState)
++                boolean render = render(g2, dataArea, i, info, crosshairState);
++                foundData = render
+                     || foundData;
+             }
+ 

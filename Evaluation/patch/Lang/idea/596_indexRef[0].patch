@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..cd38645 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -179,7 +179,8 @@
+         final int[] indexRef = new int[1];
+ 
+         for (int i = 0; i < length; i++) {
+-            indexRef[0] = i;
++            int i1 = indexRef[0];
++            i1 = i;
+             final String token = parseToken(mPattern, indexRef);
+             i = indexRef[0];
+ 

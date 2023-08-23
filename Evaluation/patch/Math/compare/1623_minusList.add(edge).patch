@@ -1,0 +1,60 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+index 5d8a992..ced02b5 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+@@ -299,7 +299,7 @@
+                         if (endSide == Side.PLUS) {
+                             plusList.add(edge);
+                         } else if (endSide == Side.MINUS) {
+-                            minusList.add(edge);
++                            boolean var_1623 = minusList.add(edge);
+                         }
+                         break;
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+index 5d8a992..ced02b5 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+@@ -299,7 +299,7 @@
+                         if (endSide == Side.PLUS) {
+                             plusList.add(edge);
+                         } else if (endSide == Side.MINUS) {
+-                            minusList.add(edge);
++                            boolean var_1623 = minusList.add(edge);
+                         }
+                         break;
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+index 5d8a992..c7d3f24 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+@@ -274,6 +274,7 @@
+                                  Side.HYPER : ((startOffset < 0) ? Side.MINUS : Side.PLUS);
+                 Side endSide   = (FastMath.abs(endOffset) <= hyperplaneThickness) ?
+                                  Side.HYPER : ((endOffset < 0) ? Side.MINUS : Side.PLUS);
++                boolean add = minusList.add(edge);
+                 switch (startSide) {
+                     case PLUS:
+                         if (endSide == Side.MINUS) {
+@@ -292,14 +293,14 @@
+                             minusList.add(splitPoint.getIncoming());
+                             plusList.add(splitPoint.getOutgoing());
+                         } else {
+-                            minusList.add(edge);
++                            add;
+                         }
+                         break;
+                     default:
+                         if (endSide == Side.PLUS) {
+                             plusList.add(edge);
+                         } else if (endSide == Side.MINUS) {
+-                            minusList.add(edge);
++                            add;
+                         }
+                         break;
+                 }

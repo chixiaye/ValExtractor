@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..feae731 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -848,16 +848,17 @@
+     @Override
+     public ArrayRealVector combineToSelf(double a, double b, RealVector y)
+         throws DimensionMismatchException {
++        double[] data1 = this.data;
+         if (y instanceof ArrayRealVector) {
+             final double[] yData = ((ArrayRealVector) y).data;
+             checkVectorDimensions(yData.length);
+-            for (int i = 0; i < this.data.length; i++) {
+-                data[i] = a * data[i] + b * yData[i];
++            for (int i = 0; i < data1.length; i++) {
++                data1[i] = a * data1[i] + b * yData[i];
+             }
+         } else {
+             checkVectorDimensions(y);
+-            for (int i = 0; i < this.data.length; i++) {
+-                data[i] = a * data[i] + b * y.getEntry(i);
++            for (int i = 0; i < data1.length; i++) {
++                data1[i] = a * data1[i] + b * y.getEntry(i);
+             }
+         }
+         return this;

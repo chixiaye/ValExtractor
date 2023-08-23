@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
+index e7013ab..019386d 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBoxAndWhiskerRenderer.java
+@@ -828,8 +828,9 @@
+         throws IOException, ClassNotFoundException {
+ 
+         stream.defaultReadObject();
+-        this.boxPaint = SerialUtilities.readPaint(stream);
+-        this.artifactPaint = SerialUtilities.readPaint(stream);
++        Paint boxPaint1 = SerialUtilities.readPaint(stream);
++        this.boxPaint = boxPaint1;
++        this.artifactPaint = boxPaint1;
+     }
+ 
+     /**

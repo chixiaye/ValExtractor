@@ -1,0 +1,16 @@
+diff --git a/storm-core/src/jvm/backtype/storm/messaging/netty/Client.java b/storm-core/src/jvm/backtype/storm/messaging/netty/Client.java
+index f332bb38a..56fbf3295 100644
+--- a/storm-core/src/jvm/backtype/storm/messaging/netty/Client.java
++++ b/storm-core/src/jvm/backtype/storm/messaging/netty/Client.java
+@@ -547,8 +547,9 @@ public class Client extends ConnectionWithStatus implements IStatefulObject {
+     }
+ 
+     private synchronized void closeChannel() {
+-        if (channelRef.get() != null) {
+-            channelRef.get().close();
++        Channel channel = channelRef.get();
++        if (channel != null) {
++            channel.close();
+             LOG.debug("channel to {} closed", dstAddressPrefixedName);
+         }
+     }

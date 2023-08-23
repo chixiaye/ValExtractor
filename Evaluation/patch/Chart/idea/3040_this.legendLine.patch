@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+index ec442b1..cbb50fb 100644
+--- a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+@@ -83,6 +83,7 @@
+      * Creates a new renderer.
+      */
+     public SamplingXYLineRenderer() {
++        Shape legendLine1 = this.legendLine;
+         this.legendLine = new Line2D.Double(-7.0, 0.0, 7.0, 0.0);
+         setBaseLegendShape(this.legendLine);
+         setTreatLegendShapeAsLine(true);

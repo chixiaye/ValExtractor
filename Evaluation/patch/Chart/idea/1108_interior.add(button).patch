@@ -1,0 +1,44 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..fd8f368 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -47,11 +47,7 @@
+ 
+ package org.jfree.chart.editor;
+ 
+-import java.awt.BasicStroke;
+-import java.awt.BorderLayout;
+-import java.awt.Color;
+-import java.awt.Paint;
+-import java.awt.Stroke;
++import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.util.ResourceBundle;
+@@ -236,7 +232,7 @@
+         button.setActionCommand("OutlineStroke");
+         button.addActionListener(this);
+         interior.add(this.outlineStrokeSample);
+-        interior.add(button);
++        Component add = interior.add(button);
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Outline_Paint")));
+@@ -244,7 +240,7 @@
+         button.setActionCommand("OutlinePaint");
+         button.addActionListener(this);
+         interior.add(this.outlinePaintSample);
+-        interior.add(button);
++        add;
+ 
+         interior.add(new JLabel(localizationResources.getString(
+                 "Background_paint")));
+@@ -252,7 +248,7 @@
+         button.setActionCommand("BackgroundPaint");
+         button.addActionListener(this);
+         interior.add(this.backgroundPaintSample);
+-        interior.add(button);
++        add;
+ 
+         if (this.plotOrientation != null) {
+             boolean isVertical = this.plotOrientation.equals(

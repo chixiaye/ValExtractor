@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RealVector.java b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+index d8e5017..e8238e6 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+@@ -1184,10 +1184,11 @@
+             if (e == null) {
+                 return;
+             }
++            int index = e.getIndex();
+             do {
+-                e.setIndex(e.getIndex() + 1);
+-            } while (e.getIndex() < dim && e.getValue() == 0);
+-            if (e.getIndex() >= dim) {
++                e.setIndex(index + 1);
++            } while (index < dim && e.getValue() == 0);
++            if (index >= dim) {
+                 e.setIndex(-1);
+             }
+         }

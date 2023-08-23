@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/events/EventState.java b/src/main/java/org/apache/commons/math3/ode/events/EventState.java
+index 5d67795..a786abd 100644
+--- a/src/main/java/org/apache/commons/math3/ode/events/EventState.java
++++ b/src/main/java/org/apache/commons/math3/ode/events/EventState.java
+@@ -236,11 +236,12 @@
+             final int    n = FastMath.max(1, (int) FastMath.ceil(FastMath.abs(dt) / maxCheckInterval));
+             final double h = dt / n;
+ 
++            final double[] completeState = getCompleteState(interpolator);
+             final UnivariateFunction f = new UnivariateFunction() {
+                 public double value(final double t) throws LocalMaxCountExceededException {
+                     try {
+                         interpolator.setInterpolatedTime(t);
+-                        return handler.g(t, getCompleteState(interpolator));
++                        return handler.g(t, completeState);
+                     } catch (MaxCountExceededException mcee) {
+                         throw new LocalMaxCountExceededException(mcee);
+                     }
+@@ -254,7 +255,7 @@
+                 // evaluate handler value at the end of the substep
+                 final double tb = t0 + (i + 1) * h;
+                 interpolator.setInterpolatedTime(tb);
+-                final double gb = handler.g(tb, getCompleteState(interpolator));
++                final double gb = handler.g(tb, completeState);
+ 
+                 // check events occurrence
+                 if (g0Positive ^ (gb >= 0)) {

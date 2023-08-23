@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..a9d2829 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1478,7 +1478,8 @@
+         if (negRanges.intersection(ieExplicits).isEmpty()) {
+           return decompose(ranges, false);
+         } else if (ranges.intersection(ieExplicits).isEmpty()) {
+-          return decompose(negRanges, true);
++          DecomposedCharset var_2443 = decompose(negRanges, true);
++		return var_2443;
+         }
+       }
+       DecomposedCharset positive = decompose(ranges, false);

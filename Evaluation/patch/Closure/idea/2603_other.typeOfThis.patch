@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/rhino/jstype/FunctionType.java b/src/com/google/javascript/rhino/jstype/FunctionType.java
+index 7388448..7f63219 100644
+--- a/src/com/google/javascript/rhino/jstype/FunctionType.java
++++ b/src/com/google/javascript/rhino/jstype/FunctionType.java
+@@ -805,12 +805,13 @@
+         call.returnType.getGreatestSubtype(other.call.returnType);
+ 
+     JSType newTypeOfThis = null;
+-    if (isEquivalent(typeOfThis, other.typeOfThis)) {
++      JSType typeOfThis1 = other.typeOfThis;
++      if (isEquivalent(typeOfThis, typeOfThis1)) {
+       newTypeOfThis = typeOfThis;
+     } else {
+       JSType maybeNewTypeOfThis = leastSuper ?
+-          typeOfThis.getLeastSupertype(other.typeOfThis) :
+-          typeOfThis.getGreatestSubtype(other.typeOfThis);
++          typeOfThis.getLeastSupertype(typeOfThis1) :
++          typeOfThis.getGreatestSubtype(typeOfThis1);
+       newTypeOfThis = maybeNewTypeOfThis;
+     }
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..544665f 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -642,6 +642,7 @@
+         this.axisOffset = new RectangleInsets(4.0, 4.0, 4.0, 4.0);
+ 
+         // allocate storage for datasets, axes and renderers (all optional)
++        ObjectList domainAxes1 = this.domainAxes;
+         this.domainAxes = new ObjectList();
+         this.domainAxisLocations = new ObjectList();
+         this.foregroundDomainMarkers = new HashMap();

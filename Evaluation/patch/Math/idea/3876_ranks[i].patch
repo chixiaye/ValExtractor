@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+index 7fd7850..d8d0f74 100644
+--- a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
++++ b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+@@ -296,8 +296,9 @@
+     private void recodeNaNs(IntDoublePair[] ranks, double value) {
+         for (int i = 0; i < ranks.length; i++) {
+             if (Double.isNaN(ranks[i].getValue())) {
++                IntDoublePair rank = ranks[i];
+                 ranks[i] = new IntDoublePair(
+-                        value, ranks[i].getPosition());
++                        value, rank.getPosition());
+             }
+         }
+     }

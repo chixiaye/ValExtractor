@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/Statistics.java b/source/org/jfree/data/statistics/Statistics.java
+index 1f97438..53d9ed3 100644
+--- a/source/org/jfree/data/statistics/Statistics.java
++++ b/source/org/jfree/data/statistics/Statistics.java
+@@ -95,8 +95,9 @@
+         int counter = 0;
+         for (int i = 0; i < values.length; i++) {
+             // treat nulls the same as NaNs
+-            if (values[i] != null) {
+-                current = values[i].doubleValue();
++            Number value = values[i];
++            if (value != null) {
++                current = value.doubleValue();
+             }
+             else {
+                 current = Double.NaN;

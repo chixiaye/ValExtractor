@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..12584af 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -396,8 +396,9 @@
+             }
+ 
+             if (!Double.isNaN(m)) {
++                double minimumRangeValue1 = this.minimumRangeValue;
+                 if (Double.isNaN(this.minimumRangeValue)
+-                        || m < this.minimumRangeValue) {
++                        || m < minimumRangeValue1) {
+                     this.minimumRangeValue = m;
+                     this.minimumRangeValueRow = r;
+                     this.minimumRangeValueColumn = c;

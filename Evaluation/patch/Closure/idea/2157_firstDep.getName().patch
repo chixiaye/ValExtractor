@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/deps/DepsGenerator.java b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+index 135c87c..df2d8a5 100644
+--- a/src/com/google/javascript/jscomp/deps/DepsGenerator.java
++++ b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+@@ -214,14 +214,15 @@
+ 
+   private void reportDuplicateProvide(String namespace, DependencyInfo firstDep,
+       DependencyInfo secondDep) {
+-    if (firstDep == secondDep) {
++      String name = firstDep.getName();
++      if (firstDep == secondDep) {
+       errorManager.report(CheckLevel.WARNING,
+-          JSError.make(firstDep.getName(), -1, -1,
++          JSError.make(name, -1, -1,
+               DUPE_PROVIDES_WARNING, namespace));
+     } else {
+       errorManager.report(CheckLevel.ERROR,
+           JSError.make(secondDep.getName(), -1, -1,
+-              MULTIPLE_PROVIDES_ERROR, namespace, firstDep.getName()));
++              MULTIPLE_PROVIDES_ERROR, namespace, name));
+     }
+   }
+ 

@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/joda/time/Interval.java b/src/main/java/org/joda/time/Interval.java
+index b2aa61b..aba672f 100644
+--- a/src/main/java/org/joda/time/Interval.java
++++ b/src/main/java/org/joda/time/Interval.java
+@@ -335,11 +335,12 @@
+      * @since 1.1
+      */
+     public boolean abuts(ReadableInterval interval) {
++        long startMillis = getStartMillis();
+         if (interval == null) {
+             long now = DateTimeUtils.currentTimeMillis();
+-            return (getStartMillis() == now || getEndMillis() == now);
++            return (startMillis == now || getEndMillis() == now);
+         } else {
+-            return (interval.getEndMillis() == getStartMillis() ||
++            return (interval.getEndMillis() == startMillis ||
+                     getEndMillis() == interval.getStartMillis());
+         }
+     }

@@ -1,0 +1,50 @@
+diff --git a/src/main/java/org/joda/time/format/FormatUtils.java b/src/main/java/org/joda/time/format/FormatUtils.java
+index dba1431..166a2cc 100644
+--- a/src/main/java/org/joda/time/format/FormatUtils.java
++++ b/src/main/java/org/joda/time/format/FormatUtils.java
+@@ -201,26 +201,29 @@
+         int intValue = (int)value;
+         if (intValue == value) {
+             writePaddedInteger(out, intValue, size);
+-        } else if (size <= 19) {
+-            out.write(Long.toString(value));
+         } else {
+-            if (value < 0) {
+-                out.write('-');
+-                if (value != Long.MIN_VALUE) {
+-                    value = -value;
+-                } else {
+-                    for (; size > 19; size--) {
+-                        out.write('0');
++            String str = Long.toString(value);
++            if (size <= 19) {
++                out.write(str);
++            } else {
++                if (value < 0) {
++                    out.write('-');
++                    if (value != Long.MIN_VALUE) {
++                        value = -value;
++                    } else {
++                        for (; size > 19; size--) {
++                            out.write('0');
++                        }
++                        out.write("9223372036854775808");
++                        return;
+                     }
+-                    out.write("9223372036854775808");
+-                    return;
+                 }
++                int digits = (int)(Math.log(value) / LOG_10) + 1;
++                for (; size > digits; size--) {
++                    out.write('0');
++                }
++                out.write(str);
+             }
+-            int digits = (int)(Math.log(value) / LOG_10) + 1;
+-            for (; size > digits; size--) {
+-                out.write('0');
+-            }
+-            out.write(Long.toString(value));
+         }
+     }
+ 

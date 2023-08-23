@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+index 4aa2d4d..0e9735e 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+@@ -232,13 +232,14 @@
+                 this.minimumRangeValue = item.getMinRegularValue();
+             }
+         }
++        Number maxRegularValue = item.getMaxRegularValue();
+         if (this.maximumRangeValue == null) {
+-            this.maximumRangeValue = item.getMaxRegularValue();
++            this.maximumRangeValue = maxRegularValue;
+         }
+         else {
+-            if (item.getMaxRegularValue().doubleValue()
++            if (maxRegularValue.doubleValue()
+                     > this.maximumRangeValue.doubleValue()) {
+-                this.maximumRangeValue = item.getMaxRegularValue();
++                this.maximumRangeValue = maxRegularValue;
+             }
+         }
+         this.rangeBounds = new Range(this.minimumRangeValue.doubleValue(),

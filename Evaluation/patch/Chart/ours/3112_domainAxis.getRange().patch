@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..7b6f7ad 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1342,7 +1342,8 @@
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+-            Range range = domainAxis.getRange();
++            Range var_3112 = domainAxis.getRange();
++			Range range = var_3112;
+             if (!range.contains(value)) {
+                 return;
+             }

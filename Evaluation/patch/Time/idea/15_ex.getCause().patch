@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/joda/time/IllegalInstantException.java b/src/main/java/org/joda/time/IllegalInstantException.java
+index 470cbe9..c246f92 100644
+--- a/src/main/java/org/joda/time/IllegalInstantException.java
++++ b/src/main/java/org/joda/time/IllegalInstantException.java
+@@ -80,8 +80,10 @@
+         if (ex instanceof IllegalInstantException) {
+             return true;
+         }
+-        while (ex.getCause() != null && ex.getCause() != ex) {
+-            return isIllegalInstant(ex.getCause());
++        while (true) {
++            Throwable cause = ex.getCause();
++            if (!(cause != null && cause != ex)) break;
++            return isIllegalInstant(cause);
+         }
+         return false;
+     }

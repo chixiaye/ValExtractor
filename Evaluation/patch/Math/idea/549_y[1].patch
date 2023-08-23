@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+index 372c699..2af6ae1 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
++++ b/src/main/java/org/apache/commons/math3/dfp/BracketingNthOrderBrentSolverDFP.java
+@@ -198,7 +198,8 @@
+ 
+         // evaluate initial guess
+         evaluations.incrementCount();
+-        y[1] = f.value(x[1]);
++        Dfp dfp = y[1];
++        dfp = f.value(x[1]);
+         if (y[1].isZero()) {
+             // return the initial guess if it is a perfect root.
+             return x[1];

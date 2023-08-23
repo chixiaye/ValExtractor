@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..4801840 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1247,13 +1247,14 @@
+       variableMapOutputPath = config.variableMapOutputFile;
+     }
+ 
+-    if (!config.propertyMapOutputFile.equals("")) {
++      String propertyMapOutputFile = config.propertyMapOutputFile;
++      if (!propertyMapOutputFile.equals("")) {
+       if (propertyMapOutputPath != null) {
+         throw new FlagUsageException("The flags property_map_output_file and "
+             + "create_name_map_files cannot both be used simultaniously.");
+       }
+ 
+-      propertyMapOutputPath = config.propertyMapOutputFile;
++      propertyMapOutputPath = propertyMapOutputFile;
+     }
+ 
+     // Output the maps.

@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+index 1e1571d..6150f73 100644
+--- a/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
++++ b/src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java
+@@ -832,7 +832,8 @@
+       return n;
+     }
+ 
+-    Node init = n.getFirstChild();
++      Node firstChild = n.getFirstChild();
++      Node init = firstChild;
+     Node cond = init.getNext();
+     Node increment = cond.getNext();
+ 
+@@ -845,7 +846,7 @@
+     }
+ 
+     // There is an initializer skip it
+-    if (!n.getFirstChild().isEmpty()) {
++    if (!firstChild.isEmpty()) {
+       return n;
+     }
+ 

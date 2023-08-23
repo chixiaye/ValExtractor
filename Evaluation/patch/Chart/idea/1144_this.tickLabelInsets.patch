@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..d580501 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -359,9 +359,10 @@
+      * @return The current tick label insets value.
+      */
+     public RectangleInsets getTickLabelInsets() {
+-        return (this.tickLabelInsets == null)
++        RectangleInsets tickLabelInsets1 = this.tickLabelInsets;
++        return (tickLabelInsets1 == null)
+             ? new RectangleInsets(0, 0, 0, 0)
+-            : this.tickLabelInsets;
++            : tickLabelInsets1;
+     }
+ 
+     /**

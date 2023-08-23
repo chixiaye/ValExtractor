@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+index f03ba0e..e79026b 100644
+--- a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+@@ -225,8 +225,9 @@
+         /** {@inheritDoc} */
+         public RealVector solve(final RealVector b) {
+             final int m = lTData.length;
+-            if (b.getDimension() != m) {
+-                throw new DimensionMismatchException(b.getDimension(), m);
++            int dimension = b.getDimension();
++            if (dimension != m) {
++                throw new DimensionMismatchException(dimension, m);
+             }
+ 
+             final double[] x = b.toArray();

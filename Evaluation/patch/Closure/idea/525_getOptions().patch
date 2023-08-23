@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..14d0616 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -2075,8 +2075,9 @@
+     }
+ 
+     if (level.isOn()) {
+-      if (getOptions().errorHandler != null) {
+-        getOptions().errorHandler.report(level, error);
++        CompilerOptions options1 = getOptions();
++        if (options1.errorHandler != null) {
++        options1.errorHandler.report(level, error);
+       }
+       errorManager.report(level, error);
+     }

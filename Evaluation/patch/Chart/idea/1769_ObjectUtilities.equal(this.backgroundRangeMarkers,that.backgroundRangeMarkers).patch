@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..204c48c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5582,8 +5582,9 @@
+                 that.foregroundRangeMarkers)) {
+             return false;
+         }
+-        if (!ObjectUtilities.equal(this.backgroundRangeMarkers,
+-                that.backgroundRangeMarkers)) {
++        boolean b = !ObjectUtilities.equal(this.backgroundRangeMarkers,
++                that.backgroundRangeMarkers);
++        if (b) {
+             return false;
+         }
+         if (!ObjectUtilities.equal(this.foregroundDomainMarkers,
+@@ -5598,8 +5599,7 @@
+                 that.foregroundRangeMarkers)) {
+             return false;
+         }
+-        if (!ObjectUtilities.equal(this.backgroundRangeMarkers,
+-                that.backgroundRangeMarkers)) {
++        if (b) {
+             return false;
+         }
+         if (!ObjectUtilities.equal(this.annotations, that.annotations)) {

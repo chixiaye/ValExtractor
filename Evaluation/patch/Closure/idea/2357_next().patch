@@ -1,0 +1,40 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..e66b247 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1809,11 +1809,12 @@
+     String typeName = stream.getString();
+     int lineno = stream.getLineno();
+     int charno = stream.getCharno();
+-    while (match(JsDocToken.EOL) &&
++      JsDocToken next = next();
++      while (match(JsDocToken.EOL) &&
+         typeName.charAt(typeName.length() - 1) == '.') {
+       skipEOLs();
+       if (match(JsDocToken.STRING)) {
+-        next();
++        next;
+         typeName += stream.getString();
+       }
+     }
+@@ -1821,9 +1822,9 @@
+     Node typeNameNode = newStringNode(typeName, lineno, charno);
+ 
+     if (match(JsDocToken.LT)) {
+-      next();
++      next;
+       skipEOLs();
+-      Node memberType = parseTypeExpressionList(next());
++      Node memberType = parseTypeExpressionList(next);
+       if (memberType != null) {
+         typeNameNode.addChildToFront(memberType);
+ 
+@@ -1832,7 +1833,7 @@
+           return reportTypeSyntaxWarning("msg.jsdoc.missing.gt");
+         }
+ 
+-        next();
++        next;
+       }
+     }
+     return typeNameNode;

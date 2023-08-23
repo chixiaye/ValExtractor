@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..76a4488 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -847,7 +847,8 @@
+      * @param value  the data value.
+      */
+     public void centerRange(double value) {
+-        setRange(value - this.period / 2.0, value + this.period / 2.0);
++        double period1 = this.period;
++        setRange(value - period1 / 2.0, value + period1 / 2.0);
+     }
+ 
+     /**

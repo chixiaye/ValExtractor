@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
+index 2d3b139..cebc210 100644
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
+@@ -697,7 +697,8 @@
+         err.flush();
+         isConfigValid = false;
+       }
+-      flags.closure_entry_point = Lists.newArrayList(
++        List<String> closureEntryPoint = flags.closure_entry_point;
++        closureEntryPoint = Lists.newArrayList(
+           ProcessCommonJSModules.toModuleName(flags.common_js_entry_module));
+     }
+ 

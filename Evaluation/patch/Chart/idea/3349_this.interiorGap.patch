@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..8abcbf5 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -262,8 +262,9 @@
+      */
+     public void draw(Graphics2D g2, float x, float y, RectangleAnchor anchor) {
+         Size2D d1 = this.textBlock.calculateDimensions(g2);
+-        double w = this.interiorGap.extendWidth(d1.getWidth());
+-        double h = this.interiorGap.extendHeight(d1.getHeight());
++        RectangleInsets interiorGap1 = this.interiorGap;
++        double w = interiorGap1.extendWidth(d1.getWidth());
++        double h = interiorGap1.extendHeight(d1.getHeight());
+         Size2D d2 = new Size2D(w, h);
+         Rectangle2D bounds = RectangleAnchor.createRectangle(d2, x, y, anchor);
+         double xx = bounds.getX();
+@@ -288,8 +289,8 @@
+         }
+ 
+         this.textBlock.draw(g2,
+-                (float) (xx + this.interiorGap.calculateLeftInset(w)),
+-                (float) (yy + this.interiorGap.calculateTopInset(h)),
++                (float) (xx + interiorGap1.calculateLeftInset(w)),
++                (float) (yy + interiorGap1.calculateTopInset(h)),
+                 TextBlockAnchor.TOP_LEFT);
+ 
+     }

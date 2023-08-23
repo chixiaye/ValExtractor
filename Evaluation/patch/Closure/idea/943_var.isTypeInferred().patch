@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..0fb109a 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -548,13 +548,14 @@
+         //    the inference will ignore the lexical closure,
+         //    which is just wrong. This bug needs to be fixed eventually.
+         boolean isVarDeclaration = left.hasChildren();
+-        if (!isVarDeclaration || var == null || var.isTypeInferred()) {
++          boolean typeInferred = var.isTypeInferred();
++          if (!isVarDeclaration || var == null || typeInferred) {
+           redeclareSimpleVar(scope, left, resultType);
+         }
+         left.setJSType(isVarDeclaration || leftType == null ?
+             resultType : null);
+ 
+-        if (var != null && var.isTypeInferred()) {
++        if (var != null && typeInferred) {
+           JSType oldType = var.getType();
+           var.setType(oldType == null ?
+               resultType : oldType.getLeastSupertype(resultType));

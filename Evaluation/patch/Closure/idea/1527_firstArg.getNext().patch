@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..eb34001 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -715,13 +715,16 @@
+       diagnostic = NULL_ARGUMENT_ERROR;
+     } else if (!firstArg.isObjectLit()) {
+       diagnostic = EXPECTED_OBJECTLIT_ERROR;
+-    } else if (firstArg.getNext() != null) {
+-      Node secondArg = firstArg.getNext();
+-      if (!secondArg.isString()) {
+-        diagnostic = EXPECTED_STRING_ERROR;
+-      } else if (secondArg.getNext() != null) {
+-        diagnostic = TOO_MANY_ARGUMENTS_ERROR;
+-      }
++    } else {
++        Node next = firstArg.getNext();
++        if (next != null) {
++          Node secondArg = next;
++          if (!secondArg.isString()) {
++            diagnostic = EXPECTED_STRING_ERROR;
++          } else if (secondArg.getNext() != null) {
++            diagnostic = TOO_MANY_ARGUMENTS_ERROR;
++          }
++        }
+     }
+     if (diagnostic != null) {
+       compiler.report(

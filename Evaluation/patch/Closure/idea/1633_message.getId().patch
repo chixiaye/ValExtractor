@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceMessages.java b/src/com/google/javascript/jscomp/ReplaceMessages.java
+index bd435ec..7f9a6d9 100644
+--- a/src/com/google/javascript/jscomp/ReplaceMessages.java
++++ b/src/com/google/javascript/jscomp/ReplaceMessages.java
+@@ -66,12 +66,13 @@
+       JsMessageDefinition definition) {
+ 
+     // Get the replacement.
+-    JsMessage replacement = bundle.getMessage(message.getId());
++      String id = message.getId();
++      JsMessage replacement = bundle.getMessage(id);
+     if (replacement == null) {
+       if (strictReplacement) {
+         compiler.report(JSError.make(message.getSourceName(),
+             definition.getMessageNode(), BUNDLE_DOES_NOT_HAVE_THE_MESSAGE,
+-            message.getId()));
++                id));
+         // Fallback to the default message
+         return;
+       } else {

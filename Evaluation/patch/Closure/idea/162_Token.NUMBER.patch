@@ -1,0 +1,29 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+index 7378f31..115d13d 100644
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -949,6 +949,7 @@
+     boolean nullRight = right.isNull();
+     int lhType = getNormalizedNodeType(left);
+     int rhType = getNormalizedNodeType(right);
++    final int number = Token.NUMBER;
+     switch (lhType) {
+       case Token.VOID:
+         if (!leftLiteral) {
+@@ -1034,14 +1035,14 @@
+ 
+         return TernaryValue.UNKNOWN;
+ 
+-      case Token.NUMBER:
++      case number:
+         if (undefinedRight) {
+           return TernaryValue.forBoolean(compareToUndefined(left, op));
+         }
+         if (nullRight && isEqualityOp(op)) {
+           return TernaryValue.forBoolean(compareToNull(left, op));
+         }
+-        if (Token.NUMBER != right.getType()) {
++        if (number != right.getType()) {
+           return TernaryValue.UNKNOWN;  // Only eval if they are the same type
+         }
+         return compareAsNumbers(op, left, right);

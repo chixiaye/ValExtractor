@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+index 2b007b2..d372802 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+@@ -303,9 +303,12 @@
+ 
+             if (states[index] == FREE) {
+                 return firstRemoved;
+-            } else if (states[index] == FULL && keys[index] == key) {
++            } else {
++				int var_4119 = keys[index];
++				if (states[index] == FULL && var_4119 == key) {
+                 return changeIndexSign(index);
+             }
++			}
+ 
+             perturb >>= PERTURB_SHIFT;
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+index 2b007b2..620b1fd 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+@@ -268,9 +268,10 @@
+                                           final int key, final int mask) {
+         final int hash = hashOf(key);
+         int index = hash & mask;
++        int var_4119 = keys[index];
+         if (states[index] == FREE) {
+             return index;
+-        } else if (states[index] == FULL && keys[index] == key) {
++        } else if (states[index] == FULL && var_4119 == key) {
+             return changeIndexSign(index);
+         }
+ 
+@@ -282,7 +283,7 @@
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+-                if (states[index] != FULL || keys[index] == key) {
++                if (states[index] != FULL || var_4119 == key) {
+                     break;
+                 }
+             }
+@@ -303,7 +304,7 @@
+ 
+             if (states[index] == FREE) {
+                 return firstRemoved;
+-            } else if (states[index] == FULL && keys[index] == key) {
++            } else if (states[index] == FULL && var_4119 == key) {
+                 return changeIndexSign(index);
+             }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+index 2b007b2..7d8e973 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java
+@@ -268,9 +268,10 @@
+                                           final int key, final int mask) {
+         final int hash = hashOf(key);
+         int index = hash & mask;
++        int key1 = keys[index];
+         if (states[index] == FREE) {
+             return index;
+-        } else if (states[index] == FULL && keys[index] == key) {
++        } else if (states[index] == FULL && key1 == key) {
+             return changeIndexSign(index);
+         }
+ 
+@@ -282,7 +283,7 @@
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+-                if (states[index] != FULL || keys[index] == key) {
++                if (states[index] != FULL || key1 == key) {
+                     break;
+                 }
+             }
+@@ -303,7 +304,7 @@
+ 
+             if (states[index] == FREE) {
+                 return firstRemoved;
+-            } else if (states[index] == FULL && keys[index] == key) {
++            } else if (states[index] == FULL && key1 == key) {
+                 return changeIndexSign(index);
+             }
+ 

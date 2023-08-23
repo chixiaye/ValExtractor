@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..0cb3d74 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -152,11 +152,12 @@
+                 "Minimum_range_value")));
+         this.minimumRangeValue = new JTextField(Double.toString(
+                 this.minimumValue));
+-        this.minimumRangeValue.setEnabled(!this.autoRange);
+-        this.minimumRangeValue.setActionCommand("MinimumRange");
+-        this.minimumRangeValue.addActionListener(this);
+-        this.minimumRangeValue.addFocusListener(this);
+-        range.add(this.minimumRangeValue);
++        JTextField minimumRangeValue1 = this.minimumRangeValue;
++        minimumRangeValue1.setEnabled(!this.autoRange);
++        minimumRangeValue1.setActionCommand("MinimumRange");
++        minimumRangeValue1.addActionListener(this);
++        minimumRangeValue1.addFocusListener(this);
++        range.add(minimumRangeValue1);
+         range.add(new JPanel());
+ 
+         range.add(new JLabel(localizationResources.getString(

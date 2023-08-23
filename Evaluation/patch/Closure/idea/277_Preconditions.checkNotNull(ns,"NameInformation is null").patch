@@ -1,0 +1,15 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..8dbbc92 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -603,8 +603,8 @@
+     public void visit(NodeTraversal t, Node n, Node parent) {
+       if (NodeUtil.isVarDeclaration(n)) {
+         NameInformation ns = createNameInformation(t, n);
+-        Preconditions.checkNotNull(ns, "NameInformation is null");
+-        createName(ns.name);
++          NameInformation nameInformationIsNull = Preconditions.checkNotNull(ns, "NameInformation is null");
++          createName(ns.name);
+       } else if (NodeUtil.isFunctionDeclaration(n)) {
+         Node nameNode = n.getFirstChild();
+         NameInformation ns = createNameInformation(t, nameNode);

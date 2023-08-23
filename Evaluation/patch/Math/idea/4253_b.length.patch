@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/MathArrays.java b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+index ff729ac..994efa6 100644
+--- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
++++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+@@ -142,8 +142,9 @@
+      */
+     public static double[] ebeSubtract(double[] a, double[] b)
+         throws DimensionMismatchException {
+-        if (a.length != b.length) {
+-            throw new DimensionMismatchException(a.length, b.length);
++        int length = b.length;
++        if (a.length != length) {
++            throw new DimensionMismatchException(a.length, length);
+         }
+ 
+         final double[] result = a.clone();

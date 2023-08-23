@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..71c27c4 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -417,7 +417,8 @@
+                         cs = f / t;
+                         sn = g / t;
+                         singularValues[j] = t;
+-                        f = cs * e[j] + sn * singularValues[j + 1];
++                        double singularValue = singularValues[j + 1];
++                        f = cs * e[j] + sn * singularValue;
+                         singularValues[j + 1] = -sn * e[j] + cs * singularValues[j + 1];
+                         g = sn * e[j + 1];
+                         e[j + 1] = cs * e[j + 1];

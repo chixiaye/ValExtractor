@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/RemoveUnusedVars.java b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+index 4c84735..6bcee0c 100644
+--- a/src/com/google/javascript/jscomp/RemoveUnusedVars.java
++++ b/src/com/google/javascript/jscomp/RemoveUnusedVars.java
+@@ -549,13 +549,14 @@
+             Node argParent = arg.getParent();
+             // Even if we can't change the signature in general we can always
+             // remove an unused value off the end of the parameter list.
+-            if (canModifyAllSites
++              boolean b = NodeUtil.mayHaveSideEffects(arg, compiler);
++              if (canModifyAllSites
+                 || (arg.getNext() == null
+-                    && !NodeUtil.mayHaveSideEffects(arg, compiler))) {
++                    && !b)) {
+               toRemove.add(arg);
+             } else {
+               // replace the node in the arg with 0
+-              if (!NodeUtil.mayHaveSideEffects(arg, compiler)
++              if (!b
+                   && (!arg.isNumber() || arg.getDouble() != 0)) {
+                 toReplaceWithZero.add(arg);
+               }

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..ce5eb49 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -236,9 +236,10 @@
+                 this.majorTickTimePeriodClass);
+         setAutoRange(true);
+         this.labelInfo = new PeriodAxisLabelInfo[2];
+-        this.labelInfo[0] = new PeriodAxisLabelInfo(Month.class,
++        PeriodAxisLabelInfo[] labelInfo1 = this.labelInfo;
++        labelInfo1[0] = new PeriodAxisLabelInfo(Month.class,
+                 new SimpleDateFormat("MMM", locale));
+-        this.labelInfo[1] = new PeriodAxisLabelInfo(Year.class,
++        labelInfo1[1] = new PeriodAxisLabelInfo(Year.class,
+                 new SimpleDateFormat("yyyy", locale));
+     }
+ 

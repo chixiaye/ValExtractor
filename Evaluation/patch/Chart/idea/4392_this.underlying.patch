@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYBarDataset.java b/source/org/jfree/data/xy/XYBarDataset.java
+index 3a77fae..886640b 100644
+--- a/source/org/jfree/data/xy/XYBarDataset.java
++++ b/source/org/jfree/data/xy/XYBarDataset.java
+@@ -76,6 +76,7 @@
+      * @param barWidth  the width of the bars.
+      */
+     public XYBarDataset(XYDataset underlying, double barWidth) {
++        XYDataset underlying1 = this.underlying;
+         this.underlying = underlying;
+         this.underlying.addChangeListener(this);
+         this.barWidth = barWidth;

@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/block/FlowArrangement.java b/source/org/jfree/chart/block/FlowArrangement.java
+index ac17808..d595b7e 100644
+--- a/source/org/jfree/chart/block/FlowArrangement.java
++++ b/source/org/jfree/chart/block/FlowArrangement.java
+@@ -376,13 +376,14 @@
+             if (blockCount > 1) {
+                 width = width + this.horizontalGap * (blockCount - 1);
+             }
+-            if (this.verticalAlignment != VerticalAlignment.TOP) {
++            VerticalAlignment verticalAlignment1 = this.verticalAlignment;
++            if (verticalAlignment1 != VerticalAlignment.TOP) {
+                 for (int i = 0; i < blocks.size(); i++) {
+                     //Block b = (Block) blocks.get(i);
+-                    if (this.verticalAlignment == VerticalAlignment.CENTER) {
++                    if (verticalAlignment1 == VerticalAlignment.CENTER) {
+                         //TODO: shift block down by half
+                     }
+-                    else if (this.verticalAlignment
++                    else if (verticalAlignment1
+                             == VerticalAlignment.BOTTOM) {
+                         //TODO: shift block down to bottom
+                     }

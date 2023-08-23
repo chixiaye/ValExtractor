@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+index aa90f2b..36d49bc 100644
+--- a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+@@ -511,7 +511,8 @@
+      * @since 1.0.5
+      */
+     public void setPlotDiscontinuous(boolean flag) {
+-        if (this.plotDiscontinuous != flag) {
++        boolean plotDiscontinuous1 = this.plotDiscontinuous;
++        if (plotDiscontinuous1 != flag) {
+             this.plotDiscontinuous = flag;
+             fireChangeEvent();
+         }

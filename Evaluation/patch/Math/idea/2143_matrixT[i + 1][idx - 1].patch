@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..0a425a0 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -908,6 +908,7 @@
+                             } else {
+                                 final Complex c2        = cdiv(-r - y * matrixT[i][idx - 1],
+                                                                -s - y * matrixT[i][idx], z, q);
++                                double v = matrixT[i + 1][idx - 1];
+                                 matrixT[i + 1][idx - 1] = c2.getReal();
+                                 matrixT[i + 1][idx]     = c2.getImaginary();
+                             }

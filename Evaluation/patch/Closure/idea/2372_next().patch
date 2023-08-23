@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..fb6bd5e 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2161,11 +2161,11 @@
+       }
+ 
+       // Move to the comma token.
+-      next();
++        JsDocToken next = next();
+ 
+-      // Move to the token passed the comma.
++        // Move to the token passed the comma.
+       skipEOLs();
+-      token = next();
++      token = next;
+     } while (true);
+ 
+     return fieldTypeList;

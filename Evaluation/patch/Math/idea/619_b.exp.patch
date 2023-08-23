@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..030cfec 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1321,7 +1321,8 @@
+        of the zero number equal to the other one.  This avoids an alignment
+        which would cause catastropic loss of precision */
+         if (b.mant[mant.length-1] == 0) {
+-            b.exp = a.exp;
++            int exp1 = b.exp;
++            exp1 = a.exp;
+         }
+ 
+         if (a.mant[mant.length-1] == 0) {

@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+index f03ba0e..e4f4842 100644
+--- a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+@@ -104,12 +104,13 @@
+     public CholeskyDecomposition(final RealMatrix matrix,
+                                      final double relativeSymmetryThreshold,
+                                      final double absolutePositivityThreshold) {
++        int rowDimension = matrix.getRowDimension();
+         if (!matrix.isSquare()) {
+-            throw new NonSquareMatrixException(matrix.getRowDimension(),
++            throw new NonSquareMatrixException(rowDimension,
+                                                matrix.getColumnDimension());
+         }
+ 
+-        final int order = matrix.getRowDimension();
++        final int order = rowDimension;
+         lTData   = matrix.getData();
+         cachedL  = null;
+         cachedLT = null;

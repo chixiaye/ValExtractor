@@ -1,0 +1,38 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+index aa90f2b..984e228 100644
+--- a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+@@ -767,9 +767,10 @@
+         if (getPlotLines()) {
+             if (this.drawSeriesLineAsPath) {
+                 State s = (State) state;
++                GeneralPath seriesPath = s.seriesPath;
+                 if (s.getSeriesIndex() != series) {
+                     // we are starting a new series path
+-                    s.seriesPath.reset();
++                    seriesPath.reset();
+                     s.lastPointGood = false;
+                     s.setSeriesIndex(series);
+                 }
+@@ -785,10 +786,10 @@
+                     }
+                     if (s.isLastPointGood()) {
+                         // TODO: check threshold
+-                        s.seriesPath.lineTo(x, y);
++                        seriesPath.lineTo(x, y);
+                     }
+                     else {
+-                        s.seriesPath.moveTo(x, y);
++                        seriesPath.moveTo(x, y);
+                     }
+                     s.setLastPointGood(true);
+                 }
+@@ -800,7 +801,7 @@
+                         // draw path
+                         g2.setStroke(lookupSeriesStroke(series));
+                         g2.setPaint(lookupSeriesPaint(series));
+-                        g2.draw(s.seriesPath);
++                        g2.draw(seriesPath);
+                     }
+                 }
+             }

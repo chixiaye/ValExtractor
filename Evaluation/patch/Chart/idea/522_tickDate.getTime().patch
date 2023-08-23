@@ -1,0 +1,35 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..4059dba 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1618,7 +1618,8 @@
+             tickDate = correctTickDateForPosition(tickDate, unit,
+                     this.tickMarkPosition);
+ 
+-            long lowestTickTime = tickDate.getTime();
++            long time = tickDate.getTime();
++            long lowestTickTime = time;
+             long distance = unit.addToDate(tickDate, this.timeZone).getTime()
+                     - lowestTickTime;
+             int minorTickSpaces = getMinorTickCount();
+@@ -1636,7 +1637,7 @@
+                 }
+             }
+ 
+-            if (!isHiddenValue(tickDate.getTime())) {
++            if (!isHiddenValue(time)) {
+                 // work out the value, label and position
+                 String tickLabel;
+                 DateFormat formatter = getDateFormatOverride();
+@@ -1674,9 +1675,9 @@
+                         rotationAnchor, angle);
+                 result.add(tick);
+ 
+-                long currentTickTime = tickDate.getTime();
++                long currentTickTime = time;
+                 tickDate = unit.addToDate(tickDate, this.timeZone);
+-                long nextTickTime = tickDate.getTime();
++                long nextTickTime = time;
+                 for (int minorTick = 1; minorTick < minorTickSpaces;
+                         minorTick++){
+                     long minorTickTime = currentTickTime

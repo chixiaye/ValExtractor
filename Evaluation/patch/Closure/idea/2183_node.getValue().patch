@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/graph/GraphColoring.java b/src/com/google/javascript/jscomp/graph/GraphColoring.java
+index 14900a4..c606893 100644
+--- a/src/com/google/javascript/jscomp/graph/GraphColoring.java
++++ b/src/com/google/javascript/jscomp/graph/GraphColoring.java
+@@ -151,8 +151,9 @@
+         SubGraph<N, E> subgraph = graph.newSubGraph();
+         for (Iterator<GraphNode<N, E>> i = worklist.iterator(); i.hasNext();) {
+           GraphNode<N, E> node = i.next();
+-          if (subgraph.isIndependentOf(node.getValue())) {
+-            subgraph.addNode(node.getValue());
++            N value = node.getValue();
++            if (subgraph.isIndependentOf(value)) {
++            subgraph.addNode(value);
+             node.setAnnotation(color);
+             i.remove();
+           }

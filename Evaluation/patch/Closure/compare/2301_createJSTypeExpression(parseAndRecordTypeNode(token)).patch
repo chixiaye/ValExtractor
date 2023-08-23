@@ -1,0 +1,86 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..98f5866 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -378,8 +378,9 @@
+ 
+                   type = null;
+                   if (token != JsDocToken.EOL && token != JsDocToken.EOC) {
+-                    type = createJSTypeExpression(
++                    JSTypeExpression var_2301 = createJSTypeExpression(
+                         parseAndRecordTypeNode(token));
++					type = var_2301;
+                   }
+ 
+                   if (type == null) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..2425e44 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,8 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++              JSTypeExpression var_2301 = createJSTypeExpression(
++			    parseAndRecordTypeNode(token));
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -378,8 +380,7 @@
+ 
+                   type = null;
+                   if (token != JsDocToken.EOL && token != JsDocToken.EOC) {
+-                    type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                    type = var_2301;
+                   }
+ 
+                   if (type == null) {
+@@ -567,8 +568,7 @@
+                   type = null;
+ 
+                   if (token == JsDocToken.LC) {
+-                    type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                    type = var_2301;
+ 
+                     if (type == null) {
+                       // parsing error reported during recursive descent
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..1f220a9 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -228,6 +228,8 @@
+               // Mark the beginning of the annotation.
+               jsdocBuilder.markAnnotation(annotationName, lineno, charno);
+ 
++                JSTypeExpression jsTypeExpression = createJSTypeExpression(
++                        parseAndRecordTypeNode(token));
+               switch (annotation) {
+                 case AUTHOR:
+                   if (jsdocBuilder.shouldParseDocumentation()) {
+@@ -378,8 +380,7 @@
+ 
+                   type = null;
+                   if (token != JsDocToken.EOL && token != JsDocToken.EOC) {
+-                    type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                    type = jsTypeExpression;
+                   }
+ 
+                   if (type == null) {
+@@ -567,8 +568,7 @@
+                   type = null;
+ 
+                   if (token == JsDocToken.LC) {
+-                    type = createJSTypeExpression(
+-                        parseAndRecordTypeNode(token));
++                    type = jsTypeExpression;
+ 
+                     if (type == null) {
+                       // parsing error reported during recursive descent

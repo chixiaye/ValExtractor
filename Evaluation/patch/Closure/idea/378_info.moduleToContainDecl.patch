@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AliasStrings.java b/src/com/google/javascript/jscomp/AliasStrings.java
+index 437c030..387c135 100644
+--- a/src/com/google/javascript/jscomp/AliasStrings.java
++++ b/src/com/google/javascript/jscomp/AliasStrings.java
+@@ -161,8 +161,9 @@
+         if (info.numOccurrences != 1) {
+           // Check whether the current module depends on the module containing
+           // the declaration.
+-          if (module != null &&
+-              info.moduleToContainDecl != null &&
++            JSModule moduleToContainDecl = info.moduleToContainDecl;
++            if (module != null &&
++              moduleToContainDecl != null &&
+               module != info.moduleToContainDecl &&
+               !moduleGraph.dependsOn(module, info.moduleToContainDecl)) {
+             // We need to declare this string in the deepest module in the

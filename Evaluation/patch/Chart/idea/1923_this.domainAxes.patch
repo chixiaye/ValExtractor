@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..31e2f0d 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3876,8 +3876,9 @@
+         AxisCollection axisCollection = new AxisCollection();
+ 
+         // add domain axes to lists...
+-        for (int index = 0; index < this.domainAxes.size(); index++) {
+-            CategoryAxis xAxis = (CategoryAxis) this.domainAxes.get(index);
++        ObjectList domainAxes1 = this.domainAxes;
++        for (int index = 0; index < domainAxes1.size(); index++) {
++            CategoryAxis xAxis = (CategoryAxis) domainAxes1.get(index);
+             if (xAxis != null) {
+                 axisCollection.add(xAxis, getDomainAxisEdge(index));
+             }

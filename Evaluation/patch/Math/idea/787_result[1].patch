@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..ff04b17 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -157,7 +157,8 @@
+ 
+         Dfp[] result = new Dfp[2];
+         result[0] = base[0].getOne();
+-        result[1] = base[0].getZero();
++        Dfp dfp = result[1];
++        dfp = base[0].getZero();
+ 
+         if (a == 0) {
+             // Special case a = 0

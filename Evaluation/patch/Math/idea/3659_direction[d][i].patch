@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
+index a8ed30a..69374b0 100644
+--- a/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
+@@ -244,6 +244,7 @@
+     private void initDirectionVector(final int d, final int a, final int[] m) {
+         final int s = m.length - 1;
+         for (int i = 1; i <= s; i++) {
++            long l = direction[d][i];
+             direction[d][i] = ((long) m[i]) << (BITS - i);
+         }
+         for (int i = s + 1; i <= BITS; i++) {

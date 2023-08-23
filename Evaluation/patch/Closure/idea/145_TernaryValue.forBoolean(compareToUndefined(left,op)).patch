@@ -1,0 +1,66 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+index 7378f31..f6bd8ad 100644
+--- a/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
++++ b/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+@@ -949,6 +949,7 @@
+     boolean nullRight = right.isNull();
+     int lhType = getNormalizedNodeType(left);
+     int rhType = getNormalizedNodeType(right);
++    TernaryValue ternaryValue = TernaryValue.forBoolean(compareToUndefined(left, op));
+     switch (lhType) {
+       case Token.VOID:
+         if (!leftLiteral) {
+@@ -967,7 +968,7 @@
+       case Token.TRUE:
+       case Token.FALSE:
+         if (undefinedRight) {
+-          return TernaryValue.forBoolean(compareToUndefined(left, op));
++          return ternaryValue;
+         }
+         if (rhType != Token.TRUE &&
+             rhType != Token.FALSE &&
+@@ -1013,7 +1014,7 @@
+ 
+       case Token.STRING:
+         if (undefinedRight) {
+-          return TernaryValue.forBoolean(compareToUndefined(left, op));
++          return ternaryValue;
+         }
+         if (nullRight && isEqualityOp(op)) {
+           return TernaryValue.forBoolean(compareToNull(left, op));
+@@ -1036,7 +1037,7 @@
+ 
+       case Token.NUMBER:
+         if (undefinedRight) {
+-          return TernaryValue.forBoolean(compareToUndefined(left, op));
++          return ternaryValue;
+         }
+         if (nullRight && isEqualityOp(op)) {
+           return TernaryValue.forBoolean(compareToNull(left, op));
+@@ -1048,7 +1049,7 @@
+ 
+       case Token.NAME:
+         if (leftLiteral && undefinedRight) {
+-          return TernaryValue.forBoolean(compareToUndefined(left, op));
++          return ternaryValue;
+         }
+ 
+         if (rightLiteral) {
+@@ -1083,7 +1084,7 @@
+       case Token.NEG:
+         if (leftLiteral) {
+           if (undefinedRight) {
+-            return TernaryValue.forBoolean(compareToUndefined(left, op));
++            return ternaryValue;
+           }
+           if (nullRight && isEqualityOp(op)) {
+             return TernaryValue.forBoolean(compareToNull(left, op));
+@@ -1098,7 +1099,7 @@
+       case Token.FUNCTION:
+         if (leftLiteral) {
+           if (undefinedRight) {
+-            return TernaryValue.forBoolean(compareToUndefined(left, op));
++            return ternaryValue;
+           }
+           if (nullRight && isEqualityOp(op)) {
+             return TernaryValue.forBoolean(compareToNull(left, op));

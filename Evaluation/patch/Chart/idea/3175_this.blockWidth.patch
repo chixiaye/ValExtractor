@@ -1,0 +1,76 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..fd0bc6d 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -243,37 +243,40 @@
+             this.xOffset = 0.0;
+             this.yOffset = 0.0;
+         }
+-        else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
+-            this.xOffset = -this.blockWidth / 2.0;
+-            this.yOffset = 0.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
+-            this.yOffset = 0.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
+-            this.xOffset = 0.0;
+-            this.yOffset = -this.blockHeight / 2.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.CENTER)) {
+-            this.xOffset = -this.blockWidth / 2.0;
+-            this.yOffset = -this.blockHeight / 2.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.RIGHT)) {
+-            this.xOffset = -this.blockWidth;
+-            this.yOffset = -this.blockHeight / 2.0;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.TOP_LEFT)) {
+-            this.xOffset = 0.0;
+-            this.yOffset = -this.blockHeight;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.TOP)) {
+-            this.xOffset = -this.blockWidth / 2.0;
+-            this.yOffset = -this.blockHeight;
+-        }
+-        else if (this.blockAnchor.equals(RectangleAnchor.TOP_RIGHT)) {
+-            this.xOffset = -this.blockWidth;
+-            this.yOffset = -this.blockHeight;
++        else {
++            double blockWidth1 = this.blockWidth;
++            if (this.blockAnchor.equals(RectangleAnchor.BOTTOM)) {
++                this.xOffset = -blockWidth1 / 2.0;
++                this.yOffset = 0.0;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
++                this.xOffset = -blockWidth1;
++                this.yOffset = 0.0;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
++                this.xOffset = 0.0;
++                this.yOffset = -this.blockHeight / 2.0;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.CENTER)) {
++                this.xOffset = -blockWidth1 / 2.0;
++                this.yOffset = -this.blockHeight / 2.0;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.RIGHT)) {
++                this.xOffset = -blockWidth1;
++                this.yOffset = -this.blockHeight / 2.0;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.TOP_LEFT)) {
++                this.xOffset = 0.0;
++                this.yOffset = -this.blockHeight;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.TOP)) {
++                this.xOffset = -blockWidth1 / 2.0;
++                this.yOffset = -this.blockHeight;
++            }
++            else if (this.blockAnchor.equals(RectangleAnchor.TOP_RIGHT)) {
++                this.xOffset = -blockWidth1;
++                this.yOffset = -this.blockHeight;
++            }
+         }
+     }
+ 

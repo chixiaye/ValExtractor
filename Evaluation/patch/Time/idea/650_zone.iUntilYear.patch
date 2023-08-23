@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..b450148 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -820,11 +820,12 @@
+                     }
+                 }
+ 
+-                if (zone.iUntilYear == Integer.MAX_VALUE) {
++                int iUntilYear1 = zone.iUntilYear;
++                if (iUntilYear1 == Integer.MAX_VALUE) {
+                     break;
+                 }
+ 
+-                zone.iUntilDateTimeOfYear.addCutover(builder, zone.iUntilYear);
++                zone.iUntilDateTimeOfYear.addCutover(builder, iUntilYear1);
+             }
+         }
+ 

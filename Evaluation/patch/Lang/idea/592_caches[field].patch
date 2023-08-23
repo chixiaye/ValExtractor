@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+index b9bb413..cf2579c 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+@@ -483,7 +483,8 @@
+     private static ConcurrentMap<Locale, Strategy> getCache(final int field) {
+         synchronized(caches) {
+             if(caches[field]==null) {
+-                caches[field]= new ConcurrentHashMap<Locale,Strategy>(3);
++                ConcurrentMap<Locale, Strategy> cach = caches[field];
++                cach= new ConcurrentHashMap<Locale,Strategy>(3);
+             }
+             return caches[field];
+         }

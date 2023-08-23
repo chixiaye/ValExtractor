@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/panel/CrosshairOverlay.java b/source/org/jfree/chart/panel/CrosshairOverlay.java
+index 2fc3cdd..f1b0fbd 100644
+--- a/source/org/jfree/chart/panel/CrosshairOverlay.java
++++ b/source/org/jfree/chart/panel/CrosshairOverlay.java
+@@ -514,11 +514,12 @@
+         }
+         else if (anchor.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_LEFT;
++        } else {
++			RectangleAnchor var_1300 = RectangleAnchor.RIGHT;
++			if (anchor.equals(RectangleAnchor.LEFT)) {
++			    result = var_1300;
+         }
+-        else if (anchor.equals(RectangleAnchor.LEFT)) {
+-            result = RectangleAnchor.RIGHT;
+-        }
+-        else if (anchor.equals(RectangleAnchor.RIGHT)) {
++			else if (anchor.equals(var_1300)) {
+             result = RectangleAnchor.LEFT;
+         }
+         else if (anchor.equals(RectangleAnchor.BOTTOM_LEFT)) {
+@@ -527,6 +528,7 @@
+         else if (anchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/panel/CrosshairOverlay.java b/source/org/jfree/chart/panel/CrosshairOverlay.java
+index 2fc3cdd..f1b0fbd 100644
+--- a/source/org/jfree/chart/panel/CrosshairOverlay.java
++++ b/source/org/jfree/chart/panel/CrosshairOverlay.java
+@@ -514,11 +514,12 @@
+         }
+         else if (anchor.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_LEFT;
++        } else {
++			RectangleAnchor var_1300 = RectangleAnchor.RIGHT;
++			if (anchor.equals(RectangleAnchor.LEFT)) {
++			    result = var_1300;
+         }
+-        else if (anchor.equals(RectangleAnchor.LEFT)) {
+-            result = RectangleAnchor.RIGHT;
+-        }
+-        else if (anchor.equals(RectangleAnchor.RIGHT)) {
++			else if (anchor.equals(var_1300)) {
+             result = RectangleAnchor.LEFT;
+         }
+         else if (anchor.equals(RectangleAnchor.BOTTOM_LEFT)) {
+@@ -527,6 +528,7 @@
+         else if (anchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/panel/CrosshairOverlay.java b/source/org/jfree/chart/panel/CrosshairOverlay.java
+index 2fc3cdd..a6a7c5a 100644
+--- a/source/org/jfree/chart/panel/CrosshairOverlay.java
++++ b/source/org/jfree/chart/panel/CrosshairOverlay.java
+@@ -515,10 +515,12 @@
+         else if (anchor.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_LEFT;
+         }
+-        else if (anchor.equals(RectangleAnchor.LEFT)) {
+-            result = RectangleAnchor.RIGHT;
++        else {
++            RectangleAnchor right = RectangleAnchor.RIGHT;
++            if (anchor.equals(RectangleAnchor.LEFT)) {
++                result = right;
+         }
+-        else if (anchor.equals(RectangleAnchor.RIGHT)) {
++            else if (anchor.equals(right)) {
+             result = RectangleAnchor.LEFT;
+         }
+         else if (anchor.equals(RectangleAnchor.BOTTOM_LEFT)) {
+@@ -527,6 +529,7 @@
+         else if (anchor.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_LEFT;
+         }
++        }
+         return result;
+     }
+ 

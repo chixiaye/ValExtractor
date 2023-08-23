@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..daae38a 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -816,13 +816,15 @@
+         currentName = currentName.substring(0, dot);
+ 
+         Symbol owner = s.scope.getQualifiedSlot(currentName);
+-        if (owner != null
+-            && owner.getType() != null
+-            && (owner.getType().isNominalConstructor() ||
+-                owner.getType().isFunctionPrototypeType() ||
+-                owner.getType().isEnumType())) {
+-          removeSymbol(s);
+-          continue nextSymbol;
++        if (owner != null) {
++            JSType type = owner.getType();
++            if (type != null
++                    && (type.isNominalConstructor() ||
++                    type.isFunctionPrototypeType() ||
++                    type.isEnumType())) {
++                removeSymbol(s);
++                continue nextSymbol;
++            }
+         }
+       }
+     }

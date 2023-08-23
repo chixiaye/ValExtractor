@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/RandomDataGenerator.java b/src/main/java/org/apache/commons/math3/random/RandomDataGenerator.java
+index bbee2a3..01eb002 100644
+--- a/src/main/java/org/apache/commons/math3/random/RandomDataGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/RandomDataGenerator.java
+@@ -595,11 +595,12 @@
+                                                 lower, upper, false);
+         }
+ 
++        LocalizedFormats infiniteBound = LocalizedFormats.INFINITE_BOUND;
+         if (Double.isInfinite(lower)) {
+-            throw new NotFiniteNumberException(LocalizedFormats.INFINITE_BOUND, lower);
++            throw new NotFiniteNumberException(infiniteBound, lower);
+         }
+         if (Double.isInfinite(upper)) {
+-            throw new NotFiniteNumberException(LocalizedFormats.INFINITE_BOUND, upper);
++            throw new NotFiniteNumberException(infiniteBound, upper);
+         }
+ 
+         if (Double.isNaN(lower) || Double.isNaN(upper)) {

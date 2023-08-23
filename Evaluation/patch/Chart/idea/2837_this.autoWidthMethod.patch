@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..0fc814c 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -347,7 +347,8 @@
+      * @see #setMaxCandleWidthInMilliseconds(double)
+      */
+     public void setAutoWidthMethod(int autoWidthMethod) {
+-        if (this.autoWidthMethod != autoWidthMethod) {
++        int autoWidthMethod1 = this.autoWidthMethod;
++        if (autoWidthMethod1 != autoWidthMethod) {
+             this.autoWidthMethod = autoWidthMethod;
+             fireChangeEvent();
+         }

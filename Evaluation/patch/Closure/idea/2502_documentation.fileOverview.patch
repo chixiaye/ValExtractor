@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..5dcfb64 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -887,7 +887,8 @@
+       return true;
+     }
+ 
+-    if (documentation.fileOverview != null) {
++      String fileOverview = documentation.fileOverview;
++      if (fileOverview != null) {
+       return false;
+     }
+ 

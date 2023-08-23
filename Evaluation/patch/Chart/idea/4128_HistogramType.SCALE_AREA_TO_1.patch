@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/statistics/HistogramType.java b/source/org/jfree/data/statistics/HistogramType.java
+index 6f80bba..35720bd 100644
+--- a/source/org/jfree/data/statistics/HistogramType.java
++++ b/source/org/jfree/data/statistics/HistogramType.java
+@@ -138,8 +138,11 @@
+         else if (this.equals(HistogramType.RELATIVE_FREQUENCY)) {
+             return HistogramType.RELATIVE_FREQUENCY;
+         }
+-        else if (this.equals(HistogramType.SCALE_AREA_TO_1)) {
+-            return HistogramType.SCALE_AREA_TO_1;
++        else {
++            HistogramType scaleAreaTo1 = HistogramType.SCALE_AREA_TO_1;
++            if (this.equals(scaleAreaTo1)) {
++                return scaleAreaTo1;
++            }
+         }
+         return null;
+     }

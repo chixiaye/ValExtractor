@@ -1,0 +1,20 @@
+diff --git a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+index 6d32d14..c3a8bbf 100644
+--- a/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
++++ b/src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java
+@@ -62,12 +62,13 @@
+         }
+ 
+         public Object answer(InvocationOnMock currentInvocation) throws Throwable {
++            String s = unstubbedInvocation.toString();
+             if (new ObjectMethodsGuru().isToString(currentInvocation.getMethod())) {
+                 return "SmartNull returned by this unstubbed method call on a mock:\n" +
+-                        unstubbedInvocation.toString();
++                        s;
+             }
+ 
+-            new Reporter().smartNullPointerException(unstubbedInvocation.toString(), location);
++            new Reporter().smartNullPointerException(s, location);
+             return null;
+         }
+     }

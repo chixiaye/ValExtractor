@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..73827db 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -777,7 +777,8 @@
+         // An overlapping mapping is an ancestor of the current mapping, any
+         // non-overlapping mappings are siblings (or cousins) and must be
+         // closed in the reverse order of when they encountered.
+-        while (!stack.isEmpty() && !isOverlapped(stack.peek(), m)) {
++        boolean var_47 = stack.isEmpty();
++		while (!var_47 && !isOverlapped(stack.peek(), m)) {
+           Mapping previous = stack.pop();
+           maybeVisit(v, previous);
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..73827db 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -777,7 +777,8 @@
+         // An overlapping mapping is an ancestor of the current mapping, any
+         // non-overlapping mappings are siblings (or cousins) and must be
+         // closed in the reverse order of when they encountered.
+-        while (!stack.isEmpty() && !isOverlapped(stack.peek(), m)) {
++        boolean var_47 = stack.isEmpty();
++		while (!var_47 && !isOverlapped(stack.peek(), m)) {
+           Mapping previous = stack.pop();
+           maybeVisit(v, previous);
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..97b0f4c 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -772,12 +772,13 @@
+       // positions give us enough information to rebuild the stack and this
+       // allows the building of the source map in O(n) time.
+       Deque<Mapping> stack = new ArrayDeque<Mapping>();
++        boolean empty = stack.isEmpty();
+       for (Mapping m : mappings) {
+         // Find the closest ancestor of the current mapping:
+         // An overlapping mapping is an ancestor of the current mapping, any
+         // non-overlapping mappings are siblings (or cousins) and must be
+         // closed in the reverse order of when they encountered.
+-        while (!stack.isEmpty() && !isOverlapped(stack.peek(), m)) {
++        while (!empty && !isOverlapped(stack.peek(), m)) {
+           Mapping previous = stack.pop();
+           maybeVisit(v, previous);
+         }
+@@ -792,7 +793,7 @@
+ 
+       // There are no more children to be had, simply close the remaining
+       // mappings in the reverse order of when they encountered.
+-      while (!stack.isEmpty()) {
++      while (!empty) {
+         Mapping m = stack.pop();
+         maybeVisit(v, m);
+       }

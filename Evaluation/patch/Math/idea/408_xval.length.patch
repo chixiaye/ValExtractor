@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.java
+index a68eead..af138b1 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/LoessInterpolator.java
+@@ -385,11 +385,12 @@
+                NoDataException,
+                NotFiniteNumberException,
+                NumberIsTooSmallException {
+-        if (xval.length != yval.length) {
+-            throw new DimensionMismatchException(xval.length, yval.length);
++        int length = xval.length;
++        if (length != yval.length) {
++            throw new DimensionMismatchException(length, yval.length);
+         }
+ 
+-        final double[] unitWeights = new double[xval.length];
++        final double[] unitWeights = new double[length];
+         Arrays.fill(unitWeights, 1.0);
+ 
+         return smooth(xval, yval, unitWeights);

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/general/Series.java b/source/org/jfree/data/general/Series.java
+index 526d916..6361e89 100644
+--- a/source/org/jfree/data/general/Series.java
++++ b/source/org/jfree/data/general/Series.java
+@@ -279,8 +279,9 @@
+     public int hashCode() {
+         int result;
+         result = this.key.hashCode();
+-        result = 29 * result + (this.description != null
+-                ? this.description.hashCode() : 0);
++        String description1 = this.description;
++        result = 29 * result + (description1 != null
++                ? description1.hashCode() : 0);
+         return result;
+     }
+ 

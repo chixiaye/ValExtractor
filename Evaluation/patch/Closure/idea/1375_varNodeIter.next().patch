@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/GroupVariableDeclarations.java b/src/com/google/javascript/jscomp/GroupVariableDeclarations.java
+index 19cc616..7f03968 100644
+--- a/src/com/google/javascript/jscomp/GroupVariableDeclarations.java
++++ b/src/com/google/javascript/jscomp/GroupVariableDeclarations.java
+@@ -86,9 +86,10 @@
+       return;
+     }
+     Iterator<Node> varNodeIter = varNodes.iterator();
+-    Node firstVarNode = varNodeIter.next();
++      Node next = varNodeIter.next();
++      Node firstVarNode = next;
+     while (varNodeIter.hasNext()) {
+-      Node varNode = varNodeIter.next();
++      Node varNode = next;
+       applyGroupingToVar(firstVarNode, varNode);
+     }
+   }

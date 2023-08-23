@@ -1,0 +1,1394 @@
+[
+	{
+		"before commit":"6e2e46bcf21584cb111bd5254912b2a6410eccb7",
+		"after commit":"110736af19def6e0331316c52b6b3cff76fc3af0",
+		"file path":"storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/ConstraintSolverStrategy.java",
+		"old name":"nodes.getNodes().size()",
+		"new name":"nodeCnt",
+		"type":"int",
+		"variable place":{
+			"start line":251,
+			"start column":13,
+			"end line":251,
+			"end column":46
+		},
+		"before location list":[
+			{
+				"start line":400,
+				"start column":17,
+				"end line":401,
+				"end column":130
+			},
+			{
+				"start line":399,
+				"start column":13,
+				"end line":403,
+				"end column":14
+			},
+			{
+				"start line":406,
+				"start column":13,
+				"end line":407,
+				"end column":107
+			}
+		],
+		"after location list":[
+			{
+				"start line":257,
+				"start column":17,
+				"end line":258,
+				"end column":118
+			},
+			{
+				"start line":256,
+				"start column":13,
+				"end line":260,
+				"end column":14
+			}
+		]
+	},
+	{
+		"before commit":"7ffc44d083707bc60749fe6821f662fc730c6466",
+		"after commit":"c122876f1518f5e737ca0ea831e8c853af8d6a79",
+		"file path":"storm-server/src/main/java/org/apache/storm/scheduler/Cluster.java",
+		"old name":"assignment.getTopologyId()",
+		"new name":"topologyId",
+		"type":"String",
+		"variable place":{
+			"start line":794,
+			"start column":30,
+			"end line":794,
+			"end column":69
+		},
+		"before location list":[
+			{
+				"start line":754,
+				"start column":17,
+				"end line":754,
+				"end column":80
+			},
+			{
+				"start line":757,
+				"start column":17,
+				"end line":757,
+				"end column":85
+			}
+		],
+		"after location list":[
+			{
+				"start line":795,
+				"start column":17,
+				"end line":795,
+				"end column":64
+			},
+			{
+				"start line":800,
+				"start column":17,
+				"end line":800,
+				"end column":69
+			}
+		]
+	},
+	{
+		"before commit":"a694d873f93616474430a337d7819e174f9e9b5b",
+		"after commit":"a09020ac48af5f219626c9059e53cffd354c1bdb",
+		"file path":"storm-webapp/src/main/java/org/apache/storm/daemon/logviewer/handler/LogviewerProfileHandler.java",
+		"old name":"hostPort.split(\":\")",
+		"new name":"hostPortSplit",
+		"type":"String[]",
+		"variable place":{
+			"start line":113,
+			"start column":18,
+			"end line":113,
+			"end column":53
+		},
+		"before location list":[
+			{
+				"start line":114,
+				"start column":9,
+				"end line":114,
+				"end column":49
+			}
+		],
+		"after location list":[
+			{
+				"start line":114,
+				"start column":9,
+				"end line":114,
+				"end column":40
+			},
+			{
+				"start line":115,
+				"start column":9,
+				"end line":115,
+				"end column":43
+			}
+		]
+	},
+	{
+		"before commit":"d644636096c37fb7cace1b6823453d398f0a7024",
+		"after commit":"674a7cb4a1bae26b30a87b0d3d5204c48cd13ebe",
+		"file path":"storm-webapp/src/main/java/org/apache/storm/daemon/logviewer/utils/DirectoryCleaner.java",
+		"old name":"file.length()",
+		"new name":"fileSize",
+		"type":"long",
+		"variable place":{
+			"start line":130,
+			"start column":32,
+			"end line":130,
+			"end column":56
+		},
+		"before location list":[
+			{
+				"start line":137,
+				"start column":17,
+				"end line":137,
+				"end column":134
+			},
+			{
+				"start line":136,
+				"start column":17,
+				"end line":136,
+				"end column":47
+			}
+		],
+		"after location list":[
+			{
+				"start line":136,
+				"start column":25,
+				"end line":136,
+				"end column":50
+			},
+			{
+				"start line":135,
+				"start column":25,
+				"end line":135,
+				"end column":120
+			}
+		]
+	},
+	{
+		"before commit":"fe94434a48f4f5e4f3812f6787117fa2b57e6d5d",
+		"after commit":"146beff6a5e7f0b39147bcf8e9f798c8738c2379",
+		"file path":"storm-webapp/src/main/java/org/apache/storm/daemon/logviewer/utils/DirectoryCleaner.java",
+		"old name":"file.length()",
+		"new name":"fileSize",
+		"type":"long",
+		"variable place":{
+			"start line":130,
+			"start column":32,
+			"end line":130,
+			"end column":56
+		},
+		"before location list":[
+			{
+				"start line":137,
+				"start column":17,
+				"end line":137,
+				"end column":134
+			},
+			{
+				"start line":136,
+				"start column":17,
+				"end line":136,
+				"end column":47
+			}
+		],
+		"after location list":[
+			{
+				"start line":136,
+				"start column":25,
+				"end line":136,
+				"end column":50
+			},
+			{
+				"start line":135,
+				"start column":25,
+				"end line":135,
+				"end column":120
+			}
+		]
+	},
+	{
+		"before commit":"53f38bc31f2fd315a520ba6b86c0a60be08381cc",
+		"after commit":"5cb4582ffb9f4703377e8963133640d1d50e065a",
+		"file path":"storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java",
+		"old name":"cluster.getAssignmentById(topoId)",
+		"new name":"assignment",
+		"type":"SchedulerAssignment",
+		"variable place":{
+			"start line":379,
+			"start column":29,
+			"end line":379,
+			"end column":75
+		},
+		"before location list":[
+			{
+				"start line":282,
+				"start column":21,
+				"end line":291,
+				"end column":22
+			},
+			{
+				"start line":281,
+				"start column":17,
+				"end line":292,
+				"end column":18
+			}
+		],
+		"after location list":[
+			{
+				"start line":382,
+				"start column":13,
+				"end line":388,
+				"end column":14
+			},
+			{
+				"start line":381,
+				"start column":9,
+				"end line":389,
+				"end column":10
+			}
+		]
+	},
+	{
+		"before commit":"32392bc8e19a21a7d8c22248fedf42673472acbc",
+		"after commit":"02639f4f07140fdc3248a9ef869d62654d378d24",
+		"file path":"storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java",
+		"old name":"cluster.getAssignmentById(topoId)",
+		"new name":"assignment",
+		"type":"SchedulerAssignment",
+		"variable place":{
+			"start line":379,
+			"start column":29,
+			"end line":379,
+			"end column":75
+		},
+		"before location list":[
+			{
+				"start line":282,
+				"start column":21,
+				"end line":291,
+				"end column":22
+			},
+			{
+				"start line":281,
+				"start column":17,
+				"end line":292,
+				"end column":18
+			}
+		],
+		"after location list":[
+			{
+				"start line":382,
+				"start column":13,
+				"end line":388,
+				"end column":14
+			},
+			{
+				"start line":381,
+				"start column":9,
+				"end line":389,
+				"end column":10
+			}
+		]
+	},
+	{
+		"before commit":"293643f0956abbd2ccdf2b85c70fee0e1dce6be0",
+		"after commit":"5c05bb74cbef88dfd63ab212183c0494b9fcc985",
+		"file path":"external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java",
+		"old name":"tuple instanceof KafkaTuple ? ((KafkaTuple)tuple).getStream() : Utils.DEFAULT_STREAM_ID",
+		"new name":"stream",
+		"type":"String",
+		"variable place":{
+			"start line":356,
+			"start column":28,
+			"end line":356,
+			"end column":125
+		},
+		"before location list":[
+			{
+				"start line":355,
+				"start column":29,
+				"end line":355,
+				"end column":85
+			},
+			{
+				"start line":369,
+				"start column":29,
+				"end line":369,
+				"end column":92
+			}
+		],
+		"after location list":[
+			{
+				"start line":359,
+				"start column":29,
+				"end line":359,
+				"end column":66
+			},
+			{
+				"start line":362,
+				"start column":29,
+				"end line":362,
+				"end column":59
+			},
+			{
+				"start line":373,
+				"start column":25,
+				"end line":373,
+				"end column":62
+			}
+		]
+	},
+	{
+		"before commit":"48f6969027e7b02a5b9220577189d3911aa2226d",
+		"after commit":"5c05bb74cbef88dfd63ab212183c0494b9fcc985",
+		"file path":"external/storm-kafka-client/src/main/java/org/apache/storm/kafka/spout/KafkaSpout.java",
+		"old name":"tuple instanceof KafkaTuple ? ((KafkaTuple)tuple).getStream() : Utils.DEFAULT_STREAM_ID",
+		"new name":"stream",
+		"type":"String",
+		"variable place":{
+			"start line":356,
+			"start column":28,
+			"end line":356,
+			"end column":125
+		},
+		"before location list":[
+			{
+				"start line":355,
+				"start column":29,
+				"end line":355,
+				"end column":85
+			},
+			{
+				"start line":369,
+				"start column":29,
+				"end line":369,
+				"end column":92
+			}
+		],
+		"after location list":[
+			{
+				"start line":359,
+				"start column":29,
+				"end line":359,
+				"end column":66
+			},
+			{
+				"start line":362,
+				"start column":29,
+				"end line":362,
+				"end column":59
+			},
+			{
+				"start line":373,
+				"start column":25,
+				"end line":373,
+				"end column":62
+			}
+		]
+	},
+	{
+		"before commit":"a99a029ad918a57326f41a6055ca170d28a2f02b",
+		"after commit":"2e2adc725ecf3c41206e93e473eb5380c023316d",
+		"file path":"external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java",
+		"old name":"entry.getKey()",
+		"new name":"key",
+		"type":"byte[]",
+		"variable place":{
+			"start line":230,
+			"start column":28,
+			"end line":230,
+			"end column":48
+		},
+		"before location list":[
+			{
+				"start line":212,
+				"start column":25,
+				"end line":212,
+				"end column":73
+			},
+			{
+				"start line":210,
+				"start column":25,
+				"end line":210,
+				"end column":58
+			}
+		],
+		"after location list":[
+			{
+				"start line":235,
+				"start column":25,
+				"end line":235,
+				"end column":51
+			},
+			{
+				"start line":233,
+				"start column":25,
+				"end line":233,
+				"end column":47
+			}
+		]
+	},
+	{
+		"before commit":"a99a029ad918a57326f41a6055ca170d28a2f02b",
+		"after commit":"2e2adc725ecf3c41206e93e473eb5380c023316d",
+		"file path":"external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java",
+		"old name":"entry.getValue()",
+		"new name":"value",
+		"type":"byte[]",
+		"variable place":{
+			"start line":231,
+			"start column":28,
+			"end line":231,
+			"end column":52
+		},
+		"before location list":[
+			{
+				"start line":212,
+				"start column":25,
+				"end line":212,
+				"end column":73
+			},
+			{
+				"start line":209,
+				"start column":21,
+				"end line":213,
+				"end column":22
+			}
+		],
+		"after location list":[
+			{
+				"start line":235,
+				"start column":25,
+				"end line":235,
+				"end column":51
+			},
+			{
+				"start line":232,
+				"start column":21,
+				"end line":236,
+				"end column":22
+			}
+		]
+	},
+	{
+		"before commit":"e424a6cf1d4f0199ee97a16ca79afc2c64dc1e59",
+		"after commit":"daacde53de91a2bd66d8105bc8c0bc6efcb5178e",
+		"file path":"external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java",
+		"old name":"entry.getKey()",
+		"new name":"key",
+		"type":"byte[]",
+		"variable place":{
+			"start line":230,
+			"start column":28,
+			"end line":230,
+			"end column":48
+		},
+		"before location list":[
+			{
+				"start line":212,
+				"start column":25,
+				"end line":212,
+				"end column":73
+			},
+			{
+				"start line":210,
+				"start column":25,
+				"end line":210,
+				"end column":58
+			}
+		],
+		"after location list":[
+			{
+				"start line":235,
+				"start column":25,
+				"end line":235,
+				"end column":51
+			},
+			{
+				"start line":233,
+				"start column":25,
+				"end line":233,
+				"end column":47
+			}
+		]
+	},
+	{
+		"before commit":"e424a6cf1d4f0199ee97a16ca79afc2c64dc1e59",
+		"after commit":"daacde53de91a2bd66d8105bc8c0bc6efcb5178e",
+		"file path":"external/storm-redis/src/main/java/org/apache/storm/redis/state/RedisKeyValueState.java",
+		"old name":"entry.getValue()",
+		"new name":"value",
+		"type":"byte[]",
+		"variable place":{
+			"start line":231,
+			"start column":28,
+			"end line":231,
+			"end column":52
+		},
+		"before location list":[
+			{
+				"start line":212,
+				"start column":25,
+				"end line":212,
+				"end column":73
+			},
+			{
+				"start line":209,
+				"start column":21,
+				"end line":213,
+				"end column":22
+			}
+		],
+		"after location list":[
+			{
+				"start line":235,
+				"start column":25,
+				"end line":235,
+				"end column":51
+			},
+			{
+				"start line":232,
+				"start column":21,
+				"end line":236,
+				"end column":22
+			}
+		]
+	},
+	{
+		"before commit":"313e960bedde3b2c47520a74c391425d79271727",
+		"after commit":"4986373c5ca8d8e3d6903dd479c4442451c49655",
+		"file path":"external/storm-kafka-client/src/main/java/org/apache/storm/kafka/trident/TridentKafkaState.java",
+		"old name":"mapper.getKeyFromTuple(tuple)",
+		"new name":"keyFromTuple",
+		"type":"Object",
+		"variable place":{
+			"start line":84,
+			"start column":11,
+			"end line":84,
+			"end column":55
+		},
+		"before location list":[
+			{
+				"start line":87,
+				"start column":21,
+				"end line":87,
+				"end column":117
+			},
+			{
+				"start line":83,
+				"start column":21,
+				"end line":84,
+				"end column":96
+			}
+		],
+		"after location list":[
+			{
+				"start line":95,
+				"start column":23,
+				"end line":95,
+				"end column":102
+			},
+			{
+				"start line":88,
+				"start column":9,
+				"end line":88,
+				"end column":113
+			},
+			{
+				"start line":91,
+				"start column":9,
+				"end line":91,
+				"end column":86
+			}
+		]
+	},
+	{
+		"before commit":"913d0c15d364195760239a93e4efeb1c2550f975",
+		"after commit":"4986373c5ca8d8e3d6903dd479c4442451c49655",
+		"file path":"external/storm-kafka-client/src/main/java/org/apache/storm/kafka/trident/TridentKafkaState.java",
+		"old name":"mapper.getKeyFromTuple(tuple)",
+		"new name":"keyFromTuple",
+		"type":"Object",
+		"variable place":{
+			"start line":84,
+			"start column":11,
+			"end line":84,
+			"end column":55
+		},
+		"before location list":[
+			{
+				"start line":87,
+				"start column":21,
+				"end line":87,
+				"end column":117
+			},
+			{
+				"start line":83,
+				"start column":21,
+				"end line":84,
+				"end column":96
+			}
+		],
+		"after location list":[
+			{
+				"start line":95,
+				"start column":23,
+				"end line":95,
+				"end column":102
+			},
+			{
+				"start line":88,
+				"start column":9,
+				"end line":88,
+				"end column":113
+			},
+			{
+				"start line":91,
+				"start column":9,
+				"end line":91,
+				"end column":86
+			}
+		]
+	},
+	{
+		"before commit":"02d290be8ac212d63450248d9d6cb9e656befd2b",
+		"after commit":"f9fb20696b4e6e9dd7419b291087123c65cbd35c",
+		"file path":"storm-core/src/jvm/org/apache/storm/daemon/worker/LogConfigManager.java",
+		"old name":"latestLogConfig.get()",
+		"new name":"latestConf",
+		"type":"TreeMap<String,LogLevel>",
+		"variable place":{
+			"start line":82,
+			"start column":38,
+			"end line":82,
+			"end column":72
+		},
+		"before location list":[
+			{
+				"start line":84,
+				"start column":21,
+				"end line":84,
+				"end column":121
+			},
+			{
+				"start line":81,
+				"start column":13,
+				"end line":87,
+				"end column":14
+			}
+		],
+		"after location list":[
+			{
+				"start line":84,
+				"start column":17,
+				"end line":90,
+				"end column":18
+			},
+			{
+				"start line":87,
+				"start column":25,
+				"end line":87,
+				"end column":114
+			}
+		]
+	},
+	{
+		"before commit":"5c81f0c7ff1e344d9996912dd20038fde32dc505",
+		"after commit":"480256e9a336c44dd9f605a52d98a13d85e0d2da",
+		"file path":"storm-core/src/jvm/org/apache/storm/ui/UIHelpers.java",
+		"old name":"(String)divider[0]",
+		"new name":"state",
+		"type":"String",
+		"variable place":{
+			"start line":64,
+			"start column":24,
+			"end line":64,
+			"end column":51
+		},
+		"before location list":[
+			{
+				"start line":73,
+				"start column":21,
+				"end line":73,
+				"end column":55
+			},
+			{
+				"start line":70,
+				"start column":21,
+				"end line":70,
+				"end column":61
+			}
+		],
+		"after location list":[
+			{
+				"start line":70,
+				"start column":21,
+				"end line":70,
+				"end column":50
+			},
+			{
+				"start line":67,
+				"start column":21,
+				"end line":67,
+				"end column":56
+			}
+		]
+	},
+	{
+		"before commit":"e8c08927eb7227cc716a54f99d8f90d1b0c3f1f2",
+		"after commit":"f910e0db9447ca0bdc1a382c09ee1a242f4fc166",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/KafkaUtils.java",
+		"old name":"partition.getId()",
+		"new name":"metricPath",
+		"type":"String",
+		"variable place":{
+			"start line":124,
+			"start column":32,
+			"end line":124,
+			"end column":62
+		},
+		"before location list":[
+			{
+				"start line":125,
+				"start column":25,
+				"end line":125,
+				"end column":101
+			},
+			{
+				"start line":124,
+				"start column":25,
+				"end line":124,
+				"end column":81
+			},
+			{
+				"start line":126,
+				"start column":25,
+				"end line":126,
+				"end column":97
+			},
+			{
+				"start line":127,
+				"start column":25,
+				"end line":127,
+				"end column":103
+			}
+		],
+		"after location list":[
+			{
+				"start line":131,
+				"start column":25,
+				"end line":131,
+				"end column":90
+			},
+			{
+				"start line":132,
+				"start column":25,
+				"end line":132,
+				"end column":96
+			},
+			{
+				"start line":129,
+				"start column":25,
+				"end line":129,
+				"end column":74
+			},
+			{
+				"start line":130,
+				"start column":25,
+				"end line":130,
+				"end column":94
+			}
+		]
+	},
+	{
+		"before commit":"e8c08927eb7227cc716a54f99d8f90d1b0c3f1f2",
+		"after commit":"f910e0db9447ca0bdc1a382c09ee1a242f4fc166",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":94,
+			"start column":16,
+			"end line":94,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":89,
+				"start column":9,
+				"end line":89,
+				"end column":108
+			},
+			{
+				"start line":95,
+				"start column":13,
+				"end line":95,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":95,
+				"start column":9,
+				"end line":95,
+				"end column":96
+			},
+			{
+				"start line":101,
+				"start column":13,
+				"end line":101,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"e8c08927eb7227cc716a54f99d8f90d1b0c3f1f2",
+		"after commit":"f910e0db9447ca0bdc1a382c09ee1a242f4fc166",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":420,
+			"start column":17,
+			"end line":420,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":422,
+				"start column":13,
+				"end line":422,
+				"end column":29
+			},
+			{
+				"start line":421,
+				"start column":9,
+				"end line":424,
+				"end column":10
+			}
+		]
+	},
+	{
+		"before commit":"5261160f84bcb0ef73acf4a632d421f7e2ee901d",
+		"after commit":"c1a89d9597dfcbfeca260d4264a4b2e374c419be",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":89,
+				"start column":9,
+				"end line":89,
+				"end column":108
+			},
+			{
+				"start line":95,
+				"start column":13,
+				"end line":95,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"1496f27a9c6f8678f7f24dc3505693f6b3ff57fa",
+		"after commit":"3dbfa10c26a71d33f35037edc4e57a47f50a11f8",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":89,
+				"start column":9,
+				"end line":89,
+				"end column":108
+			},
+			{
+				"start line":95,
+				"start column":13,
+				"end line":95,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"d0575b94ed352315984dff519a171432d5719c78",
+		"after commit":"07722ffa819692ce7e5dc06905241533bf953379",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":89,
+				"start column":9,
+				"end line":89,
+				"end column":108
+			},
+			{
+				"start line":95,
+				"start column":13,
+				"end line":95,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"d0575b94ed352315984dff519a171432d5719c78",
+		"after commit":"07722ffa819692ce7e5dc06905241533bf953379",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":419,
+			"start column":17,
+			"end line":419,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":420,
+				"start column":9,
+				"end line":423,
+				"end column":10
+			},
+			{
+				"start line":421,
+				"start column":13,
+				"end line":421,
+				"end column":29
+			}
+		]
+	},
+	{
+		"before commit":"62d725a85e7869290805cdbe55f1f3bce1f905de",
+		"after commit":"80c60d84df16ce35f750f981526e57cfef18e48f",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":93,
+				"start column":9,
+				"end line":93,
+				"end column":108
+			},
+			{
+				"start line":99,
+				"start column":13,
+				"end line":99,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"124c62cf912deccaaa2d9d37cc56d815d8654108",
+		"after commit":"405b853450b339057e83c38094bedb2c30df8a60",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":93,
+				"start column":9,
+				"end line":93,
+				"end column":108
+			},
+			{
+				"start line":99,
+				"start column":13,
+				"end line":99,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"b3521c577bef6654dcf90269c4639064c3ae60eb",
+		"after commit":"be9799e4f43d6721e08a3ceab18df9c6ae34cd3b",
+		"file path":"external/storm-kafka/src/jvm/storm/kafka/PartitionManager.java",
+		"old name":"_partition.topic",
+		"new name":"topic",
+		"type":"String",
+		"variable place":{
+			"start line":93,
+			"start column":16,
+			"end line":93,
+			"end column":40
+		},
+		"before location list":[
+			{
+				"start line":93,
+				"start column":9,
+				"end line":93,
+				"end column":108
+			},
+			{
+				"start line":99,
+				"start column":13,
+				"end line":99,
+				"end column":122
+			}
+		],
+		"after location list":[
+			{
+				"start line":94,
+				"start column":9,
+				"end line":94,
+				"end column":96
+			},
+			{
+				"start line":100,
+				"start column":13,
+				"end line":100,
+				"end column":110
+			}
+		]
+	},
+	{
+		"before commit":"5d84794521b2f581d2ccf3b144f8c73cfb277e75",
+		"after commit":"5266a167169cbc7e36a31d55772fdc7ac33ccf94",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":402,
+			"start column":17,
+			"end line":402,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":404,
+				"start column":13,
+				"end line":404,
+				"end column":29
+			},
+			{
+				"start line":403,
+				"start column":9,
+				"end line":406,
+				"end column":10
+			}
+		]
+	},
+	{
+		"before commit":"e7ef20ee40beddd028b692ffb4a9c646360f7b24",
+		"after commit":"b69c643936970aa993a21c42dc0c9e498316f24b",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":397,
+			"start column":17,
+			"end line":397,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":398,
+				"start column":9,
+				"end line":401,
+				"end column":10
+			},
+			{
+				"start line":399,
+				"start column":13,
+				"end line":399,
+				"end column":29
+			}
+		]
+	},
+	{
+		"before commit":"184fd722785741701768a89c2d7341e22fddb50f",
+		"after commit":"4eb2e1e9244c6f427ce000759a44b6bead2bfba3",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":397,
+			"start column":17,
+			"end line":397,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":398,
+				"start column":9,
+				"end line":401,
+				"end column":10
+			},
+			{
+				"start line":399,
+				"start column":13,
+				"end line":399,
+				"end column":29
+			}
+		]
+	},
+	{
+		"before commit":"4a3ddc688a5a0d584a6858168241083db23add15",
+		"after commit":"98cbb34f01dd829fcdf3ea931d12c50c7f88cf98",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":397,
+			"start column":17,
+			"end line":397,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":398,
+				"start column":9,
+				"end line":401,
+				"end column":10
+			},
+			{
+				"start line":399,
+				"start column":13,
+				"end line":399,
+				"end column":29
+			}
+		]
+	},
+	{
+		"before commit":"b1411aa63383801913cb1340a8b51c5bb46db0ba",
+		"after commit":"4a66ab97f72cd26d8a7e4f2527e8d30d14cede00",
+		"file path":"storm-core/src/jvm/backtype/storm/messaging/netty/Client.java",
+		"old name":"channelRef.get()",
+		"new name":"channel",
+		"type":"Channel",
+		"variable place":{
+			"start line":393,
+			"start column":17,
+			"end line":393,
+			"end column":43
+		},
+		"before location list":[
+			{
+				"start line":550,
+				"start column":9,
+				"end line":553,
+				"end column":10
+			},
+			{
+				"start line":551,
+				"start column":13,
+				"end line":551,
+				"end column":38
+			}
+		],
+		"after location list":[
+			{
+				"start line":395,
+				"start column":13,
+				"end line":395,
+				"end column":29
+			},
+			{
+				"start line":394,
+				"start column":9,
+				"end line":397,
+				"end column":10
+			}
+		]
+	}
+]

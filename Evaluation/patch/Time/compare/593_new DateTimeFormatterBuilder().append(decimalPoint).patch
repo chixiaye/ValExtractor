@@ -1,0 +1,106 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..69b7d82 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -1294,6 +1294,8 @@
+                     })
+                     .toParser();
+ 
++                DateTimeFormatterBuilder var_593 = new DateTimeFormatterBuilder()
++				.append(decimalPoint);
+                 return new DateTimeFormatterBuilder()
+                     // time-element
+                     .append(hourElement())
+@@ -1314,8 +1316,7 @@
+                                             .toParser())
+                             .toParser(),
+                             // minute fraction
+-                            new DateTimeFormatterBuilder()
+-                            .append(decimalPoint)
++                            var_593
+                             .appendFractionOfMinute(1, 9)
+                             .toParser(),
+                             null
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..5bf6041 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -1294,6 +1294,8 @@
+                     })
+                     .toParser();
+ 
++                DateTimeFormatterBuilder var_593 = new DateTimeFormatterBuilder()
++				.append(decimalPoint);
+                 return new DateTimeFormatterBuilder()
+                     // time-element
+                     .append(hourElement())
+@@ -1308,22 +1310,19 @@
+                             // second-element
+                             .append(secondElement())
+                             // second fraction
+-                            .appendOptional(new DateTimeFormatterBuilder()
+-                                            .append(decimalPoint)
++                            .appendOptional(var_593
+                                             .appendFractionOfSecond(1, 9)
+                                             .toParser())
+                             .toParser(),
+                             // minute fraction
+-                            new DateTimeFormatterBuilder()
+-                            .append(decimalPoint)
++                            var_593
+                             .appendFractionOfMinute(1, 9)
+                             .toParser(),
+                             null
+                         })
+                         .toParser(),
+                         // hour fraction
+-                        new DateTimeFormatterBuilder()
+-                        .append(decimalPoint)
++                        var_593
+                         .appendFractionOfHour(1, 9)
+                         .toParser(),
+                         null
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..f42441f 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -1294,6 +1294,8 @@
+                     })
+                     .toParser();
+ 
++                DateTimeFormatterBuilder append = new DateTimeFormatterBuilder()
++                        .append(decimalPoint);
+                 return new DateTimeFormatterBuilder()
+                     // time-element
+                     .append(hourElement())
+@@ -1308,22 +1310,19 @@
+                             // second-element
+                             .append(secondElement())
+                             // second fraction
+-                            .appendOptional(new DateTimeFormatterBuilder()
+-                                            .append(decimalPoint)
++                            .appendOptional(append
+                                             .appendFractionOfSecond(1, 9)
+                                             .toParser())
+                             .toParser(),
+                             // minute fraction
+-                            new DateTimeFormatterBuilder()
+-                            .append(decimalPoint)
++                            append
+                             .appendFractionOfMinute(1, 9)
+                             .toParser(),
+                             null
+                         })
+                         .toParser(),
+                         // hour fraction
+-                        new DateTimeFormatterBuilder()
+-                        .append(decimalPoint)
++                        append
+                         .appendFractionOfHour(1, 9)
+                         .toParser(),
+                         null

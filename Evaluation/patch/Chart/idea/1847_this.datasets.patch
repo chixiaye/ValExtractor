@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..432b41a 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1706,8 +1706,9 @@
+      */
+     public CategoryItemRenderer getRendererForDataset(CategoryDataset dataset) {
+         CategoryItemRenderer result = null;
+-        for (int i = 0; i < this.datasets.size(); i++) {
+-            if (this.datasets.get(i) == dataset) {
++        ObjectList datasets1 = this.datasets;
++        for (int i = 0; i < datasets1.size(); i++) {
++            if (datasets1.get(i) == dataset) {
+                 result = (CategoryItemRenderer) this.renderers.get(i);
+                 break;
+             }

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..c446069 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -396,6 +396,7 @@
+ 
+         this.padding = RectangleInsets.ZERO_INSETS;
+ 
++        Plot plot1 = this.plot;
+         this.plot = plot;
+         plot.addChangeListener(this);
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..9395995 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -925,7 +925,8 @@
+   boolean declareParam(JSTypeExpression jsType, String parameter) {
+     lazyInitInfo();
+     if (info.parameters == null) {
+-      info.parameters = new LinkedHashMap<String, JSTypeExpression>();
++        Map<String, JSTypeExpression> parameters = info.parameters;
++        parameters = new LinkedHashMap<String, JSTypeExpression>();
+     }
+     if (!info.parameters.containsKey(parameter)) {
+       info.parameters.put(parameter, jsType);

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..118886e 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -611,7 +611,8 @@
+      * @see #isRadiusGridlinesVisible()
+      */
+     public void setRadiusGridlinesVisible(boolean visible) {
+-        if (this.radiusGridlinesVisible != visible) {
++        boolean radiusGridlinesVisible1 = this.radiusGridlinesVisible;
++        if (radiusGridlinesVisible1 != visible) {
+             this.radiusGridlinesVisible = visible;
+             fireChangeEvent();
+         }

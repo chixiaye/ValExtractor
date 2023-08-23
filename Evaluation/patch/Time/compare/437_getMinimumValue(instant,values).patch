@@ -1,0 +1,87 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..91b843b 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -394,7 +394,8 @@
+             if (nextField == null) {
+                 if (fieldIndex == 0) {
+                     valueToAdd -= (max + 1) - values[fieldIndex];
+-                    values[fieldIndex] = getMinimumValue(instant, values);
++                    int var_437 = getMinimumValue(instant, values);
++					values[fieldIndex] = var_437;
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..8e8692d 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -384,6 +384,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        int var_437 = getMinimumValue(instant, values);
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -394,7 +395,7 @@
+             if (nextField == null) {
+                 if (fieldIndex == 0) {
+                     valueToAdd -= (max + 1) - values[fieldIndex];
+-                    values[fieldIndex] = getMinimumValue(instant, values);
++                    values[fieldIndex] = var_437;
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+@@ -405,10 +406,10 @@
+             }
+             valueToAdd -= (max + 1) - values[fieldIndex];  // reduce the amount to add
+             values = nextField.addWrapPartial(instant, fieldIndex - 1, values, 1);  // add 1 to next bigger field
+-            values[fieldIndex] = getMinimumValue(instant, values);  // reset this field to zero
++            values[fieldIndex] = var_437;  // reset this field to zero
+         }
+         while (valueToAdd < 0) {
+-            int min = getMinimumValue(instant, values);
++            int min = var_437;
+             long proposed = values[fieldIndex] + valueToAdd;
+             if (proposed >= min) {
+                 values[fieldIndex] = (int) proposed;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..69f64e5 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -384,6 +384,7 @@
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+         
++        int minimumValue = getMinimumValue(instant, values);
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -394,7 +395,7 @@
+             if (nextField == null) {
+                 if (fieldIndex == 0) {
+                     valueToAdd -= (max + 1) - values[fieldIndex];
+-                    values[fieldIndex] = getMinimumValue(instant, values);
++                    values[fieldIndex] = minimumValue;
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+@@ -405,10 +406,10 @@
+             }
+             valueToAdd -= (max + 1) - values[fieldIndex];  // reduce the amount to add
+             values = nextField.addWrapPartial(instant, fieldIndex - 1, values, 1);  // add 1 to next bigger field
+-            values[fieldIndex] = getMinimumValue(instant, values);  // reset this field to zero
++            values[fieldIndex] = minimumValue;  // reset this field to zero
+         }
+         while (valueToAdd < 0) {
+-            int min = getMinimumValue(instant, values);
++            int min = minimumValue;
+             long proposed = values[fieldIndex] + valueToAdd;
+             if (proposed >= min) {
+                 values[fieldIndex] = (int) proposed;

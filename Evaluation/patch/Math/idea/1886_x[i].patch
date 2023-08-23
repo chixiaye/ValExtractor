@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+index f03ba0e..ef4de75 100644
+--- a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+@@ -288,7 +288,8 @@
+                     xJ[k] /= lJJ;
+                 }
+                 for (int i = 0; i < j; i++) {
+-                    final double[] xI = x[i];
++                    double[] x1 = x[i];
++                    final double[] xI = x1;
+                     final double lIJ = lTData[i][j];
+                     for (int k = 0; k < nColB; ++k) {
+                         xI[k] -= xJ[k] * lIJ;

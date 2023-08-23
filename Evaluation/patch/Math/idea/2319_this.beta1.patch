@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..4fb53ad 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -569,7 +569,8 @@
+              *   y = M * b,
+              *   beta1 = beta[1].
+              */
+-            final RealVector v = this.y.mapMultiply(1. / this.beta1);
++             double beta11 = this.beta1;
++             final RealVector v = this.y.mapMultiply(1. / beta11);
+             this.y = this.a.operate(v);
+             if (this.check) {
+                 checkSymmetry(this.a, v, this.y, this.a.operate(this.y));

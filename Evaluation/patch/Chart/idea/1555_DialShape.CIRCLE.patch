@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/DialShape.java b/source/org/jfree/chart/plot/DialShape.java
+index 612f663..3a0b572 100644
+--- a/source/org/jfree/chart/plot/DialShape.java
++++ b/source/org/jfree/chart/plot/DialShape.java
+@@ -122,8 +122,9 @@
+      * @throws ObjectStreamException if there is a problem.
+      */
+     private Object readResolve() throws ObjectStreamException {
+-        if (this.equals(DialShape.CIRCLE)) {
+-            return DialShape.CIRCLE;
++        DialShape circle = DialShape.CIRCLE;
++        if (this.equals(circle)) {
++            return circle;
+         }
+         else if (this.equals(DialShape.CHORD)) {
+             return DialShape.CHORD;

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java b/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
+index 3a5d11b..fff03ce 100644
+--- a/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
++++ b/src/main/java/org/apache/commons/math3/ode/JacobianMatrices.java
+@@ -397,7 +397,8 @@
+                                 int zIndex = startIndex;
+                                 double s = dFdP[i];
+                                 for (int l = 0; l < stateDim; ++l) {
+-                                    s += dFdYi[l] * z[zIndex];
++                                    double v = z[zIndex];
++                                    s += dFdYi[l] * v;
+                                     zIndex++;
+                                 }
+                                 zDot[startIndex + i] = s;

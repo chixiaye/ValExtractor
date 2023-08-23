@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..ffbc140 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -1084,10 +1084,11 @@
+       current.setSourceEncodedPosition(n.getSourcePosition() + FOR_QUOTE);
+       current.setLength(fullLen);
+ 
+-      current.getLastChild().setSourceEncodedPosition(
++        Node lastChild = current.getLastChild();
++        lastChild.setSourceEncodedPosition(
+           n.getSourcePosition() + namespaceLen + FOR_QUOTE + FOR_DOT);
+-      current.getLastChild().setLength(
+-          current.getLastChild().getString().length());
++      lastChild.setLength(
++          lastChild.getString().length());
+     }
+ 
+     current.setSourceEncodedPosition(n.getSourcePosition() + FOR_QUOTE);

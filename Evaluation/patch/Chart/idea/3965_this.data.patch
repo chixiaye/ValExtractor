@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/general/DefaultKeyedValueDataset.java b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+index ee47f3e..cb344e3 100644
+--- a/source/org/jfree/data/general/DefaultKeyedValueDataset.java
++++ b/source/org/jfree/data/general/DefaultKeyedValueDataset.java
+@@ -176,7 +176,8 @@
+      * @return A hash code.
+      */
+     public int hashCode() {
+-        return (this.data != null ? this.data.hashCode() : 0);
++        KeyedValue data1 = this.data;
++        return (data1 != null ? data1.hashCode() : 0);
+     }
+ 
+     /**

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..418b0b8 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3271,13 +3271,14 @@
+             ValueAxis domainAxis = getDomainAxis();
+             if (domainAxis != null) {
+                 double x;
++                RectangleEdge domainAxisEdge = getDomainAxisEdge();
+                 if (orient == PlotOrientation.VERTICAL) {
+                     x = domainAxis.java2DToValue(anchor.getX(), dataArea,
+-                            getDomainAxisEdge());
++                            domainAxisEdge);
+                 }
+                 else {
+                     x = domainAxis.java2DToValue(anchor.getY(), dataArea,
+-                            getDomainAxisEdge());
++                            domainAxisEdge);
+                 }
+                 crosshairState.setAnchorX(x);
+             }

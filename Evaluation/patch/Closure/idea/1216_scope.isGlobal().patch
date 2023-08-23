@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..7d78a19 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -859,7 +859,8 @@
+       FunctionType functionType = null;
+ 
+       // Global ctor aliases should be registered with the type registry.
+-      if (rValue != null && rValue.isQualifiedName() && scope.isGlobal()) {
++        boolean global = scope.isGlobal();
++        if (rValue != null && rValue.isQualifiedName() && global) {
+         Var var = scope.getVar(rValue.getQualifiedName());
+         if (var != null && var.getType() != null &&
+             var.getType().isFunctionType()) {
+@@ -868,7 +869,7 @@
+               !aliasedType.isNativeObjectType()) {
+             functionType = aliasedType;
+ 
+-            if (name != null && scope.isGlobal()) {
++            if (name != null && global) {
+               typeRegistry.declareType(name, functionType.getInstanceType());
+             }
+           }

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+index 7430b1c..5227f82 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrTokenizer.java
+@@ -472,6 +472,7 @@
+     public StrTokenizer reset(final String input) {
+         reset();
+         if (input != null) {
++            char[] chars1 = this.chars;
+             this.chars = input.toCharArray();
+         } else {
+             this.chars = null;

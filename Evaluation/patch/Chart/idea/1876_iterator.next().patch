@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..7899358 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2754,7 +2754,8 @@
+             Set keys = this.backgroundRangeMarkers.keySet();
+             Iterator iterator = keys.iterator();
+             while (iterator.hasNext()) {
+-                Integer key = (Integer) iterator.next();
++                Object next = iterator.next();
++                Integer key = (Integer) next;
+                 clearRangeMarkers(key.intValue());
+             }
+             this.backgroundRangeMarkers.clear();

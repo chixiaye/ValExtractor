@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialCap.java b/source/org/jfree/chart/plot/dial/DialCap.java
+index 619f376..bf9d33f 100644
+--- a/source/org/jfree/chart/plot/dial/DialCap.java
++++ b/source/org/jfree/chart/plot/dial/DialCap.java
+@@ -242,8 +242,9 @@
+ 
+         g2.setPaint(this.fillPaint);
+ 
+-        Rectangle2D f = DialPlot.rectangleByRadius(frame, this.radius,
+-                this.radius);
++        double radius1 = this.radius;
++        Rectangle2D f = DialPlot.rectangleByRadius(frame, radius1,
++                radius1);
+         Ellipse2D e = new Ellipse2D.Double(f.getX(), f.getY(), f.getWidth(),
+                 f.getHeight());
+         g2.fill(e);

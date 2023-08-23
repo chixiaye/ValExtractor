@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/category/SlidingCategoryDataset.java b/source/org/jfree/data/category/SlidingCategoryDataset.java
+index ca2b458..c02bc16 100644
+--- a/source/org/jfree/data/category/SlidingCategoryDataset.java
++++ b/source/org/jfree/data/category/SlidingCategoryDataset.java
+@@ -343,8 +343,9 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         SlidingCategoryDataset clone = (SlidingCategoryDataset) super.clone();
+-        if (this.underlying instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.underlying;
++        CategoryDataset underlying1 = this.underlying;
++        if (underlying1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) underlying1;
+             clone.underlying = (CategoryDataset) pc.clone();
+         }
+         return clone;

@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..96d78d8 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -506,8 +506,8 @@
+                 } else if (token.equalsIgnoreCase("Zone")) {
+                     zone = new Zone(st);
+                 } else if (token.equalsIgnoreCase("Link")) {
+-                    iLinks.add(st.nextToken());
+-                    iLinks.add(st.nextToken());
++                    boolean add = iLinks.add(st.nextToken());
++                    add;
+                 } else {
+                     System.out.println("Unknown line: " + line);
+                 }

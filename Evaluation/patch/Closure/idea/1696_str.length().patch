@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/InlineCostEstimator.java b/src/com/google/javascript/jscomp/InlineCostEstimator.java
+index 878e36f..7d91fba 100644
+--- a/src/com/google/javascript/jscomp/InlineCostEstimator.java
++++ b/src/com/google/javascript/jscomp/InlineCostEstimator.java
+@@ -83,8 +83,9 @@
+ 
+     @Override
+     void append(String str){
+-      last = str.charAt(str.length() - 1);
+-      cost += str.length();
++        int length = str.length();
++        last = str.charAt(length - 1);
++      cost += length;
+       if (maxCost <= cost) {
+         continueProcessing = false;
+       }

@@ -1,0 +1,38 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..62f916f 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1267,7 +1267,8 @@
+         }
+ 
+         /* handle special cases */
+-        if (nans != FINITE || x.nans != FINITE) {
++        byte nans1 = x.nans;
++        if (nans != FINITE || nans1 != FINITE) {
+             if (isNaN()) {
+                 return this;
+             }
+@@ -1276,19 +1277,19 @@
+                 return x;
+             }
+ 
+-            if (nans == INFINITE && x.nans == FINITE) {
++            if (nans == INFINITE && nans1 == FINITE) {
+                 return this;
+             }
+ 
+-            if (x.nans == INFINITE && nans == FINITE) {
++            if (nans1 == INFINITE && nans == FINITE) {
+                 return x;
+             }
+ 
+-            if (x.nans == INFINITE && nans == INFINITE && sign == x.sign) {
++            if (nans1 == INFINITE && nans == INFINITE && sign == x.sign) {
+                 return x;
+             }
+ 
+-            if (x.nans == INFINITE && nans == INFINITE && sign != x.sign) {
++            if (nans1 == INFINITE && nans == INFINITE && sign != x.sign) {
+                 field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
+                 Dfp result = newInstance(getZero());
+                 result.nans = QNAN;

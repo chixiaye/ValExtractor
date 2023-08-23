@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..3d00426 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -306,14 +306,15 @@
+         sb.append("[");
+         sb.append(replacements.getKey());
+         sb.append("]\n\n");
+-        for (Map.Entry<String, String> replacement :
++          StringBuilder append = sb.append("\n");
++          for (Map.Entry<String, String> replacement :
+             replacements.getValue().entrySet()) {
+           sb.append(replacement.getKey());
+           sb.append(':');
+           sb.append(replacement.getValue());
+-          sb.append("\n");
++          append;
+         }
+-        sb.append("\n");
++        append;
+       }
+     }
+     return sb.toString();

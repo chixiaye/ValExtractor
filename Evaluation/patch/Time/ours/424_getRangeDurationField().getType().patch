@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..a903218 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -20,6 +20,7 @@
+ import org.joda.time.DateTimeField;
+ import org.joda.time.DateTimeFieldType;
+ import org.joda.time.DurationField;
++import org.joda.time.DurationFieldType;
+ import org.joda.time.IllegalFieldValueException;
+ import org.joda.time.ReadablePartial;
+ 
+@@ -316,7 +317,8 @@
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+                 // test only works if this field is UTC (ie. local)
+-                if (getRangeDurationField().getType() != nextField.getDurationField().getType()) {
++                DurationFieldType var_424 = getRangeDurationField().getType();
++				if (var_424 != nextField.getDurationField().getType()) {
+                     throw new IllegalArgumentException("Fields invalid for add");
+                 }
+             }

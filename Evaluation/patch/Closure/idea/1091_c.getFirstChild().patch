@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..2f3ac90 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -269,9 +269,10 @@
+       case Token.VAR:
+         for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+           if (c.hasChildren()) {
+-            computeMustDef(c.getFirstChild(), cfgNode, output, conditional);
++              Node firstChild = c.getFirstChild();
++              computeMustDef(firstChild, cfgNode, output, conditional);
+             addToDefIfLocal(c.getString(), conditional ? null : cfgNode,
+-                c.getFirstChild(), output);
++                    firstChild, output);
+           }
+         }
+         return;

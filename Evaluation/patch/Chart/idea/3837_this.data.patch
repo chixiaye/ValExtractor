@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/ComparableObjectSeries.java b/source/org/jfree/data/ComparableObjectSeries.java
+index 02c55ab..1f3acb9 100644
+--- a/source/org/jfree/data/ComparableObjectSeries.java
++++ b/source/org/jfree/data/ComparableObjectSeries.java
+@@ -353,8 +353,9 @@
+      * listeners.
+      */
+     public void clear() {
+-        if (this.data.size() > 0) {
+-            this.data.clear();
++        List data1 = this.data;
++        if (data1.size() > 0) {
++            data1.clear();
+             fireSeriesChanged();
+         }
+     }

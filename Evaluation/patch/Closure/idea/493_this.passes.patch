@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..94d3d65 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -782,7 +782,8 @@
+     // own PassConfig object.
+     Preconditions.checkNotNull(passes);
+ 
+-    if (this.passes != null) {
++      PassConfig passes1 = this.passes;
++      if (passes1 != null) {
+       throw new IllegalStateException("this.passes has already been assigned");
+     }
+     this.passes = passes;

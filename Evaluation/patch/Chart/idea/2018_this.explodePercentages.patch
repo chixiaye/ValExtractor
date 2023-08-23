@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..b9851ba 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -1633,7 +1633,8 @@
+         if (key == null) {
+             throw new IllegalArgumentException("Null 'key' argument.");
+         }
+-        if (this.explodePercentages == null) {
++        Map explodePercentages1 = this.explodePercentages;
++        if (explodePercentages1 == null) {
+             this.explodePercentages = new TreeMap();
+         }
+         this.explodePercentages.put(key, new Double(percent));

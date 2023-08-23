@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..7d6f360 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -887,7 +887,8 @@
+      * @see #getForegroundAlpha()
+      */
+     public void setForegroundAlpha(float alpha) {
+-        if (this.foregroundAlpha != alpha) {
++        float foregroundAlpha1 = this.foregroundAlpha;
++        if (foregroundAlpha1 != alpha) {
+             this.foregroundAlpha = alpha;
+             fireChangeEvent();
+         }

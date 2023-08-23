@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..becf0f6 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1339,6 +1339,7 @@
+                                  Marker marker,
+                                  Rectangle2D dataArea) {
+ 
++        String label1 = marker.getLabel();
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+@@ -1368,7 +1369,7 @@
+             g2.setStroke(marker.getStroke());
+             g2.draw(line);
+ 
+-            String label = marker.getLabel();
++            String label = label1;
+             RectangleAnchor anchor = marker.getLabelAnchor();
+             if (label != null) {
+                 Font labelFont = marker.getLabelFont();
+@@ -1470,7 +1471,7 @@
+                 }
+             }
+ 
+-            String label = marker.getLabel();
++            String label = label1;
+             RectangleAnchor anchor = marker.getLabelAnchor();
+             if (label != null) {
+                 Font labelFont = marker.getLabelFont();

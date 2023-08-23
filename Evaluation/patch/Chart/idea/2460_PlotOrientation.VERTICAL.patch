@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..0a03824 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1110,6 +1110,7 @@
+ 
+         PlotOrientation orientation = plot.getOrientation();
+         Rectangle2D bounds = null;
++        PlotOrientation vertical = PlotOrientation.VERTICAL;
+         if (marker.getDrawAsLine()) {
+             double v = axis.getCategoryMiddle(columnIndex,
+                     dataset.getColumnCount(), dataArea,
+@@ -1119,7 +1120,7 @@
+                 line = new Line2D.Double(dataArea.getMinX(), v,
+                         dataArea.getMaxX(), v);
+             }
+-            else if (orientation == PlotOrientation.VERTICAL) {
++            else if (orientation == vertical) {
+                 line = new Line2D.Double(v, dataArea.getMinY(), v,
+                         dataArea.getMaxY());
+             }
+@@ -1140,7 +1141,7 @@
+                 area = new Rectangle2D.Double(dataArea.getMinX(), v0,
+                         dataArea.getWidth(), (v1 - v0));
+             }
+-            else if (orientation == PlotOrientation.VERTICAL) {
++            else if (orientation == vertical) {
+                 area = new Rectangle2D.Double(v0, dataArea.getMinY(),
+                         (v1 - v0), dataArea.getHeight());
+             }

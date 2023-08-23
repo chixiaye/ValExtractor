@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/time/Quarter.java b/source/org/jfree/data/time/Quarter.java
+index 5f33f62..e1f6192 100644
+--- a/source/org/jfree/data/time/Quarter.java
++++ b/source/org/jfree/data/time/Quarter.java
+@@ -266,12 +266,13 @@
+      */
+     public RegularTimePeriod previous() {
+         Quarter result;
++        short year1 = this.year;
+         if (this.quarter > FIRST_QUARTER) {
+-            result = new Quarter(this.quarter - 1, this.year);
++            result = new Quarter(this.quarter - 1, year1);
+         }
+         else {
+-            if (this.year > 1900) {
+-                result = new Quarter(LAST_QUARTER, this.year - 1);
++            if (year1 > 1900) {
++                result = new Quarter(LAST_QUARTER, year1 - 1);
+             }
+             else {
+                 result = null;

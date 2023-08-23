@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..4702f8a 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1661,8 +1661,9 @@
+                 }
+                 else {
+                     if (edge == RectangleEdge.TOP) {
+-                        anchor = TextAnchor.BOTTOM_CENTER;
+-                        rotationAnchor = TextAnchor.BOTTOM_CENTER;
++                        TextAnchor bottomCenter = TextAnchor.BOTTOM_CENTER;
++                        anchor = bottomCenter;
++                        rotationAnchor = bottomCenter;
+                     }
+                     else {
+                         anchor = TextAnchor.TOP_CENTER;

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/XYCoordinateType.java b/source/org/jfree/chart/util/XYCoordinateType.java
+index 337cd36..9a65527 100644
+--- a/source/org/jfree/chart/util/XYCoordinateType.java
++++ b/source/org/jfree/chart/util/XYCoordinateType.java
+@@ -123,8 +123,11 @@
+         else if (this.equals(XYCoordinateType.RELATIVE)) {
+             return XYCoordinateType.RELATIVE;
+         }
+-        else if (this.equals(XYCoordinateType.INDEX)) {
+-            return XYCoordinateType.INDEX;
++        else {
++            XYCoordinateType index = XYCoordinateType.INDEX;
++            if (this.equals(index)) {
++                return index;
++            }
+         }
+         return null;
+     }

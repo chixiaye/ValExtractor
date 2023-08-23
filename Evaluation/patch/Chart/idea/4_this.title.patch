@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..4e1fcfd 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -582,7 +582,8 @@
+      */
+     public void setTitle(TextTitle title) {
+         if (this.title != null) {
+-            this.title.removeChangeListener(this);
++            TextTitle title1 = this.title;
++            title1.removeChangeListener(this);
+         }
+         this.title = title;
+         if (title != null) {

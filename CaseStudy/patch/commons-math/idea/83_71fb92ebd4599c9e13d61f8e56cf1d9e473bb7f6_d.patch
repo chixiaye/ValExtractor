@@ -1,0 +1,27 @@
+diff --git a/src/java/org/apache/commons/math/complex/Complex.java b/src/java/org/apache/commons/math/complex/Complex.java
+index f5427dab4..c2951a912 100644
+--- a/src/java/org/apache/commons/math/complex/Complex.java
++++ b/src/java/org/apache/commons/math/complex/Complex.java
+@@ -108,15 +108,16 @@ public class Complex implements Serializable  {
+         if (isNaN() || rhs.isNaN()) {
+             return NaN;
+         }
+-        
+-        if (Math.abs(rhs.getReal()) < Math.abs(rhs.getImaginary())) {
+-            double q = rhs.getReal() / rhs.getImaginary();
+-            double d = (rhs.getReal() * q) + rhs.getImaginary();
++
++        double d = rhs.getImaginary();
++        if (Math.abs(rhs.getReal()) < Math.abs(d)) {
++            double q = rhs.getReal() / d;
++            double d = (rhs.getReal() * q) + d;
+             return new Complex(((real * q) + imaginary) / d,
+                 ((imaginary * q) - real) / d);
+         } else {
+-            double q = rhs.getImaginary() / rhs.getReal();
+-            double d = (rhs.getImaginary() * q) + rhs.getReal();
++            double q = d / rhs.getReal();
++            double d = (d * q) + rhs.getReal();
+             return new Complex(((imaginary * q) + real) / d,
+                 (imaginary - (real * q)) / d);
+         }

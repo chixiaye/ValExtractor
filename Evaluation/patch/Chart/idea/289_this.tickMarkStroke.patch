@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..091ba8f 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -926,7 +926,8 @@
+         if (stroke == null) {
+             throw new IllegalArgumentException("Null 'stroke' argument.");
+         }
+-        if (!this.tickMarkStroke.equals(stroke)) {
++        Stroke tickMarkStroke1 = this.tickMarkStroke;
++        if (!tickMarkStroke1.equals(stroke)) {
+             this.tickMarkStroke = stroke;
+             fireChangeEvent();
+         }

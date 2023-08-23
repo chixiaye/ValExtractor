@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..6ca0daf 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -1306,12 +1306,15 @@
+         Node n, String propName, Symbol ownerSymbol) {
+       // getPropertyScope() will be null in some rare cases where there
+       // are no extern declarations for built-in types (like Function).
+-      if (ownerSymbol != null && ownerSymbol.getPropertyScope() != null) {
+-        Symbol prop = ownerSymbol.getPropertyScope().getSlot(propName);
+-        if (prop != null) {
+-          prop.defineReferenceAt(n);
+-          return true;
+-        }
++      if (ownerSymbol != null) {
++          SymbolScope propertyScope = ownerSymbol.getPropertyScope();
++          if (propertyScope != null) {
++              Symbol prop = propertyScope.getSlot(propName);
++              if (prop != null) {
++                  prop.defineReferenceAt(n);
++                  return true;
++              }
++          }
+       }
+       return false;
+     }

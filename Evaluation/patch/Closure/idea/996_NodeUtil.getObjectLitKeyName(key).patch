@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..68dfc29 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1096,9 +1096,10 @@
+           allowedValueType.toMaybeEnumElementType().getPrimitiveType();
+     }
+ 
+-    boolean valid = validator.expectCanAssignToPropertyOf(t, key,
++      String objectLitKeyName = NodeUtil.getObjectLitKeyName(key);
++      boolean valid = validator.expectCanAssignToPropertyOf(t, key,
+         rightType, allowedValueType,
+-        owner, NodeUtil.getObjectLitKeyName(key));
++        owner, objectLitKeyName);
+     if (valid) {
+       ensureTyped(t, key, rightType);
+     } else {
+@@ -1115,7 +1116,7 @@
+     ObjectType type = ObjectType.cast(
+         objlitType.restrictByNotNullOrUndefined());
+     if (type != null) {
+-      String property = NodeUtil.getObjectLitKeyName(key);
++      String property = objectLitKeyName;
+       if (type.hasProperty(property) &&
+           !type.isPropertyTypeInferred(property) &&
+           !propertyIsImplicitCast(type, property)) {

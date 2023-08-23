@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..6785414 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -619,8 +619,9 @@
+     @Override
+     Node processContinueStatement(ContinueStatement statementNode) {
+       Node node = newNode(Token.CONTINUE);
+-      if (statementNode.getLabel() != null) {
+-        Node labelName = transform(statementNode.getLabel());
++        Name label = statementNode.getLabel();
++        if (label != null) {
++        Node labelName = transform(label);
+         // Change the NAME to LABEL_NAME
+         labelName.setType(Token.LABEL_NAME);
+         node.addChildToBack(labelName);

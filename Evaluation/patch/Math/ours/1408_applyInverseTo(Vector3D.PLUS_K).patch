@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+index fbdafa3..671af71 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Rotation.java
+@@ -759,7 +759,8 @@
+       // -sin (theta) cos (psi2), sin (theta) sin (psi2), cos (theta)
+       // and we can choose to have theta in the interval [0 ; PI]
+       Vector3D v1 = applyTo(Vector3D.PLUS_K);
+-      Vector3D v2 = applyInverseTo(Vector3D.PLUS_K);
++      Vector3D var_1408 = applyInverseTo(Vector3D.PLUS_K);
++	Vector3D v2 = var_1408;
+       if ((v2.getZ() < -0.9999999999) || (v2.getZ() > 0.9999999999)) {
+         throw new CardanEulerSingularityException(false);
+       }

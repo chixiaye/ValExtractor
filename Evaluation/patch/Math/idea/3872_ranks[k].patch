@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+index 7fd7850..be04f8f 100644
+--- a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
++++ b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+@@ -273,8 +273,9 @@
+             if (Double.isNaN(ranks[i].getValue())) {
+                 // drop, but adjust original ranks of later elements
+                 for (int k = i + 1; k < ranks.length; k++) {
++                    IntDoublePair rank = ranks[k];
+                     ranks[k] = new IntDoublePair(
+-                            ranks[k].getValue(), ranks[k].getPosition() - 1);
++                            rank.getValue(), rank.getPosition() - 1);
+                 }
+             } else {
+                 outRanks[j] = new IntDoublePair(

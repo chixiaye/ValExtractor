@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..500f73e 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -374,7 +374,8 @@
+         "first new child has existing parent");
+     Preconditions.checkArgument(left.next == null,
+         "first new child has existing sibling");
+-    Preconditions.checkArgument(right.parent == null,
++      Node parent1 = right.parent;
++      Preconditions.checkArgument(parent1 == null,
+         "second new child has existing parent");
+     Preconditions.checkArgument(right.next == null,
+         "second new child has existing sibling");

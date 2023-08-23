@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..99b788c 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1798,8 +1798,9 @@
+      * description for formatting requirements.
+      */
+     CommandLineConfig setModuleWrapper(List<String> moduleWrapper) {
+-      this.moduleWrapper.clear();
+-      this.moduleWrapper.addAll(moduleWrapper);
++        List<String> moduleWrapper1 = this.moduleWrapper;
++        moduleWrapper1.clear();
++      moduleWrapper1.addAll(moduleWrapper);
+       return this;
+     }
+ 

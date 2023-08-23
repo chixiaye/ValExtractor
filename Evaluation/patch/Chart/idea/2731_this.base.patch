@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer.java b/source/org/jfree/chart/renderer/category/BarRenderer.java
+index 37da044..b8616a6 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer.java
+@@ -836,8 +836,9 @@
+      *         the bar is not visible for the current axis range).
+      */
+     protected double[] calculateBarL0L1(double value, double min, double max) {
+-        double barLow = Math.min(this.base, value);
+-        double barHigh = Math.max(this.base, value);
++        double base1 = this.base;
++        double barLow = Math.min(base1, value);
++        double barHigh = Math.max(base1, value);
+         if (barHigh < min) {  // bar is not visible
+             return null;
+         }

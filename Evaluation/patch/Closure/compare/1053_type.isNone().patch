@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..7d951ba 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -622,7 +622,8 @@
+             ConcreteType type = inferConcreteType(getTopScope(), n);
+             // We only need to set a type if one hasn't been assigned by
+             // something else, e.g. an ASSIGN node.
+-            if (type.isNone()) {
++            boolean var_1053 = type.isNone();
++			if (var_1053) {
+               ConcreteScope scope =
+                   (ConcreteScope) inferConcreteType(getTopScope(),
+                       n.getFirstChild()).getScope();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..c28732d 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -622,13 +622,14 @@
+             ConcreteType type = inferConcreteType(getTopScope(), n);
+             // We only need to set a type if one hasn't been assigned by
+             // something else, e.g. an ASSIGN node.
+-            if (type.isNone()) {
++            boolean var_1053 = type.isNone();
++			if (var_1053) {
+               ConcreteScope scope =
+                   (ConcreteScope) inferConcreteType(getTopScope(),
+                       n.getFirstChild()).getScope();
+               if (scope != null) {
+                 type = createType(n.getJSType());
+-                if (type.isNone() || type.isAll()) {
++                if (var_1053 || type.isAll()) {
+                   break;
+                 }
+                 type = createUnionWithSubTypes(type);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..cf3baf6 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -622,13 +622,14 @@
+             ConcreteType type = inferConcreteType(getTopScope(), n);
+             // We only need to set a type if one hasn't been assigned by
+             // something else, e.g. an ASSIGN node.
+-            if (type.isNone()) {
++              boolean none = type.isNone();
++              if (none) {
+               ConcreteScope scope =
+                   (ConcreteScope) inferConcreteType(getTopScope(),
+                       n.getFirstChild()).getScope();
+               if (scope != null) {
+                 type = createType(n.getJSType());
+-                if (type.isNone() || type.isAll()) {
++                if (none || type.isAll()) {
+                   break;
+                 }
+                 type = createUnionWithSubTypes(type);

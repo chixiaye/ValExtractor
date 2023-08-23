@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+index 8332a80..f2f4304 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+@@ -471,15 +471,16 @@
+                     double transY0 = rangeAxis.valueToJava2D(y0 + ph0,
+                             dataArea, plot.getRangeAxisEdge());
+ 
++                    Line2D line = areaState.getLine();
+                     if (orientation == PlotOrientation.VERTICAL) {
+-                        areaState.getLine().setLine(transX0, transY0, transX1,
++                        line.setLine(transX0, transY0, transX1,
+                                 transY1);
+                     }
+                     else if (orientation == PlotOrientation.HORIZONTAL) {
+-                        areaState.getLine().setLine(transY0, transX0, transY1,
++                        line.setLine(transY0, transX0, transY1,
+                                 transX1);
+                     }
+-                    g2.draw(areaState.getLine());
++                    g2.draw(line);
+                 }
+             }
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..1a33ae9 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -121,6 +121,7 @@
+         this.autoPrune = autoPrune;
+         this.data = new ArrayList();
+         this.xPoints = new HashSet();
++        IntervalXYDelegate intervalDelegate1 = this.intervalDelegate;
+         this.intervalDelegate = new IntervalXYDelegate(this, false);
+         addChangeListener(this.intervalDelegate);
+     }

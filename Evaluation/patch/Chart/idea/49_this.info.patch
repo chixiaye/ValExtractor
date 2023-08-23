@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..ba19acc 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -747,6 +747,7 @@
+ 
+         setChart(chart);
+         this.chartMouseListeners = new EventListenerList();
++        ChartRenderingInfo info1 = this.info;
+         this.info = new ChartRenderingInfo();
+         this.info.setRenderingSource(this);
+         setPreferredSize(new Dimension(width, height));

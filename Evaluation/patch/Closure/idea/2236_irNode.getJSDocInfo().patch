@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..80c6847 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -212,9 +212,10 @@
+     }
+ 
+     if (fileOverviewInfo != null) {
+-      if ((irNode.getJSDocInfo() != null) &&
+-          (irNode.getJSDocInfo().getLicense() != null)) {
+-        fileOverviewInfo.setLicense(irNode.getJSDocInfo().getLicense());
++        JSDocInfo jsDocInfo = irNode.getJSDocInfo();
++        if ((jsDocInfo != null) &&
++          (jsDocInfo.getLicense() != null)) {
++        fileOverviewInfo.setLicense(jsDocInfo.getLicense());
+       }
+       irNode.setJSDocInfo(fileOverviewInfo);
+       fileOverviewInfo.setAssociatedNode(irNode);

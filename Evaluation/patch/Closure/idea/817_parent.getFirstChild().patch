@@ -1,0 +1,38 @@
+diff --git a/src/com/google/javascript/jscomp/DefinitionsRemover.java b/src/com/google/javascript/jscomp/DefinitionsRemover.java
+index adf49a7..fb730ab 100644
+--- a/src/com/google/javascript/jscomp/DefinitionsRemover.java
++++ b/src/com/google/javascript/jscomp/DefinitionsRemover.java
+@@ -76,18 +76,21 @@
+ 
+     if (NodeUtil.isVarDeclaration(n) && n.hasChildren()) {
+       return true;
+-    } else if (parent.isFunction() && parent.getFirstChild() == n) {
+-      if (!NodeUtil.isFunctionExpression(parent)) {
+-        return true;
+-      } else if (!n.getString().equals("")) {
+-        return true;
+-      }
+-    } else if (parent.isAssign() && parent.getFirstChild() == n) {
+-      return true;
+-    } else if (NodeUtil.isObjectLitKey(n, parent)) {
+-      return true;
+-    } else if (parent.isParamList()) {
+-      return true;
++    } else {
++        Node firstChild = parent.getFirstChild();
++        if (parent.isFunction() && firstChild == n) {
++          if (!NodeUtil.isFunctionExpression(parent)) {
++            return true;
++          } else if (!n.getString().equals("")) {
++            return true;
++          }
++        } else if (parent.isAssign() && firstChild == n) {
++          return true;
++        } else if (NodeUtil.isObjectLitKey(n, parent)) {
++          return true;
++        } else if (parent.isParamList()) {
++          return true;
++        }
+     }
+     return false;
+   }

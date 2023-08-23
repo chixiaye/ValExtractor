@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..b7a51b4 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -184,7 +184,8 @@
+ 
+                 return new FieldInitializationReport(field.get(testClass), true, false);
+             } catch (NoSuchMethodException e) {
+-                throw new MockitoException("the type '" + field.getType().getSimpleName() + "' has no default constructor", e);
++                String var_113 = field.getType().getSimpleName();
++				throw new MockitoException("the type '" + var_113 + "' has no default constructor", e);
+             } catch (InvocationTargetException e) {
+                 throw new MockitoException("the default constructor of type '" + field.getType().getSimpleName() + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
+             } catch (InstantiationException e) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..b7a51b4 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -184,7 +184,8 @@
+ 
+                 return new FieldInitializationReport(field.get(testClass), true, false);
+             } catch (NoSuchMethodException e) {
+-                throw new MockitoException("the type '" + field.getType().getSimpleName() + "' has no default constructor", e);
++                String var_113 = field.getType().getSimpleName();
++				throw new MockitoException("the type '" + var_113 + "' has no default constructor", e);
+             } catch (InvocationTargetException e) {
+                 throw new MockitoException("the default constructor of type '" + field.getType().getSimpleName() + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
+             } catch (InstantiationException e) {
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..f6c00f5 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -174,6 +174,7 @@
+         public FieldInitializationReport instantiate() {
+             final AccessibilityChanger changer = new AccessibilityChanger();
+             Constructor<?> constructor = null;
++            String simpleName = field.getType().getSimpleName();
+             try {
+                 constructor = field.getType().getDeclaredConstructor();
+                 changer.enableAccess(constructor);
+@@ -184,9 +185,9 @@
+ 
+                 return new FieldInitializationReport(field.get(testClass), true, false);
+             } catch (NoSuchMethodException e) {
+-                throw new MockitoException("the type '" + field.getType().getSimpleName() + "' has no default constructor", e);
++                throw new MockitoException("the type '" + simpleName + "' has no default constructor", e);
+             } catch (InvocationTargetException e) {
+-                throw new MockitoException("the default constructor of type '" + field.getType().getSimpleName() + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
++                throw new MockitoException("the default constructor of type '" + simpleName + "' has raised an exception (see the stack trace for cause): " + e.getTargetException().toString(), e);
+             } catch (InstantiationException e) {
+                 throw new MockitoException("InstantiationException (see the stack trace for cause): " + e.toString(), e);
+             } catch (IllegalAccessException e) {

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..980cb5f 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -121,7 +121,8 @@
+             return result;
+         }
+ 
+-        result[1] = a[0].multiply(b[1]).add(a[1].multiply(b[0])).add(a[1].multiply(b[1]));
++        Dfp dfp = a[1];
++        result[1] = a[0].multiply(b[1]).add(dfp.multiply(b[0])).add(dfp.multiply(b[1]));
+ 
+         return result;
+     }

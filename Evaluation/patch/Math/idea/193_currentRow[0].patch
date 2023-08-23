@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/integration/RombergIntegrator.java b/src/main/java/org/apache/commons/math3/analysis/integration/RombergIntegrator.java
+index 46959d2..ceb7ca1 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/integration/RombergIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/integration/RombergIntegrator.java
+@@ -107,7 +107,8 @@
+         double currentRow[]  = new double[m];
+ 
+         TrapezoidIntegrator qtrap = new TrapezoidIntegrator();
+-        currentRow[0] = qtrap.stage(this, 0);
++        double v = currentRow[0];
++        v = qtrap.stage(this, 0);
+         iterations.incrementCount();
+         double olds = currentRow[0];
+         while (true) {

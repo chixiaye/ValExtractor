@@ -1,0 +1,44 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..0d21597 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -309,20 +309,21 @@
+         this.largeFont = new Font("Tahoma", Font.BOLD, 14);
+         this.regularFont = new Font("Tahoma", Font.PLAIN, 12);
+         this.smallFont = new Font("Tahoma", Font.PLAIN, 10);
+-        this.titlePaint = Color.black;
+-        this.subtitlePaint = Color.black;
++        Color black = Color.black;
++        this.titlePaint = black;
++        this.subtitlePaint = black;
+         this.legendBackgroundPaint = Color.white;
+         this.legendItemPaint = Color.darkGray;
+         this.chartBackgroundPaint = Color.white;
+         this.drawingSupplier = new DefaultDrawingSupplier();
+         this.plotBackgroundPaint = Color.lightGray;
+-        this.plotOutlinePaint = Color.black;
+-        this.labelLinkPaint = Color.black;
++        this.plotOutlinePaint = black;
++        this.labelLinkPaint = black;
+         this.labelLinkStyle = PieLabelLinkStyle.CUBIC_CURVE;
+         this.axisOffset = new RectangleInsets(4, 4, 4, 4);
+         this.domainGridlinePaint = Color.white;
+         this.rangeGridlinePaint = Color.white;
+-        this.baselinePaint = Color.black;
++        this.baselinePaint = black;
+         this.crosshairPaint = Color.blue;
+         this.axisLabelPaint = Color.darkGray;
+         this.tickLabelPaint = Color.darkGray;
+@@ -330,10 +331,10 @@
+         this.xyBarPainter = new GradientXYBarPainter();
+         this.shadowVisible = true;
+         this.shadowPaint = Color.gray;
+-        this.itemLabelPaint = Color.black;
++        this.itemLabelPaint = black;
+         this.thermometerPaint = Color.white;
+         this.wallPaint = BarRenderer3D.DEFAULT_WALL_PAINT;
+-        this.errorIndicatorPaint = Color.black;
++        this.errorIndicatorPaint = black;
+     }
+ 
+     /**

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/text/G2TextMeasurer.java b/source/org/jfree/chart/text/G2TextMeasurer.java
+index 70c4e47..129571e 100644
+--- a/source/org/jfree/chart/text/G2TextMeasurer.java
++++ b/source/org/jfree/chart/text/G2TextMeasurer.java
+@@ -72,9 +72,10 @@
+      * @return The string width.
+      */
+     public float getStringWidth(String text, int start, int end) {
+-        FontMetrics fm = this.g2.getFontMetrics();
++        Graphics2D g21 = this.g2;
++        FontMetrics fm = g21.getFontMetrics();
+         Rectangle2D bounds = TextUtilities.getTextBounds(text.substring(start,
+-                end), this.g2, fm);
++                end), g21, fm);
+         float result = (float) bounds.getWidth();
+         return result;
+     }

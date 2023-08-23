@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..42511e7 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -88,7 +88,8 @@
+             return false;
+         SerializableMethod other = (SerializableMethod) obj;
+         if (declaringClass == null) {
+-            if (other.declaringClass != null)
++            Class<?> var_41 = other.declaringClass;
++			if (var_41 != null)
+                 return false;
+         } else if (!declaringClass.equals(other.declaringClass))
+             return false;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..42511e7 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -88,7 +88,8 @@
+             return false;
+         SerializableMethod other = (SerializableMethod) obj;
+         if (declaringClass == null) {
+-            if (other.declaringClass != null)
++            Class<?> var_41 = other.declaringClass;
++			if (var_41 != null)
+                 return false;
+         } else if (!declaringClass.equals(other.declaringClass))
+             return false;
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..83ae16d 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -87,10 +87,11 @@
+         if (getClass() != obj.getClass())
+             return false;
+         SerializableMethod other = (SerializableMethod) obj;
++        Class<?> declaringClass1 = other.declaringClass;
+         if (declaringClass == null) {
+-            if (other.declaringClass != null)
++            if (declaringClass1 != null)
+                 return false;
+-        } else if (!declaringClass.equals(other.declaringClass))
++        } else if (!declaringClass.equals(declaringClass1))
+             return false;
+         if (methodName == null) {
+             if (other.methodName != null)

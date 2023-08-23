@@ -1,0 +1,14 @@
+diff --git a/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/security/user/GroupImpl.java b/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/security/user/GroupImpl.java
+index 3ad8d397dd..1bb53616d9 100644
+--- a/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/security/user/GroupImpl.java
++++ b/oak-jcr/src/main/java/org/apache/jackrabbit/oak/jcr/security/user/GroupImpl.java
+@@ -130,7 +130,8 @@ class GroupImpl extends AuthorizableImpl implements Group {
+         }
+ 
+         if (isDeclaredMember(authorizable)) {
+-            log.debug("Authorizable {} is already declared member of {}", authorizable.getID(), getID());
++            String memberID = authorizable.getID();
++            log.debug("Authorizable {} is already declared member of {}", memberID, getID());
+             return false;
+         }
+ 

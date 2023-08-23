@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..70789ff 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -813,7 +813,8 @@
+     boolean elseBranchIsVar = isVarBlock(elseBranch);
+ 
+     // if(x)var y=1;else y=2  ->  var y=x?1:2
+-    if (thenBranchIsVar && elseBranchIsExpressionBlock &&
++      Node node = cond.detachFromParent();
++      if (thenBranchIsVar && elseBranchIsExpressionBlock &&
+         getBlockExpression(elseBranch).getFirstChild().isAssign()) {
+ 
+       Node var = getBlockVar(thenBranch);
+@@ -827,7 +828,7 @@
+           && name1.getString().equals(maybeName2.getString())) {
+         Node thenExpr = name1.removeChildren();
+         Node elseExpr = elseAssign.getLastChild().detachFromParent();
+-        cond.detachFromParent();
++        node;
+         Node hookNode = IR.hook(cond, thenExpr, elseExpr)
+                             .srcref(n);
+         var.detachFromParent();
+@@ -852,7 +853,7 @@
+           && maybeName1.getString().equals(name2.getString())) {
+         Node thenExpr = thenAssign.getLastChild().detachFromParent();
+         Node elseExpr = name2.removeChildren();
+-        cond.detachFromParent();
++        node;
+         Node hookNode = IR.hook(cond, thenExpr, elseExpr)
+                             .srcref(n);
+         var.detachFromParent();

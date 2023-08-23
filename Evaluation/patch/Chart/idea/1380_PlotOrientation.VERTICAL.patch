@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PlotOrientation.java b/source/org/jfree/chart/plot/PlotOrientation.java
+index bac2eb7..84fab10 100644
+--- a/source/org/jfree/chart/plot/PlotOrientation.java
++++ b/source/org/jfree/chart/plot/PlotOrientation.java
+@@ -125,8 +125,11 @@
+         if (this.equals(PlotOrientation.HORIZONTAL)) {
+             result = PlotOrientation.HORIZONTAL;
+         }
+-        else if (this.equals(PlotOrientation.VERTICAL)) {
+-            result = PlotOrientation.VERTICAL;
++        else {
++            PlotOrientation vertical = PlotOrientation.VERTICAL;
++            if (this.equals(vertical)) {
++                result = vertical;
++            }
+         }
+         return result;
+     }

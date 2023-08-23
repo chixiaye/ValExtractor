@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..f8375d0 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1701,9 +1701,10 @@
+             }
+         }
+ 
+-        if (this.toolTipGeneratorList != null) {
++        ObjectList toolTipGeneratorList1 = this.toolTipGeneratorList;
++        if (toolTipGeneratorList1 != null) {
+             clone.toolTipGeneratorList
+-                    = (ObjectList) this.toolTipGeneratorList.clone();
++                    = (ObjectList) toolTipGeneratorList1.clone();
+         }
+ 
+         if (this.baseToolTipGenerator != null) {

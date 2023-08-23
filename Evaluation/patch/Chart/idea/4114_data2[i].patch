@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/Statistics.java b/source/org/jfree/data/statistics/Statistics.java
+index 1f97438..6925d1d 100644
+--- a/source/org/jfree/data/statistics/Statistics.java
++++ b/source/org/jfree/data/statistics/Statistics.java
+@@ -434,8 +434,9 @@
+                 x = data1[i].doubleValue();
+             }
+             double y = 0.0;
+-            if (data2[i] != null) {
+-                y = data2[i].doubleValue();
++            Number number = data2[i];
++            if (number != null) {
++                y = number.doubleValue();
+             }
+             sumX = sumX + x;
+             sumY = sumY + y;

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..1e04b18 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -226,6 +226,7 @@
+         this.last = last;
+         this.timeZone = timeZone;
+         this.locale = locale;
++        Calendar calendar1 = this.calendar;
+         this.calendar = Calendar.getInstance(timeZone, locale);
+         this.first.peg(this.calendar);
+         this.last.peg(this.calendar);

@@ -1,0 +1,48 @@
+diff --git a/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/eclipse/5_595cf3b7d880b2bfefa386dabbb1b9c1275fc97f_moreInIterator.patch b/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/ours/5_595cf3b7d880b2bfefa386dabbb1b9c1275fc97f_moreInIterator.patch
+index 6fd199c0..c1a9d631 100644
+--- a/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/eclipse/5_595cf3b7d880b2bfefa386dabbb1b9c1275fc97f_moreInIterator.patch
++++ b/Users/chixiaye/paper/CaseStudyPaper/patch/tinkerpop/ours/5_595cf3b7d880b2bfefa386dabbb1b9c1275fc97f_moreInIterator.patch
+@@ -1,39 +1,15 @@
+ diff --git a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
+-index 5482de1..d4a1357 100644
++index 5482de1..e6a9150 100644
+ --- a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
+ +++ b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
+-@@ -85,7 +85,8 @@
+-                 true : (Boolean) msg.getArgs().getOrDefault(Tokens.ARGS_MANAGE_TRANSACTION, false);
+- 
+-         // we have an empty iterator - happens on stuff like: g.V().iterate()
+--        if (!itty.hasNext()) {
+-+        boolean moreInIterator = itty.hasNext();
+-+		if (!moreInIterator) {
+-             // as there is nothing left to iterate if we are transaction managed then we should execute a
+-             // commit here before we send back a NO_CONTENT which implies success
+-             if (managedTransactionsForRequest) attemptCommit(msg, context.getGraphManager(), settings.strictTransactionManagement);
+-@@ -107,7 +108,7 @@
+-         // use an external control to manage the loop as opposed to just checking hasNext() in the while.  this
+-         // prevent situations where auto transactions create a new transaction after calls to commit() withing
+-         // the loop on calls to hasNext().
+--        boolean hasMore = itty.hasNext();
+-+        boolean hasMore = moreInIterator;
+- 
+-         while (hasMore) {
+-             if (Thread.interrupted()) throw new InterruptedException();
+-@@ -129,13 +130,13 @@
+-             // this could be placed inside the isWriteable() portion of the if-then below but it seems better to
+-             // allow iteration to continue into a batch if that is possible rather than just doing nothing at all
+-             // while waiting for the client to catch up
+--            if (aggregate.size() < resultIterationBatchSize && itty.hasNext() && !forceFlush) aggregate.add(itty.next());
+-+            if (aggregate.size() < resultIterationBatchSize && moreInIterator && !forceFlush) aggregate.add(itty.next());
+- 
++@@ -134,8 +134,9 @@
+              // send back a page of results if batch size is met or if it's the end of the results being iterated.
+              // also check writeability of the channel to prevent OOME for slow clients.
+              if (ctx.channel().isWritable()) {
+ -                if (forceFlush || aggregate.size() == resultIterationBatchSize || !itty.hasNext()) {
+ -                    final ResponseStatusCode code = itty.hasNext() ? ResponseStatusCode.PARTIAL_CONTENT : ResponseStatusCode.SUCCESS;
+-+                if (forceFlush || aggregate.size() == resultIterationBatchSize || !moreInIterator) {
+++                boolean moreInIterator = itty.hasNext();
+++				if (forceFlush || aggregate.size() == resultIterationBatchSize || !moreInIterator) {
+ +                    final ResponseStatusCode code = moreInIterator ? ResponseStatusCode.PARTIAL_CONTENT : ResponseStatusCode.SUCCESS;
+  
+                      // serialize here because in sessionless requests the serialization must occur in the same

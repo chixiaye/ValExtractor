@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
+index 882b0f1..f5de99e 100644
+--- a/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/LineAndShapeRenderer.java
+@@ -749,9 +749,10 @@
+ 
+         // current data point...
+         double x1;
++        int columnCount = dataset.getColumnCount();
+         if (this.useSeriesOffset) {
+             x1 = domainAxis.getCategorySeriesMiddle(column,
+-                    dataset.getColumnCount(), visibleRow, visibleRowCount,
++                    columnCount, visibleRow, visibleRowCount,
+                     this.itemMargin, dataArea, plot.getDomainAxisEdge());
+         }
+         else {
+@@ -771,7 +772,7 @@
+                     double x0;
+                     if (this.useSeriesOffset) {
+                         x0 = domainAxis.getCategorySeriesMiddle(
+-                                column - 1, dataset.getColumnCount(),
++                                column - 1, columnCount,
+                                 visibleRow, visibleRowCount,
+                                 this.itemMargin, dataArea,
+                                 plot.getDomainAxisEdge());

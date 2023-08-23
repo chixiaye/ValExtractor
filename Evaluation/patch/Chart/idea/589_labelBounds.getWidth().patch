@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..a465818 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -847,9 +847,10 @@
+                 Tick tick = (Tick) iterator.next();
+                 Rectangle2D labelBounds = TextUtilities.getTextBounds(
+                         tick.getText(), g2, fm);
+-                if (labelBounds.getWidth() + insets.getTop()
++                double width = labelBounds.getWidth();
++                if (width + insets.getTop()
+                         + insets.getBottom() > maxHeight) {
+-                    maxHeight = labelBounds.getWidth()
++                    maxHeight = width
+                                 + insets.getTop() + insets.getBottom();
+                 }
+             }

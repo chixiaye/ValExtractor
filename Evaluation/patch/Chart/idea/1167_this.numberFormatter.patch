@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java b/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
+index 289bdf9..2d63dc1 100644
+--- a/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/HighLowItemLabelGenerator.java
+@@ -188,8 +188,9 @@
+         if (this.dateFormatter != null) {
+             clone.dateFormatter = (DateFormat) this.dateFormatter.clone();
+         }
+-        if (this.numberFormatter != null) {
+-            clone.numberFormatter = (NumberFormat) this.numberFormatter.clone();
++        NumberFormat numberFormatter1 = this.numberFormatter;
++        if (numberFormatter1 != null) {
++            clone.numberFormatter = (NumberFormat) numberFormatter1.clone();
+         }
+         
+         return clone;

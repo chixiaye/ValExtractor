@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/ResourceBundleWrapper.java b/source/org/jfree/chart/util/ResourceBundleWrapper.java
+index 70c8945..177f36e 100644
+--- a/source/org/jfree/chart/util/ResourceBundleWrapper.java
++++ b/source/org/jfree/chart/util/ResourceBundleWrapper.java
+@@ -99,8 +99,9 @@
+ 
+         URL[] urls = urlClassLoader.getURLs();
+         for (int i = 0; i < urls.length; i++) {
+-            if (! urls[i].sameFile(codeBase)) {
+-                urlsNoBase.add(urls[i]);
++            URL url = urls[i];
++            if (! url.sameFile(codeBase)) {
++                urlsNoBase.add(url);
+             }
+         }
+         // substitute the filtered URL list

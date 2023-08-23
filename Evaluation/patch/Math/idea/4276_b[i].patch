@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/MathArrays.java b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+index ff729ac..b439f43 100644
+--- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
++++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+@@ -835,7 +835,8 @@
+             final double aHigh = ca - (ca - ai);
+             final double aLow = ai - aHigh;
+ 
+-            final double bi = b[i];
++            double v = b[i];
++            final double bi = v;
+             final double cb = SPLIT_FACTOR * bi;
+             final double bHigh = cb - (cb - bi);
+             final double bLow = bi - bHigh;

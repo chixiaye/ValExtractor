@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..7b29550 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2843,10 +2843,11 @@
+ 
+             this.zoomResetBothMenuItem = new JMenuItem(
+                     localizationResources.getString("All_Axes"));
+-            this.zoomResetBothMenuItem.setActionCommand(
++            JMenuItem zoomResetBothMenuItem1 = this.zoomResetBothMenuItem;
++            zoomResetBothMenuItem1.setActionCommand(
+                     ZOOM_RESET_BOTH_COMMAND);
+-            this.zoomResetBothMenuItem.addActionListener(this);
+-            autoRangeMenu.add(this.zoomResetBothMenuItem);
++            zoomResetBothMenuItem1.addActionListener(this);
++            autoRangeMenu.add(zoomResetBothMenuItem1);
+ 
+             autoRangeMenu.addSeparator();
+             this.zoomResetDomainMenuItem = new JMenuItem(

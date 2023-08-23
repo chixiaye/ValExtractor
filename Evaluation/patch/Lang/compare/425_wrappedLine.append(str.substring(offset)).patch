@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/WordUtils.java b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+index 7f29b59..a05d730 100644
+--- a/src/main/java/org/apache/commons/lang3/text/WordUtils.java
++++ b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+@@ -127,7 +127,7 @@
+                         wrappedLine.append(newLineStr);
+                         offset = spaceToWrapAt + 1;
+                     } else {
+-                        wrappedLine.append(str.substring(offset));
++                        StringBuilder var_425 = wrappedLine.append(str.substring(offset));
+                         offset = inputLineLength;
+                     }
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/WordUtils.java b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+index 7f29b59..a05d730 100644
+--- a/src/main/java/org/apache/commons/lang3/text/WordUtils.java
++++ b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+@@ -127,7 +127,7 @@
+                         wrappedLine.append(newLineStr);
+                         offset = spaceToWrapAt + 1;
+                     } else {
+-                        wrappedLine.append(str.substring(offset));
++                        StringBuilder var_425 = wrappedLine.append(str.substring(offset));
+                         offset = inputLineLength;
+                     }
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/text/WordUtils.java b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+index 7f29b59..8a2524b 100644
+--- a/src/main/java/org/apache/commons/lang3/text/WordUtils.java
++++ b/src/main/java/org/apache/commons/lang3/text/WordUtils.java
+@@ -99,6 +99,7 @@
+         int offset = 0;
+         final StringBuilder wrappedLine = new StringBuilder(inputLineLength + 32);
+         
++        StringBuilder append = wrappedLine.append(str.substring(offset));
+         while (inputLineLength - offset > wrapLength) {
+             if (str.charAt(offset) == ' ') {
+                 offset++;
+@@ -127,7 +128,7 @@
+                         wrappedLine.append(newLineStr);
+                         offset = spaceToWrapAt + 1;
+                     } else {
+-                        wrappedLine.append(str.substring(offset));
++                        append;
+                         offset = inputLineLength;
+                     }
+                 }
+@@ -135,7 +136,7 @@
+         }
+ 
+         // Whatever is left in line is short enough to just pass through
+-        wrappedLine.append(str.substring(offset));
++        append;
+ 
+         return wrappedLine.toString();
+     }

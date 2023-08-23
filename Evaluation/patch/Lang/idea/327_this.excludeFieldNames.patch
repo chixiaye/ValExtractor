@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java b/src/main/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java
+index 807fb88..3450115 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java
+@@ -643,6 +643,7 @@
+             this.excludeFieldNames = null;
+         } else {
+             //clone and remove nulls
++            String[] excludeFieldNames1 = this.excludeFieldNames;
+             this.excludeFieldNames = toNoNullStringArray(excludeFieldNamesParam);
+             Arrays.sort(this.excludeFieldNames);
+         }

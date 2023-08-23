@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..8dfb77e 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -1075,22 +1075,23 @@
+     final int FOR_DOT = 1;
+ 
+     Node current = null;
+-    for (current = syntheticRef;
+-         current.isGetProp();
+-         current = current.getFirstChild()) {
++      int sourcePosition = n.getSourcePosition();
++      for (current = syntheticRef;
++           current.isGetProp();
++           current = current.getFirstChild()) {
+       int fullLen = current.getQualifiedName().length();
+       int namespaceLen = current.getFirstChild().getQualifiedName().length();
+ 
+-      current.setSourceEncodedPosition(n.getSourcePosition() + FOR_QUOTE);
++      current.setSourceEncodedPosition(sourcePosition + FOR_QUOTE);
+       current.setLength(fullLen);
+ 
+       current.getLastChild().setSourceEncodedPosition(
+-          n.getSourcePosition() + namespaceLen + FOR_QUOTE + FOR_DOT);
++          sourcePosition + namespaceLen + FOR_QUOTE + FOR_DOT);
+       current.getLastChild().setLength(
+           current.getLastChild().getString().length());
+     }
+ 
+-    current.setSourceEncodedPosition(n.getSourcePosition() + FOR_QUOTE);
++    current.setSourceEncodedPosition(sourcePosition + FOR_QUOTE);
+     current.setLength(current.getString().length());
+ 
+     maybeAddToSymbolTable(syntheticRef);

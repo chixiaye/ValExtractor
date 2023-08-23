@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..89829e0 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -285,6 +285,7 @@
+         if (last == null) {
+             throw new IllegalArgumentException("Null 'last' argument.");
+         }
++        RegularTimePeriod last1 = this.last;
+         this.last = last;
+         this.last.peg(this.calendar);
+         notifyListeners(new AxisChangeEvent(this));

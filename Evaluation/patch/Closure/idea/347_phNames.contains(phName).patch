@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/JsMessageVisitor.java b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+index becd724..dc7e38b 100644
+--- a/src/com/google/javascript/jscomp/JsMessageVisitor.java
++++ b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+@@ -697,7 +697,8 @@
+               "Placeholder name not in lowerCamelCase: " + phName, aNode);
+         }
+ 
+-        if (phNames.contains(phName)) {
++          boolean contains = phNames.contains(phName);
++          if (contains) {
+           throw new MalformedException("Duplicate placeholder name: "
+               + phName, aNode);
+         }

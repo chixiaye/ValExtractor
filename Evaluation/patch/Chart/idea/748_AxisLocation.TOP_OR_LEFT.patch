@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/axis/AxisLocation.java b/source/org/jfree/chart/axis/AxisLocation.java
+index 03b9cd7..7fb6f44 100644
+--- a/source/org/jfree/chart/axis/AxisLocation.java
++++ b/source/org/jfree/chart/axis/AxisLocation.java
+@@ -141,7 +141,8 @@
+             throw new IllegalArgumentException("Null 'location' argument.");
+         }
+         AxisLocation result = null;
+-        if (location == AxisLocation.TOP_OR_LEFT) {
++        AxisLocation topOrLeft = AxisLocation.TOP_OR_LEFT;
++        if (location == topOrLeft) {
+             result = AxisLocation.BOTTOM_OR_RIGHT;
+         }
+         else if (location == AxisLocation.TOP_OR_RIGHT) {
+@@ -151,7 +152,7 @@
+             result = AxisLocation.TOP_OR_RIGHT;
+         }
+         else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+-            result = AxisLocation.TOP_OR_LEFT;
++            result = topOrLeft;
+         }
+         else {
+             throw new IllegalStateException("AxisLocation not recognised.");

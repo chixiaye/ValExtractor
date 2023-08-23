@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/ChartFactory.java b/source/org/jfree/chart/ChartFactory.java
+index 8de3665..8e42290 100644
+--- a/source/org/jfree/chart/ChartFactory.java
++++ b/source/org/jfree/chart/ChartFactory.java
+@@ -503,15 +503,16 @@
+                 }
+             }
+             else {
++                double v = oldValue.doubleValue();
+                 double percentChange = (newValue.doubleValue()
+-                        / oldValue.doubleValue() - 1.0) * 100.0;
++                        / v - 1.0) * 100.0;
+                 double shade
+                     = (Math.abs(percentChange) >= percentDiffForMaxScale ? 255
+                     : Math.abs(percentChange) * colorPerPercent);
+                 if (greenForIncrease
+-                        && newValue.doubleValue() > oldValue.doubleValue()
++                        && newValue.doubleValue() > v
+                         || !greenForIncrease && newValue.doubleValue()
+-                        < oldValue.doubleValue()) {
++                        < v) {
+                     plot.setSectionPaint(key, new Color(0, (int) shade, 0));
+                 }
+                 else {

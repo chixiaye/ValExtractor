@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/xml/ItemHandler.java b/source/org/jfree/data/xml/ItemHandler.java
+index 8774579..2f89b87 100644
+--- a/source/org/jfree/data/xml/ItemHandler.java
++++ b/source/org/jfree/data/xml/ItemHandler.java
+@@ -125,13 +125,14 @@
+                              String qName,
+                              Attributes atts) throws SAXException {
+ 
++        RootHandler root1 = this.root;
+         if (qName.equals(ITEM_TAG)) {
+-            KeyHandler subhandler = new KeyHandler(this.root, this);
+-            this.root.pushSubHandler(subhandler);
++            KeyHandler subhandler = new KeyHandler(root1, this);
++            root1.pushSubHandler(subhandler);
+         }
+         else if (qName.equals(VALUE_TAG)) {
+-            ValueHandler subhandler = new ValueHandler(this.root, this);
+-            this.root.pushSubHandler(subhandler);
++            ValueHandler subhandler = new ValueHandler(root1, this);
++            root1.pushSubHandler(subhandler);
+         }
+         else {
+             throw new SAXException(

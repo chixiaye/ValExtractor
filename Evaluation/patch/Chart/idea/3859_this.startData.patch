@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+index def4410..05fa6f6 100644
+--- a/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
++++ b/source/org/jfree/data/category/DefaultIntervalCategoryDataset.java
+@@ -224,8 +224,9 @@
+      */
+     public int getSeriesCount() {
+         int result = 0;
+-        if (this.startData != null) {
+-            result = this.startData.length;
++        Number[][] startData1 = this.startData;
++        if (startData1 != null) {
++            result = startData1.length;
+         }
+         return result;
+     }

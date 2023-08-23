@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RealVector.java b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+index d8e5017..ae8a131 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/RealVector.java
+@@ -557,9 +557,10 @@
+         Iterator<Entry> iterator = iterator();
+         while (iterator.hasNext()) {
+             final Entry entry = iterator.next();
+-            if (entry.getValue() >= maxValue) {
++            double value = entry.getValue();
++            if (value >= maxValue) {
+                 maxIndex = entry.getIndex();
+-                maxValue = entry.getValue();
++                maxValue = value;
+             }
+         }
+         return maxIndex;

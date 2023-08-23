@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..3b663f7 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -120,7 +120,8 @@
+                     singularValues[k] = FastMath.hypot(singularValues[k], A[i][k]);
+                 }
+                 if (singularValues[k] != 0) {
+-                    if (A[k][k] < 0) {
++                    double v = A[k][k];
++                    if (v < 0) {
+                         singularValues[k] = -singularValues[k];
+                     }
+                     for (int i = k; i < m; i++) {

@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..3aad559 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3116,17 +3116,18 @@
+         }
+ 
+         // reserve some space for the domain axis...
+-        if (this.fixedDomainAxisSpace != null) {
++        AxisSpace fixedDomainAxisSpace1 = this.fixedDomainAxisSpace;
++        if (fixedDomainAxisSpace1 != null) {
+             if (this.orientation == PlotOrientation.HORIZONTAL) {
+-                space.ensureAtLeast(this.fixedDomainAxisSpace.getLeft(),
++                space.ensureAtLeast(fixedDomainAxisSpace1.getLeft(),
+                         RectangleEdge.LEFT);
+-                space.ensureAtLeast(this.fixedDomainAxisSpace.getRight(),
++                space.ensureAtLeast(fixedDomainAxisSpace1.getRight(),
+                         RectangleEdge.RIGHT);
+             }
+             else if (this.orientation == PlotOrientation.VERTICAL) {
+-                space.ensureAtLeast(this.fixedDomainAxisSpace.getTop(),
++                space.ensureAtLeast(fixedDomainAxisSpace1.getTop(),
+                         RectangleEdge.TOP);
+-                space.ensureAtLeast(this.fixedDomainAxisSpace.getBottom(),
++                space.ensureAtLeast(fixedDomainAxisSpace1.getBottom(),
+                         RectangleEdge.BOTTOM);
+             }
+         }

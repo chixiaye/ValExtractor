@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..1a99279 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1506,9 +1506,10 @@
+ 
+         RectangleEdge result = null;
+ 
++        RectangleEdge top = RectangleEdge.TOP;
+         if (location == AxisLocation.TOP_OR_RIGHT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.TOP;
++                result = top;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+@@ -1516,7 +1517,7 @@
+         }
+         else if (location == AxisLocation.TOP_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.TOP;
++                result = top;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;

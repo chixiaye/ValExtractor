@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..3a924c8 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -2096,10 +2096,11 @@
+         // Get all the digits
+         p = 0;
+         for (int i = mant.length - 1; i >= 0; i--) {
+-            rawdigits[p++] = (char) ((mant[i] / 1000) + '0');
+-            rawdigits[p++] = (char) (((mant[i] / 100) %10) + '0');
+-            rawdigits[p++] = (char) (((mant[i] / 10) % 10) + '0');
+-            rawdigits[p++] = (char) (((mant[i]) % 10) + '0');
++            int i1 = mant[i];
++            rawdigits[p++] = (char) ((i1 / 1000) + '0');
++            rawdigits[p++] = (char) (((i1 / 100) %10) + '0');
++            rawdigits[p++] = (char) (((i1 / 10) % 10) + '0');
++            rawdigits[p++] = (char) ((i1 % 10) + '0');
+         }
+ 
+         // Find the first non-zero one

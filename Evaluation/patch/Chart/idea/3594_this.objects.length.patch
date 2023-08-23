@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/util/AbstractObjectList.java b/source/org/jfree/chart/util/AbstractObjectList.java
+index eac3110..b74bc1a 100644
+--- a/source/org/jfree/chart/util/AbstractObjectList.java
++++ b/source/org/jfree/chart/util/AbstractObjectList.java
+@@ -234,9 +234,10 @@
+ 
+         AbstractObjectList clone = (AbstractObjectList) super.clone();
+         if (this.objects != null) {
+-            clone.objects = new Object[this.objects.length];
++            int length = this.objects.length;
++            clone.objects = new Object[length];
+             System.arraycopy(this.objects, 0, clone.objects, 0,
+-                    this.objects.length);
++                    length);
+         }
+         return clone;
+ 

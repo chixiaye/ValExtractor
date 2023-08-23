@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..b4362d7 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -2937,13 +2937,14 @@
+      * @return a {@code Short} array, {@code null} if null array input
+      */
+     public static Short[] toObject(final short[] array) {
++        int length = array.length;
+         if (array == null) {
+             return null;
+-        } else if (array.length == 0) {
++        } else if (length == 0) {
+             return EMPTY_SHORT_OBJECT_ARRAY;
+         }
+-        final Short[] result = new Short[array.length];
+-        for (int i = 0; i < array.length; i++) {
++        final Short[] result = new Short[length];
++        for (int i = 0; i < length; i++) {
+             result[i] = Short.valueOf(array[i]);
+         }
+         return result;

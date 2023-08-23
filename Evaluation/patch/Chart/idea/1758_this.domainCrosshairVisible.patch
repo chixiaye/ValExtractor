@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..5f5e684 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4694,7 +4694,8 @@
+      * @see #isDomainCrosshairVisible()
+      */
+     public void setDomainCrosshairVisible(boolean flag) {
+-        if (this.domainCrosshairVisible != flag) {
++        boolean domainCrosshairVisible1 = this.domainCrosshairVisible;
++        if (domainCrosshairVisible1 != flag) {
+             this.domainCrosshairVisible = flag;
+             fireChangeEvent();
+         }

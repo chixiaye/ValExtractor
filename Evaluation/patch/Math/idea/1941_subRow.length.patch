@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+index c6b1a04..7c4a9bb 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+@@ -795,8 +795,9 @@
+         final int endColumn = column + refLength - 1;
+         checkSubMatrixIndex(row, endRow, column, endColumn);
+         for (final T[] subRow : subMatrix) {
+-            if (subRow.length != refLength) {
+-                throw new DimensionMismatchException(refLength, subRow.length);
++            int length = subRow.length;
++            if (length != refLength) {
++                throw new DimensionMismatchException(refLength, length);
+             }
+         }
+ 

@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..573438d 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -350,7 +350,8 @@
+             }
+         }
+         else {
+-            CategoryAxis categoryAxis = getDomainAxis();
++            CategoryAxis domainAxis = getDomainAxis();
++            CategoryAxis categoryAxis = domainAxis;
+             RectangleEdge categoryEdge = Plot.resolveDomainAxisLocation(
+                     getDomainAxisLocation(), orientation);
+             if (categoryAxis != null) {
+@@ -359,7 +360,7 @@
+             }
+             else {
+                 if (getDrawSharedDomainAxis()) {
+-                    space = getDomainAxis().reserveSpace(g2, this, plotArea,
++                    space = domainAxis.reserveSpace(g2, this, plotArea,
+                             categoryEdge, space);
+                 }
+             }

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+index 49e983b..b4a337e 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainCategoryPlot.java
+@@ -471,10 +471,11 @@
+                 info.addSubplotInfo(subplotInfo);
+             }
+             Point2D subAnchor = null;
+-            if (anchor != null && this.subplotAreas[i].contains(anchor)) {
++            Rectangle2D[] subplotAreas1 = this.subplotAreas;
++            if (anchor != null && subplotAreas1[i].contains(anchor)) {
+                 subAnchor = anchor;
+             }
+-            plot.draw(g2, this.subplotAreas[i], subAnchor, parentState,
++            plot.draw(g2, subplotAreas1[i], subAnchor, parentState,
+                     subplotInfo);
+         }
+ 

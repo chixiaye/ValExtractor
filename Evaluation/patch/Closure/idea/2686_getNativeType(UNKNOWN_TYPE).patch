@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/rhino/jstype/ArrowType.java b/src/com/google/javascript/rhino/jstype/ArrowType.java
+index 8b4825d..1d9ecf1 100644
+--- a/src/com/google/javascript/rhino/jstype/ArrowType.java
++++ b/src/com/google/javascript/rhino/jstype/ArrowType.java
+@@ -68,11 +68,12 @@
+       JSType returnType, boolean returnTypeInferred) {
+     super(registry);
+ 
+-    this.parameters = parameters == null ?
+-        registry.createParametersWithVarArgs(getNativeType(UNKNOWN_TYPE)) :
++      JSType nativeType = getNativeType(UNKNOWN_TYPE);
++      this.parameters = parameters == null ?
++        registry.createParametersWithVarArgs(nativeType) :
+         parameters;
+     this.returnType = returnType == null ?
+-        getNativeType(UNKNOWN_TYPE) : returnType;
++            nativeType : returnType;
+     this.returnTypeInferred = returnTypeInferred;
+   }
+ 

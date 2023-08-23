@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..c153bee 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -2542,8 +2542,9 @@
+         yb += epsB / (1d + epsA * epsA);
+ 
+         //result = yb + eighths[idx] + ya;
+-        double za = EIGHTHS[idx] + ya;
+-        double zb = -(za - EIGHTHS[idx] - ya);
++        double eighth = EIGHTHS[idx];
++        double za = eighth + ya;
++        double zb = -(za - eighth - ya);
+         temp = za + yb;
+         zb += -(temp - za - yb);
+         za = temp;

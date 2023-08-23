@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+index 311459c..a87720d 100644
+--- a/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/StackedBarRenderer3D.java
+@@ -447,10 +447,11 @@
+             CategoryDataset dataset) {
+ 
+         int column = dataset.getColumnIndex(category);
++        double barWidth = state.getBarWidth();
+         double barX0 = domainAxis.getCategoryMiddle(column,
+                 dataset.getColumnCount(), dataArea, plot.getDomainAxisEdge())
+-                - state.getBarWidth() / 2.0;
+-        double barW = state.getBarWidth();
++                - barWidth / 2.0;
++        double barW = barWidth;
+ 
+         // a list to store the series index and bar region, so we can draw
+         // all the labels at the end...

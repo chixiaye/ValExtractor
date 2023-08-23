@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..cdf4d7a 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -123,8 +123,9 @@
+         if (d == null) {
+             throw new NullArgumentException();
+         }
+-        if (d.length < pos + size) {
+-            throw new NumberIsTooLargeException(pos + size, d.length, true);
++        int length = d.length;
++        if (length < pos + size) {
++            throw new NumberIsTooLargeException(pos + size, length, true);
+         }
+         data = new double[size];
+         System.arraycopy(d, pos, data, 0, size);

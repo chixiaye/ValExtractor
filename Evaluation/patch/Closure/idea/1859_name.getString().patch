@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+index 8361ac9..0ba26e0 100644
+--- a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
++++ b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+@@ -230,13 +230,14 @@
+       default:
+         if (NodeUtil.isAssignmentOp(n) && n.getFirstChild().isName()) {
+           Node name = n.getFirstChild();
+-          if (!conditional) {
+-            removeFromUseIfLocal(name.getString(), output);
++            String string = name.getString();
++            if (!conditional) {
++            removeFromUseIfLocal(string, output);
+           }
+ 
+           // In case of a += "Hello". There is a read of a.
+           if (!n.isAssign()) {
+-            addToUseIfLocal(name.getString(), cfgNode, output);
++            addToUseIfLocal(string, cfgNode, output);
+           }
+ 
+           computeMayUse(name.getNext(), cfgNode, output, conditional);

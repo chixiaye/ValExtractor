@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessDefines.java b/src/com/google/javascript/jscomp/ProcessDefines.java
+index e86001d..3fcb884 100644
+--- a/src/com/google/javascript/jscomp/ProcessDefines.java
++++ b/src/com/google/javascript/jscomp/ProcessDefines.java
+@@ -452,9 +452,10 @@
+      */
+     private static Node getValueParent(Ref ref) {
+       // there are two types of declarations: VARs and ASSIGNs
+-      return ref.node.getParent() != null &&
+-          ref.node.getParent().isVar() ?
+-          ref.node : ref.node.getParent();
++        Node parent = ref.node.getParent();
++        return parent != null &&
++          parent.isVar() ?
++          ref.node : parent;
+     }
+ 
+     /**

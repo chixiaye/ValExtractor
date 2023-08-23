@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..6cfea45 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -848,8 +848,9 @@
+             g2.fill(body);
+         }
+         else {
+-            if (this.downPaint != null) {
+-                g2.setPaint(this.downPaint);
++            Paint downPaint1 = this.downPaint;
++            if (downPaint1 != null) {
++                g2.setPaint(downPaint1);
+             }
+             else {
+                 g2.setPaint(p);

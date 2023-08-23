@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..3bb462f 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -761,7 +761,8 @@
+             int year = Integer.MAX_VALUE;
+             DateTimeOfYear dtOfYear = getStartOfYear();
+ 
+-            if (st.hasMoreTokens()) {
++            boolean var_647 = st.hasMoreTokens();
++			if (var_647) {
+                 year = Integer.parseInt(st.nextToken());
+                 if (st.hasMoreTokens()) {
+                     dtOfYear = new DateTimeOfYear(st);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..f890514 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -761,9 +761,10 @@
+             int year = Integer.MAX_VALUE;
+             DateTimeOfYear dtOfYear = getStartOfYear();
+ 
+-            if (st.hasMoreTokens()) {
++            boolean var_647 = st.hasMoreTokens();
++			if (var_647) {
+                 year = Integer.parseInt(st.nextToken());
+-                if (st.hasMoreTokens()) {
++                if (var_647) {
+                     dtOfYear = new DateTimeOfYear(st);
+                 }
+             }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..25d9d43 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -761,9 +761,10 @@
+             int year = Integer.MAX_VALUE;
+             DateTimeOfYear dtOfYear = getStartOfYear();
+ 
+-            if (st.hasMoreTokens()) {
++            boolean b = st.hasMoreTokens();
++            if (b) {
+                 year = Integer.parseInt(st.nextToken());
+-                if (st.hasMoreTokens()) {
++                if (b) {
+                     dtOfYear = new DateTimeOfYear(st);
+                 }
+             }

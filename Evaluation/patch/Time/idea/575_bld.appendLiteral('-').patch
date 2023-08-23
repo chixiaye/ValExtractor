@@ -1,0 +1,56 @@
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..7faf582 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -217,6 +217,7 @@
+         boolean strictISO) {
+         
+         boolean reducedPrec = false;
++        DateTimeFormatterBuilder dateTimeFormatterBuilder = bld.appendLiteral('-');
+         if (fields.remove(DateTimeFieldType.year())) {
+             bld.append(Constants.ye);
+             if (fields.remove(DateTimeFieldType.monthOfYear())) {
+@@ -228,7 +229,7 @@
+                     bld.appendDayOfMonth(2);
+                 } else {
+                     // YYYY-MM/YYYY-MM
+-                    bld.appendLiteral('-');
++                    dateTimeFormatterBuilder;
+                     bld.appendMonthOfYear(2);
+                     reducedPrec = true;
+                 }
+@@ -236,8 +237,8 @@
+                 if (fields.remove(DateTimeFieldType.dayOfMonth())) {
+                     // YYYY--DD/YYYY--DD (non-iso)
+                     checkNotStrictISO(fields, strictISO);
+-                    bld.appendLiteral('-');
+-                    bld.appendLiteral('-');
++                    dateTimeFormatterBuilder;
++                    dateTimeFormatterBuilder;
+                     bld.appendDayOfMonth(2);
+                 } else {
+                     // YYYY/YYYY
+@@ -246,8 +247,8 @@
+             }
+             
+         } else if (fields.remove(DateTimeFieldType.monthOfYear())) {
+-            bld.appendLiteral('-');
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
++            dateTimeFormatterBuilder;
+             bld.appendMonthOfYear(2);
+             if (fields.remove(DateTimeFieldType.dayOfMonth())) {
+                 // --MM-DD/--MMDD
+@@ -259,9 +260,9 @@
+             }
+         } else if (fields.remove(DateTimeFieldType.dayOfMonth())) {
+             // ---DD/---DD
+-            bld.appendLiteral('-');
+-            bld.appendLiteral('-');
+-            bld.appendLiteral('-');
++            dateTimeFormatterBuilder;
++            dateTimeFormatterBuilder;
++            dateTimeFormatterBuilder;
+             bld.appendDayOfMonth(2);
+         }
+         return reducedPrec;

@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..9065d35 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -939,12 +939,15 @@
+     }
+ 
+     ObjectType proto = type.getParentScope();
+-    if (proto != null && proto != type && proto.getConstructor() != null) {
+-      Symbol parentSymbol = getSymbolForInstancesOf(proto.getConstructor());
+-      if (parentSymbol != null) {
+-        createPropertyScopeFor(parentSymbol);
+-        parentPropertyScope = parentSymbol.getPropertyScope();
+-      }
++    if (proto != null && proto != type) {
++        FunctionType constructor = proto.getConstructor();
++        if (constructor != null) {
++            Symbol parentSymbol = getSymbolForInstancesOf(constructor);
++            if (parentSymbol != null) {
++                createPropertyScopeFor(parentSymbol);
++                parentPropertyScope = parentSymbol.getPropertyScope();
++            }
++        }
+     }
+ 
+     ObjectType instanceType = type;

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..a7635c3 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -124,8 +124,9 @@
+ 
+         this.paintIndexMethod = VALUE_INDEX;
+         if (paintIndexMethod != null) {
+-            if (isMethodValid(paintIndexMethod.intValue())) {
+-                this.paintIndexMethod = paintIndexMethod.intValue();
++            int method = paintIndexMethod.intValue();
++            if (isMethodValid(method)) {
++                this.paintIndexMethod = method;
+             }
+         }
+     }

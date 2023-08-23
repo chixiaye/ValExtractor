@@ -1,0 +1,35 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java b/src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java
+index e33e9a5..540f0a1 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java
++++ b/src/main/java/org/apache/commons/math3/optimization/linear/SimplexTableau.java
+@@ -183,16 +183,17 @@
+     protected RealMatrix createTableau(final boolean maximize) {
+ 
+         // create a matrix of the correct size
++        int numObjectiveFunctions = getNumObjectiveFunctions();
+         int width = numDecisionVariables + numSlackVariables +
+-        numArtificialVariables + getNumObjectiveFunctions() + 1; // + 1 is for RHS
+-        int height = constraints.size() + getNumObjectiveFunctions();
++        numArtificialVariables + numObjectiveFunctions + 1; // + 1 is for RHS
++        int height = constraints.size() + numObjectiveFunctions;
+         Array2DRowRealMatrix matrix = new Array2DRowRealMatrix(height, width);
+ 
+         // initialize the objective function rows
+-        if (getNumObjectiveFunctions() == 2) {
++        if (numObjectiveFunctions == 2) {
+             matrix.setEntry(0, 0, -1);
+         }
+-        int zIndex = (getNumObjectiveFunctions() == 1) ? 0 : 1;
++        int zIndex = (numObjectiveFunctions == 1) ? 0 : 1;
+         matrix.setEntry(zIndex, zIndex, maximize ? 1 : -1);
+         RealVector objectiveCoefficients =
+             maximize ? f.getCoefficients().mapMultiply(-1) : f.getCoefficients();
+@@ -210,7 +211,7 @@
+         int artificialVar = 0;
+         for (int i = 0; i < constraints.size(); i++) {
+             LinearConstraint constraint = constraints.get(i);
+-            int row = getNumObjectiveFunctions() + i;
++            int row = numObjectiveFunctions + i;
+ 
+             // decision variable coefficients
+             copyArray(constraint.getCoefficients().toArray(), matrix.getDataRef()[row]);

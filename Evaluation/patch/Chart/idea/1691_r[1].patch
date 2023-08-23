@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..d506810 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3574,7 +3574,8 @@
+         if (this.quadrantPaint[1] != null) {
+             if (x < xmax && y < ymax) {
+                 if (this.orientation == PlotOrientation.HORIZONTAL) {
+-                    r[1] = new Rectangle2D.Double(Math.min(yymax, yy),
++                    Rectangle2D rectangle2D = r[1];
++                    rectangle2D = new Rectangle2D.Double(Math.min(yymax, yy),
+                             Math.min(xxmax, xx), Math.abs(yy - yymax),
+                             Math.abs(xx - xxmax));
+                 }

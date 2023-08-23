@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/fraction/Fraction.java b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+index 002dae9..c9d2877 100644
+--- a/src/main/java/org/apache/commons/math3/fraction/Fraction.java
++++ b/src/main/java/org/apache/commons/math3/fraction/Fraction.java
+@@ -267,8 +267,9 @@
+                                               num, den);
+         }
+         if (den < 0) {
+-            if (num == Integer.MIN_VALUE ||
+-                den == Integer.MIN_VALUE) {
++            int minValue = Integer.MIN_VALUE;
++            if (num == minValue ||
++                den == minValue) {
+                 throw new MathArithmeticException(LocalizedFormats.OVERFLOW_IN_FRACTION,
+                                                   num, den);
+             }

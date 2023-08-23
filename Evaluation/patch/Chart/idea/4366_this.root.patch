@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/data/xml/CategorySeriesHandler.java b/source/org/jfree/data/xml/CategorySeriesHandler.java
+index 32200b1..d67f3a6 100644
+--- a/source/org/jfree/data/xml/CategorySeriesHandler.java
++++ b/source/org/jfree/data/xml/CategorySeriesHandler.java
+@@ -106,14 +106,15 @@
+                              String qName,
+                              Attributes atts) throws SAXException {
+ 
++        RootHandler root1 = this.root;
+         if (qName.equals(SERIES_TAG)) {
+             setSeriesKey(atts.getValue("name"));
+-            ItemHandler subhandler = new ItemHandler(this.root, this);
+-            this.root.pushSubHandler(subhandler);
++            ItemHandler subhandler = new ItemHandler(root1, this);
++            root1.pushSubHandler(subhandler);
+         }
+         else if (qName.equals(ITEM_TAG)) {
+-            ItemHandler subhandler = new ItemHandler(this.root, this);
+-            this.root.pushSubHandler(subhandler);
++            ItemHandler subhandler = new ItemHandler(root1, this);
++            root1.pushSubHandler(subhandler);
+             subhandler.startElement(namespaceURI, localName, qName, atts);
+         }
+ 

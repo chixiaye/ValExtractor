@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..e6e7eee 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -1310,8 +1310,9 @@
+         this.valuePaint = SerialUtilities.readPaint(stream);
+         this.tickPaint = SerialUtilities.readPaint(stream);
+         this.tickLabelPaint = SerialUtilities.readPaint(stream);
+-        if (this.dataset != null) {
+-            this.dataset.addChangeListener(this);
++        ValueDataset dataset1 = this.dataset;
++        if (dataset1 != null) {
++            dataset1.addChangeListener(this);
+         }
+     }
+ 

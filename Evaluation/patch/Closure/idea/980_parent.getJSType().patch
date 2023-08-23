@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..3bde93d 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -822,9 +822,10 @@
+           ensureTyped(t, n);
+         } else {
+           // If this is an enum, then give that type to the objectlit as well.
+-          if ((n.isObjectLit())
+-              && (parent.getJSType() instanceof EnumType)) {
+-            ensureTyped(t, n, parent.getJSType());
++            JSType jsType = parent.getJSType();
++            if ((n.isObjectLit())
++              && (jsType instanceof EnumType)) {
++            ensureTyped(t, n, jsType);
+           } else {
+             ensureTyped(t, n);
+           }

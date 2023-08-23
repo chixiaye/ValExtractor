@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/AnalyzeNameReferences.java b/src/com/google/javascript/jscomp/AnalyzeNameReferences.java
+index eb9cd11..4bb28b0 100644
+--- a/src/com/google/javascript/jscomp/AnalyzeNameReferences.java
++++ b/src/com/google/javascript/jscomp/AnalyzeNameReferences.java
+@@ -73,11 +73,12 @@
+       NameInfo destInfo = getInfo(dest);
+       if (startInfo.isReferenced()) {
+         JSModule startModule = startInfo.getDeepestCommonModuleRef();
+-        if (startModule != null &&
+-            moduleGraph.dependsOn(startModule, edge.getModule())) {
++          JSModule module = edge.getModule();
++          if (startModule != null &&
++            moduleGraph.dependsOn(startModule, module)) {
+           return destInfo.markReference(startModule);
+         } else {
+-          return destInfo.markReference(edge.getModule());
++          return destInfo.markReference(module);
+         }
+       }
+       return false;

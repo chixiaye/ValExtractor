@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..17a8dfb 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3970,7 +3970,8 @@
+         }
+ 
+         // draw the domain grid lines, if any...
+-        if (isDomainGridlinesVisible() || isDomainMinorGridlinesVisible()) {
++        boolean domainMinorGridlinesVisible1 = isDomainMinorGridlinesVisible();
++        if (isDomainGridlinesVisible() || domainMinorGridlinesVisible1) {
+             Stroke gridStroke = null;
+             Paint gridPaint = null;
+             Iterator iterator = ticks.iterator();
+@@ -3979,7 +3980,7 @@
+                 paintLine = false;
+                 ValueTick tick = (ValueTick) iterator.next();
+                 if ((tick.getTickType() == TickType.MINOR)
+-                        && isDomainMinorGridlinesVisible()) {
++                        && domainMinorGridlinesVisible1) {
+                     gridStroke = getDomainMinorGridlineStroke();
+                     gridPaint = getDomainMinorGridlinePaint();
+                     paintLine = true;

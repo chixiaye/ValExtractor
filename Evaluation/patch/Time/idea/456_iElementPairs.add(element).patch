@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..074d688 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -373,8 +373,8 @@
+     private DateTimeFormatterBuilder append0(Object element) {
+         iFormatter = null;
+         // Add the element as both a printer and parser.
+-        iElementPairs.add(element);
+-        iElementPairs.add(element);
++        boolean add = iElementPairs.add(element);
++        add;
+         return this;
+     }
+ 

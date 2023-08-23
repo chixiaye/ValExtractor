@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..8b120af 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -1111,7 +1111,8 @@
+     }
+ 
+     void setPropertyScope(SymbolScope scope) {
+-      this.propertyScope = scope;
++        SymbolScope propertyScope1 = this.propertyScope;
++        this.propertyScope = scope;
+       if (scope != null) {
+         this.propertyScope.setSymbolForScope(this);
+       }

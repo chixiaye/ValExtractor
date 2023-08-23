@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..a29abc3 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -131,7 +131,8 @@
+     }
+ 
+     // Constructor/interface
+-    if (funType.isConstructor() || funType.isInterface()) {
++      boolean constructor = funType.isConstructor();
++      if (constructor || funType.isInterface()) {
+ 
+       FunctionType superConstructor = funType.getSuperClassConstructor();
+ 
+@@ -164,7 +165,7 @@
+         sb.append("\n");
+       }
+ 
+-      if (funType.isConstructor()) {
++      if (constructor) {
+         sb.append(" * @constructor\n");
+       } else if (funType.isInterface()) {
+         sb.append(" * @interface\n");

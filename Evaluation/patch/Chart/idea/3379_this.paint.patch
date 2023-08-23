@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/text/TextFragment.java b/source/org/jfree/chart/text/TextFragment.java
+index 55a0319..9de5f25 100644
+--- a/source/org/jfree/chart/text/TextFragment.java
++++ b/source/org/jfree/chart/text/TextFragment.java
+@@ -288,7 +288,8 @@
+         int result;
+         result = (this.text != null ? this.text.hashCode() : 0);
+         result = 29 * result + (this.font != null ? this.font.hashCode() : 0);
+-        result = 29 * result + (this.paint != null ? this.paint.hashCode() : 0);
++        Paint paint1 = this.paint;
++        result = 29 * result + (paint1 != null ? paint1.hashCode() : 0);
+         return result;
+     }
+ 

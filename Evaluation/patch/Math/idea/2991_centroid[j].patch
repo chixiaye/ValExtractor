@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+index 4848ab3..35e1619 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+@@ -224,7 +224,8 @@
+             // Compute the expansion point.
+             final double[] xE = new double[n];
+             for (int j = 0; j < n; j++) {
+-                xE[j] = centroid[j] + khi * (xR[j] - centroid[j]);
++                double v = centroid[j];
++                xE[j] = v + khi * (xR[j] - v);
+             }
+             final PointValuePair expanded
+                 = new PointValuePair(xE, evaluationFunction.value(xE), false);

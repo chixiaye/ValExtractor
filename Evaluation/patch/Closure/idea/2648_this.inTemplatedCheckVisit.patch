@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSType.java b/src/com/google/javascript/rhino/jstype/JSType.java
+index 11875e9..1a934d3 100644
+--- a/src/com/google/javascript/rhino/jstype/JSType.java
++++ b/src/com/google/javascript/rhino/jstype/JSType.java
+@@ -460,7 +460,8 @@
+ 
+   public boolean hasAnyTemplateTypes() {
+     if (!this.inTemplatedCheckVisit) {
+-      this.inTemplatedCheckVisit = true;
++        boolean inTemplatedCheckVisit1 = this.inTemplatedCheckVisit;
++        this.inTemplatedCheckVisit = true;
+       boolean result = hasAnyTemplateTypesInternal();
+       this.inTemplatedCheckVisit = false;
+       return result;

@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..214f23a 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -1047,9 +1047,10 @@
+                                 instant = iGregorianChronology.weekyear().add(instant, -1);
+                             }
+                         } else {
+-                            int year = iGregorianChronology.year().get(instant);
++                            DateTimeField year1 = iGregorianChronology.year();
++                            int year = year1.get(instant);
+                             if (year <= 0) {
+-                                instant = iGregorianChronology.year().add(instant, -1);
++                                instant = year1.add(instant, -1);
+                             }
+                         }
+                         instant = gregorianToJulian(instant);

@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/DotFormatter.java b/src/com/google/javascript/jscomp/DotFormatter.java
+index 54988ed..84f0810 100644
+--- a/src/com/google/javascript/jscomp/DotFormatter.java
++++ b/src/com/google/javascript/jscomp/DotFormatter.java
+@@ -267,7 +267,7 @@
+     Arrays.sort(nodeNames);
+ 
+     for (String nodeName : nodeNames) {
+-      builder.append(INDENT);
++      StringBuilder var_186 = builder.append(INDENT);
+       builder.append(nodeName);
+       builder.append(";\n");
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/DotFormatter.java b/src/com/google/javascript/jscomp/DotFormatter.java
+index 54988ed..84f0810 100644
+--- a/src/com/google/javascript/jscomp/DotFormatter.java
++++ b/src/com/google/javascript/jscomp/DotFormatter.java
+@@ -267,7 +267,7 @@
+     Arrays.sort(nodeNames);
+ 
+     for (String nodeName : nodeNames) {
+-      builder.append(INDENT);
++      StringBuilder var_186 = builder.append(INDENT);
+       builder.append(nodeName);
+       builder.append(";\n");
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/DotFormatter.java b/src/com/google/javascript/jscomp/DotFormatter.java
+index 54988ed..74675b5 100644
+--- a/src/com/google/javascript/jscomp/DotFormatter.java
++++ b/src/com/google/javascript/jscomp/DotFormatter.java
+@@ -244,10 +244,10 @@
+   public static String toDot(GraphvizGraph graph) {
+     StringBuilder builder = new StringBuilder ();
+     builder.append(graph.isDirected() ? "digraph" : "graph");
+-    builder.append(INDENT);
++      StringBuilder append = builder.append(INDENT);
+     builder.append(graph.getName());
+     builder.append(" {\n");
+-    builder.append(INDENT);
++    append;
+     builder.append("node [color=lightblue2, style=filled];\n");
+ 
+     final String edgeSymbol = graph.isDirected() ? ARROW : LINE;
+@@ -267,7 +267,7 @@
+     Arrays.sort(nodeNames);
+ 
+     for (String nodeName : nodeNames) {
+-      builder.append(INDENT);
++      append;
+       builder.append(nodeName);
+       builder.append(";\n");
+     }
+@@ -285,7 +285,7 @@
+     Arrays.sort(edgeNames);
+ 
+     for (String edgeName : edgeNames) {
+-      builder.append(INDENT);
++      append;
+       builder.append(edgeName);
+       builder.append(";\n");
+     }

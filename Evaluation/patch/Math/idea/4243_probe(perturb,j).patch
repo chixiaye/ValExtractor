@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+index fd55902..6f4c2ba 100644
+--- a/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
++++ b/src/main/java/org/apache/commons/math3/util/OpenIntToFieldHashMap.java
+@@ -289,9 +289,10 @@
+ 
+         int perturb = perturb(hash);
+         int j = index;
++        int probe = probe(perturb, j);
+         if (states[index] == FULL) {
+             while (true) {
+-                j = probe(perturb, j);
++                j = probe;
+                 index = j & mask;
+                 perturb >>= PERTURB_SHIFT;
+ 
+@@ -311,7 +312,7 @@
+ 
+         final int firstRemoved = index;
+         while (true) {
+-            j = probe(perturb, j);
++            j = probe;
+             index = j & mask;
+ 
+             if (states[index] == FREE) {

@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/AreaRenderer.java b/source/org/jfree/chart/renderer/category/AreaRenderer.java
+index 46547b7..e4d9f5d 100644
+--- a/source/org/jfree/chart/renderer/category/AreaRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AreaRenderer.java
+@@ -255,7 +255,8 @@
+             }
+         }
+ 
+-        double yy1 = value.doubleValue();
++        double v = value.doubleValue();
++        double yy1 = v;
+ 
+         double yy0 = 0.0;
+         if (this.endType == AreaRendererEndType.LEVEL) {
+@@ -316,7 +317,7 @@
+         // draw the item labels if there are any...
+         if (isItemLabelVisible(row, column, selected)) {
+             drawItemLabel(g2, orientation, dataset, row, column, selected, 
+-                    labelXX, labelYY, (value.doubleValue() < 0.0));
++                    labelXX, labelYY, (v < 0.0));
+         }
+ 
+         // submit the current data point as a crosshair candidate

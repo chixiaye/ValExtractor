@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..4c660b9 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1860,8 +1860,9 @@
+      * @param upperPercent  the new upper bound.
+      */
+     public void zoomRange(double lowerPercent, double upperPercent) {
+-        double start = this.timeline.toTimelineValue(
+-            (long) getRange().getLowerBound()
++        Range var_546 = getRange();
++		double start = this.timeline.toTimelineValue(
++            (long) var_546.getLowerBound()
+         );
+         double length = (this.timeline.toTimelineValue(
+                 (long) getRange().getUpperBound())

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..29d225f 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2800,9 +2800,10 @@
+ 
+             this.zoomInDomainMenuItem = new JMenuItem(
+                     localizationResources.getString("Domain_Axis"));
+-            this.zoomInDomainMenuItem.setActionCommand(ZOOM_IN_DOMAIN_COMMAND);
+-            this.zoomInDomainMenuItem.addActionListener(this);
+-            zoomInMenu.add(this.zoomInDomainMenuItem);
++            JMenuItem zoomInDomainMenuItem1 = this.zoomInDomainMenuItem;
++            zoomInDomainMenuItem1.setActionCommand(ZOOM_IN_DOMAIN_COMMAND);
++            zoomInDomainMenuItem1.addActionListener(this);
++            zoomInMenu.add(zoomInDomainMenuItem1);
+ 
+             this.zoomInRangeMenuItem = new JMenuItem(
+                     localizationResources.getString("Range_Axis"));

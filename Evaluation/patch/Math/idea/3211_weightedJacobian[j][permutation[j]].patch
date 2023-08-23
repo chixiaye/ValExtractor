@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+index 8d6a50b..4f0fc04 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+@@ -799,6 +799,7 @@
+             // store the diagonal element of s and restore
+             // the corresponding diagonal element of R
+             lmDiag[j] = weightedJacobian[j][permutation[j]];
++            double v = weightedJacobian[j][permutation[j]];
+             weightedJacobian[j][permutation[j]] = lmDir[j];
+         }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..c805db4 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -891,7 +891,8 @@
+             type = typePos.getItem().getJSType();
+           }
+ 
+-          if (sym.docScope == null) {
++            SymbolScope docScope = sym.docScope;
++            if (docScope == null) {
+             sym.docScope = new SymbolScope(null /* root */,
+                 null /* parent scope */, null /* type of this */, sym);
+           }

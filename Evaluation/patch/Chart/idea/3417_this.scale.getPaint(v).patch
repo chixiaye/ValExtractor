@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..48de466 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -578,7 +578,8 @@
+             else if (axisEdge == RectangleEdge.BOTTOM) {
+                 for (int i = 0; i < this.subdivisions; i++) {
+                     double v = base + (i * increment);
+-                    Paint p = this.scale.getPaint(v);
++                    Paint paint = this.scale.getPaint(v);
++                    Paint p = paint;
+                     double vv0 = this.axis.valueToJava2D(v, target,
+                             RectangleEdge.BOTTOM);
+                     double vv1 = this.axis.valueToJava2D(v + increment, target,

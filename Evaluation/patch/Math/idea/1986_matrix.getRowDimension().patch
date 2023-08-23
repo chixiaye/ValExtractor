@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
+index a03c4f4..d2ee98d 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockRealMatrix.java
+@@ -894,9 +894,10 @@
+         throws OutOfRangeException, MatrixDimensionMismatchException {
+         MatrixUtils.checkRowIndex(this, row);
+         final int nCols = getColumnDimension();
+-        if ((matrix.getRowDimension() != 1) ||
++        int rowDimension = matrix.getRowDimension();
++        if ((rowDimension != 1) ||
+             (matrix.getColumnDimension() != nCols)) {
+-            throw new MatrixDimensionMismatchException(matrix.getRowDimension(),
++            throw new MatrixDimensionMismatchException(rowDimension,
+                                                        matrix.getColumnDimension(),
+                                                        1, nCols);
+         }

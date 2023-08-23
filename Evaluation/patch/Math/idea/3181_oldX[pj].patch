@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+index 8d6a50b..7e0f4b3 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+@@ -401,7 +401,8 @@
+                 // save the state
+                 for (int j = 0; j < solvedCols; ++j) {
+                     int pj = permutation[j];
+-                    oldX[pj] = currentPoint[pj];
++                    double oldX1 = oldX[pj];
++                    oldX1 = currentPoint[pj];
+                 }
+                 final double previousCost = currentCost;
+                 double[] tmpVec = weightedResidual;

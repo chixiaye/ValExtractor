@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.java
+index d8bfdd5..eeef593 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/LeastSquaresConverter.java
+@@ -145,8 +145,9 @@
+     public LeastSquaresConverter(final MultivariateVectorFunction function,
+                                  final double[] observations,
+                                  final RealMatrix scale) {
+-        if (observations.length != scale.getColumnDimension()) {
+-            throw new DimensionMismatchException(observations.length, scale.getColumnDimension());
++        int length = observations.length;
++        if (length != scale.getColumnDimension()) {
++            throw new DimensionMismatchException(length, scale.getColumnDimension());
+         }
+         this.function     = function;
+         this.observations = observations.clone();

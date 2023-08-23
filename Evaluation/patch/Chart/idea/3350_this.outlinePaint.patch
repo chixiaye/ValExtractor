@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..854d432 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -281,8 +281,9 @@
+             g2.fill(bounds);
+         }
+ 
+-        if (this.outlinePaint != null && this.outlineStroke != null) {
+-            g2.setPaint(this.outlinePaint);
++        Paint outlinePaint1 = this.outlinePaint;
++        if (outlinePaint1 != null && this.outlineStroke != null) {
++            g2.setPaint(outlinePaint1);
+             g2.setStroke(this.outlineStroke);
+             g2.draw(bounds);
+         }

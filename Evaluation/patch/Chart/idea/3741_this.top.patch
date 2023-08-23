@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/util/RectangleInsets.java b/source/org/jfree/chart/util/RectangleInsets.java
+index 47f58a5..c28e4fa 100644
+--- a/source/org/jfree/chart/util/RectangleInsets.java
++++ b/source/org/jfree/chart/util/RectangleInsets.java
+@@ -393,9 +393,10 @@
+      * @return The top margin (in Java2D units).
+      */
+     public double calculateTopOutset(double height) {
+-        double result = this.top;
++        double top1 = this.top;
++        double result = top1;
+         if (this.unitType == UnitType.RELATIVE) {
+-            result = (height / (1 - this.top - this.bottom)) * this.top;
++            result = (height / (1 - top1 - this.bottom)) * top1;
+         }
+         return result;
+     }

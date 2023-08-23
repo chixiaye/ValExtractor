@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/time/SerialDate.java b/source/org/jfree/data/time/SerialDate.java
+index 10ee958..86f2f35 100644
+--- a/source/org/jfree/data/time/SerialDate.java
++++ b/source/org/jfree/data/time/SerialDate.java
+@@ -728,10 +728,11 @@
+      * @return a new serial date.
+      */
+     public SerialDate getEndOfCurrentMonth(final SerialDate base) {
++        int yyyy = base.getYYYY();
+         final int last = SerialDate.lastDayOfMonth(
+-            base.getMonth(), base.getYYYY()
++            base.getMonth(), yyyy
+         );
+-        return SerialDate.createInstance(last, base.getMonth(), base.getYYYY());
++        return SerialDate.createInstance(last, base.getMonth(), yyyy);
+     }
+ 
+     /**

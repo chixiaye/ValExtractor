@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/data/statistics/SimpleHistogramDataset.java b/source/org/jfree/data/statistics/SimpleHistogramDataset.java
+index 0231c02..55bd9a2 100644
+--- a/source/org/jfree/data/statistics/SimpleHistogramDataset.java
++++ b/source/org/jfree/data/statistics/SimpleHistogramDataset.java
+@@ -331,12 +331,13 @@
+      */
+     public double getYValue(int series, int item) {
+         SimpleHistogramBin bin = (SimpleHistogramBin) this.bins.get(item);
++        int itemCount = bin.getItemCount();
+         if (this.adjustForBinSize) {
+-            return bin.getItemCount()
++            return itemCount
+                    / (bin.getUpperBound() - bin.getLowerBound());
+         }
+         else {
+-            return bin.getItemCount();
++            return itemCount;
+         }
+     }
+ 

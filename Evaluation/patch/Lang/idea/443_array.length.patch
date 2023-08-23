@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..fa1a507 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -1129,12 +1129,15 @@
+      * @return this, to enable chaining
+      */
+     public StrBuilder appendWithSeparators(final Object[] array, String separator) {
+-        if (array != null && array.length > 0) {
+-            separator = ObjectUtils.toString(separator);
+-            append(array[0]);
+-            for (int i = 1; i < array.length; i++) {
+-                append(separator);
+-                append(array[i]);
++        if (array != null) {
++            int length = array.length;
++            if (length > 0) {
++                separator = ObjectUtils.toString(separator);
++                append(array[0]);
++                for (int i = 1; i < length; i++) {
++                    append(separator);
++                    append(array[i]);
++                }
+             }
+         }
+         return this;

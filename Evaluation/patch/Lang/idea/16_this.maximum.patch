@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Range.java b/src/main/java/org/apache/commons/lang3/Range.java
+index 7a86558..4a2ccd6 100644
+--- a/src/main/java/org/apache/commons/lang3/Range.java
++++ b/src/main/java/org/apache/commons/lang3/Range.java
+@@ -153,6 +153,7 @@
+         }
+         if (comparator.compare(element1, element2) < 1) {
+             this.minimum = element1;
++            T maximum1 = this.maximum;
+             this.maximum = element2;
+         } else {
+             this.minimum = element2;

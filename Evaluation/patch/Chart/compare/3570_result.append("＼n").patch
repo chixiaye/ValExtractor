@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/ui/ProjectInfo.java b/source/org/jfree/chart/ui/ProjectInfo.java
+index 36f7ab2..dbb23cb 100644
+--- a/source/org/jfree/chart/ui/ProjectInfo.java
++++ b/source/org/jfree/chart/ui/ProjectInfo.java
+@@ -201,7 +201,7 @@
+         else {
+             result.append("None");
+         }
+-        result.append("\n");
++        StringBuffer var_3570 = result.append("\n");
+         result.append(getName());
+         result.append(" LICENCE TERMS:");
+         result.append("\n");
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/ui/ProjectInfo.java b/source/org/jfree/chart/ui/ProjectInfo.java
+index 36f7ab2..dbb23cb 100644
+--- a/source/org/jfree/chart/ui/ProjectInfo.java
++++ b/source/org/jfree/chart/ui/ProjectInfo.java
+@@ -201,7 +201,7 @@
+         else {
+             result.append("None");
+         }
+-        result.append("\n");
++        StringBuffer var_3570 = result.append("\n");
+         result.append(getName());
+         result.append(" LICENCE TERMS:");
+         result.append("\n");
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/ui/ProjectInfo.java b/source/org/jfree/chart/ui/ProjectInfo.java
+index 36f7ab2..9105f9f 100644
+--- a/source/org/jfree/chart/ui/ProjectInfo.java
++++ b/source/org/jfree/chart/ui/ProjectInfo.java
+@@ -161,12 +161,12 @@
+         result.append(".\n");
+         result.append(getCopyright());
+         result.append(".\n");
+-        result.append("\n");
++        StringBuffer append = result.append("\n");
+         result.append("For terms of use, see the licence below.\n");
+-        result.append("\n");
++        append;
+         result.append("FURTHER INFORMATION:");
+         result.append(getInfo());
+-        result.append("\n");
++        append;
+         result.append("CONTRIBUTORS:");
+         if (this.contributors != null) {
+             final Iterator iterator = this.contributors.iterator();
+@@ -182,7 +182,7 @@
+             result.append("None");
+         }
+ 
+-        result.append("\n");
++        append;
+         result.append("OTHER LIBRARIES USED BY ");
+         result.append(getName());
+         result.append(":");
+@@ -201,10 +201,10 @@
+         else {
+             result.append("None");
+         }
+-        result.append("\n");
++        append;
+         result.append(getName());
+         result.append(" LICENCE TERMS:");
+-        result.append("\n");
++        append;
+         result.append(getLicenceText());
+ 
+         return result.toString();

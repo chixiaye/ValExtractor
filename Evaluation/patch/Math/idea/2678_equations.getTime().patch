@@ -1,0 +1,31 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+index 2ff86a0..4054683 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java
+@@ -196,7 +196,8 @@
+ 
+     sanityChecks(equations, t);
+     setEquations(equations);
+-    final boolean forward = t > equations.getTime();
++      double time = equations.getTime();
++      final boolean forward = t > time;
+ 
+     // create some internal working arrays
+     final double[] y0  = equations.getCompleteState();
+@@ -210,13 +211,13 @@
+     final RungeKuttaStepInterpolator interpolator = (RungeKuttaStepInterpolator) prototype.copy();
+     interpolator.reinitialize(this, yTmp, yDotK, forward,
+                               equations.getPrimaryMapper(), equations.getSecondaryMappers());
+-    interpolator.storeTime(equations.getTime());
++    interpolator.storeTime(time);
+ 
+     // set up integration control objects
+-    stepStart         = equations.getTime();
++    stepStart         = time;
+     double  hNew      = 0;
+     boolean firstTime = true;
+-    initIntegration(equations.getTime(), y0, t);
++    initIntegration(time, y0, t);
+ 
+     // main integration loop
+     isLastStep = false;

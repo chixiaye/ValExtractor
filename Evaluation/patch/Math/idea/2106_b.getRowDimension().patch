@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..6868a2d 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -477,8 +477,9 @@
+             }
+ 
+             final int m = realEigenvalues.length;
+-            if (b.getRowDimension() != m) {
+-                throw new DimensionMismatchException(b.getRowDimension(), m);
++            int rowDimension = b.getRowDimension();
++            if (rowDimension != m) {
++                throw new DimensionMismatchException(rowDimension, m);
+             }
+ 
+             final int nColB = b.getColumnDimension();

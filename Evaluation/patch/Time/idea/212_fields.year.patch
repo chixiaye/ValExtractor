@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/CopticChronology.java b/src/main/java/org/joda/time/chrono/CopticChronology.java
+index 7e6cfc4..608b8a1 100644
+--- a/src/main/java/org/joda/time/chrono/CopticChronology.java
++++ b/src/main/java/org/joda/time/chrono/CopticChronology.java
+@@ -249,7 +249,8 @@
+             super.assemble(fields);
+ 
+             // Coptic, like Julian, has no year zero.
+-            fields.year = new SkipDateTimeField(this, fields.year);
++            DateTimeField year = fields.year;
++            year = new SkipDateTimeField(this, fields.year);
+             fields.weekyear = new SkipDateTimeField(this, fields.weekyear);
+             
+             fields.era = ERA_FIELD;

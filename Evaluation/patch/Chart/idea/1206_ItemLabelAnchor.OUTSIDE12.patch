@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..b47e0f3 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -284,8 +284,11 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+             result = ItemLabelAnchor.OUTSIDE11;
+         }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+-            result = ItemLabelAnchor.OUTSIDE12;
++        else {
++            ItemLabelAnchor outside12 = ItemLabelAnchor.OUTSIDE12;
++            if (this.equals(outside12)) {
++                result = outside12;
++            }
+         }
+         return result;
+     }

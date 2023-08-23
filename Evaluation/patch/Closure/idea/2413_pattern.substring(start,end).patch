@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..4786952 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -213,7 +213,8 @@
+                     }
+                 }
+               }
+-              atom = new Text(pattern.substring(start, end));
++                String substring = pattern.substring(start, end);
++                atom = new Text(substring);
+               pos = end;
+               break;
+           }

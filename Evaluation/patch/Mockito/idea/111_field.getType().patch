@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/util/reflection/FieldInitializer.java b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+index 0f89b1b..8b4d2cc 100644
+--- a/src/org/mockito/internal/util/reflection/FieldInitializer.java
++++ b/src/org/mockito/internal/util/reflection/FieldInitializer.java
+@@ -110,8 +110,9 @@
+     }
+ 
+     private void checkNotAbstract(Field field) {
+-        if(Modifier.isAbstract(field.getType().getModifiers())) {
+-            throw new MockitoException("the type '" + field.getType().getSimpleName() + " is an abstract class.");
++        Class<?> type = field.getType();
++        if(Modifier.isAbstract(type.getModifiers())) {
++            throw new MockitoException("the type '" + type.getSimpleName() + " is an abstract class.");
+         }
+     }
+ 

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/TextTitle.java b/source/org/jfree/chart/title/TextTitle.java
+index 74e534a..4fef18b 100644
+--- a/source/org/jfree/chart/title/TextTitle.java
++++ b/source/org/jfree/chart/title/TextTitle.java
+@@ -917,8 +917,9 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.paint = SerialUtilities.readPaint(stream);
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
++        Paint paint1 = SerialUtilities.readPaint(stream);
++        this.paint = paint1;
++        this.backgroundPaint = paint1;
+     }
+ 
+ }

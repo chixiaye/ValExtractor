@@ -1,0 +1,9 @@
+result	
+1	Completely Correct
+2	Not Perfect
+3	Incorrect
+	
+Wrong type	
+1	excpetion
+2	middle code changed
+3	self side effect

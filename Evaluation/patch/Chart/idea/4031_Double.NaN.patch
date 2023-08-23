@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..adbc90e 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -154,11 +154,12 @@
+         }
+         else {
+ 
+-            double minval = Double.NaN;
++            double naN = Double.NaN;
++            double minval = naN;
+             if (item.getMinOutlier() != null) {
+                 minval = item.getMinOutlier().doubleValue();
+             }
+-            double maxval = Double.NaN;
++            double maxval = naN;
+             if (item.getMaxOutlier() != null) {
+                 maxval = item.getMaxOutlier().doubleValue();
+             }

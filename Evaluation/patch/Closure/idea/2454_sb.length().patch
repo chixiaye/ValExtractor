@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..645a00b 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1769,9 +1769,10 @@
+           element.appendSourceCode(sb);
+           sb.append(')');
+         } else {
+-          int start = sb.length();
++            int length = sb.length();
++            int start = length;
+           element.appendSourceCode(sb);
+-          if (digitsMightBleed && sb.length() > start) {
++          if (digitsMightBleed && length > start) {
+             char firstChar = sb.charAt(start);
+             if ('0' <= firstChar && firstChar <= '9') {
+               // Bleeding happened.

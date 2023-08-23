@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..be92f50 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -1309,7 +1309,8 @@
+                     getLabelAngle(), labelBounds.getCenterX(),
+                     labelBounds.getCenterY());
+             Shape rotatedLabelBounds = t.createTransformedShape(labelBounds);
+-            labelBounds = rotatedLabelBounds.getBounds2D();
++            Rectangle2D bounds2D = rotatedLabelBounds.getBounds2D();
++            labelBounds = bounds2D;
+             float w = (float) labelBounds.getWidth();
+             float h = (float) labelBounds.getHeight();
+             float labelx = (float) dataArea.getCenterX();

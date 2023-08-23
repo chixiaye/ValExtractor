@@ -1,0 +1,34 @@
+diff --git a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
+index 5482de1..e6a9150 100644
+--- a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
++++ b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/op/AbstractOpProcessor.java
+@@ -134,8 +134,9 @@
+             // send back a page of results if batch size is met or if it's the end of the results being iterated.
+             // also check writeability of the channel to prevent OOME for slow clients.
+             if (ctx.channel().isWritable()) {
+-                if (forceFlush || aggregate.size() == resultIterationBatchSize || !itty.hasNext()) {
+-                    final ResponseStatusCode code = itty.hasNext() ? ResponseStatusCode.PARTIAL_CONTENT : ResponseStatusCode.SUCCESS;
++                boolean moreInIterator = itty.hasNext();
++				if (forceFlush || aggregate.size() == resultIterationBatchSize || !moreInIterator) {
++                    final ResponseStatusCode code = moreInIterator ? ResponseStatusCode.PARTIAL_CONTENT : ResponseStatusCode.SUCCESS;
+ 
+                     // serialize here because in sessionless requests the serialization must occur in the same
+                     // thread as the eval.  as eval occurs in the GremlinExecutor there's no way to get back to the
+@@ -156,7 +157,7 @@
+ 
+                     try {
+                         // only need to reset the aggregation list if there's more stuff to write
+-                        if (itty.hasNext())
++                        if (moreInIterator)
+                             aggregate = new ArrayList<>(resultIterationBatchSize);
+                         else {
+                             // iteration and serialization are both complete which means this finished successfully. note that
+@@ -179,7 +180,7 @@
+                         throw ex;
+                     }
+ 
+-                    if (!itty.hasNext()) iterateComplete(ctx, msg, itty);
++                    if (!moreInIterator) iterateComplete(ctx, msg, itty);
+ 
+                     // the flush is called after the commit has potentially occurred.  in this way, if a commit was
+                     // required then it will be 100% complete before the client receives it. the "frame" at this point

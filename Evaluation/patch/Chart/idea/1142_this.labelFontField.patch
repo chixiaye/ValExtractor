@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..a4e93b3 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -199,6 +199,7 @@
+         interior.add(new JPanel());
+ 
+         interior.add(new JLabel(localizationResources.getString("Font")));
++        JTextField labelFontField1 = this.labelFontField;
+         this.labelFontField = new FontDisplayField(this.labelFont);
+         interior.add(this.labelFontField);
+         JButton b = new JButton(localizationResources.getString("Select..."));

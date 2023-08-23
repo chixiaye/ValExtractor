@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..18e0b23 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2539,9 +2539,10 @@
+      */
+     public void clearDomainMarkers(int index) {
+         Integer key = new Integer(index);
+-        if (this.backgroundDomainMarkers != null) {
++        Map backgroundDomainMarkers1 = this.backgroundDomainMarkers;
++        if (backgroundDomainMarkers1 != null) {
+             Collection markers
+-                = (Collection) this.backgroundDomainMarkers.get(key);
++                = (Collection) backgroundDomainMarkers1.get(key);
+             if (markers != null) {
+                 Iterator iterator = markers.iterator();
+                 while (iterator.hasNext()) {

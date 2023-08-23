@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/QuarterDateFormat.java b/source/org/jfree/chart/axis/QuarterDateFormat.java
+index 1b7d1e1..01bf5a4 100644
+--- a/source/org/jfree/chart/axis/QuarterDateFormat.java
++++ b/source/org/jfree/chart/axis/QuarterDateFormat.java
+@@ -151,9 +151,10 @@
+      */
+     public StringBuffer format(Date date, StringBuffer toAppendTo,
+                                FieldPosition fieldPosition) {
+-        this.calendar.setTime(date);
+-        int year = this.calendar.get(Calendar.YEAR);
+-        int month = this.calendar.get(Calendar.MONTH);
++        Calendar calendar1 = this.calendar;
++        calendar1.setTime(date);
++        int year = calendar1.get(Calendar.YEAR);
++        int month = calendar1.get(Calendar.MONTH);
+         int quarter = month / 3;
+         if (this.quarterFirst) {
+             toAppendTo.append(this.quarters[quarter]);

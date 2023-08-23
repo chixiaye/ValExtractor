@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+index bdc095b..b888138 100644
+--- a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+@@ -292,10 +292,11 @@
+                 }
+             }
+             if (cnay != null) {
++                double v = y[3];
+                 if (ycycleBound == y[2]) {
+-                    cnay.setBoundMappedToLastCycle(y[3] <= ycycleBound);
++                    cnay.setBoundMappedToLastCycle(v <= ycycleBound);
+                 }
+-                if (ycycleBound == y[3]) {
++                if (ycycleBound == v) {
+                     cnay.setBoundMappedToLastCycle(y[2] <= ycycleBound);
+                 }
+             }

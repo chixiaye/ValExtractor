@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/text/TextBlockAnchor.java b/source/org/jfree/chart/text/TextBlockAnchor.java
+index 4b579f0..61b6273 100644
+--- a/source/org/jfree/chart/text/TextBlockAnchor.java
++++ b/source/org/jfree/chart/text/TextBlockAnchor.java
+@@ -166,9 +166,10 @@
+         }
+         else if (this.equals(TextBlockAnchor.CENTER_LEFT)) {
+             return TextBlockAnchor.CENTER_LEFT;
+-        }
+-        else if (this.equals(TextBlockAnchor.CENTER_RIGHT)) {
+-            return TextBlockAnchor.CENTER_RIGHT;
++        } else {
++			TextBlockAnchor var_3280 = TextBlockAnchor.CENTER_RIGHT;
++			if (this.equals(var_3280)) {
++			    return var_3280;
+         }
+         else if (this.equals(TextBlockAnchor.BOTTOM_CENTER)) {
+             return TextBlockAnchor.BOTTOM_CENTER;
+@@ -179,6 +180,7 @@
+         else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
+             return TextBlockAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/text/TextBlockAnchor.java b/source/org/jfree/chart/text/TextBlockAnchor.java
+index 4b579f0..61b6273 100644
+--- a/source/org/jfree/chart/text/TextBlockAnchor.java
++++ b/source/org/jfree/chart/text/TextBlockAnchor.java
+@@ -166,9 +166,10 @@
+         }
+         else if (this.equals(TextBlockAnchor.CENTER_LEFT)) {
+             return TextBlockAnchor.CENTER_LEFT;
+-        }
+-        else if (this.equals(TextBlockAnchor.CENTER_RIGHT)) {
+-            return TextBlockAnchor.CENTER_RIGHT;
++        } else {
++			TextBlockAnchor var_3280 = TextBlockAnchor.CENTER_RIGHT;
++			if (this.equals(var_3280)) {
++			    return var_3280;
+         }
+         else if (this.equals(TextBlockAnchor.BOTTOM_CENTER)) {
+             return TextBlockAnchor.BOTTOM_CENTER;
+@@ -179,6 +180,7 @@
+         else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
+             return TextBlockAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/text/TextBlockAnchor.java b/source/org/jfree/chart/text/TextBlockAnchor.java
+index 4b579f0..da8cfcc 100644
+--- a/source/org/jfree/chart/text/TextBlockAnchor.java
++++ b/source/org/jfree/chart/text/TextBlockAnchor.java
+@@ -167,8 +167,10 @@
+         else if (this.equals(TextBlockAnchor.CENTER_LEFT)) {
+             return TextBlockAnchor.CENTER_LEFT;
+         }
+-        else if (this.equals(TextBlockAnchor.CENTER_RIGHT)) {
+-            return TextBlockAnchor.CENTER_RIGHT;
++        else {
++            TextBlockAnchor centerRight = TextBlockAnchor.CENTER_RIGHT;
++            if (this.equals(centerRight)) {
++                return centerRight;
+         }
+         else if (this.equals(TextBlockAnchor.BOTTOM_CENTER)) {
+             return TextBlockAnchor.BOTTOM_CENTER;
+@@ -179,6 +181,7 @@
+         else if (this.equals(TextBlockAnchor.BOTTOM_RIGHT)) {
+             return TextBlockAnchor.BOTTOM_RIGHT;
+         }
++        }
+         return null;
+     }
+ 

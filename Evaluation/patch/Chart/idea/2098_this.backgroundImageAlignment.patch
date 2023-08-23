@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..4d3981c 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -719,7 +719,8 @@
+      * @see #getBackgroundImageAlignment()
+      */
+     public void setBackgroundImageAlignment(int alignment) {
+-        if (this.backgroundImageAlignment != alignment) {
++        int backgroundImageAlignment1 = this.backgroundImageAlignment;
++        if (backgroundImageAlignment1 != alignment) {
+             this.backgroundImageAlignment = alignment;
+             fireChangeEvent();
+         }

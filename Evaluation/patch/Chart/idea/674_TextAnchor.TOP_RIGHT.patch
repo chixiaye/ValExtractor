@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..03d7431 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -474,6 +474,7 @@
+             TextAnchor anchor = null;
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
++            TextAnchor topRight = TextAnchor.TOP_RIGHT;
+             if (isVerticalTickLabels()) {
+                 if (edge == RectangleEdge.TOP) {
+                     angle = Math.PI / 2.0;
+@@ -486,7 +487,7 @@
+                 if ((lastTick != null) && (lastX == x)
+                         && (currentTickValue != cycleBound)) {
+                     anchor = isInverted()
+-                        ? TextAnchor.TOP_RIGHT : TextAnchor.BOTTOM_RIGHT;
++                        ? topRight : TextAnchor.BOTTOM_RIGHT;
+                     result.remove(result.size() - 1);
+                     result.add(new CycleBoundTick(
+                         this.boundMappedToLastCycle, lastTick.getNumber(),
+@@ -495,7 +496,7 @@
+                     );
+                     this.internalMarkerWhenTicksOverlap = true;
+                     anchor = isInverted()
+-                        ? TextAnchor.BOTTOM_RIGHT : TextAnchor.TOP_RIGHT;
++                        ? TextAnchor.BOTTOM_RIGHT : topRight;
+                 }
+                 rotationAnchor = anchor;
+             }
+@@ -523,7 +524,7 @@
+                     if ((lastTick != null) && (lastX == x)
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+-                            ? TextAnchor.TOP_LEFT : TextAnchor.TOP_RIGHT;
++                            ? TextAnchor.TOP_LEFT : topRight;
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+@@ -532,7 +533,7 @@
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+-                            ? TextAnchor.TOP_RIGHT : TextAnchor.TOP_LEFT;
++                            ? topRight : TextAnchor.TOP_LEFT;
+                     }
+                     rotationAnchor = anchor;
+                 }

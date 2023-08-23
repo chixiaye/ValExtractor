@@ -1,0 +1,114 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..ebff292 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -501,9 +501,11 @@
+                     skew      = Skew.BALANCED;
+                     left.skew = Skew.BALANCED;
+                     return true;
+-                } else if (right.skew == Skew.BALANCED) {
++                } else {
++					Skew var_1775 = Skew.LEFT_HIGH;
++					if (right.skew == Skew.BALANCED) {
+                     rotateCCW();
+-                    skew      = Skew.LEFT_HIGH;
++					    skew      = var_1775;
+                     left.skew = Skew.RIGHT_HIGH;
+                     return false;
+                 } else {
+@@ -516,7 +518,7 @@
+                         right.skew = Skew.RIGHT_HIGH;
+                         break;
+                     case RIGHT_HIGH:
+-                        left.skew  = Skew.LEFT_HIGH;
++					        left.skew  = var_1775;
+                         right.skew = Skew.BALANCED;
+                         break;
+                     default:
+@@ -526,6 +528,7 @@
+                     skew = Skew.BALANCED;
+                     return true;
+                 }
++				}
+             default:
+                 skew = Skew.RIGHT_HIGH;
+                 return false;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..ebff292 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -501,9 +501,11 @@
+                     skew      = Skew.BALANCED;
+                     left.skew = Skew.BALANCED;
+                     return true;
+-                } else if (right.skew == Skew.BALANCED) {
++                } else {
++					Skew var_1775 = Skew.LEFT_HIGH;
++					if (right.skew == Skew.BALANCED) {
+                     rotateCCW();
+-                    skew      = Skew.LEFT_HIGH;
++					    skew      = var_1775;
+                     left.skew = Skew.RIGHT_HIGH;
+                     return false;
+                 } else {
+@@ -516,7 +518,7 @@
+                         right.skew = Skew.RIGHT_HIGH;
+                         break;
+                     case RIGHT_HIGH:
+-                        left.skew  = Skew.LEFT_HIGH;
++					        left.skew  = var_1775;
+                         right.skew = Skew.BALANCED;
+                         break;
+                     default:
+@@ -526,6 +528,7 @@
+                     skew = Skew.BALANCED;
+                     return true;
+                 }
++				}
+             default:
+                 skew = Skew.RIGHT_HIGH;
+                 return false;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..b9de9e3 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -491,8 +491,9 @@
+          * @return true if the parent tree should be reSkew.BALANCED too
+          */
+         private boolean rebalanceLeftShrunk() {
++            final Skew leftHigh = Skew.LEFT_HIGH;
+             switch (skew) {
+-            case LEFT_HIGH:
++            case leftHigh:
+                 skew = Skew.BALANCED;
+                 return true;
+             case RIGHT_HIGH:
+@@ -503,7 +504,7 @@
+                     return true;
+                 } else if (right.skew == Skew.BALANCED) {
+                     rotateCCW();
+-                    skew      = Skew.LEFT_HIGH;
++                    skew      = leftHigh;
+                     left.skew = Skew.RIGHT_HIGH;
+                     return false;
+                 } else {
+@@ -511,12 +512,12 @@
+                     right.rotateCW();
+                     rotateCCW();
+                     switch (s) {
+-                    case LEFT_HIGH:
++                    case leftHigh:
+                         left.skew  = Skew.BALANCED;
+                         right.skew = Skew.RIGHT_HIGH;
+                         break;
+                     case RIGHT_HIGH:
+-                        left.skew  = Skew.LEFT_HIGH;
++                        left.skew  = leftHigh;
+                         right.skew = Skew.BALANCED;
+                         break;
+                     default:

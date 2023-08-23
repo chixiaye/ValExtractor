@@ -1,0 +1,22 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+index 5ba6e4b..3c567a1 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+@@ -290,14 +290,14 @@
+ 
+     // Files names
+     appendFieldStart(out, "sources");
+-    out.append("[");
+-    addSourceNameMap(out);
++      Appendable append = out.append("[");
++      addSourceNameMap(out);
+     out.append("]");
+     appendFieldEnd(out);
+ 
+     // Files names
+     appendFieldStart(out, "names");
+-    out.append("[");
++    append;
+     addSymbolNameMap(out);
+     out.append("]");
+     appendFieldEnd(out);

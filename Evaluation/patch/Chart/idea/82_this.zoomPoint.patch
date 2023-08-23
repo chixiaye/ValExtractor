@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..2efbc02 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1775,9 +1775,10 @@
+         // coordinates, or use defaults...
+         double screenX = -1.0;
+         double screenY = -1.0;
+-        if (this.zoomPoint != null) {
+-            screenX = this.zoomPoint.getX();
+-            screenY = this.zoomPoint.getY();
++        Point2D zoomPoint1 = this.zoomPoint;
++        if (zoomPoint1 != null) {
++            screenX = zoomPoint1.getX();
++            screenY = zoomPoint1.getY();
+         }
+ 
+         if (command.equals(PROPERTIES_COMMAND)) {

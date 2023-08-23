@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..15adfcd 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1067,9 +1067,10 @@
+                         gp.getColor2());
+             }
+             else if (orientation == PlotOrientation.HORIZONTAL) {
++                double centerY = area.getCenterY();
+                 p = new GradientPaint((float) area.getMinX(),
+-                        (float) area.getCenterY(), gp.getColor1(),
+-                        (float) area.getMaxX(), (float) area.getCenterY(),
++                        (float) centerY, gp.getColor1(),
++                        (float) area.getMaxX(), (float) centerY,
+                         gp.getColor2());
+             }
+         }

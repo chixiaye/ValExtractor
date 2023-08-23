@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..e00242d 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -192,9 +192,10 @@
+    * function, not the function itself.
+    */
+   public SymbolScope getEnclosingScope(Node n) {
+-    Node current = n.getParent();
++      Node parent = n.getParent();
++      Node current = parent;
+     if (n.isName() &&
+-        n.getParent().isFunction()) {
++        parent.isFunction()) {
+       current = current.getParent();
+     }
+ 

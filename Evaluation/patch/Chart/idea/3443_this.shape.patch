@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/LegendGraphic.java b/source/org/jfree/chart/title/LegendGraphic.java
+index 3db85f5..7735d22 100644
+--- a/source/org/jfree/chart/title/LegendGraphic.java
++++ b/source/org/jfree/chart/title/LegendGraphic.java
+@@ -570,8 +570,9 @@
+         if (this.line != null) {
+             contentSize.setRect(this.line.getBounds2D());
+         }
+-        if (this.shape != null) {
+-            contentSize = contentSize.createUnion(this.shape.getBounds2D());
++        Shape shape1 = this.shape;
++        if (shape1 != null) {
++            contentSize = contentSize.createUnion(shape1.getBounds2D());
+         }
+         return new Size2D(contentSize.getWidth(), contentSize.getHeight());
+     }

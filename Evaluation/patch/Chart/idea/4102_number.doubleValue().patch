@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/statistics/Statistics.java b/source/org/jfree/data/statistics/Statistics.java
+index 1f97438..18abf63 100644
+--- a/source/org/jfree/data/statistics/Statistics.java
++++ b/source/org/jfree/data/statistics/Statistics.java
+@@ -154,14 +154,15 @@
+             else {
+                 if (object instanceof Number) {
+                     Number number = (Number) object;
+-                    double value = number.doubleValue();
++                    double v = number.doubleValue();
++                    double value = v;
+                     if (Double.isNaN(value)) {
+                         if (includeNullAndNaN) {
+                             return Double.NaN;
+                         }
+                     }
+                     else {
+-                        total = total + number.doubleValue();
++                        total = total + v;
+                         count = count + 1;
+                     }
+                 }

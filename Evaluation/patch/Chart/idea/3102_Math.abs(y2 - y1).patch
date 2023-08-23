@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..b9c62b7 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1181,13 +1181,14 @@
+                 plot.getRangeAxisEdge());
+         double y2 = axis.valueToJava2D(end, dataArea, plot.getRangeAxisEdge());
+         Rectangle2D band;
++        double abs = Math.abs(y2 - y1);
+         if (plot.getOrientation() == PlotOrientation.VERTICAL) {
+             band = new Rectangle2D.Double(dataArea.getMinX(), Math.min(y1, y2),
+-                dataArea.getWidth(), Math.abs(y2 - y1));
++                dataArea.getWidth(), abs);
+         }
+         else {
+             band = new Rectangle2D.Double(Math.min(y1, y2), dataArea.getMinY(),
+-                    Math.abs(y2 - y1), dataArea.getHeight());
++                    abs, dataArea.getHeight());
+         }
+         Paint paint = plot.getRangeTickBandPaint();
+ 

@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/dial/DialPointer.java b/source/org/jfree/chart/plot/dial/DialPointer.java
+index 1aba46d..f56fcfe 100644
+--- a/source/org/jfree/chart/plot/dial/DialPointer.java
++++ b/source/org/jfree/chart/plot/dial/DialPointer.java
+@@ -643,7 +643,8 @@
+         private void readObject(ObjectInputStream stream)
+                 throws IOException, ClassNotFoundException {
+             stream.defaultReadObject();
+-            this.fillPaint = SerialUtilities.readPaint(stream);
++            Paint var_2284 = SerialUtilities.readPaint(stream);
++			this.fillPaint = var_2284;
+             this.outlinePaint = SerialUtilities.readPaint(stream);
+         }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/dial/DialPointer.java b/source/org/jfree/chart/plot/dial/DialPointer.java
+index 1aba46d..7a9ca27 100644
+--- a/source/org/jfree/chart/plot/dial/DialPointer.java
++++ b/source/org/jfree/chart/plot/dial/DialPointer.java
+@@ -643,8 +643,9 @@
+         private void readObject(ObjectInputStream stream)
+                 throws IOException, ClassNotFoundException {
+             stream.defaultReadObject();
+-            this.fillPaint = SerialUtilities.readPaint(stream);
+-            this.outlinePaint = SerialUtilities.readPaint(stream);
++            Paint var_2284 = SerialUtilities.readPaint(stream);
++			this.fillPaint = var_2284;
++            this.outlinePaint = var_2284;
+         }
+ 
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/dial/DialPointer.java b/source/org/jfree/chart/plot/dial/DialPointer.java
+index 1aba46d..a2e8126 100644
+--- a/source/org/jfree/chart/plot/dial/DialPointer.java
++++ b/source/org/jfree/chart/plot/dial/DialPointer.java
+@@ -643,8 +643,9 @@
+         private void readObject(ObjectInputStream stream)
+                 throws IOException, ClassNotFoundException {
+             stream.defaultReadObject();
+-            this.fillPaint = SerialUtilities.readPaint(stream);
+-            this.outlinePaint = SerialUtilities.readPaint(stream);
++            Paint fillPaint1 = SerialUtilities.readPaint(stream);
++            this.fillPaint = fillPaint1;
++            this.outlinePaint = fillPaint1;
+         }
+ 
+     }

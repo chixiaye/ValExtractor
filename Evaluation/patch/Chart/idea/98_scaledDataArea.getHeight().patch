@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..bbb141c 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2241,10 +2241,11 @@
+                 / scaledDataArea.getWidth();
+             double hUpper = (selection.getMaxX() - scaledDataArea.getMinX())
+                 / scaledDataArea.getWidth();
++            double height = scaledDataArea.getHeight();
+             double vLower = (scaledDataArea.getMaxY() - selection.getMaxY())
+-                / scaledDataArea.getHeight();
++                / height;
+             double vUpper = (scaledDataArea.getMaxY() - selection.getMinY())
+-                / scaledDataArea.getHeight();
++                / height;
+ 
+             Plot p = this.chart.getPlot();
+             if (p instanceof Zoomable) {

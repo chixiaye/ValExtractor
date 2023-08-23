@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/ParserRunner.java b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+index 2c78855..713853d 100644
+--- a/src/com/google/javascript/jscomp/parsing/ParserRunner.java
++++ b/src/com/google/javascript/jscomp/parsing/ParserRunner.java
+@@ -136,11 +136,12 @@
+ 
+     Parser p = new Parser(compilerEnv, errorReporter);
+     AstRoot astRoot = null;
+-    try {
+-      astRoot = p.parse(sourceString, sourceFile.getName(), 1);
++      String name = sourceFile.getName();
++      try {
++      astRoot = p.parse(sourceString, name, 1);
+     } catch (EvaluatorException e) {
+       logger.info(
+-          "Error parsing " + sourceFile.getName() + ": " + e.getMessage());
++          "Error parsing " + name + ": " + e.getMessage());
+     } finally {
+       Context.exit();
+     }

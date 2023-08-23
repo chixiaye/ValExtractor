@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AliasExternals.java b/src/com/google/javascript/jscomp/AliasExternals.java
+index fc43f34..1d5b130 100644
+--- a/src/com/google/javascript/jscomp/AliasExternals.java
++++ b/src/com/google/javascript/jscomp/AliasExternals.java
+@@ -718,8 +718,9 @@
+             name window
+      */
+ 
+-    String globalName = global.name;
+-    Node globalValue = IR.name(global.name);
++      String name = global.name;
++      String globalName = name;
++    Node globalValue = IR.name(name);
+     globalValue.putBooleanProp(Node.IS_CONSTANT_NAME, global.isConstant);
+ 
+     Node globalNameNode = IR.name("GLOBAL_" + globalName);

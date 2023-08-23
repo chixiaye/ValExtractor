@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+index 75ed7c6..b71a713 100644
+--- a/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/sampling/AbstractStepInterpolator.java
+@@ -577,10 +577,11 @@
+     softCurrentTime     = in.readDouble();
+     h                   = in.readDouble();
+     forward             = in.readBoolean();
+-    primaryMapper       = (EquationsMapper) in.readObject();
++      Object o = in.readObject();
++      primaryMapper       = (EquationsMapper) o;
+     secondaryMappers    = new EquationsMapper[in.read()];
+     for (int i = 0; i < secondaryMappers.length; ++i) {
+-        secondaryMappers[i] = (EquationsMapper) in.readObject();
++        secondaryMappers[i] = (EquationsMapper) o;
+     }
+     dirtyState          = true;
+ 

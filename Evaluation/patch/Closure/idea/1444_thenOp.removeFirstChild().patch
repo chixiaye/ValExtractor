@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..305c220 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -782,8 +782,9 @@
+               !mayEffectMutableState(lhs)) {
+ 
+             n.removeChild(cond);
+-            Node assignName = thenOp.removeFirstChild();
+-            Node thenExpr = thenOp.removeFirstChild();
++              Node node = thenOp.removeFirstChild();
++              Node assignName = node;
++            Node thenExpr = node;
+             Node elseExpr = elseOp.getLastChild();
+             elseOp.removeChild(elseExpr);
+ 

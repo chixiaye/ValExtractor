@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..dcfc138 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -1253,10 +1253,11 @@
+     FunctionParamBuilder builder = new FunctionParamBuilder(this);
+     int max = parameterTypes.length - 1;
+     for (int i = 0; i <= max; i++) {
+-      if (lastVarArgs && i == max) {
+-        builder.addVarArgs(parameterTypes[i]);
++        JSType parameterType = parameterTypes[i];
++        if (lastVarArgs && i == max) {
++        builder.addVarArgs(parameterType);
+       } else {
+-        builder.addRequiredParams(parameterTypes[i]);
++        builder.addRequiredParams(parameterType);
+       }
+     }
+     return builder.build();

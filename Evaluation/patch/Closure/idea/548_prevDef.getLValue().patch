@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+index fb9b5c2..0250fe7 100644
+--- a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
++++ b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+@@ -194,7 +194,8 @@
+               for (Definition prevDef : nameDefinitionMultimap.get(name)) {
+                 if (prevDef instanceof ExternalNameOnlyDefinition
+                     && !jsdocContainsDeclarations(node)) {
+-                  String prevName = prevDef.getLValue().getQualifiedName();
++                    Node lValue = prevDef.getLValue();
++                    String prevName = lValue.getQualifiedName();
+                   if (qualifiedName.equals(prevName)) {
+                     // Drop this stub, there is a real definition.
+                     stubsToRemove.add(prevDef);

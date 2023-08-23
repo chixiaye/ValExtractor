@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+index f03ba0e..aaefc24 100644
+--- a/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/CholeskyDecomposition.java
+@@ -265,7 +265,8 @@
+ 
+             // Solve LY = b
+             for (int j = 0; j < m; j++) {
+-                final double[] lJ = lTData[j];
++                double[] lTDatum = lTData[j];
++                final double[] lJ = lTDatum;
+                 final double lJJ = lJ[j];
+                 final double[] xJ = x[j];
+                 for (int k = 0; k < nColB; ++k) {

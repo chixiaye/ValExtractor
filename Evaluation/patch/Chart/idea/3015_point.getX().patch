@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+index 8332a80..a142ec1 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYAreaRenderer.java
+@@ -451,7 +451,8 @@
+             // Add each point to Area (x, y)
+             if (orientation == PlotOrientation.VERTICAL) {
+                 Point point = new Point((int) transX1, (int) transY1);
+-                areaState.getSeriesArea().addPoint((int) point.getX(),
++                double x = point.getX();
++                areaState.getSeriesArea().addPoint((int) x,
+                         (int) point.getY());
+                 areaState.getCurrentSeriesPoints().push(point);
+             }

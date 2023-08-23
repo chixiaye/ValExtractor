@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java b/src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java
+index 81e180c..64598a1 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java
+@@ -227,10 +227,13 @@
+         final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+         if (x <= domain[0]) {
+             ret = 1.0;
+-        } else if (x > domain[1]) {
+-            ret = 0.0;
+         } else {
+-            ret = innerCumulativeProbability(domain[1], x, -1);
++            int i = domain[1];
++            if (x > i) {
++                ret = 0.0;
++            } else {
++                ret = innerCumulativeProbability(i, x, -1);
++            }
+         }
+ 
+         return ret;

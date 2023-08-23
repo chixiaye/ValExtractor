@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..0a8b580 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -599,7 +599,8 @@
+             errors.add(key);
+           }
+         }
+-        if (errors.size() != 0) {
++          int size = errors.size();
++          if (size != 0) {
+           compiler.report(
+             t.makeError(n, INVALID_CSS_RENAMING_MAP, errors.toString()));
+         }

@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java b/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
+index 46cfbef..faefbb9 100644
+--- a/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
++++ b/source/org/jfree/chart/urls/StandardCategoryURLGenerator.java
+@@ -149,11 +149,12 @@
+         url += firstParameter ? "?" : "&amp;";
+         url += this.seriesParameterName + "=";
+         String seriesKeyStr = null;
++        String s = seriesKey.toString();
+         try {
+-            seriesKeyStr = URLEncoder.encode(seriesKey.toString(), "UTF-8");
++            seriesKeyStr = URLEncoder.encode(s, "UTF-8");
+         }
+         catch (UnsupportedEncodingException e) {
+-            seriesKeyStr = seriesKey.toString();
++            seriesKeyStr = s;
+         }
+         String categoryKeyStr = null;
+         try {

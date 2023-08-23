@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+index c15e130..61db262 100644
+--- a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
++++ b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+@@ -174,7 +174,8 @@
+      * @return A hash code.
+      */
+     public int hashCode() {
+-        return (this.type != null ? this.type.hashCode() : 0);
++        GradientPaintTransformType type1 = this.type;
++        return (type1 != null ? type1.hashCode() : 0);
+     }
+ 
+ }

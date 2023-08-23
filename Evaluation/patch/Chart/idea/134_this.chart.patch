@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartTransferable.java b/source/org/jfree/chart/ChartTransferable.java
+index 1535c2b..fa20339 100644
+--- a/source/org/jfree/chart/ChartTransferable.java
++++ b/source/org/jfree/chart/ChartTransferable.java
+@@ -152,6 +152,7 @@
+         // between putting this instance on the system clipboard and
+         // actually having the getTransferData() method called...
+         try {
++            JFreeChart chart1 = this.chart;
+             this.chart = (JFreeChart) chart.clone();
+         }
+         catch (CloneNotSupportedException e) {

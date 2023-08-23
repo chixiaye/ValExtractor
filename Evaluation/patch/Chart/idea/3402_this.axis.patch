@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..f6674cd 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -136,6 +136,7 @@
+             throw new IllegalArgumentException("Null 'axis' argument.");
+         }
+         this.scale = scale;
++        ValueAxis axis1 = this.axis;
+         this.axis = axis;
+         this.axis.addChangeListener(this);
+         this.axisLocation = AxisLocation.BOTTOM_OR_LEFT;

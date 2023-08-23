@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/axis/DateTickUnitType.java b/source/org/jfree/chart/axis/DateTickUnitType.java
+index 273e6d3..9df2b7b 100644
+--- a/source/org/jfree/chart/axis/DateTickUnitType.java
++++ b/source/org/jfree/chart/axis/DateTickUnitType.java
+@@ -159,14 +159,17 @@
+         else if (this.equals(DateTickUnitType.HOUR)) {
+             return DateTickUnitType.HOUR;
+         }
+-        else if (this.equals(DateTickUnitType.MINUTE)) {
+-            return DateTickUnitType.MINUTE;
+-        }
+-        else if (this.equals(DateTickUnitType.SECOND)) {
+-            return DateTickUnitType.SECOND;
+-        }
+-        else if (this.equals(DateTickUnitType.MILLISECOND)) {
+-            return DateTickUnitType.MILLISECOND;
++        else {
++            DateTickUnitType minute = DateTickUnitType.MINUTE;
++            if (this.equals(minute)) {
++                return minute;
++            }
++            else if (this.equals(DateTickUnitType.SECOND)) {
++                return DateTickUnitType.SECOND;
++            }
++            else if (this.equals(DateTickUnitType.MILLISECOND)) {
++                return DateTickUnitType.MILLISECOND;
++            }
+         }
+         return null;
+     }

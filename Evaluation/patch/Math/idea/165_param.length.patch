@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/function/HarmonicOscillator.java b/src/main/java/org/apache/commons/math3/analysis/function/HarmonicOscillator.java
+index c82b7d4..d890843 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/function/HarmonicOscillator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/function/HarmonicOscillator.java
+@@ -143,8 +143,9 @@
+             if (param == null) {
+                 throw new NullArgumentException();
+             }
+-            if (param.length != 3) {
+-                throw new DimensionMismatchException(param.length, 3);
++            int length = param.length;
++            if (length != 3) {
++                throw new DimensionMismatchException(length, 3);
+             }
+         }
+     }

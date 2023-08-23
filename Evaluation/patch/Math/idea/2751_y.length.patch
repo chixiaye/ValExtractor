@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+index ed2ddda..0da2d23 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+@@ -557,16 +557,17 @@
+     // create some internal working arrays
+     final double[] y0      = equations.getCompleteState();
+     final double[] y       = y0.clone();
+-    final double[] yDot0   = new double[y.length];
+-    final double[] y1      = new double[y.length];
+-    final double[] yTmp    = new double[y.length];
+-    final double[] yTmpDot = new double[y.length];
++      int length = y.length;
++      final double[] yDot0   = new double[length];
++    final double[] y1      = new double[length];
++    final double[] yTmp    = new double[length];
++    final double[] yTmpDot = new double[length];
+ 
+     final double[][] diagonal = new double[sequence.length-1][];
+     final double[][] y1Diag = new double[sequence.length-1][];
+     for (int k = 0; k < sequence.length-1; ++k) {
+-      diagonal[k] = new double[y.length];
+-      y1Diag[k] = new double[y.length];
++      diagonal[k] = new double[length];
++      y1Diag[k] = new double[length];
+     }
+ 
+     final double[][][] fk  = new double[sequence.length][][];

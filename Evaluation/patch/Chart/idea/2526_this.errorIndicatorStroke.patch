@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..a6190ca 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -303,8 +303,9 @@
+             else {
+                 g2.setPaint(getItemPaint(row, column, selected));
+             }
+-            if (this.errorIndicatorStroke != null) {
+-                g2.setStroke(this.errorIndicatorStroke);
++            Stroke errorIndicatorStroke1 = this.errorIndicatorStroke;
++            if (errorIndicatorStroke1 != null) {
++                g2.setStroke(errorIndicatorStroke1);
+             }
+             else {
+                 g2.setStroke(getItemOutlineStroke(row, column, selected));

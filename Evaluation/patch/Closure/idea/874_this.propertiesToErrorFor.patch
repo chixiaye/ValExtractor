@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..c5379be 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -298,7 +298,8 @@
+       TypeSystem<T> typeSystem, Map<String, CheckLevel> propertiesToErrorFor) {
+     this.compiler = compiler;
+     this.typeSystem = typeSystem;
+-    this.propertiesToErrorFor = propertiesToErrorFor;
++      Map<String, CheckLevel> propertiesToErrorFor1 = this.propertiesToErrorFor;
++      this.propertiesToErrorFor = propertiesToErrorFor;
+     if (!this.propertiesToErrorFor.isEmpty()) {
+       this.invalidationMap = LinkedHashMultimap.create();
+     } else {

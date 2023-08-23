@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..ee68913 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3488,12 +3488,13 @@
+                     = this.shadowGenerator.createDropShadow(dataImage);
+             g2 = savedG2;
+             dataArea = savedDataArea;
++            double y = savedDataArea.getY();
+             g2.drawImage(shadowImage, (int) savedDataArea.getX()
+                     + this.shadowGenerator.calculateOffsetX(),
+-                    (int) savedDataArea.getY()
++                    (int) y
+                     + this.shadowGenerator.calculateOffsetY(), null);
+             g2.drawImage(dataImage, (int) savedDataArea.getX(),
+-                    (int) savedDataArea.getY(), null);
++                    (int) y, null);
+         }
+         g2.setClip(originalClip);
+         g2.setComposite(originalComposite);

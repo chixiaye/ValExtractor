@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..2fca916 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -269,6 +269,7 @@
+         b.addActionListener(this);
+         ticks.add(b);
+ 
++        JCheckBox showTickMarksCheckBox1 = this.showTickMarksCheckBox;
+         this.showTickMarksCheckBox = new JCheckBox(
+             localizationResources.getString("Show_tick_marks"),
+             axis.isTickMarksVisible()

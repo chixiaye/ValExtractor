@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..67e5578 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -772,7 +772,8 @@
+       return true;
+     }
+ 
+-    if (documentation.version != null) {
++      String version1 = documentation.version;
++      if (version1 != null) {
+       return false;
+     }
+ 

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/CustomXYToolTipGenerator.java b/source/org/jfree/chart/labels/CustomXYToolTipGenerator.java
+index fe0d408..7b5dbd6 100644
+--- a/source/org/jfree/chart/labels/CustomXYToolTipGenerator.java
++++ b/source/org/jfree/chart/labels/CustomXYToolTipGenerator.java
+@@ -158,8 +158,9 @@
+ 
+         CustomXYToolTipGenerator clone
+             = (CustomXYToolTipGenerator) super.clone();
+-        if (this.toolTipSeries != null) {
+-            clone.toolTipSeries = new java.util.ArrayList(this.toolTipSeries);
++        List toolTipSeries1 = this.toolTipSeries;
++        if (toolTipSeries1 != null) {
++            clone.toolTipSeries = new java.util.ArrayList(toolTipSeries1);
+         }
+         return clone;
+ 

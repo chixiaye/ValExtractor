@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..8600482 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -820,7 +820,8 @@
+       return true;
+     }
+ 
+-    if (documentation.throwsDescriptions == null) {
++      Map<JSTypeExpression, String> throwsDescriptions = documentation.throwsDescriptions;
++      if (throwsDescriptions == null) {
+       documentation.throwsDescriptions =
+           new LinkedHashMap<JSTypeExpression, String>();
+     }

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+index e1caa71..6e8d82a 100644
+--- a/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
++++ b/src/com/google/javascript/jscomp/SyntacticScopeCreator.java
+@@ -127,7 +127,8 @@
+         // Declare all variables. e.g. var x = 1, y, z;
+         for (Node child = n.getFirstChild();
+              child != null;) {
+-          Node next = child.getNext();
++            Node next1 = child.getNext();
++            Node next = next1;
+           declareVar(child);
+           child = next;
+         }

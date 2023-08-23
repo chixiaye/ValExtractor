@@ -1,0 +1,24 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+index 5ba6e4b..fc205c4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV3.java
+@@ -612,8 +612,8 @@
+       Appendable out, String name, List<SourceMapSection> sections)
+       throws IOException {
+     // Add the header fields.
+-    out.append("{\n");
+-    appendFirstField(out, "version", "3");
++      Appendable append = out.append("{\n");
++      appendFirstField(out, "version", "3");
+     appendField(out, "file", escapeString(name));
+ 
+     // Add the line character maps.
+@@ -627,7 +627,7 @@
+       } else {
+         out.append(",\n");
+       }
+-      out.append("{\n");
++      append;
+       appendFirstField(out, "offset",
+           offsetValue(section.getLine(), section.getColumn()));
+       if (section.getSectionType() == SourceMapSection.SectionType.URL) {

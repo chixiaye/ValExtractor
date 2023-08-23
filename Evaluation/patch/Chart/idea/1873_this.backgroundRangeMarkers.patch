@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..e4ac2cb 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2729,11 +2729,12 @@
+             markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+-            markers = (Collection) this.backgroundRangeMarkers.get(
++            Map backgroundRangeMarkers1 = this.backgroundRangeMarkers;
++            markers = (Collection) backgroundRangeMarkers1.get(
+                     new Integer(index));
+             if (markers == null) {
+                 markers = new java.util.ArrayList();
+-                this.backgroundRangeMarkers.put(new Integer(index), markers);
++                backgroundRangeMarkers1.put(new Integer(index), markers);
+             }
+             markers.add(marker);
+         }

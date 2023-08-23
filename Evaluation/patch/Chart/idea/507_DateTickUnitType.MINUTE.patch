@@ -1,0 +1,49 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..0ab4f25 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1200,28 +1200,29 @@
+                 DateTickUnitType.SECOND, 5, f2));
+ 
+         // minutes
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 1,
++        DateTickUnitType minute = DateTickUnitType.MINUTE;
++        units.add(new DateTickUnit(minute, 1,
+                 DateTickUnitType.SECOND, 5, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 2,
++        units.add(new DateTickUnit(minute, 2,
+                 DateTickUnitType.SECOND, 10, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 5,
+-                DateTickUnitType.MINUTE, 1, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 10,
+-                DateTickUnitType.MINUTE, 1, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 15,
+-                DateTickUnitType.MINUTE, 5, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 20,
+-                DateTickUnitType.MINUTE, 5, f3));
+-        units.add(new DateTickUnit(DateTickUnitType.MINUTE, 30,
+-                DateTickUnitType.MINUTE, 5, f3));
++        units.add(new DateTickUnit(minute, 5,
++                minute, 1, f3));
++        units.add(new DateTickUnit(minute, 10,
++                minute, 1, f3));
++        units.add(new DateTickUnit(minute, 15,
++                minute, 5, f3));
++        units.add(new DateTickUnit(minute, 20,
++                minute, 5, f3));
++        units.add(new DateTickUnit(minute, 30,
++                minute, 5, f3));
+ 
+         // hours
+         units.add(new DateTickUnit(DateTickUnitType.HOUR, 1,
+-                DateTickUnitType.MINUTE, 5, f3));
++                minute, 5, f3));
+         units.add(new DateTickUnit(DateTickUnitType.HOUR, 2,
+-                DateTickUnitType.MINUTE, 10, f3));
++                minute, 10, f3));
+         units.add(new DateTickUnit(DateTickUnitType.HOUR, 4,
+-                DateTickUnitType.MINUTE, 30, f3));
++                minute, 30, f3));
+         units.add(new DateTickUnit(DateTickUnitType.HOUR, 6,
+                 DateTickUnitType.HOUR, 1, f3));
+         units.add(new DateTickUnit(DateTickUnitType.HOUR, 12,

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+index 3898435..1288256 100644
+--- a/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java
+@@ -229,8 +229,9 @@
+         throws DimensionMismatchException, NumberIsTooSmallException,
+                MaxCountExceededException, NoBracketingException {
+ 
+-        if (y0.length != equations.getDimension()) {
+-            throw new DimensionMismatchException(y0.length, equations.getDimension());
++        int length = y0.length;
++        if (length != equations.getDimension()) {
++            throw new DimensionMismatchException(length, equations.getDimension());
+         }
+         if (y.length != equations.getDimension()) {
+             throw new DimensionMismatchException(y.length, equations.getDimension());

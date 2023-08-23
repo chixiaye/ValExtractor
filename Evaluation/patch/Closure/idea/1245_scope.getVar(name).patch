@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..6e74605 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -2048,7 +2048,8 @@
+           !NodeUtil.isBleedingFunctionName(n)) {
+         String name = n.getString();
+         Scope scope = t.getScope();
+-        Var var = scope.getVar(name);
++          Var var1 = scope.getVar(name);
++          Var var = var1;
+         if (var != null) {
+           Scope ownerScope = var.getScope();
+           if (ownerScope.isLocal()) {

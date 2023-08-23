@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..3247603 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -930,8 +930,9 @@
+             this.axis.configure();
+         }
+ 
+-        if (getParent() != null) {
+-            getParent().datasetChanged(event);
++        Plot parent = getParent();
++        if (parent != null) {
++            parent.datasetChanged(event);
+         }
+         else {
+             super.datasetChanged(event);

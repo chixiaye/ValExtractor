@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..78095af 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -824,13 +824,14 @@
+       Node n, Context context, boolean allowNonBlockChild) {
+     Node nodeToProcess = n;
+ 
+-    if (!allowNonBlockChild && !n.isBlock()) {
++      boolean block = n.isBlock();
++      if (!allowNonBlockChild && !block) {
+       throw new Error("Missing BLOCK child.");
+     }
+ 
+     // Strip unneeded blocks, that is blocks with <2 children unless
+     // the CodePrinter specifically wants to keep them.
+-    if (n.isBlock()) {
++    if (block) {
+       int count = getNonEmptyChildCount(n, 2);
+       if (count == 0) {
+         if (cc.shouldPreserveExtraBlocks()) {

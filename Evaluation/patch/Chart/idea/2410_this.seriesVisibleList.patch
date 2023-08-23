@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..5379916 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3161,9 +3161,10 @@
+     protected Object clone() throws CloneNotSupportedException {
+         AbstractRenderer clone = (AbstractRenderer) super.clone();
+ 
+-        if (this.seriesVisibleList != null) {
++        BooleanList seriesVisibleList1 = this.seriesVisibleList;
++        if (seriesVisibleList1 != null) {
+             clone.seriesVisibleList
+-                    = (BooleanList) this.seriesVisibleList.clone();
++                    = (BooleanList) seriesVisibleList1.clone();
+         }
+ 
+         if (this.seriesVisibleInLegendList != null) {

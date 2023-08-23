@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..ed9d4cd 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -757,8 +757,9 @@
+      */
+     public CategoryAxis getDomainAxis(int index) {
+         CategoryAxis result = null;
+-        if (index < this.domainAxes.size()) {
+-            result = (CategoryAxis) this.domainAxes.get(index);
++        ObjectList domainAxes1 = this.domainAxes;
++        if (index < domainAxes1.size()) {
++            result = (CategoryAxis) domainAxes1.get(index);
+         }
+         if (result == null) {
+             Plot parent = getParent();

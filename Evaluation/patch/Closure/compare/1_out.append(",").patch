@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..a8f3e4d 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -118,7 +118,7 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      Appendable var_1 = out.append(",");
+       out.append(String.valueOf(
+           m.originalPosition.getColumn()));
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..a8f3e4d 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -118,7 +118,7 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      Appendable var_1 = out.append(",");
+       out.append(String.valueOf(
+           m.originalPosition.getColumn()));
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+index c25e7eb..3f29ad4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV1.java
+@@ -108,7 +108,7 @@
+       escapedSourceFile = lastSourceFileEscaped;
+ 
+       out.append(escapedSourceFile);
+-      out.append(",");
++        Appendable append = out.append(",");
+ 
+       int line = m.originalPosition.getLine();
+       if (line != lastLine) {
+@@ -118,12 +118,12 @@
+ 
+       out.append(lineValue);
+ 
+-      out.append(",");
++      append;
+       out.append(String.valueOf(
+           m.originalPosition.getColumn()));
+ 
+       if (m.originalName != null) {
+-        out.append(",");
++        append;
+         out.append(escapeString(m.originalName));
+       }
+ 

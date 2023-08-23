@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..cc09c14 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -404,7 +404,8 @@
+      * @see #getUseYInterval()
+      */
+     public void setUseYInterval(boolean use) {
+-        if (this.useYInterval != use) {
++        boolean useYInterval1 = this.useYInterval;
++        if (useYInterval1 != use) {
+             this.useYInterval = use;
+             fireChangeEvent();
+         }

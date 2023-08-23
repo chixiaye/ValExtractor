@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+index a8877eb..a3a950e 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+@@ -1346,7 +1346,8 @@
+                     if (k > 2) {
+                         p[k - 2] = (k - 1) * p[k - 1] + (2 * n - k) * p[k - 3];
+                     } else if (k == 2) {
+-                        p[0] = p[1];
++                        double v1 = p[0];
++                        v1 = p[1];
+                     }
+                 }
+                 if ((n & 0x1) == 0) {

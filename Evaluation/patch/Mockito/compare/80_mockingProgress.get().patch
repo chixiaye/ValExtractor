@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+index 669af6d..e1e131e 100644
+--- a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
++++ b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+@@ -18,7 +18,8 @@
+     private static final ThreadLocal<MockingProgress> mockingProgress = new ThreadLocal<MockingProgress>();
+ 
+     static MockingProgress threadSafely() {
+-        if (mockingProgress.get() == null) {
++        MockingProgress var_80 = mockingProgress.get();
++		if (var_80 == null) {
+             mockingProgress.set(new MockingProgressImpl());
+         }
+         return mockingProgress.get();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+index 669af6d..908fbe2 100644
+--- a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
++++ b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+@@ -18,10 +18,11 @@
+     private static final ThreadLocal<MockingProgress> mockingProgress = new ThreadLocal<MockingProgress>();
+ 
+     static MockingProgress threadSafely() {
+-        if (mockingProgress.get() == null) {
++        MockingProgress var_80 = mockingProgress.get();
++		if (var_80 == null) {
+             mockingProgress.set(new MockingProgressImpl());
+         }
+-        return mockingProgress.get();
++        return var_80;
+     }
+     
+     public void reportOngoingStubbing(IOngoingStubbing iOngoingStubbing) {
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+index 669af6d..ad75864 100644
+--- a/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
++++ b/src/org/mockito/internal/progress/ThreadSafeMockingProgress.java
+@@ -18,10 +18,11 @@
+     private static final ThreadLocal<MockingProgress> mockingProgress = new ThreadLocal<MockingProgress>();
+ 
+     static MockingProgress threadSafely() {
+-        if (mockingProgress.get() == null) {
++        MockingProgress mockingProgress1 = mockingProgress.get();
++        if (mockingProgress1 == null) {
+             mockingProgress.set(new MockingProgressImpl());
+         }
+-        return mockingProgress.get();
++        return mockingProgress1;
+     }
+     
+     public void reportOngoingStubbing(IOngoingStubbing iOngoingStubbing) {

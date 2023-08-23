@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/FastScatterPlot.java b/source/org/jfree/chart/plot/FastScatterPlot.java
+index c5a3b1d..4f67e91 100644
+--- a/source/org/jfree/chart/plot/FastScatterPlot.java
++++ b/source/org/jfree/chart/plot/FastScatterPlot.java
+@@ -1078,8 +1078,9 @@
+         }
+         if (this.rangeAxis != null) {
+             clone.rangeAxis = (ValueAxis) this.rangeAxis.clone();
+-            clone.rangeAxis.setPlot(clone);
+-            clone.rangeAxis.addChangeListener(clone);
++            ValueAxis rangeAxis1 = clone.rangeAxis;
++            rangeAxis1.setPlot(clone);
++            rangeAxis1.addChangeListener(clone);
+         }
+         return clone;
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..6343a07 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -368,6 +368,7 @@
+             }
+             else {
+                 ArrayList row = (ArrayList) this.rows.get(0);
++                double maxValue1 = this.maxValue;
+                 this.maxValue = Double.NEGATIVE_INFINITY;
+                 this.minValue = Double.POSITIVE_INFINITY;
+                 for (int rowNum = 0; rowNum < this.rows.size(); ++rowNum) {

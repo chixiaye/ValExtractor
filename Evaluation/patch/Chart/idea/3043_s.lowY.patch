@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+index ec442b1..4df87c0 100644
+--- a/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/SamplingXYLineRenderer.java
+@@ -264,7 +264,8 @@
+                 }
+                 else {
+                     s.highY = Math.max(s.highY, y);
+-                    s.lowY = Math.min(s.lowY, y);
++                    double lowY = s.lowY;
++                    lowY = Math.min(s.lowY, y);
+                     s.closeY = y;
+                 }
+             }

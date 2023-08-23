@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..85abe45 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -817,9 +817,10 @@
+             jmin = dataArea.getMaxY();
+         }
+ 
++        boolean boundMappedToLastCycle1 = this.boundMappedToLastCycle;
+         if (isInverted()) {
+             if (value == vp) {
+-                return this.boundMappedToLastCycle ? jmin : jmax;
++                return boundMappedToLastCycle1 ? jmin : jmax;
+             }
+             else if (value > vp) {
+                 return jmax - (value - vp) * (jmax - jmin) / this.period;
+@@ -830,7 +831,7 @@
+         }
+         else {
+             if (value == vp) {
+-                return this.boundMappedToLastCycle ? jmax : jmin;
++                return boundMappedToLastCycle1 ? jmax : jmin;
+             }
+             else if (value >= vp) {
+                 return jmin + (value - vp) * (jmax - jmin) / this.period;

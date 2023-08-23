@@ -1,0 +1,23 @@
+diff --git a/src/org/mockito/MockitoAnnotations.java b/src/org/mockito/MockitoAnnotations.java
+index d02afa4..1a75178 100644
+--- a/src/org/mockito/MockitoAnnotations.java
++++ b/src/org/mockito/MockitoAnnotations.java
+@@ -92,7 +92,8 @@
+         }
+ 
+         AnnotationEngine annotationEngine = new GlobalConfiguration().getAnnotationEngine();
+-        Class<?> clazz = testClass.getClass();
++        Class<?> aClass = testClass.getClass();
++        Class<?> clazz = aClass;
+ 
+         //below can be removed later, when we get read rid of deprecated stuff
+         if (annotationEngine.getClass() != new DefaultMockitoConfiguration().getAnnotationEngine().getClass()) {
+@@ -105,7 +106,7 @@
+         }
+ 
+         //anyway act 'the new' way
+-        annotationEngine.process(testClass.getClass(), testClass);
++        annotationEngine.process(aClass, testClass);
+     }
+ 
+     static void scanDeprecatedWay(AnnotationEngine annotationEngine, Object testClass, Class<?> clazz) {

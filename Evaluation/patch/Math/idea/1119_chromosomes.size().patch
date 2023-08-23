@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java b/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java
+index 32b56a1..ece1b10 100644
+--- a/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java
++++ b/src/main/java/org/apache/commons/math3/genetics/ListPopulation.java
+@@ -115,9 +115,10 @@
+      * @since 3.1
+      */
+     public void addChromosomes(final Collection<Chromosome> chromosomeColl) throws NumberIsTooLargeException {
+-        if (chromosomes.size() + chromosomeColl.size() > populationLimit) {
++        int size = chromosomes.size();
++        if (size + chromosomeColl.size() > populationLimit) {
+             throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+-                                                chromosomes.size(), populationLimit, false);
++                    size, populationLimit, false);
+         }
+         this.chromosomes.addAll(chromosomeColl);
+     }

@@ -1,0 +1,39 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..868bd6d 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -454,6 +454,7 @@
+         double l_subtrahendMinY   = Double.POSITIVE_INFINITY;
+ 
+         // if a subtrahend is not specified, assume it is zero
++        boolean add = l_subtrahendXs.add(l_subtrahendCurX);
+         if (b_impliedZeroSubtrahend) {
+             l_subtrahendItem      = 0;
+             l_subtrahendItemCount = 2;
+@@ -465,7 +466,7 @@
+             l_subtrahendMaxY      = 0.0;
+             l_subtrahendMinY      = 0.0;
+ 
+-            l_subtrahendXs.add(l_subtrahendCurX);
++            add;
+             l_subtrahendYs.add(l_subtrahendCurY);
+         }
+         else {
+@@ -544,7 +545,7 @@
+                 l_subtrahendCurY = new Double((l_slope * l_x1)
+                         + (l_y3 - (l_slope * l_x3)));
+ 
+-                l_subtrahendXs.add(l_subtrahendCurX);
++                add;
+                 l_subtrahendYs.add(l_subtrahendCurY);
+             }
+ 
+@@ -598,7 +599,7 @@
+                 l_subtrahendCurY = new Double(l_y3);
+ 
+                 if (!b_subtrahendAtIntersect) {
+-                    l_subtrahendXs.add(l_subtrahendCurX);
++                    add;
+                     l_subtrahendYs.add(l_subtrahendCurY);
+                 }
+ 

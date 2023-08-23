@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..64d5288 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -464,6 +464,7 @@
+     public void parseDataFile(BufferedReader in) throws IOException {
+         Zone zone = null;
+         String line;
++        boolean add = iZones.add(zone);
+         while ((line = in.readLine()) != null) {
+             String trimmed = line.trim();
+             if (trimmed.length() == 0 || trimmed.charAt(0) == '#') {
+@@ -487,7 +488,7 @@
+                 continue;
+             } else {
+                 if (zone != null) {
+-                    iZones.add(zone);
++                    add;
+                 }
+                 zone = null;
+             }
+@@ -515,7 +516,7 @@
+         }
+ 
+         if (zone != null) {
+-            iZones.add(zone);
++            add;
+         }
+     }
+ 

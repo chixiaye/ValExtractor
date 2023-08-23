@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/CodePrinter.java b/src/com/google/javascript/jscomp/CodePrinter.java
+index fd77e51..e55bf90 100644
+--- a/src/com/google/javascript/jscomp/CodePrinter.java
++++ b/src/com/google/javascript/jscomp/CodePrinter.java
+@@ -204,7 +204,8 @@
+ 
+     @Override
+     char getLastChar() {
+-      return (code.length() > 0) ? code.charAt(code.length() - 1) : '\0';
++        int length = code.length();
++        return (length > 0) ? code.charAt(length - 1) : '\0';
+     }
+ 
+     protected final int getCurrentCharIndex() {
+@@ -451,12 +452,13 @@
+     @Override
+     void startNewLine() {
+       if (lineLength > 0) {
+-        prevCutPosition = code.length();
++          int length = code.length();
++          prevCutPosition = length;
+         prevLineStartPosition = lineStartPosition;
+         code.append('\n');
+         lineLength = 0;
+         lineIndex++;
+-        lineStartPosition = code.length();
++        lineStartPosition = length;
+       }
+     }
+ 

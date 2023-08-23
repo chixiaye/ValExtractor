@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..f7b01ca 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1833,13 +1833,14 @@
+       case Token.RSH:
+       case Token.ASSIGN_URSH:
+       case Token.URSH:
+-        if (!leftType.matchesInt32Context()) {
++          String s = NodeUtil.opToStr(n.getType());
++          if (!leftType.matchesInt32Context()) {
+           report(t, left, BIT_OPERATION,
+-                   NodeUtil.opToStr(n.getType()), leftType.toString());
++                  s, leftType.toString());
+         }
+         if (!rightType.matchesUint32Context()) {
+           report(t, right, BIT_OPERATION,
+-                   NodeUtil.opToStr(n.getType()), rightType.toString());
++                  s, rightType.toString());
+         }
+         break;
+ 

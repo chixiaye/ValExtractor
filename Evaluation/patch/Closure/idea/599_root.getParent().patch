@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+index 497be42..86b0e4f 100644
+--- a/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
++++ b/src/com/google/javascript/jscomp/ReferenceCollectingCallback.java
+@@ -670,8 +670,9 @@
+ 
+       this.isFunction = root.isFunction();
+ 
+-      if (root.getParent() != null) {
+-        int pType = root.getParent().getType();
++        Node parent1 = root.getParent();
++        if (parent1 != null) {
++        int pType = parent1.getType();
+         this.isLoop = pType == Token.DO ||
+             pType == Token.WHILE ||
+             pType == Token.FOR;

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/GradientPaintTransformType.java b/source/org/jfree/chart/util/GradientPaintTransformType.java
+index c2a310e..181f4d5 100644
+--- a/source/org/jfree/chart/util/GradientPaintTransformType.java
++++ b/source/org/jfree/chart/util/GradientPaintTransformType.java
+@@ -144,8 +144,11 @@
+         else if (this.equals(GradientPaintTransformType.CENTER_HORIZONTAL)) {
+             result = GradientPaintTransformType.CENTER_HORIZONTAL;
+         }
+-        else if (this.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+-            result = GradientPaintTransformType.CENTER_VERTICAL;
++        else {
++            GradientPaintTransformType centerVertical = GradientPaintTransformType.CENTER_VERTICAL;
++            if (this.equals(centerVertical)) {
++                result = centerVertical;
++            }
+         }
+         return result;
+     }

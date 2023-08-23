@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..b084bcf 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -395,11 +395,12 @@
+             for (int k = 0; k < lambda; k++) {
+                 RealMatrix arxk = null;
+                 for (int i = 0; i < checkFeasableCount + 1; i++) {
++                    RealMatrix columnMatrix = arz.getColumnMatrix(k);
+                     if (diagonalOnly <= 0) {
+-                        arxk = xmean.add(BD.multiply(arz.getColumnMatrix(k))
++                        arxk = xmean.add(BD.multiply(columnMatrix)
+                                          .scalarMultiply(sigma)); // m + sig * Normal(0,C)
+                     } else {
+-                        arxk = xmean.add(times(diagD,arz.getColumnMatrix(k))
++                        arxk = xmean.add(times(diagD, columnMatrix)
+                                          .scalarMultiply(sigma));
+                     }
+                     if (i >= checkFeasableCount ||

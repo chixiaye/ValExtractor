@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+index aca170e..564a70e 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+@@ -519,10 +519,11 @@
+                 split.plus.condense();
+                 split.plus.parent = split;
+             } else {
++                BSPTree<S> minus1 = split.minus;
+                 split.minus =
+-                    new BSPTree<S>(cut.copySelf(), plus.copySelf(), split.minus, attribute);
+-                split.minus.condense();
+-                split.minus.parent = split;
++                    new BSPTree<S>(cut.copySelf(), plus.copySelf(), minus1, attribute);
++                minus1.condense();
++                minus1.parent = split;
+             }
+             return split;
+         }

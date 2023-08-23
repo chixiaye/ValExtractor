@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..6fce2a7 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -272,8 +272,9 @@
+      * @return The shape.
+      */
+     public Shape getNextShape() {
++        int shapeIndex1 = this.shapeIndex;
+         Shape result = this.shapeSequence[
+-                this.shapeIndex % this.shapeSequence.length];
++                shapeIndex1 % this.shapeSequence.length];
+         this.shapeIndex++;
+         return result;
+     }

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+index d05eb2f..9afb47a 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+@@ -445,8 +445,9 @@
+                 String label = lg.generateLabel(dataset, series);
+                 String description = label;
+                 String toolTipText = null;
+-                if (getLegendItemToolTipGenerator() != null) {
+-                    toolTipText = getLegendItemToolTipGenerator().generateLabel(
++                XYSeriesLabelGenerator legendItemToolTipGenerator = getLegendItemToolTipGenerator();
++                if (legendItemToolTipGenerator != null) {
++                    toolTipText = legendItemToolTipGenerator.generateLabel(
+                             dataset, series);
+                 }
+                 String urlText = null;

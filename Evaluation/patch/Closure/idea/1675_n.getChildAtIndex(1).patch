@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/AstValidator.java b/src/com/google/javascript/jscomp/AstValidator.java
+index dececfe..d964348 100644
+--- a/src/com/google/javascript/jscomp/AstValidator.java
++++ b/src/com/google/javascript/jscomp/AstValidator.java
+@@ -405,16 +405,17 @@
+     validateNodeType(Token.FOR, n);
+     validateMinimumChildCount(n, 3);
+     validateMaximumChildCount(n, 4);
+-    if (NodeUtil.isForIn(n)) {
++      Node childAtIndex = n.getChildAtIndex(1);
++      if (NodeUtil.isForIn(n)) {
+       // FOR-IN
+       validateChildCount(n, 3);
+       validateVarOrAssignmentTarget(n.getFirstChild());
+-      validateExpression(n.getChildAtIndex(1));
++      validateExpression(childAtIndex);
+     } else {
+       // FOR
+       validateChildCount(n, 4);
+       validateVarOrOptionalExpression(n.getFirstChild());
+-      validateOptionalExpression(n.getChildAtIndex(1));
++      validateOptionalExpression(childAtIndex);
+       validateOptionalExpression(n.getChildAtIndex(2));
+     }
+     validateBlock(n.getLastChild());

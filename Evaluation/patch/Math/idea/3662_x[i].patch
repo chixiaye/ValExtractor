@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java b/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
+index a8ed30a..93af7c7 100644
+--- a/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/SobolSequenceGenerator.java
+@@ -271,7 +271,8 @@
+         }
+ 
+         for (int i = 0; i < dimension; i++) {
+-            x[i] = x[i] ^ direction[i][c];
++            long x1 = x[i];
++            x1 = x[i] ^ direction[i][c];
+             v[i] = (double) x[i] / SCALE;
+         }
+         count++;

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..a5aa65a 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -528,7 +528,8 @@
+         Scope scope, Node op, Node lhs, Node rhs) {
+       if (lhs.isName()) {
+         Var var = scope.getVar(lhs.getString());
+-        if (var == null || var.scope != scope) {
++          Scope scope1 = var.scope;
++          if (var == null || scope1 != scope) {
+           sideEffectInfo.setTaintsGlobalState();
+         } else {
+           // Assignment to local, if the value isn't a safe local value,

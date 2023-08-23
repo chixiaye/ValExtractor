@@ -1,0 +1,26 @@
+diff --git a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+index ea12b44..2324436 100644
+--- a/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
++++ b/src/org/mockito/internal/stubbing/answers/AnswersValidator.java
+@@ -91,12 +91,15 @@
+ 
+     public void validateDefaultAnswerReturnedValue(Invocation invocation, Object returnedValue) {
+         MethodInfo methodInfo = new MethodInfo(invocation);
+-        if (returnedValue != null && !methodInfo.isValidReturnType(returnedValue.getClass())) {
+-            reporter.wrongTypeReturnedByDefaultAnswer(
+-                    invocation.getMock(),
+-                    methodInfo.printMethodReturnType(),
+-                    returnedValue.getClass().getSimpleName(),
+-                    methodInfo.getMethodName());
++        if (returnedValue != null) {
++            Class<?> aClass = returnedValue.getClass();
++            if (!methodInfo.isValidReturnType(aClass)) {
++                reporter.wrongTypeReturnedByDefaultAnswer(
++                        invocation.getMock(),
++                        methodInfo.printMethodReturnType(),
++                        aClass.getSimpleName(),
++                        methodInfo.getMethodName());
++            }
+         }
+     }
+ }

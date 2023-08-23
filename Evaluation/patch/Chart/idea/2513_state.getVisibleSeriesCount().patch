@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+index 4dbfd3f..50dc1c9 100644
+--- a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+@@ -177,8 +177,9 @@
+         if (visibleRow < 0) {
+             return;
+         }
+-        int seriesCount = state.getVisibleSeriesCount() >= 0
+-                ? state.getVisibleSeriesCount() : getRowCount();
++         int visibleSeriesCount = state.getVisibleSeriesCount();
++         int seriesCount = visibleSeriesCount >= 0
++                ? visibleSeriesCount : getRowCount();
+ 
+         int categoryCount = getColumnCount();
+ 

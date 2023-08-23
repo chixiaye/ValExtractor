@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..3f571bb 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3308,7 +3308,8 @@
+                 getDomainAxis());
+         if (domainAxisState == null) {
+             if (parentState != null) {
+-                domainAxisState = (AxisState) parentState.getSharedAxisStates()
++                Map var_1673 = parentState.getSharedAxisStates();
++				domainAxisState = (AxisState) var_1673
+                         .get(getDomainAxis());
+             }
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..73e7760 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3306,9 +3306,10 @@
+ 
+         AxisState domainAxisState = (AxisState) axisStateMap.get(
+                 getDomainAxis());
++        Map var_1673 = parentState.getSharedAxisStates();
+         if (domainAxisState == null) {
+             if (parentState != null) {
+-                domainAxisState = (AxisState) parentState.getSharedAxisStates()
++                domainAxisState = (AxisState) var_1673
+                         .get(getDomainAxis());
+             }
+         }
+@@ -3316,7 +3317,7 @@
+         AxisState rangeAxisState = (AxisState) axisStateMap.get(getRangeAxis());
+         if (rangeAxisState == null) {
+             if (parentState != null) {
+-                rangeAxisState = (AxisState) parentState.getSharedAxisStates()
++                rangeAxisState = (AxisState) var_1673
+                         .get(getRangeAxis());
+             }
+         }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..81532f0 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3306,9 +3306,10 @@
+ 
+         AxisState domainAxisState = (AxisState) axisStateMap.get(
+                 getDomainAxis());
++        Map sharedAxisStates = parentState.getSharedAxisStates();
+         if (domainAxisState == null) {
+             if (parentState != null) {
+-                domainAxisState = (AxisState) parentState.getSharedAxisStates()
++                domainAxisState = (AxisState) sharedAxisStates
+                         .get(getDomainAxis());
+             }
+         }
+@@ -3316,7 +3317,7 @@
+         AxisState rangeAxisState = (AxisState) axisStateMap.get(getRangeAxis());
+         if (rangeAxisState == null) {
+             if (parentState != null) {
+-                rangeAxisState = (AxisState) parentState.getSharedAxisStates()
++                rangeAxisState = (AxisState) sharedAxisStates
+                         .get(getRangeAxis());
+             }
+         }

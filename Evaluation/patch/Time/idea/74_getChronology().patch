@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/joda/time/LocalDate.java b/src/main/java/org/joda/time/LocalDate.java
+index 9806eb3..05a8dbe 100644
+--- a/src/main/java/org/joda/time/LocalDate.java
++++ b/src/main/java/org/joda/time/LocalDate.java
+@@ -571,10 +571,11 @@
+             return false;
+         }
+         DurationFieldType durType = type.getDurationType();
++        Chronology chronology = getChronology();
+         if (DATE_DURATION_TYPES.contains(durType) ||
+-                durType.getField(getChronology()).getUnitMillis() >=
+-                    getChronology().days().getUnitMillis()) {
+-            return type.getField(getChronology()).isSupported();
++                durType.getField(chronology).getUnitMillis() >=
++                    chronology.days().getUnitMillis()) {
++            return type.getField(chronology).isSupported();
+         }
+         return false;
+     }

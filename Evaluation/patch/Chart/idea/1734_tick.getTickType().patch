@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..a2ba7bc 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3978,13 +3978,14 @@
+             while (iterator.hasNext()) {
+                 paintLine = false;
+                 ValueTick tick = (ValueTick) iterator.next();
+-                if ((tick.getTickType() == TickType.MINOR)
++                TickType tickType = tick.getTickType();
++                if ((tickType == TickType.MINOR)
+                         && isDomainMinorGridlinesVisible()) {
+                     gridStroke = getDomainMinorGridlineStroke();
+                     gridPaint = getDomainMinorGridlinePaint();
+                     paintLine = true;
+                 }
+-                else if ((tick.getTickType() == TickType.MAJOR)
++                else if ((tickType == TickType.MAJOR)
+                         && isDomainGridlinesVisible()) {
+                     gridStroke = getDomainGridlineStroke();
+                     gridPaint = getDomainGridlinePaint();

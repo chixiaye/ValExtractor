@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..aaf7086 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1183,6 +1183,7 @@
+                                 Marker marker,
+                                 Rectangle2D dataArea) {
+ 
++        PlotOrientation orientation1 = plot.getOrientation();
+         if (marker instanceof ValueMarker) {
+             ValueMarker vm = (ValueMarker) marker;
+             double value = vm.getValue();
+@@ -1196,7 +1197,7 @@
+             g2.setComposite(AlphaComposite.getInstance(
+                     AlphaComposite.SRC_OVER, marker.getAlpha()));
+ 
+-            PlotOrientation orientation = plot.getOrientation();
++            PlotOrientation orientation = orientation1;
+             double v = axis.valueToJava2D(value, dataArea,
+                     plot.getRangeAxisEdge());
+             Line2D line = null;
+@@ -1249,7 +1250,7 @@
+             double low = Math.min(start2d, end2d);
+             double high = Math.max(start2d, end2d);
+ 
+-            PlotOrientation orientation = plot.getOrientation();
++            PlotOrientation orientation = orientation1;
+             Rectangle2D rect = null;
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 // clip left and right bounds to data area

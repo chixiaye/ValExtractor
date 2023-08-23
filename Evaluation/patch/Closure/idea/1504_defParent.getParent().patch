@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+index 522fe94..69a8f61 100644
+--- a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
++++ b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+@@ -427,8 +427,10 @@
+         rhs.detachFromParent();
+         // Oh yes! I have grandparent to remove this.
+         Preconditions.checkState(defParent.isExprResult());
+-        while (defParent.getParent().isLabel()) {
+-          defParent = defParent.getParent();
++        while (true) {
++            Node parent = defParent.getParent();
++            if (!parent.isLabel()) break;
++            defParent = parent;
+         }
+         defParent.detachFromParent();
+         useParent.replaceChild(use, rhs);

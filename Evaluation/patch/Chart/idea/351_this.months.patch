@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/axis/MonthDateFormat.java b/source/org/jfree/chart/axis/MonthDateFormat.java
+index c1cde39..737069c 100644
+--- a/source/org/jfree/chart/axis/MonthDateFormat.java
++++ b/source/org/jfree/chart/axis/MonthDateFormat.java
+@@ -169,12 +169,13 @@
+         String[] monthsFromLocale = dfs.getMonths();
+         this.months = new String[12];
+         for (int i = 0; i < 12; i++) {
++            String[] months1 = this.months;
+             if (chars > 0) {
+-                this.months[i] = monthsFromLocale[i].substring(0,
++                months1[i] = monthsFromLocale[i].substring(0,
+                         Math.min(chars, monthsFromLocale[i].length()));
+             }
+             else {
+-                this.months[i] = monthsFromLocale[i];
++                months1[i] = monthsFromLocale[i];
+             }
+         }
+         this.calendar = new GregorianCalendar(zone);

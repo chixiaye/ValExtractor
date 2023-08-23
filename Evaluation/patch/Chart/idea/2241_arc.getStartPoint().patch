@@ -1,0 +1,35 @@
+diff --git a/source/org/jfree/chart/plot/RingPlot.java b/source/org/jfree/chart/plot/RingPlot.java
+index f540f71..eba3183 100644
+--- a/source/org/jfree/chart/plot/RingPlot.java
++++ b/source/org/jfree/chart/plot/RingPlot.java
+@@ -56,10 +56,7 @@
+ import java.awt.Paint;
+ import java.awt.Shape;
+ import java.awt.Stroke;
+-import java.awt.geom.Arc2D;
+-import java.awt.geom.GeneralPath;
+-import java.awt.geom.Line2D;
+-import java.awt.geom.Rectangle2D;
++import java.awt.geom.*;
+ import java.io.IOException;
+ import java.io.ObjectInputStream;
+ import java.io.ObjectOutputStream;
+@@ -388,14 +385,15 @@
+             Arc2D.Double arc2 = new Arc2D.Double(innerArcBounds, angle1
+                     + angle, -angle, Arc2D.OPEN);
+             GeneralPath path = new GeneralPath();
+-            path.moveTo((float) arc.getStartPoint().getX(),
+-                    (float) arc.getStartPoint().getY());
++            Point2D startPoint = arc.getStartPoint();
++            path.moveTo((float) startPoint.getX(),
++                    (float) startPoint.getY());
+             path.append(arc.getPathIterator(null), false);
+             path.append(arc2.getPathIterator(null), true);
+             path.closePath();
+ 
+             Line2D separator = new Line2D.Double(arc2.getEndPoint(),
+-                    arc.getStartPoint());
++                    startPoint);
+ 
+             if (currentPass == 0) {
+                 Paint shadowPaint = getShadowPaint();

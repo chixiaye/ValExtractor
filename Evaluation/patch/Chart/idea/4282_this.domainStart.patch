@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..06abf2b 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -595,7 +595,8 @@
+             this.oldestAt = 0;
+         }
+         // Update the domain limits:
+-        long startL = this.domainStart.longValue();  //(time is kept in msec)
++        Long domainStart1 = this.domainStart;
++        long startL = domainStart1.longValue();  //(time is kept in msec)
+         this.domainStart = new Long(startL + this.deltaTime);
+         long endL = this.domainEnd.longValue();
+         this.domainEnd = new Long(endL + this.deltaTime);

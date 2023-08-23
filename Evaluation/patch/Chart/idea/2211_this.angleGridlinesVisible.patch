@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..aeec63e 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -528,7 +528,8 @@
+      * @see #isAngleGridlinesVisible()
+      */
+     public void setAngleGridlinesVisible(boolean visible) {
+-        if (this.angleGridlinesVisible != visible) {
++        boolean angleGridlinesVisible1 = this.angleGridlinesVisible;
++        if (angleGridlinesVisible1 != visible) {
+             this.angleGridlinesVisible = visible;
+             fireChangeEvent();
+         }

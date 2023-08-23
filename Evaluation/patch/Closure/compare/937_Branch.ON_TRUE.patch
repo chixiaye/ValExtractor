@@ -1,0 +1,104 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..029421e 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -253,6 +253,7 @@
+           }
+ 
+           if (condition != null) {
++            Branch var_937 = Branch.ON_TRUE;
+             if (condition.isAnd() ||
+                 condition.isOr()) {
+               // When handling the short-circuiting binary operators,
+@@ -278,8 +279,8 @@
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+                       condition,
+                       conditionOutcomes.getOutcomeFlowScope(
+-                          condition.getType(), branch == Branch.ON_TRUE),
+-                      branch == Branch.ON_TRUE);
++                          condition.getType(), branch == var_937),
++                      branch == var_937);
+             } else {
+               // conditionFlowScope is cached from previous iterations
+               // of the loop.
+@@ -289,7 +290,7 @@
+               }
+               newScope =
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+-                      condition, conditionFlowScope, branch == Branch.ON_TRUE);
++                      condition, conditionFlowScope, branch == var_937);
+             }
+           }
+           break;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..029421e 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -253,6 +253,7 @@
+           }
+ 
+           if (condition != null) {
++            Branch var_937 = Branch.ON_TRUE;
+             if (condition.isAnd() ||
+                 condition.isOr()) {
+               // When handling the short-circuiting binary operators,
+@@ -278,8 +279,8 @@
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+                       condition,
+                       conditionOutcomes.getOutcomeFlowScope(
+-                          condition.getType(), branch == Branch.ON_TRUE),
+-                      branch == Branch.ON_TRUE);
++                          condition.getType(), branch == var_937),
++                      branch == var_937);
+             } else {
+               // conditionFlowScope is cached from previous iterations
+               // of the loop.
+@@ -289,7 +290,7 @@
+               }
+               newScope =
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+-                      condition, conditionFlowScope, branch == Branch.ON_TRUE);
++                      condition, conditionFlowScope, branch == var_937);
+             }
+           }
+           break;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..7d1ac7d 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -205,8 +205,9 @@
+       Branch branch = branchEdge.getValue();
+       FlowScope newScope = output;
+ 
++        final Branch onTrue = Branch.ON_TRUE;
+       switch (branch) {
+-        case ON_TRUE:
++        case onTrue:
+           if (NodeUtil.isForIn(source)) {
+             // item is assigned a property name, so its type should be string.
+             Node item = source.getFirstChild();
+@@ -278,8 +279,8 @@
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+                       condition,
+                       conditionOutcomes.getOutcomeFlowScope(
+-                          condition.getType(), branch == Branch.ON_TRUE),
+-                      branch == Branch.ON_TRUE);
++                          condition.getType(), branch == onTrue),
++                      branch == onTrue);
+             } else {
+               // conditionFlowScope is cached from previous iterations
+               // of the loop.
+@@ -289,7 +290,7 @@
+               }
+               newScope =
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+-                      condition, conditionFlowScope, branch == Branch.ON_TRUE);
++                      condition, conditionFlowScope, branch == onTrue);
+             }
+           }
+           break;

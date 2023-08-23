@@ -1,0 +1,19 @@
+diff --git a/src/org/mockito/internal/util/Decamelizer.java b/src/org/mockito/internal/util/Decamelizer.java
+index 9bc34be..8a30904 100644
+--- a/src/org/mockito/internal/util/Decamelizer.java
++++ b/src/org/mockito/internal/util/Decamelizer.java
+@@ -30,11 +30,12 @@
+         Matcher match = CAPS.matcher(className);
+         StringBuilder deCameled = new StringBuilder();
+         while(match.find()) {
++            String group = match.group();
+             if (deCameled.length() == 0) {
+-                deCameled.append(match.group());
++                deCameled.append(group);
+             } else {
+                 deCameled.append(" ");
+-                deCameled.append(match.group().toLowerCase());
++                deCameled.append(group.toLowerCase());
+             }
+         }
+         return deCameled.toString();

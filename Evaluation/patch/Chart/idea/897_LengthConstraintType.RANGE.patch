@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/block/LengthConstraintType.java b/source/org/jfree/chart/block/LengthConstraintType.java
+index 2eb3d09..6858ada 100644
+--- a/source/org/jfree/chart/block/LengthConstraintType.java
++++ b/source/org/jfree/chart/block/LengthConstraintType.java
+@@ -126,11 +126,14 @@
+         if (this.equals(LengthConstraintType.NONE)) {
+             return LengthConstraintType.NONE;
+         }
+-        else if (this.equals(LengthConstraintType.RANGE)) {
+-            return LengthConstraintType.RANGE;
+-        }
+-        else if (this.equals(LengthConstraintType.FIXED)) {
+-            return LengthConstraintType.FIXED;
++        else {
++            LengthConstraintType range = LengthConstraintType.RANGE;
++            if (this.equals(range)) {
++                return range;
++            }
++            else if (this.equals(LengthConstraintType.FIXED)) {
++                return LengthConstraintType.FIXED;
++            }
+         }
+         return null;
+     }

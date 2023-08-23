@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..b30a678 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1850,8 +1850,9 @@
+             this.ownToolTipDelaysActive = true;
+         }
+ 
+-        if (this.liveMouseHandler != null) {
+-            this.liveMouseHandler.mouseEntered(e);
++        AbstractMouseHandler liveMouseHandler1 = this.liveMouseHandler;
++        if (liveMouseHandler1 != null) {
++            liveMouseHandler1.mouseEntered(e);
+         }
+         Iterator iterator = this.auxiliaryMouseHandlers.iterator();
+         while (iterator.hasNext()) {

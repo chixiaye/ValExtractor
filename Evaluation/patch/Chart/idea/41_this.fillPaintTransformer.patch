@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/LegendItem.java b/source/org/jfree/chart/LegendItem.java
+index 776c9ae..c73c40c 100644
+--- a/source/org/jfree/chart/LegendItem.java
++++ b/source/org/jfree/chart/LegendItem.java
+@@ -1128,8 +1128,9 @@
+         }
+         // FIXME: Clone the attributed string if it is not null
+         clone.shape = ShapeUtilities.clone(this.shape);
+-        if (this.fillPaintTransformer instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.fillPaintTransformer;
++        GradientPaintTransformer fillPaintTransformer1 = this.fillPaintTransformer;
++        if (fillPaintTransformer1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) fillPaintTransformer1;
+             clone.fillPaintTransformer = (GradientPaintTransformer) pc.clone();
+ 
+         }

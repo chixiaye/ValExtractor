@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalNames.java b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+index d035d9d..f170b37 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalNames.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+@@ -196,9 +196,10 @@
+ 
+   private boolean isTypedef(Ref ref) {
+     // If this is an annotated EXPR-GET, don't do anything.
+-    Node parent = ref.node.getParent();
++      Node node = ref.node;
++      Node parent = node.getParent();
+     if (parent.isExprResult()) {
+-      JSDocInfo info = ref.node.getJSDocInfo();
++      JSDocInfo info = node.getJSDocInfo();
+       if (info != null && info.hasTypedefType()) {
+         return true;
+       }

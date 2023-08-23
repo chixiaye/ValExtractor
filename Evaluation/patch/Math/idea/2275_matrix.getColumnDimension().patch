@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+index 65185d3..9fd9a91 100644
+--- a/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/LUDecomposition.java
+@@ -84,12 +84,13 @@
+      * @throws NonSquareMatrixException if matrix is not square
+      */
+     public LUDecomposition(RealMatrix matrix, double singularityThreshold) {
++        int columnDimension = matrix.getColumnDimension();
+         if (!matrix.isSquare()) {
+             throw new NonSquareMatrixException(matrix.getRowDimension(),
+-                                               matrix.getColumnDimension());
++                    columnDimension);
+         }
+ 
+-        final int m = matrix.getColumnDimension();
++        final int m = columnDimension;
+         lu = matrix.getData();
+         pivot = new int[m];
+         cachedL = null;

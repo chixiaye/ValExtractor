@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..c2d099b 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1312,9 +1312,10 @@
+         if (hh <= 0.0) {
+             return null;
+         }
++        LengthConstraintType range = LengthConstraintType.RANGE;
+         RectangleConstraint constraint = new RectangleConstraint(ww,
+-                new Range(0.0, ww), LengthConstraintType.RANGE, hh,
+-                new Range(0.0, hh), LengthConstraintType.RANGE);
++                new Range(0.0, ww), range, hh,
++                new Range(0.0, hh), range);
+         Object retValue = null;
+         BlockParams p = new BlockParams();
+         p.setGenerateEntities(entities);

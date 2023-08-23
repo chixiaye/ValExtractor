@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/ui/BasicProjectInfo.java b/source/org/jfree/chart/ui/BasicProjectInfo.java
+index cc45be5..8553cd4 100644
+--- a/source/org/jfree/chart/ui/BasicProjectInfo.java
++++ b/source/org/jfree/chart/ui/BasicProjectInfo.java
+@@ -263,9 +263,10 @@
+      */
+     public Library[] getOptionalLibraries() {
+         ArrayList libraries = new ArrayList();
+-        for (int i = 0; i < this.optionalLibraries.size(); i++) {
++        List optionalLibraries1 = this.optionalLibraries;
++        for (int i = 0; i < optionalLibraries1.size(); i++) {
+           OptionalLibraryHolder holder =
+-                  (OptionalLibraryHolder) this.optionalLibraries.get(i);
++                  (OptionalLibraryHolder) optionalLibraries1.get(i);
+           Library l = holder.getLibrary();
+           if (l != null) {
+               libraries.add(l);

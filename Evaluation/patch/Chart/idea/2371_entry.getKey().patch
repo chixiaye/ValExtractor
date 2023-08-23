@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..0d4ef3a 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -352,8 +352,9 @@
+         for (Iterator i = this.paintIndex.entrySet().iterator(); i.hasNext();) {
+             Map.Entry entry = (Map.Entry) i.next();
+             if (((Integer) entry.getValue()).equals(index)) {
+-                if (((Number) entry.getKey()).doubleValue() < minValue) {
+-                    minValue = ((Number) entry.getKey()).doubleValue();
++                Object key = entry.getKey();
++                if (((Number) key).doubleValue() < minValue) {
++                    minValue = ((Number) key).doubleValue();
+                 }
+             }
+         }

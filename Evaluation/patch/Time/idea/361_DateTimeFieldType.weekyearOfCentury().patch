@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/joda/time/chrono/BuddhistChronology.java b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+index fc6a1ec..654dca6 100644
+--- a/src/main/java/org/joda/time/chrono/BuddhistChronology.java
++++ b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+@@ -242,11 +242,12 @@
+                 (DividedDateTimeField) fields.centuryOfEra);
+             fields.yearOfCentury = new OffsetDateTimeField(
+                 field, DateTimeFieldType.yearOfCentury(), 1);
+-            
++
++            DateTimeFieldType type = DateTimeFieldType.weekyearOfCentury();
+             field = new RemainderDateTimeField(
+-                fields.weekyear, fields.centuries, DateTimeFieldType.weekyearOfCentury(), 100);
++                fields.weekyear, fields.centuries, type, 100);
+             fields.weekyearOfCentury = new OffsetDateTimeField(
+-                field, DateTimeFieldType.weekyearOfCentury(), 1);
++                field, type, 1);
+             
+             fields.era = ERA_FIELD;
+         }

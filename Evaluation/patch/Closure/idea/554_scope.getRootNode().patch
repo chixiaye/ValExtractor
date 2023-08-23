@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/UnreachableCodeElimination.java b/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+index b5ffbd1..a919bcd 100644
+--- a/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
++++ b/src/com/google/javascript/jscomp/UnreachableCodeElimination.java
+@@ -63,13 +63,14 @@
+ 
+     // Computes the control flow graph.
+     ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, false);
+-    cfa.process(null, scope.getRootNode());
++      Node rootNode = scope.getRootNode();
++      cfa.process(null, rootNode);
+     ControlFlowGraph<Node> cfg = cfa.getCfg();
+ 
+     new GraphReachability<Node, ControlFlowGraph.Branch>(cfg)
+         .compute(cfg.getEntry().getValue());
+ 
+-    Node root = scope.getRootNode();
++    Node root = rootNode;
+     if (scope.isLocal()) {
+       root = root.getLastChild();
+     }

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..842bb92 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -1546,7 +1546,8 @@
+         int j = array.length - 1;
+         double tmp;
+         while (j > i) {
+-            tmp = array[j];
++            double tmp1 = array[j];
++            tmp = tmp1;
+             array[j] = array[i];
+             array[i] = tmp;
+             j--;

@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/category/CategoryToPieDataset.java b/source/org/jfree/data/category/CategoryToPieDataset.java
+index e5e9960..ce4c649 100644
+--- a/source/org/jfree/data/category/CategoryToPieDataset.java
++++ b/source/org/jfree/data/category/CategoryToPieDataset.java
+@@ -241,12 +241,13 @@
+      */
+     public List getKeys() {
+         List result = Collections.EMPTY_LIST;
+-        if (this.source != null) {
++        CategoryDataset source1 = this.source;
++        if (source1 != null) {
+             if (this.extract == TableOrder.BY_ROW) {
+-                result = this.source.getColumnKeys();
++                result = source1.getColumnKeys();
+             }
+             else if (this.extract == TableOrder.BY_COLUMN) {
+-                result = this.source.getRowKeys();
++                result = source1.getRowKeys();
+             }
+         }
+         return result;

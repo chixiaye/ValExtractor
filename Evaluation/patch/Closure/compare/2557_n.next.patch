@@ -1,0 +1,38 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..8bfda6d 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -545,8 +545,9 @@
+       return null;
+     }
+     Node n = first;
+-    while (n.next != child) {
+-      n = n.next;
++    Node var_2557 = n.next;
++	while (var_2557 != child) {
++      n = var_2557;
+       if (n == null) {
+         throw new RuntimeException("node is not a child");
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..7e7c342 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -545,8 +545,10 @@
+       return null;
+     }
+     Node n = first;
+-    while (n.next != child) {
+-      n = n.next;
++    while (true) {
++        Node next1 = n.next;
++        if (!(next1 != child)) break;
++        n = next1;
+       if (n == null) {
+         throw new RuntimeException("node is not a child");
+       }

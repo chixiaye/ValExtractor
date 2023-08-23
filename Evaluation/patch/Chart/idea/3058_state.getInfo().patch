@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+index ccc914a..7698cee 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+@@ -373,8 +373,9 @@
+                     barBase);
+ 
+             // add an entity for the item...
+-            if (state.getInfo() != null) {
+-                EntityCollection entities = state.getInfo().getOwner()
++            PlotRenderingInfo info = state.getInfo();
++            if (info != null) {
++                EntityCollection entities = info.getOwner()
+                         .getEntityCollection();
+                 if (entities != null) {
+                     addEntity(entities, bar, dataset, series, item, selected,

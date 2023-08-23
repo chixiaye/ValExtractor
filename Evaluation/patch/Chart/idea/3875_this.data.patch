@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/gantt/TaskSeriesCollection.java b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+index 882799a..cb8a5e6 100644
+--- a/source/org/jfree/data/gantt/TaskSeriesCollection.java
++++ b/source/org/jfree/data/gantt/TaskSeriesCollection.java
+@@ -280,9 +280,10 @@
+         if (series == null) {
+             throw new IllegalArgumentException("Null 'series' argument.");
+         }
+-        if (this.data.contains(series)) {
++        List data1 = this.data;
++        if (data1.contains(series)) {
+             series.removeChangeListener(this);
+-            this.data.remove(series);
++            data1.remove(series);
+             fireDatasetChanged(new DatasetChangeInfo());
+             //TODO: fill in real change info
+         }

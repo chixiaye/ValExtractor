@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..c2f018f 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1497,8 +1497,9 @@
+         }
+       }
+ 
+-      if (info.implementedInterfaces != null) {
+-        for (JSTypeExpression interfaceType : info.implementedInterfaces) {
++        List<JSTypeExpression> implementedInterfaces = info.implementedInterfaces;
++        if (implementedInterfaces != null) {
++        for (JSTypeExpression interfaceType : implementedInterfaces) {
+           nodes.add(interfaceType.getRoot());
+         }
+       }

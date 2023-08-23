@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/panel/PanHandler.java b/source/org/jfree/chart/panel/PanHandler.java
+index 49ce1fe..56ac92a 100644
+--- a/source/org/jfree/chart/panel/PanHandler.java
++++ b/source/org/jfree/chart/panel/PanHandler.java
+@@ -130,7 +130,8 @@
+             p.panRangeAxes(hPercent, info, this.panLast);
+         }
+         else {
+-            p.panDomainAxes(hPercent, info, this.panLast);
++            Point panLast1 = this.panLast;
++            p.panDomainAxes(hPercent, info, panLast1);
+             p.panRangeAxes(wPercent, info, this.panLast);
+         }
+         this.panLast = e.getPoint();

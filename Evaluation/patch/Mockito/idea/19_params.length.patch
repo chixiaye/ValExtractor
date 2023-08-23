@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java b/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
+index c97b5f5..fe464ec 100644
+--- a/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
++++ b/src/org/mockito/internal/creation/instance/ConstructorInstantiator.java
+@@ -50,10 +50,11 @@
+     }
+ 
+     private static boolean paramsMatch(Class<?>[] types, Object[] params) {
+-        if (params.length != types.length) {
++        int length = params.length;
++        if (length != types.length) {
+             return false;
+         }
+-        for (int i = 0; i < params.length; i++) {
++        for (int i = 0; i < length; i++) {
+             if (!types[i].isInstance(params[i])) {
+                 return false;
+             }

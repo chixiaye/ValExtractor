@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..a4a997b 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -333,8 +333,9 @@
+       checks.add(printNameReferenceGraph);
+     }
+ 
+-    if (options.nameReferenceReportPath != null &&
+-        !options.nameReferenceReportPath.isEmpty()) {
++      String nameReferenceReportPath = options.nameReferenceReportPath;
++      if (nameReferenceReportPath != null &&
++        !nameReferenceReportPath.isEmpty()) {
+       checks.add(printNameReferenceReport);
+     }
+ 

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+index aa90f2b..e2bc4a0 100644
+--- a/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StandardXYItemRenderer.java
+@@ -889,10 +889,11 @@
+             if (image != null) {
+                 Point hotspot = getImageHotspot(plot, series, item, transX1,
+                         transY1, image);
++                double y = hotspot.getY();
+                 g2.drawImage(image, (int) (transX1 - hotspot.getX()),
+-                        (int) (transY1 - hotspot.getY()), null);
++                        (int) (transY1 - y), null);
+                 entityArea = new Rectangle2D.Double(transX1 - hotspot.getX(),
+-                        transY1 - hotspot.getY(), image.getWidth(null),
++                        transY1 - y, image.getWidth(null),
+                         image.getHeight(null));
+             }
+ 

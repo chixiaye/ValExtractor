@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/util/reflection/Whitebox.java b/src/org/mockito/internal/util/reflection/Whitebox.java
+index 5de2ac2..78ea6bf 100644
+--- a/src/org/mockito/internal/util/reflection/Whitebox.java
++++ b/src/org/mockito/internal/util/reflection/Whitebox.java
+@@ -31,7 +31,8 @@
+     }
+ 
+     private static Field getFieldFromHierarchy(Class<?> clazz, String field) {
+-        Field f = getField(clazz, field);
++        Field var_106 = getField(clazz, field);
++		Field f = var_106;
+         while (f == null && clazz != Object.class) {
+             clazz = clazz.getSuperclass();
+             f = getField(clazz, field);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/util/reflection/Whitebox.java b/src/org/mockito/internal/util/reflection/Whitebox.java
+index 5de2ac2..78ea6bf 100644
+--- a/src/org/mockito/internal/util/reflection/Whitebox.java
++++ b/src/org/mockito/internal/util/reflection/Whitebox.java
+@@ -31,7 +31,8 @@
+     }
+ 
+     private static Field getFieldFromHierarchy(Class<?> clazz, String field) {
+-        Field f = getField(clazz, field);
++        Field var_106 = getField(clazz, field);
++		Field f = var_106;
+         while (f == null && clazz != Object.class) {
+             clazz = clazz.getSuperclass();
+             f = getField(clazz, field);
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/util/reflection/Whitebox.java b/src/org/mockito/internal/util/reflection/Whitebox.java
+index 5de2ac2..6a975e2 100644
+--- a/src/org/mockito/internal/util/reflection/Whitebox.java
++++ b/src/org/mockito/internal/util/reflection/Whitebox.java
+@@ -31,10 +31,11 @@
+     }
+ 
+     private static Field getFieldFromHierarchy(Class<?> clazz, String field) {
+-        Field f = getField(clazz, field);
++        Field field1 = getField(clazz, field);
++        Field f = field1;
+         while (f == null && clazz != Object.class) {
+             clazz = clazz.getSuperclass();
+-            f = getField(clazz, field);
++            f = field1;
+         }
+         if (f == null) {
+             throw new RuntimeException(

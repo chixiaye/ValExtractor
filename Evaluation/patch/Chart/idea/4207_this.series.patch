@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/TimeSeriesTableModel.java b/source/org/jfree/data/time/TimeSeriesTableModel.java
+index 098b602..d78c678 100644
+--- a/source/org/jfree/data/time/TimeSeriesTableModel.java
++++ b/source/org/jfree/data/time/TimeSeriesTableModel.java
+@@ -90,6 +90,7 @@
+      * @param editable  if <ocde>true</code>, the table is editable.
+      */
+     public TimeSeriesTableModel(TimeSeries series, boolean editable) {
++        TimeSeries series1 = this.series;
+         this.series = series;
+         this.series.addChangeListener(this);
+         this.editable = editable;

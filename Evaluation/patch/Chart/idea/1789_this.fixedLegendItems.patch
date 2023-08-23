@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..92a9f1c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5712,9 +5712,10 @@
+             clone.fixedRangeAxisSpace = (AxisSpace) ObjectUtilities.clone(
+                     this.fixedRangeAxisSpace);
+         }
+-        if (this.fixedLegendItems != null) {
++        LegendItemCollection fixedLegendItems1 = this.fixedLegendItems;
++        if (fixedLegendItems1 != null) {
+             clone.fixedLegendItems
+-                    = (LegendItemCollection) this.fixedLegendItems.clone();
++                    = (LegendItemCollection) fixedLegendItems1.clone();
+         }
+         clone.quadrantOrigin = (Point2D) ObjectUtilities.clone(
+                 this.quadrantOrigin);

@@ -1,0 +1,88 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..0631252 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -320,7 +320,8 @@
+               ranges = ranges.union(group);
+               continue;
+             }
+-            start = parseEscapeChar();
++            char var_2419 = parseEscapeChar();
++			start = var_2419;
+           } else {
+             start = ch;
+             ++pos;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..a9c71ff 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -311,6 +311,7 @@
+         while (pos < limit && pattern.charAt(pos) != ']') {
+           char ch = pattern.charAt(pos);
+           char start;
++          char var_2419 = parseEscapeChar();
+           if (ch == '\\') {
+             ++pos;
+             char possibleGroupName = pattern.charAt(pos);
+@@ -320,7 +321,7 @@
+               ranges = ranges.union(group);
+               continue;
+             }
+-            start = parseEscapeChar();
++            start = var_2419;
+           } else {
+             start = ch;
+             ++pos;
+@@ -332,7 +333,7 @@
+             ch = pattern.charAt(pos);
+             if (ch == '\\') {
+               ++pos;
+-              end = parseEscapeChar();
++              end = var_2419;
+             } else {
+               end = ch;
+               ++pos;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..30695c1 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -126,6 +126,7 @@
+ 
+     /** A recursive descent parser that closes over pattern and flags above. */
+     class Parser {
++        private char start1 = parseEscapeChar();
+       /** The number of characters in pattern consumed. */
+       int pos;
+       /** The number of capturing groups seen so far. */
+@@ -320,7 +321,7 @@
+               ranges = ranges.union(group);
+               continue;
+             }
+-            start = parseEscapeChar();
++            start = start1;
+           } else {
+             start = ch;
+             ++pos;
+@@ -332,7 +333,7 @@
+             ch = pattern.charAt(pos);
+             if (ch == '\\') {
+               ++pos;
+-              end = parseEscapeChar();
++              end = start1;
+             } else {
+               end = ch;
+               ++pos;
+@@ -448,7 +449,7 @@
+             ++pos;
+             return new Charset(charGroup, CharRanges.EMPTY);
+           }
+-          return new Text("" + parseEscapeChar());
++          return new Text("" + start1);
+         }
+       }
+ 

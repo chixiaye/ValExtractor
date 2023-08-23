@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/joda/time/field/AbstractReadableInstantFieldProperty.java b/src/main/java/org/joda/time/field/AbstractReadableInstantFieldProperty.java
+index ad4bdc0..dcfae1f 100644
+--- a/src/main/java/org/joda/time/field/AbstractReadableInstantFieldProperty.java
++++ b/src/main/java/org/joda/time/field/AbstractReadableInstantFieldProperty.java
+@@ -210,10 +210,11 @@
+      * @see DateTimeField#getDifference
+      */
+     public int getDifference(ReadableInstant instant) {
++        long millis = getMillis();
+         if (instant == null) {
+-            return getField().getDifference(getMillis(), DateTimeUtils.currentTimeMillis());
++            return getField().getDifference(millis, DateTimeUtils.currentTimeMillis());
+         }
+-        return getField().getDifference(getMillis(), instant.getMillis());
++        return getField().getDifference(millis, instant.getMillis());
+     }
+ 
+     /**

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/StrokeMap.java b/source/org/jfree/chart/util/StrokeMap.java
+index 437adec..f58c34c 100644
+--- a/source/org/jfree/chart/util/StrokeMap.java
++++ b/source/org/jfree/chart/util/StrokeMap.java
+@@ -144,10 +144,11 @@
+             return false;
+         }
+         StrokeMap that = (StrokeMap) obj;
+-        if (this.store.size() != that.store.size()) {
++        Map store1 = this.store;
++        if (store1.size() != that.store.size()) {
+             return false;
+         }
+-        Set keys = this.store.keySet();
++        Set keys = store1.keySet();
+         Iterator iterator = keys.iterator();
+         while (iterator.hasNext()) {
+             Comparable key = (Comparable) iterator.next();

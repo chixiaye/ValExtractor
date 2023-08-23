@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/MatrixSeriesCollection.java b/source/org/jfree/data/xy/MatrixSeriesCollection.java
+index 6af3a1a..017d942 100644
+--- a/source/org/jfree/data/xy/MatrixSeriesCollection.java
++++ b/source/org/jfree/data/xy/MatrixSeriesCollection.java
+@@ -83,6 +83,7 @@
+      * @param series the time series.
+      */
+     public MatrixSeriesCollection(MatrixSeries series) {
++        List seriesList1 = this.seriesList;
+         this.seriesList = new java.util.ArrayList();
+ 
+         if (series != null) {

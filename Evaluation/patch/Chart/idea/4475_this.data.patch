@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..43186f9 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -598,8 +598,9 @@
+      * {@link SeriesChangeEvent} to all registered listeners.
+      */
+     public void clear() {
+-        if (this.data.size() > 0) {
+-            this.data.clear();
++        List data1 = this.data;
++        if (data1.size() > 0) {
++            data1.clear();
+             this.minX = Double.NaN;
+             this.maxX = Double.NaN;
+             this.minY = Double.NaN;

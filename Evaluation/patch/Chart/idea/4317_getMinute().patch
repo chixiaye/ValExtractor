@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/time/Second.java b/source/org/jfree/data/time/Second.java
+index 0800081..a164644 100644
+--- a/source/org/jfree/data/time/Second.java
++++ b/source/org/jfree/data/time/Second.java
+@@ -231,11 +231,12 @@
+     public RegularTimePeriod previous() {
+ 
+         Second result = null;
++        Minute minute1 = getMinute();
+         if (this.second != FIRST_SECOND_IN_MINUTE) {
+-            result = new Second(this.second - 1, getMinute());
++            result = new Second(this.second - 1, minute1);
+         }
+         else {
+-            Minute previous = (Minute) getMinute().previous();
++            Minute previous = (Minute) minute1.previous();
+             if (previous != null) {
+                 result = new Second(LAST_SECOND_IN_MINUTE, previous);
+             }

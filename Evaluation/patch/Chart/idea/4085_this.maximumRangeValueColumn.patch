@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..5f788e8 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -541,6 +541,7 @@
+     private void updateBounds() {
+         this.maximumRangeValue = Double.NaN;
+         this.maximumRangeValueRow = -1;
++        int maximumRangeValueColumn1 = this.maximumRangeValueColumn;
+         this.maximumRangeValueColumn = -1;
+         this.minimumRangeValue = Double.NaN;
+         this.minimumRangeValueRow = -1;

@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..85452ae 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -805,15 +805,16 @@
+       // control structure predicates.  These names are always
+       // referenced when the enclosing function is called.
+       if (n.isFor()) {
+-        if (!NodeUtil.isForIn(n)) {
+-          Node decl = n.getFirstChild();
++          Node firstChild = n.getFirstChild();
++          if (!NodeUtil.isForIn(n)) {
++          Node decl = firstChild;
+           Node pred = decl.getNext();
+           Node step = pred.getNext();
+           addSimplifiedExpression(decl, n);
+           addSimplifiedExpression(pred, n);
+           addSimplifiedExpression(step, n);
+         } else { // n.getChildCount() == 3
+-          Node decl = n.getFirstChild();
++          Node decl = firstChild;
+           Node iter = decl.getNext();
+           addAllChildren(decl);
+           addAllChildren(iter);

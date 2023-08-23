@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..4dc71d0 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -588,6 +588,7 @@
+         // allocate storage for dataset, axes and renderers
+         this.domainAxes = new ObjectList();
+         this.domainAxisLocations = new ObjectList();
++        ObjectList rangeAxes1 = this.rangeAxes;
+         this.rangeAxes = new ObjectList();
+         this.rangeAxisLocations = new ObjectList();
+ 

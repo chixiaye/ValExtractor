@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/xml/ItemHandler.java b/source/org/jfree/data/xml/ItemHandler.java
+index 8774579..29b6bd3 100644
+--- a/source/org/jfree/data/xml/ItemHandler.java
++++ b/source/org/jfree/data/xml/ItemHandler.java
+@@ -152,15 +152,16 @@
+                            String localName,
+                            String qName) {
+ 
++        RootHandler root1 = this.root;
+         if (this.parent instanceof PieDatasetHandler) {
+             PieDatasetHandler handler = (PieDatasetHandler) this.parent;
+             handler.addItem(this.key, this.value);
+-            this.root.popSubHandler();
++            root1.popSubHandler();
+         }
+         else if (this.parent instanceof CategorySeriesHandler) {
+             CategorySeriesHandler handler = (CategorySeriesHandler) this.parent;
+             handler.addItem(this.key, this.value);
+-            this.root.popSubHandler();
++            root1.popSubHandler();
+         }
+ 
+     }

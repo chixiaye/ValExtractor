@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..291010c 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -971,14 +971,15 @@
+     if (lvalue.isQualifiedName()) {
+       // variable with inferred type case
+       JSType rvalueType = getJSType(assign.getLastChild());
+-      Var var = t.getScope().getVar(lvalue.getQualifiedName());
++        Scope scope = t.getScope();
++        Var var = scope.getVar(lvalue.getQualifiedName());
+       if (var != null) {
+         if (var.isTypeInferred()) {
+           return;
+         }
+ 
+         if (NodeUtil.getRootOfQualifiedName(lvalue).isThis() &&
+-            t.getScope() != var.getScope()) {
++            scope != var.getScope()) {
+           // Don't look at "this.foo" variables from other scopes.
+           return;
+         }

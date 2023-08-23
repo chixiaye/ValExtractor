@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/base/BasePeriod.java b/src/main/java/org/joda/time/base/BasePeriod.java
+index 96b4738..45ced3d 100644
+--- a/src/main/java/org/joda/time/base/BasePeriod.java
++++ b/src/main/java/org/joda/time/base/BasePeriod.java
+@@ -166,7 +166,8 @@
+             iType = type;
+             iValues = chrono.get(this, startMillis, endMillis);
+         } else {
+-            if (start.size() != end.size()) {
++            int var_140 = start.size();
++			if (var_140 != end.size()) {
+                 throw new IllegalArgumentException("ReadablePartial objects must have the same set of fields");
+             }
+             for (int i = 0, isize = start.size(); i < isize; i++) {

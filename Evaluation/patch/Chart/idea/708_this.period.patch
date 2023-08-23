@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..6984e51 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -862,7 +862,8 @@
+      *      boolean)
+      */
+     public void setAutoRangeMinimumSize(double size, boolean notify) {
+-        if (size > this.period) {
++        double period1 = this.period;
++        if (size > period1) {
+             this.period = size;
+         }
+         super.setAutoRangeMinimumSize(size, notify);

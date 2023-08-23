@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..30bbf4c 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1909,7 +1909,8 @@
+         }
+ 
+         if (this.liveMouseHandler != null) {
+-            this.liveMouseHandler.mousePressed(e);
++            AbstractMouseHandler liveMouseHandler1 = this.liveMouseHandler;
++            liveMouseHandler1.mousePressed(e);
+         }
+         else {
+             AbstractMouseHandler h = null;

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..b042315 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -324,6 +324,7 @@
+         long nextL = this.pointsInTime[1].getFirstMillisecond(
+             this.workingCalendar
+         );
++        long deltaTime1 = this.deltaTime;
+         this.deltaTime = nextL - oldestL;
+         this.oldestAt = 0;
+         this.newestAt = this.historyCount - 1;

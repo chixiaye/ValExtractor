@@ -1,0 +1,14 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+index 7805b12..f591678 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
++++ b/src/com/google/debugging/sourcemap/SourceMapLineDecoder.java
+@@ -68,7 +68,8 @@
+       int value = 0;
+       for (int i = 0; i < repDigits; i++) {
+         digit = reader.next();
+-        value = addBase64Digit(digit, value);
++          int value1 = addBase64Digit(digit, value);
++          value = value1;
+       }
+       reps = value;
+     }

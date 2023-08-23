@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..907a029 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -884,13 +884,14 @@
+         if (this==other) {
+             return 0;
+         }
+-        if (numerator == other.numerator && denominator == other.denominator) {
++        int numerator1 = other.numerator;
++        if (numerator == numerator1 && denominator == other.denominator) {
+             return 0;
+         }
+ 
+         // otherwise see which is less
+         final long first = (long) numerator * (long) other.denominator;
+-        final long second = (long) other.numerator * (long) denominator;
++        final long second = (long) numerator1 * (long) denominator;
+         if (first == second) {
+             return 0;
+         } else if (first < second) {

@@ -1,0 +1,71 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..5f0020b 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1112,7 +1112,8 @@
+                     Dfp a = subtract(result);  // difference between this and result
+                     a.sign = 1;            // force positive (take abs)
+                     if (a.greaterThan(half)) {
+-                        a = newInstance(getOne());
++                        Dfp var_597 = newInstance(getOne());
++						a = var_597;
+                         a.sign = sign;
+                         result = result.add(a);
+                     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..465646f 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1091,6 +1091,7 @@
+         }
+ 
+         if (changed) {
++            Dfp var_597 = newInstance(getOne());
+             switch (rmode) {
+                 case ROUND_FLOOR:
+                     if (result.sign == -1) {
+@@ -1112,14 +1113,14 @@
+                     Dfp a = subtract(result);  // difference between this and result
+                     a.sign = 1;            // force positive (take abs)
+                     if (a.greaterThan(half)) {
+-                        a = newInstance(getOne());
++                        a = var_597;
+                         a.sign = sign;
+                         result = result.add(a);
+                     }
+ 
+                     /** If exactly equal to 1/2 and odd then increment */
+                     if (a.equals(half) && result.exp > 0 && (result.mant[mant.length-result.exp]&1) != 0) {
+-                        a = newInstance(getOne());
++                        a = var_597;
+                         a.sign = sign;
+                         result = result.add(a);
+                     }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..2e58f84 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1111,15 +1111,16 @@
+                     final Dfp half = newInstance("0.5");
+                     Dfp a = subtract(result);  // difference between this and result
+                     a.sign = 1;            // force positive (take abs)
++                    Dfp a1 = newInstance(getOne());
+                     if (a.greaterThan(half)) {
+-                        a = newInstance(getOne());
++                        a = a1;
+                         a.sign = sign;
+                         result = result.add(a);
+                     }
+ 
+                     /** If exactly equal to 1/2 and odd then increment */
+                     if (a.equals(half) && result.exp > 0 && (result.mant[mant.length-result.exp]&1) != 0) {
+-                        a = newInstance(getOne());
++                        a = a1;
+                         a.sign = sign;
+                         result = result.add(a);
+                     }

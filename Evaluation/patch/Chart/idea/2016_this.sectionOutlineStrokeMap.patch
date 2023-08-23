@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..ccc075b 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -1383,7 +1383,8 @@
+         Stroke result = null;
+ 
+         // is a stroke defined for the specified key
+-        result = this.sectionOutlineStrokeMap.getStroke(key);
++        StrokeMap sectionOutlineStrokeMap1 = this.sectionOutlineStrokeMap;
++        result = sectionOutlineStrokeMap1.getStroke(key);
+         if (result != null) {
+             return result;
+         }
+@@ -1393,7 +1394,7 @@
+             DrawingSupplier ds = getDrawingSupplier();
+             if (ds != null) {
+                 result = ds.getNextOutlineStroke();
+-                this.sectionOutlineStrokeMap.put(key, result);
++                sectionOutlineStrokeMap1.put(key, result);
+             }
+             else {
+                 result = this.baseSectionOutlineStroke;

@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..adbbb49 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -975,9 +975,10 @@
+      */
+     protected Comparable getSectionKey(int section) {
+         Comparable key = null;
+-        if (this.dataset != null) {
+-            if (section >= 0 && section < this.dataset.getItemCount()) {
+-                key = this.dataset.getKey(section);
++        PieDataset dataset1 = this.dataset;
++        if (dataset1 != null) {
++            if (section >= 0 && section < dataset1.getItemCount()) {
++                key = dataset1.getKey(section);
+             }
+         }
+         if (key == null) {

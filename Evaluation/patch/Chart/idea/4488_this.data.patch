@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/xy/YIntervalSeriesCollection.java b/source/org/jfree/data/xy/YIntervalSeriesCollection.java
+index cf68bfe..0d8edcf 100644
+--- a/source/org/jfree/data/xy/YIntervalSeriesCollection.java
++++ b/source/org/jfree/data/xy/YIntervalSeriesCollection.java
+@@ -279,9 +279,10 @@
+         if ((series < 0) || (series >= getSeriesCount())) {
+             throw new IllegalArgumentException("Series index out of bounds.");
+         }
+-        YIntervalSeries ts = (YIntervalSeries) this.data.get(series);
++        List data1 = this.data;
++        YIntervalSeries ts = (YIntervalSeries) data1.get(series);
+         ts.removeChangeListener(this);
+-        this.data.remove(series);
++        data1.remove(series);
+         fireDatasetChanged(new DatasetChangeInfo());
+         //TODO: fill in real change info
+     }

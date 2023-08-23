@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPlot.java b/source/org/jfree/chart/plot/dial/DialPlot.java
+index acb9f7c..d6c2c31 100644
+--- a/source/org/jfree/chart/plot/dial/DialPlot.java
++++ b/source/org/jfree/chart/plot/dial/DialPlot.java
+@@ -411,11 +411,12 @@
+      * @param index  the index.
+      */
+     public void removePointer(int index) {
+-        DialPointer pointer = (DialPointer) this.pointers.get(index);
++        List pointers1 = this.pointers;
++        DialPointer pointer = (DialPointer) pointers1.get(index);
+         if (pointer != null) {
+             pointer.removeChangeListener(this);
+         }
+-        this.pointers.remove(index);
++        pointers1.remove(index);
+         fireChangeEvent();
+     }
+ 

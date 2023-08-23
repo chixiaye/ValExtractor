@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/CategoryAxis3D.java b/source/org/jfree/chart/axis/CategoryAxis3D.java
+index fc3e9fc..de9a7c7 100644
+--- a/source/org/jfree/chart/axis/CategoryAxis3D.java
++++ b/source/org/jfree/chart/axis/CategoryAxis3D.java
+@@ -190,10 +190,11 @@
+             double adjustedX = area.getMinX();
+             double adjustedY = area.getMinY();
+             double adjustedW = area.getWidth() - e3D.getXOffset();
+-            double adjustedH = area.getHeight() - e3D.getYOffset();
++            double yOffset = e3D.getYOffset();
++            double adjustedH = area.getHeight() - yOffset;
+ 
+             if (edge == RectangleEdge.LEFT || edge == RectangleEdge.BOTTOM) {
+-                adjustedY += e3D.getYOffset();
++                adjustedY += yOffset;
+             }
+             else if (edge == RectangleEdge.RIGHT || edge == RectangleEdge.TOP) {
+                 adjustedX += e3D.getXOffset();

@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..547f318 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -905,9 +905,10 @@
+             ProvidedName parentName =
+                 providedNames.get(namespace.substring(0, indexOfDot));
+             Preconditions.checkNotNull(parentName);
+-            Preconditions.checkNotNull(parentName.replacementNode);
+-            parentName.replacementNode.getParent().addChildAfter(
+-                replacementNode, parentName.replacementNode);
++              Node replacementNode1 = parentName.replacementNode;
++              Preconditions.checkNotNull(replacementNode1);
++            replacementNode1.getParent().addChildAfter(
++                replacementNode, replacementNode1);
+           }
+         }
+         if (explicitNode != null) {

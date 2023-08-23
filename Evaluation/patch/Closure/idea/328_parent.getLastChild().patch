@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..3b36756 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1793,8 +1793,9 @@
+    * true for the predicate and false otherwise.
+    */
+   private boolean valueConsumedByParent(Node n, Node parent) {
+-    if (NodeUtil.isAssignmentOp(parent)) {
+-      return parent.getLastChild() == n;
++      Node lastChild = parent.getLastChild();
++      if (NodeUtil.isAssignmentOp(parent)) {
++      return lastChild == n;
+     }
+ 
+     switch (parent.getType()) {
+@@ -1811,7 +1812,7 @@
+       case Token.WHILE:
+         return parent.getFirstChild() == n;
+       case Token.DO:
+-        return parent.getLastChild() == n;
++        return lastChild == n;
+       default:
+         return false;
+     }

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..e0b85af 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3169,7 +3169,8 @@
+      * @see #isRangeCrosshairVisible()
+      */
+     public void setRangeCrosshairVisible(boolean flag) {
+-        if (this.rangeCrosshairVisible != flag) {
++        boolean rangeCrosshairVisible1 = this.rangeCrosshairVisible;
++        if (rangeCrosshairVisible1 != flag) {
+             this.rangeCrosshairVisible = flag;
+             fireChangeEvent();
+         }

@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+index 958e778..eba7e23 100644
+--- a/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CandlestickRenderer.java
+@@ -689,11 +689,12 @@
+ 
+         double volumeWidth;
+         double stickWidth;
+-        if (this.candleWidth > 0) {
++        double candleWidth1 = this.candleWidth;
++        if (candleWidth1 > 0) {
+             // These are deliberately not bounded to minimums/maxCandleWidth to
+             //  retain old behaviour.
+-            volumeWidth = this.candleWidth;
+-            stickWidth = this.candleWidth;
++            volumeWidth = candleWidth1;
++            stickWidth = candleWidth1;
+         }
+         else {
+             double xxWidth = 0;

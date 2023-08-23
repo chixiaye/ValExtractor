@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..483cf11 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1007,7 +1007,8 @@
+     public void setBackgroundImage(Image image) {
+ 
+         if (this.backgroundImage != null) {
+-            if (!this.backgroundImage.equals(image)) {
++            Image backgroundImage1 = this.backgroundImage;
++            if (!backgroundImage1.equals(image)) {
+                 this.backgroundImage = image;
+                 fireChartChanged();
+             }

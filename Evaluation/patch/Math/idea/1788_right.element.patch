@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+index 7070060..e554b2a 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/utilities/AVLTree.java
+@@ -610,7 +610,8 @@
+ 
+             final T tmpElt        = element;
+             element               = right.element;
+-            right.element         = tmpElt;
++            T element1 = right.element;
++            element1         = tmpElt;
+ 
+             final Node tmpNode    = right;
+             right                 = tmpNode.right;

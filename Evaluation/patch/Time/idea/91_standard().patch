@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/PeriodType.java b/src/main/java/org/joda/time/PeriodType.java
+index e06b379..fa45ef8 100644
+--- a/src/main/java/org/joda/time/PeriodType.java
++++ b/src/main/java/org/joda/time/PeriodType.java
+@@ -508,8 +508,9 @@
+             }
+         }
+         Map<PeriodType, Object> cache = cTypes;
++        PeriodType standard = standard();
+         if (cache.isEmpty()) {
+-            cache.put(standard(), standard());
++            cache.put(standard, standard);
+             cache.put(yearMonthDayTime(), yearMonthDayTime());
+             cache.put(yearMonthDay(), yearMonthDay());
+             cache.put(yearWeekDayTime(), yearWeekDayTime());
+@@ -535,7 +536,7 @@
+         if (cached != null) {
+             throw new IllegalArgumentException("PeriodType does not support fields: " + cached);
+         }
+-        PeriodType type = standard();
++        PeriodType type = standard;
+         List<DurationFieldType> list = new ArrayList<DurationFieldType>(Arrays.asList(types));
+         if (list.remove(DurationFieldType.years()) == false) {
+             type = type.withYearsRemoved();

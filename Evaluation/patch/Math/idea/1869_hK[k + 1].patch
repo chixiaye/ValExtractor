@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+index 6016825..2f58695 100644
+--- a/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/TriDiagonalTransformer.java
+@@ -207,7 +207,8 @@
+             if (a != 0.0) {
+                 // apply Householder transform from left and right simultaneously
+ 
+-                hK[k + 1] -= a;
++                double v = hK[k + 1];
++                v -= a;
+                 final double beta = -1 / (a * hK[k + 1]);
+ 
+                 // compute a = beta A v, where v is the Householder vector

@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+index 1c6eaff..ac4f135 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+@@ -399,10 +399,11 @@
+             AccessibleObject.setAccessible(fields, true);
+             for (int i = 0; i < fields.length && builder.isEquals; i++) {
+                 final Field f = fields[i];
++                int modifiers = f.getModifiers();
+                 if (!ArrayUtils.contains(excludeFields, f.getName())
+                     && (f.getName().indexOf('$') == -1)
+-                    && (useTransients || !Modifier.isTransient(f.getModifiers()))
+-                    && (!Modifier.isStatic(f.getModifiers()))) {
++                    && (useTransients || !Modifier.isTransient(modifiers))
++                    && (!Modifier.isStatic(modifiers))) {
+                     try {
+                         builder.append(f.get(lhs), f.get(rhs));
+                     } catch (final IllegalAccessException e) {

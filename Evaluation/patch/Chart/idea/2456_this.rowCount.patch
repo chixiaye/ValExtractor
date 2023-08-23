@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..a89fab5 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -824,9 +824,10 @@
+      */
+     protected CategoryItemRendererState createState(PlotRenderingInfo info) {
+         CategoryItemRendererState state = new CategoryItemRendererState(info);
+-        int[] visibleSeriesTemp = new int[this.rowCount];
++        int rowCount1 = this.rowCount;
++        int[] visibleSeriesTemp = new int[rowCount1];
+         int visibleSeriesCount = 0;
+-        for (int row = 0; row < this.rowCount; row++) {
++        for (int row = 0; row < rowCount1; row++) {
+             if (isSeriesVisible(row)) {
+                 visibleSeriesTemp[visibleSeriesCount] = row;
+                 visibleSeriesCount++;

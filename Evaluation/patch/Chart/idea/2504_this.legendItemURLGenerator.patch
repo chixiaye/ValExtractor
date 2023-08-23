@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..917af76 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1742,9 +1742,10 @@
+             clone.legendItemToolTipGenerator = (CategorySeriesLabelGenerator)
+                     ObjectUtilities.clone(this.legendItemToolTipGenerator);
+         }
+-        if (this.legendItemURLGenerator instanceof PublicCloneable) {
++        CategorySeriesLabelGenerator legendItemURLGenerator1 = this.legendItemURLGenerator;
++        if (legendItemURLGenerator1 instanceof PublicCloneable) {
+             clone.legendItemURLGenerator = (CategorySeriesLabelGenerator)
+-                    ObjectUtilities.clone(this.legendItemURLGenerator);
++                    ObjectUtilities.clone(legendItemURLGenerator1);
+         }
+         return clone;
+     }

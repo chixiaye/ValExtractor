@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java b/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
+index a6f60a9..9b54580 100644
+--- a/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
++++ b/src/main/java/org/apache/commons/math3/util/CombinatoricsUtils.java
+@@ -241,7 +241,8 @@
+ 
+         // n!/(n-k)!
+         for (int i = n - k + 1; i <= n; i++) {
+-            logSum += FastMath.log(i);
++            double log = FastMath.log(i);
++            logSum += log;
+         }
+ 
+         // divide by k!

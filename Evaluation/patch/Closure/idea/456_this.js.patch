@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..d4c1163 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1667,8 +1667,9 @@
+      * The JavaScript filename. You may specify multiple.
+      */
+     CommandLineConfig setJs(List<String> js) {
+-      this.js.clear();
+-      this.js.addAll(js);
++        List<String> js1 = this.js;
++        js1.clear();
++      js1.addAll(js);
+       return this;
+     }
+ 

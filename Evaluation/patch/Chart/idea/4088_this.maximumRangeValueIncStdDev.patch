@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..2a0fcde 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -598,7 +598,8 @@
+ 
+                     if (!Double.isNaN(sd)) {
+                         // update the max value
+-                        if (Double.isNaN(this.maximumRangeValueIncStdDev)) {
++                        double maximumRangeValueIncStdDev1 = this.maximumRangeValueIncStdDev;
++                        if (Double.isNaN(maximumRangeValueIncStdDev1)) {
+                             this.maximumRangeValueIncStdDev = m + sd;
+                             this.maximumRangeValueIncStdDevRow = r;
+                             this.maximumRangeValueIncStdDevColumn = c;

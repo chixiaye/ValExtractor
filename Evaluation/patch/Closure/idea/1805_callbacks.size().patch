@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..e83dcd1 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -1238,8 +1238,9 @@
+   /** Executes the given callbacks with a {@link CombinedCompilerPass}. */
+   private static HotSwapCompilerPass combineChecks(AbstractCompiler compiler,
+       List<Callback> callbacks) {
+-    Preconditions.checkArgument(callbacks.size() > 0);
+-    Callback[] array = callbacks.toArray(new Callback[callbacks.size()]);
++      int size = callbacks.size();
++      Preconditions.checkArgument(size > 0);
++    Callback[] array = callbacks.toArray(new Callback[size]);
+     return new CombinedCompilerPass(compiler, array);
+   }
+ 

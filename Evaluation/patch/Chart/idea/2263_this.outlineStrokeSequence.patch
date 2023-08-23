@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..4a3c3da 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -490,6 +490,7 @@
+         }
+ 
+         int outlineStrokeCount = stream.readInt();
++        Stroke[] outlineStrokeSequence1 = this.outlineStrokeSequence;
+         this.outlineStrokeSequence = new Stroke[outlineStrokeCount];
+         for (int i = 0; i < outlineStrokeCount; i++) {
+             this.outlineStrokeSequence[i] = SerialUtilities.readStroke(stream);

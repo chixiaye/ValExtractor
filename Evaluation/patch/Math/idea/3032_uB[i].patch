@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..1125fdc 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -945,10 +945,13 @@
+             for (int i = 0; i < x.length; i++) {
+                 if (x[i] < lB[i]) {
+                     repaired[i] = lB[i];
+-                } else if (x[i] > uB[i]) {
+-                    repaired[i] = uB[i];
+                 } else {
+-                    repaired[i] = x[i];
++                    double v = uB[i];
++                    if (x[i] > v) {
++                        repaired[i] = v;
++                    } else {
++                        repaired[i] = x[i];
++                    }
+                 }
+             }
+             return repaired;

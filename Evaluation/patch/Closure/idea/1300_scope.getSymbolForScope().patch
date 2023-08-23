@@ -1,0 +1,27 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..6566778 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -440,13 +440,16 @@
+               symbol.getName(),
+               scope.getRootNode().getSourceFileName(),
+               scope.getRootNode().getLineno()));
+-    } else if (scope.getSymbolForScope() != null) {
+-      builder.append(
+-          String.format("'%s' : in scope %s\n", symbol.getName(),
+-              scope.getSymbolForScope().getName()));
+     } else {
+-      builder.append(
+-          String.format("'%s' : in unknown scope\n", symbol.getName()));
++        Symbol symbolForScope = scope.getSymbolForScope();
++        if (symbolForScope != null) {
++          builder.append(
++              String.format("'%s' : in scope %s\n", symbol.getName(),
++                  symbolForScope.getName()));
++        } else {
++          builder.append(
++              String.format("'%s' : in unknown scope\n", symbol.getName()));
++        }
+     }
+ 
+     int refCount = 0;

@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..f2acc84 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -515,7 +515,8 @@
+                 }
+ 
+                 // Default convergence criteria.
+-                if ((FastMath.abs(actRed) <= costRelativeTolerance &&
++                double abs = FastMath.abs(actRed);
++                if ((abs <= costRelativeTolerance &&
+                      preRed <= costRelativeTolerance &&
+                      ratio <= 2.0) ||
+                     delta <= parRelativeTolerance * xNorm) {
+@@ -523,7 +524,7 @@
+                 }
+ 
+                 // tests for termination and stringent tolerances
+-                if (FastMath.abs(actRed) <= TWO_EPS &&
++                if (abs <= TWO_EPS &&
+                     preRed <= TWO_EPS &&
+                     ratio <= 2.0) {
+                     throw new ConvergenceException(LocalizedFormats.TOO_SMALL_COST_RELATIVE_TOLERANCE,

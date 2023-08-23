@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..ad4812b 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2857,7 +2857,7 @@
+         while (i < len) {
+             if (str.charAt(i) == separatorChar) {
+                 if (match || preserveAllTokens) {
+-                    list.add(str.substring(start, i));
++                    boolean var_37 = list.add(str.substring(start, i));
+                     match = false;
+                     lastMatch = true;
+                 }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..ad4812b 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2857,7 +2857,7 @@
+         while (i < len) {
+             if (str.charAt(i) == separatorChar) {
+                 if (match || preserveAllTokens) {
+-                    list.add(str.substring(start, i));
++                    boolean var_37 = list.add(str.substring(start, i));
+                     match = false;
+                     lastMatch = true;
+                 }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..e8bf0b8 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2854,10 +2854,11 @@
+         int i = 0, start = 0;
+         boolean match = false;
+         boolean lastMatch = false;
++        boolean add = list.add(str.substring(start, i));
+         while (i < len) {
+             if (str.charAt(i) == separatorChar) {
+                 if (match || preserveAllTokens) {
+-                    list.add(str.substring(start, i));
++                    add;
+                     match = false;
+                     lastMatch = true;
+                 }
+@@ -2869,7 +2870,7 @@
+             i++;
+         }
+         if (match || preserveAllTokens && lastMatch) {
+-            list.add(str.substring(start, i));
++            add;
+         }
+         return list.toArray(new String[list.size()]);
+     }

@@ -1,0 +1,32 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..89984ea 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -170,6 +170,7 @@
+      * @param reg model to append data from
+      */
+     public void append(SimpleRegression reg) {
++        long n1 = reg.n;
+         if (n == 0) {
+             xbar = reg.xbar;
+             ybar = reg.ybar;
+@@ -178,8 +179,8 @@
+             sumXY = reg.sumXY;
+         } else {
+             if (hasIntercept) {
+-                final double fact1 = reg.n / (double) (reg.n + n);
+-                final double fact2 = n * reg.n / (double) (reg.n + n);
++                final double fact1 = n1 / (double) (n1 + n);
++                final double fact2 = n * n1 / (double) (n1 + n);
+                 final double dx = reg.xbar - xbar;
+                 final double dy = reg.ybar - ybar;
+                 sumXX += reg.sumXX + dx * dx * fact2;
+@@ -195,7 +196,7 @@
+         }
+         sumX += reg.sumX;
+         sumY += reg.sumY;
+-        n += reg.n;
++        n += n1;
+     }
+ 
+     /**

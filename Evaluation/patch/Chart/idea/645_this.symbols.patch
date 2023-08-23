@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..c2d326a 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -170,8 +170,9 @@
+      * @return The symbols.
+      */
+     public String[] getSymbols() {
+-        String[] result = new String[this.symbols.size()];
+-        result = (String[]) this.symbols.toArray(result);
++        List symbols1 = this.symbols;
++        String[] result = new String[symbols1.size()];
++        result = (String[]) symbols1.toArray(result);
+         return result;
+     }
+ 

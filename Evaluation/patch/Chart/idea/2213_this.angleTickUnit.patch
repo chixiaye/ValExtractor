@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..1a92982 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -680,10 +680,11 @@
+      */
+     protected List refreshAngleTicks() {
+         List ticks = new ArrayList();
++        TickUnit angleTickUnit1 = this.angleTickUnit;
+         for (double currentTickVal = 0.0; currentTickVal < 360.0;
+-                currentTickVal += this.angleTickUnit.getSize()) {
++             currentTickVal += angleTickUnit1.getSize()) {
+             NumberTick tick = new NumberTick(new Double(currentTickVal),
+-                this.angleTickUnit.valueToString(currentTickVal),
++                angleTickUnit1.valueToString(currentTickVal),
+                 TextAnchor.CENTER, TextAnchor.CENTER, 0.0);
+             ticks.add(tick);
+         }

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..c4a26e8 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -162,6 +162,7 @@
+             this.plotArea = true;
+         }
+         else if (type == SHAPES) {
++            boolean shapesVisible1 = this.shapesVisible;
+             this.shapesVisible = true;
+         }
+         else if (type == AREA_AND_SHAPES) {

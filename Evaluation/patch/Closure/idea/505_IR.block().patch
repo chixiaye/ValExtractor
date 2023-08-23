@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..aea57a7 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1292,10 +1292,11 @@
+     }
+ 
+     // Parse main JS sources.
+-    jsRoot = IR.block();
++      Node block = IR.block();
++      jsRoot = block;
+     jsRoot.setIsSyntheticBlock(true);
+ 
+-    externsRoot = IR.block();
++    externsRoot = block;
+     externsRoot.setIsSyntheticBlock(true);
+ 
+     externAndJsRoot = IR.block(externsRoot, jsRoot);

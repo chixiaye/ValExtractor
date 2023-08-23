@@ -1,0 +1,42 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicChronology.java b/src/main/java/org/joda/time/chrono/BasicChronology.java
+index 63f394a..179ccd6 100644
+--- a/src/main/java/org/joda/time/chrono/BasicChronology.java
++++ b/src/main/java/org/joda/time/chrono/BasicChronology.java
+@@ -416,20 +416,23 @@
+ 
+         if (diff < 0) {
+             year--;
+-        } else if (diff >= DateTimeConstants.MILLIS_PER_DAY * 365L) {
+-            // One year may need to be added to fix estimate.
+-            long oneYear;
+-            if (isLeapYear(year)) {
+-                oneYear = DateTimeConstants.MILLIS_PER_DAY * 366L;
+-            } else {
+-                oneYear = DateTimeConstants.MILLIS_PER_DAY * 365L;
+-            }
+-
+-            yearStart += oneYear;
+-
+-            if (yearStart <= instant) {
+-                // Didn't go too far, so actually add one year.
+-                year++;
++        } else {
++            int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
++            if (diff >= millisPerDay * 365L) {
++                // One year may need to be added to fix estimate.
++                long oneYear;
++                if (isLeapYear(year)) {
++                    oneYear = millisPerDay * 366L;
++                } else {
++                    oneYear = millisPerDay * 365L;
++                }
++    
++                yearStart += oneYear;
++    
++                if (yearStart <= instant) {
++                    // Didn't go too far, so actually add one year.
++                    year++;
++                }
+             }
+         }
+ 

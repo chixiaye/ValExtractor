@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..a40c35b 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -83,7 +83,8 @@
+ 
+         // Verify that at least one null slot exists!
+         for (int i=0; i<length; i++) {
+-            if (entries[i] == null) {
++            Entry entry = entries[i];
++            if (entry == null) {
+                 // Found a null slot, swap in new hashtable.
+                 iSelectEntries = entries;
+                 return converter;

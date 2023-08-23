@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..e42a97b 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4648,8 +4648,9 @@
+     public void datasetChanged(DatasetChangeEvent event) {
+         configureDomainAxes();
+         configureRangeAxes();
+-        if (getParent() != null) {
+-            getParent().datasetChanged(event);
++        Plot parent = getParent();
++        if (parent != null) {
++            parent.datasetChanged(event);
+         }
+         else {
+             PlotChangeEvent e = new PlotChangeEvent(this);

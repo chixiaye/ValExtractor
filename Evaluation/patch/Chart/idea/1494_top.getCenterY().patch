@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot3D.java b/source/org/jfree/chart/plot/PiePlot3D.java
+index a7aab14..bf5ea26 100644
+--- a/source/org/jfree/chart/plot/PiePlot3D.java
++++ b/source/org/jfree/chart/plot/PiePlot3D.java
+@@ -428,9 +428,10 @@
+         Ellipse2D bottom = new Ellipse2D.Double(pieArea.getX(), pieArea.getY()
+                 + depth, pieArea.getWidth(), pieArea.getHeight() - depth);
+ 
++        double centerY = top.getCenterY();
+         Rectangle2D lower = new Rectangle2D.Double(top.getX(),
+-                top.getCenterY(), pieArea.getWidth(), bottom.getMaxY()
+-                - top.getCenterY());
++                centerY, pieArea.getWidth(), bottom.getMaxY()
++                - centerY);
+ 
+         Rectangle2D upper = new Rectangle2D.Double(pieArea.getX(), top.getY(),
+                 pieArea.getWidth(), bottom.getCenterY() - top.getY());

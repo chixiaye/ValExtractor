@@ -1,0 +1,46 @@
+diff --git a/src/main/java/org/jsoup/helper/HttpConnection.java b/src/main/java/org/jsoup/helper/HttpConnection.java
+index b5cf8317..eaed74bc 100644
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
+@@ -1076,22 +1076,25 @@ public class HttpConnection implements Connection {
+                 w.write("--");
+                 w.write(bound);
+                 w.write("--");
+-            } else if (req.requestBody() != null) {
+-                // data will be in query string, we're sending a plaintext body
+-                w.write(req.requestBody());
+-            }
+-            else {
+-                // regular form data (application/x-www-form-urlencoded)
+-                boolean first = true;
+-                for (Connection.KeyVal keyVal : data) {
+-                    if (!first)
+-                        w.append('&');
+-                    else
+-                        first = false;
+-
+-                    w.write(URLEncoder.encode(keyVal.key(), req.postDataCharset()));
+-                    w.write('=');
+-                    w.write(URLEncoder.encode(keyVal.value(), req.postDataCharset()));
++            } else {
++                String body = req.requestBody();
++                if (body != null) {
++                    // data will be in query string, we're sending a plaintext body
++                    w.write(body);
++                }
++                else {
++                    // regular form data (application/x-www-form-urlencoded)
++                    boolean first = true;
++                    for (Connection.KeyVal keyVal : data) {
++                        if (!first)
++                            w.append('&');
++                        else
++                            first = false;
++    
++                        w.write(URLEncoder.encode(keyVal.key(), req.postDataCharset()));
++                        w.write('=');
++                        w.write(URLEncoder.encode(keyVal.value(), req.postDataCharset()));
++                    }
+                 }
+             }
+             w.close();

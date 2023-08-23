@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+index fcdcce0..179a002 100644
+--- a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
++++ b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+@@ -154,14 +154,15 @@
+               } else if (startOfMultilineComment != -1) {
+                 int endOfMultilineComment = revisedLine.indexOf("*/",
+                     startOfMultilineComment + 2);
+-                if (endOfMultilineComment == -1) {
+-                  revisedLine = revisedLine.substring(
+-                      0, startOfMultilineComment);
++                  String substring = revisedLine.substring(
++                          0, startOfMultilineComment);
++                  if (endOfMultilineComment == -1) {
++                  revisedLine = substring;
+                   inMultilineComment = true;
+                   break;
+                 } else {
+                   revisedLine =
+-                      revisedLine.substring(0, startOfMultilineComment) +
++                      substring +
+                       revisedLine.substring(endOfMultilineComment + 2);
+                 }
+               } else {

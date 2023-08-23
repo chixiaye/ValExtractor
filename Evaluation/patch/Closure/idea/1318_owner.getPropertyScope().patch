@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..c920a3c 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -1217,8 +1217,11 @@
+       int dot = name.lastIndexOf(".");
+       if (dot != -1) {
+         Symbol owner = getQualifiedSlot(name.substring(0, dot));
+-        if (owner != null && owner.getPropertyScope() != null) {
+-          return owner.getPropertyScope().getSlot(name.substring(dot + 1));
++        if (owner != null) {
++            SymbolScope propertyScope = owner.getPropertyScope();
++            if (propertyScope != null) {
++                return propertyScope.getSlot(name.substring(dot + 1));
++            }
+         }
+       }
+ 

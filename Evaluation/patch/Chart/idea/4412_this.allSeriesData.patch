@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/DefaultWindDataset.java b/source/org/jfree/data/xy/DefaultWindDataset.java
+index 456abb8..d00b54a 100644
+--- a/source/org/jfree/data/xy/DefaultWindDataset.java
++++ b/source/org/jfree/data/xy/DefaultWindDataset.java
+@@ -135,6 +135,7 @@
+         }
+         this.seriesKeys = seriesKeys;
+         int seriesCount = data.length;
++        List allSeriesData1 = this.allSeriesData;
+         this.allSeriesData = new java.util.ArrayList(seriesCount);
+ 
+         for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {

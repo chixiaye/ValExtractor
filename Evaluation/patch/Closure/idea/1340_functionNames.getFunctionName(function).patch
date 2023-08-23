@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..e69b454 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -140,7 +140,8 @@
+       boolean isPure =
+           functionInfo.mayBePure() && !functionInfo.mayHaveSideEffects();
+       if (isPure) {
+-        sb.append("  " + functionNames.getFunctionName(function) + "\n");
++          String functionName = functionNames.getFunctionName(function);
++          sb.append("  " + functionName + "\n");
+       }
+     }
+     sb.append("\n");

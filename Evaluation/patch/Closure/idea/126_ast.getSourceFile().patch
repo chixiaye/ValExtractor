@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/CompilerInput.java b/src/com/google/javascript/jscomp/CompilerInput.java
+index 4259a88..6366164 100644
+--- a/src/com/google/javascript/jscomp/CompilerInput.java
++++ b/src/com/google/javascript/jscomp/CompilerInput.java
+@@ -334,10 +334,11 @@
+   }
+ 
+   public boolean isExtern() {
+-    if (ast == null || ast.getSourceFile() == null) {
++      SourceFile sourceFile = ast.getSourceFile();
++      if (ast == null || sourceFile == null) {
+       return false;
+     }
+-    return ast.getSourceFile().isExtern();
++    return sourceFile.isExtern();
+   }
+ 
+   void setIsExtern(boolean isExtern) {

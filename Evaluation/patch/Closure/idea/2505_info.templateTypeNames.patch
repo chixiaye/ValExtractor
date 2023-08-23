@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..9cbb168 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -944,7 +944,8 @@
+   boolean declareTemplateTypeNames(List<String> templateTypeNames) {
+     lazyInitInfo();
+ 
+-    if (info.templateTypeNames != null) {
++      ImmutableList<String> templateTypeNames1 = info.templateTypeNames;
++      if (templateTypeNames1 != null) {
+       return false;
+     }
+ 

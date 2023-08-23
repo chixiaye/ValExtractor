@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/PolarPlot.java b/source/org/jfree/chart/plot/PolarPlot.java
+index bc0de0a..6ba7e7b 100644
+--- a/source/org/jfree/chart/plot/PolarPlot.java
++++ b/source/org/jfree/chart/plot/PolarPlot.java
+@@ -391,7 +391,8 @@
+         }
+ 
+         this.renderer = renderer;
+-        if (this.renderer != null) {
++        PolarItemRenderer renderer1 = this.renderer;
++        if (renderer1 != null) {
+             this.renderer.setPlot(this);
+         }
+ 

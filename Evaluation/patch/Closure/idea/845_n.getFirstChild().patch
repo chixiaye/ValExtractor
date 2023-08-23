@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/ClosureRewriteClass.java b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+index 4c1fcea..f8aeec9 100644
+--- a/src/com/google/javascript/jscomp/ClosureRewriteClass.java
++++ b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+@@ -118,12 +118,13 @@
+   }
+ 
+   private void maybeRewriteClassDefinition(Node n) {
+-    if (n.isVar()) {
+-      Node target = n.getFirstChild();
++      Node firstChild = n.getFirstChild();
++      if (n.isVar()) {
++      Node target = firstChild;
+       Node value = target.getFirstChild();
+       maybeRewriteClassDefinition(n, target, value);
+     } else if (NodeUtil.isExprAssign(n)) {
+-      Node assign = n.getFirstChild();
++      Node assign = firstChild;
+       Node target = assign.getFirstChild();
+       Node value = assign.getLastChild();
+       maybeRewriteClassDefinition(n, target, value);

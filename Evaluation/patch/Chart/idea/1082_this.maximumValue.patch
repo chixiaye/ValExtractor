@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..4fdae20 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -122,6 +122,7 @@
+ 
+         this.autoRange = axis.isAutoRange();
+         this.minimumValue = axis.getLowerBound();
++        double maximumValue1 = this.maximumValue;
+         this.maximumValue = axis.getUpperBound();
+ 
+         this.gridPaintSample = new PaintSample(Color.blue);

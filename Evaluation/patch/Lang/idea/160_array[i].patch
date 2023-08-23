@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..6ee3367 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -1695,7 +1695,8 @@
+         }
+         if (objectToFind == null) {
+             for (int i = startIndex; i >= 0; i--) {
+-                if (array[i] == null) {
++                Object o = array[i];
++                if (o == null) {
+                     return i;
+                 }
+             }

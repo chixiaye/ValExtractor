@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..009b5d9 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -783,7 +783,8 @@
+                     for (int i = k + 1; i < solvedCols; ++i) {
+                         double rik = weightedJacobian[i][pk];
+                         final double temp2 = cos * rik + sin * lmDiag[i];
+-                        lmDiag[i] = -sin * rik + cos * lmDiag[i];
++                        double v = lmDiag[i];
++                        lmDiag[i] = -sin * rik + cos * v;
+                         weightedJacobian[i][pk] = temp2;
+                     }
+                 }

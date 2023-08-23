@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..3c41082 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -280,7 +280,8 @@
+             for (Node child = val.getFirstChild(); child != null;
+                  child = child.getNext()) {
+               String varname = child.getString();
+-              if (varmap.containsKey(varname)) {
++                boolean b = varmap.containsKey(varname);
++                if (b) {
+                 continue;
+               }
+ 

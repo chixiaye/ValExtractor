@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpressionDecomposer.java b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+index 2344537..20fd3af 100644
+--- a/src/com/google/javascript/jscomp/ExpressionDecomposer.java
++++ b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+@@ -628,7 +628,8 @@
+     Node parent = injectionPoint.getParent();
+     while (parent.isLabel()) {
+       injectionPoint = parent;
+-      parent = injectionPoint.getParent();
++      Node var_1966 = injectionPoint.getParent();
++	parent = var_1966;
+     }
+ 
+     Preconditions.checkState(
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpressionDecomposer.java b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+index 2344537..48cfe2a 100644
+--- a/src/com/google/javascript/jscomp/ExpressionDecomposer.java
++++ b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+@@ -625,14 +625,15 @@
+ 
+     Node injectionPoint = expressionRoot;
+ 
+-    Node parent = injectionPoint.getParent();
++    Node var_1966 = injectionPoint.getParent();
++	Node parent = var_1966;
+     while (parent.isLabel()) {
+       injectionPoint = parent;
+-      parent = injectionPoint.getParent();
++      parent = var_1966;
+     }
+ 
+     Preconditions.checkState(
+-        NodeUtil.isStatementBlock(injectionPoint.getParent()));
++        NodeUtil.isStatementBlock(var_1966));
+     return injectionPoint;
+   }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ExpressionDecomposer.java b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+index 2344537..9340f7f 100644
+--- a/src/com/google/javascript/jscomp/ExpressionDecomposer.java
++++ b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+@@ -625,14 +625,15 @@
+ 
+     Node injectionPoint = expressionRoot;
+ 
+-    Node parent = injectionPoint.getParent();
++      Node parent1 = injectionPoint.getParent();
++      Node parent = parent1;
+     while (parent.isLabel()) {
+       injectionPoint = parent;
+-      parent = injectionPoint.getParent();
++      parent = parent1;
+     }
+ 
+     Preconditions.checkState(
+-        NodeUtil.isStatementBlock(injectionPoint.getParent()));
++        NodeUtil.isStatementBlock(parent1));
+     return injectionPoint;
+   }
+ 

@@ -1,0 +1,23 @@
+diff --git a/nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/util/OpenPGPKeyBasedEncryptor.java b/nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/util/OpenPGPKeyBasedEncryptor.java
+index 1931c720a6..6d6b2bb560 100644
+--- a/nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/util/OpenPGPKeyBasedEncryptor.java
++++ b/nifi-nar-bundles/nifi-standard-bundle/nifi-standard-processors/src/main/java/org/apache/nifi/processors/standard/util/OpenPGPKeyBasedEncryptor.java
+@@ -245,7 +245,8 @@ public class OpenPGPKeyBasedEncryptor implements Encryptor {
+                 SecureRandom secureRandom = SecureRandom.getInstance(SECURE_RANDOM_ALGORITHM);
+ 
+                 OutputStream output = out;
+-                if (EncryptContent.isPGPArmoredAlgorithm(algorithm)) {
++                boolean isArmored = EncryptContent.isPGPArmoredAlgorithm(algorithm);
++                if (isArmored) {
+                     output = new ArmoredOutputStream(out);
+                 }
+ 
+@@ -270,7 +271,7 @@ public class OpenPGPKeyBasedEncryptor implements Encryptor {
+                         }
+                     }
+                 } finally {
+-                    if (EncryptContent.isPGPArmoredAlgorithm(algorithm)) {
++                    if (isArmored) {
+                         output.close();
+                     }
+                 }

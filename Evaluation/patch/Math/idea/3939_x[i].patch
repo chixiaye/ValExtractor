@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+index 1bf17de..4c04bb5 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/AbstractMultipleLinearRegression.java
+@@ -194,11 +194,12 @@
+             final int nVars = x[0].length;
+             final double[][] xAug = new double[x.length][nVars + 1];
+             for (int i = 0; i < x.length; i++) {
+-                if (x[i].length != nVars) {
+-                    throw new DimensionMismatchException(x[i].length, nVars);
++                double[] x1 = x[i];
++                if (x1.length != nVars) {
++                    throw new DimensionMismatchException(x1.length, nVars);
+                 }
+                 xAug[i][0] = 1.0d;
+-                System.arraycopy(x[i], 0, xAug[i], 1, nVars);
++                System.arraycopy(x1, 0, xAug[i], 1, nVars);
+             }
+             this.xMatrix = new Array2DRowRealMatrix(xAug, false);
+         }

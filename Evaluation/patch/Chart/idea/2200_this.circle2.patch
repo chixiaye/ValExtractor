@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CompassPlot.java b/source/org/jfree/chart/plot/CompassPlot.java
+index 2963422..fb61d3b 100644
+--- a/source/org/jfree/chart/plot/CompassPlot.java
++++ b/source/org/jfree/chart/plot/CompassPlot.java
+@@ -806,8 +806,9 @@
+         if (this.circle1 != null) {
+             clone.circle1 = (Ellipse2D) this.circle1.clone();
+         }
+-        if (this.circle2 != null) {
+-            clone.circle2 = (Ellipse2D) this.circle2.clone();
++        Ellipse2D circle21 = this.circle2;
++        if (circle21 != null) {
++            clone.circle2 = (Ellipse2D) circle21.clone();
+         }
+         if (this.a1 != null) {
+             clone.a1 = (Area) this.a1.clone();

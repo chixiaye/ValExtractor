@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/text/TextAnchor.java b/source/org/jfree/chart/text/TextAnchor.java
+index d829de4..9a7fe29 100644
+--- a/source/org/jfree/chart/text/TextAnchor.java
++++ b/source/org/jfree/chart/text/TextAnchor.java
+@@ -219,8 +219,11 @@
+         else if (this.equals(TextAnchor.HALF_ASCENT_CENTER)) {
+             result = TextAnchor.HALF_ASCENT_CENTER;
+         }
+-        else if (this.equals(TextAnchor.HALF_ASCENT_RIGHT)) {
+-            result = TextAnchor.HALF_ASCENT_RIGHT;
++        else {
++            TextAnchor halfAscentRight = TextAnchor.HALF_ASCENT_RIGHT;
++            if (this.equals(halfAscentRight)) {
++                result = halfAscentRight;
++            }
+         }
+         return result;
+     }

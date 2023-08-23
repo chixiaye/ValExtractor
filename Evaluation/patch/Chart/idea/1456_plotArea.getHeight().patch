@@ -1,0 +1,37 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..ca19a72 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -280,15 +280,16 @@
+         double startY = plotArea.getY();
+         double chipWidth = 1d;
+         double chipHeight = 1d;
+-        if (plotArea.getWidth() != plotArea.getHeight()) {
++        double height = plotArea.getHeight();
++        if (plotArea.getWidth() != height) {
+             double major = 0d;
+             double minor = 0d;
+-            if (plotArea.getWidth() > plotArea.getHeight()) {
++            if (plotArea.getWidth() > height) {
+                 major = plotArea.getWidth();
+-                minor = plotArea.getHeight();
++                minor = height;
+             }
+             else {
+-                major = plotArea.getHeight();
++                major = height;
+                 minor = plotArea.getWidth();
+             }
+             //set upperLeft point
+@@ -301,9 +302,9 @@
+             }
+             else { // y is minor
+                 startX += (major - minor) / 2;
+-                chipWidth = (plotArea.getHeight() - (space * xchips - 1))
++                chipWidth = (height - (space * xchips - 1))
+                     / xchips;
+-                chipHeight = (plotArea.getHeight() - (space * ychips - 1))
++                chipHeight = (height - (space * ychips - 1))
+                     / ychips;
+             }
+         }

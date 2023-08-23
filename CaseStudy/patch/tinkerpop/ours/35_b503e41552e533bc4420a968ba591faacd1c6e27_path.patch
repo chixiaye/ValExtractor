@@ -1,0 +1,22 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+index 38da656..2b29594 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+@@ -236,13 +236,14 @@
+     private boolean isDuplicate(final Traverser<S> traverser) {
+         if (null == this.dedups)
+             return false;
+-        for (final String label : this.dedupLabels) {
+-            if (!traverser.path().hasLabel(label))
++        Path path = traverser.path();
++		for (final String label : this.dedupLabels) {
++            if (!path.hasLabel(label))
+                 return false;
+         }
+         final List<Object> objects = new ArrayList<>(this.dedupLabels.size());
+         for (final String label : this.dedupLabels) {
+-            objects.add(traverser.path().get(Pop.last, label));
++            objects.add(path.get(Pop.last, label));
+         }
+         return this.dedups.contains(objects);
+     }

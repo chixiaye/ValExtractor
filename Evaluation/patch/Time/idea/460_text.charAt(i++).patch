@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..b1952ff 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -1373,14 +1373,15 @@
+                 if (negative) {
+                     i++;
+                 }
++                char c = text.charAt(i++);
+                 try {
+-                    value = text.charAt(i++) - '0';
++                    value = c - '0';
+                 } catch (StringIndexOutOfBoundsException e) {
+                     return ~position;
+                 }
+                 position += length;
+                 while (i < position) {
+-                    value = ((value << 3) + (value << 1)) + text.charAt(i++) - '0';
++                    value = ((value << 3) + (value << 1)) + c - '0';
+                 }
+                 if (negative) {
+                     value = -value;

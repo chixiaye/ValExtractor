@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+index 4ffd794..9d85855 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+@@ -853,11 +853,12 @@
+      * @throws OutOfRangeException if the index is invalid.
+      */
+     public void set(int index, ArrayFieldVector<T> v) throws OutOfRangeException {
++        T[] data1 = v.data;
+         try {
+-            System.arraycopy(v.data, 0, data, index, v.data.length);
++            System.arraycopy(data1, 0, data, index, data1.length);
+         } catch (IndexOutOfBoundsException e) {
+             checkIndex(index);
+-            checkIndex(index + v.data.length - 1);
++            checkIndex(index + data1.length - 1);
+         }
+     }
+ 

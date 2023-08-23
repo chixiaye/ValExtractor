@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/CodePrinter.java b/src/com/google/javascript/jscomp/CodePrinter.java
+index fd77e51..f558352 100644
+--- a/src/com/google/javascript/jscomp/CodePrinter.java
++++ b/src/com/google/javascript/jscomp/CodePrinter.java
+@@ -146,7 +146,8 @@
+           mapping.start = convertPosition(mapping.start, lineIndex, charIndex,
+               insertion);
+ 
+-          if (mapping.end != null) {
++            FilePosition end = mapping.end;
++            if (end != null) {
+             mapping.end = convertPosition(mapping.end, lineIndex, charIndex,
+                 insertion);
+           }
+@@ -451,12 +452,13 @@
+     @Override
+     void startNewLine() {
+       if (lineLength > 0) {
+-        prevCutPosition = code.length();
++          int length = code.length();
++          prevCutPosition = length;
+         prevLineStartPosition = lineStartPosition;
+         code.append('\n');
+         lineLength = 0;
+         lineIndex++;
+-        lineStartPosition = code.length();
++        lineStartPosition = length;
+       }
+     }
+ 

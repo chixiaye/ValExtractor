@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..2874bba 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -503,14 +503,15 @@
+   }
+ 
+   private void writeResult(String source) {
+-    if (this.outputFile.getParentFile().mkdirs()) {
++      File outputFile1 = this.outputFile;
++      if (outputFile1.getParentFile().mkdirs()) {
+       log("Created missing parent directory " +
+-          this.outputFile.getParentFile(), Project.MSG_DEBUG);
++          outputFile1.getParentFile(), Project.MSG_DEBUG);
+     }
+ 
+     try {
+       OutputStreamWriter out = new OutputStreamWriter(
+-          new FileOutputStream(this.outputFile), outputEncoding);
++          new FileOutputStream(outputFile1), outputEncoding);
+       out.append(source);
+       out.flush();
+       out.close();
+@@ -518,7 +519,7 @@
+       throw new BuildException(e);
+     }
+ 
+-    log("Compiled JavaScript written to " + this.outputFile.getAbsolutePath(),
++    log("Compiled JavaScript written to " + outputFile1.getAbsolutePath(),
+         Project.MSG_DEBUG);
+   }
+ 

@@ -1,0 +1,66 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..e5f49a4 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -628,6 +628,7 @@
+             TextAnchor anchor = null;
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
++            TextAnchor bottomRight = TextAnchor.BOTTOM_RIGHT;
+             if (isVerticalTickLabels()) {
+ 
+                 if (edge == RectangleEdge.LEFT) {
+@@ -635,7 +636,7 @@
+                     if ((lastTick != null) && (lastY == y)
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+-                            ? TextAnchor.BOTTOM_LEFT : TextAnchor.BOTTOM_RIGHT;
++                            ? TextAnchor.BOTTOM_LEFT : bottomRight;
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+@@ -644,7 +645,7 @@
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+-                            ? TextAnchor.BOTTOM_RIGHT : TextAnchor.BOTTOM_LEFT;
++                            ? bottomRight : TextAnchor.BOTTOM_LEFT;
+                     }
+                     rotationAnchor = anchor;
+                     angle = -Math.PI / 2.0;
+@@ -654,7 +655,7 @@
+                     if ((lastTick != null) && (lastY == y)
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+-                            ? TextAnchor.BOTTOM_RIGHT : TextAnchor.BOTTOM_LEFT;
++                            ? bottomRight : TextAnchor.BOTTOM_LEFT;
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+@@ -663,7 +664,7 @@
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+-                            ? TextAnchor.BOTTOM_LEFT : TextAnchor.BOTTOM_RIGHT;
++                            ? TextAnchor.BOTTOM_LEFT : bottomRight;
+                     }
+                     rotationAnchor = anchor;
+                     angle = Math.PI / 2.0;
+@@ -675,7 +676,7 @@
+                     if ((lastTick != null) && (lastY == y)
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+-                            ? TextAnchor.BOTTOM_RIGHT : TextAnchor.TOP_RIGHT;
++                            ? bottomRight : TextAnchor.TOP_RIGHT;
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+@@ -684,7 +685,7 @@
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+                         anchor = isInverted()
+-                            ? TextAnchor.TOP_RIGHT : TextAnchor.BOTTOM_RIGHT;
++                            ? TextAnchor.TOP_RIGHT : bottomRight;
+                     }
+                     rotationAnchor = anchor;
+                 }

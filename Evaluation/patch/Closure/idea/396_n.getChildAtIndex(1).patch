@@ -1,0 +1,38 @@
+diff --git a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+index 709e6f1..1d75ed6 100644
+--- a/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
++++ b/src/com/google/javascript/jscomp/TransformAMDToCJSModule.java
+@@ -101,18 +101,21 @@
+         if (defineArity == 0) {
+           unsupportedDefineError(t, n);
+           return;
+-        } else if (defineArity == 1) {
+-          callback = n.getChildAtIndex(1);
+-          if (callback.isObjectLit()) {
+-            handleDefineObjectLiteral(parent, callback, script);
+-            return;
+-          }
+-        } else if (defineArity == 2) {
+-          requiresNode = n.getChildAtIndex(1);
+-          callback = n.getChildAtIndex(2);
+-        } else if (defineArity >= 3) {
+-          unsupportedDefineError(t, n);
+-          return;
++        } else {
++            Node childAtIndex = n.getChildAtIndex(1);
++            if (defineArity == 1) {
++              callback = childAtIndex;
++              if (callback.isObjectLit()) {
++                handleDefineObjectLiteral(parent, callback, script);
++                return;
++              }
++            } else if (defineArity == 2) {
++              requiresNode = childAtIndex;
++              callback = n.getChildAtIndex(2);
++            } else if (defineArity >= 3) {
++              unsupportedDefineError(t, n);
++              return;
++            }
+         }
+ 
+         if (!callback.isFunction() ||

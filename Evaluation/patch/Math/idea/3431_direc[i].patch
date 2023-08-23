@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
+index 63ba158..ac6f495 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
+@@ -168,7 +168,8 @@
+ 
+         final double[][] direc = new double[n][n];
+         for (int i = 0; i < n; i++) {
+-            direc[i][i] = 1;
++            double[] doubles = direc[i];
++            doubles[i] = 1;
+         }
+ 
+         final ConvergenceChecker<PointValuePair> checker

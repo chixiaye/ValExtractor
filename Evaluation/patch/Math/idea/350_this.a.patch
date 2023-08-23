@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunction.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunction.java
+index 1bb4776..dd23b1f 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunction.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolatingFunction.java
+@@ -411,6 +411,7 @@
+      * @param a Spline coefficients
+      */
+     public BicubicSplineFunction(double[] a) {
++        double[][] a1 = this.a;
+         this.a = new double[N][N];
+         for (int i = 0; i < N; i++) {
+             for (int j = 0; j < N; j++) {

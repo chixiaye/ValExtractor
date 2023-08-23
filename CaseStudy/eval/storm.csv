@@ -1,0 +1,17 @@
+ID,Project Name,SHA,New Name,Label,Approach
+2,storm,c122876f1518f5e737ca0ea831e8c853af8d6a79,topologyId,1,eclipse
+2,storm,c122876f1518f5e737ca0ea831e8c853af8d6a79,topologyId,1,ours
+4,storm,674a7cb4a1bae26b30a87b0d3d5204c48cd13ebe,fileSize,1,eclipse
+4,storm,674a7cb4a1bae26b30a87b0d3d5204c48cd13ebe,fileSize,1,ours
+6,storm,5cb4582ffb9f4703377e8963133640d1d50e065a,assignment,1,eclipse
+6,storm,5cb4582ffb9f4703377e8963133640d1d50e065a,assignment,1,ours
+10,storm,2e2adc725ecf3c41206e93e473eb5380c023316d,key,1,eclipse
+10,storm,2e2adc725ecf3c41206e93e473eb5380c023316d,key,1,ours
+11,storm,2e2adc725ecf3c41206e93e473eb5380c023316d,value,1,eclipse
+11,storm,2e2adc725ecf3c41206e93e473eb5380c023316d,value,1,ours
+14,storm,4986373c5ca8d8e3d6903dd479c4442451c49655,keyFromTuple,1,eclipse
+14,storm,4986373c5ca8d8e3d6903dd479c4442451c49655,keyFromTuple,1,ours
+16,storm,f9fb20696b4e6e9dd7419b291087123c65cbd35c,latestConf,0,eclipse
+16,storm,f9fb20696b4e6e9dd7419b291087123c65cbd35c,latestConf,1,ours
+24,storm,07722ffa819692ce7e5dc06905241533bf953379,channel,1,eclipse
+24,storm,07722ffa819692ce7e5dc06905241533bf953379,channel,1,ours

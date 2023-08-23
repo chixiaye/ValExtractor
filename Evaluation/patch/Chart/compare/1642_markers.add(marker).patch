@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..d80d1da 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2616,7 +2616,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            boolean var_1642 = markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..d80d1da 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2616,7 +2616,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            boolean var_1642 = markers.add(marker);
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..fe6a110 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2609,6 +2609,7 @@
+             throw new IllegalArgumentException("Null 'layer' not permitted.");
+         }
+         Collection markers;
++        boolean add = markers.add(marker);
+         if (layer == Layer.FOREGROUND) {
+             markers = (Collection) this.foregroundDomainMarkers.get(
+                     new Integer(index));
+@@ -2616,7 +2617,7 @@
+                 markers = new java.util.ArrayList();
+                 this.foregroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         else if (layer == Layer.BACKGROUND) {
+             markers = (Collection) this.backgroundDomainMarkers.get(
+@@ -2625,7 +2626,7 @@
+                 markers = new java.util.ArrayList();
+                 this.backgroundDomainMarkers.put(new Integer(index), markers);
+             }
+-            markers.add(marker);
++            add;
+         }
+         marker.addChangeListener(this);
+         if (notify) {

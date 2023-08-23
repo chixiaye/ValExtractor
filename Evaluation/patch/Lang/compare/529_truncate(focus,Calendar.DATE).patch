@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..15b0124 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1157,6 +1157,7 @@
+         Calendar end = null;
+         int startCutoff = Calendar.SUNDAY;
+         int endCutoff = Calendar.SATURDAY;
++        Calendar var_529 = truncate(focus, Calendar.DATE);
+         switch (rangeStyle) {
+             case RANGE_MONTH_SUNDAY:
+             case RANGE_MONTH_MONDAY:
+@@ -1177,8 +1178,8 @@
+             case RANGE_WEEK_RELATIVE:
+             case RANGE_WEEK_CENTER:
+                 //Set start and end to the current date
+-                start = truncate(focus, Calendar.DATE);
+-                end = truncate(focus, Calendar.DATE);
++                start = var_529;
++                end = var_529;
+                 switch (rangeStyle) {
+                     case RANGE_WEEK_SUNDAY:
+                         //already set by default
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..15b0124 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1157,6 +1157,7 @@
+         Calendar end = null;
+         int startCutoff = Calendar.SUNDAY;
+         int endCutoff = Calendar.SATURDAY;
++        Calendar var_529 = truncate(focus, Calendar.DATE);
+         switch (rangeStyle) {
+             case RANGE_MONTH_SUNDAY:
+             case RANGE_MONTH_MONDAY:
+@@ -1177,8 +1178,8 @@
+             case RANGE_WEEK_RELATIVE:
+             case RANGE_WEEK_CENTER:
+                 //Set start and end to the current date
+-                start = truncate(focus, Calendar.DATE);
+-                end = truncate(focus, Calendar.DATE);
++                start = var_529;
++                end = var_529;
+                 switch (rangeStyle) {
+                     case RANGE_WEEK_SUNDAY:
+                         //already set by default
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..1beacd0 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1177,8 +1177,9 @@
+             case RANGE_WEEK_RELATIVE:
+             case RANGE_WEEK_CENTER:
+                 //Set start and end to the current date
+-                start = truncate(focus, Calendar.DATE);
+-                end = truncate(focus, Calendar.DATE);
++                Calendar truncate = truncate(focus, Calendar.DATE);
++                start = truncate;
++                end = truncate;
+                 switch (rangeStyle) {
+                     case RANGE_WEEK_SUNDAY:
+                         //already set by default

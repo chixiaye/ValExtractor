@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/time/Hour.java b/source/org/jfree/data/time/Hour.java
+index 5f669f1..7bcb8ec 100644
+--- a/source/org/jfree/data/time/Hour.java
++++ b/source/org/jfree/data/time/Hour.java
+@@ -459,11 +459,12 @@
+         Hour result = null;
+         s = s.trim();
+ 
+-        String daystr = s.substring(0, Math.min(10, s.length()));
++        int length = s.length();
++        String daystr = s.substring(0, Math.min(10, length));
+         Day day = Day.parseDay(daystr);
+         if (day != null) {
+             String hourstr = s.substring(
+-                Math.min(daystr.length() + 1, s.length()), s.length()
++                Math.min(daystr.length() + 1, length), length
+             );
+             hourstr = hourstr.trim();
+             int hour = Integer.parseInt(hourstr);

@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..a24c832 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -331,9 +331,10 @@
+         this.segmentsIncluded = segmentsIncluded;
+         this.segmentsExcluded = segmentsExcluded;
+ 
+-        this.groupSegmentCount = this.segmentsIncluded + this.segmentsExcluded;
++        int segmentsExcluded1 = this.segmentsExcluded;
++        this.groupSegmentCount = this.segmentsIncluded + segmentsExcluded1;
+         this.segmentsIncludedSize = this.segmentsIncluded * this.segmentSize;
+-        this.segmentsExcludedSize = this.segmentsExcluded * this.segmentSize;
++        this.segmentsExcludedSize = segmentsExcluded1 * this.segmentSize;
+         this.segmentsGroupSize = this.segmentsIncludedSize
+                                  + this.segmentsExcludedSize;
+         int offset = TimeZone.getDefault().getRawOffset();

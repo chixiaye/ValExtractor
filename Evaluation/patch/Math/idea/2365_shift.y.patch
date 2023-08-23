@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+index a2ea88e..7c2f924 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+@@ -289,7 +289,8 @@
+             s = s * s + shift.w;
+             if (s > 0.0) {
+                 s = FastMath.sqrt(s);
+-                if (shift.y < shift.x) {
++                double y = shift.y;
++                if (y < shift.x) {
+                     s = -s;
+                 }
+                 s = shift.x - shift.w / ((shift.y - shift.x) / 2.0 + s);

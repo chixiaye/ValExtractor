@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/SortOrder.java b/source/org/jfree/chart/util/SortOrder.java
+index a56b456..82921e4 100644
+--- a/source/org/jfree/chart/util/SortOrder.java
++++ b/source/org/jfree/chart/util/SortOrder.java
+@@ -129,8 +129,11 @@
+         if (this.equals(SortOrder.ASCENDING)) {
+             return SortOrder.ASCENDING;
+         }
+-        else if (this.equals(SortOrder.DESCENDING)) {
+-            return SortOrder.DESCENDING;
++        else {
++            SortOrder descending = SortOrder.DESCENDING;
++            if (this.equals(descending)) {
++                return descending;
++            }
+         }
+         return null;
+     }

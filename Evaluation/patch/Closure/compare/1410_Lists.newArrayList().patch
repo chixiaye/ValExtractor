@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..8ebbf52 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -29,6 +29,7 @@
+ import com.google.javascript.rhino.jstype.FunctionType;
+ import com.google.javascript.rhino.jstype.JSType;
+ 
++import java.util.ArrayList;
+ import java.util.Comparator;
+ import java.util.List;
+ import java.util.Map;
+@@ -432,8 +433,9 @@
+   }
+ 
+   private void initExportMethods() {
+-    exportSymbolFunctionNames = Lists.newArrayList();
+-    exportPropertyFunctionNames = Lists.newArrayList();
++    ArrayList<String> var_1410 = Lists.newArrayList();
++	exportSymbolFunctionNames = var_1410;
++    exportPropertyFunctionNames = var_1410;
+ 
+     // From Closure:
+     // goog.exportSymbol = function(publicName, symbol)
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..8ebbf52 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -29,6 +29,7 @@
+ import com.google.javascript.rhino.jstype.FunctionType;
+ import com.google.javascript.rhino.jstype.JSType;
+ 
++import java.util.ArrayList;
+ import java.util.Comparator;
+ import java.util.List;
+ import java.util.Map;
+@@ -432,8 +433,9 @@
+   }
+ 
+   private void initExportMethods() {
+-    exportSymbolFunctionNames = Lists.newArrayList();
+-    exportPropertyFunctionNames = Lists.newArrayList();
++    ArrayList<String> var_1410 = Lists.newArrayList();
++	exportSymbolFunctionNames = var_1410;
++    exportPropertyFunctionNames = var_1410;
+ 
+     // From Closure:
+     // goog.exportSymbol = function(publicName, symbol)
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..b1e2e21 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -29,11 +29,7 @@
+ import com.google.javascript.rhino.jstype.FunctionType;
+ import com.google.javascript.rhino.jstype.JSType;
+ 
+-import java.util.Comparator;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
+-import java.util.TreeSet;
++import java.util.*;
+ 
+ /**
+  * Creates an externs file containing all exported symbols and properties
+@@ -432,8 +428,9 @@
+   }
+ 
+   private void initExportMethods() {
+-    exportSymbolFunctionNames = Lists.newArrayList();
+-    exportPropertyFunctionNames = Lists.newArrayList();
++      ArrayList<String> exportSymbolFunctionNames1 = Lists.newArrayList();
++      exportSymbolFunctionNames = exportSymbolFunctionNames1;
++    exportPropertyFunctionNames = exportSymbolFunctionNames1;
+ 
+     // From Closure:
+     // goog.exportSymbol = function(publicName, symbol)

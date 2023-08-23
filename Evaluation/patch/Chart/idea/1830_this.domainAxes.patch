@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..21a72cf 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -586,6 +586,7 @@
+         this.orientation = PlotOrientation.VERTICAL;
+ 
+         // allocate storage for dataset, axes and renderers
++        ObjectList domainAxes1 = this.domainAxes;
+         this.domainAxes = new ObjectList();
+         this.domainAxisLocations = new ObjectList();
+         this.rangeAxes = new ObjectList();

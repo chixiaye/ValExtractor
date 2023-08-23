@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+index bdc095b..a9e7f72 100644
+--- a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+@@ -284,10 +284,11 @@
+ 
+         if (x.length == 4) {
+             if (cnax != null) {
++                double x1 = x[3];
+                 if (xcycleBound == x[2]) {
+-                    cnax.setBoundMappedToLastCycle(x[3] <= xcycleBound);
++                    cnax.setBoundMappedToLastCycle(x1 <= xcycleBound);
+                 }
+-                if (xcycleBound == x[3]) {
++                if (xcycleBound == x1) {
+                     cnax.setBoundMappedToLastCycle(x[2] <= xcycleBound);
+                 }
+             }

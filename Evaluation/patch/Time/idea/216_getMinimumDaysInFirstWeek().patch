@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/joda/time/chrono/EthiopicChronology.java b/src/main/java/org/joda/time/chrono/EthiopicChronology.java
+index 44b8edf..a394c8c 100644
+--- a/src/main/java/org/joda/time/chrono/EthiopicChronology.java
++++ b/src/main/java/org/joda/time/chrono/EthiopicChronology.java
+@@ -166,9 +166,10 @@
+      */
+     private Object readResolve() {
+         Chronology base = getBase();
++        int minimumDaysInFirstWeek = getMinimumDaysInFirstWeek();
+         return base == null ?
+-                getInstance(DateTimeZone.UTC, getMinimumDaysInFirstWeek()) :
+-                    getInstance(base.getZone(), getMinimumDaysInFirstWeek());
++                getInstance(DateTimeZone.UTC, minimumDaysInFirstWeek) :
++                    getInstance(base.getZone(), minimumDaysInFirstWeek);
+     }
+ 
+     // Conversion

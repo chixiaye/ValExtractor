@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/SpreadsheetDate.java b/source/org/jfree/data/time/SpreadsheetDate.java
+index 70f3207..79897fb 100644
+--- a/source/org/jfree/data/time/SpreadsheetDate.java
++++ b/source/org/jfree/data/time/SpreadsheetDate.java
+@@ -172,6 +172,7 @@
+               underestimatedYYYY = underestimatedYYYY + 1;
+               ss1 = calcSerial(1, 1, underestimatedYYYY);
+           }
++          int year1 = this.year;
+           this.year = underestimatedYYYY - 1;
+       }
+ 

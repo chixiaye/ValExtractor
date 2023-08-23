@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/ReorderConstantExpression.java b/src/com/google/javascript/jscomp/ReorderConstantExpression.java
+index 394e390..395cd05 100644
+--- a/src/com/google/javascript/jscomp/ReorderConstantExpression.java
++++ b/src/com/google/javascript/jscomp/ReorderConstantExpression.java
+@@ -32,14 +32,15 @@
+   @Override
+   Node optimizeSubtree(Node subtree) {
+     // if the operator is symmetric
+-    if (NodeUtil.isSymmetricOperation(subtree)
+-        || NodeUtil.isRelationalOperation(subtree)) {
++      boolean relationalOperation = NodeUtil.isRelationalOperation(subtree);
++      if (NodeUtil.isSymmetricOperation(subtree)
++        || relationalOperation) {
+       // right value is immutable and left is not
+       if (NodeUtil.isImmutableValue(subtree.getLastChild())
+           && !NodeUtil.isImmutableValue(subtree.getFirstChild())) {
+ 
+         // if relational, get the inverse operator.
+-        if (NodeUtil.isRelationalOperation(subtree)){
++        if (relationalOperation){
+           int inverseOperator = NodeUtil.getInverseOperator(subtree.getType());
+           subtree.setType(inverseOperator);
+         }

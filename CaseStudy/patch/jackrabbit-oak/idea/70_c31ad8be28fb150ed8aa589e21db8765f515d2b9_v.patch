@@ -1,0 +1,51 @@
+diff --git a/oak-core/src/main/java/org/apache/jackrabbit/oak/spi/query/PropertyValues.java b/oak-core/src/main/java/org/apache/jackrabbit/oak/spi/query/PropertyValues.java
+index 8e63f2d8ad..131b9a710c 100644
+--- a/oak-core/src/main/java/org/apache/jackrabbit/oak/spi/query/PropertyValues.java
++++ b/oak-core/src/main/java/org/apache/jackrabbit/oak/spi/query/PropertyValues.java
+@@ -205,11 +205,12 @@ public final class PropertyValues {
+         // at 3.6.4 Property Type Conversion
+         // re-use existing code if possible
+         try {
++            String v = value.getValue(Type.STRING);
+             switch (targetType) {
+             case PropertyType.STRING:
+-                return newString(value.getValue(Type.STRING));
++                return newString(v);
+             case PropertyType.DATE:
+-                return newDate(value.getValue(Type.STRING));
++                return newDate(v);
+             case PropertyType.LONG:
+                 return newLong(value.getValue(Type.LONG));
+             case PropertyType.DOUBLE:
+@@ -219,24 +220,24 @@ public final class PropertyValues {
+             case PropertyType.BOOLEAN:
+                 return newBoolean(value.getValue(Type.BOOLEAN));
+             case PropertyType.NAME:
+-                return newName(getOakPath(value.getValue(Type.STRING), mapper));
++                return newName(getOakPath(v, mapper));
+             case PropertyType.PATH:
+-                return newPath(value.getValue(Type.STRING));
++                return newPath(v);
+             case PropertyType.REFERENCE:
+-                return newReference(value.getValue(Type.STRING));
++                return newReference(v);
+             case PropertyType.WEAKREFERENCE:
+-                return newWeakReference(value.getValue(Type.STRING));
++                return newWeakReference(v);
+             case PropertyType.URI:
+-                return newUri(value.getValue(Type.STRING));
++                return newUri(v);
+             case PropertyType.BINARY:
+                 try {
+-                    byte[] data = value.getValue(Type.STRING).getBytes("UTF-8");
++                    byte[] data = v.getBytes("UTF-8");
+                     return newBinary(data);
+                 } catch (IOException e) {
+                     // I don't know in what case that could really occur
+                     // except if UTF-8 isn't supported
+                     throw new IllegalArgumentException(
+-                            value.getValue(Type.STRING), e);
++                            v, e);
+                 }
+             }
+             return null;

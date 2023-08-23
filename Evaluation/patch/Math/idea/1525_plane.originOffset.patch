@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java
+index 9b987c5..6311380 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java
+@@ -405,7 +405,8 @@
+      * @return offset of the plane
+      */
+     public double getOffset(final Plane plane) {
+-        return originOffset + (sameOrientationAs(plane) ? -plane.originOffset : plane.originOffset);
++        double originOffset1 = plane.originOffset;
++        return originOffset + (sameOrientationAs(plane) ? -originOffset1 : originOffset1);
+     }
+ 
+     /** Get the offset (oriented distance) of a point.

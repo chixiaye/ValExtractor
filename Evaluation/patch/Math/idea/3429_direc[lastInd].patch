@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
+index 63ba158..30d9393 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/PowellOptimizer.java
+@@ -248,7 +248,8 @@
+ 
+                     final int lastInd = n - 1;
+                     direc[bigInd] = direc[lastInd];
+-                    direc[lastInd] = result[1];
++                    double[] doubles = direc[lastInd];
++                    doubles = result[1];
+                 }
+             }
+         }

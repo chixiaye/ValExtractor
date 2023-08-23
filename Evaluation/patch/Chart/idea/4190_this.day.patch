@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/time/Millisecond.java b/source/org/jfree/data/time/Millisecond.java
+index 5dada5d..9037c9a 100644
+--- a/source/org/jfree/data/time/Millisecond.java
++++ b/source/org/jfree/data/time/Millisecond.java
+@@ -173,9 +173,10 @@
+      * @return The second.
+      */
+     public Second getSecond() {
++        Day day1 = this.day;
+         return new Second(this.second, this.minute, this.hour,
+-                this.day.getDayOfMonth(), this.day.getMonth(),
+-                this.day.getYear());
++                day1.getDayOfMonth(), day1.getMonth(),
++                day1.getYear());
+     }
+ 
+     /**

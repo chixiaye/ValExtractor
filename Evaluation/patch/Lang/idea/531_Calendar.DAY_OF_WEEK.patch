@@ -1,0 +1,41 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..29b961d 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1157,6 +1157,7 @@
+         Calendar end = null;
+         int startCutoff = Calendar.SUNDAY;
+         int endCutoff = Calendar.SATURDAY;
++        int dayOfWeek = Calendar.DAY_OF_WEEK;
+         switch (rangeStyle) {
+             case RANGE_MONTH_SUNDAY:
+             case RANGE_MONTH_MONDAY:
+@@ -1188,12 +1189,12 @@
+                         endCutoff = Calendar.SUNDAY;
+                         break;
+                     case RANGE_WEEK_RELATIVE:
+-                        startCutoff = focus.get(Calendar.DAY_OF_WEEK);
++                        startCutoff = focus.get(dayOfWeek);
+                         endCutoff = startCutoff - 1;
+                         break;
+                     case RANGE_WEEK_CENTER:
+-                        startCutoff = focus.get(Calendar.DAY_OF_WEEK) - 3;
+-                        endCutoff = focus.get(Calendar.DAY_OF_WEEK) + 3;
++                        startCutoff = focus.get(dayOfWeek) - 3;
++                        endCutoff = focus.get(dayOfWeek) + 3;
+                         break;
+                 }
+                 break;
+@@ -1212,10 +1213,10 @@
+         if (endCutoff > Calendar.SATURDAY) {
+             endCutoff -= 7;
+         }
+-        while (start.get(Calendar.DAY_OF_WEEK) != startCutoff) {
++        while (start.get(dayOfWeek) != startCutoff) {
+             start.add(Calendar.DATE, -1);
+         }
+-        while (end.get(Calendar.DAY_OF_WEEK) != endCutoff) {
++        while (end.get(dayOfWeek) != endCutoff) {
+             end.add(Calendar.DATE, 1);
+         }
+         return new DateIterator(start, end);

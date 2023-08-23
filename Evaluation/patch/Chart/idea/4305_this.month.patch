@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/Month.java b/source/org/jfree/data/time/Month.java
+index 08655c1..8dee33c 100644
+--- a/source/org/jfree/data/time/Month.java
++++ b/source/org/jfree/data/time/Month.java
+@@ -277,8 +277,9 @@
+      */
+     public RegularTimePeriod next() {
+         Month result;
+-        if (this.month != MonthConstants.DECEMBER) {
+-            result = new Month(this.month + 1, this.year);
++        int month1 = this.month;
++        if (month1 != MonthConstants.DECEMBER) {
++            result = new Month(month1 + 1, this.year);
+         }
+         else {
+             if (this.year < 9999) {

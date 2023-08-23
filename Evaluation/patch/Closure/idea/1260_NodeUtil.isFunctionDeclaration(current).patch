@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/Normalize.java b/src/com/google/javascript/jscomp/Normalize.java
+index 98b136e..0bbd9e9 100644
+--- a/src/com/google/javascript/jscomp/Normalize.java
++++ b/src/com/google/javascript/jscomp/Normalize.java
+@@ -648,7 +648,8 @@
+       Node current = functionBody.getFirstChild();
+       // Skip any declarations at the beginning of the function body, they
+       // are already in the right place.
+-      while (current != null && NodeUtil.isFunctionDeclaration(current)) {
++        boolean functionDeclaration = NodeUtil.isFunctionDeclaration(current);
++        while (current != null && functionDeclaration) {
+         previous = current;
+         current = current.getNext();
+       }
+@@ -658,7 +659,7 @@
+       while (current != null) {
+         // Save off the next node as the current node maybe removed.
+         Node next = current.getNext();
+-        if (NodeUtil.isFunctionDeclaration(current)) {
++        if (functionDeclaration) {
+           // Remove the declaration from the body.
+           Preconditions.checkNotNull(previous);
+           functionBody.removeChildAfter(previous);

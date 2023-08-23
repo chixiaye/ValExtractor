@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/BuddhistChronology.java b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+index fc6a1ec..ea5d619 100644
+--- a/src/main/java/org/joda/time/chrono/BuddhistChronology.java
++++ b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+@@ -225,7 +225,8 @@
+             
+             // one era, so yearOfEra is the same
+             field = fields.yearOfEra;
+-            fields.yearOfEra = new DelegatedDateTimeField(
++            DateTimeField yearOfEra = fields.yearOfEra;
++            yearOfEra = new DelegatedDateTimeField(
+                 fields.year, fields.eras, DateTimeFieldType.yearOfEra());
+             
+             // julian chrono removed zero, but we need to put it back

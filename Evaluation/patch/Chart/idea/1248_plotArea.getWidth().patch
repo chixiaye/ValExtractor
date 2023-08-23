@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/needle/WindNeedle.java b/source/org/jfree/chart/needle/WindNeedle.java
+index 17910e4..a6e8f25 100644
+--- a/source/org/jfree/chart/needle/WindNeedle.java
++++ b/source/org/jfree/chart/needle/WindNeedle.java
+@@ -83,12 +83,13 @@
+             Rectangle2D newArea = new Rectangle2D.Double();
+ 
+             Point2D newRotate = rotate;
++            double width = plotArea.getWidth();
+             newArea.setRect(plotArea.getMinX() - spacing, plotArea.getMinY(),
+-                    plotArea.getWidth(), plotArea.getHeight());
++                    width, plotArea.getHeight());
+             super.drawNeedle(g2, newArea, newRotate, angle);
+ 
+             newArea.setRect(plotArea.getMinX() + spacing,
+-                    plotArea.getMinY(), plotArea.getWidth(),
++                    plotArea.getMinY(), width,
+                     plotArea.getHeight());
+             super.drawNeedle(g2, newArea, newRotate, angle);
+ 

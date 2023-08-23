@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..1380241 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -165,16 +165,17 @@
+ 
+         Node aNode = aDef.node;
+ 
+-        if (b.reachingDef.containsKey(var)) {
++          Definition put = resultMap.put(var, aDef);
++          if (b.reachingDef.containsKey(var)) {
+           Definition bDef = b.reachingDef.get(var);
+ 
+           if (aDef.equals(bDef)) {
+-            resultMap.put(var, aDef);
++            put;
+           } else {
+             resultMap.put(var, null);
+           }
+         } else {
+-          resultMap.put(var, aDef);
++          put;
+         }
+       }
+ 

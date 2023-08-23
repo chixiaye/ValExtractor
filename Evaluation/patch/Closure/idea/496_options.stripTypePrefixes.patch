@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..d086fc7 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -823,13 +823,14 @@
+       removeTryCatchFinally();
+     }
+ 
+-    if (options.getTweakProcessing().shouldStrip() ||
++      Set<String> stripTypePrefixes = options.stripTypePrefixes;
++      if (options.getTweakProcessing().shouldStrip() ||
+         !options.stripTypes.isEmpty() ||
+         !options.stripNameSuffixes.isEmpty() ||
+-        !options.stripTypePrefixes.isEmpty() ||
++        !stripTypePrefixes.isEmpty() ||
+         !options.stripNamePrefixes.isEmpty()) {
+       stripCode(options.stripTypes, options.stripNameSuffixes,
+-          options.stripTypePrefixes, options.stripNamePrefixes);
++              stripTypePrefixes, options.stripNamePrefixes);
+     }
+ 
+     runCustomPasses(CustomPassExecutionTime.BEFORE_OPTIMIZATIONS);

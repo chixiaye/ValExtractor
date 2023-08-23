@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..aebf3b6 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -445,7 +445,8 @@
+                     }
+                     // Order the singular values.
+                     while (k < pp) {
+-                        if (singularValues[k] >= singularValues[k + 1]) {
++                        double singularValue = singularValues[k + 1];
++                        if (singularValues[k] >= singularValue) {
+                             break;
+                         }
+                         double t = singularValues[k];

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..7ecbf8e 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1327,6 +1327,7 @@
+             if (vn != null) {
+                 double value = vn.doubleValue();
+                 if (inSubrange(NORMAL, value)) {
++                    int subrange1 = this.subrange;
+                     this.subrange = NORMAL;
+                 }
+                 else if (inSubrange(WARNING, value)) {

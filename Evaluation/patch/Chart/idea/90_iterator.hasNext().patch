@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..de1ff4f 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1916,7 +1916,9 @@
+             boolean found = false;
+             Iterator iterator = this.availableMouseHandlers.iterator();
+             AbstractMouseHandler nomod = null;
+-            while (iterator.hasNext() && !found) {
++            while (true) {
++                boolean b = iterator.hasNext();
++                if (!(b && !found)) break;
+                 h = (AbstractMouseHandler) iterator.next();
+                 if (h.getModifier() == 0 && nomod == null) {
+                     nomod = h;

@@ -1,0 +1,17 @@
+diff --git a/src/org/mockito/internal/util/ObjectMethodsGuru.java b/src/org/mockito/internal/util/ObjectMethodsGuru.java
+index ebfa69c..a9165b0 100644
+--- a/src/org/mockito/internal/util/ObjectMethodsGuru.java
++++ b/src/org/mockito/internal/util/ObjectMethodsGuru.java
+@@ -25,9 +25,10 @@
+     }
+ 
+     public boolean isEqualsMethod(Method method) {
++        Class<?>[] parameterTypes = method.getParameterTypes();
+         return method.getName().equals("equals")
+-                && method.getParameterTypes().length == 1
+-                && method.getParameterTypes()[0] == Object.class;
++                && parameterTypes.length == 1
++                && parameterTypes[0] == Object.class;
+     }
+ 
+     public boolean isHashCodeMethod(Method method) {

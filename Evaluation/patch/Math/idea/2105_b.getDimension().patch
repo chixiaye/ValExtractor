@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..7e3b343 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -452,8 +452,9 @@
+             }
+ 
+             final int m = realEigenvalues.length;
+-            if (b.getDimension() != m) {
+-                throw new DimensionMismatchException(b.getDimension(), m);
++            int dimension = b.getDimension();
++            if (dimension != m) {
++                throw new DimensionMismatchException(dimension, m);
+             }
+ 
+             final double[] bp = new double[m];

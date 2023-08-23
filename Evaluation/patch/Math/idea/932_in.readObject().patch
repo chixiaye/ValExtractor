@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java b/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
+index ce7a873..d5f9e91 100644
+--- a/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
++++ b/src/main/java/org/apache/commons/math3/exception/util/ExceptionContext.java
+@@ -262,14 +262,15 @@
+         // Step 2.
+         for (int i = 0; i < len; i++) {
+             // Step 3.
+-            final Localizable pat = (Localizable) in.readObject();
++            Object o = in.readObject();
++            final Localizable pat = (Localizable) o;
+             msgPatterns.add(pat);
+             // Step 4.
+             final int aLen = in.readInt();
+             final Object[] args = new Object[aLen];
+             for (int j = 0; j < aLen; j++) {
+                 // Step 5.
+-                args[j] = in.readObject();
++                args[j] = o;
+             }
+             msgArguments.add(args);
+         }

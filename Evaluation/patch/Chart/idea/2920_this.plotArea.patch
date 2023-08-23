@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..2443617 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -159,6 +159,7 @@
+         setBaseURLGenerator(urlGenerator);
+ 
+         if (type == AREA) {
++            boolean plotArea1 = this.plotArea;
+             this.plotArea = true;
+         }
+         else if (type == SHAPES) {

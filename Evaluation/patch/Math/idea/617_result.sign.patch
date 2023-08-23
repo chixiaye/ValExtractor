@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..1829828 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1388,7 +1388,8 @@
+ 
+             if (asign != bsign) {
+                 // Unless adding 2 negative zeros, sign is positive
+-                result.sign = 1;  // Per IEEE 854-1987 Section 6.3
++                byte sign1 = result.sign;
++                sign1 = 1;  // Per IEEE 854-1987 Section 6.3
+             }
+         }
+ 

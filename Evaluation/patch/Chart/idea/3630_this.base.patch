@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/util/LogFormat.java b/source/org/jfree/chart/util/LogFormat.java
+index 65d4cd5..a4e9a8b 100644
+--- a/source/org/jfree/chart/util/LogFormat.java
++++ b/source/org/jfree/chart/util/LogFormat.java
+@@ -119,6 +119,7 @@
+         if (powerLabel == null) {
+             throw new IllegalArgumentException("Null 'powerLabel' argument.");
+         }
++        double base1 = this.base;
+         this.base = base;
+         this.baseLog = Math.log(this.base);
+         this.baseLabel = baseLabel;

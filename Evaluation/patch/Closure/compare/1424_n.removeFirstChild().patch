@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..9d903eb 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -423,7 +423,7 @@
+         case Token.VOID:
+           Node operand = result.getFirstChild();
+           if (!mayHaveSideEffects(operand)) {
+-            n.removeFirstChild();
++            Node var_1424 = n.removeFirstChild();
+             reportCodeChange();
+           }
+           break;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..9d903eb 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -423,7 +423,7 @@
+         case Token.VOID:
+           Node operand = result.getFirstChild();
+           if (!mayHaveSideEffects(operand)) {
+-            n.removeFirstChild();
++            Node var_1424 = n.removeFirstChild();
+             reportCodeChange();
+           }
+           break;
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..a52fe73 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -419,18 +419,19 @@
+     Node result = n.getFirstChild();
+ 
+     if (result != null) {
++        Node node = n.removeFirstChild();
+       switch (result.getType()) {
+         case Token.VOID:
+           Node operand = result.getFirstChild();
+           if (!mayHaveSideEffects(operand)) {
+-            n.removeFirstChild();
++            node;
+             reportCodeChange();
+           }
+           break;
+         case Token.NAME:
+           String name = result.getString();
+           if (name.equals("undefined")) {
+-            n.removeFirstChild();
++            node;
+             reportCodeChange();
+           }
+           break;

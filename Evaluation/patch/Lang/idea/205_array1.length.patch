@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ArrayUtils.java b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+index a0a499a..9e99444 100644
+--- a/src/main/java/org/apache/commons/lang3/ArrayUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ArrayUtils.java
+@@ -3586,9 +3586,10 @@
+         } else if (array2 == null) {
+             return clone(array1);
+         }
+-        final short[] joinedArray = new short[array1.length + array2.length];
+-        System.arraycopy(array1, 0, joinedArray, 0, array1.length);
+-        System.arraycopy(array2, 0, joinedArray, array1.length, array2.length);
++        int length = array1.length;
++        final short[] joinedArray = new short[length + array2.length];
++        System.arraycopy(array1, 0, joinedArray, 0, length);
++        System.arraycopy(array2, 0, joinedArray, length, array2.length);
+         return joinedArray;
+     }
+ 

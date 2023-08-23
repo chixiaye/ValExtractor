@@ -1,0 +1,59 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/DateTimeUtils.java b/src/main/java/org/joda/time/DateTimeUtils.java
+index 391cafd..5e0f0bd 100644
+--- a/src/main/java/org/joda/time/DateTimeUtils.java
++++ b/src/main/java/org/joda/time/DateTimeUtils.java
+@@ -241,7 +241,8 @@
+      */
+     public static final Chronology getIntervalChronology(ReadableInterval interval) {
+         if (interval == null) {
+-            return ISOChronology.getInstance();
++            ISOChronology var_112 = ISOChronology.getInstance();
++			return var_112;
+         }
+         Chronology chrono = interval.getChronology();
+         if (chrono == null) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/DateTimeUtils.java b/src/main/java/org/joda/time/DateTimeUtils.java
+index 391cafd..1bbf2ac 100644
+--- a/src/main/java/org/joda/time/DateTimeUtils.java
++++ b/src/main/java/org/joda/time/DateTimeUtils.java
+@@ -240,12 +240,13 @@
+      * @return the chronology, never null
+      */
+     public static final Chronology getIntervalChronology(ReadableInterval interval) {
++        ISOChronology var_112 = ISOChronology.getInstance();
+         if (interval == null) {
+-            return ISOChronology.getInstance();
++            return var_112;
+         }
+         Chronology chrono = interval.getChronology();
+         if (chrono == null) {
+-            return ISOChronology.getInstance();
++            return var_112;
+         }
+         return chrono;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/DateTimeUtils.java b/src/main/java/org/joda/time/DateTimeUtils.java
+index 391cafd..6c55ddc 100644
+--- a/src/main/java/org/joda/time/DateTimeUtils.java
++++ b/src/main/java/org/joda/time/DateTimeUtils.java
+@@ -240,12 +240,13 @@
+      * @return the chronology, never null
+      */
+     public static final Chronology getIntervalChronology(ReadableInterval interval) {
++        ISOChronology instance = ISOChronology.getInstance();
+         if (interval == null) {
+-            return ISOChronology.getInstance();
++            return instance;
+         }
+         Chronology chrono = interval.getChronology();
+         if (chrono == null) {
+-            return ISOChronology.getInstance();
++            return instance;
+         }
+         return chrono;
+     }

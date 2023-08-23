@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+index 4c20a64..42a58e6 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpDec.java
+@@ -199,7 +199,8 @@
+             // look to the next digit for rounding
+             n = (mant[lsd-1] / 1000) % 10;
+             mant[lsd-1] %= 1000;
+-            discarded |= mant[lsd-1];
++            int discarded1 = mant[lsd - 1];
++            discarded |= discarded1;
+         } else {
+             n = (lsb * 10 / lsbthreshold) % 10;
+             discarded |= lsb % (lsbthreshold/10);

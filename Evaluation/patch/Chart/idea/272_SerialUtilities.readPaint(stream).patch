@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+index e6fbbd8..40832ae 100644
+--- a/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYPolygonAnnotation.java
+@@ -354,8 +354,9 @@
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+         this.stroke = SerialUtilities.readStroke(stream);
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
+-        this.fillPaint = SerialUtilities.readPaint(stream);
++        Paint outlinePaint1 = SerialUtilities.readPaint(stream);
++        this.outlinePaint = outlinePaint1;
++        this.fillPaint = outlinePaint1;
+     }
+ 
+ }

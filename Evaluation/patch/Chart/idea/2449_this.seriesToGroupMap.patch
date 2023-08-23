@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java b/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
+index 503fc31..7ab1993 100644
+--- a/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GroupedStackedBarRenderer.java
+@@ -211,9 +211,10 @@
+         }
+         double barW0 = domainAxis.getCategoryStart(column, getColumnCount(),
+                 dataArea, plot.getDomainAxisEdge());
+-        int groupCount = this.seriesToGroupMap.getGroupCount();
+-        int groupIndex = this.seriesToGroupMap.getGroupIndex(
+-                this.seriesToGroupMap.getGroup(plot.getDataset(
++        KeyToGroupMap seriesToGroupMap1 = this.seriesToGroupMap;
++        int groupCount = seriesToGroupMap1.getGroupCount();
++        int groupIndex = seriesToGroupMap1.getGroupIndex(
++                seriesToGroupMap1.getGroup(plot.getDataset(
+                         plot.getIndexOf(this)).getRowKey(row)));
+         int categoryCount = getColumnCount();
+         if (groupCount > 1) {

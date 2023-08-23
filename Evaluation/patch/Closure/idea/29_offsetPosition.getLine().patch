@@ -1,0 +1,21 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..5de1a87 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -173,13 +173,14 @@
+     FilePosition adjustedStart = startPosition;
+     FilePosition adjustedEnd = endPosition;
+ 
+-    if (offsetPosition.getLine() != 0
++      int line = offsetPosition.getLine();
++      if (line != 0
+         || offsetPosition.getColumn() != 0) {
+       // If the mapping is found on the first line, we need to offset
+       // its character position by the number of characters found on
+       // the *last* line of the source file to which the code is
+       // being generated.
+-      int offsetLine = offsetPosition.getLine();
++      int offsetLine = line;
+       int startOffsetPosition = offsetPosition.getColumn();
+       int endOffsetPosition = offsetPosition.getColumn();
+ 

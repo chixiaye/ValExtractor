@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..7de3052 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1560,7 +1560,8 @@
+                 r = r + product[i+j] + rh;  // add to the product digit with carry in
+ 
+                 rh = r / RADIX;
+-                product[i+j] = r - rh * RADIX;
++                int i1 = product[i + j];
++                i1 = r - rh * RADIX;
+             }
+             product[i+mant.length] = rh;
+         }

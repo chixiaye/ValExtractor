@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+index fcdcce0..61ca88f 100644
+--- a/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
++++ b/src/com/google/javascript/jscomp/deps/JsFileLineParser.java
+@@ -243,8 +243,9 @@
+           throw new ParseException("Syntax error in JS String literal", true /* fatal */);
+         }
+         // Add it to the results.
+-        results.add(valueMatcher.group(1) != null ?
+-            valueMatcher.group(1) : valueMatcher.group(2));
++          String group = valueMatcher.group(1);
++          results.add(group != null ?
++                  group : valueMatcher.group(2));
+         if (valueMatcher.hitEnd()) {
+           break;
+         }

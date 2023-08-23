@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/integration/LegendreGaussIntegrator.java b/src/main/java/org/apache/commons/math3/analysis/integration/LegendreGaussIntegrator.java
+index c594fb4..e1a55df 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/integration/LegendreGaussIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/integration/LegendreGaussIntegrator.java
+@@ -246,11 +246,12 @@
+         throws TooManyEvaluationsException {
+ 
+         // set up the step for the current stage
+-        final double step     = (getMax() - getMin()) / n;
++        double min = getMin();
++        final double step     = (getMax() - min) / n;
+         final double halfStep = step / 2.0;
+ 
+         // integrate over all elementary steps
+-        double midPoint = getMin() + halfStep;
++        double midPoint = min + halfStep;
+         double sum = 0.0;
+         for (int i = 0; i < n; ++i) {
+             for (int j = 0; j < abscissas.length; ++j) {

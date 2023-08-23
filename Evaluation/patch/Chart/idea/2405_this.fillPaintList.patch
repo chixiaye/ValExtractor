@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..fb5b0e2 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3177,8 +3177,9 @@
+         }
+         // 'basePaint' : immutable, no need to clone reference
+ 
+-        if (this.fillPaintList != null) {
+-            clone.fillPaintList = (PaintList) this.fillPaintList.clone();
++        PaintList fillPaintList1 = this.fillPaintList;
++        if (fillPaintList1 != null) {
++            clone.fillPaintList = (PaintList) fillPaintList1.clone();
+         }
+         // 'outlinePaint' : immutable, no need to clone reference
+         if (this.outlinePaintList != null) {

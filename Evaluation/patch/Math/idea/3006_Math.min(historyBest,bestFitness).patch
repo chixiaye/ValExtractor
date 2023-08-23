@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..5dcafad 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -466,9 +466,10 @@
+             }
+             final double historyBest = min(fitnessHistory);
+             final double historyWorst = max(fitnessHistory);
++            double min = Math.min(historyBest, bestFitness);
+             if (iterations > 2 &&
+                 Math.max(historyWorst, worstFitness) -
+-                Math.min(historyBest, bestFitness) < stopTolFun) {
++                        min < stopTolFun) {
+                 break generationLoop;
+             }
+             if (iterations > fitnessHistory.length &&
+@@ -495,7 +496,7 @@
+                 sigma = sigma * Math.exp(0.2 + cs / damps);
+             }
+             if (iterations > 2 && Math.max(historyWorst, bestFitness) -
+-                Math.min(historyBest, bestFitness) == 0) {
++                    min == 0) {
+                 sigma = sigma * Math.exp(0.2 + cs / damps);
+             }
+             // store best in history

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/genetics/RandomKey.java b/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
+index 75ae2be..792382a 100644
+--- a/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
++++ b/src/main/java/org/apache/commons/math3/genetics/RandomKey.java
+@@ -259,8 +259,9 @@
+                                                       final List<S> permutedData)
+         throws DimensionMismatchException, MathIllegalArgumentException {
+ 
+-        if (originalData.size() != permutedData.size()) {
+-            throw new DimensionMismatchException(permutedData.size(), originalData.size());
++        int size = permutedData.size();
++        if (originalData.size() != size) {
++            throw new DimensionMismatchException(size, originalData.size());
+         }
+         int l = originalData.size();
+ 

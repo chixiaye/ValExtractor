@@ -1,0 +1,14 @@
+diff --git a/src/java/org/apache/commons/math/linear/BigMatrixImpl.java b/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
+index ccb9a9d14..0147426e5 100644
+--- a/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
++++ b/src/java/org/apache/commons/math/linear/BigMatrixImpl.java
+@@ -1088,7 +1088,8 @@ public class BigMatrixImpl implements BigMatrix, Serializable {
+             
+             //Divide the lower elements by the "winning" diagonal elt.
+             for (int row = col + 1; row < nRows; row++) {
+-                lu[row][col] = lu[row][col].divide(lu[col][col], scale, roundingMode);
++                BigDecimal[] luRow = lu[row];
++                luRow[col] = luRow[col].divide(lu[col][col], scale, roundingMode);
+             }
+             
+         }

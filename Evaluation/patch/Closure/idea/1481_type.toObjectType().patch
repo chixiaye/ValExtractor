@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/TypeValidator.java b/src/com/google/javascript/jscomp/TypeValidator.java
+index 5feecd0..8bf7b4e 100644
+--- a/src/com/google/javascript/jscomp/TypeValidator.java
++++ b/src/com/google/javascript/jscomp/TypeValidator.java
+@@ -743,9 +743,10 @@
+     }
+ 
+     String qualifiedName = n.getQualifiedName();
+-    if (type.isFunctionPrototypeType() ||
+-        (type.toObjectType() != null &&
+-         type.toObjectType().getConstructor() != null)) {
++      ObjectType objectType = type.toObjectType();
++      if (type.isFunctionPrototypeType() ||
++        (objectType != null &&
++         objectType.getConstructor() != null)) {
+       return type.toString();
+     } else if (qualifiedName != null) {
+       return qualifiedName;

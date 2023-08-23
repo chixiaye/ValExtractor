@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..68f76d5 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -1204,8 +1204,9 @@
+      * @return The date.
+      */
+     public Date getDate(long value) {
+-        this.workingCalendarNoDST.setTime(new Date(value));
+-        return (this.workingCalendarNoDST.getTime());
++        Calendar workingCalendarNoDST1 = this.workingCalendarNoDST;
++        workingCalendarNoDST1.setTime(new Date(value));
++        return (workingCalendarNoDST1.getTime());
+     }
+ 
+     /**

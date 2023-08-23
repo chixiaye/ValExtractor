@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/util/SerialUtilities.java b/source/org/jfree/chart/util/SerialUtilities.java
+index 90edcc1..193aa88 100644
+--- a/source/org/jfree/chart/util/SerialUtilities.java
++++ b/source/org/jfree/chart/util/SerialUtilities.java
+@@ -199,12 +199,13 @@
+         if (!isNull) {
+             Class c = (Class) stream.readObject();
+             if (c.equals(BasicStroke.class)) {
+-                float width = stream.readFloat();
++                float v = stream.readFloat();
++                float width = v;
+                 int cap = stream.readInt();
+                 int join = stream.readInt();
+-                float miterLimit = stream.readFloat();
++                float miterLimit = v;
+                 float[] dash = (float[]) stream.readObject();
+-                float dashPhase = stream.readFloat();
++                float dashPhase = v;
+                 result = new BasicStroke(width, cap, join, miterLimit, dash,
+                         dashPhase);
+             }

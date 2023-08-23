@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..7755044 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1125,8 +1125,9 @@
+         if (!this.outlineVisible) {
+             return;
+         }
+-        if ((this.outlineStroke != null) && (this.outlinePaint != null)) {
+-            g2.setStroke(this.outlineStroke);
++        Stroke outlineStroke1 = this.outlineStroke;
++        if ((outlineStroke1 != null) && (this.outlinePaint != null)) {
++            g2.setStroke(outlineStroke1);
+             g2.setPaint(this.outlinePaint);
+             g2.draw(area);
+         }

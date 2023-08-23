@@ -1,0 +1,26 @@
+diff --git a/src/main/java/org/apache/commons/math3/random/StableRandomGenerator.java b/src/main/java/org/apache/commons/math3/random/StableRandomGenerator.java
+index 6fbbacf..a357fe4 100644
+--- a/src/main/java/org/apache/commons/math3/random/StableRandomGenerator.java
++++ b/src/main/java/org/apache/commons/math3/random/StableRandomGenerator.java
+@@ -100,10 +100,11 @@
+         double x;
+         // when beta = 0, zeta is zero as well
+         // Thus we can exclude it from the formula
++        double tan = FastMath.tan(phi);
+         if (beta == 0d) {
+             // Cauchy distribution case
+             if (alpha == 1d) {
+-                x = FastMath.tan(phi);
++                x = tan;
+             } else {
+                 x = FastMath.pow(omega * FastMath.cos((1 - alpha) * phi),
+                     1d / alpha - 1d) *
+@@ -122,7 +123,7 @@
+                      FastMath.pow(omega * cosPhi, (1 - alpha) / alpha);
+             } else {
+                 double betaPhi = FastMath.PI / 2 + beta * phi;
+-                x = 2d / FastMath.PI * (betaPhi * FastMath.tan(phi) - beta *
++                x = 2d / FastMath.PI * (betaPhi * tan - beta *
+                     FastMath.log(FastMath.PI / 2d * omega * cosPhi / betaPhi));
+ 
+                 if (alpha != 1d) {

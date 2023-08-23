@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+index edf07d5..079e9f1 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/general/LevenbergMarquardtOptimizer.java
+@@ -908,12 +908,13 @@
+             // transform the remaining columns
+             for (int dk = nC - 1 - k; dk > 0; --dk) {
+                 double gamma = 0;
++                int i = permutation[k + dk];
+                 for (int j = k; j < nR; ++j) {
+-                    gamma += weightedJacobian[j][pk] * weightedJacobian[j][permutation[k + dk]];
++                    gamma += weightedJacobian[j][pk] * weightedJacobian[j][i];
+                 }
+                 gamma *= betak;
+                 for (int j = k; j < nR; ++j) {
+-                    weightedJacobian[j][permutation[k + dk]] -= gamma * weightedJacobian[j][pk];
++                    weightedJacobian[j][i] -= gamma * weightedJacobian[j][pk];
+                 }
+             }
+         }

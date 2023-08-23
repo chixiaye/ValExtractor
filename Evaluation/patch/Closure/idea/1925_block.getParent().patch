@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..825ed8b 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -985,9 +985,10 @@
+    * @return The CATCH node or null there is no catch handler.
+    */
+   static Node getCatchHandlerForBlock(Node block) {
+-    if (block.isBlock() &&
+-        block.getParent().isTry() &&
+-        block.getParent().getFirstChild() == block) {
++      Node parent = block.getParent();
++      if (block.isBlock() &&
++        parent.isTry() &&
++        parent.getFirstChild() == block) {
+       for (Node s = block.getNext(); s != null; s = s.getNext()) {
+         if (NodeUtil.hasCatchHandler(s)) {
+           return s.getFirstChild();

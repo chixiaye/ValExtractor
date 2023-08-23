@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..c565cfb 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -319,8 +319,9 @@
+      */
+     public void validateMaximum() {
+         double newMax;
++        JTextField maximumRangeValue1 = this.maximumRangeValue;
+         try {
+-            newMax = Double.parseDouble(this.maximumRangeValue.getText());
++            newMax = Double.parseDouble(maximumRangeValue1.getText());
+             if (newMax <= this.minimumValue) {
+                 newMax = this.maximumValue;
+             }
+@@ -330,7 +331,7 @@
+         }
+ 
+         this.maximumValue = newMax;
+-        this.maximumRangeValue.setText(Double.toString(this.maximumValue));
++        maximumRangeValue1.setText(Double.toString(this.maximumValue));
+     }
+ 
+     /**

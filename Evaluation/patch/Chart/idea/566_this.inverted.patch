@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..6b09403 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -557,8 +557,9 @@
+ 
+         boolean drawUpOrRight = false;
+         boolean drawDownOrLeft = false;
++        boolean inverted1 = this.inverted;
+         if (this.positiveArrowVisible) {
+-            if (this.inverted) {
++            if (inverted1) {
+                 drawDownOrLeft = true;
+             }
+             else {
+@@ -566,7 +567,7 @@
+             }
+         }
+         if (this.negativeArrowVisible) {
+-            if (this.inverted) {
++            if (inverted1) {
+                 drawUpOrRight = true;
+             }
+             else {

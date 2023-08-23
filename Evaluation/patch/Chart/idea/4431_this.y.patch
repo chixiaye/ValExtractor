@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/xy/XYDataItem.java b/source/org/jfree/data/xy/XYDataItem.java
+index c5115c5..308e04f 100644
+--- a/source/org/jfree/data/xy/XYDataItem.java
++++ b/source/org/jfree/data/xy/XYDataItem.java
+@@ -144,8 +144,9 @@
+      */
+     public double getYValue() {
+         double result = Double.NaN;
+-        if (this.y != null) {
+-            result = this.y.doubleValue();
++        Number y1 = this.y;
++        if (y1 != null) {
++            result = y1.doubleValue();
+         }
+         return result;
+     }

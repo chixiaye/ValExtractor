@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..1970dac 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1043,11 +1043,12 @@
+    */
+   private Writer openExternExportsStream(B options,
+       String path) throws IOException {
+-    if (options.externExportsPath == null) {
++      String externExportsPath = options.externExportsPath;
++      if (externExportsPath == null) {
+       return null;
+     }
+ 
+-    String exPath = options.externExportsPath;
++    String exPath = externExportsPath;
+ 
+     if (!exPath.contains(File.separator)) {
+       File outputFile = new File(path);

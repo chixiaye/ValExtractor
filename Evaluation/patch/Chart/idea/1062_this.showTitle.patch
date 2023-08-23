@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultTitleEditor.java b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+index 55b846e..d52fc24 100644
+--- a/source/org/jfree/chart/editor/DefaultTitleEditor.java
++++ b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+@@ -112,6 +112,7 @@
+ 
+         TextTitle t = (title != null ? (TextTitle) title
+                 : new TextTitle(localizationResources.getString("Title")));
++        boolean showTitle1 = this.showTitle;
+         this.showTitle = (title != null);
+         this.titleFont = t.getFont();
+         this.titleField = new JTextField(t.getText());

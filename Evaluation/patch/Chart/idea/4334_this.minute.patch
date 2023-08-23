@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..fefaf6d 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -263,8 +263,9 @@
+      */
+     public RegularTimePeriod previous() {
+         Minute result;
+-        if (this.minute != FIRST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute - 1, getHour());
++        byte minute1 = this.minute;
++        if (minute1 != FIRST_MINUTE_IN_HOUR) {
++            result = new Minute(minute1 - 1, getHour());
+         }
+         else {
+             Hour h = (Hour) getHour().previous();

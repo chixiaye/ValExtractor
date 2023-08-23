@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+index fa5c164..118e29b 100644
+--- a/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
++++ b/src/main/java/org/joda/time/tz/DateTimeZoneBuilder.java
+@@ -1653,7 +1653,8 @@
+             String[] pool = new String[poolSize];
+             Iterator<String> it = poolSet.iterator();
+             for (int i=0; it.hasNext(); i++) {
+-                pool[i] = it.next();
++                String s = pool[i];
++                s = it.next();
+             }
+ 
+             // Write out the pool.

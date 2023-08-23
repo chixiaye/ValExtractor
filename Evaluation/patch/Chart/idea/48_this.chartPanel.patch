@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/MouseWheelHandler.java b/source/org/jfree/chart/MouseWheelHandler.java
+index 458a892..0316657 100644
+--- a/source/org/jfree/chart/MouseWheelHandler.java
++++ b/source/org/jfree/chart/MouseWheelHandler.java
+@@ -131,9 +131,10 @@
+      */
+     private void handleZoomable(Zoomable zoomable, MouseWheelEvent e) {
+         // don't zoom unless the mouse pointer is in the plot's data area
+-        ChartRenderingInfo info = this.chartPanel.getChartRenderingInfo();
++        ChartPanel chartPanel1 = this.chartPanel;
++        ChartRenderingInfo info = chartPanel1.getChartRenderingInfo();
+         PlotRenderingInfo pinfo = info.getPlotInfo();
+-        Point2D p = this.chartPanel.translateScreenToJava2D(e.getPoint());
++        Point2D p = chartPanel1.translateScreenToJava2D(e.getPoint());
+         if (!pinfo.getDataArea().contains(p)) {
+             return;
+         }
+@@ -147,10 +148,10 @@
+         if (clicks < 0) {
+             zf = 1.0 / zf;
+         }
+-        if (chartPanel.isDomainZoomable()) {
++        if (chartPanel1.isDomainZoomable()) {
+             zoomable.zoomDomainAxes(zf, pinfo, p, true);
+         }
+-        if (chartPanel.isRangeZoomable()) {
++        if (chartPanel1.isRangeZoomable()) {
+             zoomable.zoomRangeAxes(zf, pinfo, p, true);
+         }
+         plot.setNotify(notifyState);  // this generates the change event too

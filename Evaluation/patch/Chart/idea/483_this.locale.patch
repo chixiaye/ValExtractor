@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..443d119 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -880,7 +880,8 @@
+         int months;
+         int years;
+ 
+-        Calendar calendar = Calendar.getInstance(this.timeZone, this.locale);
++        Locale locale1 = this.locale;
++        Calendar calendar = Calendar.getInstance(this.timeZone, locale1);
+         calendar.setTime(date);
+         int count = unit.getMultiple();
+         int current = calendar.get(unit.getCalendarField());
+@@ -1009,7 +1010,7 @@
+             calendar.clear(Calendar.MILLISECOND);
+             calendar.set(years, value, 1, 0, 0, 0);
+             Month month = new Month(calendar.getTime(), this.timeZone,
+-                    this.locale);
++                    locale1);
+             Date standardDate = calculateDateForPosition(
+                     month, this.tickMarkPosition);
+             long millis = standardDate.getTime();

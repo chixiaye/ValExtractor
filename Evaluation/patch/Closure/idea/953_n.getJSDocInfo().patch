@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..60fe35b 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -748,8 +748,9 @@
+       return scope;
+     }
+ 
+-    boolean hasLendsName = n.getJSDocInfo() != null &&
+-        n.getJSDocInfo().getLendsName() != null;
++      JSDocInfo jsDocInfo = n.getJSDocInfo();
++      boolean hasLendsName = jsDocInfo != null &&
++        jsDocInfo.getLendsName() != null;
+     if (objectType.hasReferenceName() && !hasLendsName) {
+       return scope;
+     }

@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..1593c7a 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -311,7 +311,7 @@
+           sb.append(replacement.getKey());
+           sb.append(':');
+           sb.append(replacement.getValue());
+-          sb.append("\n");
++          StringBuilder var_1287 = sb.append("\n");
+         }
+         sb.append("\n");
+       }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..1593c7a 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -311,7 +311,7 @@
+           sb.append(replacement.getKey());
+           sb.append(':');
+           sb.append(replacement.getValue());
+-          sb.append("\n");
++          StringBuilder var_1287 = sb.append("\n");
+         }
+         sb.append("\n");
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+index c6e4271..3d00426 100644
+--- a/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
++++ b/src/com/google/javascript/jscomp/ReplaceIdGenerators.java
+@@ -306,14 +306,15 @@
+         sb.append("[");
+         sb.append(replacements.getKey());
+         sb.append("]\n\n");
++          StringBuilder append = sb.append("\n");
+         for (Map.Entry<String, String> replacement :
+             replacements.getValue().entrySet()) {
+           sb.append(replacement.getKey());
+           sb.append(':');
+           sb.append(replacement.getValue());
+-          sb.append("\n");
++          append;
+         }
+-        sb.append("\n");
++        append;
+       }
+     }
+     return sb.toString();

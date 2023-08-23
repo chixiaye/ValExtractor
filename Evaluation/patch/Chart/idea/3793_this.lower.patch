@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/Range.java b/source/org/jfree/data/Range.java
+index c36fd86..ceacf03 100644
+--- a/source/org/jfree/data/Range.java
++++ b/source/org/jfree/data/Range.java
+@@ -187,8 +187,11 @@
+             if (value > this.upper) {
+                 result = this.upper;
+             }
+-            else if (value < this.lower) {
+-                result = this.lower;
++            else {
++                double lower1 = this.lower;
++                if (value < lower1) {
++                    result = lower1;
++                }
+             }
+         }
+         return result;

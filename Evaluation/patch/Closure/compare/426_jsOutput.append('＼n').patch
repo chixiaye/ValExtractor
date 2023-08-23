@@ -1,0 +1,60 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..2cbf31e 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -829,7 +829,7 @@
+       } else {
+         jsOutput.append(
+             DotFormatter.toDot(compiler.getPassConfig().getPassGraph()));
+-        jsOutput.append('\n');
++        Appendable var_426 = jsOutput.append('\n');
+         return 0;
+       }
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..2cbf31e 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -829,7 +829,7 @@
+       } else {
+         jsOutput.append(
+             DotFormatter.toDot(compiler.getPassConfig().getPassGraph()));
+-        jsOutput.append('\n');
++        Appendable var_426 = jsOutput.append('\n');
+         return 0;
+       }
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..c606daf 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -823,13 +823,14 @@
+       return 0;
+     }
+ 
++      Appendable append = jsOutput.append('\n');
+     if (config.printPassGraph) {
+       if (compiler.getRoot() == null) {
+         return 1;
+       } else {
+         jsOutput.append(
+             DotFormatter.toDot(compiler.getPassConfig().getPassGraph()));
+-        jsOutput.append('\n');
++        append;
+         return 0;
+       }
+     }
+@@ -841,7 +842,7 @@
+         ControlFlowGraph<Node> cfg = compiler.computeCFG();
+         DotFormatter.appendDot(
+             compiler.getRoot().getLastChild(), cfg, jsOutput);
+-        jsOutput.append('\n');
++        append;
+         return 0;
+       }
+     }

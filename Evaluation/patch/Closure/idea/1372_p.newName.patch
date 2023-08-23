@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/RenameProperties.java b/src/com/google/javascript/jscomp/RenameProperties.java
+index 7753a36..68adfd1 100644
+--- a/src/com/google/javascript/jscomp/RenameProperties.java
++++ b/src/com/google/javascript/jscomp/RenameProperties.java
+@@ -358,8 +358,9 @@
+   VariableMap getPropertyMap() {
+     ImmutableMap.Builder<String, String> map = ImmutableMap.builder();
+     for (Property p : propertyMap.values()) {
+-      if (p.newName != null) {
+-        map.put(p.oldName, p.newName);
++        String newName = p.newName;
++        if (newName != null) {
++        map.put(p.oldName, newName);
+       }
+     }
+     return new VariableMap(map.build());

@@ -1,0 +1,93 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..c252cf3 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1965,7 +1965,8 @@
+ 
+             next();
+             skipEOLs();
+-            paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++            JsDocToken var_2363 = next();
++			paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(var_2363));
+             skipEOLs();
+             if (!match(JsDocToken.RB)) {
+               return reportTypeSyntaxWarning("msg.jsdoc.missing.rb");
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..6243d87 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1943,11 +1943,12 @@
+     Node paramType = null;
+     if (token != JsDocToken.RP) {
+       do {
++        JsDocToken var_2363 = next();
+         if (paramType != null) {
+           // skip past the comma
+           next();
+           skipEOLs();
+-          token = next();
++          token = var_2363;
+         }
+ 
+         if (token == JsDocToken.ELLIPSIS) {
+@@ -1965,7 +1966,7 @@
+ 
+             next();
+             skipEOLs();
+-            paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++            paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(var_2363));
+             skipEOLs();
+             if (!match(JsDocToken.RB)) {
+               return reportTypeSyntaxWarning("msg.jsdoc.missing.rb");
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..43702f8 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1943,11 +1943,12 @@
+     Node paramType = null;
+     if (token != JsDocToken.RP) {
+       do {
++          JsDocToken next = next();
+         if (paramType != null) {
+           // skip past the comma
+-          next();
++          next;
+           skipEOLs();
+-          token = next();
++          token = next;
+         }
+ 
+         if (token == JsDocToken.ELLIPSIS) {
+@@ -1963,15 +1964,15 @@
+               return reportTypeSyntaxWarning("msg.jsdoc.missing.lb");
+             }
+ 
+-            next();
++            next;
+             skipEOLs();
+-            paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(next()));
++            paramType = wrapNode(Token.ELLIPSIS, parseTypeExpression(next));
+             skipEOLs();
+             if (!match(JsDocToken.RB)) {
+               return reportTypeSyntaxWarning("msg.jsdoc.missing.rb");
+             }
+             skipEOLs();
+-            next();
++            next;
+           }
+ 
+           isVarArgs = true;
+@@ -1979,7 +1980,7 @@
+           paramType = parseTypeExpression(token);
+           if (match(JsDocToken.EQUALS)) {
+             skipEOLs();
+-            next();
++            next;
+             paramType = wrapNode(Token.EQUALS, paramType);
+           }
+         }

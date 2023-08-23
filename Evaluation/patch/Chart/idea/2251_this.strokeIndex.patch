@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+index ce9cc64..6802e96 100644
+--- a/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
++++ b/source/org/jfree/chart/plot/DefaultDrawingSupplier.java
+@@ -248,8 +248,9 @@
+      * @return The stroke.
+      */
+     public Stroke getNextStroke() {
++        int strokeIndex1 = this.strokeIndex;
+         Stroke result = this.strokeSequence[
+-                this.strokeIndex % this.strokeSequence.length];
++                strokeIndex1 % this.strokeSequence.length];
+         this.strokeIndex++;
+         return result;
+     }

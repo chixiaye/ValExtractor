@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/NormalizedMatrixSeries.java b/source/org/jfree/data/xy/NormalizedMatrixSeries.java
+index 7fe8e45..1724e36 100644
+--- a/source/org/jfree/data/xy/NormalizedMatrixSeries.java
++++ b/source/org/jfree/data/xy/NormalizedMatrixSeries.java
+@@ -134,6 +134,7 @@
+      * @see #get(int, int)
+      */
+     public void update(int i, int j, double mij) {
++        double mTotalSum = this.m_totalSum;
+         this.m_totalSum -= get(i, j);
+         this.m_totalSum += mij;
+ 

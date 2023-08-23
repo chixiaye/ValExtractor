@@ -1,0 +1,14 @@
+diff --git a/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/handler/NioGremlinRequestEncoder.java b/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/handler/NioGremlinRequestEncoder.java
+index f80e195..bd7a05e 100644
+--- a/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/handler/NioGremlinRequestEncoder.java
++++ b/gremlin-driver/src/main/java/org/apache/tinkerpop/gremlin/driver/handler/NioGremlinRequestEncoder.java
+@@ -49,7 +49,8 @@
+         final RequestMessage requestMessage = (RequestMessage) msg;
+         try {
+             if (binaryEncoding) {
+-                byteBuf.writeBytes(serializer.serializeRequestAsBinary(requestMessage, channelHandlerContext.alloc()));
++                Object bytes = serializer.serializeRequestAsBinary(requestMessage, channelHandlerContext.alloc());
++				byteBuf.writeBytes(bytes);
+             } else {
+                 final MessageTextSerializer textSerializer = (MessageTextSerializer) serializer;
+                 byteBuf.writeBytes(textSerializer.serializeRequestAsString(requestMessage).getBytes(CharsetUtil.UTF_8));

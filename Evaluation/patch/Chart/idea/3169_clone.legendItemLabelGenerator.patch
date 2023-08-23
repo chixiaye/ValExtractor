@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..a6537d0 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1750,7 +1750,8 @@
+         }
+ 
+         if (clone.legendItemLabelGenerator instanceof PublicCloneable) {
+-            clone.legendItemLabelGenerator = (XYSeriesLabelGenerator)
++            XYSeriesLabelGenerator legendItemLabelGenerator1 = clone.legendItemLabelGenerator;
++            legendItemLabelGenerator1 = (XYSeriesLabelGenerator)
+                     ObjectUtilities.clone(this.legendItemLabelGenerator);
+         }
+         if (clone.legendItemToolTipGenerator instanceof PublicCloneable) {

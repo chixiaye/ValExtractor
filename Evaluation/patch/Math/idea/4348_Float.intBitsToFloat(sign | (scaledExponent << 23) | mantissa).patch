@@ -1,0 +1,34 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..0d379b9 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -3165,11 +3165,12 @@
+         // compute scaled exponent
+         int scaledExponent = exponent + n;
+ 
++        float v = Float.intBitsToFloat(sign | (scaledExponent << 23) | mantissa);
+         if (n < 0) {
+             // we are really in the case n <= -127
+             if (scaledExponent > 0) {
+                 // both the input and the result are normal numbers, we only adjust the exponent
+-                return Float.intBitsToFloat(sign | (scaledExponent << 23) | mantissa);
++                return v;
+             } else if (scaledExponent > -24) {
+                 // the input is a normal number and the result is a subnormal number
+ 
+@@ -3202,13 +3203,13 @@
+                 mantissa = mantissa & 0x007fffff;
+ 
+                 if (scaledExponent < 255) {
+-                    return Float.intBitsToFloat(sign | (scaledExponent << 23) | mantissa);
++                    return v;
+                 } else {
+                     return (sign == 0) ? Float.POSITIVE_INFINITY : Float.NEGATIVE_INFINITY;
+                 }
+ 
+             } else if (scaledExponent < 255) {
+-                return Float.intBitsToFloat(sign | (scaledExponent << 23) | mantissa);
++                return v;
+             } else {
+                 return (sign == 0) ? Float.POSITIVE_INFINITY : Float.NEGATIVE_INFINITY;
+             }

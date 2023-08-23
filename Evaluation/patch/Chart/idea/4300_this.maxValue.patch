@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..ac75622 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -944,8 +944,9 @@
+      */
+     public double getRangeUpperBound(boolean includeInterval) {
+         double result = Double.NaN;
+-        if (this.maxValue != null) {
+-            result = this.maxValue.doubleValue();
++        Float maxValue1 = this.maxValue;
++        if (maxValue1 != null) {
++            result = maxValue1.doubleValue();
+         }
+         return result;
+     }

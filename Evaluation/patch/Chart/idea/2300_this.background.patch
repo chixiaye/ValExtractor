@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialPlot.java b/source/org/jfree/chart/plot/dial/DialPlot.java
+index acb9f7c..03a6f1a 100644
+--- a/source/org/jfree/chart/plot/dial/DialPlot.java
++++ b/source/org/jfree/chart/plot/dial/DialPlot.java
+@@ -182,7 +182,8 @@
+      */
+     public void setBackground(DialLayer background) {
+         if (this.background != null) {
+-            this.background.removeChangeListener(this);
++            DialLayer background1 = this.background;
++            background1.removeChangeListener(this);
+         }
+         this.background = background;
+         if (background != null) {

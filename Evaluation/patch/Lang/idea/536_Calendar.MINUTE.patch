@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/DateUtils.java b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+index b16af53..ebc2fd6 100644
+--- a/src/main/java/org/apache/commons/lang3/time/DateUtils.java
++++ b/src/main/java/org/apache/commons/lang3/time/DateUtils.java
+@@ -1696,6 +1696,7 @@
+                 break;
+         }
+ 
++        final int minute = Calendar.MINUTE;
+         switch (fragment) {
+             // Number of days already calculated for these cases
+             case Calendar.YEAR:
+@@ -1707,9 +1708,9 @@
+                 result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                 //$FALL-THROUGH$
+             case Calendar.HOUR_OF_DAY:
+-                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
++                result += (calendar.get(minute) * MILLIS_PER_MINUTE) / millisPerUnit;
+                 //$FALL-THROUGH$
+-            case Calendar.MINUTE:
++            case minute:
+                 result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                 //$FALL-THROUGH$
+             case Calendar.SECOND:

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
+index 623b6ac..0266e68 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/FiniteDifferencesDifferentiator.java
+@@ -294,8 +294,9 @@
+                 throws MathIllegalArgumentException {
+ 
+                 // check we can achieve the requested derivation order with the sample
+-                if (t.getOrder() >= nbPoints) {
+-                    throw new NumberIsTooLargeException(t.getOrder(), nbPoints, false);
++                int order = t.getOrder();
++                if (order >= nbPoints) {
++                    throw new NumberIsTooLargeException(order, nbPoints, false);
+                 }
+ 
+                 // compute sample position, trying to be centered if possible

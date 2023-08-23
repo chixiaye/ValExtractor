@@ -1,0 +1,56 @@
+diff --git a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+index 8361ac9..088c1ac 100644
+--- a/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
++++ b/src/com/google/javascript/jscomp/MaybeReachingVariableUse.java
+@@ -168,7 +168,8 @@
+ 
+   private void computeMayUse(
+       Node n, Node cfgNode, ReachingUses output, boolean conditional) {
+-    switch (n.getType()) {
++      Node firstChild = n.getFirstChild();
++      switch (n.getType()) {
+ 
+       case Token.BLOCK:
+       case Token.FUNCTION:
+@@ -191,7 +192,7 @@
+               NodeUtil.getConditionExpression(n), cfgNode, output, conditional);
+         } else {
+           // for(x in y) {...}
+-          Node lhs = n.getFirstChild();
++          Node lhs = firstChild;
+           Node rhs = lhs.getNext();
+           if (lhs.isVar()) {
+             lhs = lhs.getLastChild(); // for(var x in y) {...}
+@@ -206,17 +207,17 @@
+       case Token.AND:
+       case Token.OR:
+         computeMayUse(n.getLastChild(), cfgNode, output, true);
+-        computeMayUse(n.getFirstChild(), cfgNode, output, conditional);
++        computeMayUse(firstChild, cfgNode, output, conditional);
+         return;
+ 
+       case Token.HOOK:
+         computeMayUse(n.getLastChild(), cfgNode, output, true);
+-        computeMayUse(n.getFirstChild().getNext(), cfgNode, output, true);
+-        computeMayUse(n.getFirstChild(), cfgNode, output, conditional);
++        computeMayUse(firstChild.getNext(), cfgNode, output, true);
++        computeMayUse(firstChild, cfgNode, output, conditional);
+         return;
+ 
+       case Token.VAR:
+-        Node varName = n.getFirstChild();
++        Node varName = firstChild;
+         Preconditions.checkState(n.hasChildren(), "AST should be normalized");
+ 
+         if (varName.hasChildren()) {
+@@ -228,8 +229,8 @@
+         return;
+ 
+       default:
+-        if (NodeUtil.isAssignmentOp(n) && n.getFirstChild().isName()) {
+-          Node name = n.getFirstChild();
++        if (NodeUtil.isAssignmentOp(n) && firstChild.isName()) {
++          Node name = firstChild;
+           if (!conditional) {
+             removeFromUseIfLocal(name.getString(), output);
+           }

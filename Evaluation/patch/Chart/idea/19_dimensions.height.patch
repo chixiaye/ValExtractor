@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..d338fff 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1265,18 +1265,19 @@
+         else if (hAlign == HorizontalAlignment.RIGHT) {
+             x = frame.getMaxX() - dimensions.width;
+         }
++        double height = dimensions.height;
+         if (vAlign == VerticalAlignment.TOP) {
+             y = frame.getY();
+         }
+         else if (vAlign == VerticalAlignment.CENTER) {
+-            y = frame.getCenterY() - (dimensions.height / 2.0);
++            y = frame.getCenterY() - (height / 2.0);
+         }
+         else if (vAlign == VerticalAlignment.BOTTOM) {
+-            y = frame.getMaxY() - dimensions.height;
++            y = frame.getMaxY() - height;
+         }
+ 
+         return new Rectangle2D.Double(x, y, dimensions.width,
+-                dimensions.height);
++                height);
+     }
+ 
+     /**

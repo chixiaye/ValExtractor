@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..07ae1c1 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -888,6 +888,7 @@
+             result[0][i] = this.getX(i).doubleValue();
+             Number y = getY(i);
+             if (y != null) {
++                double v = result[1][i];
+                 result[1][i] = y.doubleValue();
+             }
+             else {

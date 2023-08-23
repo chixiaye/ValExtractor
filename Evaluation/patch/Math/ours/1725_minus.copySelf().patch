@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+index aca170e..491067f 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/BSPTree.java
+@@ -498,8 +498,9 @@
+         { // the partitioning sub-hyperplane is entirely in the plus sub-tree
+             final BSPTree<S> split = plus.split(sub);
+             if (cut.side(sHyperplane) == Side.PLUS) {
+-                split.plus =
+-                    new BSPTree<S>(cut.copySelf(), split.plus, minus.copySelf(), attribute);
++                BSPTree<S> var_1725 = minus.copySelf();
++				split.plus =
++                    new BSPTree<S>(cut.copySelf(), split.plus, var_1725, attribute);
+                 split.plus.condense();
+                 split.plus.parent = split;
+             } else {

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..5ba0bda 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1550,8 +1550,9 @@
+    */
+   private static String trimEnd(String s) {
+     int trimCount = 0;
+-    while (trimCount < s.length()) {
+-      char ch = s.charAt(s.length() - trimCount - 1);
++      int length = s.length();
++      while (trimCount < length) {
++      char ch = s.charAt(length - trimCount - 1);
+       if (Character.isWhitespace(ch)) {
+         trimCount++;
+       } else {
+@@ -1562,7 +1563,7 @@
+     if (trimCount == 0) {
+       return s;
+     }
+-    return s.substring(0, s.length() - trimCount);
++    return s.substring(0, length - trimCount);
+   }
+ 
+   // Based on ES4 grammar proposed on July 10, 2008.

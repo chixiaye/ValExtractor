@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+index 3a5d3e0..e167613 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+@@ -432,8 +432,9 @@
+         double rectX = domainAxis.getCategoryStart(column, getColumnCount(),
+                 dataArea, xAxisLocation);
+ 
+-        int seriesCount = state.getVisibleSeriesCount() >= 0
+-                ? state.getVisibleSeriesCount() : getRowCount();
++        int visibleSeriesCount = state.getVisibleSeriesCount();
++        int seriesCount = visibleSeriesCount >= 0
++                ? visibleSeriesCount : getRowCount();
+         int categoryCount = getColumnCount();
+         if (seriesCount > 1) {
+             double seriesGap = dataArea.getWidth() * getItemMargin()

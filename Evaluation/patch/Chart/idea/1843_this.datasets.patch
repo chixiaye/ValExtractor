@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..b369d17 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1349,11 +1349,12 @@
+      */
+     public void setDataset(int index, CategoryDataset dataset) {
+ 
+-        CategoryDataset existing = (CategoryDataset) this.datasets.get(index);
++        ObjectList datasets1 = this.datasets;
++        CategoryDataset existing = (CategoryDataset) datasets1.get(index);
+         if (existing != null) {
+             existing.removeChangeListener(this);
+         }
+-        this.datasets.set(index, dataset);
++        datasets1.set(index, dataset);
+         if (dataset != null) {
+             dataset.addChangeListener(this);
+         }

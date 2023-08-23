@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+index 3f26a3e..5ed52dc 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java
+@@ -845,6 +845,7 @@
+      * the current bounds.
+      */
+     private void updateBounds() {
++        double minimumRangeValue1 = this.minimumRangeValue;
+         this.minimumRangeValue = Double.NaN;
+         this.minimumRangeValueRow = -1;
+         this.minimumRangeValueColumn = -1;

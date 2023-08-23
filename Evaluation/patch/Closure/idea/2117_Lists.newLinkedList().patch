@@ -1,0 +1,30 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..60cd9b6 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -42,6 +42,7 @@
+ import java.io.OutputStreamWriter;
+ import java.nio.charset.Charset;
+ import java.util.Date;
++import java.util.LinkedList;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.logging.Level;
+@@ -90,11 +91,12 @@
+     this.replaceProperties = false;
+     this.forceRecompile = false;
+     this.replacePropertiesPrefix = "closure.define.";
+-    this.defineParams = Lists.newLinkedList();
+-    this.externFileLists = Lists.newLinkedList();
+-    this.sourceFileLists = Lists.newLinkedList();
+-    this.sourcePaths = Lists.newLinkedList();
+-    this.warnings = Lists.newLinkedList();
++      LinkedList<FileList> sourceFileLists1 = Lists.newLinkedList();
++      this.defineParams = sourceFileLists1;
++    this.externFileLists = sourceFileLists1;
++    this.sourceFileLists = sourceFileLists1;
++    this.sourcePaths = sourceFileLists1;
++    this.warnings = sourceFileLists1;
+   }
+ 
+   /**

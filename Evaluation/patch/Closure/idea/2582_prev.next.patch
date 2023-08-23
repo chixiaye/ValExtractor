@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..69c4d74 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -1656,7 +1656,8 @@
+     Preconditions.checkArgument(prev.next != null,
+         "no next sibling.");
+ 
+-    Node child = prev.next;
++      Node next1 = prev.next;
++      Node child = next1;
+     prev.next = child.next;
+     if (child == last) last = prev;
+     child.next = null;

@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/GoogleCodingConvention.java b/src/com/google/javascript/jscomp/GoogleCodingConvention.java
+index ca8c04f..bee1b7c 100644
+--- a/src/com/google/javascript/jscomp/GoogleCodingConvention.java
++++ b/src/com/google/javascript/jscomp/GoogleCodingConvention.java
+@@ -69,7 +69,8 @@
+    */
+   @Override
+   public boolean isConstant(String name) {
+-    if (name.length() <= 1) {
++      int length = name.length();
++      if (length <= 1) {
+       return false;
+     }
+ 
+@@ -78,7 +79,7 @@
+     int pos = name.lastIndexOf('$');
+     if (pos >= 0) {
+       name = name.substring(pos + 1);
+-      if (name.length() == 0) {
++      if (length == 0) {
+         return false;
+       }
+     }

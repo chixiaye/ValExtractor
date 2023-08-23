@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+index 4dbfd3f..0206538 100644
+--- a/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/IntervalBarRenderer.java
+@@ -218,7 +218,8 @@
+         // BAR HEIGHT
+         double rectHeight = Math.abs(java2dValue1 - java2dValue0);
+ 
+-        RectangleEdge barBase = RectangleEdge.LEFT;
++         RectangleEdge left = RectangleEdge.LEFT;
++         RectangleEdge barBase = left;
+         if (orientation == PlotOrientation.HORIZONTAL) {
+             // BAR Y
+             rectY = domainAxis.getCategoryStart(column, getColumnCount(),
+@@ -236,7 +237,7 @@
+ 
+             rectHeight = state.getBarWidth();
+             rectWidth = Math.abs(java2dValue1 - java2dValue0);
+-            barBase = RectangleEdge.LEFT;
++            barBase = left;
+         }
+         else if (orientation == PlotOrientation.VERTICAL) {
+             // BAR X

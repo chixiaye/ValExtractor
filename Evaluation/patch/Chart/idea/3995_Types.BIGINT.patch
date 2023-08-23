@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..8f1e8b0 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -245,6 +245,7 @@
+             int numberOfColumns = metaData.getColumnCount();
+             int numberOfValidColumns = 0;
+             int [] columnTypes = new int[numberOfColumns];
++            final int bigint = Types.BIGINT;
+             for (int column = 0; column < numberOfColumns; column++) {
+                 try {
+                     int type = metaData.getColumnType(column + 1);
+@@ -260,7 +261,7 @@
+                         case Types.DATE:
+                         case Types.TIME:
+                         case Types.TIMESTAMP:
+-                        case Types.BIGINT:
++                        case bigint:
+                         case Types.SMALLINT:
+                             ++numberOfValidColumns;
+                             columnTypes[column] = type;
+@@ -329,7 +330,7 @@
+                         case Types.DOUBLE:
+                         case Types.FLOAT:
+                         case Types.DECIMAL:
+-                        case Types.BIGINT:
++                        case bigint:
+                         case Types.SMALLINT:
+                             newRow.add(xObject);
+                             break;

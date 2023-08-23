@@ -1,0 +1,36 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/JsonML.java b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+index 76b78d5..f6f11fb 100644
+--- a/src/com/google/javascript/jscomp/jsonml/JsonML.java
++++ b/src/com/google/javascript/jscomp/jsonml/JsonML.java
+@@ -222,9 +222,9 @@
+       boolean printChildren) {
+     sb.append("[\"");
+     escapeStringOnto(type.name(), sb);
+-    sb.append('"');
++      StringBuilder append = sb.append('"');
+ 
+-    if (printAttributes) {
++      if (printAttributes) {
+       sb.append(", {");
+       boolean first = true;
+       for (Entry<TagAttr, Object> entry : attributes.entrySet()) {
+@@ -233,16 +233,16 @@
+         } else {
+           sb.append(", ");
+         }
+-        sb.append('"');
++        append;
+         escapeStringOnto(entry.getKey().toString(), sb);
+         sb.append("\": ");
+         Object value = entry.getValue();
+         if (value == null) {
+           sb.append("null");
+         } else if (value instanceof String) {
+-          sb.append('"');
++          append;
+           escapeStringOnto((String) value, sb);
+-          sb.append('"');
++          append;
+         } else {
+           sb.append(value);
+         }

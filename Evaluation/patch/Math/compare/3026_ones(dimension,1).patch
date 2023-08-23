@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..5cea544 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -778,7 +778,8 @@
+                 }
+                 final double tfac = max(diagD) / 1e14;
+                 C = C.add(eye(dimension, dimension).scalarMultiply(tfac));
+-                diagD = diagD.add(ones(dimension, 1).scalarMultiply(tfac));
++                RealMatrix var_3026 = ones(dimension, 1);
++				diagD = diagD.add(var_3026.scalarMultiply(tfac));
+             }
+             if (max(diagD) > 1e14 * min(diagD)) {
+                 final double tfac = max(diagD) / 1e14 - min(diagD);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..ef348c2 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -770,6 +770,7 @@
+             B = eig.getV(); // eigen decomposition, B==normalized eigenvectors
+             D = eig.getD();
+             diagD = diag(D);
++            RealMatrix var_3026 = ones(dimension, 1);
+             if (min(diagD) <= 0) {
+                 for (int i = 0; i < dimension; i++) {
+                     if (diagD.getEntry(i, 0) < 0) {
+@@ -778,12 +779,12 @@
+                 }
+                 final double tfac = max(diagD) / 1e14;
+                 C = C.add(eye(dimension, dimension).scalarMultiply(tfac));
+-                diagD = diagD.add(ones(dimension, 1).scalarMultiply(tfac));
++                diagD = diagD.add(var_3026.scalarMultiply(tfac));
+             }
+             if (max(diagD) > 1e14 * min(diagD)) {
+                 final double tfac = max(diagD) / 1e14 - min(diagD);
+                 C = C.add(eye(dimension, dimension).scalarMultiply(tfac));
+-                diagD = diagD.add(ones(dimension, 1).scalarMultiply(tfac));
++                diagD = diagD.add(var_3026.scalarMultiply(tfac));
+             }
+             diagC = diag(C);
+             diagD = sqrt(diagD); // D contains standard deviations now
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..94dad5a 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -770,6 +770,7 @@
+             B = eig.getV(); // eigen decomposition, B==normalized eigenvectors
+             D = eig.getD();
+             diagD = diag(D);
++            RealMatrix ones = ones(dimension, 1);
+             if (min(diagD) <= 0) {
+                 for (int i = 0; i < dimension; i++) {
+                     if (diagD.getEntry(i, 0) < 0) {
+@@ -778,12 +779,12 @@
+                 }
+                 final double tfac = max(diagD) / 1e14;
+                 C = C.add(eye(dimension, dimension).scalarMultiply(tfac));
+-                diagD = diagD.add(ones(dimension, 1).scalarMultiply(tfac));
++                diagD = diagD.add(ones.scalarMultiply(tfac));
+             }
+             if (max(diagD) > 1e14 * min(diagD)) {
+                 final double tfac = max(diagD) / 1e14 - min(diagD);
+                 C = C.add(eye(dimension, dimension).scalarMultiply(tfac));
+-                diagD = diagD.add(ones(dimension, 1).scalarMultiply(tfac));
++                diagD = diagD.add(ones.scalarMultiply(tfac));
+             }
+             diagC = diag(C);
+             diagD = sqrt(diagD); // D contains standard deviations now

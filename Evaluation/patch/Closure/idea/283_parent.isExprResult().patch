@@ -1,0 +1,37 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..c3e4cab 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -779,18 +779,21 @@
+         if (value != null) {
+           addSimplifiedChildren(value);
+         }
+-      } else if (n.isAssign() &&
+-          (parent.isExprResult() ||
+-           parent.isFor() ||
+-           parent.isReturn())) {
+-        for (Node child : n.children()) {
+-          addSimplifiedChildren(child);
+-        }
+-      } else if (n.isCall() &&
+-                 parent.isExprResult()) {
+-        addSimplifiedChildren(n);
+       } else {
+-        addAllChildren(n);
++          boolean exprResult = parent.isExprResult();
++          if (n.isAssign() &&
++              (exprResult ||
++               parent.isFor() ||
++               parent.isReturn())) {
++            for (Node child : n.children()) {
++              addSimplifiedChildren(child);
++            }
++          } else if (n.isCall() &&
++                  exprResult) {
++            addSimplifiedChildren(n);
++          } else {
++            addAllChildren(n);
++          }
+       }
+     }
+ 

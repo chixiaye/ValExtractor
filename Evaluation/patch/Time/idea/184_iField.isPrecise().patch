@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/ZonedChronology.java b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+index c7c2da6..4502145 100644
+--- a/src/main/java/org/joda/time/chrono/ZonedChronology.java
++++ b/src/main/java/org/joda/time/chrono/ZonedChronology.java
+@@ -288,7 +288,8 @@
+         }
+ 
+         public boolean isPrecise() {
+-            return iTimeField ? iField.isPrecise() : iField.isPrecise() && this.iZone.isFixed();
++            boolean precise = iField.isPrecise();
++            return iTimeField ? precise : precise && this.iZone.isFixed();
+         }
+ 
+         public long getUnitMillis() {

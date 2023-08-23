@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..a60a62e 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -6017,8 +6017,9 @@
+                 // FIXME:  actually, we need to get the selection state
+                 // taking into account the rendering source
+                 AbstractXYDataset axyd = (AbstractXYDataset) dataset;
+-                if (axyd.getSelectionState() != null) {
+-                    XYDatasetSelectionState selState = axyd.getSelectionState();
++                XYDatasetSelectionState selectionState = axyd.getSelectionState();
++                if (selectionState != null) {
++                    XYDatasetSelectionState selState = selectionState;
+                     selState.clearSelection();
+                 }
+             }

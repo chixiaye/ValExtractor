@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..94288c3 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -449,7 +449,8 @@
+      */
+     public int hashCode() {
+         int result;
+-        result = (this.domain != null ? this.domain.hashCode() : 0);
++        String domain1 = this.domain;
++        result = (domain1 != null ? domain1.hashCode() : 0);
+         result = 29 * result + (this.range != null ? this.range.hashCode() : 0);
+         result = 29 * result + this.data.hashCode();
+         result = 29 * result + this.minStartIndex;

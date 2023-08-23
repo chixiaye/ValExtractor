@@ -1,0 +1,55 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..9b257d8 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -550,7 +550,8 @@
+             return ONE;
+         } else if (power < 0) {
+             if (power==Integer.MIN_VALUE) { // MIN_VALUE can't be negated.
+-                return this.invert().pow(2).pow(-(power/2));
++                Fraction var_393 = this.invert();
++				return var_393.pow(2).pow(-(power/2));
+             }
+             return this.invert().pow(-power);
+         } else {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..b479396 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -549,10 +549,11 @@
+         } else if (power == 0) {
+             return ONE;
+         } else if (power < 0) {
++            Fraction var_393 = this.invert();
+             if (power==Integer.MIN_VALUE) { // MIN_VALUE can't be negated.
+-                return this.invert().pow(2).pow(-(power/2));
++                return var_393.pow(2).pow(-(power/2));
+             }
+-            return this.invert().pow(-power);
++            return var_393.pow(-power);
+         } else {
+             final Fraction f = this.multiplyBy(this);
+             if (power % 2 == 0) { // if even...
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/math/Fraction.java b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+index a722ffe..238ddc5 100644
+--- a/src/main/java/org/apache/commons/lang3/math/Fraction.java
++++ b/src/main/java/org/apache/commons/lang3/math/Fraction.java
+@@ -549,10 +549,11 @@
+         } else if (power == 0) {
+             return ONE;
+         } else if (power < 0) {
++            Fraction invert = this.invert();
+             if (power==Integer.MIN_VALUE) { // MIN_VALUE can't be negated.
+-                return this.invert().pow(2).pow(-(power/2));
++                return invert.pow(2).pow(-(power/2));
+             }
+-            return this.invert().pow(-power);
++            return invert.pow(-power);
+         } else {
+             final Fraction f = this.multiplyBy(this);
+             if (power % 2 == 0) { // if even...

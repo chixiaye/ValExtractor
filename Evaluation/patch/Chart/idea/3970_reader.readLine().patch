@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/io/CSV.java b/source/org/jfree/data/io/CSV.java
+index ea66418..431997e 100644
+--- a/source/org/jfree/data/io/CSV.java
++++ b/source/org/jfree/data/io/CSV.java
+@@ -97,7 +97,8 @@
+         BufferedReader reader = new BufferedReader(in);
+         List columnKeys = null;
+         int lineIndex = 0;
+-        String line = reader.readLine();
++        String s = reader.readLine();
++        String line = s;
+         while (line != null) {
+             if (lineIndex == 0) {  // first line contains column keys
+                 columnKeys = extractColumnKeys(line);
+@@ -105,7 +106,7 @@
+             else {  // remaining lines contain a row key and data values
+                 extractRowKeyAndData(line, dataset, columnKeys);
+             }
+-            line = reader.readLine();
++            line = s;
+             lineIndex++;
+         }
+         return dataset;

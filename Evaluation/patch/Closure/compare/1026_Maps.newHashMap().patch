@@ -1,0 +1,93 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/CompilerOptions.java b/src/com/google/javascript/jscomp/CompilerOptions.java
+index c4ba579..c3e953d 100644
+--- a/src/com/google/javascript/jscomp/CompilerOptions.java
++++ b/src/com/google/javascript/jscomp/CompilerOptions.java
+@@ -29,6 +29,7 @@
+ import java.nio.charset.Charset;
+ import java.text.ParseException;
+ import java.util.Collections;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -943,9 +944,10 @@
+     stripTypePrefixes = Collections.emptySet();
+     customPasses = null;
+     markNoSideEffectCalls = false;
+-    defineReplacements = Maps.newHashMap();
++    HashMap<String, Object> var_1026 = Maps.newHashMap();
++	defineReplacements = var_1026;
+     tweakProcessing = TweakProcessing.OFF;
+-    tweakReplacements = Maps.newHashMap();
++    tweakReplacements = var_1026;
+     moveFunctionDeclarations = false;
+     instrumentationTemplate = null;
+     appNameStr = "";
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CompilerOptions.java b/src/com/google/javascript/jscomp/CompilerOptions.java
+index c4ba579..c3e953d 100644
+--- a/src/com/google/javascript/jscomp/CompilerOptions.java
++++ b/src/com/google/javascript/jscomp/CompilerOptions.java
+@@ -29,6 +29,7 @@
+ import java.nio.charset.Charset;
+ import java.text.ParseException;
+ import java.util.Collections;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -943,9 +944,10 @@
+     stripTypePrefixes = Collections.emptySet();
+     customPasses = null;
+     markNoSideEffectCalls = false;
+-    defineReplacements = Maps.newHashMap();
++    HashMap<String, Object> var_1026 = Maps.newHashMap();
++	defineReplacements = var_1026;
+     tweakProcessing = TweakProcessing.OFF;
+-    tweakReplacements = Maps.newHashMap();
++    tweakReplacements = var_1026;
+     moveFunctionDeclarations = false;
+     instrumentationTemplate = null;
+     appNameStr = "";
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CompilerOptions.java b/src/com/google/javascript/jscomp/CompilerOptions.java
+index c4ba579..c06f3d5 100644
+--- a/src/com/google/javascript/jscomp/CompilerOptions.java
++++ b/src/com/google/javascript/jscomp/CompilerOptions.java
+@@ -28,10 +28,7 @@
+ import java.io.Serializable;
+ import java.nio.charset.Charset;
+ import java.text.ParseException;
+-import java.util.Collections;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
++import java.util.*;
+ 
+ /**
+  * Compiler options
+@@ -943,9 +940,10 @@
+     stripTypePrefixes = Collections.emptySet();
+     customPasses = null;
+     markNoSideEffectCalls = false;
+-    defineReplacements = Maps.newHashMap();
++      HashMap<String, Object> defineReplacements1 = Maps.newHashMap();
++      defineReplacements = defineReplacements1;
+     tweakProcessing = TweakProcessing.OFF;
+-    tweakReplacements = Maps.newHashMap();
++    tweakReplacements = defineReplacements1;
+     moveFunctionDeclarations = false;
+     instrumentationTemplate = null;
+     appNameStr = "";
+@@ -958,7 +956,7 @@
+     replaceStringsFunctionDescriptions = Collections.emptyList();
+     replaceStringsPlaceholderToken = "";
+     replaceStringsReservedStrings = Collections.emptySet();
+-    propertyInvalidationErrors = Maps.newHashMap();
++    propertyInvalidationErrors = defineReplacements1;
+ 
+     // Output
+     printInputDelimiter = false;

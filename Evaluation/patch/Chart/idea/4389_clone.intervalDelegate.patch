@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/xy/DefaultTableXYDataset.java b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+index 7eac51b..c44a4e0 100644
+--- a/source/org/jfree/data/xy/DefaultTableXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultTableXYDataset.java
+@@ -552,9 +552,10 @@
+ 
+         clone.intervalDelegate = new IntervalXYDelegate(clone);
+         // need to configure the intervalDelegate to match the original
+-        clone.intervalDelegate.setFixedIntervalWidth(getIntervalWidth());
+-        clone.intervalDelegate.setAutoWidth(isAutoWidth());
+-        clone.intervalDelegate.setIntervalPositionFactor(
++        IntervalXYDelegate intervalDelegate1 = clone.intervalDelegate;
++        intervalDelegate1.setFixedIntervalWidth(getIntervalWidth());
++        intervalDelegate1.setAutoWidth(isAutoWidth());
++        intervalDelegate1.setIntervalPositionFactor(
+                 getIntervalPositionFactor());
+         clone.updateXPoints();
+         return clone;

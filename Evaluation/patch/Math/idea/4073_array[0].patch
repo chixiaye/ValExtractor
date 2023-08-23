@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+index 22d8a3d..cf9c3e9 100644
+--- a/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
++++ b/src/main/java/org/apache/commons/math3/transform/FastFourierTransformer.java
+@@ -540,7 +540,8 @@
+                  lastDimension instanceof Object[];) {
+                 final Object[] array = (Object[]) lastDimension;
+                 dimensionSize[numOfDimensions++] = array.length;
+-                lastDimension = array[0];
++                Object lastDimension1 = array[0];
++                lastDimension = lastDimension1;
+             }
+ 
+         }

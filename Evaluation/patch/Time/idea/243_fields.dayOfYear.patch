@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..6cf3426 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -565,7 +565,8 @@
+ 
+         {
+             long cutover = gregorian.year().roundCeiling(iCutoverMillis);
+-            fields.dayOfYear = new CutoverField(
++            DateTimeField dayOfYear = fields.dayOfYear;
++            dayOfYear = new CutoverField(
+                 julian.dayOfYear(), fields.dayOfYear, fields.years, cutover, false);
+         }
+ 

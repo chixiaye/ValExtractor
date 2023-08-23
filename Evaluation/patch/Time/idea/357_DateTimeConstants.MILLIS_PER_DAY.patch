@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicWeekOfWeekyearDateTimeField.java b/src/main/java/org/joda/time/chrono/BasicWeekOfWeekyearDateTimeField.java
+index 9fd946d..ca842c5 100644
+--- a/src/main/java/org/joda/time/chrono/BasicWeekOfWeekyearDateTimeField.java
++++ b/src/main/java/org/joda/time/chrono/BasicWeekOfWeekyearDateTimeField.java
+@@ -63,8 +63,9 @@
+     // apply a corrective alignment since weeks begin on day of week 1, Monday.
+ 
+     public long roundFloor(long instant) {
+-        return super.roundFloor(instant + 3 * DateTimeConstants.MILLIS_PER_DAY)
+-            - 3 * DateTimeConstants.MILLIS_PER_DAY;
++        int millisPerDay = DateTimeConstants.MILLIS_PER_DAY;
++        return super.roundFloor(instant + 3 * millisPerDay)
++            - 3 * millisPerDay;
+     }
+ 
+     public long roundCeiling(long instant) {

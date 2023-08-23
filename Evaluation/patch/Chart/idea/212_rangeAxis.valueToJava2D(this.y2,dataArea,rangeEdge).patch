@@ -1,0 +1,33 @@
+diff --git a/source/org/jfree/chart/annotations/XYLineAnnotation.java b/source/org/jfree/chart/annotations/XYLineAnnotation.java
+index a2884ea..0624446 100644
+--- a/source/org/jfree/chart/annotations/XYLineAnnotation.java
++++ b/source/org/jfree/chart/annotations/XYLineAnnotation.java
+@@ -174,6 +174,8 @@
+         float j2DX2 = 0.0f;
+         float j2DY1 = 0.0f;
+         float j2DY2 = 0.0f;
++        double v = rangeAxis.valueToJava2D(this.y2, dataArea,
++                rangeEdge);
+         if (orientation == PlotOrientation.VERTICAL) {
+             j2DX1 = (float) domainAxis.valueToJava2D(this.x1, dataArea,
+                     domainEdge);
+@@ -181,8 +183,7 @@
+                     rangeEdge);
+             j2DX2 = (float) domainAxis.valueToJava2D(this.x2, dataArea,
+                     domainEdge);
+-            j2DY2 = (float) rangeAxis.valueToJava2D(this.y2, dataArea,
+-                    rangeEdge);
++            j2DY2 = (float) v;
+         }
+         else if (orientation == PlotOrientation.HORIZONTAL) {
+             j2DY1 = (float) domainAxis.valueToJava2D(this.x1, dataArea,
+@@ -191,8 +192,7 @@
+                     rangeEdge);
+             j2DY2 = (float) domainAxis.valueToJava2D(this.x2, dataArea,
+                     domainEdge);
+-            j2DX2 = (float) rangeAxis.valueToJava2D(this.y2, dataArea,
+-                    rangeEdge);
++            j2DX2 = (float) v;
+         }
+         g2.setPaint(this.paint);
+         g2.setStroke(this.stroke);

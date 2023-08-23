@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/EquationsMapper.java b/src/main/java/org/apache/commons/math3/ode/EquationsMapper.java
+index a5289dc..a2524f1 100644
+--- a/src/main/java/org/apache/commons/math3/ode/EquationsMapper.java
++++ b/src/main/java/org/apache/commons/math3/ode/EquationsMapper.java
+@@ -89,8 +89,9 @@
+      */
+     public void insertEquationData(double[] equationData, double[] complete)
+         throws DimensionMismatchException {
+-        if (equationData.length != dimension) {
+-            throw new DimensionMismatchException(equationData.length, dimension);
++        int length = equationData.length;
++        if (length != dimension) {
++            throw new DimensionMismatchException(length, dimension);
+         }
+         System.arraycopy(equationData, 0, complete, firstIndex, dimension);
+     }

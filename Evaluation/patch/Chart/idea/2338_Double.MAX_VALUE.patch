@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/dial/DialValueIndicator.java b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+index ee99219..7df89c8 100644
+--- a/source/org/jfree/chart/plot/dial/DialValueIndicator.java
++++ b/source/org/jfree/chart/plot/dial/DialValueIndicator.java
+@@ -606,8 +606,9 @@
+         double minW = tb.getWidth();
+         double minH = tb.getHeight();
+ 
+-        double maxW = Double.MAX_VALUE;
+-        double maxH = Double.MAX_VALUE;
++        double maxValue = Double.MAX_VALUE;
++        double maxW = maxValue;
++        double maxH = maxValue;
+         if (this.maxTemplateValue != null) {
+             s = this.formatter.format(this.maxTemplateValue);
+             tb = TextUtilities.getTextBounds(s, g2, fm);

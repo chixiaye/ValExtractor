@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..7df79c1 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -344,7 +344,8 @@
+      * @return The current plot insets.
+      */
+     public RectangleInsets getPlotInsets() {
+-        if (this.plotInsets == null) {
++        RectangleInsets plotInsets1 = this.plotInsets;
++        if (plotInsets1 == null) {
+             this.plotInsets = new RectangleInsets(0.0, 0.0, 0.0, 0.0);
+         }
+         return this.plotInsets;

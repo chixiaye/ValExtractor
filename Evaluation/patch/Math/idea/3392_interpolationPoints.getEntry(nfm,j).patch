@@ -1,0 +1,22 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..1d5f71a 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1669,13 +1669,14 @@
+             // its index are required.
+ 
+             for (int j = 0; j < n; j++) {
++                double entry = interpolationPoints.getEntry(nfm, j);
+                 currentBest.setEntry(j, Math.min(Math.max(lowerBound[j],
+-                                                          originShift.getEntry(j) + interpolationPoints.getEntry(nfm, j)),
++                                                          originShift.getEntry(j) + entry),
+                                                  upperBound[j]));
+-                if (interpolationPoints.getEntry(nfm, j) == lowerDifference.getEntry(j)) {
++                if (entry == lowerDifference.getEntry(j)) {
+                     currentBest.setEntry(j, lowerBound[j]);
+                 }
+-                if (interpolationPoints.getEntry(nfm, j) == upperDifference.getEntry(j)) {
++                if (entry == upperDifference.getEntry(j)) {
+                     currentBest.setEntry(j, upperBound[j]);
+                 }
+             }

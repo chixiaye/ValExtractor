@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java b/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
+index e38600c..b041a53 100644
+--- a/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java
+@@ -58,12 +58,13 @@
+      * @throws NonSquareMatrixException if the matrix is not square
+      */
+     public HessenbergTransformer(final RealMatrix matrix) {
++        int rowDimension = matrix.getRowDimension();
+         if (!matrix.isSquare()) {
+-            throw new NonSquareMatrixException(matrix.getRowDimension(),
++            throw new NonSquareMatrixException(rowDimension,
+                     matrix.getColumnDimension());
+         }
+ 
+-        final int m = matrix.getRowDimension();
++        final int m = rowDimension;
+         householderVectors = matrix.getData();
+         ort = new double[m];
+         cachedP = null;

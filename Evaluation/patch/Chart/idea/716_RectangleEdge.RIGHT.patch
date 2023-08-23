@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..8a117e5 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -1116,11 +1116,12 @@
+         );
+ 
+         if (RectangleEdge.isTopOrBottom(edge)) {
++            RectangleEdge right = RectangleEdge.RIGHT;
+             if (isVerticalTickLabels()) {
+-                space.add(r.getHeight() / 2, RectangleEdge.RIGHT);
++                space.add(r.getHeight() / 2, right);
+             }
+             else {
+-                space.add(r.getWidth() / 2, RectangleEdge.RIGHT);
++                space.add(r.getWidth() / 2, right);
+             }
+         }
+         else if (RectangleEdge.isLeftOrRight(edge)) {

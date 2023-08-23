@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..6211acc 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -266,8 +266,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         RectangleAnchor result = null;
+-        if (this.equals(RectangleAnchor.CENTER)) {
+-            result = RectangleAnchor.CENTER;
++        RectangleAnchor center = RectangleAnchor.CENTER;
++        if (this.equals(center)) {
++            result = center;
+         }
+         else if (this.equals(RectangleAnchor.TOP)) {
+             result = RectangleAnchor.TOP;

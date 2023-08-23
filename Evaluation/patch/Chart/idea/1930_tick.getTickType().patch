@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..02a41ab 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -4118,13 +4118,14 @@
+         while (iterator.hasNext()) {
+             paintLine = false;
+             ValueTick tick = (ValueTick) iterator.next();
+-            if ((tick.getTickType() == TickType.MINOR)
++            TickType tickType = tick.getTickType();
++            if ((tickType == TickType.MINOR)
+                     && isRangeMinorGridlinesVisible()) {
+                 gridStroke = getRangeMinorGridlineStroke();
+                 gridPaint = getRangeMinorGridlinePaint();
+                 paintLine = true;
+             }
+-            else if ((tick.getTickType() == TickType.MAJOR)
++            else if ((tickType == TickType.MAJOR)
+                     && isRangeGridlinesVisible()) {
+                 gridStroke = getRangeGridlineStroke();
+                 gridPaint = getRangeGridlinePaint();

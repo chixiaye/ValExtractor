@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/KeyedObject.java b/source/org/jfree/data/KeyedObject.java
+index d880ec6..28a56cf 100644
+--- a/source/org/jfree/data/KeyedObject.java
++++ b/source/org/jfree/data/KeyedObject.java
+@@ -112,8 +112,9 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         KeyedObject clone = (KeyedObject) super.clone();
+-        if (this.object instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.object;
++        Object object1 = this.object;
++        if (object1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) object1;
+             clone.object = pc.clone();
+         }
+         return clone;

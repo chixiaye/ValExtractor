@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..8b2226f 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -825,13 +825,14 @@
+         if (Double.isNaN(value0) || Double.isNaN(value1)) {
+             return null;
+         }
++        Range range = rangeAxis.getRange();
+         if (value0 <= value1) {
+-            if (!rangeAxis.getRange().intersects(value0, value1)) {
++            if (!range.intersects(value0, value1)) {
+                 return null;
+             }
+         }
+         else {
+-            if (!rangeAxis.getRange().intersects(value1, value0)) {
++            if (!range.intersects(value1, value0)) {
+                 return null;
+             }
+         }

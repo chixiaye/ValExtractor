@@ -1,0 +1,54 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..55fb02f 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -1345,8 +1345,9 @@
+     if (type.getSubTypes() != null) {
+       for (FunctionType sub : type.getSubTypes()) {
+         ConcreteType concrete = createType(sub);
++        ConcreteInstanceType var_1085 = concrete.toFunction().getInstanceType();
+         if (concrete.isFunction()
+-            && concrete.toFunction().getInstanceType() != null) {
++            && var_1085 != null) {
+           concrete = concrete.toFunction().getInstanceType();
+           if (!set.contains(concrete)) {
+             set.add(concrete);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..382b3d4 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -1345,9 +1345,10 @@
+     if (type.getSubTypes() != null) {
+       for (FunctionType sub : type.getSubTypes()) {
+         ConcreteType concrete = createType(sub);
++        ConcreteInstanceType var_1085 = concrete.toFunction().getInstanceType();
+         if (concrete.isFunction()
+-            && concrete.toFunction().getInstanceType() != null) {
+-          concrete = concrete.toFunction().getInstanceType();
++            && var_1085 != null) {
++          concrete = var_1085;
+           if (!set.contains(concrete)) {
+             set.add(concrete);
+             if (!getSubTypes(sub, set)) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..a0b90cb 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -1345,9 +1345,10 @@
+     if (type.getSubTypes() != null) {
+       for (FunctionType sub : type.getSubTypes()) {
+         ConcreteType concrete = createType(sub);
++          ConcreteInstanceType instanceType = concrete.toFunction().getInstanceType();
+         if (concrete.isFunction()
+-            && concrete.toFunction().getInstanceType() != null) {
+-          concrete = concrete.toFunction().getInstanceType();
++            && instanceType != null) {
++          concrete = instanceType;
+           if (!set.contains(concrete)) {
+             set.add(concrete);
+             if (!getSubTypes(sub, set)) {

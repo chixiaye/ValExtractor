@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Reader.java b/src/com/google/javascript/jscomp/jsonml/Reader.java
+index 9b7e760..c667825 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Reader.java
++++ b/src/com/google/javascript/jscomp/jsonml/Reader.java
+@@ -812,8 +812,9 @@
+   }
+ 
+   private void transformEmptyStmt(JsonML element, Node parent) {
+-    Preconditions.checkState(
+-        parent.getType() == Token.BLOCK || parent.getType() == Token.SCRIPT);
++      int type = parent.getType();
++      Preconditions.checkState(
++        type == Token.BLOCK || type == Token.SCRIPT);
+     parent.addChildToBack(IR.empty());
+   }
+ 

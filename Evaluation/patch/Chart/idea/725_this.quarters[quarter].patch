@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/axis/QuarterDateFormat.java b/source/org/jfree/chart/axis/QuarterDateFormat.java
+index 1b7d1e1..49df7df 100644
+--- a/source/org/jfree/chart/axis/QuarterDateFormat.java
++++ b/source/org/jfree/chart/axis/QuarterDateFormat.java
+@@ -155,15 +155,16 @@
+         int year = this.calendar.get(Calendar.YEAR);
+         int month = this.calendar.get(Calendar.MONTH);
+         int quarter = month / 3;
++        String quarter1 = this.quarters[quarter];
+         if (this.quarterFirst) {
+-            toAppendTo.append(this.quarters[quarter]);
++            toAppendTo.append(quarter1);
+             toAppendTo.append(" ");
+             toAppendTo.append(year);
+         }
+         else {
+             toAppendTo.append(year);
+             toAppendTo.append(" ");
+-            toAppendTo.append(this.quarters[quarter]);
++            toAppendTo.append(quarter1);
+         }
+         return toAppendTo;
+     }

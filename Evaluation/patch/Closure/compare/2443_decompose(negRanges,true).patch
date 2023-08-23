@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..a9d2829 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1478,7 +1478,8 @@
+         if (negRanges.intersection(ieExplicits).isEmpty()) {
+           return decompose(ranges, false);
+         } else if (ranges.intersection(ieExplicits).isEmpty()) {
+-          return decompose(negRanges, true);
++          DecomposedCharset var_2443 = decompose(negRanges, true);
++		return var_2443;
+         }
+       }
+       DecomposedCharset positive = decompose(ranges, false);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..2b078ae 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1474,15 +1474,16 @@
+ 
+     DecomposedCharset decompose() {
+       CharRanges negRanges = CharRanges.ALL_CODE_UNITS.difference(ranges);
++      DecomposedCharset var_2443 = decompose(negRanges, true);
+       if (!ieExplicits.isEmpty()) {
+         if (negRanges.intersection(ieExplicits).isEmpty()) {
+           return decompose(ranges, false);
+         } else if (ranges.intersection(ieExplicits).isEmpty()) {
+-          return decompose(negRanges, true);
++          return var_2443;
+         }
+       }
+       DecomposedCharset positive = decompose(ranges, false);
+-      DecomposedCharset negative = decompose(negRanges, true);
++      DecomposedCharset negative = var_2443;
+       return positive.complexity() <= negative.complexity()
+           ? positive : negative;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..0ca4d10 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1474,15 +1474,16 @@
+ 
+     DecomposedCharset decompose() {
+       CharRanges negRanges = CharRanges.ALL_CODE_UNITS.difference(ranges);
++        DecomposedCharset decompose = decompose(negRanges, true);
+       if (!ieExplicits.isEmpty()) {
+         if (negRanges.intersection(ieExplicits).isEmpty()) {
+           return decompose(ranges, false);
+         } else if (ranges.intersection(ieExplicits).isEmpty()) {
+-          return decompose(negRanges, true);
++          return decompose;
+         }
+       }
+       DecomposedCharset positive = decompose(ranges, false);
+-      DecomposedCharset negative = decompose(negRanges, true);
++      DecomposedCharset negative = decompose;
+       return positive.complexity() <= negative.complexity()
+           ? positive : negative;
+     }

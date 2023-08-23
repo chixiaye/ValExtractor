@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..f4a2869 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -377,12 +377,13 @@
+   static String trimJsWhiteSpace(String s) {
+     int start = 0;
+     int end = s.length();
+-    while (end > 0
+-        && isStrWhiteSpaceChar(s.charAt(end - 1)) == TernaryValue.TRUE) {
++      TernaryValue aTrue = TernaryValue.TRUE;
++      while (end > 0
++        && isStrWhiteSpaceChar(s.charAt(end - 1)) == aTrue) {
+       end--;
+     }
+     while (start < end
+-        && isStrWhiteSpaceChar(s.charAt(start)) == TernaryValue.TRUE) {
++        && isStrWhiteSpaceChar(s.charAt(start)) == aTrue) {
+       start++;
+     }
+     return s.substring(start, end);

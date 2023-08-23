@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/IRFactory.java b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+index ff3284d..fccec76 100644
+--- a/src/com/google/javascript/jscomp/parsing/IRFactory.java
++++ b/src/com/google/javascript/jscomp/parsing/IRFactory.java
+@@ -987,8 +987,9 @@
+     @Override
+     Node processReturnStatement(ReturnStatement statementNode) {
+       Node node = newNode(Token.RETURN);
+-      if (statementNode.getReturnValue() != null) {
+-        node.addChildToBack(transform(statementNode.getReturnValue()));
++        AstNode returnValue = statementNode.getReturnValue();
++        if (returnValue != null) {
++        node.addChildToBack(transform(returnValue));
+       }
+       return node;
+     }

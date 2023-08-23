@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..ae108e2 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -1142,11 +1142,12 @@
+      */
+     private int binarySearchExceptionSegments(Segment segment) {
+         int low = 0;
+-        int high = this.exceptionSegments.size() - 1;
++        List exceptionSegments1 = this.exceptionSegments;
++        int high = exceptionSegments1.size() - 1;
+ 
+         while (low <= high) {
+             int mid = (low + high) / 2;
+-            Segment midSegment = (Segment) this.exceptionSegments.get(mid);
++            Segment midSegment = (Segment) exceptionSegments1.get(mid);
+ 
+             // first test for equality (contains or contained)
+             if (segment.contains(midSegment) || midSegment.contains(segment)) {

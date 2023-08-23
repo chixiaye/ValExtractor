@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..b300ace 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -781,12 +781,13 @@
+      */
+     private List<Action> createAssignmentActions(
+         Node lhs, Node rhs, Node parent) {
++      String var_1056 = lhs.getString();
+       switch (lhs.getType()) {
+         case Token.NAME:
+-          ConcreteSlot var = (ConcreteSlot) scope.getSlot(lhs.getString());
++          ConcreteSlot var = (ConcreteSlot) scope.getSlot(var_1056);
+           Preconditions.checkState(var != null,
+               "Type tightener could not find variable with name %s",
+-              lhs.getString());
++              var_1056);
+           return Lists.<Action>newArrayList(
+               new VariableAssignAction(var, rhs));
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..b300ace 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -781,12 +781,13 @@
+      */
+     private List<Action> createAssignmentActions(
+         Node lhs, Node rhs, Node parent) {
++      String var_1056 = lhs.getString();
+       switch (lhs.getType()) {
+         case Token.NAME:
+-          ConcreteSlot var = (ConcreteSlot) scope.getSlot(lhs.getString());
++          ConcreteSlot var = (ConcreteSlot) scope.getSlot(var_1056);
+           Preconditions.checkState(var != null,
+               "Type tightener could not find variable with name %s",
+-              lhs.getString());
++              var_1056);
+           return Lists.<Action>newArrayList(
+               new VariableAssignAction(var, rhs));
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..d0fc79f 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -783,10 +783,11 @@
+         Node lhs, Node rhs, Node parent) {
+       switch (lhs.getType()) {
+         case Token.NAME:
+-          ConcreteSlot var = (ConcreteSlot) scope.getSlot(lhs.getString());
++            String string = lhs.getString();
++            ConcreteSlot var = (ConcreteSlot) scope.getSlot(string);
+           Preconditions.checkState(var != null,
+               "Type tightener could not find variable with name %s",
+-              lhs.getString());
++                  string);
+           return Lists.<Action>newArrayList(
+               new VariableAssignAction(var, rhs));
+ 

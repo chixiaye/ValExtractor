@@ -1,0 +1,142 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+index c15e130..bd5617f 100644
+--- a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
++++ b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+@@ -42,6 +42,7 @@
+ 
+ package org.jfree.chart.util;
+ 
++import java.awt.Color;
+ import java.awt.GradientPaint;
+ import java.awt.Shape;
+ import java.awt.geom.Rectangle2D;
+@@ -104,15 +105,16 @@
+         GradientPaint result = paint;
+         Rectangle2D bounds = target.getBounds2D();
+ 
++        Color var_3722 = paint.getColor1();
+         if (this.type.equals(GradientPaintTransformType.VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), var_3722,
+                     (float) bounds.getCenterX(), (float) bounds.getMaxY(),
+                     paint.getColor2());
+         }
+         else if (this.type.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = new GradientPaint((float) bounds.getMinX(),
+-                    (float) bounds.getCenterY(), paint.getColor1(),
++                    (float) bounds.getCenterY(), var_3722,
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+                     paint.getColor2());
+         }
+@@ -121,11 +123,11 @@
+             result = new GradientPaint((float) bounds.getCenterX(),
+                     (float) bounds.getCenterY(), paint.getColor2(),
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+-                    paint.getColor1(), true);
++                    var_3722, true);
+         }
+         else if (this.type.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), var_3722,
+                     (float) bounds.getCenterX(), (float) bounds.getCenterY(),
+                     paint.getColor2(), true);
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+index c15e130..bd5617f 100644
+--- a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
++++ b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+@@ -42,6 +42,7 @@
+ 
+ package org.jfree.chart.util;
+ 
++import java.awt.Color;
+ import java.awt.GradientPaint;
+ import java.awt.Shape;
+ import java.awt.geom.Rectangle2D;
+@@ -104,15 +105,16 @@
+         GradientPaint result = paint;
+         Rectangle2D bounds = target.getBounds2D();
+ 
++        Color var_3722 = paint.getColor1();
+         if (this.type.equals(GradientPaintTransformType.VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), var_3722,
+                     (float) bounds.getCenterX(), (float) bounds.getMaxY(),
+                     paint.getColor2());
+         }
+         else if (this.type.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = new GradientPaint((float) bounds.getMinX(),
+-                    (float) bounds.getCenterY(), paint.getColor1(),
++                    (float) bounds.getCenterY(), var_3722,
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+                     paint.getColor2());
+         }
+@@ -121,11 +123,11 @@
+             result = new GradientPaint((float) bounds.getCenterX(),
+                     (float) bounds.getCenterY(), paint.getColor2(),
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+-                    paint.getColor1(), true);
++                    var_3722, true);
+         }
+         else if (this.type.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), var_3722,
+                     (float) bounds.getCenterX(), (float) bounds.getCenterY(),
+                     paint.getColor2(), true);
+         }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+index c15e130..f1856b9 100644
+--- a/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
++++ b/source/org/jfree/chart/util/StandardGradientPaintTransformer.java
+@@ -42,8 +42,7 @@
+ 
+ package org.jfree.chart.util;
+ 
+-import java.awt.GradientPaint;
+-import java.awt.Shape;
++import java.awt.*;
+ import java.awt.geom.Rectangle2D;
+ import java.io.Serializable;
+ 
+@@ -104,15 +103,16 @@
+         GradientPaint result = paint;
+         Rectangle2D bounds = target.getBounds2D();
+ 
++        Color color1 = paint.getColor1();
+         if (this.type.equals(GradientPaintTransformType.VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), color1,
+                     (float) bounds.getCenterX(), (float) bounds.getMaxY(),
+                     paint.getColor2());
+         }
+         else if (this.type.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = new GradientPaint((float) bounds.getMinX(),
+-                    (float) bounds.getCenterY(), paint.getColor1(),
++                    (float) bounds.getCenterY(), color1,
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+                     paint.getColor2());
+         }
+@@ -121,11 +121,11 @@
+             result = new GradientPaint((float) bounds.getCenterX(),
+                     (float) bounds.getCenterY(), paint.getColor2(),
+                     (float) bounds.getMaxX(), (float) bounds.getCenterY(),
+-                    paint.getColor1(), true);
++                    color1, true);
+         }
+         else if (this.type.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = new GradientPaint((float) bounds.getCenterX(),
+-                    (float) bounds.getMinY(), paint.getColor1(),
++                    (float) bounds.getMinY(), color1,
+                     (float) bounds.getCenterX(), (float) bounds.getCenterY(),
+                     paint.getColor2(), true);
+         }

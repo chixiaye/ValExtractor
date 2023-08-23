@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/NodeIterators.java b/src/com/google/javascript/jscomp/NodeIterators.java
+index e6b5d04..7f2842b 100644
+--- a/src/com/google/javascript/jscomp/NodeIterators.java
++++ b/src/com/google/javascript/jscomp/NodeIterators.java
+@@ -78,16 +78,16 @@
+         }
+       } else {
+         current = current.getNext();
+-        ancestors.push(current);
++          Node push = ancestors.push(current);
+ 
+-        // If this is a function node, skip it.
++          // If this is a function node, skip it.
+         if (current.isFunction()) {
+           return next();
+         }
+ 
+         while (current.hasChildren()) {
+           current = current.getFirstChild();
+-          ancestors.push(current);
++          push;
+ 
+           // If this is a function node, skip it.
+           if (current.isFunction()) {

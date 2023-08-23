@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Conversion.java b/src/main/java/org/apache/commons/lang3/Conversion.java
+index 91131ad..d12e2d5 100644
+--- a/src/main/java/org/apache/commons/lang3/Conversion.java
++++ b/src/main/java/org/apache/commons/lang3/Conversion.java
+@@ -301,8 +301,9 @@
+         if (src.length == 0) {
+             throw new IllegalArgumentException("Cannot convert an empty array.");
+         }
++        boolean b = src[srcPos + 2];
+         if (src.length > srcPos + 3 && src[srcPos + 3]) {
+-            if (src.length > srcPos + 2 && src[srcPos + 2]) {
++            if (src.length > srcPos + 2 && b) {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+                     if (src[srcPos]) {
+                         return 'f';
+@@ -332,7 +333,7 @@
+                 }
+             }
+         } else {
+-            if (src.length > srcPos + 2 && src[srcPos + 2]) {
++            if (src.length > srcPos + 2 && b) {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+                     if (src[srcPos]) {
+                         return '7';

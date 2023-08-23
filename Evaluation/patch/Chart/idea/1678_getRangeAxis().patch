@@ -1,0 +1,35 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..cc77859 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3267,6 +3267,7 @@
+ 
+         crosshairState.setAnchorX(Double.NaN);
+         crosshairState.setAnchorY(Double.NaN);
++        ValueAxis rangeAxis1 = getRangeAxis();
+         if (anchor != null) {
+             ValueAxis domainAxis = getDomainAxis();
+             if (domainAxis != null) {
+@@ -3281,7 +3282,7 @@
+                 }
+                 crosshairState.setAnchorX(x);
+             }
+-            ValueAxis rangeAxis = getRangeAxis();
++            ValueAxis rangeAxis = rangeAxis1;
+             if (rangeAxis != null) {
+                 double y;
+                 if (orient == PlotOrientation.VERTICAL) {
+@@ -3313,11 +3314,11 @@
+             }
+         }
+ 
+-        AxisState rangeAxisState = (AxisState) axisStateMap.get(getRangeAxis());
++        AxisState rangeAxisState = (AxisState) axisStateMap.get(rangeAxis1);
+         if (rangeAxisState == null) {
+             if (parentState != null) {
+                 rangeAxisState = (AxisState) parentState.getSharedAxisStates()
+-                        .get(getRangeAxis());
++                        .get(rangeAxis1);
+             }
+         }
+         if (domainAxisState != null) {

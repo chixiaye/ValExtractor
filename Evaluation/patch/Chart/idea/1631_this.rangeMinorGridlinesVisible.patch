@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..1091026 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2113,7 +2113,8 @@
+      * @since 1.0.12
+      */
+     public void setRangeMinorGridlinesVisible(boolean visible) {
+-        if (this.rangeMinorGridlinesVisible != visible) {
++        boolean rangeMinorGridlinesVisible1 = this.rangeMinorGridlinesVisible;
++        if (rangeMinorGridlinesVisible1 != visible) {
+             this.rangeMinorGridlinesVisible = visible;
+             fireChangeEvent();
+         }

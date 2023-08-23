@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..9a1290c 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -273,7 +273,8 @@
+       Map<String, String> varmap = Maps.newLinkedHashMap();
+ 
+       for (Reference ref : referenceInfo.references) {
+-        if (ref.isLvalue() || ref.isInitializingDeclaration()) {
++          String s = safeNameIdSupplier.get();
++          if (ref.isLvalue() || ref.isInitializingDeclaration()) {
+           Node val = ref.getAssignedValue();
+           if (val != null) {
+             Preconditions.checkState(val.isObjectLit());
+@@ -285,7 +286,7 @@
+               }
+ 
+               String var = VAR_PREFIX + varname + "_" +
+-                safeNameIdSupplier.get();
++                      s;
+               varmap.put(varname, var);
+             }
+           }
+@@ -301,7 +302,7 @@
+             continue;
+           }
+ 
+-          String var = VAR_PREFIX + varname + "_" + safeNameIdSupplier.get();
++          String var = VAR_PREFIX + varname + "_" + s;
+           varmap.put(varname, var);
+         }
+       }

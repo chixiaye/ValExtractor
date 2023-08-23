@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..401c935 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3392,12 +3392,13 @@
+      * registered listeners.
+      */
+     public void clearAnnotations() {
+-        for(int i = 0; i < this.annotations.size(); i++) {
++        List annotations1 = this.annotations;
++        for(int i = 0; i < annotations1.size(); i++) {
+             CategoryAnnotation annotation
+-                    = (CategoryAnnotation) this.annotations.get(i);
++                    = (CategoryAnnotation) annotations1.get(i);
+             annotation.removeChangeListener(this);
+         }
+-        this.annotations.clear();
++        annotations1.clear();
+         fireChangeEvent();
+     }
+ 

@@ -1,0 +1,34 @@
+diff --git a/source/org/jfree/chart/renderer/category/ScatterRenderer.java b/source/org/jfree/chart/renderer/category/ScatterRenderer.java
+index 36218bf..3bf3e29 100644
+--- a/source/org/jfree/chart/renderer/category/ScatterRenderer.java
++++ b/source/org/jfree/chart/renderer/category/ScatterRenderer.java
+@@ -63,10 +63,7 @@
+ import org.jfree.chart.event.RendererChangeEvent;
+ import org.jfree.chart.plot.CategoryPlot;
+ import org.jfree.chart.plot.PlotOrientation;
+-import org.jfree.chart.util.BooleanList;
+-import org.jfree.chart.util.ObjectUtilities;
+-import org.jfree.chart.util.PublicCloneable;
+-import org.jfree.chart.util.ShapeUtilities;
++import org.jfree.chart.util.*;
+ import org.jfree.data.Range;
+ import org.jfree.data.category.CategoryDataset;
+ import org.jfree.data.statistics.MultiValueCategoryDataset;
+@@ -409,14 +406,15 @@
+         for (int i = 0; i < valueCount; i++) {
+             // current data point...
+             double x1;
++            RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+             if (this.useSeriesOffset) {
+                 x1 = domainAxis.getCategorySeriesMiddle(column,
+                         dataset.getColumnCount(), visibleRow, visibleRowCount,
+-                        this.itemMargin, dataArea, plot.getDomainAxisEdge());
++                        this.itemMargin, dataArea, domainAxisEdge);
+             }
+             else {
+                 x1 = domainAxis.getCategoryMiddle(column, getColumnCount(),
+-                        dataArea, plot.getDomainAxisEdge());
++                        dataArea, domainAxisEdge);
+             }
+             Number n = (Number) values.get(i);
+             double value = n.doubleValue();

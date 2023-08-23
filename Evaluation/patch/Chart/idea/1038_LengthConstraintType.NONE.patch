@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/block/RectangleConstraint.java b/source/org/jfree/chart/block/RectangleConstraint.java
+index 1d2baa9..e6b1c82 100644
+--- a/source/org/jfree/chart/block/RectangleConstraint.java
++++ b/source/org/jfree/chart/block/RectangleConstraint.java
+@@ -213,12 +213,13 @@
+      * @return A new constraint.
+      */
+     public RectangleConstraint toUnconstrainedWidth() {
+-        if (this.widthConstraintType == LengthConstraintType.NONE) {
++        LengthConstraintType none = LengthConstraintType.NONE;
++        if (this.widthConstraintType == none) {
+             return this;
+         }
+         else {
+             return new RectangleConstraint(this.width, this.widthRange,
+-                    LengthConstraintType.NONE, this.height, this.heightRange,
++                    none, this.height, this.heightRange,
+                     this.heightConstraintType);
+         }
+     }

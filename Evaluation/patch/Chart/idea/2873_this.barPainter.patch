@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+index 679cc20..2b22eec 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBarRenderer.java
+@@ -957,11 +957,12 @@
+                 barBase = RectangleEdge.TOP;
+             }
+         }
++        XYBarPainter barPainter1 = this.barPainter;
+         if (getShadowsVisible()) {
+-            this.barPainter.paintBarShadow(g2, this, series, item, selected, 
++            barPainter1.paintBarShadow(g2, this, series, item, selected, 
+                     bar, barBase, !this.useYInterval);
+         }
+-        this.barPainter.paintBar(g2, this, series, item, selected, bar,
++        barPainter1.paintBar(g2, this, series, item, selected, bar,
+                 barBase);
+ 
+         if (isItemLabelVisible(series, item, selected)) {

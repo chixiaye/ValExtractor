@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..da6d40c 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -996,13 +996,14 @@
+      * to all registered listeners.
+      */
+     public void clearDomainAxes() {
+-        for (int i = 0; i < this.domainAxes.size(); i++) {
+-            CategoryAxis axis = (CategoryAxis) this.domainAxes.get(i);
++        ObjectList domainAxes1 = this.domainAxes;
++        for (int i = 0; i < domainAxes1.size(); i++) {
++            CategoryAxis axis = (CategoryAxis) domainAxes1.get(i);
+             if (axis != null) {
+                 axis.removeChangeListener(this);
+             }
+         }
+-        this.domainAxes.clear();
++        domainAxes1.clear();
+         fireChangeEvent();
+     }
+ 

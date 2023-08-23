@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessTweaks.java b/src/com/google/javascript/jscomp/ProcessTweaks.java
+index e20b902..8dd54e5 100644
+--- a/src/com/google/javascript/jscomp/ProcessTweaks.java
++++ b/src/com/google/javascript/jscomp/ProcessTweaks.java
+@@ -204,12 +204,13 @@
+   @Override
+   public void process(Node externs, Node root) {
+     CollectTweaksResult result = collectTweaks(root);
+-    applyCompilerDefaultValueOverrides(result.tweakInfos);
++      Map<String, TweakInfo> tweakInfos = result.tweakInfos;
++      applyCompilerDefaultValueOverrides(tweakInfos);
+ 
+     boolean changed = false;
+ 
+     if (stripTweaks) {
+-      changed = stripAllCalls(result.tweakInfos);
++      changed = stripAllCalls(tweakInfos);
+     } else if (!compilerDefaultValueOverrides.isEmpty()) {
+       changed = replaceGetCompilerOverridesCalls(result.getOverridesCalls);
+     }

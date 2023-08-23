@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+index f8750ca..07a1dd8 100644
+--- a/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
++++ b/src/com/google/javascript/jscomp/LightweightMessageFormatter.java
+@@ -165,11 +165,12 @@
+         builder.append("| ");
+ 
+         // end & update
+-        if (end < 0) {
+-          builder.append(line);
++          StringBuilder append = builder.append(line);
++          if (end < 0) {
++          append;
+           start = -1;
+         } else {
+-          builder.append(line);
++          append;
+           builder.append('\n');
+           start = end + 1;
+           end = code.indexOf('\n', start);

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/block/BorderArrangement.java b/source/org/jfree/chart/block/BorderArrangement.java
+index b3ae54b..0099cb7 100644
+--- a/source/org/jfree/chart/block/BorderArrangement.java
++++ b/source/org/jfree/chart/block/BorderArrangement.java
+@@ -371,7 +371,8 @@
+             h[3] = size.height;
+         }
+ 
+-        h[2] = Math.max(h[2], h[3]);
++        double v = h[2];
++        v = Math.max(h[2], h[3]);
+         h[3] = h[2];
+         Range widthRange3 = Range.shift(widthRange, -(w[2] + w[3]), false);
+         if (this.centerBlock != null) {

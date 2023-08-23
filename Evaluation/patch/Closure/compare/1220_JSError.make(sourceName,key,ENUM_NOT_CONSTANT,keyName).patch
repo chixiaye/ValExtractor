@@ -1,0 +1,62 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..50fef26 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1028,8 +1028,9 @@
+             String keyName = NodeUtil.getStringValue(key);
+             if (keyName == null) {
+               // GET and SET don't have a String value;
++              JSError var_1220 = JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName);
+               compiler.report(
+-                  JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
++                  var_1220);
+             } else if (!codingConvention.isValidEnumKey(keyName)) {
+               compiler.report(
+                   JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..a60e763 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1026,13 +1026,14 @@
+           Node key = rValue.getFirstChild();
+           while (key != null) {
+             String keyName = NodeUtil.getStringValue(key);
++            JSError var_1220 = JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName);
+             if (keyName == null) {
+               // GET and SET don't have a String value;
+               compiler.report(
+-                  JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
++                  var_1220);
+             } else if (!codingConvention.isValidEnumKey(keyName)) {
+               compiler.report(
+-                  JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
++                  var_1220);
+             } else {
+               enumType.defineElement(keyName, key);
+             }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..aea7317 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1026,13 +1026,14 @@
+           Node key = rValue.getFirstChild();
+           while (key != null) {
+             String keyName = NodeUtil.getStringValue(key);
++              JSError make = JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName);
+             if (keyName == null) {
+               // GET and SET don't have a String value;
+               compiler.report(
+-                  JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
++                      make);
+             } else if (!codingConvention.isValidEnumKey(keyName)) {
+               compiler.report(
+-                  JSError.make(sourceName, key, ENUM_NOT_CONSTANT, keyName));
++                      make);
+             } else {
+               enumType.defineElement(keyName, key);
+             }

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/time/TimeSeriesCollection.java b/source/org/jfree/data/time/TimeSeriesCollection.java
+index f76f9b9..5e6769a 100644
+--- a/source/org/jfree/data/time/TimeSeriesCollection.java
++++ b/source/org/jfree/data/time/TimeSeriesCollection.java
+@@ -182,6 +182,7 @@
+             zone = TimeZone.getDefault();
+         }
+         this.workingCalendar = Calendar.getInstance(zone);
++        List data1 = this.data;
+         this.data = new ArrayList();
+         if (series != null) {
+             this.data.add(series);

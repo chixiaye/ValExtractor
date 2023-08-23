@@ -1,0 +1,23 @@
+diff --git a/src/org/mockito/internal/exceptions/stacktrace/StackTraceFilter.java b/src/org/mockito/internal/exceptions/stacktrace/StackTraceFilter.java
+index cd462dc..015c2f2 100644
+--- a/src/org/mockito/internal/exceptions/stacktrace/StackTraceFilter.java
++++ b/src/org/mockito/internal/exceptions/stacktrace/StackTraceFilter.java
+@@ -32,7 +32,8 @@
+         
+         int lastBad = -1;
+         int firstBad = -1;
+-        for (int i = 0; i < unfilteredStackTrace.size(); i++) {
++        int size = unfilteredStackTrace.size();
++        for (int i = 0; i < size; i++) {
+             if (!CLEANER.isOut(unfilteredStackTrace.get(i))) {
+                 continue;
+             }
+@@ -49,7 +50,7 @@
+             top = new LinkedList<StackTraceElement>();
+         }
+         
+-        List<StackTraceElement> bottom = unfilteredStackTrace.subList(lastBad + 1, unfilteredStackTrace.size());
++        List<StackTraceElement> bottom = unfilteredStackTrace.subList(lastBad + 1, size);
+         List<StackTraceElement> filtered = new ArrayList<StackTraceElement>(top);
+         filtered.addAll(bottom);
+         return filtered.toArray(new StackTraceElement[]{});

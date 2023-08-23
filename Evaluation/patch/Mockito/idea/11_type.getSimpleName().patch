@@ -1,0 +1,28 @@
+diff --git a/src/org/mockito/internal/configuration/SpyAnnotationEngine.java b/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
+index aef8ceb..c7b9f4e 100644
+--- a/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
++++ b/src/org/mockito/internal/configuration/SpyAnnotationEngine.java
+@@ -89,12 +89,13 @@
+         if (type.isInterface()) {
+             return Mockito.mock(type, settings.useConstructor());
+         }
++        String simpleName = type.getSimpleName();
+         if (!Modifier.isStatic(type.getModifiers())) {
+             Class<?> enclosing = type.getEnclosingClass();
+             if (enclosing != null) {
+                 if (!enclosing.isInstance(testInstance)) {
+                     throw new MockitoException("@Spy annotation can only initialize inner classes declared in the test. "
+-                            + "Inner class: '" + type.getSimpleName() + "', "
++                            + "Inner class: '" + simpleName + "', "
+                             + "outer class: '" + enclosing.getSimpleName() + "'.");
+                 }
+                 return Mockito.mock(type, settings
+@@ -106,7 +107,7 @@
+         try {
+             constructor = type.getDeclaredConstructor();
+         } catch (NoSuchMethodException e) {
+-            throw new MockitoException("Please ensure that the type '" + type.getSimpleName() + "' has 0-arg constructor.");
++            throw new MockitoException("Please ensure that the type '" + simpleName + "' has 0-arg constructor.");
+         }
+ 
+         if (Modifier.isPrivate(constructor.getModifiers())) {

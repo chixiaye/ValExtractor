@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Range.java b/src/main/java/org/apache/commons/lang3/Range.java
+index 7a86558..26eb1d3 100644
+--- a/src/main/java/org/apache/commons/lang3/Range.java
++++ b/src/main/java/org/apache/commons/lang3/Range.java
+@@ -386,7 +386,8 @@
+         if (this.equals(other)) {
+             return this;
+         }
+-        final T min = getComparator().compare(minimum, other.minimum) < 0 ? other.minimum : minimum;
++        T minimum1 = other.minimum;
++        final T min = getComparator().compare(minimum, minimum1) < 0 ? minimum1 : minimum;
+         final T max = getComparator().compare(maximum, other.maximum) < 0 ? maximum : other.maximum;
+         return between(min, max, getComparator());
+     }

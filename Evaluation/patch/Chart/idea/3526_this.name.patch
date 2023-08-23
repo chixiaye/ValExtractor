@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ui/Library.java b/source/org/jfree/chart/ui/Library.java
+index d2b231e..880fdde 100644
+--- a/source/org/jfree/chart/ui/Library.java
++++ b/source/org/jfree/chart/ui/Library.java
+@@ -172,7 +172,8 @@
+ 
+         Library library = (Library) obj;
+ 
+-        if (this.name != null ? !this.name.equals(library.name)
++        String name1 = this.name;
++        if (name1 != null ? !name1.equals(library.name)
+               : library.name != null) {
+             return false;
+         }

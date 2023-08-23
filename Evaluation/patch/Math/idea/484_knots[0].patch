@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialSplineFunction.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialSplineFunction.java
+index 48d683e..504fc5c 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialSplineFunction.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialSplineFunction.java
+@@ -134,8 +134,9 @@
+      * largest knot point).
+      */
+     public double value(double v) {
+-        if (v < knots[0] || v > knots[n]) {
+-            throw new OutOfRangeException(v, knots[0], knots[n]);
++        double knot = knots[0];
++        if (v < knot || v > knots[n]) {
++            throw new OutOfRangeException(v, knot, knots[n]);
+         }
+         int i = Arrays.binarySearch(knots, v);
+         if (i < 0) {

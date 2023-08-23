@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/chrono/BasicDayOfMonthDateTimeField.java b/src/main/java/org/joda/time/chrono/BasicDayOfMonthDateTimeField.java
+index 29a1e4e..a870fdf 100644
+--- a/src/main/java/org/joda/time/chrono/BasicDayOfMonthDateTimeField.java
++++ b/src/main/java/org/joda/time/chrono/BasicDayOfMonthDateTimeField.java
+@@ -67,8 +67,9 @@
+     public int getMaximumValue(ReadablePartial partial) {
+         if (partial.isSupported(DateTimeFieldType.monthOfYear())) {
+             int month = partial.get(DateTimeFieldType.monthOfYear());
+-            if (partial.isSupported(DateTimeFieldType.year())) {
+-                int year = partial.get(DateTimeFieldType.year());
++            DateTimeFieldType year1 = DateTimeFieldType.year();
++            if (partial.isSupported(year1)) {
++                int year = partial.get(year1);
+                 return iChronology.getDaysInYearMonth(year, month);
+             }
+             return iChronology.getDaysInMonthMax(month);

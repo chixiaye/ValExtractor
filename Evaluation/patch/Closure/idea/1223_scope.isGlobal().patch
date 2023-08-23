@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..9fa4ea5 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -1107,7 +1107,8 @@
+         JSType type, boolean inferred) {
+       Preconditions.checkArgument(!variableName.isEmpty());
+ 
+-      boolean isGlobalVar = n.isName() && scope.isGlobal();
++        boolean global = scope.isGlobal();
++        boolean isGlobalVar = n.isName() && global;
+       boolean shouldDeclareOnGlobalThis =
+           isGlobalVar &&
+           (parent.isVar() ||
+@@ -1117,7 +1118,7 @@
+       // scope where the root object appears. This helps out people
+       // who declare "global" names in an anonymous namespace.
+       Scope scopeToDeclareIn = scope;
+-      if (n.isGetProp() && !scope.isGlobal() &&
++      if (n.isGetProp() && !global &&
+           isQnameRootedInGlobalScope(n)) {
+         Scope globalScope = scope.getGlobalScope();
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+index 420a59d..cca4610 100644
+--- a/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultNumberAxisEditor.java
+@@ -120,6 +120,7 @@
+ 
+         super(axis);
+ 
++        boolean autoRange1 = this.autoRange;
+         this.autoRange = axis.isAutoRange();
+         this.minimumValue = axis.getLowerBound();
+         this.maximumValue = axis.getUpperBound();

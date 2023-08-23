@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..363165d 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -361,7 +361,8 @@
+      * @see #isVisible()
+      */
+     public void setVisible(boolean flag) {
+-        if (flag != this.visible) {
++        boolean visible1 = this.visible;
++        if (flag != visible1) {
+             this.visible = flag;
+             fireChangeEvent();
+         }

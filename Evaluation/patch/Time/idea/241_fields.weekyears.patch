@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/joda/time/chrono/GJChronology.java b/src/main/java/org/joda/time/chrono/GJChronology.java
+index 1cc03a4..e13bc13 100644
+--- a/src/main/java/org/joda/time/chrono/GJChronology.java
++++ b/src/main/java/org/joda/time/chrono/GJChronology.java
+@@ -533,6 +533,7 @@
+         // These fields are special because they have imprecise durations. The
+         // family of addition methods need special attention. Override affected
+         // duration fields as well.
++        DurationField weekyears = fields.weekyears;
+         {
+             fields.year = new ImpreciseCutoverField(
+                 julian.year(), fields.year, iCutoverMillis);
+@@ -555,7 +556,7 @@
+                 julian.weekyear(), fields.weekyear, null, iCutoverMillis, true);
+             fields.weekyears = fields.weekyear.getDurationField();
+             fields.weekyearOfCentury = new ImpreciseCutoverField(
+-                julian.weekyearOfCentury(), fields.weekyearOfCentury, fields.weekyears, fields.centuries, iCutoverMillis);
++                julian.weekyearOfCentury(), fields.weekyearOfCentury, weekyears, fields.centuries, iCutoverMillis);
+         }
+ 
+         // DayOfYear and weekOfWeekyear require special handling since cutover
+@@ -572,7 +573,7 @@
+         {
+             long cutover = gregorian.weekyear().roundCeiling(iCutoverMillis);
+             fields.weekOfWeekyear = new CutoverField(
+-                julian.weekOfWeekyear(), fields.weekOfWeekyear, fields.weekyears, cutover, true);
++                julian.weekOfWeekyear(), fields.weekOfWeekyear, weekyears, cutover, true);
+         }
+ 
+         // These fields require basic cutover support, except they must link to

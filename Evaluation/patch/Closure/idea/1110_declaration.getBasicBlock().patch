@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/InlineVariables.java b/src/com/google/javascript/jscomp/InlineVariables.java
+index 5c7408d..f117a0f 100644
+--- a/src/com/google/javascript/jscomp/InlineVariables.java
++++ b/src/com/google/javascript/jscomp/InlineVariables.java
+@@ -536,8 +536,9 @@
+ 
+       // Be very conservative and do no cross control structures or
+       // scope boundaries
+-      if (declaration.getBasicBlock() != initialization.getBasicBlock()
+-          || declaration.getBasicBlock() != reference.getBasicBlock()) {
++        ReferenceCollectingCallback.BasicBlock basicBlock = declaration.getBasicBlock();
++        if (basicBlock != initialization.getBasicBlock()
++          || basicBlock != reference.getBasicBlock()) {
+         return false;
+       }
+ 

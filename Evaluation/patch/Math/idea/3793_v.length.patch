@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/VectorialMean.java b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/VectorialMean.java
+index deb9116..7e9a1fd 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/moment/VectorialMean.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/moment/VectorialMean.java
+@@ -50,10 +50,11 @@
+      * @throws DimensionMismatchException if the vector does not have the right dimension
+      */
+     public void increment(double[] v) throws DimensionMismatchException {
+-        if (v.length != means.length) {
+-            throw new DimensionMismatchException(v.length, means.length);
++        int length = v.length;
++        if (length != means.length) {
++            throw new DimensionMismatchException(length, means.length);
+         }
+-        for (int i = 0; i < v.length; ++i) {
++        for (int i = 0; i < length; ++i) {
+             means[i].increment(v[i]);
+         }
+     }

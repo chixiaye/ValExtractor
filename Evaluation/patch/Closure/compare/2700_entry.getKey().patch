@@ -1,0 +1,52 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/testing/MapBasedScope.java b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+index 1bc791f..bcb5603 100644
+--- a/src/com/google/javascript/rhino/testing/MapBasedScope.java
++++ b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+@@ -55,8 +55,9 @@
+ 
+   public MapBasedScope(Map<String, ? extends JSType> namesToTypes) {
+     for (Map.Entry<String, ? extends JSType> entry : namesToTypes.entrySet()) {
++      String var_2700 = entry.getKey();
+       slots.put(
+-          entry.getKey(),
++          var_2700,
+           new SimpleSlot(entry.getKey(), entry.getValue(), false));
+     }
+   }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/testing/MapBasedScope.java b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+index 1bc791f..bcb5603 100644
+--- a/src/com/google/javascript/rhino/testing/MapBasedScope.java
++++ b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+@@ -55,8 +55,9 @@
+ 
+   public MapBasedScope(Map<String, ? extends JSType> namesToTypes) {
+     for (Map.Entry<String, ? extends JSType> entry : namesToTypes.entrySet()) {
++      String var_2700 = entry.getKey();
+       slots.put(
+-          entry.getKey(),
++          var_2700,
+           new SimpleSlot(entry.getKey(), entry.getValue(), false));
+     }
+   }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/testing/MapBasedScope.java b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+index 1bc791f..10c58b1 100644
+--- a/src/com/google/javascript/rhino/testing/MapBasedScope.java
++++ b/src/com/google/javascript/rhino/testing/MapBasedScope.java
+@@ -55,9 +55,10 @@
+ 
+   public MapBasedScope(Map<String, ? extends JSType> namesToTypes) {
+     for (Map.Entry<String, ? extends JSType> entry : namesToTypes.entrySet()) {
++        String key = entry.getKey();
+       slots.put(
+-          entry.getKey(),
+-          new SimpleSlot(entry.getKey(), entry.getValue(), false));
++                key,
++          new SimpleSlot(key, entry.getValue(), false));
+     }
+   }
+ 

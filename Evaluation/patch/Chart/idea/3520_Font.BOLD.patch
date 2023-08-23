@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/ui/FontChooserPanel.java b/source/org/jfree/chart/ui/FontChooserPanel.java
+index 061a429..d3c80e0 100644
+--- a/source/org/jfree/chart/ui/FontChooserPanel.java
++++ b/source/org/jfree/chart/ui/FontChooserPanel.java
+@@ -162,11 +162,12 @@
+      * @return the style.
+      */
+     public int getSelectedStyle() {
++        int bold1 = Font.BOLD;
+         if (this.bold.isSelected() && this.italic.isSelected()) {
+-            return Font.BOLD + Font.ITALIC;
++            return bold1 + Font.ITALIC;
+         }
+         if (this.bold.isSelected()) {
+-            return Font.BOLD;
++            return bold1;
+         }
+         if (this.italic.isSelected()) {
+             return Font.ITALIC;

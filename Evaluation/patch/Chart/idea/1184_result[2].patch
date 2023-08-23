@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java b/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
+index 7c67045..2e2d827 100644
+--- a/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
++++ b/source/org/jfree/chart/labels/IntervalCategoryToolTipGenerator.java
+@@ -110,7 +110,8 @@
+         result[1] = dataset.getColumnKey(column).toString();
+         Number value = dataset.getValue(row, column);
+         if (getNumberFormat() != null) {
+-            result[2] = getNumberFormat().format(value);
++            Object o = result[2];
++            o = getNumberFormat().format(value);
+         }
+         else if (getDateFormat() != null) {
+             result[2] = getDateFormat().format(value);

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+index fb9b5c2..6def13e 100644
+--- a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
++++ b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+@@ -191,7 +191,8 @@
+             // no stubs to remove. This will happen if node is an object
+             // literal key.
+             if (qualifiedName != null) {
+-              for (Definition prevDef : nameDefinitionMultimap.get(name)) {
++                Collection<Definition> definitions = nameDefinitionMultimap.get(name);
++                for (Definition prevDef : definitions) {
+                 if (prevDef instanceof ExternalNameOnlyDefinition
+                     && !jsdocContainsDeclarations(node)) {
+                   String prevName = prevDef.getLValue().getQualifiedName();

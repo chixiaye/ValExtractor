@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..643ad62 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -891,13 +891,14 @@
+         if ((range >= 0) && (range < this.subrangeInfo.length)
+             && isValidNumber(high) && isValidNumber(low)) {
+ 
++            double[] doubles = this.subrangeInfo[range];
+             if (high > low) {
+-                this.subrangeInfo[range][DISPLAY_HIGH] = high;
+-                this.subrangeInfo[range][DISPLAY_LOW] = low;
++                doubles[DISPLAY_HIGH] = high;
++                doubles[DISPLAY_LOW] = low;
+             }
+             else {
+-                this.subrangeInfo[range][DISPLAY_HIGH] = low;
+-                this.subrangeInfo[range][DISPLAY_LOW] = high;
++                doubles[DISPLAY_HIGH] = low;
++                doubles[DISPLAY_LOW] = high;
+             }
+ 
+         }

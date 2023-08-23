@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..60e56ff 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -485,12 +485,13 @@
+     switch (n.getType()) {
+       case Token.CAST:
+         Node expr = n.getFirstChild();
+-        ensureTyped(t, n, getJSType(expr));
++          JSType jsType = getJSType(expr);
++          ensureTyped(t, n, jsType);
+ 
+         // If the cast, tightens the type apply it, so it is available post
+         // normalization.
+         JSType castType = getJSType(n);
+-        JSType exprType = getJSType(expr);
++        JSType exprType = jsType;
+         if (castType.isSubtype(exprType)) {
+           expr.setJSType(castType);
+         }

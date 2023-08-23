@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/jdbc/JDBCXYDataset.java b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+index 95cd49c..06e1359 100644
+--- a/source/org/jfree/data/jdbc/JDBCXYDataset.java
++++ b/source/org/jfree/data/jdbc/JDBCXYDataset.java
+@@ -284,6 +284,7 @@
+             }
+ 
+             /// First column is X data
++            String[] columnNames1 = this.columnNames;
+             this.columnNames = new String[numberOfValidColumns - 1];
+             /// Get the column names and cache them.
+             int currentColumn = 0;

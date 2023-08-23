@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/JvmMetrics.java b/src/com/google/javascript/jscomp/JvmMetrics.java
+index c7ec381..8a32c69 100644
+--- a/src/com/google/javascript/jscomp/JvmMetrics.java
++++ b/src/com/google/javascript/jscomp/JvmMetrics.java
+@@ -47,22 +47,23 @@
+     boolean prettyMode = false;
+     StringTokenizer st = new StringTokenizer(options, ":");
+     // options are grouped in order 'detail:format:types'
+-    if (st.hasMoreTokens()) {
++      boolean b = st.hasMoreTokens();
++      if (b) {
+       String mode = st.nextToken();
+       if (mode.equalsIgnoreCase("verbose")) {
+         verboseMode = true;
+       }
+     }
+ 
+-    if (st.hasMoreTokens()) {
++    if (b) {
+       String mode = st.nextToken();
+       if (mode.equalsIgnoreCase("pretty")) {
+         prettyMode = true;
+       }
+     }
+ 
+-    if (st.hasMoreTokens()) {
+-      while (st.hasMoreTokens()) {
++    if (b) {
++      while (b) {
+         String types = st.nextToken();
+         StringTokenizer typeSt = new StringTokenizer(types, ",");
+         while (typeSt.hasMoreElements()) {

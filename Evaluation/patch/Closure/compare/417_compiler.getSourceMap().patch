@@ -1,0 +1,39 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..7257e66 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -705,8 +705,9 @@
+ 
+       // If we have a source map, adjust its offsets to match
+       // the code WITHIN the wrapper.
+-      if (compiler != null && compiler.getSourceMap() != null) {
+-        compiler.getSourceMap().setWrapperPrefix(prefix);
++      SourceMap var_417 = compiler.getSourceMap();
++	if (compiler != null && var_417 != null) {
++        var_417.setWrapperPrefix(prefix);
+       }
+ 
+     } else {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..12c6bf3 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -705,8 +705,11 @@
+ 
+       // If we have a source map, adjust its offsets to match
+       // the code WITHIN the wrapper.
+-      if (compiler != null && compiler.getSourceMap() != null) {
+-        compiler.getSourceMap().setWrapperPrefix(prefix);
++      if (compiler != null) {
++          SourceMap sourceMap = compiler.getSourceMap();
++          if (sourceMap != null) {
++              sourceMap.setWrapperPrefix(prefix);
++          }
+       }
+ 
+     } else {

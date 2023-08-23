@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/TypedScopeCreator.java b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+index 461cddc..c8e602b 100644
+--- a/src/com/google/javascript/jscomp/TypedScopeCreator.java
++++ b/src/com/google/javascript/jscomp/TypedScopeCreator.java
+@@ -208,12 +208,13 @@
+       // Mark the main root, the externs root, and the src root
+       // with the global this type.
+       root.setJSType(globalThis);
+-      root.getFirstChild().setJSType(globalThis);
++        Node firstChild = root.getFirstChild();
++        firstChild.setJSType(globalThis);
+       root.getLastChild().setJSType(globalThis);
+ 
+       // Run a first-order analysis over the syntax tree.
+       (new FirstOrderFunctionAnalyzer(compiler, functionAnalysisResults))
+-          .process(root.getFirstChild(), root.getLastChild());
++          .process(firstChild, root.getLastChild());
+ 
+       // Find all the classes in the global scope.
+       newScope = createInitialScope(root);

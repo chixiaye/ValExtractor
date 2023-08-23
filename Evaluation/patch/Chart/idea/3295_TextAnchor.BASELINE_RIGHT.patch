@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..5fb1061 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -366,6 +366,7 @@
+         float xAdj = 0.0f;
+         float yAdj = 0.0f;
+ 
++        TextAnchor baselineRight = TextAnchor.BASELINE_RIGHT;
+         if (anchor == TextAnchor.TOP_CENTER
+                 || anchor == TextAnchor.CENTER
+                 || anchor == TextAnchor.BOTTOM_CENTER
+@@ -378,7 +379,7 @@
+         else if (anchor == TextAnchor.TOP_RIGHT
+                 || anchor == TextAnchor.CENTER_RIGHT
+                 || anchor == TextAnchor.BOTTOM_RIGHT
+-                || anchor == TextAnchor.BASELINE_RIGHT
++                || anchor == baselineRight
+                 || anchor == TextAnchor.HALF_ASCENT_RIGHT) {
+ 
+             xAdj = (float) -bounds.getWidth();
+@@ -408,7 +409,7 @@
+         }
+         else if (anchor == TextAnchor.BASELINE_LEFT
+                 || anchor == TextAnchor.BASELINE_CENTER
+-                || anchor == TextAnchor.BASELINE_RIGHT) {
++                || anchor == baselineRight) {
+ 
+             yAdj = 0.0f;
+ 

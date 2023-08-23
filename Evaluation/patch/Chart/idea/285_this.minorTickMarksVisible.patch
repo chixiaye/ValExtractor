@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/axis/Axis.java b/source/org/jfree/chart/axis/Axis.java
+index cabb331..3f5d001 100644
+--- a/source/org/jfree/chart/axis/Axis.java
++++ b/source/org/jfree/chart/axis/Axis.java
+@@ -731,7 +731,8 @@
+      * @since 1.0.12
+      */
+     public void setMinorTickMarksVisible(boolean flag) {
+-        if (flag != this.minorTickMarksVisible) {
++        boolean minorTickMarksVisible1 = this.minorTickMarksVisible;
++        if (flag != minorTickMarksVisible1) {
+             this.minorTickMarksVisible = flag;
+             fireChangeEvent();
+         }

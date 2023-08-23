@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/TypeValidator.java b/src/com/google/javascript/jscomp/TypeValidator.java
+index 5feecd0..45d5fc8 100644
+--- a/src/com/google/javascript/jscomp/TypeValidator.java
++++ b/src/com/google/javascript/jscomp/TypeValidator.java
+@@ -713,8 +713,9 @@
+       ObjectType objectType = getJSType(n.getFirstChild()).dereference();
+       if (objectType != null) {
+         String propName = n.getLastChild().getString();
+-        if (objectType.getConstructor() != null &&
+-            objectType.getConstructor().isInterface()) {
++          FunctionType constructor = objectType.getConstructor();
++          if (constructor != null &&
++            constructor.isInterface()) {
+           objectType = FunctionType.getTopDefiningInterface(
+               objectType, propName);
+         } else {
+@@ -727,7 +728,7 @@
+         // Don't show complex function names or anonymous types.
+         // Instead, try to get a human-readable type name.
+         if (objectType != null &&
+-            (objectType.getConstructor() != null ||
++            (constructor != null ||
+              objectType.isFunctionPrototypeType())) {
+           return objectType.toString() + "." + propName;
+         }

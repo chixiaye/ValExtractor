@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..1bed332 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -1301,8 +1301,9 @@
+     externAndJsRoot = IR.block(externsRoot, jsRoot);
+     externAndJsRoot.setIsSyntheticBlock(true);
+ 
+-    if (options.tracer.isOn()) {
+-      tracker = new PerformanceTracker(jsRoot, options.tracer);
++      CompilerOptions.TracerMode tracer1 = options.tracer;
++      if (tracer1.isOn()) {
++      tracker = new PerformanceTracker(jsRoot, tracer1);
+       addChangeHandler(tracker.getCodeChangeHandler());
+     }
+ 

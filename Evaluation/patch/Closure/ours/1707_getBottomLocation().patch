@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/SideEffectsAnalysis.java b/src/com/google/javascript/jscomp/SideEffectsAnalysis.java
+index 8e717e5..532a3e0 100644
+--- a/src/com/google/javascript/jscomp/SideEffectsAnalysis.java
++++ b/src/com/google/javascript/jscomp/SideEffectsAnalysis.java
+@@ -600,7 +600,8 @@
+      * for the node.
+      */
+     public LocationSummary calculateLocationSummary(Set<Node> nodes) {
+-      EffectLocation modAccumulator = getBottomLocation();
++      EffectLocation var_1707 = getBottomLocation();
++	EffectLocation modAccumulator = var_1707;
+       EffectLocation refAccumulator = getBottomLocation();
+ 
+       for (Node node : nodes) {

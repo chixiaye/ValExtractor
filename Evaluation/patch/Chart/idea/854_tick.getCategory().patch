@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/axis/CategoryAxis.java b/source/org/jfree/chart/axis/CategoryAxis.java
+index 9c5f5bc..33a2358 100644
+--- a/source/org/jfree/chart/axis/CategoryAxis.java
++++ b/source/org/jfree/chart/axis/CategoryAxis.java
+@@ -982,8 +982,9 @@
+             while (iterator.hasNext()) {
+ 
+                 CategoryTick tick = (CategoryTick) iterator.next();
+-                g2.setFont(getTickLabelFont(tick.getCategory()));
+-                g2.setPaint(getTickLabelPaint(tick.getCategory()));
++                Comparable category = tick.getCategory();
++                g2.setFont(getTickLabelFont(category));
++                g2.setPaint(getTickLabelPaint(category));
+ 
+                 CategoryLabelPosition position
+                         = this.categoryLabelPositions.getLabelPosition(edge);
+@@ -1041,8 +1042,8 @@
+                             = plotState.getOwner().getEntityCollection();
+                     if (entities != null) {
+                         String tooltip = getCategoryLabelToolTip(
+-                                tick.getCategory());
+-                        entities.add(new CategoryLabelEntity(tick.getCategory(),
++                                category);
++                        entities.add(new CategoryLabelEntity(category,
+                                 bounds, tooltip, null));
+                     }
+                 }

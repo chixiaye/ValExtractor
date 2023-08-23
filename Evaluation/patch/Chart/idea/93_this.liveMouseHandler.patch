@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..945e653 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1985,8 +1985,9 @@
+             return;
+         }
+ 
+-        if (this.liveMouseHandler != null) {
+-            this.liveMouseHandler.mouseReleased(e);
++        AbstractMouseHandler liveMouseHandler1 = this.liveMouseHandler;
++        if (liveMouseHandler1 != null) {
++            liveMouseHandler1.mouseReleased(e);
+         }
+ 
+         // now process the auxiliary handlers

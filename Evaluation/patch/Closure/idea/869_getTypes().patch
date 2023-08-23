@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..12accb6 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -167,10 +167,11 @@
+           addTypeToSkip(top);
+         }
+ 
+-        if (relatedType == null) {
+-          getTypes().add(top);
++          UnionFind<T> types1 = getTypes();
++          if (relatedType == null) {
++          types1.add(top);
+         } else {
+-          getTypes().union(top, relatedType);
++          types1.union(top, relatedType);
+         }
+         typeSystem.recordInterfaces(type, top, this);
+         return true;

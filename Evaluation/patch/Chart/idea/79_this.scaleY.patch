@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..2e57822 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1636,6 +1636,7 @@
+         }
+ 
+         if (drawHeight < this.minimumDrawHeight) {
++            double scaleY1 = this.scaleY;
+             this.scaleY = drawHeight / this.minimumDrawHeight;
+             drawHeight = this.minimumDrawHeight;
+             scale = true;

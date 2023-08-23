@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+index 69b6567..f7400a2 100644
+--- a/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
++++ b/src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java
+@@ -207,7 +207,8 @@
+               //    current:Object.<string> ==> Object.<string>|Array.<string>
+ 
+               if (!current.isParameterizedType()) {
+-                if (alternate.isSubtype(current)) {
++                boolean var_2696 = alternate.isSubtype(current);
++				if (var_2696) {
+                   // case 1, 2
+                   return this;
+                 }

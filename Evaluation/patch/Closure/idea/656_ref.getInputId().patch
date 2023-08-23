@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalVarReferenceMap.java b/src/com/google/javascript/jscomp/GlobalVarReferenceMap.java
+index 9b7870d..5fc3aa9 100644
+--- a/src/com/google/javascript/jscomp/GlobalVarReferenceMap.java
++++ b/src/com/google/javascript/jscomp/GlobalVarReferenceMap.java
+@@ -174,8 +174,9 @@
+     Preconditions.checkState(inputOrder.containsKey(inputId), inputId.getIdName());
+     int sourceInputOrder = inputOrder.get(inputId);
+     for (Reference ref : refList) {
+-      Preconditions.checkNotNull(ref.getInputId());
+-      int order = inputOrder.get(ref.getInputId());
++        InputId inputId1 = ref.getInputId();
++        Preconditions.checkNotNull(inputId1);
++      int order = inputOrder.get(inputId1);
+       if (order < sourceInputOrder) {
+         lastBefore = index;
+       } else if (order > sourceInputOrder) {

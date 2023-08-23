@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..d114456 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -280,8 +280,9 @@
+     Node left = n.getFirstChild();
+     Node right = n.getLastChild();
+ 
+-    if (parent.isExprResult()
+-        && !parent.getParent().isLabel()) {
++      Node parent1 = parent.getParent();
++      if (parent.isExprResult()
++        && !parent1.isLabel()) {
+       // split comma
+       n.detachChildren();
+       // Replace the original expression with the left operand.
+@@ -292,7 +293,7 @@
+ 
+       //This modifies outside the subtree, which is not
+       //desirable in a peephole optimization.
+-      parent.getParent().addChildAfter(newStatement, parent);
++      parent1.addChildAfter(newStatement, parent);
+       reportCodeChange();
+       return left;
+     } else {

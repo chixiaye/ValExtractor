@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..312792a 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -1187,8 +1187,9 @@
+                     this.workingCalendar.get(Calendar.HOUR_OF_DAY),
+                     this.workingCalendar.get(Calendar.MINUTE),
+                     this.workingCalendar.get(Calendar.SECOND));
+-            this.workingCalendarNoDST.set(Calendar.MILLISECOND,
+-                    this.workingCalendar.get(Calendar.MILLISECOND));
++            int millisecond = Calendar.MILLISECOND;
++            this.workingCalendarNoDST.set(millisecond,
++                    this.workingCalendar.get(millisecond));
+             Date revisedDate = this.workingCalendarNoDST.getTime();
+             result = revisedDate.getTime();
+         }

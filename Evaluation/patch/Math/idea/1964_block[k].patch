@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+index c6b1a04..6bd0b3d 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+@@ -1424,7 +1424,8 @@
+                     final T[] block = blocks[iBlock * blockColumns + jBlock];
+                     int k = (p - p0) * jWidth + qStart - q0;
+                     for (int q = qStart; q < qEnd; ++q) {
+-                        block[k] = visitor.visit(p, q, block[k]);
++                        T t = block[k];
++                        t = visitor.visit(p, q, block[k]);
+                         ++k;
+                     }
+                 }

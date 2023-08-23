@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java b/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
+index 7de3221..ee25060 100644
+--- a/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
++++ b/src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java
+@@ -515,7 +515,8 @@
+         final int substIndex = startIndex + (numElements - 1);
+         final double discarded = internalArray[substIndex];
+ 
+-        internalArray[substIndex] = value;
++        double v = internalArray[substIndex];
++        v = value;
+ 
+         return discarded;
+     }

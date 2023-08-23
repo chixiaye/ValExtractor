@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..72fbede 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -729,10 +729,11 @@
+             // Special cases.
+             if (d1 > this.epsilon || d2 > this.epsilon) {
+                 X = r[m1];
+-                if (Math.abs(X) * Math.sqrt(d1) < tol[mp1]) {
++                double abs = Math.abs(X);
++                if (abs * Math.sqrt(d1) < tol[mp1]) {
+                     X = 0.0;
+                 }
+-                if (d1 < this.epsilon || Math.abs(X) < this.epsilon) {
++                if (d1 < this.epsilon || abs < this.epsilon) {
+                     d[m] = d2;
+                     d[mp1] = d1;
+                     r[m1] = 0.0;

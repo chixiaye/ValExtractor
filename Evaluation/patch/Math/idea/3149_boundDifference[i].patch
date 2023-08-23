@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..e7e26c3 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -2398,7 +2398,8 @@
+         double requiredMinDiff = 2 * initialTrustRegionRadius;
+         double minDiff = Double.POSITIVE_INFINITY;
+         for (int i = 0; i < dimension; i++) {
+-            boundDifference[i] = upperBound[i] - lowerBound[i];
++            double v = boundDifference[i];
++            v = upperBound[i] - lowerBound[i];
+             minDiff = Math.min(minDiff, boundDifference[i]);
+         }
+         if (minDiff < requiredMinDiff) {

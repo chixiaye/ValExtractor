@@ -1,0 +1,47 @@
+diff --git a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+index db990fa..0122edc 100644
+--- a/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
++++ b/src/com/google/javascript/jscomp/FunctionTypeBuilder.java
+@@ -611,23 +611,26 @@
+     FunctionType fnType;
+     if (isConstructor) {
+       fnType = getOrCreateConstructor();
+-    } else if (isInterface) {
+-      fnType = typeRegistry.createInterfaceType(
+-          fnName, contents.getSourceNode());
+-      if (getScopeDeclaredIn().isGlobal() && !fnName.isEmpty()) {
+-        typeRegistry.declareType(fnName, fnType.getInstanceType());
+-      }
+-      maybeSetBaseType(fnType);
+     } else {
+-      fnType = new FunctionBuilder(typeRegistry)
+-          .withName(fnName)
+-          .withSourceNode(contents.getSourceNode())
+-          .withParamsNode(parametersNode)
+-          .withReturnType(returnType, returnTypeInferred)
+-          .withTypeOfThis(thisType)
+-          .withTemplateKeys(templateTypeNames)
+-          .build();
+-      maybeSetBaseType(fnType);
++        Node sourceNode = contents.getSourceNode();
++        if (isInterface) {
++          fnType = typeRegistry.createInterfaceType(
++              fnName, sourceNode);
++          if (getScopeDeclaredIn().isGlobal() && !fnName.isEmpty()) {
++            typeRegistry.declareType(fnName, fnType.getInstanceType());
++          }
++          maybeSetBaseType(fnType);
++        } else {
++          fnType = new FunctionBuilder(typeRegistry)
++              .withName(fnName)
++              .withSourceNode(sourceNode)
++              .withParamsNode(parametersNode)
++              .withReturnType(returnType, returnTypeInferred)
++              .withTypeOfThis(thisType)
++              .withTemplateKeys(templateTypeNames)
++              .build();
++          maybeSetBaseType(fnType);
++        }
+     }
+ 
+     if (implementedInterfaces != null) {

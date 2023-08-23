@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/panel/CrosshairOverlay.java b/source/org/jfree/chart/panel/CrosshairOverlay.java
+index 2fc3cdd..78e5ebb 100644
+--- a/source/org/jfree/chart/panel/CrosshairOverlay.java
++++ b/source/org/jfree/chart/panel/CrosshairOverlay.java
+@@ -297,8 +297,9 @@
+                 float xx = (float) pt.getX();
+                 float yy = (float) pt.getY();
+                 TextAnchor alignPt = textAlignPtForLabelAnchorH(anchor);
++                TextAnchor center = TextAnchor.CENTER;
+                 Shape hotspot = TextUtilities.calculateRotatedStringBounds(
+-                        label, g2, xx, yy, alignPt, 0.0, TextAnchor.CENTER);
++                        label, g2, xx, yy, alignPt, 0.0, center);
+                 if (!dataArea.contains(hotspot.getBounds2D())) {
+                     anchor = flipAnchorV(anchor);
+                     pt = calculateLabelPoint(line, anchor, 5, 5);
+@@ -306,7 +307,7 @@
+                     yy = (float) pt.getY();
+                     alignPt = textAlignPtForLabelAnchorH(anchor);
+                     hotspot = TextUtilities.calculateRotatedStringBounds(
+-                           label, g2, xx, yy, alignPt, 0.0, TextAnchor.CENTER);
++                           label, g2, xx, yy, alignPt, 0.0, center);
+                 }
+ 
+                 g2.setPaint(crosshair.getLabelBackgroundPaint());

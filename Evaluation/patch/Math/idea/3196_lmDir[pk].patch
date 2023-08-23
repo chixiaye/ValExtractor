@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+index 8d6a50b..026ffc1 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java
+@@ -578,7 +578,8 @@
+             for (int i = 0; i < k; ++i) {
+                 lmDir[permutation[i]] -= ypk * weightedJacobian[i][pk];
+             }
+-            lmDir[pk] = ypk;
++            double v = lmDir[pk];
++            v = ypk;
+         }
+ 
+         // evaluate the function at the origin, and test

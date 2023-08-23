@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/time/TimeSeriesCollection.java b/source/org/jfree/data/time/TimeSeriesCollection.java
+index f76f9b9..d9a9903 100644
+--- a/source/org/jfree/data/time/TimeSeriesCollection.java
++++ b/source/org/jfree/data/time/TimeSeriesCollection.java
+@@ -698,9 +698,10 @@
+                     temp = new Range(getX(start), getX(end));
+                 }
+                 else {
++                    Calendar workingCalendar1 = this.workingCalendar;
+                     temp = new Range(
+-                            start.getFirstMillisecond(this.workingCalendar),
+-                            end.getLastMillisecond(this.workingCalendar));
++                            start.getFirstMillisecond(workingCalendar1),
++                            end.getLastMillisecond(workingCalendar1));
+                 }
+                 result = Range.combine(result, temp);
+             }

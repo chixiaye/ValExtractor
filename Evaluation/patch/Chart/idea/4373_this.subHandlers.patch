@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/xml/RootHandler.java b/source/org/jfree/data/xml/RootHandler.java
+index c3f8c6d..d9f9b68 100644
+--- a/source/org/jfree/data/xml/RootHandler.java
++++ b/source/org/jfree/data/xml/RootHandler.java
+@@ -93,9 +93,10 @@
+      */
+     public DefaultHandler getCurrentHandler() {
+         DefaultHandler result = this;
+-        if (this.subHandlers != null) {
+-            if (this.subHandlers.size() > 0) {
+-                Object top = this.subHandlers.peek();
++        Stack subHandlers1 = this.subHandlers;
++        if (subHandlers1 != null) {
++            if (subHandlers1.size() > 0) {
++                Object top = subHandlers1.peek();
+                 if (top != null) {
+                     result = (DefaultHandler) top;
+                 }

@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..23940ac 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -41,7 +41,7 @@
+                           String backslashEscape,
+                           CharsetEncoder outputCharsetEncoder) {
+     StringBuilder sb = new StringBuilder(s.length() + 2);
+-    sb.append(quote);
++    StringBuilder var_25 = sb.append(quote);
+     for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
+       switch (c) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..23940ac 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -41,7 +41,7 @@
+                           String backslashEscape,
+                           CharsetEncoder outputCharsetEncoder) {
+     StringBuilder sb = new StringBuilder(s.length() + 2);
+-    sb.append(quote);
++    StringBuilder var_25 = sb.append(quote);
+     for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
+       switch (c) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..1bb8717 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -41,7 +41,7 @@
+                           String backslashEscape,
+                           CharsetEncoder outputCharsetEncoder) {
+     StringBuilder sb = new StringBuilder(s.length() + 2);
+-    sb.append(quote);
++      StringBuilder append = sb.append(quote);
+     for (int i = 0; i < s.length(); i++) {
+       char c = s.charAt(i);
+       switch (c) {
+@@ -102,7 +102,7 @@
+           }
+       }
+     }
+-    sb.append(quote);
++    append;
+     return sb.toString();
+   }
+ 

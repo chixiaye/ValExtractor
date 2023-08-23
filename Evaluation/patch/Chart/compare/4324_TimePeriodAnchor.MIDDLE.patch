@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodAnchor.java b/source/org/jfree/data/time/TimePeriodAnchor.java
+index 4bf751e..5d9dd65 100644
+--- a/source/org/jfree/data/time/TimePeriodAnchor.java
++++ b/source/org/jfree/data/time/TimePeriodAnchor.java
+@@ -130,13 +130,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(TimePeriodAnchor.START)) {
+             return TimePeriodAnchor.START;
+-        }
+-        else if (this.equals(TimePeriodAnchor.MIDDLE)) {
+-            return TimePeriodAnchor.MIDDLE;
++        } else {
++			TimePeriodAnchor var_4324 = TimePeriodAnchor.MIDDLE;
++			if (this.equals(var_4324)) {
++			    return var_4324;
+         }
+         else if (this.equals(TimePeriodAnchor.END)) {
+             return TimePeriodAnchor.END;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodAnchor.java b/source/org/jfree/data/time/TimePeriodAnchor.java
+index 4bf751e..5d9dd65 100644
+--- a/source/org/jfree/data/time/TimePeriodAnchor.java
++++ b/source/org/jfree/data/time/TimePeriodAnchor.java
+@@ -130,13 +130,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(TimePeriodAnchor.START)) {
+             return TimePeriodAnchor.START;
+-        }
+-        else if (this.equals(TimePeriodAnchor.MIDDLE)) {
+-            return TimePeriodAnchor.MIDDLE;
++        } else {
++			TimePeriodAnchor var_4324 = TimePeriodAnchor.MIDDLE;
++			if (this.equals(var_4324)) {
++			    return var_4324;
+         }
+         else if (this.equals(TimePeriodAnchor.END)) {
+             return TimePeriodAnchor.END;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodAnchor.java b/source/org/jfree/data/time/TimePeriodAnchor.java
+index 4bf751e..762cfef 100644
+--- a/source/org/jfree/data/time/TimePeriodAnchor.java
++++ b/source/org/jfree/data/time/TimePeriodAnchor.java
+@@ -131,12 +131,15 @@
+         if (this.equals(TimePeriodAnchor.START)) {
+             return TimePeriodAnchor.START;
+         }
+-        else if (this.equals(TimePeriodAnchor.MIDDLE)) {
+-            return TimePeriodAnchor.MIDDLE;
++        else {
++            TimePeriodAnchor middle = TimePeriodAnchor.MIDDLE;
++            if (this.equals(middle)) {
++                return middle;
+         }
+         else if (this.equals(TimePeriodAnchor.END)) {
+             return TimePeriodAnchor.END;
+         }
++        }
+         return null;
+     }
+ 

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
+index 5f6f2be..0a64c0c 100644
+--- a/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
+@@ -372,8 +372,9 @@
+         throws DimensionMismatchException {
+         final int nRows = getRowDimension();
+         final int nCols = getColumnDimension();
+-        if (v.length != nRows) {
+-            throw new DimensionMismatchException(v.length, nRows);
++        int length = v.length;
++        if (length != nRows) {
++            throw new DimensionMismatchException(length, nRows);
+         }
+ 
+         final double[] out = new double[nCols];

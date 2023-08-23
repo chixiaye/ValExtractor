@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+index c5c8ecf..e2f16da 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+@@ -82,6 +82,7 @@
+             this.q0 = inv.multiply(q0);
+             this.q1 = inv.multiply(q1);
+             this.q2 = inv.multiply(q2);
++            T q31 = this.q3;
+             this.q3 = inv.multiply(q3);
+         } else {
+             this.q0 = q0;

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..98449d3 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -680,7 +680,8 @@
+             int pj = permutation[j];
+             double sum = 0;
+             for (int i = 0; i <= j; ++i) {
+-                sum += weightedJacobian[i][pj] * qy[i];
++                double[] doubles = weightedJacobian[i];
++                sum += doubles[pj] * qy[i];
+             }
+             sum /= diag[pj];
+             sum2 += sum * sum;

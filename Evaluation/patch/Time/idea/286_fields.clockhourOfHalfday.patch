@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/LimitChronology.java b/src/main/java/org/joda/time/chrono/LimitChronology.java
+index 89325ad..88fc26f 100644
+--- a/src/main/java/org/joda/time/chrono/LimitChronology.java
++++ b/src/main/java/org/joda/time/chrono/LimitChronology.java
+@@ -248,7 +248,8 @@
+         fields.hourOfDay = convertField(fields.hourOfDay, converted);
+         fields.hourOfHalfday = convertField(fields.hourOfHalfday, converted);
+         fields.clockhourOfDay = convertField(fields.clockhourOfDay, converted);
+-        fields.clockhourOfHalfday = convertField(fields.clockhourOfHalfday, converted);
++        DateTimeField clockhourOfHalfday = fields.clockhourOfHalfday;
++        clockhourOfHalfday = convertField(fields.clockhourOfHalfday, converted);
+         fields.halfdayOfDay = convertField(fields.halfdayOfDay, converted);
+     }
+ 

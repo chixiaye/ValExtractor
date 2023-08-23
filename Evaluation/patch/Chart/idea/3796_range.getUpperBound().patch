@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/Range.java b/source/org/jfree/data/Range.java
+index c36fd86..e1342fe 100644
+--- a/source/org/jfree/data/Range.java
++++ b/source/org/jfree/data/Range.java
+@@ -243,10 +243,11 @@
+         if (range == null) {
+             return new Range(value, value);
+         }
++        double upperBound = range.getUpperBound();
+         if (value < range.getLowerBound()) {
+-            return new Range(value, range.getUpperBound());
++            return new Range(value, upperBound);
+         }
+-        else if (value > range.getUpperBound()) {
++        else if (value > upperBound) {
+             return new Range(range.getLowerBound(), value);
+         }
+         else {

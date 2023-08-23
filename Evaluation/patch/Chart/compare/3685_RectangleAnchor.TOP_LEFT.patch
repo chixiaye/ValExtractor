@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..896ea08 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -280,9 +280,10 @@
+         }
+         else if (this.equals(RectangleAnchor.RIGHT)) {
+             result = RectangleAnchor.RIGHT;
+-        }
+-        else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+-            result = RectangleAnchor.TOP_LEFT;
++        } else {
++			RectangleAnchor var_3685 = RectangleAnchor.TOP_LEFT;
++			if (this.equals(var_3685)) {
++			    result = var_3685;
+         }
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+@@ -293,6 +294,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..896ea08 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -280,9 +280,10 @@
+         }
+         else if (this.equals(RectangleAnchor.RIGHT)) {
+             result = RectangleAnchor.RIGHT;
+-        }
+-        else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+-            result = RectangleAnchor.TOP_LEFT;
++        } else {
++			RectangleAnchor var_3685 = RectangleAnchor.TOP_LEFT;
++			if (this.equals(var_3685)) {
++			    result = var_3685;
+         }
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+@@ -293,6 +294,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..66e1402 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -281,8 +281,10 @@
+         else if (this.equals(RectangleAnchor.RIGHT)) {
+             result = RectangleAnchor.RIGHT;
+         }
+-        else if (this.equals(RectangleAnchor.TOP_LEFT)) {
+-            result = RectangleAnchor.TOP_LEFT;
++        else {
++            RectangleAnchor topLeft = RectangleAnchor.TOP_LEFT;
++            if (this.equals(topLeft)) {
++                result = topLeft;
+         }
+         else if (this.equals(RectangleAnchor.TOP_RIGHT)) {
+             result = RectangleAnchor.TOP_RIGHT;
+@@ -293,6 +295,7 @@
+         else if (this.equals(RectangleAnchor.BOTTOM_RIGHT)) {
+             result = RectangleAnchor.BOTTOM_RIGHT;
+         }
++        }
+         return result;
+     }
+ 

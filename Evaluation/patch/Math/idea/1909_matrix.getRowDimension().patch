@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+index 6577281..5aa675f 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+@@ -461,9 +461,10 @@
+         throws OutOfRangeException, MatrixDimensionMismatchException {
+         MatrixUtils.checkRowIndex(this, row);
+         final int nCols = getColumnDimension();
+-        if ((matrix.getRowDimension() != 1) ||
++        int rowDimension = matrix.getRowDimension();
++        if ((rowDimension != 1) ||
+             (matrix.getColumnDimension() != nCols)) {
+-            throw new MatrixDimensionMismatchException(matrix.getRowDimension(),
++            throw new MatrixDimensionMismatchException(rowDimension,
+                                                        matrix.getColumnDimension(),
+                                                        1, nCols);
+         }

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..c731778 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -300,10 +300,11 @@
+           CheckLevel.OFF);
+     }
+ 
+-    if (options.checkGlobalThisLevel.isOn() &&
+-        !options.disables(DiagnosticGroups.GLOBAL_THIS)) {
++      DiagnosticGroup globalThis = DiagnosticGroups.GLOBAL_THIS;
++      if (options.checkGlobalThisLevel.isOn() &&
++        !options.disables(globalThis)) {
+       options.setWarningLevel(
+-          DiagnosticGroups.GLOBAL_THIS,
++              globalThis,
+           options.checkGlobalThisLevel);
+     }
+ 

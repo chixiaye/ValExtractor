@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/chrono/LimitChronology.java b/src/main/java/org/joda/time/chrono/LimitChronology.java
+index 89325ad..830002d 100644
+--- a/src/main/java/org/joda/time/chrono/LimitChronology.java
++++ b/src/main/java/org/joda/time/chrono/LimitChronology.java
+@@ -333,9 +333,10 @@
+      * @return the debugging string
+      */
+     public String toString() {
++        DateTime upperLimit = getUpperLimit();
+         return "LimitChronology[" + getBase().toString() + ", " +
+             (getLowerLimit() == null ? "NoLimit" : getLowerLimit().toString()) + ", " +
+-            (getUpperLimit() == null ? "NoLimit" : getUpperLimit().toString()) + ']';
++            (upperLimit == null ? "NoLimit" : upperLimit.toString()) + ']';
+     }
+ 
+     //-----------------------------------------------------------------------

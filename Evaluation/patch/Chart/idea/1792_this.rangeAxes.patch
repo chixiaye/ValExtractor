@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..3d2546a 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -5803,9 +5803,10 @@
+                 axis.addChangeListener(this);
+             }
+         }
+-        int rangeAxisCount = this.rangeAxes.size();
++        ObjectList rangeAxes1 = this.rangeAxes;
++        int rangeAxisCount = rangeAxes1.size();
+         for (int i = 0; i < rangeAxisCount; i++) {
+-            Axis axis = (Axis) this.rangeAxes.get(i);
++            Axis axis = (Axis) rangeAxes1.get(i);
+             if (axis != null) {
+                 axis.setPlot(this);
+                 axis.addChangeListener(this);

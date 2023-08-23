@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+index f8c3051..30ebf90 100644
+--- a/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StackedAreaRenderer.java
+@@ -226,12 +226,12 @@
+ 
+         int itemCount = dataset.getColumnCount();
+         double y2 = 0.0;
+-        n = dataset.getValue(row, Math.min(column + 1, itemCount - 1));
++        int min = Math.min(column + 1, itemCount - 1);
++        n = dataset.getValue(row, min);
+         if (n != null) {
+             y2 = n.doubleValue();
+         }
+-        double[] stack2 = getStackValues(dataset, row, Math.min(column + 1,
+-                itemCount - 1));
++        double[] stack2 = getStackValues(dataset, row, min);
+ 
+         double xx2 = domainAxis.getCategoryEnd(column, getColumnCount(),
+                 dataArea, plot.getDomainAxisEdge());

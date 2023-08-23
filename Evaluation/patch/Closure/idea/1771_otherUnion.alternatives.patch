@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/ConcreteType.java b/src/com/google/javascript/jscomp/ConcreteType.java
+index 7bf7593..038d9e4 100644
+--- a/src/com/google/javascript/jscomp/ConcreteType.java
++++ b/src/com/google/javascript/jscomp/ConcreteType.java
+@@ -576,13 +576,14 @@
+         }
+       } else if (other.isUnion()) {
+         ConcreteUnionType otherUnion = other.toUnion();
+-        if (alternatives.containsAll(otherUnion.alternatives)) {
++          Set<ConcreteType> alternatives1 = otherUnion.alternatives;
++          if (alternatives.containsAll(alternatives1)) {
+           return this;
+-        } else if (otherUnion.alternatives.containsAll(alternatives)) {
++        } else if (alternatives1.containsAll(alternatives)) {
+           return otherUnion;
+         } else {
+           Set<ConcreteType> alts = Sets.newHashSet(alternatives);
+-          alts.addAll(otherUnion.alternatives);
++          alts.addAll(alternatives1);
+           return new ConcreteUnionType(alts);
+         }
+       } else {

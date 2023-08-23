@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+index c3dd8cc..129d9fe 100644
+--- a/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/PeriodFormatterBuilder.java
+@@ -807,10 +807,13 @@
+         Object[] comp = createComposite(elementPairs);
+         if (notPrinter) {
+             return new PeriodFormatter(null, (PeriodParser) comp[1]);
+-        } else if (notParser) {
+-            return new PeriodFormatter((PeriodPrinter) comp[0], null);
+         } else {
+-            return new PeriodFormatter((PeriodPrinter) comp[0], (PeriodParser) comp[1]);
++            Object o = comp[0];
++            if (notParser) {
++                return new PeriodFormatter((PeriodPrinter) o, null);
++            } else {
++                return new PeriodFormatter((PeriodPrinter) o, (PeriodParser) comp[1]);
++            }
+         }
+     }
+ 

@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+index 7535574..61cad11 100644
+--- a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+@@ -253,10 +253,11 @@
+ 
+         while (count-- != 0) {
+             char ch;
++            int i = random.nextInt(gap);
+             if (chars == null) {
+-                ch = (char) (random.nextInt(gap) + start);
++                ch = (char) (i + start);
+             } else {
+-                ch = chars[random.nextInt(gap) + start];
++                ch = chars[i + start];
+             }
+             if (letters && Character.isLetter(ch)
+                     || numbers && Character.isDigit(ch)

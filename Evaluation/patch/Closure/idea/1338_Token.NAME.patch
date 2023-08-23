@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/NodeIterators.java b/src/com/google/javascript/jscomp/NodeIterators.java
+index e6b5d04..c5361f0 100644
+--- a/src/com/google/javascript/jscomp/NodeIterators.java
++++ b/src/com/google/javascript/jscomp/NodeIterators.java
+@@ -278,8 +278,9 @@
+       //   var a = b;
+       //   var b = 3;
+       //   alert(a);
+-      if (NodeUtil.nodeTypeMayHaveSideEffects(nextNode) && type != Token.NAME
+-          || type == Token.NAME && nextParent.isCatch()) {
++        int name = Token.NAME;
++        if (NodeUtil.nodeTypeMayHaveSideEffects(nextNode) && type != name
++          || type == name && nextParent.isCatch()) {
+         lookAhead = null;
+         return;
+       }

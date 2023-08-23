@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/fraction/FractionFormat.java b/src/main/java/org/apache/commons/math3/fraction/FractionFormat.java
+index 2118cf7..4303887 100644
+--- a/src/main/java/org/apache/commons/math3/fraction/FractionFormat.java
++++ b/src/main/java/org/apache/commons/math3/fraction/FractionFormat.java
+@@ -211,7 +211,8 @@
+      */
+     @Override
+     public Fraction parse(final String source, final ParsePosition pos) {
+-        final int initialIndex = pos.getIndex();
++        int index = pos.getIndex();
++        final int initialIndex = index;
+ 
+         // parse whitespace
+         parseAndIgnoreWhitespace(source, pos);
+@@ -227,7 +228,7 @@
+         }
+ 
+         // parse '/'
+-        final int startIndex = pos.getIndex();
++        final int startIndex = index;
+         final char c = parseNextCharacter(source, pos);
+         switch (c) {
+         case 0 :

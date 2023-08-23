@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer3D.java b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+index 6cf5928..a27b773 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+@@ -192,10 +192,11 @@
+         this.yOffset = yOffset;
+         this.wallPaint = DEFAULT_WALL_PAINT;
+         // set the default item label positions
+-        ItemLabelPosition p1 = new ItemLabelPosition(ItemLabelAnchor.INSIDE12,
++        ItemLabelAnchor inside12 = ItemLabelAnchor.INSIDE12;
++        ItemLabelPosition p1 = new ItemLabelPosition(inside12,
+                 TextAnchor.TOP_CENTER);
+         setBasePositiveItemLabelPosition(p1);
+-        ItemLabelPosition p2 = new ItemLabelPosition(ItemLabelAnchor.INSIDE12,
++        ItemLabelPosition p2 = new ItemLabelPosition(inside12,
+                 TextAnchor.TOP_CENTER);
+         setBaseNegativeItemLabelPosition(p2);
+ 

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..3d554b1 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -246,6 +246,7 @@
+      */
+     private void updateBoundsForAddedItem(XYDataItem item) {
+         double x = item.getXValue();
++        double minX1 = this.minX;
+         this.minX = minIgnoreNaN(this.minX, x);
+         this.maxX = maxIgnoreNaN(this.maxX, x);
+         if (item.getY() != null) {

@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..a7b86c4 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -328,12 +328,13 @@
+         //  Create new dataset with keys above threshold percentThreshold
+         iterator = keys.iterator();
+         double otherValue = 0;
++        int size = otherKeys.size();
+         while (iterator.hasNext()) {
+             Comparable currentKey = (Comparable) iterator.next();
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 if (otherKeys.contains(currentKey)
+-                    && otherKeys.size() >= minItems) {
++                    && size >= minItems) {
+                     //  Do not add key to dataset
+                     otherValue += dataValue.doubleValue();
+                 }
+@@ -344,7 +345,7 @@
+             }
+         }
+         //  Add other category if applicable
+-        if (otherKeys.size() >= minItems) {
++        if (size >= minItems) {
+             result.setValue(key, otherValue);
+         }
+         return result;

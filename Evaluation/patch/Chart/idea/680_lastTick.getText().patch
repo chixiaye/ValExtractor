@@ -1,0 +1,39 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..11c6de0 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -474,6 +474,7 @@
+             TextAnchor anchor = null;
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
++            String text = lastTick.getText();
+             if (isVerticalTickLabels()) {
+                 if (edge == RectangleEdge.TOP) {
+                     angle = Math.PI / 2.0;
+@@ -490,7 +491,7 @@
+                     result.remove(result.size() - 1);
+                     result.add(new CycleBoundTick(
+                         this.boundMappedToLastCycle, lastTick.getNumber(),
+-                        lastTick.getText(), anchor, anchor,
++                            text, anchor, anchor,
+                         lastTick.getAngle())
+                     );
+                     this.internalMarkerWhenTicksOverlap = true;
+@@ -509,7 +510,7 @@
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+-                            lastTick.getText(), anchor, anchor,
++                                text, anchor, anchor,
+                             lastTick.getAngle())
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;
+@@ -527,7 +528,7 @@
+                         result.remove(result.size() - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+-                            lastTick.getText(), anchor, anchor,
++                                text, anchor, anchor,
+                             lastTick.getAngle())
+                         );
+                         this.internalMarkerWhenTicksOverlap = true;

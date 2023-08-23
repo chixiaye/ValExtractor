@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolator.java b/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolator.java
+index 9465c2c..e5f31ad 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/interpolation/BicubicSplineInterpolator.java
+@@ -40,11 +40,12 @@
+                                                           final double[][] fval)
+         throws NoDataException, DimensionMismatchException,
+                NonMonotonicSequenceException, NumberIsTooSmallException {
+-        if (xval.length == 0 || yval.length == 0 || fval.length == 0) {
++        int length = fval.length;
++        if (xval.length == 0 || yval.length == 0 || length == 0) {
+             throw new NoDataException();
+         }
+-        if (xval.length != fval.length) {
+-            throw new DimensionMismatchException(xval.length, fval.length);
++        if (xval.length != length) {
++            throw new DimensionMismatchException(xval.length, length);
+         }
+ 
+         MathArrays.checkOrder(xval);

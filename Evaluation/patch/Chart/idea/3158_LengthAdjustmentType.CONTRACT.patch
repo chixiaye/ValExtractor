@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..109967c 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1709,13 +1709,14 @@
+                                       RectangleAnchor anchor) {
+ 
+         Rectangle2D anchorRect = null;
++        LengthAdjustmentType contract = LengthAdjustmentType.CONTRACT;
+         if (orientation == PlotOrientation.HORIZONTAL) {
+             anchorRect = markerOffset.createAdjustedRectangle(markerArea,
+-                    labelOffsetForRange, LengthAdjustmentType.CONTRACT);
++                    labelOffsetForRange, contract);
+         }
+         else if (orientation == PlotOrientation.VERTICAL) {
+             anchorRect = markerOffset.createAdjustedRectangle(markerArea,
+-                    LengthAdjustmentType.CONTRACT, labelOffsetForRange);
++                    contract, labelOffsetForRange);
+         }
+         return RectangleAnchor.coordinates(anchorRect, anchor);
+ 

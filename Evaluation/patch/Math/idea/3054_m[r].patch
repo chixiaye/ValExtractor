@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+index c837709..7d541da 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java
+@@ -1240,8 +1240,9 @@
+     private static double max(final double[] m) {
+         double max = -Double.MAX_VALUE;
+         for (int r = 0; r < m.length; r++) {
+-            if (max < m[r]) {
+-                max = m[r];
++            double max1 = m[r];
++            if (max < max1) {
++                max = max1;
+             }
+         }
+         return max;

@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+index c2c5002..3b3ee00 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/BiDiagonalTransformer.java
+@@ -98,6 +98,7 @@
+ 
+             // fill up the part of the matrix not affected by Householder transforms
+             for (int k = m - 1; k >= p; --k) {
++                double v = ua[k][k];
+                 ua[k][k] = 1;
+             }
+ 

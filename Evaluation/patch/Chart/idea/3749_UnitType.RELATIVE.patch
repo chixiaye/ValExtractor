@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/util/UnitType.java b/source/org/jfree/chart/util/UnitType.java
+index 68ac6dc..f818a23 100644
+--- a/source/org/jfree/chart/util/UnitType.java
++++ b/source/org/jfree/chart/util/UnitType.java
+@@ -121,8 +121,11 @@
+         if (this.equals(UnitType.ABSOLUTE)) {
+             return UnitType.ABSOLUTE;
+         }
+-        else if (this.equals(UnitType.RELATIVE)) {
+-            return UnitType.RELATIVE;
++        else {
++            UnitType relative = UnitType.RELATIVE;
++            if (this.equals(relative)) {
++                return relative;
++            }
+         }
+         return null;
+     }

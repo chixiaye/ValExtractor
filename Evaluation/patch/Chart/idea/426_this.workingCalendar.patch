@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..d9bbc7a 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -1179,16 +1179,17 @@
+     public long getTime(Date date) {
+         long result = date.getTime();
+         if (this.adjustForDaylightSaving) {
+-            this.workingCalendar.setTime(date);
++            Calendar workingCalendar1 = this.workingCalendar;
++            workingCalendar1.setTime(date);
+             this.workingCalendarNoDST.set(
+-                    this.workingCalendar.get(Calendar.YEAR),
+-                    this.workingCalendar.get(Calendar.MONTH),
+-                    this.workingCalendar.get(Calendar.DATE),
+-                    this.workingCalendar.get(Calendar.HOUR_OF_DAY),
+-                    this.workingCalendar.get(Calendar.MINUTE),
+-                    this.workingCalendar.get(Calendar.SECOND));
++                    workingCalendar1.get(Calendar.YEAR),
++                    workingCalendar1.get(Calendar.MONTH),
++                    workingCalendar1.get(Calendar.DATE),
++                    workingCalendar1.get(Calendar.HOUR_OF_DAY),
++                    workingCalendar1.get(Calendar.MINUTE),
++                    workingCalendar1.get(Calendar.SECOND));
+             this.workingCalendarNoDST.set(Calendar.MILLISECOND,
+-                    this.workingCalendar.get(Calendar.MILLISECOND));
++                    workingCalendar1.get(Calendar.MILLISECOND));
+             Date revisedDate = this.workingCalendarNoDST.getTime();
+             result = revisedDate.getTime();
+         }

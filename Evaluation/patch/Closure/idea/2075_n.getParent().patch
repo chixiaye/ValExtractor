@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/NodeUtil.java b/src/com/google/javascript/jscomp/NodeUtil.java
+index e36d1fe..9754bc1 100644
+--- a/src/com/google/javascript/jscomp/NodeUtil.java
++++ b/src/com/google/javascript/jscomp/NodeUtil.java
+@@ -1917,9 +1917,10 @@
+    * See {@link #isFunctionDeclaration}).
+    */
+   static boolean isHoistedFunctionDeclaration(Node n) {
+-    return isFunctionDeclaration(n)
+-        && (n.getParent().isScript()
+-            || n.getParent().getParent().isFunction());
++      Node parent = n.getParent();
++      return isFunctionDeclaration(n)
++        && (parent.isScript()
++            || parent.getParent().isFunction());
+   }
+ 
+   /**

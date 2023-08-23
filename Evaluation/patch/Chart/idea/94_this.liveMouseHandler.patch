@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..2b7278d 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2005,8 +2005,9 @@
+      * @param event  Information about the mouse event.
+      */
+     public void mouseClicked(MouseEvent event) {
+-        if (this.liveMouseHandler != null) {
+-            this.liveMouseHandler.mouseClicked(event);
++        AbstractMouseHandler liveMouseHandler1 = this.liveMouseHandler;
++        if (liveMouseHandler1 != null) {
++            liveMouseHandler1.mouseClicked(event);
+         }
+ 
+         // now process the auxiliary handlers

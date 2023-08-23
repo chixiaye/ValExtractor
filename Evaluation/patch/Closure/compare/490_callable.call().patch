@@ -1,0 +1,63 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..88a0032 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -659,7 +659,8 @@
+           if (dumpTraceReport) {
+             Tracer.initCurrentThreadTrace();
+           }
+-          return callable.call();
++          T var_490 = callable.call();
++		return var_490;
+         } catch (Throwable e) {
+           exception[0] = e;
+         } finally {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..88a0032 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -659,7 +659,8 @@
+           if (dumpTraceReport) {
+             Tracer.initCurrentThreadTrace();
+           }
+-          return callable.call();
++          T var_490 = callable.call();
++		return var_490;
+         } catch (Throwable e) {
+           exception[0] = e;
+         } finally {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..9b87f94 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -651,6 +651,7 @@
+     final boolean dumpTraceReport = options != null && options.tracer.isOn();
+     T result = null;
+     final Throwable[] exception = new Throwable[1];
++      final T call = callable.call();
+     Callable<T> bootCompilerThread = new Callable<T>() {
+       @Override
+       public T call() {
+@@ -659,7 +660,7 @@
+           if (dumpTraceReport) {
+             Tracer.initCurrentThreadTrace();
+           }
+-          return callable.call();
++          return call;
+         } catch (Throwable e) {
+           exception[0] = e;
+         } finally {
+@@ -689,7 +690,7 @@
+       }
+     } else {
+       try {
+-        result = callable.call();
++        result = call;
+       } catch (Exception e) {
+         exception[0] = e;
+       }

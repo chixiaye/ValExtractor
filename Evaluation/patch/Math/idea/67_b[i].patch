@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+index bb29eee..1425b93 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+@@ -939,7 +939,8 @@
+         // compute an accurate value, taking care of cancellations
+         final double[] bDouble = new double[b.length];
+         for (int i = 0; i < b.length; ++i) {
+-            bDouble[i] = b[i].getValue();
++            DerivativeStructure derivativeStructure = b[i];
++            bDouble[i] = derivativeStructure.getValue();
+         }
+         final double accurateValue = MathArrays.linearCombination(a, bDouble);
+ 

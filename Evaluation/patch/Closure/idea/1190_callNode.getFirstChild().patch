@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/FunctionInjector.java b/src/com/google/javascript/jscomp/FunctionInjector.java
+index ddfb4ed..8457d3b 100644
+--- a/src/com/google/javascript/jscomp/FunctionInjector.java
++++ b/src/com/google/javascript/jscomp/FunctionInjector.java
+@@ -218,10 +218,11 @@
+    * @return Whether the call is of a type that is supported.
+    */
+   private boolean isSupportedCallType(Node callNode) {
+-    if (!callNode.getFirstChild().isName()) {
++      Node firstChild = callNode.getFirstChild();
++      if (!firstChild.isName()) {
+       if (NodeUtil.isFunctionObjectCall(callNode)) {
+         if (!assumeStrictThis) {
+-          Node thisValue = callNode.getFirstChild().getNext();
++          Node thisValue = firstChild.getNext();
+           if (thisValue == null || !thisValue.isThis()) {
+             return false;
+           }

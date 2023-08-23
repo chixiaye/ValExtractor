@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+index 4aa2d4d..9e07216 100644
+--- a/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
++++ b/source/org/jfree/data/statistics/DefaultBoxAndWhiskerXYDataset.java
+@@ -223,13 +223,14 @@
+     public void add(Date date, BoxAndWhiskerItem item) {
+         this.dates.add(date);
+         this.items.add(item);
++        Number minRegularValue = item.getMinRegularValue();
+         if (this.minimumRangeValue == null) {
+-            this.minimumRangeValue = item.getMinRegularValue();
++            this.minimumRangeValue = minRegularValue;
+         }
+         else {
+-            if (item.getMinRegularValue().doubleValue()
++            if (minRegularValue.doubleValue()
+                     < this.minimumRangeValue.doubleValue()) {
+-                this.minimumRangeValue = item.getMinRegularValue();
++                this.minimumRangeValue = minRegularValue;
+             }
+         }
+         if (this.maximumRangeValue == null) {

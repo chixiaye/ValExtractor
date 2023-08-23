@@ -1,0 +1,14 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..08f5ec4 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -205,7 +205,8 @@
+     mapping.sourceFile = getSourceId(sourceName);
+     mapping.originalPosition = sourceStartPosition;
+     mapping.originalName = symbolName;
+-    mapping.startPosition = adjustedStart;
++      FilePosition startPosition1 = mapping.startPosition;
++      startPosition1 = adjustedStart;
+     mapping.endPosition = adjustedEnd;
+ 
+     // Validate the mappings are in a proper order.

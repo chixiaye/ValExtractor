@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..59a4b7e 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -135,7 +135,8 @@
+     for (Map.Entry<Node, FunctionInformation> entry :
+              functionSideEffectMap.entrySet()) {
+       Node function = entry.getKey();
+-      FunctionInformation functionInfo = entry.getValue();
++        FunctionInformation value = entry.getValue();
++        FunctionInformation functionInfo = value;
+ 
+       boolean isPure =
+           functionInfo.mayBePure() && !functionInfo.mayHaveSideEffects();

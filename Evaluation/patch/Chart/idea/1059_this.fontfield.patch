@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultTitleEditor.java b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+index 55b846e..a68e9e8 100644
+--- a/source/org/jfree/chart/editor/DefaultTitleEditor.java
++++ b/source/org/jfree/chart/editor/DefaultTitleEditor.java
+@@ -144,6 +144,7 @@
+         interior.add(new JPanel());
+ 
+         JLabel fontLabel = new JLabel(localizationResources.getString("Font"));
++        JTextField fontfield1 = this.fontfield;
+         this.fontfield = new FontDisplayField(this.titleFont);
+         this.selectFontButton = new JButton(
+             localizationResources.getString("Select...")

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+index 14c48c6..6895f59 100644
+--- a/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
++++ b/src/main/java/org/apache/commons/math3/stat/correlation/SpearmansCorrelation.java
+@@ -249,8 +249,9 @@
+         if (indices.isEmpty()) {
+             return input;
+         }
+-        final double[] result = new double[input.length - indices.size()];
+-        for (int i = 0, j = 0; i < input.length; i++) {
++        int length = input.length;
++        final double[] result = new double[length - indices.size()];
++        for (int i = 0, j = 0; i < length; i++) {
+             if (!indices.contains(i)) {
+                 result[j++] = input[i];
+             }

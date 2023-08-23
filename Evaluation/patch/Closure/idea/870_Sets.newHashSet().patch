@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..3f6bd74 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -43,11 +43,7 @@
+ import com.google.javascript.rhino.jstype.ObjectType;
+ import com.google.javascript.rhino.jstype.StaticScope;
+ 
+-import java.util.Collection;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
+-import java.util.Stack;
++import java.util.*;
+ import java.util.logging.Logger;
+ 
+ /**
+@@ -197,13 +193,14 @@
+ 
+           // Make sure that the representative type for each type to skip is
+           // marked as being skipped.
+-          Set<T> rootTypesToSkip = Sets.newHashSet();
++            HashSet<T> ts = Sets.newHashSet();
++            Set<T> rootTypesToSkip = ts;
+           for (T subType : typesToSkip) {
+             rootTypesToSkip.add(types.find(subType));
+           }
+           typesToSkip.addAll(rootTypesToSkip);
+ 
+-          Set<T> newTypesToSkip = Sets.newHashSet();
++          Set<T> newTypesToSkip = ts;
+           Set<T> allTypes = types.elements();
+           int originalTypesSize = allTypes.size();
+           for (T subType : allTypes) {

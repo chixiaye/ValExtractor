@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..65596d6 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -392,7 +392,8 @@
+             // calculate sub-plot area
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 double w = usableSize * plot.getWeight() / totalWeight;
+-                this.subplotAreas[i] = new Rectangle2D.Double(x, y, w,
++                Rectangle2D subplotArea = this.subplotAreas[i];
++                subplotArea = new Rectangle2D.Double(x, y, w,
+                         adjustedPlotArea.getHeight());
+                 x = x + w + this.gap;
+             }

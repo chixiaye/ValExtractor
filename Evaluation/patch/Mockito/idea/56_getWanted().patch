@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/matchers/ArrayEquals.java b/src/org/mockito/internal/matchers/ArrayEquals.java
+index c6cdf33..c82d358 100644
+--- a/src/org/mockito/internal/matchers/ArrayEquals.java
++++ b/src/org/mockito/internal/matchers/ArrayEquals.java
+@@ -45,8 +45,9 @@
+     }
+ 
+     public void describeTo(Description description) {
+-        if (getWanted() != null && getWanted().getClass().isArray()) {
+-            appendArray(createObjectArray(getWanted()), description);
++        Object wanted = getWanted();
++        if (wanted != null && wanted.getClass().isArray()) {
++            appendArray(createObjectArray(wanted), description);
+         } else {
+             super.describeTo(description);
+         }

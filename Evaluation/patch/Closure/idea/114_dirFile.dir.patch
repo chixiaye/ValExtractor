@@ -1,0 +1,16 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+index 8bd554f..54bd4a0 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV1.java
+@@ -266,8 +266,9 @@
+           || (line - lastLine) < Byte.MIN_VALUE) {
+         if (currentFile != null) {
+           FileName dirFile = splitFileName(interner, currentFile);
+-          SourceFile.Builder builder = SourceFile.newBuilder()
+-              .setDir(dirFile.dir)
++            String dir = dirFile.dir;
++            SourceFile.Builder builder = SourceFile.newBuilder()
++              .setDir(dir)
+               .setFileName(dirFile.name)
+               .setStartLine(startLine)
+               .setStartMapId(startMapId)

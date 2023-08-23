@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..f477eb6 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1513,9 +1513,9 @@
+       File file = new File(input.getName());
+       out.append("//");
+       out.append(displayName);
+-      out.append("\n");
+-      Files.copy(file, inputCharset, out);
+-      out.append("\n");
++        Appendable append = out.append("\n");
++        Files.copy(file, inputCharset, out);
++      append;
+     }
+   }
+ 

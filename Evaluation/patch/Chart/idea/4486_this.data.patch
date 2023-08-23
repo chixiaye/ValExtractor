@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..5ba8bd7 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -925,9 +925,10 @@
+ 
+         XYSeries copy = (XYSeries) super.clone();
+         copy.data = new java.util.ArrayList();
+-        if (this.data.size() > 0) {
++        List data1 = this.data;
++        if (data1.size() > 0) {
+             for (int index = start; index <= end; index++) {
+-                XYDataItem item = (XYDataItem) this.data.get(index);
++                XYDataItem item = (XYDataItem) data1.get(index);
+                 XYDataItem clone = (XYDataItem) item.clone();
+                 try {
+                     copy.add(clone);

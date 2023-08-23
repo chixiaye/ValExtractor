@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..0c6e10f 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3187,8 +3187,9 @@
+         // 'baseOutlinePaint' : immutable, no need to clone reference
+ 
+         // 'stroke' : immutable, no need to clone reference
+-        if (this.strokeList != null) {
+-            clone.strokeList = (StrokeList) this.strokeList.clone();
++        StrokeList strokeList1 = this.strokeList;
++        if (strokeList1 != null) {
++            clone.strokeList = (StrokeList) strokeList1.clone();
+         }
+         // 'baseStroke' : immutable, no need to clone reference
+ 

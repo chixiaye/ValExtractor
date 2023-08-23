@@ -1,0 +1,107 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+index 20d0980..56ab3c7 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+@@ -234,11 +234,12 @@
+                 // User-defined convergence checker.
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+-                best = best(best,
++                UnivariatePointValuePair var_3588 = best(best,
+                             best(previous,
+                                  current,
+                                  isMinim),
+                             isMinim);
++				best = var_3588;
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+                     return best;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+index 20d0980..97f107c 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+@@ -160,6 +160,11 @@
+ 
+             // Default stopping criterion.
+             final boolean stop = FastMath.abs(x - m) <= tol2 - 0.5 * (b - a);
++            UnivariatePointValuePair var_3588 = best(best,
++			            best(previous,
++			                 current,
++			                 isMinim),
++			            isMinim);
+             if (!stop) {
+                 double p = 0;
+                 double q = 0;
+@@ -234,11 +239,7 @@
+                 // User-defined convergence checker.
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+-                best = best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
+-                            isMinim);
++                best = var_3588;
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+                     return best;
+@@ -277,11 +278,7 @@
+                     }
+                 }
+             } else { // Default termination (Brent's criterion).
+-                return best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
+-                            isMinim);
++                return var_3588;
+             }
+             ++iter;
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+index 20d0980..0260c2c 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java
+@@ -160,6 +160,11 @@
+ 
+             // Default stopping criterion.
+             final boolean stop = FastMath.abs(x - m) <= tol2 - 0.5 * (b - a);
++            UnivariatePointValuePair best1 = best(best,
++                    best(previous,
++                            current,
++                            isMinim),
++                    isMinim);
+             if (!stop) {
+                 double p = 0;
+                 double q = 0;
+@@ -234,11 +239,7 @@
+                 // User-defined convergence checker.
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+-                best = best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
+-                            isMinim);
++                best = best1;
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+                     return best;
+@@ -277,11 +278,7 @@
+                     }
+                 }
+             } else { // Default termination (Brent's criterion).
+-                return best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
+-                            isMinim);
++                return best1;
+             }
+             ++iter;
+         }

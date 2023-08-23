@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/text/TextUtilities.java b/source/org/jfree/chart/text/TextUtilities.java
+index 8f332f7..96bc886 100644
+--- a/source/org/jfree/chart/text/TextUtilities.java
++++ b/source/org/jfree/chart/text/TextUtilities.java
+@@ -210,8 +210,9 @@
+             TextFragment lastFragment = lastLine.getLastTextFragment();
+             String oldStr = lastFragment.getText();
+             String newStr = "...";
+-            if (oldStr.length() > 3) {
+-                newStr = oldStr.substring(0, oldStr.length() - 3) + "...";
++            int length1 = oldStr.length();
++            if (length1 > 3) {
++                newStr = oldStr.substring(0, length1 - 3) + "...";
+             }
+ 
+             lastLine.removeFragment(lastFragment);

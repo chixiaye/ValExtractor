@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/time/Millisecond.java b/source/org/jfree/data/time/Millisecond.java
+index 5dada5d..2e89907 100644
+--- a/source/org/jfree/data/time/Millisecond.java
++++ b/source/org/jfree/data/time/Millisecond.java
+@@ -400,9 +400,10 @@
+      *     <code>null</code>.
+      */
+     public long getFirstMillisecond(Calendar calendar) {
+-        int year = this.day.getYear();
+-        int month = this.day.getMonth() - 1;
+-        int day = this.day.getDayOfMonth();
++        Day day1 = this.day;
++        int year = day1.getYear();
++        int month = day1.getMonth() - 1;
++        int day = day1.getDayOfMonth();
+         calendar.clear();
+         calendar.set(year, month, day, this.hour, this.minute, this.second);
+         calendar.set(Calendar.MILLISECOND, this.millisecond);

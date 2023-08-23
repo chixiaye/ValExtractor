@@ -1,0 +1,322 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..fc17249 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -902,17 +902,18 @@
+                 mm = calendar.getTime();
+             }
+             return mm;
+-        }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        } else {
++			DateTickMarkPosition var_496 = this.tickMarkPosition;
++			if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 milliseconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 milliseconds = 500;
+             }
+             else {
+@@ -932,10 +933,10 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 seconds = 30;
+             }
+             else {
+@@ -954,11 +955,11 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 minutes = 30;
+                 seconds = 0;
+             }
+@@ -978,12 +979,12 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 hours = 12;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1011,7 +1012,7 @@
+             Month month = new Month(calendar.getTime(), this.timeZone,
+                     this.locale);
+             Date standardDate = calculateDateForPosition(
+-                    month, this.tickMarkPosition);
++			            month, var_496);
+             long millis = standardDate.getTime();
+             if (millis >= date.getTime()) {
+                 month = (Month) month.previous();
+@@ -1019,16 +1020,16 @@
+                 // default - see bug 2078057
+                 month.peg(Calendar.getInstance(this.timeZone));
+                 standardDate = calculateDateForPosition(
+-                        month, this.tickMarkPosition);
++			                month, var_496);
+             }
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 months = 0;
+                 days = 1;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 months = 6;
+                 days = 1;
+             }
+@@ -1048,6 +1049,7 @@
+         else {
+             return null;
+         }
++		}
+ 
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..fc17249 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -902,17 +902,18 @@
+                 mm = calendar.getTime();
+             }
+             return mm;
+-        }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        } else {
++			DateTickMarkPosition var_496 = this.tickMarkPosition;
++			if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 milliseconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 milliseconds = 500;
+             }
+             else {
+@@ -932,10 +933,10 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 seconds = 30;
+             }
+             else {
+@@ -954,11 +955,11 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 minutes = 30;
+                 seconds = 0;
+             }
+@@ -978,12 +979,12 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 hours = 12;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1011,7 +1012,7 @@
+             Month month = new Month(calendar.getTime(), this.timeZone,
+                     this.locale);
+             Date standardDate = calculateDateForPosition(
+-                    month, this.tickMarkPosition);
++			            month, var_496);
+             long millis = standardDate.getTime();
+             if (millis >= date.getTime()) {
+                 month = (Month) month.previous();
+@@ -1019,16 +1020,16 @@
+                 // default - see bug 2078057
+                 month.peg(Calendar.getInstance(this.timeZone));
+                 standardDate = calculateDateForPosition(
+-                        month, this.tickMarkPosition);
++			                month, var_496);
+             }
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++			    if (var_496 == DateTickMarkPosition.START) {
+                 months = 0;
+                 days = 1;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++			    else if (var_496 == DateTickMarkPosition.MIDDLE) {
+                 months = 6;
+                 days = 1;
+             }
+@@ -1048,6 +1049,7 @@
+         else {
+             return null;
+         }
++		}
+ 
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..8a98157 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -903,16 +903,18 @@
+             }
+             return mm;
+         }
+-        else if (t.equals(DateTickUnitType.SECOND)) {
++        else {
++            DateTickMarkPosition tickMarkPosition1 = this.tickMarkPosition;
++            if (t.equals(DateTickUnitType.SECOND)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+             minutes = calendar.get(Calendar.MINUTE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (tickMarkPosition1 == DateTickMarkPosition.START) {
+                 milliseconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++                else if (tickMarkPosition1 == DateTickMarkPosition.MIDDLE) {
+                 milliseconds = 500;
+             }
+             else {
+@@ -932,10 +934,10 @@
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+             hours = calendar.get(Calendar.HOUR_OF_DAY);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (tickMarkPosition1 == DateTickMarkPosition.START) {
+                seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++                else if (tickMarkPosition1 == DateTickMarkPosition.MIDDLE) {
+                 seconds = 30;
+             }
+             else {
+@@ -954,11 +956,11 @@
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+             days = calendar.get(Calendar.DATE);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (tickMarkPosition1 == DateTickMarkPosition.START) {
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++                else if (tickMarkPosition1 == DateTickMarkPosition.MIDDLE) {
+                 minutes = 30;
+                 seconds = 0;
+             }
+@@ -978,12 +980,12 @@
+         else if (t.equals(DateTickUnitType.DAY)) {
+             years = calendar.get(Calendar.YEAR);
+             months = calendar.get(Calendar.MONTH);
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (tickMarkPosition1 == DateTickMarkPosition.START) {
+                 hours = 0;
+                 minutes = 0;
+                 seconds = 0;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++                else if (tickMarkPosition1 == DateTickMarkPosition.MIDDLE) {
+                 hours = 12;
+                 minutes = 0;
+                 seconds = 0;
+@@ -1011,7 +1013,7 @@
+             Month month = new Month(calendar.getTime(), this.timeZone,
+                     this.locale);
+             Date standardDate = calculateDateForPosition(
+-                    month, this.tickMarkPosition);
++                        month, tickMarkPosition1);
+             long millis = standardDate.getTime();
+             if (millis >= date.getTime()) {
+                 month = (Month) month.previous();
+@@ -1019,16 +1021,16 @@
+                 // default - see bug 2078057
+                 month.peg(Calendar.getInstance(this.timeZone));
+                 standardDate = calculateDateForPosition(
+-                        month, this.tickMarkPosition);
++                            month, tickMarkPosition1);
+             }
+             return standardDate;
+         }
+         else if (t.equals(DateTickUnitType.YEAR)) {
+-            if (this.tickMarkPosition == DateTickMarkPosition.START) {
++                if (tickMarkPosition1 == DateTickMarkPosition.START) {
+                 months = 0;
+                 days = 1;
+             }
+-            else if (this.tickMarkPosition == DateTickMarkPosition.MIDDLE) {
++                else if (tickMarkPosition1 == DateTickMarkPosition.MIDDLE) {
+                 months = 6;
+                 days = 1;
+             }
+@@ -1048,6 +1050,7 @@
+         else {
+             return null;
+         }
++        }
+ 
+     }
+ 

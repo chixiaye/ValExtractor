@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/AxisState.java b/source/org/jfree/chart/axis/AxisState.java
+index 188df90..59bfdb3 100644
+--- a/source/org/jfree/chart/axis/AxisState.java
++++ b/source/org/jfree/chart/axis/AxisState.java
+@@ -125,6 +125,7 @@
+      * @param units  the units.
+      */
+     public void cursorUp(double units) {
++        double cursor1 = this.cursor;
+         this.cursor = this.cursor - units;
+     }
+ 

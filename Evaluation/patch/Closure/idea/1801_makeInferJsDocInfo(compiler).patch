@@ -1,0 +1,26 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..7b729d8 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -1167,16 +1167,18 @@
+   @Override
+   protected HotSwapCompilerPass create(final AbstractCompiler compiler) {
+     return new HotSwapCompilerPass() {
+-      @Override
++        private final InferJSDocInfo inferJSDocInfo = makeInferJsDocInfo(compiler);
++
++        @Override
+       public void process(Node externs, Node root) {
+         Preconditions.checkNotNull(topScope);
+         Preconditions.checkNotNull(getTypedScopeCreator());
+ 
+-        makeInferJsDocInfo(compiler).process(externs, root);
++        inferJSDocInfo.process(externs, root);
+       }
+       @Override
+       public void hotSwapScript(Node scriptRoot, Node originalRoot) {
+-        makeInferJsDocInfo(compiler).hotSwapScript(scriptRoot, originalRoot);
++        inferJSDocInfo.hotSwapScript(scriptRoot, originalRoot);
+       }
+     };
+   }

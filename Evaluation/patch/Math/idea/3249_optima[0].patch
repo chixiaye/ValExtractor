@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer.java
+index 7b9b115..3b0a5c8 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/BaseMultivariateVectorMultiStartOptimizer.java
+@@ -165,12 +165,13 @@
+ 
+         sortPairs(target, weights);
+ 
+-        if (optima[0] == null) {
++        PointVectorValuePair pointVectorValuePair = optima[0];
++        if (pointVectorValuePair == null) {
+             throw lastException; // cannot be null if starts >=1
+         }
+ 
+         // Return the found point given the best objective function value.
+-        return optima[0];
++        return pointVectorValuePair;
+     }
+ 
+     /**

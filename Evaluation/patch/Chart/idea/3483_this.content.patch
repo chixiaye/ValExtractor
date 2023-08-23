@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/title/TextTitle.java b/source/org/jfree/chart/title/TextTitle.java
+index 74e534a..7b82eaa 100644
+--- a/source/org/jfree/chart/title/TextTitle.java
++++ b/source/org/jfree/chart/title/TextTitle.java
+@@ -559,7 +559,8 @@
+             this.content = TextUtilities.createTextBlock(this.text, this.font,
+                     this.paint, maxWidth, this.maximumLinesToDisplay,
+                     new G2TextMeasurer(g2));
+-            this.content.setLineAlignment(this.textAlignment);
++            TextBlock content1 = this.content;
++            content1.setLineAlignment(this.textAlignment);
+             Size2D contentSize = this.content.calculateDimensions(g2);
+             if (this.expandToFitSpace) {
+                 return new Size2D(maxWidth, contentSize.getHeight());

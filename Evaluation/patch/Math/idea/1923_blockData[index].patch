@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+index c6b1a04..45ab121 100644
+--- a/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/BlockFieldMatrix.java
+@@ -170,12 +170,13 @@
+         for (int iBlock = 0; iBlock < blockRows; ++iBlock) {
+             final int iHeight = blockHeight(iBlock);
+             for (int jBlock = 0; jBlock < blockColumns; ++jBlock, ++index) {
+-                if (blockData[index].length != iHeight * blockWidth(jBlock)) {
+-                    throw new DimensionMismatchException(blockData[index].length,
++                T[] blockDatum = blockData[index];
++                if (blockDatum.length != iHeight * blockWidth(jBlock)) {
++                    throw new DimensionMismatchException(blockDatum.length,
+                                                          iHeight * blockWidth(jBlock));
+                 }
+                 if (copyArray) {
+-                    blocks[index] = blockData[index].clone();
++                    blocks[index] = blockDatum.clone();
+                 }
+             }
+         }

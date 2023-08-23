@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
+index 5f6f2be..9c2f8e4 100644
+--- a/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/Array2DRowRealMatrix.java
+@@ -277,7 +277,8 @@
+                 throw new MathIllegalStateException(LocalizedFormats.FIRST_COLUMNS_NOT_INITIALIZED_YET, column);
+             }
+             MathUtils.checkNotNull(subMatrix);
+-            final int nRows = subMatrix.length;
++            int length = subMatrix.length;
++            final int nRows = length;
+             if (nRows == 0) {
+                 throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_ROW);
+             }
+@@ -286,7 +287,7 @@
+             if (nCols == 0) {
+                 throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_COLUMN);
+             }
+-            data = new double[subMatrix.length][nCols];
++            data = new double[length][nCols];
+             for (int i = 0; i < data.length; ++i) {
+                 if (subMatrix[i].length != nCols) {
+                     throw new DimensionMismatchException(subMatrix[i].length, nCols);

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..68a6bb6 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -337,9 +337,10 @@
+    */
+   private void handleTypedefDefinition(
+       NodeTraversal t, Node n, Node parent) {
+-    JSDocInfo info = n.getFirstChild().getJSDocInfo();
++      Node firstChild = n.getFirstChild();
++      JSDocInfo info = firstChild.getJSDocInfo();
+     if (t.inGlobalScope() && info != null && info.hasTypedefType()) {
+-      String name = n.getFirstChild().getQualifiedName();
++      String name = firstChild.getQualifiedName();
+       if (name != null) {
+         ProvidedName pn = providedNames.get(name);
+         if (pn != null) {

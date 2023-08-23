@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/category/CategoryToPieDataset.java b/source/org/jfree/data/category/CategoryToPieDataset.java
+index e5e9960..911bf3f 100644
+--- a/source/org/jfree/data/category/CategoryToPieDataset.java
++++ b/source/org/jfree/data/category/CategoryToPieDataset.java
+@@ -220,12 +220,13 @@
+      */
+     public int getIndex(Comparable key) {
+         int result = -1;
+-        if (this.source != null) {
++        CategoryDataset source1 = this.source;
++        if (source1 != null) {
+             if (this.extract == TableOrder.BY_ROW) {
+-                result = this.source.getColumnIndex(key);
++                result = source1.getColumnIndex(key);
+             }
+             else if (this.extract == TableOrder.BY_COLUMN) {
+-                result = this.source.getRowIndex(key);
++                result = source1.getRowIndex(key);
+             }
+         }
+         return result;

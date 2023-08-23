@@ -1,0 +1,21 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+index 38da656c39..365bf9fb57 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+@@ -236,13 +236,14 @@ public final class MatchStep<S, E> extends ComputerAwareStep<S, Map<String, E>>
+     private boolean isDuplicate(final Traverser<S> traverser) {
+         if (null == this.dedups)
+             return false;
++        Path path = traverser.path();
+         for (final String label : this.dedupLabels) {
+-            if (!traverser.path().hasLabel(label))
++            if (!path.hasLabel(label))
+                 return false;
+         }
+         final List<Object> objects = new ArrayList<>(this.dedupLabels.size());
+         for (final String label : this.dedupLabels) {
+-            objects.add(traverser.path().get(Pop.last, label));
++            objects.add(path.get(Pop.last, label));
+         }
+         return this.dedups.contains(objects);
+     }

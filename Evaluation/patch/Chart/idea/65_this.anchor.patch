@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..018820e 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1694,7 +1694,8 @@
+                     bufferG2.setTransform(saved);
+                 }
+                 else {
+-                    this.chart.draw(bufferG2, bufferArea, this.anchor,
++                    Point2D anchor1 = this.anchor;
++                    this.chart.draw(bufferG2, bufferArea, anchor1,
+                             this.info);
+                 }
+ 

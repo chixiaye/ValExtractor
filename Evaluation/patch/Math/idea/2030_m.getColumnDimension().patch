@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+index 5b91780..f93ecc2 100644
+--- a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
++++ b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+@@ -1010,9 +1010,10 @@
+     public static RealMatrix blockInverse(RealMatrix m,
+                                           int splitIndex) {
+         final int n = m.getRowDimension();
+-        if (m.getColumnDimension() != n) {
++        int columnDimension = m.getColumnDimension();
++        if (columnDimension != n) {
+             throw new NonSquareMatrixException(m.getRowDimension(),
+-                                               m.getColumnDimension());
++                    columnDimension);
+         }
+ 
+         final int splitIndex1 = splitIndex + 1;

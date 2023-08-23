@@ -1,0 +1,39 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+index 5d8a992..30f7e94 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+@@ -270,12 +270,13 @@
+             if (edge != inserted) {
+                 final double startOffset = inserted.getLine().getOffset(edge.getStart().getLocation());
+                 final double endOffset   = inserted.getLine().getOffset(edge.getEnd().getLocation());
++                final Side plus = Side.PLUS;
+                 Side startSide = (FastMath.abs(startOffset) <= hyperplaneThickness) ?
+-                                 Side.HYPER : ((startOffset < 0) ? Side.MINUS : Side.PLUS);
++                                 Side.HYPER : ((startOffset < 0) ? Side.MINUS : plus);
+                 Side endSide   = (FastMath.abs(endOffset) <= hyperplaneThickness) ?
+-                                 Side.HYPER : ((endOffset < 0) ? Side.MINUS : Side.PLUS);
++                                 Side.HYPER : ((endOffset < 0) ? Side.MINUS : plus);
+                 switch (startSide) {
+-                    case PLUS:
++                    case plus:
+                         if (endSide == Side.MINUS) {
+                             // we need to insert a split point on the hyperplane
+                             final Vertex splitPoint = edge.split(inserted.getLine());
+@@ -286,7 +287,7 @@
+                         }
+                         break;
+                     case MINUS:
+-                        if (endSide == Side.PLUS) {
++                        if (endSide == plus) {
+                             // we need to insert a split point on the hyperplane
+                             final Vertex splitPoint = edge.split(inserted.getLine());
+                             minusList.add(splitPoint.getIncoming());
+@@ -296,7 +297,7 @@
+                         }
+                         break;
+                     default:
+-                        if (endSide == Side.PLUS) {
++                        if (endSide == plus) {
+                             plusList.add(edge);
+                         } else if (endSide == Side.MINUS) {
+                             minusList.add(edge);

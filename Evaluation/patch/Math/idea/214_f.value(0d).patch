@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/integration/gauss/SymmetricGaussIntegrator.java b/src/main/java/org/apache/commons/math3/analysis/integration/gauss/SymmetricGaussIntegrator.java
+index 4df5015..3304bda 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/integration/gauss/SymmetricGaussIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/analysis/integration/gauss/SymmetricGaussIntegrator.java
+@@ -69,8 +69,9 @@
+     public double integrate(UnivariateFunction f) {
+         final int ruleLength = getNumberOfPoints();
+ 
++        double value = f.value(0d);
+         if (ruleLength == 1) {
+-            return getWeight(0) * f.value(0d);
++            return getWeight(0) * value;
+         }
+ 
+         final int iMax = ruleLength / 2;
+@@ -93,7 +94,7 @@
+         if (ruleLength % 2 != 0) {
+             final double w = getWeight(iMax);
+ 
+-            final double y = w * f.value(0d) - c;
++            final double y = w * value - c;
+             final double t = s + y;
+ 
+             s = t;

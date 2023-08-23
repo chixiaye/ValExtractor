@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/DomainOrder.java b/source/org/jfree/data/DomainOrder.java
+index bd094fa..685655d 100644
+--- a/source/org/jfree/data/DomainOrder.java
++++ b/source/org/jfree/data/DomainOrder.java
+@@ -125,13 +125,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DomainOrder.ASCENDING)) {
+             return DomainOrder.ASCENDING;
+-        }
+-        else if (this.equals(DomainOrder.DESCENDING)) {
+-            return DomainOrder.DESCENDING;
++        } else {
++			DomainOrder var_3830 = DomainOrder.DESCENDING;
++			if (this.equals(var_3830)) {
++			    return var_3830;
+         }
+         else if (this.equals(DomainOrder.NONE)) {
+             return DomainOrder.NONE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/DomainOrder.java b/source/org/jfree/data/DomainOrder.java
+index bd094fa..685655d 100644
+--- a/source/org/jfree/data/DomainOrder.java
++++ b/source/org/jfree/data/DomainOrder.java
+@@ -125,13 +125,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(DomainOrder.ASCENDING)) {
+             return DomainOrder.ASCENDING;
+-        }
+-        else if (this.equals(DomainOrder.DESCENDING)) {
+-            return DomainOrder.DESCENDING;
++        } else {
++			DomainOrder var_3830 = DomainOrder.DESCENDING;
++			if (this.equals(var_3830)) {
++			    return var_3830;
+         }
+         else if (this.equals(DomainOrder.NONE)) {
+             return DomainOrder.NONE;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/DomainOrder.java b/source/org/jfree/data/DomainOrder.java
+index bd094fa..13a5183 100644
+--- a/source/org/jfree/data/DomainOrder.java
++++ b/source/org/jfree/data/DomainOrder.java
+@@ -126,12 +126,15 @@
+         if (this.equals(DomainOrder.ASCENDING)) {
+             return DomainOrder.ASCENDING;
+         }
+-        else if (this.equals(DomainOrder.DESCENDING)) {
+-            return DomainOrder.DESCENDING;
++        else {
++            DomainOrder descending = DomainOrder.DESCENDING;
++            if (this.equals(descending)) {
++                return descending;
+         }
+         else if (this.equals(DomainOrder.NONE)) {
+             return DomainOrder.NONE;
+         }
++        }
+         return null;
+     }
+ 

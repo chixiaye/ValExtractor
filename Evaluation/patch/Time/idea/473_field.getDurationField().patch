@@ -1,0 +1,39 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..417e755 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -25,14 +25,7 @@
+ import java.util.Map;
+ import java.util.Set;
+ 
+-import org.joda.time.Chronology;
+-import org.joda.time.DateTimeConstants;
+-import org.joda.time.DateTimeField;
+-import org.joda.time.DateTimeFieldType;
+-import org.joda.time.DateTimeUtils;
+-import org.joda.time.DateTimeZone;
+-import org.joda.time.MutableDateTime;
+-import org.joda.time.ReadablePartial;
++import org.joda.time.*;
+ import org.joda.time.MutableDateTime.Property;
+ import org.joda.time.field.MillisDurationField;
+ import org.joda.time.field.PreciseDateTimeField;
+@@ -2070,7 +2063,8 @@
+             int limit = Math.min(iMaxDigits, text.length() - position);
+ 
+             long value = 0;
+-            long n = field.getDurationField().getUnitMillis() * 10;
++            DurationField durationField = field.getDurationField();
++            long n = durationField.getUnitMillis() * 10;
+             int length = 0;
+             while (length < limit) {
+                 char c = text.charAt(position + length);
+@@ -2096,7 +2090,7 @@
+             DateTimeField parseField = new PreciseDateTimeField(
+                 DateTimeFieldType.millisOfSecond(),
+                 MillisDurationField.INSTANCE,
+-                field.getDurationField());
++                    durationField);
+ 
+             bucket.saveField(parseField, (int) value);
+ 

@@ -1,0 +1,33 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..1541539 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1620,8 +1620,9 @@
+         int ipt = 0;
+         int jpt = 0;
+         double fbeg = Double.NaN;
++        int evaluations1 = getEvaluations();
+         do {
+-            final int nfm = getEvaluations();
++            final int nfm = evaluations1;
+             final int nfx = nfm - n;
+             final int nfmm = nfm - 1;
+             final int nfxm = nfx - 1;
+@@ -1682,7 +1683,7 @@
+ 
+             final double objectiveValue = computeObjectiveValue(currentBest.toArray());
+             final double f = isMinimize ? objectiveValue : -objectiveValue;
+-            final int numEval = getEvaluations(); // nfm + 1
++            final int numEval = evaluations1; // nfm + 1
+             fAtInterpolationPoints.setEntry(nfm, f);
+ 
+             if (numEval == 1) {
+@@ -1749,7 +1750,7 @@
+                 modelSecondDerivativesValues.setEntry(ih, (fbeg - fAtInterpolationPoints.getEntry(ipt) - fAtInterpolationPoints.getEntry(jpt) + f) / tmp);
+ //                 throw new PathIsExploredException(); // XXX
+             }
+-        } while (getEvaluations() < npt);
++        } while (evaluations1 < npt);
+     } // prelim
+ 
+ 

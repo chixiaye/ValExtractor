@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/block/LengthConstraintType.java b/source/org/jfree/chart/block/LengthConstraintType.java
+index 2eb3d09..7bf188b 100644
+--- a/source/org/jfree/chart/block/LengthConstraintType.java
++++ b/source/org/jfree/chart/block/LengthConstraintType.java
+@@ -125,13 +125,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(LengthConstraintType.NONE)) {
+             return LengthConstraintType.NONE;
+-        }
+-        else if (this.equals(LengthConstraintType.RANGE)) {
+-            return LengthConstraintType.RANGE;
++        } else {
++			LengthConstraintType var_897 = LengthConstraintType.RANGE;
++			if (this.equals(var_897)) {
++			    return var_897;
+         }
+         else if (this.equals(LengthConstraintType.FIXED)) {
+             return LengthConstraintType.FIXED;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/block/LengthConstraintType.java b/source/org/jfree/chart/block/LengthConstraintType.java
+index 2eb3d09..7bf188b 100644
+--- a/source/org/jfree/chart/block/LengthConstraintType.java
++++ b/source/org/jfree/chart/block/LengthConstraintType.java
+@@ -125,13 +125,15 @@
+     private Object readResolve() throws ObjectStreamException {
+         if (this.equals(LengthConstraintType.NONE)) {
+             return LengthConstraintType.NONE;
+-        }
+-        else if (this.equals(LengthConstraintType.RANGE)) {
+-            return LengthConstraintType.RANGE;
++        } else {
++			LengthConstraintType var_897 = LengthConstraintType.RANGE;
++			if (this.equals(var_897)) {
++			    return var_897;
+         }
+         else if (this.equals(LengthConstraintType.FIXED)) {
+             return LengthConstraintType.FIXED;
+         }
++		}
+         return null;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/block/LengthConstraintType.java b/source/org/jfree/chart/block/LengthConstraintType.java
+index 2eb3d09..6858ada 100644
+--- a/source/org/jfree/chart/block/LengthConstraintType.java
++++ b/source/org/jfree/chart/block/LengthConstraintType.java
+@@ -126,12 +126,15 @@
+         if (this.equals(LengthConstraintType.NONE)) {
+             return LengthConstraintType.NONE;
+         }
+-        else if (this.equals(LengthConstraintType.RANGE)) {
+-            return LengthConstraintType.RANGE;
++        else {
++            LengthConstraintType range = LengthConstraintType.RANGE;
++            if (this.equals(range)) {
++                return range;
+         }
+         else if (this.equals(LengthConstraintType.FIXED)) {
+             return LengthConstraintType.FIXED;
+         }
++        }
+         return null;
+     }
+ 

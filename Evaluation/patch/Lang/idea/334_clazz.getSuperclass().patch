@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+index 8b2415a..18210ad 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java
+@@ -338,8 +338,10 @@
+         final HashCodeBuilder builder = new HashCodeBuilder(initialNonZeroOddNumber, multiplierNonZeroOddNumber);
+         Class<?> clazz = object.getClass();
+         reflectionAppend(object, clazz, builder, testTransients, excludeFields);
+-        while (clazz.getSuperclass() != null && clazz != reflectUpToClass) {
+-            clazz = clazz.getSuperclass();
++        while (true) {
++            Class<?> superclass = clazz.getSuperclass();
++            if (!(superclass != null && clazz != reflectUpToClass)) break;
++            clazz = superclass;
+             reflectionAppend(object, clazz, builder, testTransients, excludeFields);
+         }
+         return builder.toHashCode();

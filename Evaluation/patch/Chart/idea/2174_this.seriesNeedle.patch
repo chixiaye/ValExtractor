@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/CompassPlot.java b/source/org/jfree/chart/plot/CompassPlot.java
+index 2963422..4e6da12 100644
+--- a/source/org/jfree/chart/plot/CompassPlot.java
++++ b/source/org/jfree/chart/plot/CompassPlot.java
+@@ -495,8 +495,9 @@
+      * @param needle  the needle.
+      */
+     public void setSeriesNeedle(int index, MeterNeedle needle) {
+-        if ((needle != null) && (index < this.seriesNeedle.length)) {
+-            this.seriesNeedle[index] = needle;
++        MeterNeedle[] seriesNeedle1 = this.seriesNeedle;
++        if ((needle != null) && (index < seriesNeedle1.length)) {
++            seriesNeedle1[index] = needle;
+         }
+         fireChangeEvent();
+     }

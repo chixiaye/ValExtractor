@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..9195a39 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1260,10 +1260,12 @@
+         if (referencedBy.size() > 0) {
+           sb.append("<li>REFERENCED BY: ");
+           Iterator<DiGraphEdge<JsName, RefType>> fromIter = refersTo.iterator();
+-          while (fromIter.hasNext()) {
+-            sb.append(
++          while (true) {
++              boolean b = fromIter.hasNext();
++              if (!b) break;
++              sb.append(
+                 nameLink(fromIter.next().getDestination().getValue().name));
+-            if (fromIter.hasNext()) {
++            if (b) {
+               sb.append(", ");
+             }
+           }

@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..eee5909 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -1604,9 +1604,10 @@
+         ObjectType thisType = null;
+         boolean isConstructor = false;
+         Node current = n.getFirstChild();
+-        if (current.getType() == Token.THIS ||
++          Node firstChild1 = current.getFirstChild();
++          if (current.getType() == Token.THIS ||
+             current.getType() == Token.NEW) {
+-          Node contextNode = current.getFirstChild();
++          Node contextNode = firstChild1;
+           thisType =
+               ObjectType.cast(
+                   createFromTypeNodesInternal(
+@@ -1629,8 +1630,8 @@
+         FunctionParamBuilder paramBuilder = new FunctionParamBuilder(this);
+ 
+         if (current.getType() == Token.PARAM_LIST) {
+-          Node args = current.getFirstChild();
+-          for (Node arg = current.getFirstChild(); arg != null;
++          Node args = firstChild1;
++          for (Node arg = firstChild1; arg != null;
+                arg = arg.getNext()) {
+             if (arg.getType() == Token.ELLIPSIS) {
+               if (arg.getChildCount() == 0) {

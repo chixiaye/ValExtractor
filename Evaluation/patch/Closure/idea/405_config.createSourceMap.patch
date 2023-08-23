@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..88ef2f3 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -309,8 +309,9 @@
+           + " be used together.");
+     }
+ 
+-    if (config.createSourceMap.length() > 0) {
+-      options.sourceMapOutputPath = config.createSourceMap;
++      String createSourceMap = config.createSourceMap;
++      if (createSourceMap.length() > 0) {
++      options.sourceMapOutputPath = createSourceMap;
+     }
+     options.sourceMapDetailLevel = config.sourceMapDetailLevel;
+     options.sourceMapFormat = config.sourceMapFormat;

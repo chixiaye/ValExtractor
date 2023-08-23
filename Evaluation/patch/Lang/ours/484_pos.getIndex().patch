@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..5515473 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -448,8 +448,9 @@
+         int len = 0;
+         final char[] buffer = pattern.toCharArray();
+         do {
+-            len = StrMatcher.splitMatcher().isMatch(buffer, pos.getIndex());
+-            pos.setIndex(pos.getIndex() + len);
++            int var_484 = pos.getIndex();
++			len = StrMatcher.splitMatcher().isMatch(buffer, var_484);
++            pos.setIndex(var_484 + len);
+         } while (len > 0 && pos.getIndex() < pattern.length());
+     }
+ 

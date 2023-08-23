@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/DataFlowAnalysis.java b/src/com/google/javascript/jscomp/DataFlowAnalysis.java
+index 5b39646..14f860d 100644
+--- a/src/com/google/javascript/jscomp/DataFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/DataFlowAnalysis.java
+@@ -268,7 +268,8 @@
+     FlowState<L> state = node.getAnnotation();
+     if (isForward()) {
+       L outBefore = state.out;
+-      state.out = flowThrough(node.getValue(), state.in);
++        L in = state.in;
++        state.out = flowThrough(node.getValue(), in);
+       return !outBefore.equals(state.out);
+     } else {
+       L inBefore = state.in;

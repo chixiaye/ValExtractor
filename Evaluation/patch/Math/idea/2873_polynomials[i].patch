@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerStepInterpolator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerStepInterpolator.java
+index 228a008..47b8bb4 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerStepInterpolator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerStepInterpolator.java
+@@ -173,7 +173,8 @@
+     } else {
+       resetTables(interpolator.currentDegree);
+       for (int i = 0; i < polynomials.length; ++i) {
+-        polynomials[i] = new double[dimension];
++          double[] polynomial = polynomials[i];
++          polynomial = new double[dimension];
+         System.arraycopy(interpolator.polynomials[i], 0,
+                          polynomials[i], 0, dimension);
+       }

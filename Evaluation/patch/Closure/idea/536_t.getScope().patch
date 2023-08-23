@@ -1,0 +1,33 @@
+diff --git a/src/com/google/javascript/jscomp/ShadowVariables.java b/src/com/google/javascript/jscomp/ShadowVariables.java
+index f627aaf..39c7ff5 100644
+--- a/src/com/google/javascript/jscomp/ShadowVariables.java
++++ b/src/com/google/javascript/jscomp/ShadowVariables.java
+@@ -140,7 +140,8 @@
+         return;
+       }
+ 
+-      Var var = t.getScope().getVar(n.getString());
++        Scope scope = t.getScope();
++        Var var = scope.getVar(n.getString());
+       if (var == null) {
+         // extern name or undefined name.
+         return;
+@@ -152,14 +153,14 @@
+       }
+ 
+       // Using the definition of upward referencing, fill in the map.
+-      if (var.getScope() != t.getScope()) {
+-        for (Scope s = t.getScope();
+-            s != var.getScope() && s.isLocal(); s = s.getParent()) {
++      if (var.getScope() != scope) {
++        for (Scope s = scope;
++             s != var.getScope() && s.isLocal(); s = s.getParent()) {
+           scopeUpRefMap.put(s.getRootNode(), var.name);
+         }
+       }
+ 
+-      if (var.getScope() == t.getScope()) {
++      if (var.getScope() == scope) {
+         scopeUpRefMap.put(t.getScopeRoot(), var.name);
+       }
+ 

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..13c3b29 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -200,7 +200,8 @@
+      * shallow copy.
+      */
+     public ArrayRealVector(ArrayRealVector v, boolean deep) {
+-        data = deep ? v.data.clone() : v.data;
++        double[] data1 = v.data;
++        data = deep ? data1.clone() : data1;
+     }
+ 
+     /**

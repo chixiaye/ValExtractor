@@ -1,0 +1,116 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/deps/SortedDependencies.java b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+index 95e2071..40d2d9d 100644
+--- a/src/com/google/javascript/jscomp/deps/SortedDependencies.java
++++ b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+@@ -30,6 +30,7 @@
+ import com.google.common.collect.Sets;
+ 
+ import java.util.ArrayDeque;
++import java.util.ArrayList;
+ import java.util.Collection;
+ import java.util.Collections;
+ import java.util.Comparator;
+@@ -238,10 +239,11 @@
+ 
+   private static <T> List<T> topologicalStableSort(
+       List<T> items, Multimap<T, T> deps) {
++    ArrayList<T> var_2155 = Lists.newArrayList();
+     if (items.size() == 0) {
+       // Priority queue blows up if we give it a size of 0. Since we need
+       // to special case this either way, just bail out.
+-      return Lists.newArrayList();
++      return var_2155;
+     }
+ 
+     final Map<T, Integer> originalIndex = Maps.newHashMap();
+@@ -257,7 +259,7 @@
+             originalIndex.get(b).intValue();
+       }
+     });
+-    List<T> result = Lists.newArrayList();
++    List<T> result = var_2155;
+ 
+     Multiset<T> inDegree = HashMultiset.create();
+     Multimap<T, T> reverseDeps = ArrayListMultimap.create();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/deps/SortedDependencies.java b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+index 95e2071..40d2d9d 100644
+--- a/src/com/google/javascript/jscomp/deps/SortedDependencies.java
++++ b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+@@ -30,6 +30,7 @@
+ import com.google.common.collect.Sets;
+ 
+ import java.util.ArrayDeque;
++import java.util.ArrayList;
+ import java.util.Collection;
+ import java.util.Collections;
+ import java.util.Comparator;
+@@ -238,10 +239,11 @@
+ 
+   private static <T> List<T> topologicalStableSort(
+       List<T> items, Multimap<T, T> deps) {
++    ArrayList<T> var_2155 = Lists.newArrayList();
+     if (items.size() == 0) {
+       // Priority queue blows up if we give it a size of 0. Since we need
+       // to special case this either way, just bail out.
+-      return Lists.newArrayList();
++      return var_2155;
+     }
+ 
+     final Map<T, Integer> originalIndex = Maps.newHashMap();
+@@ -257,7 +259,7 @@
+             originalIndex.get(b).intValue();
+       }
+     });
+-    List<T> result = Lists.newArrayList();
++    List<T> result = var_2155;
+ 
+     Multiset<T> inDegree = HashMultiset.create();
+     Multimap<T, T> reverseDeps = ArrayListMultimap.create();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/deps/SortedDependencies.java b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+index 95e2071..7c44054 100644
+--- a/src/com/google/javascript/jscomp/deps/SortedDependencies.java
++++ b/src/com/google/javascript/jscomp/deps/SortedDependencies.java
+@@ -29,15 +29,7 @@
+ import com.google.common.collect.Multiset;
+ import com.google.common.collect.Sets;
+ 
+-import java.util.ArrayDeque;
+-import java.util.Collection;
+-import java.util.Collections;
+-import java.util.Comparator;
+-import java.util.Deque;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.PriorityQueue;
+-import java.util.Set;
++import java.util.*;
+ 
+ /**
+  * A sorted list of inputs with dependency information. Uses a stable
+@@ -238,10 +230,11 @@
+ 
+   private static <T> List<T> topologicalStableSort(
+       List<T> items, Multimap<T, T> deps) {
++      ArrayList<T> ts = Lists.newArrayList();
+     if (items.size() == 0) {
+       // Priority queue blows up if we give it a size of 0. Since we need
+       // to special case this either way, just bail out.
+-      return Lists.newArrayList();
++      return ts;
+     }
+ 
+     final Map<T, Integer> originalIndex = Maps.newHashMap();
+@@ -257,7 +250,7 @@
+             originalIndex.get(b).intValue();
+       }
+     });
+-    List<T> result = Lists.newArrayList();
++    List<T> result = ts;
+ 
+     Multiset<T> inDegree = HashMultiset.create();
+     Multimap<T, T> reverseDeps = ArrayListMultimap.create();

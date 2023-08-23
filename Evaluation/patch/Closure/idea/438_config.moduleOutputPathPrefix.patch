@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..a00c199 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1194,8 +1194,9 @@
+     if (outputFile.equals("")) {
+       // If we have a js_module_binary rule, output the maps
+       // at modulename_props_map.out, etc.
+-      if (!config.moduleOutputPathPrefix.equals("")) {
+-        basePath = config.moduleOutputPathPrefix;
++        String moduleOutputPathPrefix = config.moduleOutputPathPrefix;
++        if (!moduleOutputPathPrefix.equals("")) {
++        basePath = moduleOutputPathPrefix;
+       } else {
+         basePath = "jscompiler";
+       }

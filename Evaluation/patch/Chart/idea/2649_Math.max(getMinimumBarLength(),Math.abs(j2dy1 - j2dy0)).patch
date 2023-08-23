@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java b/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
+index 4a14898..0c81aa4 100644
+--- a/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/WaterfallBarRenderer.java
+@@ -369,8 +369,9 @@
+         double rectWidth = state.getBarWidth();
+ 
+         // BAR HEIGHT
+-        double rectHeight = Math.max(getMinimumBarLength(),
++        double max = Math.max(getMinimumBarLength(),
+                 Math.abs(j2dy1 - j2dy0));
++        double rectHeight = max;
+ 
+         Comparable seriesKey = dataset.getRowKey(row);
+         Comparable categoryKey = dataset.getColumnKey(column);
+@@ -381,8 +382,7 @@
+             rectX = j2dy0;
+             rectHeight = state.getBarWidth();
+             rectY = rectY - rectHeight / 2.0;
+-            rectWidth = Math.max(getMinimumBarLength(),
+-                    Math.abs(j2dy1 - j2dy0));
++            rectWidth = max;
+ 
+         }
+         else if (orientation == PlotOrientation.VERTICAL) {

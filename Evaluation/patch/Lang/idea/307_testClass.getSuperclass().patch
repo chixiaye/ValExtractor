@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+index 1c6eaff..b551ac1 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+@@ -355,8 +355,10 @@
+         final EqualsBuilder equalsBuilder = new EqualsBuilder();
+         try {
+             reflectionAppend(lhs, rhs, testClass, equalsBuilder, testTransients, excludeFields);
+-            while (testClass.getSuperclass() != null && testClass != reflectUpToClass) {
+-                testClass = testClass.getSuperclass();
++            while (true) {
++                Class<?> superclass = testClass.getSuperclass();
++                if (!(superclass != null && testClass != reflectUpToClass)) break;
++                testClass = superclass;
+                 reflectionAppend(lhs, rhs, testClass, equalsBuilder, testTransients, excludeFields);
+             }
+         } catch (final IllegalArgumentException e) {

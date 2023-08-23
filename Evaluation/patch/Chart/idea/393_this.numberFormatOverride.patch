@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/LogAxis.java b/source/org/jfree/chart/axis/LogAxis.java
+index f01eade..1b76b10 100644
+--- a/source/org/jfree/chart/axis/LogAxis.java
++++ b/source/org/jfree/chart/axis/LogAxis.java
+@@ -892,8 +892,9 @@
+         result = 37 * result + (int) (temp ^ (temp >>> 32));
+         temp = Double.doubleToLongBits(this.smallestValue);
+         result = 37 * result + (int) (temp ^ (temp >>> 32));
+-        if (this.numberFormatOverride != null) {
+-            result = 37 * result + this.numberFormatOverride.hashCode();
++        NumberFormat numberFormatOverride1 = this.numberFormatOverride;
++        if (numberFormatOverride1 != null) {
++            result = 37 * result + numberFormatOverride1.hashCode();
+         }
+         result = 37 * result + this.tickUnit.hashCode();
+         return result;

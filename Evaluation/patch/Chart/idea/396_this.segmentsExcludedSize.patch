@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/SegmentedTimeline.java b/source/org/jfree/chart/axis/SegmentedTimeline.java
+index 3d7dbe0..2913deb 100644
+--- a/source/org/jfree/chart/axis/SegmentedTimeline.java
++++ b/source/org/jfree/chart/axis/SegmentedTimeline.java
+@@ -333,6 +333,7 @@
+ 
+         this.groupSegmentCount = this.segmentsIncluded + this.segmentsExcluded;
+         this.segmentsIncludedSize = this.segmentsIncluded * this.segmentSize;
++        long segmentsExcludedSize1 = this.segmentsExcludedSize;
+         this.segmentsExcludedSize = this.segmentsExcluded * this.segmentSize;
+         this.segmentsGroupSize = this.segmentsIncludedSize
+                                  + this.segmentsExcludedSize;

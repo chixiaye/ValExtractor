@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
+index 674fb0a..009766c 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
+@@ -91,6 +91,7 @@
+      * @return the built tree
+      */
+     private static BSPTree<Euclidean1D> buildTree(final double lower, final double upper) {
++        SubOrientedPoint subOrientedPoint = new OrientedPoint(new Vector1D(upper), true).wholeHyperplane();
+         if (Double.isInfinite(lower) && (lower < 0)) {
+             if (Double.isInfinite(upper) && (upper > 0)) {
+                 // the tree must cover the whole real line
+@@ -98,7 +99,7 @@
+             }
+             // the tree must be open on the negative infinity side
+             final SubHyperplane<Euclidean1D> upperCut =
+-                new OrientedPoint(new Vector1D(upper), true).wholeHyperplane();
++                    subOrientedPoint;
+             return new BSPTree<Euclidean1D>(upperCut,
+                                new BSPTree<Euclidean1D>(Boolean.FALSE),
+                                new BSPTree<Euclidean1D>(Boolean.TRUE),
+@@ -116,7 +117,7 @@
+ 
+         // the tree must be bounded on the two sides
+         final SubHyperplane<Euclidean1D> upperCut =
+-            new OrientedPoint(new Vector1D(upper), true).wholeHyperplane();
++                subOrientedPoint;
+         return new BSPTree<Euclidean1D>(lowerCut,
+                                         new BSPTree<Euclidean1D>(Boolean.FALSE),
+                                         new BSPTree<Euclidean1D>(upperCut,

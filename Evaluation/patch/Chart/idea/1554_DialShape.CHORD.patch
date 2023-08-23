@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/plot/DialShape.java b/source/org/jfree/chart/plot/DialShape.java
+index 612f663..0a07dfe 100644
+--- a/source/org/jfree/chart/plot/DialShape.java
++++ b/source/org/jfree/chart/plot/DialShape.java
+@@ -125,11 +125,14 @@
+         if (this.equals(DialShape.CIRCLE)) {
+             return DialShape.CIRCLE;
+         }
+-        else if (this.equals(DialShape.CHORD)) {
+-            return DialShape.CHORD;
+-        }
+-        else if (this.equals(DialShape.PIE)) {
+-            return DialShape.PIE;
++        else {
++            DialShape chord = DialShape.CHORD;
++            if (this.equals(chord)) {
++                return chord;
++            }
++            else if (this.equals(DialShape.PIE)) {
++                return DialShape.PIE;
++            }
+         }
+         return null;
+     }

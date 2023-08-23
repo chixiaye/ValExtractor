@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CommandLineRunner.java b/src/com/google/javascript/jscomp/CommandLineRunner.java
+index 2d3b139..c5247c5 100644
+--- a/src/com/google/javascript/jscomp/CommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/CommandLineRunner.java
+@@ -645,7 +645,8 @@
+     List<String> argsInFile = tokenizeKeepingQuotedStrings(
+         Files.readLines(flagFileInput, Charset.defaultCharset()));
+ 
+-    flags.flag_file = "";
++      String flagFile = flags.flag_file;
++      flagFile = "";
+     List<String> processedFileArgs
+         = processArgs(argsInFile.toArray(new String[] {}));
+     CmdLineParser parserFileArgs = new CmdLineParser(flags);

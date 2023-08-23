@@ -1,0 +1,21 @@
+diff --git a/src/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java b/src/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java
+index 76704f9..5b47900 100644
+--- a/src/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java
++++ b/src/org/mockito/internal/matchers/apachecommons/EqualsBuilder.java
+@@ -233,13 +233,14 @@
+         Class lhsClass = lhs.getClass();
+         Class rhsClass = rhs.getClass();
+         Class testClass;
++        boolean instance = rhsClass.isInstance(lhs);
+         if (lhsClass.isInstance(rhs)) {
+             testClass = lhsClass;
+-            if (!rhsClass.isInstance(lhs)) {
++            if (!instance) {
+                 // rhsClass is a subclass of lhsClass
+                 testClass = rhsClass;
+             }
+-        } else if (rhsClass.isInstance(lhs)) {
++        } else if (instance) {
+             testClass = rhsClass;
+             if (!lhsClass.isInstance(rhs)) {
+                 // lhsClass is a subclass of rhsClass

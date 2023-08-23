@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/util/PaintMap.java b/source/org/jfree/chart/util/PaintMap.java
+index d8c2790..77ea22e 100644
+--- a/source/org/jfree/chart/util/PaintMap.java
++++ b/source/org/jfree/chart/util/PaintMap.java
+@@ -209,6 +209,7 @@
+     private void readObject(ObjectInputStream stream)
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
++        Map store1 = this.store;
+         this.store = new HashMap();
+         int keyCount = stream.readInt();
+         for (int i = 0; i < keyCount; i++) {

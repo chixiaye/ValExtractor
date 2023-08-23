@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+index eaf0b57..9ddf8ec 100644
+--- a/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
++++ b/source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java
+@@ -360,7 +360,8 @@
+                 if (this.min > value.doubleValue()) {
+                     this.min = value.doubleValue();
+                 }
+-                if (this.max < value.doubleValue()) {
++                double max1 = this.max;
++                if (max1 < value.doubleValue()) {
+                     this.max = value.doubleValue();
+                 }
+ 

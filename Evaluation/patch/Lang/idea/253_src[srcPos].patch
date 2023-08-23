@@ -1,0 +1,72 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Conversion.java b/src/main/java/org/apache/commons/lang3/Conversion.java
+index 91131ad..8f04ca0 100644
+--- a/src/main/java/org/apache/commons/lang3/Conversion.java
++++ b/src/main/java/org/apache/commons/lang3/Conversion.java
+@@ -301,16 +301,17 @@
+         if (src.length == 0) {
+             throw new IllegalArgumentException("Cannot convert an empty array.");
+         }
++        boolean b = src[srcPos];
+         if (src.length > srcPos + 3 && src[srcPos + 3]) {
+             if (src.length > srcPos + 2 && src[srcPos + 2]) {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return 'f';
+                     } else {
+                         return 'e';
+                     }
+                 } else {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return 'd';
+                     } else {
+                         return 'c';
+@@ -318,13 +319,13 @@
+                 }
+             } else {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return 'b';
+                     } else {
+                         return 'a';
+                     }
+                 } else {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return '9';
+                     } else {
+                         return '8';
+@@ -334,13 +335,13 @@
+         } else {
+             if (src.length > srcPos + 2 && src[srcPos + 2]) {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return '7';
+                     } else {
+                         return '6';
+                     }
+                 } else {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return '5';
+                     } else {
+                         return '4';
+@@ -348,13 +349,13 @@
+                 }
+             } else {
+                 if (src.length > srcPos + 1 && src[srcPos + 1]) {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return '3';
+                     } else {
+                         return '2';
+                     }
+                 } else {
+-                    if (src[srcPos]) {
++                    if (b) {
+                         return '1';
+                     } else {
+                         return '0';

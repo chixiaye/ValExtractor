@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/JFreeChart.java b/source/org/jfree/chart/JFreeChart.java
+index 625eca5..88d340f 100644
+--- a/source/org/jfree/chart/JFreeChart.java
++++ b/source/org/jfree/chart/JFreeChart.java
+@@ -1729,8 +1729,9 @@
+             subtitle.addChangeListener(chart);
+         }
+ 
+-        if (this.plot != null) {
+-            chart.plot = (Plot) this.plot.clone();
++        Plot plot1 = this.plot;
++        if (plot1 != null) {
++            chart.plot = (Plot) plot1.clone();
+             chart.plot.addChangeListener(chart);
+         }
+ 

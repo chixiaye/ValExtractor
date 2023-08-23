@@ -1,0 +1,36 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..7d1ac7d 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -205,8 +205,9 @@
+       Branch branch = branchEdge.getValue();
+       FlowScope newScope = output;
+ 
+-      switch (branch) {
+-        case ON_TRUE:
++        final Branch onTrue = Branch.ON_TRUE;
++        switch (branch) {
++        case onTrue:
+           if (NodeUtil.isForIn(source)) {
+             // item is assigned a property name, so its type should be string.
+             Node item = source.getFirstChild();
+@@ -278,8 +279,8 @@
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+                       condition,
+                       conditionOutcomes.getOutcomeFlowScope(
+-                          condition.getType(), branch == Branch.ON_TRUE),
+-                      branch == Branch.ON_TRUE);
++                          condition.getType(), branch == onTrue),
++                      branch == onTrue);
+             } else {
+               // conditionFlowScope is cached from previous iterations
+               // of the loop.
+@@ -289,7 +290,7 @@
+               }
+               newScope =
+                   reverseInterpreter.getPreciserScopeKnowingConditionOutcome(
+-                      condition, conditionFlowScope, branch == Branch.ON_TRUE);
++                      condition, conditionFlowScope, branch == onTrue);
+             }
+           }
+           break;

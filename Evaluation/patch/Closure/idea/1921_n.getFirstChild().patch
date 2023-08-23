@@ -1,0 +1,24 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..248f78e 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -794,14 +794,15 @@
+    * DOs and FORs.
+    */
+   static Node computeFallThrough(Node n) {
+-    switch (n.getType()) {
++      Node firstChild = n.getFirstChild();
++      switch (n.getType()) {
+       case Token.DO:
+-        return computeFallThrough(n.getFirstChild());
++        return computeFallThrough(firstChild);
+       case Token.FOR:
+         if (NodeUtil.isForIn(n)) {
+-          return n.getFirstChild().getNext();
++          return firstChild.getNext();
+         }
+-        return computeFallThrough(n.getFirstChild());
++        return computeFallThrough(firstChild);
+       case Token.LABEL:
+         return computeFallThrough(n.getLastChild());
+       default:

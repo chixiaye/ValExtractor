@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..6a633a6 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3320,14 +3320,15 @@
+                         .get(getRangeAxis());
+             }
+         }
++        List ticks = domainAxisState.getTicks();
+         if (domainAxisState != null) {
+-            drawDomainTickBands(g2, dataArea, domainAxisState.getTicks());
++            drawDomainTickBands(g2, dataArea, ticks);
+         }
+         if (rangeAxisState != null) {
+             drawRangeTickBands(g2, dataArea, rangeAxisState.getTicks());
+         }
+         if (domainAxisState != null) {
+-            drawDomainGridlines(g2, dataArea, domainAxisState.getTicks());
++            drawDomainGridlines(g2, dataArea, ticks);
+             drawZeroDomainBaseline(g2, dataArea);
+         }
+         if (rangeAxisState != null) {

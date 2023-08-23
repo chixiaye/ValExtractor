@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..57c2e7e 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -1042,8 +1042,9 @@
+                     }
+                     else {
+                         if (edge == RectangleEdge.LEFT) {
+-                            anchor = TextAnchor.CENTER_RIGHT;
+-                            rotationAnchor = TextAnchor.CENTER_RIGHT;
++                            TextAnchor centerRight = TextAnchor.CENTER_RIGHT;
++                            anchor = centerRight;
++                            rotationAnchor = centerRight;
+                         }
+                         else {
+                             anchor = TextAnchor.CENTER_LEFT;

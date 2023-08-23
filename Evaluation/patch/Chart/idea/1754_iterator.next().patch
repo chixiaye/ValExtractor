@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..dff4043 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -4539,7 +4539,8 @@
+                 // grab the plot's annotations
+                 Iterator iterator = this.annotations.iterator();
+                 while (iterator.hasNext()) {
+-                    XYAnnotation annotation = (XYAnnotation) iterator.next();
++                    Object next = iterator.next();
++                    XYAnnotation annotation = (XYAnnotation) next;
+                     if (annotation instanceof XYAnnotationBoundsInfo) {
+                         includedAnnotations.add(annotation);
+                     }

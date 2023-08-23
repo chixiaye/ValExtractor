@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/joda/time/chrono/JulianChronology.java b/src/main/java/org/joda/time/chrono/JulianChronology.java
+index 3433e19..74dd700 100644
+--- a/src/main/java/org/joda/time/chrono/JulianChronology.java
++++ b/src/main/java/org/joda/time/chrono/JulianChronology.java
+@@ -18,11 +18,7 @@
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+-import org.joda.time.Chronology;
+-import org.joda.time.DateTimeConstants;
+-import org.joda.time.DateTimeFieldType;
+-import org.joda.time.DateTimeZone;
+-import org.joda.time.IllegalFieldValueException;
++import org.joda.time.*;
+ import org.joda.time.field.SkipDateTimeField;
+ 
+ /**
+@@ -265,7 +261,8 @@
+         if (getBase() == null) {
+             super.assemble(fields);
+             // Julian chronology has no year zero.
+-            fields.year = new SkipDateTimeField(this, fields.year);
++            DateTimeField year = fields.year;
++            year = new SkipDateTimeField(this, fields.year);
+             fields.weekyear = new SkipDateTimeField(this, fields.weekyear);
+         }
+     }

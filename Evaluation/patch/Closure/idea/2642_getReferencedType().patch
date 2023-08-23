@@ -1,0 +1,28 @@
+diff --git a/src/com/google/javascript/rhino/jstype/NamedType.java b/src/com/google/javascript/rhino/jstype/NamedType.java
+index 9fb2191..f431702 100644
+--- a/src/com/google/javascript/rhino/jstype/NamedType.java
++++ b/src/com/google/javascript/rhino/jstype/NamedType.java
+@@ -191,11 +191,12 @@
+       handleTypeCycle(t);
+     }
+ 
+-    if (resolved) {
++      JSType referencedType = getReferencedType();
++      if (resolved) {
+       super.resolveInternal(t, enclosing);
+       finishPropertyContinuations();
+       return registry.isLastGeneration() ?
+-          getReferencedType() : this;
++              referencedType : this;
+     }
+ 
+     resolveViaProperties(t, enclosing);
+@@ -208,7 +209,7 @@
+       finishPropertyContinuations();
+     }
+     return registry.isLastGeneration() ?
+-        getReferencedType() : this;
++            referencedType : this;
+   }
+ 
+   /**

@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/concurrent/BasicThreadFactory.java b/src/main/java/org/apache/commons/lang3/concurrent/BasicThreadFactory.java
+index 818f5d1..deb8149 100644
+--- a/src/main/java/org/apache/commons/lang3/concurrent/BasicThreadFactory.java
++++ b/src/main/java/org/apache/commons/lang3/concurrent/BasicThreadFactory.java
+@@ -227,8 +227,9 @@
+             t.setUncaughtExceptionHandler(getUncaughtExceptionHandler());
+         }
+ 
+-        if (getPriority() != null) {
+-            t.setPriority(getPriority().intValue());
++        Integer priority1 = getPriority();
++        if (priority1 != null) {
++            t.setPriority(priority1.intValue());
+         }
+ 
+         if (getDaemonFlag() != null) {

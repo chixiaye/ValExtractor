@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer3D.java b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+index 6cf5928..0b39f62 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+@@ -693,12 +693,13 @@
+ 
+         // draw the bar...
+         Rectangle2D bar = null;
++        double barWidth = state.getBarWidth();
+         if (orientation == PlotOrientation.HORIZONTAL) {
+             bar = new Rectangle2D.Double(barL0, barW0, barLength,
+-                    state.getBarWidth());
++                    barWidth);
+         }
+         else {
+-            bar = new Rectangle2D.Double(barW0, barL0, state.getBarWidth(),
++            bar = new Rectangle2D.Double(barW0, barL0, barWidth,
+                     barLength);
+         }
+         Paint itemPaint = getItemPaint(row, column, selected);
+@@ -740,7 +741,7 @@
+         g2.fill(bar3dTop);
+ 
+         if (isDrawBarOutline()
+-                && state.getBarWidth() > BAR_OUTLINE_WIDTH_THRESHOLD) {
++                && barWidth > BAR_OUTLINE_WIDTH_THRESHOLD) {
+             g2.setStroke(getItemOutlineStroke(row, column, selected));
+             g2.setPaint(getItemOutlinePaint(row, column, selected));
+             g2.draw(bar);

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..18052c4 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -667,7 +667,8 @@
+ 
+     Node lastSibling = children.getLastSibling();
+     if (node != null) {
+-      Node oldNext = node.next;
++        Node next1 = node.next;
++        Node oldNext = next1;
+       node.next = children;
+       lastSibling.next = oldNext;
+       if (node == last) {

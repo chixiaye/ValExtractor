@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+index c5c8ecf..0913308 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldRotation.java
+@@ -594,7 +594,8 @@
+             // (-r) (+I) coordinates are :
+             // cos (theta), sin (theta) sin (phi2), sin (theta) cos (phi2)
+             // and we can choose to have theta in the interval [0 ; PI]
+-            final FieldVector3D<T> v1 = applyTo(vector(1, 0, 0));
++            FieldVector3D<T> var_1251 = applyTo(vector(1, 0, 0));
++			final FieldVector3D<T> v1 = var_1251;
+             final FieldVector3D<T> v2 = applyInverseTo(vector(1, 0, 0));
+             if ((v2.getX().getReal() < -0.9999999999) || (v2.getX().getReal() > 0.9999999999)) {
+                 throw new CardanEulerSingularityException(false);

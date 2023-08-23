@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ObjectUtils.java b/src/main/java/org/apache/commons/lang3/ObjectUtils.java
+index ab31d6f..c51559e 100644
+--- a/src/main/java/org/apache/commons/lang3/ObjectUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ObjectUtils.java
+@@ -598,19 +598,20 @@
+                     }
+                 }
+             } else {
++                String name = obj.getClass().getName();
+                 try {
+                     final Method clone = obj.getClass().getMethod("clone");
+                     result = clone.invoke(obj);
+                 } catch (final NoSuchMethodException e) {
+                     throw new CloneFailedException("Cloneable type "
+-                        + obj.getClass().getName()
++                        + name
+                         + " has no clone method", e);
+                 } catch (final IllegalAccessException e) {
+                     throw new CloneFailedException("Cannot clone Cloneable type "
+-                        + obj.getClass().getName(), e);
++                        + name, e);
+                 } catch (final InvocationTargetException e) {
+                     throw new CloneFailedException("Exception cloning Cloneable type "
+-                        + obj.getClass().getName(), e.getCause());
++                        + name, e.getCause());
+                 }
+             }
+             @SuppressWarnings("unchecked") // OK because input is of type T

@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+index ed2ddda..9de7b76 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+@@ -279,7 +279,8 @@
+     }
+ 
+     if ((control4 < 1.0001) || (control4 > 999.9)) {
+-      this.stepControl4 = 4.0;
++        double stepControl41 = this.stepControl4;
++        this.stepControl4 = 4.0;
+     } else {
+       this.stepControl4 = control4;
+     }

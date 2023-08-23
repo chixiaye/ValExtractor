@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..0a90e7d 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -358,7 +358,8 @@
+         } else {
+           // Determine if the string is a simple number.
+           double d = getSimpleNumber(name);
+-          if (!Double.isNaN(d)) {
++            boolean naN = Double.isNaN(d);
++            if (!naN) {
+             cc.addNumber(d);
+           } else {
+             addJsString(n);

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..82c8ed9 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -297,9 +297,10 @@
+   private CompilerOptions createCompilerOptions() {
+     CompilerOptions options = new CompilerOptions();
+ 
+-    this.compilationLevel.setOptionsForCompilationLevel(options);
++      CompilationLevel compilationLevel1 = this.compilationLevel;
++      compilationLevel1.setOptionsForCompilationLevel(options);
+     if (this.debugOptions) {
+-      this.compilationLevel.setDebugOptionsForCompilationLevel(options);
++      compilationLevel1.setDebugOptionsForCompilationLevel(options);
+     }
+ 
+     options.prettyPrint = this.prettyPrint;

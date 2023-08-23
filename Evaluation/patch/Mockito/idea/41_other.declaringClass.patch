@@ -1,0 +1,18 @@
+diff --git a/src/org/mockito/internal/invocation/SerializableMethod.java b/src/org/mockito/internal/invocation/SerializableMethod.java
+index 5a09762..83ae16d 100644
+--- a/src/org/mockito/internal/invocation/SerializableMethod.java
++++ b/src/org/mockito/internal/invocation/SerializableMethod.java
+@@ -87,10 +87,11 @@
+         if (getClass() != obj.getClass())
+             return false;
+         SerializableMethod other = (SerializableMethod) obj;
++        Class<?> declaringClass1 = other.declaringClass;
+         if (declaringClass == null) {
+-            if (other.declaringClass != null)
++            if (declaringClass1 != null)
+                 return false;
+-        } else if (!declaringClass.equals(other.declaringClass))
++        } else if (!declaringClass.equals(declaringClass1))
+             return false;
+         if (methodName == null) {
+             if (other.methodName != null)

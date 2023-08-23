@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java b/src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java
+index 55d2b6a..da5dab3 100644
+--- a/src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java
+@@ -362,7 +362,8 @@
+         Iterator iter = entries.iterator();
+         while (iter.hasNext()) {
+             iter.advance();
+-            res.setEntry(iter.key(), iter.value() * v.getEntry(iter.key()));
++            int key = iter.key();
++            res.setEntry(key, iter.value() * v.getEntry(key));
+         }
+         /*
+          * MATH-803: the above loop assumes that 0d * x  = 0d for any double x,

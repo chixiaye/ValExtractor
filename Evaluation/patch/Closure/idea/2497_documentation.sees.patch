@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..1a5272b 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -788,7 +788,8 @@
+       return true;
+     }
+ 
+-    if (documentation.sees == null) {
++      List<String> sees = documentation.sees;
++      if (sees == null) {
+       documentation.sees = Lists.newArrayList();
+     }
+ 

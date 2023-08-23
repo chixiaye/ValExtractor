@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/ShadowVariables.java b/src/com/google/javascript/jscomp/ShadowVariables.java
+index f627aaf..23145b3 100644
+--- a/src/com/google/javascript/jscomp/ShadowVariables.java
++++ b/src/com/google/javascript/jscomp/ShadowVariables.java
+@@ -237,10 +237,11 @@
+     private Assignment findBestShadow(Scope curScope, Var candidate) {
+       // Search for the candidate starting from the most used local.
+       for (Assignment assignment : varsByFrequency) {
+-        if (assignment.oldName.startsWith(RenameVars.LOCAL_VAR_PREFIX)) {
++          String oldName = assignment.oldName;
++          if (oldName.startsWith(RenameVars.LOCAL_VAR_PREFIX)) {
+           if (!scopeUpRefMap.get(curScope.getRootNode()).contains(
+-              assignment.oldName)) {
+-            if (curScope.isDeclared(assignment.oldName, true)) {
++                  oldName)) {
++            if (curScope.isDeclared(oldName, true)) {
+               return assignment;
+             }
+           }

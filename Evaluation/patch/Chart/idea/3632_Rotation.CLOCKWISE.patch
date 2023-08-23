@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/util/Rotation.java b/source/org/jfree/chart/util/Rotation.java
+index 64341e3..e0f9850 100644
+--- a/source/org/jfree/chart/util/Rotation.java
++++ b/source/org/jfree/chart/util/Rotation.java
+@@ -145,8 +145,9 @@
+      * @throws ObjectStreamException if there is a problem.
+      */
+     private Object readResolve() throws ObjectStreamException {
+-        if (this.equals(Rotation.CLOCKWISE)) {
+-            return Rotation.CLOCKWISE;
++        Rotation clockwise = Rotation.CLOCKWISE;
++        if (this.equals(clockwise)) {
++            return clockwise;
+         }
+         else if (this.equals(Rotation.ANTICLOCKWISE)) {
+             return Rotation.ANTICLOCKWISE;

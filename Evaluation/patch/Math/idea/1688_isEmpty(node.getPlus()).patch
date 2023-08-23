@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+index d33ceab..f513730 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
++++ b/src/main/java/org/apache/commons/math3/geometry/partitioning/AbstractRegion.java
+@@ -496,12 +496,13 @@
+             break;
+         case MINUS :
+             // the sub-hyperplane is entirely in the minus sub-tree
++            boolean empty = isEmpty(node.getPlus());
+             if (node.getCut().side(sub.getHyperplane()) == Side.PLUS) {
+-                if (!isEmpty(node.getPlus())) {
++                if (!empty) {
+                     sides.rememberPlusFound();
+                 }
+             } else {
+-                if (!isEmpty(node.getPlus())) {
++                if (!empty) {
+                     sides.rememberMinusFound();
+                 }
+             }

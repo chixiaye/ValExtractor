@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+index b662ffd..7102222 100644
+--- a/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/text/StrBuilder.java
+@@ -2866,8 +2866,9 @@
+         /** {@inheritDoc} */
+         @Override
+         public int read(final char b[], final int off, int len) {
+-            if (off < 0 || len < 0 || off > b.length ||
+-                    (off + len) > b.length || (off + len) < 0) {
++            int length = b.length;
++            if (off < 0 || len < 0 || off > length ||
++                    (off + len) > length || (off + len) < 0) {
+                 throw new IndexOutOfBoundsException();
+             }
+             if (len == 0) {

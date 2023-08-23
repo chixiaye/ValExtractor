@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Writer.java b/src/com/google/javascript/jscomp/jsonml/Writer.java
+index b357eb9..77d5cce 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Writer.java
++++ b/src/com/google/javascript/jscomp/jsonml/Writer.java
+@@ -666,13 +666,14 @@
+ 
+     // first child represents expression's body
+     Node child = node.getFirstChild();
+-    element.setAttribute(TagAttr.BODY, child.getString());
++      String string = child.getString();
++      element.setAttribute(TagAttr.BODY, string);
+ 
+     // optional second child represents flags
+     String flags = "";
+     child = child.getNext();
+     if (child != null) {
+-      flags = child.getString();
++      flags = string;
+     }
+     element.setAttribute(TagAttr.FLAGS, flags);
+   }

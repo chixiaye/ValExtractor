@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..71315f6 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -1397,8 +1397,9 @@
+      */
+     public XYDataset getDataset(int index) {
+         XYDataset result = null;
+-        if (this.datasets.size() > index) {
+-            result = (XYDataset) this.datasets.get(index);
++        ObjectList datasets1 = this.datasets;
++        if (datasets1.size() > index) {
++            result = (XYDataset) datasets1.get(index);
+         }
+         return result;
+     }

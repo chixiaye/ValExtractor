@@ -1,0 +1,39 @@
+diff --git a/src/main/java/org/joda/time/chrono/BuddhistChronology.java b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+index fc6a1ec..2086d27 100644
+--- a/src/main/java/org/joda/time/chrono/BuddhistChronology.java
++++ b/src/main/java/org/joda/time/chrono/BuddhistChronology.java
+@@ -18,13 +18,7 @@
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+-import org.joda.time.Chronology;
+-import org.joda.time.DateTime;
+-import org.joda.time.DateTimeConstants;
+-import org.joda.time.DateTimeField;
+-import org.joda.time.DateTimeFieldType;
+-import org.joda.time.DateTimeZone;
+-import org.joda.time.DurationFieldType;
++import org.joda.time.*;
+ import org.joda.time.field.DelegatedDateTimeField;
+ import org.joda.time.field.DividedDateTimeField;
+ import org.joda.time.field.OffsetDateTimeField;
+@@ -225,8 +219,9 @@
+             
+             // one era, so yearOfEra is the same
+             field = fields.yearOfEra;
++            DurationField eras = fields.eras;
+             fields.yearOfEra = new DelegatedDateTimeField(
+-                fields.year, fields.eras, DateTimeFieldType.yearOfEra());
++                fields.year, eras, DateTimeFieldType.yearOfEra());
+             
+             // julian chrono removed zero, but we need to put it back
+             field = fields.weekyear;
+@@ -235,7 +230,7 @@
+             
+             field = new OffsetDateTimeField(fields.yearOfEra, 99);
+             fields.centuryOfEra = new DividedDateTimeField(
+-                field, fields.eras, DateTimeFieldType.centuryOfEra(), 100);
++                field, eras, DateTimeFieldType.centuryOfEra(), 100);
+             fields.centuries = fields.centuryOfEra.getDurationField();
+             
+             field = new RemainderDateTimeField(

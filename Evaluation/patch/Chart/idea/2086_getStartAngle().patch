@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/plot/PiePlot.java b/source/org/jfree/chart/plot/PiePlot.java
+index 34014e9..0326b81 100644
+--- a/source/org/jfree/chart/plot/PiePlot.java
++++ b/source/org/jfree/chart/plot/PiePlot.java
+@@ -3424,6 +3424,7 @@
+ 
+         double total = DatasetUtilities.calculatePieDatasetTotal(this.dataset);
+         double lead = 0.0;
++        double startAngle1 = getStartAngle();
+         if (this.direction == Rotation.CLOCKWISE) {
+             for (int i = 0; i < section; i++) {
+                 n = this.dataset.getValue(i);
+@@ -3434,11 +3435,11 @@
+                     }
+                 }
+             }
+-            angle1 = getStartAngle() - lead / total * 360.0;
++            angle1 = startAngle1 - lead / total * 360.0;
+             angle2 = angle1 - value / total * 360.0;
+         }
+         else if (this.direction == Rotation.ANTICLOCKWISE) {
+-            angle1 = getStartAngle() + lead / total * 360.0;
++            angle1 = startAngle1 + lead / total * 360.0;
+             angle2 = angle1 + value / total * 360.0;
+         }
+         else {

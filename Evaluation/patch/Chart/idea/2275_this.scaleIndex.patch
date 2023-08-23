@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/dial/StandardDialRange.java b/source/org/jfree/chart/plot/dial/StandardDialRange.java
+index e2cb6ca..2519093 100644
+--- a/source/org/jfree/chart/plot/dial/StandardDialRange.java
++++ b/source/org/jfree/chart/plot/dial/StandardDialRange.java
+@@ -322,10 +322,11 @@
+         Rectangle2D arcRectOuter = DialPlot.rectangleByRadius(frame,
+                 this.outerRadius, this.outerRadius);
+ 
+-        DialScale scale = plot.getScale(this.scaleIndex);
++        int scaleIndex1 = this.scaleIndex;
++        DialScale scale = plot.getScale(scaleIndex1);
+         if (scale == null) {
+             throw new RuntimeException("No scale for scaleIndex = "
+-                    + this.scaleIndex);
++                    + scaleIndex1);
+         }
+         double angleMin = scale.valueToAngle(this.lowerBound);
+         double angleMax = scale.valueToAngle(this.upperBound);

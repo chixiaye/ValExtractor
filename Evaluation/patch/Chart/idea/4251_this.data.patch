@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/TimePeriodValues.java b/source/org/jfree/data/time/TimePeriodValues.java
+index 97ef416..fba8191 100644
+--- a/source/org/jfree/data/time/TimePeriodValues.java
++++ b/source/org/jfree/data/time/TimePeriodValues.java
+@@ -344,8 +344,9 @@
+         this.maxStartIndex = -1;
+         this.maxMiddleIndex = -1;
+         this.maxEndIndex = -1;
+-        for (int i = 0; i < this.data.size(); i++) {
+-            TimePeriodValue tpv = (TimePeriodValue) this.data.get(i);
++        List data1 = this.data;
++        for (int i = 0; i < data1.size(); i++) {
++            TimePeriodValue tpv = (TimePeriodValue) data1.get(i);
+             updateBounds(tpv.getPeriod(), i);
+         }
+     }

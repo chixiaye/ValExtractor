@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+index 930eb1e..8083baa 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/fitting/leastsquares/LevenbergMarquardtOptimizer.java
+@@ -847,7 +847,8 @@
+                     // the modified element of (Qty,0)
+                     weightedJacobian[k][pk] = cos * rkk + sin * lmDiag[k];
+                     final double temp = cos * work[k] + sin * qtbpj;
+-                    qtbpj = -sin * work[k] + cos * qtbpj;
++                    double v = work[k];
++                    qtbpj = -sin * v + cos * qtbpj;
+                     work[k] = temp;
+ 
+                     // accumulate the tranformation in the row of s

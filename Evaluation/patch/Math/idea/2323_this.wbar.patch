@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..0dbc3b1 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -620,6 +620,7 @@
+             this.gmin = this.gmax;
+ 
+             if (this.goodb) {
++                RealVector wbar1 = this.wbar;
+                 this.wbar = new ArrayRealVector(this.a.getRowDimension());
+                 this.wbar.set(0.);
+             } else {

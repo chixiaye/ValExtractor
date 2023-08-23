@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+index 980deff..250e4c9 100644
+--- a/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/ControlFlowAnalysis.java
+@@ -359,11 +359,12 @@
+     Node elseBlock = thenBlock.getNext();
+     createEdge(node, Branch.ON_TRUE, computeFallThrough(thenBlock));
+ 
+-    if (elseBlock == null) {
+-      createEdge(node, Branch.ON_FALSE,
++      Branch onFalse = Branch.ON_FALSE;
++      if (elseBlock == null) {
++      createEdge(node, onFalse,
+           computeFollowNode(node, this)); // not taken branch
+     } else {
+-      createEdge(node, Branch.ON_FALSE, computeFallThrough(elseBlock));
++      createEdge(node, onFalse, computeFallThrough(elseBlock));
+     }
+     connectToPossibleExceptionHandler(
+         node, NodeUtil.getConditionExpression(node));

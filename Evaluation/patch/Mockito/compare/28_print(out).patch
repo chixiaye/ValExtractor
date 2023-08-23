@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+index 7f0bd94..e9a754b 100644
+--- a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
++++ b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+@@ -34,7 +34,8 @@
+ 
+         invocations = unusedStubsFinder.find(asList(mocks));
+         if (invocations.isEmpty()) {
+-            return print(out);
++            String var_28 = print(out);
++			return var_28;
+         }
+         out += line("********************************");
+         out += line("***       Unused stubs       ***");
+
+==> /tmp/eclipse.java <==
+diff --git a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+index 7f0bd94..dffd639 100644
+--- a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
++++ b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+@@ -33,8 +33,9 @@
+         }
+ 
+         invocations = unusedStubsFinder.find(asList(mocks));
++        String var_28 = print(out);
+         if (invocations.isEmpty()) {
+-            return print(out);
++            return var_28;
+         }
+         out += line("********************************");
+         out += line("***       Unused stubs       ***");
+@@ -44,7 +45,7 @@
+             out += line(i.toString());
+             out += line(" stubbed: " + i.getLocation());
+         }
+-        return print(out);
++        return var_28;
+     }
+ 
+     private String line(String text) {
+
+==> /tmp/idea.java <==
+diff --git a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+index 7f0bd94..3ab4507 100644
+--- a/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
++++ b/src/org/mockito/internal/debugging/MockitoDebuggerImpl.java
+@@ -33,8 +33,9 @@
+         }
+ 
+         invocations = unusedStubsFinder.find(asList(mocks));
++        String print = print(out);
+         if (invocations.isEmpty()) {
+-            return print(out);
++            return print;
+         }
+         out += line("********************************");
+         out += line("***       Unused stubs       ***");
+@@ -44,7 +45,7 @@
+             out += line(i.toString());
+             out += line(" stubbed: " + i.getLocation());
+         }
+-        return print(out);
++        return print;
+     }
+ 
+     private String line(String text) {

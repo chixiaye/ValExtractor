@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..85ead9d 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1487,8 +1487,9 @@
+     }
+ 
+     if (info != null) {
+-      if (info.baseType != null) {
+-        nodes.add(info.baseType.getRoot());
++        JSTypeExpression baseType = info.baseType;
++        if (baseType != null) {
++        nodes.add(baseType.getRoot());
+       }
+ 
+       if (info.extendedInterfaces != null) {

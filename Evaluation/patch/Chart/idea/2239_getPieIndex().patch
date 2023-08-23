@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/plot/RingPlot.java b/source/org/jfree/chart/plot/RingPlot.java
+index f540f71..3a9adb1 100644
+--- a/source/org/jfree/chart/plot/RingPlot.java
++++ b/source/org/jfree/chart/plot/RingPlot.java
+@@ -433,12 +433,13 @@
+                         }
+                         String url = null;
+                         PieURLGenerator urlGenerator = getURLGenerator();
++                        int pieIndex = getPieIndex();
+                         if (urlGenerator != null) {
+                             url = urlGenerator.generateURL(dataset, key,
+-                                    getPieIndex());
++                                    pieIndex);
+                         }
+                         PieSectionEntity entity = new PieSectionEntity(path,
+-                                dataset, getPieIndex(), section, key, tip,
++                                dataset, pieIndex, section, key, tip,
+                                 url);
+                         entities.add(entity);
+                     }

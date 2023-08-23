@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Crosshair.java b/source/org/jfree/chart/plot/Crosshair.java
+index 652e907..ee00335 100644
+--- a/source/org/jfree/chart/plot/Crosshair.java
++++ b/source/org/jfree/chart/plot/Crosshair.java
+@@ -511,7 +511,8 @@
+      * @see #isLabelOutlineVisible()
+      */
+     public void setLabelOutlineVisible(boolean visible) {
+-        boolean old = this.labelOutlineVisible;
++        boolean labelOutlineVisible1 = this.labelOutlineVisible;
++        boolean old = labelOutlineVisible1;
+         this.labelOutlineVisible = visible;
+         this.pcs.firePropertyChange("labelOutlineVisible", old, visible);
+     }

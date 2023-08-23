@@ -1,0 +1,14 @@
+diff --git a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
+index 99a4167137..6531887ab3 100644
+--- a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
++++ b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
+@@ -71,7 +71,8 @@ public class NioGremlinResponseEncoder extends MessageToByteEncoder<ResponseMess
+                     .statusMessage(errorMessage)
+                     .code(ResponseStatusCode.SERVER_ERROR_SERIALIZATION).create();
+             if (useBinary) {
+-                byteBuf.writeBytes(serializer.serializeResponseAsBinary(error, ctx.alloc()));
++                ByteBuf bytes = serializer.serializeResponseAsBinary(error, ctx.alloc());
++                byteBuf.writeBytes(bytes);
+             } else {
+                 final MessageTextSerializer textSerializer = (MessageTextSerializer) serializer;
+                 byteBuf.writeBytes(textSerializer.serializeResponseAsString(error).getBytes(UTF8));

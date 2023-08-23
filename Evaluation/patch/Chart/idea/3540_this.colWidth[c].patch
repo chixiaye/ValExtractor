@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/ui/LCBLayout.java b/source/org/jfree/chart/ui/LCBLayout.java
+index b63c82b..9f569b1 100644
+--- a/source/org/jfree/chart/ui/LCBLayout.java
++++ b/source/org/jfree/chart/ui/LCBLayout.java
+@@ -142,7 +142,8 @@
+                 for (int r = 0; r < nrows; r++) {
+                     Component component = parent.getComponent(r * COLUMNS + c);
+                     Dimension d = component.getMinimumSize();
+-                    if (this.colWidth[c] < d.width) {
++                    int i = this.colWidth[c];
++                    if (i < d.width) {
+                         this.colWidth[c] = d.width;
+                     }
+                     if (this.rowHeight[r] < d.height) {

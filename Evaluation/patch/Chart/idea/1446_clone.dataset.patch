@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..12c4ee0 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1563,8 +1563,9 @@
+ 
+         ThermometerPlot clone = (ThermometerPlot) super.clone();
+ 
+-        if (clone.dataset != null) {
+-            clone.dataset.addChangeListener(clone);
++        ValueDataset dataset1 = clone.dataset;
++        if (dataset1 != null) {
++            dataset1.addChangeListener(clone);
+         }
+         clone.rangeAxis = (ValueAxis) ObjectUtilities.clone(this.rangeAxis);
+         if (clone.rangeAxis != null) {

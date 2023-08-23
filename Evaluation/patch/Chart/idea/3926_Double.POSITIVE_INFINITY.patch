@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..8a5f439 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1328,7 +1328,8 @@
+                     "Null 'visibleSeriesKeys' argument.");
+         }
+ 
+-        double minimum = Double.POSITIVE_INFINITY;
++        double positiveInfinity = Double.POSITIVE_INFINITY;
++        double minimum = positiveInfinity;
+         double maximum = Double.NEGATIVE_INFINITY;
+ 
+         if (includeInterval && dataset instanceof IntervalXYDataset) {
+@@ -1368,7 +1369,7 @@
+             }
+         }
+ 
+-        if (minimum == Double.POSITIVE_INFINITY) {
++        if (minimum == positiveInfinity) {
+             return null;
+         }
+         else {

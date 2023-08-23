@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..3770203 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -4408,17 +4408,18 @@
+             List mappedAxes = (List) this.datasetToDomainAxesMap.get(
+                     new Integer(i));
+             CategoryDataset dataset = (CategoryDataset) this.datasets.get(i);
++            boolean add = result.add(dataset);
+             if (mappedAxes == null) {
+                 if (key.equals(ZERO)) {
+                     if (dataset != null) {
+-                        result.add(dataset);
++                        add;
+                     }
+                 }
+             }
+             else {
+                 if (mappedAxes.contains(key)) {
+                     if (dataset != null) {
+-                        result.add(dataset);
++                        add;
+                     }
+                 }
+             }

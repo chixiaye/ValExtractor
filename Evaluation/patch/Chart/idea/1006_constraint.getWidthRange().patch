@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/chart/block/CenterArrangement.java b/source/org/jfree/chart/block/CenterArrangement.java
+index 832bf4e..3a63b0f 100644
+--- a/source/org/jfree/chart/block/CenterArrangement.java
++++ b/source/org/jfree/chart/block/CenterArrangement.java
+@@ -49,6 +49,7 @@
+ import java.util.List;
+ 
+ import org.jfree.chart.util.Size2D;
++import org.jfree.data.Range;
+ 
+ /**
+  * Arranges a block in the center of its container.  This class is immutable.
+@@ -235,12 +236,13 @@
+                                RectangleConstraint constraint) {
+ 
+         Size2D s = arrangeNF(container, g2, constraint);
+-        if (constraint.getWidthRange().contains(s.width)) {
++        Range widthRange = constraint.getWidthRange();
++        if (widthRange.contains(s.width)) {
+             return s;
+         }
+         else {
+             RectangleConstraint c = constraint.toFixedWidth(
+-                    constraint.getWidthRange().constrain(s.getWidth()));
++                    widthRange.constrain(s.getWidth()));
+             return arrangeFF(container, g2, c);
+         }
+     }

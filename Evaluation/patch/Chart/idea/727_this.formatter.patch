@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/NumberTickUnit.java b/source/org/jfree/chart/axis/NumberTickUnit.java
+index 090d618..e5f6eab 100644
+--- a/source/org/jfree/chart/axis/NumberTickUnit.java
++++ b/source/org/jfree/chart/axis/NumberTickUnit.java
+@@ -156,8 +156,9 @@
+      */
+     public int hashCode() {
+         int result = super.hashCode();
+-        result = 29 * result + (this.formatter != null
+-                ? this.formatter.hashCode() : 0);
++        NumberFormat formatter1 = this.formatter;
++        result = 29 * result + (formatter1 != null
++                ? formatter1.hashCode() : 0);
+         return result;
+     }
+ 

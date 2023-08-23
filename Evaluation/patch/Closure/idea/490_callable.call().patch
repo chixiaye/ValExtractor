@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..9b87f94 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -651,7 +651,8 @@
+     final boolean dumpTraceReport = options != null && options.tracer.isOn();
+     T result = null;
+     final Throwable[] exception = new Throwable[1];
+-    Callable<T> bootCompilerThread = new Callable<T>() {
++      final T call = callable.call();
++      Callable<T> bootCompilerThread = new Callable<T>() {
+       @Override
+       public T call() {
+         try {
+@@ -659,7 +660,7 @@
+           if (dumpTraceReport) {
+             Tracer.initCurrentThreadTrace();
+           }
+-          return callable.call();
++          return call;
+         } catch (Throwable e) {
+           exception[0] = e;
+         } finally {
+@@ -689,7 +690,7 @@
+       }
+     } else {
+       try {
+-        result = callable.call();
++        result = call;
+       } catch (Exception e) {
+         exception[0] = e;
+       }

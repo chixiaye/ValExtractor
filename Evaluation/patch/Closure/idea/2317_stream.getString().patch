@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..3f9bc1a 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1065,14 +1065,15 @@
+       Set<String> modifies = new HashSet<String>();
+       while (true) {
+         if (match(JsDocToken.STRING)) {
+-          String name = stream.getString();
++            String string = stream.getString();
++            String name = string;
+           if (!modifiesAnnotationKeywords.contains(name)
+               && !jsdocBuilder.hasParameter(name)) {
+               parser.addParserWarning("msg.jsdoc.modifies.unknown", name,
+                   stream.getLineno(), stream.getCharno());
+           }
+ 
+-          modifies.add(stream.getString());
++          modifies.add(string);
+           token = next();
+         } else {
+           parser.addParserWarning("msg.jsdoc.modifies",

@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/ClassUtils.java b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+index 015e6dd..81067bf 100644
+--- a/src/main/java/org/apache/commons/lang3/ClassUtils.java
++++ b/src/main/java/org/apache/commons/lang3/ClassUtils.java
+@@ -286,8 +286,9 @@
+      * @return the package name or an empty string
+      */
+     public static String getPackageName(String className) {
++        String empty = StringUtils.EMPTY;
+         if (StringUtils.isEmpty(className)) {
+-            return StringUtils.EMPTY;
++            return empty;
+         }
+ 
+         // Strip array encoding
+@@ -301,7 +302,7 @@
+ 
+         final int i = className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);
+         if (i == -1) {
+-            return StringUtils.EMPTY;
++            return empty;
+         }
+         return className.substring(0, i);
+     }

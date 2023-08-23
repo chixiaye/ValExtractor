@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/CategoryAnchor.java b/source/org/jfree/chart/axis/CategoryAnchor.java
+index 5eb7345..eb0e4d0 100644
+--- a/source/org/jfree/chart/axis/CategoryAnchor.java
++++ b/source/org/jfree/chart/axis/CategoryAnchor.java
+@@ -123,8 +123,11 @@
+         else if (this.equals(CategoryAnchor.MIDDLE)) {
+             return CategoryAnchor.MIDDLE;
+         }
+-        else if (this.equals(CategoryAnchor.END)) {
+-            return CategoryAnchor.END;
++        else {
++            CategoryAnchor end = CategoryAnchor.END;
++            if (this.equals(end)) {
++                return end;
++            }
+         }
+         return null;
+     }

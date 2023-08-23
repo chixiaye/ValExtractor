@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..f5470d9 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -359,8 +359,9 @@
+         int result;
+         long temp;
+         result = (this.outlinePaint != null ? this.outlinePaint.hashCode() : 0);
+-        result = 29 * result + (this.outlineStroke != null
+-                ? this.outlineStroke.hashCode() : 0);
++        Stroke outlineStroke1 = this.outlineStroke;
++        result = 29 * result + (outlineStroke1 != null
++                ? outlineStroke1.hashCode() : 0);
+         result = 29 * result + (this.interiorGap != null
+                 ? this.interiorGap.hashCode() : 0);
+         result = 29 * result + (this.backgroundPaint != null

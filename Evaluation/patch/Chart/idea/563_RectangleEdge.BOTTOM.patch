@@ -1,0 +1,36 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..0c42f34 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -535,11 +535,12 @@
+     protected void drawAxisLine(Graphics2D g2, double cursor,
+                                 Rectangle2D dataArea, RectangleEdge edge) {
+         Line2D axisLine = null;
++        RectangleEdge bottom = RectangleEdge.BOTTOM;
+         if (edge == RectangleEdge.TOP) {
+             axisLine = new Line2D.Double(dataArea.getX(), cursor,
+                     dataArea.getMaxX(), cursor);
+         }
+-        else if (edge == RectangleEdge.BOTTOM) {
++        else if (edge == bottom) {
+             axisLine = new Line2D.Double(dataArea.getX(), cursor,
+                     dataArea.getMaxX(), cursor);
+         }
+@@ -577,7 +578,7 @@
+             double x = 0.0;
+             double y = 0.0;
+             Shape arrow = null;
+-            if (edge == RectangleEdge.TOP || edge == RectangleEdge.BOTTOM) {
++            if (edge == RectangleEdge.TOP || edge == bottom) {
+                 x = dataArea.getMaxX();
+                 y = cursor;
+                 arrow = this.rightArrow;
+@@ -601,7 +602,7 @@
+             double x = 0.0;
+             double y = 0.0;
+             Shape arrow = null;
+-            if (edge == RectangleEdge.TOP || edge == RectangleEdge.BOTTOM) {
++            if (edge == RectangleEdge.TOP || edge == bottom) {
+                 x = dataArea.getMinX();
+                 y = cursor;
+                 arrow = this.leftArrow;

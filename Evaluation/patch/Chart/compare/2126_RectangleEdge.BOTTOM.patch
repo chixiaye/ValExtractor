@@ -1,0 +1,106 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..2a5361d 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1521,10 +1521,11 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;
+             }
+-        }
+-        else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
++        } else {
++			RectangleEdge var_2126 = RectangleEdge.BOTTOM;
++			if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++			        result = var_2126;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+@@ -1532,12 +1533,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++			        result = var_2126;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;
+             }
+         }
++		}
+ 
+         // the above should cover all the options...
+         if (result == null) {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..2a5361d 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1521,10 +1521,11 @@
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;
+             }
+-        }
+-        else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
++        } else {
++			RectangleEdge var_2126 = RectangleEdge.BOTTOM;
++			if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++			        result = var_2126;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+@@ -1532,12 +1533,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++			        result = var_2126;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;
+             }
+         }
++		}
+ 
+         // the above should cover all the options...
+         if (result == null) {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/plot/Plot.java b/source/org/jfree/chart/plot/Plot.java
+index 4656dc7..a19370e 100644
+--- a/source/org/jfree/chart/plot/Plot.java
++++ b/source/org/jfree/chart/plot/Plot.java
+@@ -1522,9 +1522,11 @@
+                 result = RectangleEdge.LEFT;
+             }
+         }
+-        else if (location == AxisLocation.BOTTOM_OR_RIGHT) {
++        else {
++            RectangleEdge bottom = RectangleEdge.BOTTOM;
++            if (location == AxisLocation.BOTTOM_OR_RIGHT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++                    result = bottom;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.RIGHT;
+@@ -1532,12 +1534,13 @@
+         }
+         else if (location == AxisLocation.BOTTOM_OR_LEFT) {
+             if (orientation == PlotOrientation.HORIZONTAL) {
+-                result = RectangleEdge.BOTTOM;
++                    result = bottom;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 result = RectangleEdge.LEFT;
+             }
+         }
++        }
+ 
+         // the above should cover all the options...
+         if (result == null) {

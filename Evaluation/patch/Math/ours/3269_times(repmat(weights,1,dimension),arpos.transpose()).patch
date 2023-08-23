@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..8e6b015 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -866,12 +866,13 @@
+                 final RealMatrix artmp = BD.multiply(arzneg);
+                 final RealMatrix Cneg = artmp.multiply(diag(weights)).multiply(artmp.transpose());
+                 oldFac += negalphaold * negccov;
+-                C = C.scalarMultiply(oldFac)
++                RealMatrix var_3269 = times(repmat(weights, 1, dimension),
++				                 arpos.transpose());
++				C = C.scalarMultiply(oldFac)
+                     .add(roneu) // regard old matrix
+                     .add(arpos.scalarMultiply( // plus rank one update
+                                               ccovmu + (1 - negalphaold) * negccov) // plus rank mu update
+-                         .multiply(times(repmat(weights, 1, dimension),
+-                                         arpos.transpose())))
++                         .multiply(var_3269))
+                     .subtract(Cneg.scalarMultiply(negccov));
+             } else {
+                 // Adapt covariance matrix C - nonactive

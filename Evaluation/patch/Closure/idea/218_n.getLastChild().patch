@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/StrictModeCheck.java b/src/com/google/javascript/jscomp/StrictModeCheck.java
+index b22f3ed..3706706 100644
+--- a/src/com/google/javascript/jscomp/StrictModeCheck.java
++++ b/src/com/google/javascript/jscomp/StrictModeCheck.java
+@@ -250,9 +250,10 @@
+ 
+     /** Checks for illegal property accesses. */
+     private void checkProperty(NodeTraversal t, Node n) {
+-      if (n.getLastChild().getString().endsWith("__")) {
++        Node lastChild = n.getLastChild();
++        if (lastChild.getString().endsWith("__")) {
+         if (!noCajaChecks) {
+-          t.report(n.getLastChild(), ILLEGAL_NAME);
++          t.report(lastChild, ILLEGAL_NAME);
+         }
+       }
+     }

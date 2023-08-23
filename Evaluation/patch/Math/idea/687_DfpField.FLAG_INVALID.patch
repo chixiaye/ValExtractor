@@ -1,0 +1,37 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..4d171f9 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1974,6 +1974,7 @@
+             return newInstance(this);
+         }
+ 
++        int flagInvalid = DfpField.FLAG_INVALID;
+         if (nans != FINITE) {
+             if (nans == INFINITE && sign == 1) {
+                 // if positive infinity
+@@ -1987,9 +1988,9 @@
+             if (nans == SNAN) {
+                 Dfp result;
+ 
+-                field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++                field.setIEEEFlagsBits(flagInvalid);
+                 result = newInstance(this);
+-                result = dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);
++                result = dotrap(flagInvalid, SQRT_TRAP, null, result);
+                 return result;
+             }
+         }
+@@ -1998,10 +1999,10 @@
+             // if negative
+             Dfp result;
+ 
+-            field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
++            field.setIEEEFlagsBits(flagInvalid);
+             result = newInstance(this);
+             result.nans = QNAN;
+-            result = dotrap(DfpField.FLAG_INVALID, SQRT_TRAP, null, result);
++            result = dotrap(flagInvalid, SQRT_TRAP, null, result);
+             return result;
+         }
+ 

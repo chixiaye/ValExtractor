@@ -1,0 +1,30 @@
+diff --git a/storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java b/storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java
+index a474ccc3e..07719af97 100644
+--- a/storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java
++++ b/storm-server/src/main/java/org/apache/storm/scheduler/resource/strategies/scheduling/BaseResourceAwareStrategy.java
+@@ -31,11 +31,7 @@ import java.util.Queue;
+ import java.util.Set;
+ import java.util.TreeSet;
+ import org.apache.storm.generated.ComponentType;
+-import org.apache.storm.scheduler.Cluster;
+-import org.apache.storm.scheduler.Component;
+-import org.apache.storm.scheduler.ExecutorDetails;
+-import org.apache.storm.scheduler.TopologyDetails;
+-import org.apache.storm.scheduler.WorkerSlot;
++import org.apache.storm.scheduler.*;
+ import org.apache.storm.scheduler.resource.RAS_Node;
+ import org.apache.storm.scheduler.resource.RAS_Nodes;
+ import org.apache.storm.scheduler.resource.normalization.NormalizedResourceOffer;
+@@ -278,9 +274,10 @@ public abstract class BaseResourceAwareStrategy implements IStrategy {
+                 String rackId = objectId;
+                 //Get execs already assigned in rack
+                 Collection<ExecutorDetails> execs = new LinkedList<>();
+-                if (cluster.getAssignmentById(topoId) != null) {
++                SchedulerAssignment assignment = cluster.getAssignmentById(topoId);
++                if (assignment != null) {
+                     for (Map.Entry<ExecutorDetails, WorkerSlot> entry :
+-                        cluster.getAssignmentById(topoId).getExecutorToSlot().entrySet()) {
++                        assignment.getExecutorToSlot().entrySet()) {
+                         String nodeId = entry.getValue().getNodeId();
+                         String hostname = idToNode(nodeId).getHostname();
+                         ExecutorDetails exec1 = entry.getKey();

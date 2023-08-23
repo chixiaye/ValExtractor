@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/DateTimeComparator.java b/src/main/java/org/joda/time/DateTimeComparator.java
+index 646918f..51c1678 100644
+--- a/src/main/java/org/joda/time/DateTimeComparator.java
++++ b/src/main/java/org/joda/time/DateTimeComparator.java
+@@ -235,8 +235,9 @@
+     public boolean equals(Object object) {
+         if (object instanceof DateTimeComparator) {
+             DateTimeComparator other = (DateTimeComparator) object;
+-            return (iLowerLimit == other.getLowerLimit() ||
+-                    (iLowerLimit != null && iLowerLimit.equals(other.getLowerLimit()))) &&
++            DateTimeFieldType lowerLimit = other.getLowerLimit();
++            return (iLowerLimit == lowerLimit ||
++                    (iLowerLimit != null && iLowerLimit.equals(lowerLimit))) &&
+                    (iUpperLimit == other.getUpperLimit() ||
+                     (iUpperLimit != null && iUpperLimit.equals(other.getUpperLimit())));
+         }

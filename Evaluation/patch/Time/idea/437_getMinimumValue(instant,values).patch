@@ -1,0 +1,36 @@
+diff --git a/src/main/java/org/joda/time/field/BaseDateTimeField.java b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+index c86bf1c..69f64e5 100644
+--- a/src/main/java/org/joda/time/field/BaseDateTimeField.java
++++ b/src/main/java/org/joda/time/field/BaseDateTimeField.java
+@@ -383,7 +383,8 @@
+         // trouble is when dealing with days and months, so we use this technique of
+         // adding/removing one from the larger field at a time
+         DateTimeField nextField = null;
+-        
++
++        int minimumValue = getMinimumValue(instant, values);
+         while (valueToAdd > 0) {
+             int max = getMaximumValue(instant, values);
+             long proposed = values[fieldIndex] + valueToAdd;
+@@ -394,7 +395,7 @@
+             if (nextField == null) {
+                 if (fieldIndex == 0) {
+                     valueToAdd -= (max + 1) - values[fieldIndex];
+-                    values[fieldIndex] = getMinimumValue(instant, values);
++                    values[fieldIndex] = minimumValue;
+                     continue;
+                 }
+                 nextField = instant.getField(fieldIndex - 1);
+@@ -405,10 +406,10 @@
+             }
+             valueToAdd -= (max + 1) - values[fieldIndex];  // reduce the amount to add
+             values = nextField.addWrapPartial(instant, fieldIndex - 1, values, 1);  // add 1 to next bigger field
+-            values[fieldIndex] = getMinimumValue(instant, values);  // reset this field to zero
++            values[fieldIndex] = minimumValue;  // reset this field to zero
+         }
+         while (valueToAdd < 0) {
+-            int min = getMinimumValue(instant, values);
++            int min = minimumValue;
+             long proposed = values[fieldIndex] + valueToAdd;
+             if (proposed >= min) {
+                 values[fieldIndex] = (int) proposed;

@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..a75be28 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -983,16 +983,17 @@
+                             else {
+                                 //first or last tick on graph or value is 1.0
+                                 //create label for tick:
++                                int abs = Math.abs(i);
+                                 if (this.log10TickLabelsFlag) {
+                                        //create "log10"-type label
+                                     tickLabel = (((i < 0) ? "-" : "")
+-                                            + "10^" + Math.abs(i));
++                                            + "10^" + abs);
+                                 }
+                                 else {
+                                     if (this.expTickLabelsFlag) {
+                                            //create "1e#"-type label
+                                         tickLabel = (((i < 0) ? "-" : "")
+-                                                + "1e" + Math.abs(i));
++                                                + "1e" + abs);
+                                     }
+                                     else {
+                                         NumberFormat format

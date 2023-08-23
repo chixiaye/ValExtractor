@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..d2e4b1e 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1676,7 +1676,8 @@
+           if (before instanceof Repetition) {
+             Repetition r = (Repetition) before;
+             beforeMin = r.min;
+-            beforeMax = r.max;
++              int max = r.max;
++              beforeMax = max;
+             beforeBody = r.body;
+             beforeGreedy = r.greedy;
+           }

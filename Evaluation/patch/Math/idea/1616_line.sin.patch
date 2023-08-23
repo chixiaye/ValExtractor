@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+index 7ff678c..2a55b74 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+@@ -401,9 +401,10 @@
+         /** {@inheritDoc} */
+         public Line apply(final Hyperplane<Euclidean2D> hyperplane) {
+             final Line   line    = (Line) hyperplane;
+-            final double rOffset = c1X * line.cos + c1Y * line.sin + c11 * line.originOffset;
+-            final double rCos    = cXX * line.cos + cXY * line.sin;
+-            final double rSin    = cYX * line.cos + cYY * line.sin;
++            double sin1 = line.sin;
++            final double rOffset = c1X * line.cos + c1Y * sin1 + c11 * line.originOffset;
++            final double rCos    = cXX * line.cos + cXY * sin1;
++            final double rSin    = cYX * line.cos + cYY * sin1;
+             final double inv     = 1.0 / FastMath.sqrt(rSin * rSin + rCos * rCos);
+             return new Line(FastMath.PI + FastMath.atan2(-rSin, -rCos),
+                             inv * rCos, inv * rSin,

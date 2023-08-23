@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/CategoryTableXYDataset.java b/source/org/jfree/data/xy/CategoryTableXYDataset.java
+index 9253df8..2e724e2 100644
+--- a/source/org/jfree/data/xy/CategoryTableXYDataset.java
++++ b/source/org/jfree/data/xy/CategoryTableXYDataset.java
+@@ -86,6 +86,7 @@
+      */
+     public CategoryTableXYDataset() {
+         this.values = new DefaultKeyedValues2D(true);
++        IntervalXYDelegate intervalDelegate1 = this.intervalDelegate;
+         this.intervalDelegate = new IntervalXYDelegate(this);
+         addChangeListener(this.intervalDelegate);
+     }

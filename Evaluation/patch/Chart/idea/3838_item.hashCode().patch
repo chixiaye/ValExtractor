@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/ComparableObjectSeries.java b/source/org/jfree/data/ComparableObjectSeries.java
+index 02c55ab..b3369f6 100644
+--- a/source/org/jfree/data/ComparableObjectSeries.java
++++ b/source/org/jfree/data/ComparableObjectSeries.java
+@@ -432,7 +432,8 @@
+         int count = getItemCount();
+         if (count > 0) {
+             ComparableObjectItem item = getDataItem(0);
+-            result = 29 * result + item.hashCode();
++            int i = item.hashCode();
++            result = 29 * result + i;
+         }
+         if (count > 1) {
+             ComparableObjectItem item = getDataItem(count - 1);

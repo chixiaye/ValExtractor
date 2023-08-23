@@ -1,0 +1,62 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+index 63987be..5b5ddda 100644
+--- a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
++++ b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+@@ -123,7 +123,8 @@
+             /** {@inheritDoc} */
+             @Override
+             public int getRowDimension() {
+-                return sqrtDiag.getDimension();
++                int var_2201 = sqrtDiag.getDimension();
++				return var_2201;
+             }
+ 
+             /** {@inheritDoc} */
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+index 63987be..5b5ddda 100644
+--- a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
++++ b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+@@ -123,7 +123,8 @@
+             /** {@inheritDoc} */
+             @Override
+             public int getRowDimension() {
+-                return sqrtDiag.getDimension();
++                int var_2201 = sqrtDiag.getDimension();
++				return var_2201;
+             }
+ 
+             /** {@inheritDoc} */
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+index 63987be..505de44 100644
+--- a/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
++++ b/src/main/java/org/apache/commons/math3/linear/JacobiPreconditioner.java
+@@ -112,6 +112,8 @@
+     public RealLinearOperator sqrt() {
+         final RealVector sqrtDiag = diag.map(new Sqrt());
+         return new RealLinearOperator() {
++            private final int dimension = sqrtDiag.getDimension();
++
+             /** {@inheritDoc} */
+             @Override
+             public RealVector operate(final RealVector x) {
+@@ -123,13 +125,13 @@
+             /** {@inheritDoc} */
+             @Override
+             public int getRowDimension() {
+-                return sqrtDiag.getDimension();
++                return dimension;
+             }
+ 
+             /** {@inheritDoc} */
+             @Override
+             public int getColumnDimension() {
+-                return sqrtDiag.getDimension();
++                return dimension;
+             }
+         };
+     }

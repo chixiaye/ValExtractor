@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalNames.java b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+index d035d9d..d545235 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalNames.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+@@ -216,9 +216,11 @@
+ 
+   private void reportRefToUndefinedName(Name name, Ref ref) {
+     // grab the highest undefined ancestor to output in the warning message.
+-    while (name.parent != null &&
+-           name.parent.globalSets + name.parent.localSets == 0) {
+-      name = name.parent;
++    while (true) {
++        Name parent = name.parent;
++        if (!(parent != null &&
++                   parent.globalSets + parent.localSets == 0)) break;
++        name = parent;
+     }
+ 
+     compiler.report(

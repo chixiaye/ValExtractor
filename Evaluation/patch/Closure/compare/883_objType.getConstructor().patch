@@ -1,0 +1,39 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..bdeb290 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -820,9 +820,10 @@
+         return type.toMaybeUnionType().getAlternates();
+       } else {
+         ObjectType objType = type.toObjectType();
++        FunctionType var_883 = objType.getConstructor();
+         if (objType != null &&
+-            objType.getConstructor() != null &&
+-            objType.getConstructor().isInterface()) {
++            var_883 != null &&
++            var_883.isInterface()) {
+           List<JSType> list = Lists.newArrayList();
+           for (FunctionType impl
+                    : registry.getDirectImplementors(objType)) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/DisambiguateProperties.java b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+index c64c178..19ea8b4 100644
+--- a/src/com/google/javascript/jscomp/DisambiguateProperties.java
++++ b/src/com/google/javascript/jscomp/DisambiguateProperties.java
+@@ -820,9 +820,10 @@
+         return type.toMaybeUnionType().getAlternates();
+       } else {
+         ObjectType objType = type.toObjectType();
++          FunctionType constructor = objType.getConstructor();
+         if (objType != null &&
+-            objType.getConstructor() != null &&
+-            objType.getConstructor().isInterface()) {
++            constructor != null &&
++            constructor.isInterface()) {
+           List<JSType> list = Lists.newArrayList();
+           for (FunctionType impl
+                    : registry.getDirectImplementors(objType)) {

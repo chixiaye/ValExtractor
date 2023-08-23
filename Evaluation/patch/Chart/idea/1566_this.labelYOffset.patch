@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/Crosshair.java b/source/org/jfree/chart/plot/Crosshair.java
+index 652e907..3ebd2c5 100644
+--- a/source/org/jfree/chart/plot/Crosshair.java
++++ b/source/org/jfree/chart/plot/Crosshair.java
+@@ -404,7 +404,8 @@
+      * @see #getLabelYOffset()
+      */
+     public void setLabelYOffset(double offset) {
+-        Double old = new Double(this.labelYOffset);
++        double labelYOffset1 = this.labelYOffset;
++        Double old = new Double(labelYOffset1);
+         this.labelYOffset = offset;
+         this.pcs.firePropertyChange("labelYOffset", old, new Double(offset));
+     }

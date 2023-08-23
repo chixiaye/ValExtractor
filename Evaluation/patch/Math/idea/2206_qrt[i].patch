@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/RRQRDecomposition.java b/src/main/java/org/apache/commons/math3/linear/RRQRDecomposition.java
+index 25d6815..b3089cd 100644
+--- a/src/main/java/org/apache/commons/math3/linear/RRQRDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/RRQRDecomposition.java
+@@ -104,8 +104,9 @@
+         int l2NormSquaredMaxIndex = minor;
+         for (int i = minor; i < qrt.length; i++) {
+             double l2NormSquared = 0;
+-            for (int j = 0; j < qrt[i].length; j++) {
+-                l2NormSquared += qrt[i][j] * qrt[i][j];
++            double[] doubles = qrt[i];
++            for (int j = 0; j < doubles.length; j++) {
++                l2NormSquared += doubles[j] * doubles[j];
+             }
+             if (l2NormSquared > l2NormSquaredMax) {
+                 l2NormSquaredMax = l2NormSquared;

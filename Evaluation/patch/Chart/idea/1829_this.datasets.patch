@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..a882bb1 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -596,6 +596,7 @@
+ 
+         this.renderers = new ObjectList();
+ 
++        ObjectList datasets1 = this.datasets;
+         this.datasets = new ObjectList();
+         this.datasets.set(0, dataset);
+         if (dataset != null) {

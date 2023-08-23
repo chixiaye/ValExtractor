@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/data/KeyedObjects.java b/source/org/jfree/data/KeyedObjects.java
+index e8dc01f..d68451d 100644
+--- a/source/org/jfree/data/KeyedObjects.java
++++ b/source/org/jfree/data/KeyedObjects.java
+@@ -203,13 +203,14 @@
+      */
+     public void setObject(Comparable key, Object object) {
+         int keyIndex = getIndex(key);
++        List data1 = this.data;
+         if (keyIndex >= 0) {
+-            KeyedObject ko = (KeyedObject) this.data.get(keyIndex);
++            KeyedObject ko = (KeyedObject) data1.get(keyIndex);
+             ko.setObject(object);
+         }
+         else {
+             KeyedObject ko = new KeyedObject(key, object);
+-            this.data.add(ko);
++            data1.add(ko);
+         }
+     }
+ 

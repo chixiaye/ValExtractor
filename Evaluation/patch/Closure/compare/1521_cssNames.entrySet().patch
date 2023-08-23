@@ -1,0 +1,72 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..1a7fa21 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -29,6 +29,7 @@
+ 
+ import java.util.List;
+ import java.util.Map;
++import java.util.Map.Entry;
+ import java.util.Set;
+ 
+ import javax.annotation.Nullable;
+@@ -609,9 +610,10 @@
+         // the map, then map(a-b) = map(a)-map(b).
+         // To speed things up, only consider cases where len(b) <= 10
+         List<String> errors = Lists.newArrayList();
+-        for (Map.Entry<String, String> b : cssNames.entrySet()) {
++        Set<Entry<String, String>> var_1521 = cssNames.entrySet();
++		for (Map.Entry<String, String> b : var_1521) {
+           if (b.getKey().length() > 10) continue;
+-          for (Map.Entry<String, String> a : cssNames.entrySet()) {
++          for (Map.Entry<String, String> a : var_1521) {
+             String combined = cssNames.get(a.getKey() + "-" + b.getKey());
+             if (combined != null &&
+                 !combined.equals(a.getValue() + "-" + b.getValue())) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..1a7fa21 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -29,6 +29,7 @@
+ 
+ import java.util.List;
+ import java.util.Map;
++import java.util.Map.Entry;
+ import java.util.Set;
+ 
+ import javax.annotation.Nullable;
+@@ -609,9 +610,10 @@
+         // the map, then map(a-b) = map(a)-map(b).
+         // To speed things up, only consider cases where len(b) <= 10
+         List<String> errors = Lists.newArrayList();
+-        for (Map.Entry<String, String> b : cssNames.entrySet()) {
++        Set<Entry<String, String>> var_1521 = cssNames.entrySet();
++		for (Map.Entry<String, String> b : var_1521) {
+           if (b.getKey().length() > 10) continue;
+-          for (Map.Entry<String, String> a : cssNames.entrySet()) {
++          for (Map.Entry<String, String> a : var_1521) {
+             String combined = cssNames.get(a.getKey() + "-" + b.getKey());
+             if (combined != null &&
+                 !combined.equals(a.getValue() + "-" + b.getValue())) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..e96f99c 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -609,9 +609,10 @@
+         // the map, then map(a-b) = map(a)-map(b).
+         // To speed things up, only consider cases where len(b) <= 10
+         List<String> errors = Lists.newArrayList();
+-        for (Map.Entry<String, String> b : cssNames.entrySet()) {
++          Set<Map.Entry<String, String>> entries = cssNames.entrySet();
++          for (Map.Entry<String, String> b : entries) {
+           if (b.getKey().length() > 10) continue;
+-          for (Map.Entry<String, String> a : cssNames.entrySet()) {
++          for (Map.Entry<String, String> a : entries) {
+             String combined = cssNames.get(a.getKey() + "-" + b.getKey());
+             if (combined != null &&
+                 !combined.equals(a.getValue() + "-" + b.getValue())) {

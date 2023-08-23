@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+index ae568e8..81555de 100644
+--- a/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
++++ b/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+@@ -819,7 +819,8 @@
+       Node var = getBlockVar(thenBranch);
+       Node elseAssign = getBlockExpression(elseBranch).getFirstChild();
+ 
+-      Node name1 = var.getFirstChild();
++        Node firstChild = var.getFirstChild();
++        Node name1 = firstChild;
+       Node maybeName2 = elseAssign.getFirstChild();
+ 
+       if (name1.hasChildren()

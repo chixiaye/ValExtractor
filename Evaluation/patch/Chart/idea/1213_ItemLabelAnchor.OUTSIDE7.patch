@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..7e37eb9 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -269,23 +269,26 @@
+         else if (this.equals(ItemLabelAnchor.OUTSIDE6)) {
+             result = ItemLabelAnchor.OUTSIDE6;
+         }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE7)) {
+-            result = ItemLabelAnchor.OUTSIDE7;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE8)) {
+-            result = ItemLabelAnchor.OUTSIDE8;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE9)) {
+-            result = ItemLabelAnchor.OUTSIDE9;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
+-            result = ItemLabelAnchor.OUTSIDE10;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
+-            result = ItemLabelAnchor.OUTSIDE11;
+-        }
+-        else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
+-            result = ItemLabelAnchor.OUTSIDE12;
++        else {
++            ItemLabelAnchor outside7 = ItemLabelAnchor.OUTSIDE7;
++            if (this.equals(outside7)) {
++                result = outside7;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE8)) {
++                result = ItemLabelAnchor.OUTSIDE8;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE9)) {
++                result = ItemLabelAnchor.OUTSIDE9;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE10)) {
++                result = ItemLabelAnchor.OUTSIDE10;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE11)) {
++                result = ItemLabelAnchor.OUTSIDE11;
++            }
++            else if (this.equals(ItemLabelAnchor.OUTSIDE12)) {
++                result = ItemLabelAnchor.OUTSIDE12;
++            }
+         }
+         return result;
+     }

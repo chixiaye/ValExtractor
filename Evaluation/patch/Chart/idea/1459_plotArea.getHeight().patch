@@ -1,0 +1,25 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..630d8cb 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -344,15 +344,16 @@
+         double upperLeftX = plotArea.getX();
+         double upperLeftY = plotArea.getY();
+         //get major dimension
+-        if (plotArea.getWidth() != plotArea.getHeight()) {
++        double height = plotArea.getHeight();
++        if (plotArea.getWidth() != height) {
+             double major = 0d;
+             double minor = 0d;
+-            if (plotArea.getWidth() > plotArea.getHeight()) {
++            if (plotArea.getWidth() > height) {
+                 major = plotArea.getWidth();
+-                minor = plotArea.getHeight();
++                minor = height;
+             }
+             else {
+-                major = plotArea.getHeight();
++                major = height;
+                 minor = plotArea.getWidth();
+             }
+             //ellipse diameter is the minor dimension

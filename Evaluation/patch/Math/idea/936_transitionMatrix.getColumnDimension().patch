@@ -1,0 +1,32 @@
+diff --git a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+index 423689d..036c72e 100644
+--- a/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
++++ b/src/main/java/org/apache/commons/math3/filter/KalmanFilter.java
+@@ -153,14 +153,15 @@
+ 
+         // set the initial state estimate to a zero vector if it is not
+         // available from the process model
++        int columnDimension = transitionMatrix.getColumnDimension();
+         if (processModel.getInitialStateEstimate() == null) {
+-            stateEstimation = new ArrayRealVector(transitionMatrix.getColumnDimension());
++            stateEstimation = new ArrayRealVector(columnDimension);
+         } else {
+             stateEstimation = processModel.getInitialStateEstimate();
+         }
+ 
+-        if (transitionMatrix.getColumnDimension() != stateEstimation.getDimension()) {
+-            throw new DimensionMismatchException(transitionMatrix.getColumnDimension(),
++        if (columnDimension != stateEstimation.getDimension()) {
++            throw new DimensionMismatchException(columnDimension,
+                                                  stateEstimation.getDimension());
+         }
+ 
+@@ -178,7 +179,7 @@
+         if (!transitionMatrix.isSquare()) {
+             throw new NonSquareMatrixException(
+                     transitionMatrix.getRowDimension(),
+-                    transitionMatrix.getColumnDimension());
++                    columnDimension);
+         }
+ 
+         // row dimension of B must be equal to A

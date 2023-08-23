@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessTweaks.java b/src/com/google/javascript/jscomp/ProcessTweaks.java
+index e20b902..7b07064 100644
+--- a/src/com/google/javascript/jscomp/ProcessTweaks.java
++++ b/src/com/google/javascript/jscomp/ProcessTweaks.java
+@@ -372,7 +372,8 @@
+         allTweaks.put(tweakId, tweakInfo);
+       }
+ 
+-      switch (tweakFunc) {
++        Node next = tweakIdNode.getNext();
++        switch (tweakFunc) {
+         case REGISTER_BOOLEAN:
+         case REGISTER_NUMBER:
+         case REGISTER_STRING:
+@@ -395,7 +396,7 @@
+             break;
+           }
+ 
+-          Node tweakDefaultValueNode = tweakIdNode.getNext().getNext();
++          Node tweakDefaultValueNode = next.getNext();
+           tweakInfo.addRegisterCall(t.getSourceName(), tweakFunc, n,
+               tweakDefaultValueNode);
+           break;
+@@ -413,7 +414,7 @@
+             break;
+           }
+ 
+-          tweakDefaultValueNode = tweakIdNode.getNext();
++          tweakDefaultValueNode = next;
+           tweakInfo.addOverrideDefaultValueCall(t.getSourceName(), tweakFunc, n,
+               tweakDefaultValueNode);
+           break;

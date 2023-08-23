@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+index f154450..4eadc4a 100644
+--- a/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BoxAndWhiskerRenderer.java
+@@ -419,7 +419,8 @@
+         // calculate the box width
+         CategoryAxis domainAxis = getDomainAxis(plot, dataset);
+         if (dataset != null) {
+-            int columns = dataset.getColumnCount();
++            int columnCount = dataset.getColumnCount();
++            int columns = columnCount;
+             int rows = dataset.getRowCount();
+             double space = 0.0;
+             PlotOrientation orientation = plot.getOrientation();
+@@ -442,7 +443,7 @@
+                                      - domainAxis.getUpperMargin()
+                                      - categoryMargin - currentItemMargin);
+             if ((rows * columns) > 0) {
+-                state.setBarWidth(Math.min(used / (dataset.getColumnCount()
++                state.setBarWidth(Math.min(used / (columnCount
+                         * dataset.getRowCount()), maxWidth));
+             }
+             else {

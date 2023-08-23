@@ -1,0 +1,22 @@
+diff --git a/src/org/mockito/internal/exceptions/stacktrace/DefaultStackTraceCleaner.java b/src/org/mockito/internal/exceptions/stacktrace/DefaultStackTraceCleaner.java
+index c0dc1d5..3011581 100644
+--- a/src/org/mockito/internal/exceptions/stacktrace/DefaultStackTraceCleaner.java
++++ b/src/org/mockito/internal/exceptions/stacktrace/DefaultStackTraceCleaner.java
+@@ -7,11 +7,12 @@
+ */
+ public class DefaultStackTraceCleaner implements StackTraceCleaner {
+     public boolean isOut(StackTraceElement e) {
+-        boolean fromMockObject = e.getClassName().contains("$$EnhancerByMockitoWithCGLIB$$");
+-        boolean fromByteBuddyMockObject = e.getClassName().contains("$MockitoMock$");
+-        boolean fromOrgMockito = e.getClassName().startsWith("org.mockito.");
+-        boolean isRunner = e.getClassName().startsWith("org.mockito.runners.");
+-        boolean isInternalRunner = e.getClassName().startsWith("org.mockito.internal.runners.");
++        String className = e.getClassName();
++        boolean fromMockObject = className.contains("$$EnhancerByMockitoWithCGLIB$$");
++        boolean fromByteBuddyMockObject = className.contains("$MockitoMock$");
++        boolean fromOrgMockito = className.startsWith("org.mockito.");
++        boolean isRunner = className.startsWith("org.mockito.runners.");
++        boolean isInternalRunner = className.startsWith("org.mockito.internal.runners.");
+         return (fromMockObject || fromByteBuddyMockObject || fromOrgMockito) && !isRunner && !isInternalRunner;
+     }
+ }

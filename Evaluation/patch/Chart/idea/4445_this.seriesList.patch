@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/xy/MatrixSeriesCollection.java b/source/org/jfree/data/xy/MatrixSeriesCollection.java
+index 6af3a1a..5eeea49 100644
+--- a/source/org/jfree/data/xy/MatrixSeriesCollection.java
++++ b/source/org/jfree/data/xy/MatrixSeriesCollection.java
+@@ -311,9 +311,10 @@
+         }
+ 
+         // remove the series...
+-        if (this.seriesList.contains(series)) {
++        List seriesList1 = this.seriesList;
++        if (seriesList1.contains(series)) {
+             series.removeChangeListener(this);
+-            this.seriesList.remove(series);
++            seriesList1.remove(series);
+             fireDatasetChanged(new DatasetChangeInfo());
+             //TODO: fill in real change info
+         }

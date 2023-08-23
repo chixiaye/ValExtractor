@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/Conversion.java b/src/main/java/org/apache/commons/lang3/Conversion.java
+index 91131ad..4917001 100644
+--- a/src/main/java/org/apache/commons/lang3/Conversion.java
++++ b/src/main/java/org/apache/commons/lang3/Conversion.java
+@@ -1398,11 +1398,12 @@
+         for (int i = 0; i < nHexs; i++ ) {
+             shift = i * 4 + srcPos;
+             final int bits = (int)(0xF & (src >> shift));
++            char c = intToHexDigit(bits);
+             if (dstPos + i == append) {
+                 ++append;
+-                sb.append(intToHexDigit(bits));
++                sb.append(c);
+             } else {
+-                sb.setCharAt(dstPos + i, intToHexDigit(bits));
++                sb.setCharAt(dstPos + i, c);
+             }
+         }
+         return sb.toString();

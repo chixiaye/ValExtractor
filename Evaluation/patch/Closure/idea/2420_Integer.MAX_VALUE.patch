@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..4a69a33 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -498,16 +498,17 @@
+       private RegExpTree parseRepetition(RegExpTree body) {
+         if (pos == limit) { return body; }
+         int min, max;
+-        switch (pattern.charAt(pos)) {
++          int maxValue = Integer.MAX_VALUE;
++          switch (pattern.charAt(pos)) {
+           case '+':
+             ++pos;
+             min = 1;
+-            max = Integer.MAX_VALUE;
++            max = maxValue;
+             break;
+           case '*':
+             ++pos;
+             min = 0;
+-            max = Integer.MAX_VALUE;
++            max = maxValue;
+             break;
+           case '?':
+             ++pos;
+@@ -531,7 +532,7 @@
+               max = comma >= 0
+                   ? comma + 1 != counts.length()
+                       ? Integer.parseInt(counts.substring(comma + 1))
+-                      : Integer.MAX_VALUE
++                      : maxValue
+                   : min;
+             } catch (NumberFormatException ex) {
+               min = max = -1;

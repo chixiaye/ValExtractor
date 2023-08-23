@@ -1,0 +1,100 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..9c7766e 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -166,9 +166,10 @@
+         }
+         else if (anchor == RectangleAnchor.TOP) {
+             result.setLocation(rectangle.getCenterX(), rectangle.getMinY());
+-        }
+-        else if (anchor == RectangleAnchor.BOTTOM) {
+-            result.setLocation(rectangle.getCenterX(), rectangle.getMaxY());
++        } else {
++			double var_3677 = rectangle.getMaxY();
++			if (anchor == RectangleAnchor.BOTTOM) {
++			    result.setLocation(rectangle.getCenterX(), var_3677);
+         }
+         else if (anchor == RectangleAnchor.LEFT) {
+             result.setLocation(rectangle.getMinX(), rectangle.getCenterY());
+@@ -183,10 +184,11 @@
+             result.setLocation(rectangle.getMaxX(), rectangle.getMinY());
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_LEFT) {
+-            result.setLocation(rectangle.getMinX(), rectangle.getMaxY());
++			    result.setLocation(rectangle.getMinX(), var_3677);
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_RIGHT) {
+-            result.setLocation(rectangle.getMaxX(), rectangle.getMaxY());
++			    result.setLocation(rectangle.getMaxX(), var_3677);
++			}
+         }
+         return result;
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..9c7766e 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -166,9 +166,10 @@
+         }
+         else if (anchor == RectangleAnchor.TOP) {
+             result.setLocation(rectangle.getCenterX(), rectangle.getMinY());
+-        }
+-        else if (anchor == RectangleAnchor.BOTTOM) {
+-            result.setLocation(rectangle.getCenterX(), rectangle.getMaxY());
++        } else {
++			double var_3677 = rectangle.getMaxY();
++			if (anchor == RectangleAnchor.BOTTOM) {
++			    result.setLocation(rectangle.getCenterX(), var_3677);
+         }
+         else if (anchor == RectangleAnchor.LEFT) {
+             result.setLocation(rectangle.getMinX(), rectangle.getCenterY());
+@@ -183,10 +184,11 @@
+             result.setLocation(rectangle.getMaxX(), rectangle.getMinY());
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_LEFT) {
+-            result.setLocation(rectangle.getMinX(), rectangle.getMaxY());
++			    result.setLocation(rectangle.getMinX(), var_3677);
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_RIGHT) {
+-            result.setLocation(rectangle.getMaxX(), rectangle.getMaxY());
++			    result.setLocation(rectangle.getMaxX(), var_3677);
++			}
+         }
+         return result;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/RectangleAnchor.java b/source/org/jfree/chart/util/RectangleAnchor.java
+index 4cac890..b339dd7 100644
+--- a/source/org/jfree/chart/util/RectangleAnchor.java
++++ b/source/org/jfree/chart/util/RectangleAnchor.java
+@@ -167,8 +167,10 @@
+         else if (anchor == RectangleAnchor.TOP) {
+             result.setLocation(rectangle.getCenterX(), rectangle.getMinY());
+         }
+-        else if (anchor == RectangleAnchor.BOTTOM) {
+-            result.setLocation(rectangle.getCenterX(), rectangle.getMaxY());
++        else {
++            double maxY = rectangle.getMaxY();
++            if (anchor == RectangleAnchor.BOTTOM) {
++                result.setLocation(rectangle.getCenterX(), maxY);
+         }
+         else if (anchor == RectangleAnchor.LEFT) {
+             result.setLocation(rectangle.getMinX(), rectangle.getCenterY());
+@@ -183,10 +185,11 @@
+             result.setLocation(rectangle.getMaxX(), rectangle.getMinY());
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_LEFT) {
+-            result.setLocation(rectangle.getMinX(), rectangle.getMaxY());
++                result.setLocation(rectangle.getMinX(), maxY);
+         }
+         else if (anchor == RectangleAnchor.BOTTOM_RIGHT) {
+-            result.setLocation(rectangle.getMaxX(), rectangle.getMaxY());
++                result.setLocation(rectangle.getMaxX(), maxY);
++            }
+         }
+         return result;
+     }

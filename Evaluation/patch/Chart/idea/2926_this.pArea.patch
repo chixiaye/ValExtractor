@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+index 6117418..7c79a4a 100644
+--- a/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYStepAreaRenderer.java
+@@ -388,7 +388,8 @@
+ 
+             // The first point is (x, this.baseYValue)
+             if (orientation == PlotOrientation.VERTICAL) {
+-                this.pArea.addPoint((int) transX1, (int) transY2);
++                Polygon pArea1 = this.pArea;
++                pArea1.addPoint((int) transX1, (int) transY2);
+             }
+             else if (orientation == PlotOrientation.HORIZONTAL) {
+                 this.pArea.addPoint((int) transY2, (int) transX1);

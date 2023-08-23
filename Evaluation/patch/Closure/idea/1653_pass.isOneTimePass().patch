@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/PassConfig.java b/src/com/google/javascript/jscomp/PassConfig.java
+index adcf17e..addb8dd 100644
+--- a/src/com/google/javascript/jscomp/PassConfig.java
++++ b/src/com/google/javascript/jscomp/PassConfig.java
+@@ -138,9 +138,10 @@
+       }
+       graph.createNode(passName);
+ 
+-      if (loopStart == null && !pass.isOneTimePass()) {
++        boolean oneTimePass = pass.isOneTimePass();
++        if (loopStart == null && !oneTimePass) {
+         loopStart = passName;
+-      } else if (loopStart != null && pass.isOneTimePass()) {
++      } else if (loopStart != null && oneTimePass) {
+         graph.connect(lastPass, "loop", loopStart);
+         loopStart = null;
+       }

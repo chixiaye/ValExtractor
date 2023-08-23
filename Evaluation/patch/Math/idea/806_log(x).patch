@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..59e2a49 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -631,6 +631,7 @@
+         // End special cases
+ 
+         Dfp r;
++        Dfp log = log(x);
+         if (y.lessThan(x.newInstance(100000000)) && y.greaterThan(x.newInstance(-100000000))) {
+             final Dfp u = y.rint();
+             ui = u.intValue();
+@@ -638,7 +639,7 @@
+             final Dfp v = y.subtract(u);
+ 
+             if (v.unequal(zero)) {
+-                final Dfp a = v.multiply(log(x));
++                final Dfp a = v.multiply(log);
+                 final Dfp b = a.divide(x.getField().getLn2()).rint();
+ 
+                 final Dfp c = a.subtract(b.multiply(x.getField().getLn2()));
+@@ -650,7 +651,7 @@
+             }
+         } else {
+             // very large exponent.  |y| > 1e8
+-            r = exp(log(x).multiply(y));
++            r = exp(log.multiply(y));
+         }
+ 
+         if (invert && y.rint().equals(y) && !y.remainder(two).equals(zero)) {

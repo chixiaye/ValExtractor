@@ -1,0 +1,12 @@
+diff --git a/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java b/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
+index 1f7a2b3..d79de74 100644
+--- a/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
++++ b/src/main/java/org/apache/commons/math3/distribution/GammaDistribution.java
+@@ -143,6 +143,7 @@
+         this.solverAbsoluteAccuracy = inverseCumAccuracy;
+         this.shiftedShape = shape + Gamma.LANCZOS_G + 0.5;
+         final double aux = FastMath.E / (2.0 * FastMath.PI * shiftedShape);
++        double densityPrefactor21 = this.densityPrefactor2;
+         this.densityPrefactor2 = shape * FastMath.sqrt(aux) / Gamma.lanczos(shape);
+         this.densityPrefactor1 = this.densityPrefactor2 / scale *
+                 FastMath.pow(shiftedShape, -shape) *

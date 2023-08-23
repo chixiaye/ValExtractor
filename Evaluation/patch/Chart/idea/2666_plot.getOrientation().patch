@@ -1,0 +1,32 @@
+diff --git a/source/org/jfree/chart/renderer/category/GanttRenderer.java b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+index fc9e2ef..b05cfac 100644
+--- a/source/org/jfree/chart/renderer/category/GanttRenderer.java
++++ b/source/org/jfree/chart/renderer/category/GanttRenderer.java
+@@ -425,7 +425,8 @@
+             ValueAxis rangeAxis, GanttCategoryDataset dataset, int row,
+             int column, boolean selected) {
+ 
+-        PlotOrientation orientation = plot.getOrientation();
++        PlotOrientation orientation1 = plot.getOrientation();
++        PlotOrientation orientation = orientation1;
+         RectangleEdge rangeAxisLocation = plot.getRangeAxisEdge();
+ 
+         // Y0
+@@ -478,7 +479,7 @@
+         double end = getEndPercent();
+         if (percent != null) {
+             double p = percent.doubleValue();
+-            if (plot.getOrientation() == PlotOrientation.HORIZONTAL) {
++            if (orientation1 == PlotOrientation.HORIZONTAL) {
+                 completeBar = new Rectangle2D.Double(java2dValue0,
+                         rectStart + start * rectBreadth, rectLength * p,
+                         rectBreadth * (end - start));
+@@ -486,7 +487,7 @@
+                         + rectLength * p, rectStart + start * rectBreadth,
+                         rectLength * (1 - p), rectBreadth * (end - start));
+             }
+-            else if (plot.getOrientation() == PlotOrientation.VERTICAL) {
++            else if (orientation1 == PlotOrientation.VERTICAL) {
+                 completeBar = new Rectangle2D.Double(rectStart + start
+                         * rectBreadth, java2dValue1 + rectLength * (1 - p),
+                         rectBreadth * (end - start), rectLength * p);

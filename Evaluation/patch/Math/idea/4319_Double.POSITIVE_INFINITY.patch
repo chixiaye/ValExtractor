@@ -1,0 +1,68 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..d2927d8 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1453,6 +1453,7 @@
+         }
+ 
+ 
++        double positiveInfinity = Double.POSITIVE_INFINITY;
+         if (x == 0) {
+             long bits = Double.doubleToRawLongBits(x);
+             if ((bits & 0x8000000000000000L) != 0) {
+@@ -1469,7 +1470,7 @@
+             }
+ 
+             if (y < 0) {
+-                return Double.POSITIVE_INFINITY;
++                return positiveInfinity;
+             }
+             if (y > 0) {
+                 return 0.0;
+@@ -1478,24 +1479,24 @@
+             return Double.NaN;
+         }
+ 
+-        if (x == Double.POSITIVE_INFINITY) {
++        if (x == positiveInfinity) {
+             if (y != y) { // y is NaN
+                 return y;
+             }
+             if (y < 0.0) {
+                 return 0.0;
+             } else {
+-                return Double.POSITIVE_INFINITY;
++                return positiveInfinity;
+             }
+         }
+ 
+-        if (y == Double.POSITIVE_INFINITY) {
++        if (y == positiveInfinity) {
+             if (x * x == 1.0) {
+                 return Double.NaN;
+             }
+ 
+             if (x * x > 1.0) {
+-                return Double.POSITIVE_INFINITY;
++                return positiveInfinity;
+             } else {
+                 return 0.0;
+             }
+@@ -1521,7 +1522,7 @@
+                     return Double.NEGATIVE_INFINITY;
+                 }
+ 
+-                return Double.POSITIVE_INFINITY;
++                return positiveInfinity;
+             }
+         }
+ 
+@@ -1532,7 +1533,7 @@
+             }
+ 
+             if (x * x < 1.0) {
+-                return Double.POSITIVE_INFINITY;
++                return positiveInfinity;
+             } else {
+                 return 0.0;
+             }

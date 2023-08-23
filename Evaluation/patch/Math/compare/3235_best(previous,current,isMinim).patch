@@ -1,0 +1,96 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+index a5fca86..835ce9d 100644
+--- a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+@@ -232,10 +232,11 @@
+                 // User-defined convergence checker.
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+-                best = best(best,
+-                            best(previous,
++                UnivariatePointValuePair var_3235 = best(previous,
+                                  current,
+-                                 isMinim),
++				     isMinim);
++				best = best(best,
++                            var_3235,
+                             isMinim);
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+index a5fca86..8cae449 100644
+--- a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+@@ -158,6 +158,9 @@
+ 
+             // Default stopping criterion.
+             final boolean stop = FastMath.abs(x - m) <= tol2 - 0.5 * (b - a);
++            UnivariatePointValuePair var_3235 = best(previous,
++			     current,
++			     isMinim);
+             if (!stop) {
+                 double p = 0;
+                 double q = 0;
+@@ -233,9 +236,7 @@
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+                 best = best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
++                            var_3235,
+                             isMinim);
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+@@ -276,9 +277,7 @@
+                 }
+             } else { // Default termination (Brent's criterion).
+                 return best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
++                            var_3235,
+                             isMinim);
+             }
+             ++iter;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+index a5fca86..4d5c6ef 100644
+--- a/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/univariate/BrentOptimizer.java
+@@ -158,6 +158,9 @@
+ 
+             // Default stopping criterion.
+             final boolean stop = FastMath.abs(x - m) <= tol2 - 0.5 * (b - a);
++            UnivariatePointValuePair best1 = best(previous,
++                    current,
++                    isMinim);
+             if (!stop) {
+                 double p = 0;
+                 double q = 0;
+@@ -233,9 +236,7 @@
+                 previous = current;
+                 current = new UnivariatePointValuePair(u, isMinim ? fu : -fu);
+                 best = best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
++                        best1,
+                             isMinim);
+ 
+                 if (checker != null && checker.converged(iter, previous, current)) {
+@@ -276,9 +277,7 @@
+                 }
+             } else { // Default termination (Brent's criterion).
+                 return best(best,
+-                            best(previous,
+-                                 current,
+-                                 isMinim),
++                        best1,
+                             isMinim);
+             }
+             ++iter;

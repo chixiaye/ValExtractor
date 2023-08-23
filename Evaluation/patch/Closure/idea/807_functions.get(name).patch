@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/ReplaceStrings.java b/src/com/google/javascript/jscomp/ReplaceStrings.java
+index 1d4ac50..fb4c8b9 100644
+--- a/src/com/google/javascript/jscomp/ReplaceStrings.java
++++ b/src/com/google/javascript/jscomp/ReplaceStrings.java
+@@ -244,10 +244,11 @@
+    * @return The Config object for the name or null if no match was found.
+    */
+   private Config findMatching(String name) {
+-    Config config = functions.get(name);
++      Config config1 = functions.get(name);
++      Config config = config1;
+     if (config == null) {
+       name = name.replace('$', '.');
+-      config = functions.get(name);
++      config = config1;
+     }
+     return config;
+   }

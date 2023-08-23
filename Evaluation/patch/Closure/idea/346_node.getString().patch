@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/JsMessageVisitor.java b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+index becd724..a314dde 100644
+--- a/src/com/google/javascript/jscomp/JsMessageVisitor.java
++++ b/src/com/google/javascript/jscomp/JsMessageVisitor.java
+@@ -610,12 +610,13 @@
+   private void extractFromReturnDescendant(Builder builder, Node node)
+       throws MalformedException {
+ 
+-    switch (node.getType()) {
++      String string = node.getString();
++      switch (node.getType()) {
+       case Token.STRING:
+-        builder.appendStringPart(node.getString());
++        builder.appendStringPart(string);
+         break;
+       case Token.NAME:
+-        builder.appendPlaceholderReference(node.getString());
++        builder.appendPlaceholderReference(string);
+         break;
+       case Token.ADD:
+         for (Node child : node.children()) {

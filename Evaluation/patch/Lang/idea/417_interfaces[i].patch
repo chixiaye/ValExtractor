@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/apache/commons/lang3/reflect/MethodUtils.java b/src/main/java/org/apache/commons/lang3/reflect/MethodUtils.java
+index b86ea28..2c8b937 100644
+--- a/src/main/java/org/apache/commons/lang3/reflect/MethodUtils.java
++++ b/src/main/java/org/apache/commons/lang3/reflect/MethodUtils.java
+@@ -442,12 +442,13 @@
+             final Class<?>[] interfaces = cls.getInterfaces();
+             for (int i = 0; i < interfaces.length; i++) {
+                 // Is this interface public?
+-                if (!Modifier.isPublic(interfaces[i].getModifiers())) {
++                Class<?> anInterface = interfaces[i];
++                if (!Modifier.isPublic(anInterface.getModifiers())) {
+                     continue;
+                 }
+                 // Does the method exist on this interface?
+                 try {
+-                    method = interfaces[i].getDeclaredMethod(methodName,
++                    method = anInterface.getDeclaredMethod(methodName,
+                             parameterTypes);
+                 } catch (final NoSuchMethodException e) { // NOPMD
+                     /*
+@@ -459,7 +460,7 @@
+                     break;
+                 }
+                 // Recursively check our parent interfaces
+-                method = getAccessibleMethodFromInterfaceNest(interfaces[i],
++                method = getAccessibleMethodFromInterfaceNest(anInterface,
+                         methodName, parameterTypes);
+                 if (method != null) {
+                     break;

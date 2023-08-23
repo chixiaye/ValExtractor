@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+index bdc095b..b8da0cf 100644
+--- a/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/CyclicXYItemRenderer.java
+@@ -332,7 +332,9 @@
+         public OverwriteDataSet(double [] x, double[] y,
+                                 XYDataset delegateSet) {
+             this.delegateSet = delegateSet;
+-            this.x = new Double[x.length]; this.y = new Double[y.length];
++            this.x = new Double[x.length];
++            Double[] y1 = this.y;
++            this.y = new Double[y.length];
+             for (int i = 0; i < x.length; ++i) {
+                 this.x[i] = new Double(x[i]);
+                 this.y[i] = new Double(y[i]);

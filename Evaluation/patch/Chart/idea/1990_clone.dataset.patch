@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/MeterPlot.java b/source/org/jfree/chart/plot/MeterPlot.java
+index efd9ca4..312611a 100644
+--- a/source/org/jfree/chart/plot/MeterPlot.java
++++ b/source/org/jfree/chart/plot/MeterPlot.java
+@@ -1330,8 +1330,9 @@
+         clone.tickLabelFormat = (NumberFormat) this.tickLabelFormat.clone();
+         // the following relies on the fact that the intervals are immutable
+         clone.intervals = new java.util.ArrayList(this.intervals);
+-        if (clone.dataset != null) {
+-            clone.dataset.addChangeListener(clone);
++        ValueDataset dataset1 = clone.dataset;
++        if (dataset1 != null) {
++            dataset1.addChangeListener(clone);
+         }
+         return clone;
+     }

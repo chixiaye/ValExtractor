@@ -1,0 +1,23 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..cbf6071 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1854,7 +1854,8 @@
+     Node functionType = newNode(Token.FUNCTION);
+     Node parameters = null;
+     skipEOLs();
+-    if (!match(JsDocToken.RP)) {
++      JsDocToken rp = JsDocToken.RP;
++      if (!match(rp)) {
+       token = next();
+ 
+       boolean hasParams = true;
+@@ -1901,7 +1902,7 @@
+     }
+ 
+     skipEOLs();
+-    if (!match(JsDocToken.RP)) {
++    if (!match(rp)) {
+       return reportTypeSyntaxWarning("msg.jsdoc.missing.rp");
+     }
+ 

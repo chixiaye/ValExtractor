@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+index 2e75bce..1dfe6a0 100644
+--- a/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
++++ b/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+@@ -1025,9 +1025,10 @@
+     }
+ 
+     private Node getProvideStringNode() {
+-      return (firstNode.getFirstChild() != null &&
++        Node firstChild = firstNode.getFirstChild();
++        return (firstChild != null &&
+               NodeUtil.isExprCall(firstNode)) ?
+-          firstNode.getFirstChild().getLastChild() :
++          firstChild.getLastChild() :
+           null;
+     }
+   }

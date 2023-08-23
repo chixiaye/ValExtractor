@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+index 5b91780..3bcc93a 100644
+--- a/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
++++ b/src/main/java/org/apache/commons/math3/linear/MatrixUtils.java
+@@ -230,9 +230,10 @@
+      */
+     public static <T extends FieldElement<T>> FieldMatrix<T>
+         createFieldDiagonalMatrix(final T[] diagonal) {
++        int length = diagonal.length;
+         final FieldMatrix<T> m =
+-            createFieldMatrix(diagonal[0].getField(), diagonal.length, diagonal.length);
+-        for (int i = 0; i < diagonal.length; ++i) {
++            createFieldMatrix(diagonal[0].getField(), length, length);
++        for (int i = 0; i < length; ++i) {
+             m.setEntry(i, i, diagonal[i]);
+         }
+         return m;

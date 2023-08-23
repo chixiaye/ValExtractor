@@ -1,0 +1,48 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..264405a 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -628,6 +628,7 @@
+             TextAnchor anchor = null;
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
++            int size = result.size();
+             if (isVerticalTickLabels()) {
+ 
+                 if (edge == RectangleEdge.LEFT) {
+@@ -636,7 +637,7 @@
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+                             ? TextAnchor.BOTTOM_LEFT : TextAnchor.BOTTOM_RIGHT;
+-                        result.remove(result.size() - 1);
++                        result.remove(size - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+@@ -655,7 +656,7 @@
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+                             ? TextAnchor.BOTTOM_RIGHT : TextAnchor.BOTTOM_LEFT;
+-                        result.remove(result.size() - 1);
++                        result.remove(size - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+@@ -676,7 +677,7 @@
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+                             ? TextAnchor.BOTTOM_RIGHT : TextAnchor.TOP_RIGHT;
+-                        result.remove(result.size() - 1);
++                        result.remove(size - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+@@ -694,7 +695,7 @@
+                             && (currentTickValue != cycleBound)) {
+                         anchor = isInverted()
+                             ? TextAnchor.BOTTOM_LEFT : TextAnchor.TOP_LEFT;
+-                        result.remove(result.size() - 1);
++                        result.remove(size - 1);
+                         result.add(new CycleBoundTick(
+                             this.boundMappedToLastCycle, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,

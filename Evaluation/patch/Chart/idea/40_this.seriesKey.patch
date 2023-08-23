@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/LegendItem.java b/source/org/jfree/chart/LegendItem.java
+index 776c9ae..3b4b651 100644
+--- a/source/org/jfree/chart/LegendItem.java
++++ b/source/org/jfree/chart/LegendItem.java
+@@ -1122,8 +1122,9 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         LegendItem clone = (LegendItem) super.clone();
+-        if (this.seriesKey instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.seriesKey;
++        Comparable seriesKey1 = this.seriesKey;
++        if (seriesKey1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) seriesKey1;
+             clone.seriesKey = (Comparable) pc.clone();
+         }
+         // FIXME: Clone the attributed string if it is not null

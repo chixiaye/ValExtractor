@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..1d56a10 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -313,7 +313,8 @@
+         //  Iterate and find all keys below threshold percentThreshold
+         List keys = source.getKeys();
+         ArrayList otherKeys = new ArrayList();
+-        Iterator iterator = keys.iterator();
++        Iterator iterator1 = keys.iterator();
++        Iterator iterator = iterator1;
+         while (iterator.hasNext()) {
+             Comparable currentKey = (Comparable) iterator.next();
+             Number dataValue = source.getValue(currentKey);
+@@ -326,7 +327,7 @@
+         }
+ 
+         //  Create new dataset with keys above threshold percentThreshold
+-        iterator = keys.iterator();
++        iterator = iterator1;
+         double otherValue = 0;
+         while (iterator.hasNext()) {
+             Comparable currentKey = (Comparable) iterator.next();

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/MonthDateFormat.java b/source/org/jfree/chart/axis/MonthDateFormat.java
+index c1cde39..8dcd1a3 100644
+--- a/source/org/jfree/chart/axis/MonthDateFormat.java
++++ b/source/org/jfree/chart/axis/MonthDateFormat.java
+@@ -198,8 +198,9 @@
+      */
+     public StringBuffer format(Date date, StringBuffer toAppendTo,
+                                FieldPosition fieldPosition) {
+-        this.calendar.setTime(date);
+-        int month = this.calendar.get(Calendar.MONTH);
++        Calendar calendar1 = this.calendar;
++        calendar1.setTime(date);
++        int month = calendar1.get(Calendar.MONTH);
+         toAppendTo.append(this.months[month]);
+         if (this.showYear[month]) {
+             toAppendTo.append(this.yearFormatter.format(date));

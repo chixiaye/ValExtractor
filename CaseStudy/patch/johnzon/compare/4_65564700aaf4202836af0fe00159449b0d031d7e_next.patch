@@ -1,0 +1,37 @@
+diff --git a/Users/chixiaye/paper/CaseStudyPaper/patch/johnzon/eclipse/4_65564700aaf4202836af0fe00159449b0d031d7e_next.patch b/Users/chixiaye/paper/CaseStudyPaper/patch/johnzon/ours/4_65564700aaf4202836af0fe00159449b0d031d7e_next.patch
+index 8ffe0982..03284989 100644
+--- a/Users/chixiaye/paper/CaseStudyPaper/patch/johnzon/eclipse/4_65564700aaf4202836af0fe00159449b0d031d7e_next.patch
++++ b/Users/chixiaye/paper/CaseStudyPaper/patch/johnzon/ours/4_65564700aaf4202836af0fe00159449b0d031d7e_next.patch
+@@ -1,5 +1,5 @@
+ diff --git a/johnzon-core/src/main/java/org/apache/johnzon/core/JsonReaderImpl.java b/johnzon-core/src/main/java/org/apache/johnzon/core/JsonReaderImpl.java
+-index 86d7708..88dba76 100644
++index 86d7708..443ba23 100644
+ --- a/johnzon-core/src/main/java/org/apache/johnzon/core/JsonReaderImpl.java
+ +++ b/johnzon-core/src/main/java/org/apache/johnzon/core/JsonReaderImpl.java
+ @@ -25,6 +25,7 @@
+@@ -10,22 +10,13 @@ index 86d7708..88dba76 100644
+  import javax.json.stream.JsonParsingException;
+  
+  class JsonReaderImpl implements JsonReader {
+-@@ -43,7 +44,8 @@
+-         if (!parser.hasNext()) {
+-             throw new IllegalStateException("Nothing to read");
+-         }
+--        switch (parser.next()) {
+-+        Event next = parser.next();
+-+		switch (next) {
+-             case START_OBJECT:
+-                 final JsonObjectBuilder objectBuilder = new JsonObjectBuilderImpl();
+-                 parseObject(objectBuilder);
+-@@ -62,7 +64,7 @@
++@@ -62,7 +63,8 @@
+                  return arrayBuilder.build();
+              default:
+                  close();
+ -                throw new JsonParsingException("Unknown structure: " + parser.next(), parser.getLocation());
+-+                throw new JsonParsingException("Unknown structure: " + next, parser.getLocation());
+++			Event next = parser.next();
+++			throw new JsonParsingException("Unknown structure: " + next, parser.getLocation());
+          }
+  
+      }

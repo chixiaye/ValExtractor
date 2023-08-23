@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/data/xy/XYSeries.java b/source/org/jfree/data/xy/XYSeries.java
+index c2d0ba8..8745144 100644
+--- a/source/org/jfree/data/xy/XYSeries.java
++++ b/source/org/jfree/data/xy/XYSeries.java
+@@ -251,6 +251,7 @@
+         if (item.getY() != null) {
+             double y = item.getYValue();
+             this.minY = minIgnoreNaN(this.minY, y);
++            double maxY1 = this.maxY;
+             this.maxY = maxIgnoreNaN(this.maxY, y);
+         }
+     }

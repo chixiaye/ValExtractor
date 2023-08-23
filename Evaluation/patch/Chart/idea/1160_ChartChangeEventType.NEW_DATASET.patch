@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/event/ChartChangeEventType.java b/source/org/jfree/chart/event/ChartChangeEventType.java
+index ab1acb4..bb4eaa4 100644
+--- a/source/org/jfree/chart/event/ChartChangeEventType.java
++++ b/source/org/jfree/chart/event/ChartChangeEventType.java
+@@ -126,11 +126,14 @@
+         if (this.equals(ChartChangeEventType.GENERAL)) {
+             return ChartChangeEventType.GENERAL;
+         }
+-        else if (this.equals(ChartChangeEventType.NEW_DATASET)) {
+-            return ChartChangeEventType.NEW_DATASET;
+-        }
+-        else if (this.equals(ChartChangeEventType.DATASET_UPDATED)) {
+-            return ChartChangeEventType.DATASET_UPDATED;
++        else {
++            ChartChangeEventType newDataset = ChartChangeEventType.NEW_DATASET;
++            if (this.equals(newDataset)) {
++                return newDataset;
++            }
++            else if (this.equals(ChartChangeEventType.DATASET_UPDATED)) {
++                return ChartChangeEventType.DATASET_UPDATED;
++            }
+         }
+         return null;
+     }

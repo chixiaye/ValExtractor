@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..cf37c49 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -839,8 +839,9 @@
+                     TextAnchor rotationAnchor = null;
+                     double angle = 0.0;
+                     if (isVerticalTickLabels()) {
+-                        anchor = TextAnchor.CENTER_RIGHT;
+-                        rotationAnchor = TextAnchor.CENTER_RIGHT;
++                        TextAnchor centerRight = TextAnchor.CENTER_RIGHT;
++                        anchor = centerRight;
++                        rotationAnchor = centerRight;
+                         if (edge == RectangleEdge.TOP) {
+                             angle = Math.PI / 2.0;
+                         }

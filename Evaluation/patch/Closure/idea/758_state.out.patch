@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/DataFlowAnalysis.java b/src/com/google/javascript/jscomp/DataFlowAnalysis.java
+index 5b39646..89b1341 100644
+--- a/src/com/google/javascript/jscomp/DataFlowAnalysis.java
++++ b/src/com/google/javascript/jscomp/DataFlowAnalysis.java
+@@ -444,7 +444,8 @@
+     protected final boolean flow(DiGraphNode<N, Branch> node) {
+       BranchedFlowState<L> state = node.getAnnotation();
+       List<L> outBefore = state.out;
+-      state.out = branchedFlowThrough(node.getValue(), state.in);
++        List<L> out = state.out;
++        out = branchedFlowThrough(node.getValue(), state.in);
+       Preconditions.checkState(outBefore.size() == state.out.size());
+       for (int i = 0; i < outBefore.size(); i++) {
+         if (!outBefore.get(i).equals(state.out.get(i))) {

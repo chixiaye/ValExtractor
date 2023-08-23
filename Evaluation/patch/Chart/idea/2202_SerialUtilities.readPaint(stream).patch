@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/plot/CompassPlot.java b/source/org/jfree/chart/plot/CompassPlot.java
+index 2963422..f7de3bb 100644
+--- a/source/org/jfree/chart/plot/CompassPlot.java
++++ b/source/org/jfree/chart/plot/CompassPlot.java
+@@ -881,9 +881,10 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.rosePaint = SerialUtilities.readPaint(stream);
+-        this.roseCenterPaint = SerialUtilities.readPaint(stream);
+-        this.roseHighlightPaint = SerialUtilities.readPaint(stream);
++        Paint rosePaint1 = SerialUtilities.readPaint(stream);
++        this.rosePaint = rosePaint1;
++        this.roseCenterPaint = rosePaint1;
++        this.roseHighlightPaint = rosePaint1;
+     }
+ 
+ }

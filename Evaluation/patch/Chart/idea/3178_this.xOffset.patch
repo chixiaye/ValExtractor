@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+index 476d601..91fb8e3 100644
+--- a/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYBlockRenderer.java
+@@ -252,6 +252,7 @@
+             this.yOffset = 0.0;
+         }
+         else if (this.blockAnchor.equals(RectangleAnchor.LEFT)) {
++            double xOffset1 = this.xOffset;
+             this.xOffset = 0.0;
+             this.yOffset = -this.blockHeight / 2.0;
+         }

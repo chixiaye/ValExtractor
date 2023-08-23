@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/DomainOrder.java b/source/org/jfree/data/DomainOrder.java
+index bd094fa..6daffca 100644
+--- a/source/org/jfree/data/DomainOrder.java
++++ b/source/org/jfree/data/DomainOrder.java
+@@ -123,8 +123,9 @@
+      * @throws ObjectStreamException if there is a problem.
+      */
+     private Object readResolve() throws ObjectStreamException {
+-        if (this.equals(DomainOrder.ASCENDING)) {
+-            return DomainOrder.ASCENDING;
++        DomainOrder ascending = DomainOrder.ASCENDING;
++        if (this.equals(ascending)) {
++            return ascending;
+         }
+         else if (this.equals(DomainOrder.DESCENDING)) {
+             return DomainOrder.DESCENDING;

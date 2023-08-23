@@ -1,0 +1,81 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..3802d4d 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -30,6 +30,7 @@
+ import com.google.javascript.rhino.jstype.JSType;
+ 
+ import java.util.Comparator;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -422,7 +423,8 @@
+   ExternExportsPass(AbstractCompiler compiler) {
+     this.exports = Lists.newArrayList();
+     this.compiler = compiler;
+-    this.definitionMap = Maps.newHashMap();
++    HashMap<String, Node> var_1409 = Maps.newHashMap();
++	this.definitionMap = var_1409;
+     this.externsRoot = IR.block();
+     this.externsRoot.setIsSyntheticBlock(true);
+     this.alreadyExportedPaths = Sets.newHashSet();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..3802d4d 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -30,6 +30,7 @@
+ import com.google.javascript.rhino.jstype.JSType;
+ 
+ import java.util.Comparator;
++import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Set;
+@@ -422,7 +423,8 @@
+   ExternExportsPass(AbstractCompiler compiler) {
+     this.exports = Lists.newArrayList();
+     this.compiler = compiler;
+-    this.definitionMap = Maps.newHashMap();
++    HashMap<String, Node> var_1409 = Maps.newHashMap();
++	this.definitionMap = var_1409;
+     this.externsRoot = IR.block();
+     this.externsRoot.setIsSyntheticBlock(true);
+     this.alreadyExportedPaths = Sets.newHashSet();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ExternExportsPass.java b/src/com/google/javascript/jscomp/ExternExportsPass.java
+index 5c455d3..c86ed92 100644
+--- a/src/com/google/javascript/jscomp/ExternExportsPass.java
++++ b/src/com/google/javascript/jscomp/ExternExportsPass.java
+@@ -29,11 +29,7 @@
+ import com.google.javascript.rhino.jstype.FunctionType;
+ import com.google.javascript.rhino.jstype.JSType;
+ 
+-import java.util.Comparator;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.Set;
+-import java.util.TreeSet;
++import java.util.*;
+ 
+ /**
+  * Creates an externs file containing all exported symbols and properties
+@@ -422,11 +418,12 @@
+   ExternExportsPass(AbstractCompiler compiler) {
+     this.exports = Lists.newArrayList();
+     this.compiler = compiler;
+-    this.definitionMap = Maps.newHashMap();
++      HashMap<String, Node> definitionMap1 = Maps.newHashMap();
++      this.definitionMap = definitionMap1;
+     this.externsRoot = IR.block();
+     this.externsRoot.setIsSyntheticBlock(true);
+     this.alreadyExportedPaths = Sets.newHashSet();
+-    this.mappedPaths = Maps.newHashMap();
++    this.mappedPaths = definitionMap1;
+ 
+     initExportMethods();
+   }

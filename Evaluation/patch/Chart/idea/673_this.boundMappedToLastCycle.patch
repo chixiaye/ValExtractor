@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..d347448 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -525,8 +525,9 @@
+                         anchor = isInverted()
+                             ? TextAnchor.TOP_LEFT : TextAnchor.TOP_RIGHT;
+                         result.remove(result.size() - 1);
++                        boolean boundMappedToLastCycle1 = this.boundMappedToLastCycle;
+                         result.add(new CycleBoundTick(
+-                            this.boundMappedToLastCycle, lastTick.getNumber(),
++                                boundMappedToLastCycle1, lastTick.getNumber(),
+                             lastTick.getText(), anchor, anchor,
+                             lastTick.getAngle())
+                         );

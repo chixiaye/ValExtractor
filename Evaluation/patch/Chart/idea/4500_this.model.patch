@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/xy/XYDatasetTableModel.java b/source/org/jfree/data/xy/XYDatasetTableModel.java
+index 52b1b98..bf328f3 100644
+--- a/source/org/jfree/data/xy/XYDatasetTableModel.java
++++ b/source/org/jfree/data/xy/XYDatasetTableModel.java
+@@ -129,14 +129,15 @@
+      * @return The column name.
+      */
+     public String getColumnName(int column) {
+-        if (this.model == null) {
++        TableXYDataset model1 = this.model;
++        if (model1 == null) {
+             return super.getColumnName(column);
+         }
+         if (column < 1) {
+             return "X Value";
+         }
+         else {
+-            return this.model.getSeriesKey(column - 1).toString();
++            return model1.getSeriesKey(column - 1).toString();
+         }
+     }
+ 

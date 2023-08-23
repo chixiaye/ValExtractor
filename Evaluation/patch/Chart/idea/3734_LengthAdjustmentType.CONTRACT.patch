@@ -1,0 +1,28 @@
+diff --git a/source/org/jfree/chart/util/RectangleInsets.java b/source/org/jfree/chart/util/RectangleInsets.java
+index 47f58a5..1d407b1 100644
+--- a/source/org/jfree/chart/util/RectangleInsets.java
++++ b/source/org/jfree/chart/util/RectangleInsets.java
+@@ -256,12 +256,13 @@
+         double y = base.getY();
+         double w = base.getWidth();
+         double h = base.getHeight();
++        LengthAdjustmentType contract = LengthAdjustmentType.CONTRACT;
+         if (horizontal == LengthAdjustmentType.EXPAND) {
+             double leftOutset = calculateLeftOutset(w);
+             x = x - leftOutset;
+             w = w + leftOutset + calculateRightOutset(w);
+         }
+-        else if (horizontal == LengthAdjustmentType.CONTRACT) {
++        else if (horizontal == contract) {
+             double leftMargin = calculateLeftInset(w);
+             x = x + leftMargin;
+             w = w - leftMargin - calculateRightInset(w);
+@@ -271,7 +272,7 @@
+             y = y - topMargin;
+             h = h + topMargin + calculateBottomOutset(h);
+         }
+-        else if (vertical == LengthAdjustmentType.CONTRACT) {
++        else if (vertical == contract) {
+             double topMargin = calculateTopInset(h);
+             y = y + topMargin;
+             h = h - topMargin - calculateBottomInset(h);

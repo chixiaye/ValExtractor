@@ -1,0 +1,15 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..11bf317 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -420,8 +420,9 @@
+ 
+         if (result == JOptionPane.OK_OPTION) {
+             this.labelFont = panel.getSelectedFont();
++            Font labelFont1 = this.labelFont;
+             this.labelFontField.setText(
+-                this.labelFont.getFontName() + " " + this.labelFont.getSize()
++                labelFont1.getFontName() + " " + this.labelFont.getSize()
+             );
+         }
+ 

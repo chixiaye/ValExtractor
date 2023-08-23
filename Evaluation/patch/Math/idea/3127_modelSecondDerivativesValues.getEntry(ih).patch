@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..cba97a0 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -2237,10 +2237,11 @@
+             for (int j = 0; j < n; j++) {
+                 hs.setEntry(j, ZERO);
+                 for (int i = 0; i <= j; i++) {
++                    double entry = modelSecondDerivativesValues.getEntry(ih);
+                     if (i < j) {
+-                        hs.setEntry(j, hs.getEntry(j) + modelSecondDerivativesValues.getEntry(ih) * s.getEntry(i));
++                        hs.setEntry(j, hs.getEntry(j) + entry * s.getEntry(i));
+                     }
+-                    hs.setEntry(i, hs.getEntry(i) + modelSecondDerivativesValues.getEntry(ih) * s.getEntry(j));
++                    hs.setEntry(i, hs.getEntry(i) + entry * s.getEntry(j));
+                     ih++;
+                 }
+             }

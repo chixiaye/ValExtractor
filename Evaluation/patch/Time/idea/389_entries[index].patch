@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..784c3e5 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -52,7 +52,9 @@
+ 
+         Entry e;
+         // This loop depends on there being at least one null slot.
+-        while ((e = entries[index]) != null) {
++        while (true) {
++            Entry entry = entries[index];
++            if (!((e = entry) != null)) break;
+             if (e.iType == type) {
+                 return e.iConverter;
+             }

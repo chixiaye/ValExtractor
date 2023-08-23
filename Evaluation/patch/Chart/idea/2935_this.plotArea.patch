@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+index d05eb2f..7e38958 100644
+--- a/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYAreaRenderer.java
+@@ -256,6 +256,7 @@
+             this.plotLines = true;
+         }
+         if (type == AREA) {
++            boolean plotArea1 = this.plotArea;
+             this.plotArea = true;
+         }
+         if (type == AREA_AND_SHAPES) {

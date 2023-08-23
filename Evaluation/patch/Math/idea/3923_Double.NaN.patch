@@ -1,0 +1,43 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+index c1a681a..6fb418e 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/SimpleRegression.java
+@@ -769,6 +769,7 @@
+      * estimate the regression parameters
+      */
+     public RegressionResults regress() throws ModelSpecificationException, NoDataException {
++        double naN = Double.NaN;
+         if (hasIntercept) {
+           if( n < 3 ){
+               throw new NoDataException(LocalizedFormats.NOT_ENOUGH_DATA_REGRESSION);
+@@ -785,12 +786,12 @@
+                       params, new double[][]{vcv}, true, n, 2,
+                       sumY, _syy, getSumSquaredErrors(),true,false);
+           }else{
+-              final double[] params = new double[]{ sumY / n, Double.NaN };
++              final double[] params = new double[]{ sumY / n, naN};
+               //final double mse = getMeanSquareError();
+               final double[] vcv = new double[]{
+                 ybar / (n - 1.0),
+-                Double.NaN,
+-                Double.NaN };
++                      naN,
++                      naN};
+               return new RegressionResults(
+                       params, new double[][]{vcv}, true, n, 1,
+                       sumY, sumYY, getSumSquaredErrors(),true,false);
+@@ -806,11 +807,11 @@
+                       params, new double[][]{vcv}, true, n, 1,
+                       sumY, sumYY, getSumSquaredErrors(),false,false);
+           }else{
+-          final double[] vcv = new double[]{Double.NaN };
+-          final double[] params = new double[]{ Double.NaN };
++          final double[] vcv = new double[]{naN};
++          final double[] params = new double[]{naN};
+           return new RegressionResults(
+                       params, new double[][]{vcv}, true, n, 1,
+-                      Double.NaN, Double.NaN, Double.NaN,false,false);
++                  naN, naN, naN,false,false);
+           }
+         }
+     }

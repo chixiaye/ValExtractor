@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..1acbebd 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -1619,7 +1619,8 @@
+ 
+         // work out if scaling is required...
+         boolean scale = false;
+-        double drawWidth = available.getWidth();
++        double width = available.getWidth();
++        double drawWidth = width;
+         double drawHeight = available.getHeight();
+         this.scaleX = 1.0;
+         this.scaleY = 1.0;
+@@ -1654,9 +1655,9 @@
+ 
+             // do we need to resize the buffer?
+             if ((this.chartBuffer == null)
+-                    || (this.chartBufferWidth != available.getWidth())
++                    || (this.chartBufferWidth != width)
+                     || (this.chartBufferHeight != available.getHeight())) {
+-                this.chartBufferWidth = (int) available.getWidth();
++                this.chartBufferWidth = (int) width;
+                 this.chartBufferHeight = (int) available.getHeight();
+                 GraphicsConfiguration gc = g2.getDeviceConfiguration();
+                 this.chartBuffer = gc.createCompatibleImage(

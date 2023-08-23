@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..ed12eb2 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -2245,9 +2245,10 @@
+   private Node createTemplateNode() {
+     // The Node type choice is arbitrary.
+     Node templateNode = IR.script();
+-    templateNode.setStaticSourceFile(
+-      this.associatedNode != null ?
+-      this.associatedNode.getStaticSourceFile() :
++      Node associatedNode1 = this.associatedNode;
++      templateNode.setStaticSourceFile(
++      associatedNode1 != null ?
++      associatedNode1.getStaticSourceFile() :
+       null);
+     return templateNode;
+   }

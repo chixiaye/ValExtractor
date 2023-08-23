@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+index bb29eee..02fccd9 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+@@ -652,8 +652,9 @@
+      * @since 3.3
+      */
+     public static DerivativeStructure pow(final double a, final DerivativeStructure x) {
+-        final DerivativeStructure result = new DerivativeStructure(x.compiler);
+-        x.compiler.pow(a, x.data, 0, result.data, 0);
++        DSCompiler compiler1 = x.compiler;
++        final DerivativeStructure result = new DerivativeStructure(compiler1);
++        compiler1.pow(a, x.data, 0, result.data, 0);
+         return result;
+     }
+ 

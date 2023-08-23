@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..897f40e 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2729,7 +2729,7 @@
+ 
+                     if (numberOfSubstrings == max) {
+                         end = len;
+-                        substrings.add(str.substring(beg));
++                        boolean var_35 = substrings.add(str.substring(beg));
+                     } else {
+                         // The following is OK, because String.substring( beg, end ) excludes
+                         // the character at the position 'end'.
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..897f40e 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2729,7 +2729,7 @@
+ 
+                     if (numberOfSubstrings == max) {
+                         end = len;
+-                        substrings.add(str.substring(beg));
++                        boolean var_35 = substrings.add(str.substring(beg));
+                     } else {
+                         // The following is OK, because String.substring( beg, end ) excludes
+                         // the character at the position 'end'.
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..a8d4540 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -2723,13 +2723,14 @@
+         while (end < len) {
+             end = str.indexOf(separator, beg);
+ 
++            boolean add = substrings.add(str.substring(beg));
+             if (end > -1) {
+                 if (end > beg) {
+                     numberOfSubstrings += 1;
+ 
+                     if (numberOfSubstrings == max) {
+                         end = len;
+-                        substrings.add(str.substring(beg));
++                        add;
+                     } else {
+                         // The following is OK, because String.substring( beg, end ) excludes
+                         // the character at the position 'end'.
+@@ -2746,7 +2747,7 @@
+                         numberOfSubstrings += 1;
+                         if (numberOfSubstrings == max) {
+                             end = len;
+-                            substrings.add(str.substring(beg));
++                            add;
+                         } else {
+                             substrings.add(EMPTY);
+                         }
+@@ -2755,7 +2756,7 @@
+                 }
+             } else {
+                 // String.substring( beg ) goes from 'beg' to the end of the String.
+-                substrings.add(str.substring(beg));
++                add;
+                 end = len;
+             }
+         }

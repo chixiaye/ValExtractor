@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..09f7013 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1364,12 +1364,13 @@
+             shift = ((SegmentedTimeline) this.timeline).getStartTime();
+         }
+         double zero = valueToJava2D(shift + 0.0, dataArea, edge);
++        DateTickUnit tickUnit1 = getTickUnit();
+         double tickLabelWidth = estimateMaximumTickLabelWidth(g2,
+-                getTickUnit());
++                tickUnit1);
+ 
+         // start with the current tick unit...
+         TickUnitSource tickUnits = getStandardTickUnits();
+-        TickUnit unit1 = tickUnits.getCeilingTickUnit(getTickUnit());
++        TickUnit unit1 = tickUnits.getCeilingTickUnit(tickUnit1);
+         double x1 = valueToJava2D(shift + unit1.getSize(), dataArea, edge);
+         double unit1Width = Math.abs(x1 - zero);
+ 

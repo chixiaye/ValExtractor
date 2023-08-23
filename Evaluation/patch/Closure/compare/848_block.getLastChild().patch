@@ -1,0 +1,79 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/ClosureRewriteClass.java b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+index 4c1fcea..df8ace3 100644
+--- a/src/com/google/javascript/jscomp/ClosureRewriteClass.java
++++ b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+@@ -344,7 +344,8 @@
+                   .srcref(def.name),
+               def.value)).setJSDocInfo(def.info))));
+       // Handle inner class definitions.
+-      maybeRewriteClassDefinition(block.getLastChild());
++      Node var_848 = block.getLastChild();
++	maybeRewriteClassDefinition(var_848);
+     }
+ 
+     for (MemberDefinition def : cls.props) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/ClosureRewriteClass.java b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+index 4c1fcea..91a238b 100644
+--- a/src/com/google/javascript/jscomp/ClosureRewriteClass.java
++++ b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+@@ -334,6 +334,7 @@
+                   cls.superClass.cloneTree()).srcref(cls.superClass))));
+     }
+ 
++    Node var_848 = block.getLastChild();
+     for (MemberDefinition def : cls.staticProps) {
+       // example: ctr.prop = value
+       block.addChildToBack(
+@@ -344,7 +345,7 @@
+                   .srcref(def.name),
+               def.value)).setJSDocInfo(def.info))));
+       // Handle inner class definitions.
+-      maybeRewriteClassDefinition(block.getLastChild());
++      maybeRewriteClassDefinition(var_848);
+     }
+ 
+     for (MemberDefinition def : cls.props) {
+@@ -359,7 +360,7 @@
+                   .srcref(def.name),
+               def.value)).setJSDocInfo(def.info))));
+       // Handle inner class definitions.
+-      maybeRewriteClassDefinition(block.getLastChild());
++      maybeRewriteClassDefinition(var_848);
+     }
+ 
+     if (cls.classModifier != null) {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/ClosureRewriteClass.java b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+index 4c1fcea..9930d8a 100644
+--- a/src/com/google/javascript/jscomp/ClosureRewriteClass.java
++++ b/src/com/google/javascript/jscomp/ClosureRewriteClass.java
+@@ -334,6 +334,7 @@
+                   cls.superClass.cloneTree()).srcref(cls.superClass))));
+     }
+ 
++      Node lastChild = block.getLastChild();
+     for (MemberDefinition def : cls.staticProps) {
+       // example: ctr.prop = value
+       block.addChildToBack(
+@@ -344,7 +345,7 @@
+                   .srcref(def.name),
+               def.value)).setJSDocInfo(def.info))));
+       // Handle inner class definitions.
+-      maybeRewriteClassDefinition(block.getLastChild());
++      maybeRewriteClassDefinition(lastChild);
+     }
+ 
+     for (MemberDefinition def : cls.props) {
+@@ -359,7 +360,7 @@
+                   .srcref(def.name),
+               def.value)).setJSDocInfo(def.info))));
+       // Handle inner class definitions.
+-      maybeRewriteClassDefinition(block.getLastChild());
++      maybeRewriteClassDefinition(lastChild);
+     }
+ 
+     if (cls.classModifier != null) {

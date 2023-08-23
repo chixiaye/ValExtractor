@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/axis/NumberAxis.java b/source/org/jfree/chart/axis/NumberAxis.java
+index f5426ab..9b48df9 100644
+--- a/source/org/jfree/chart/axis/NumberAxis.java
++++ b/source/org/jfree/chart/axis/NumberAxis.java
+@@ -438,7 +438,8 @@
+ 
+             double upper = r.getUpperBound();
+             double lower = r.getLowerBound();
+-            if (this.rangeType == RangeType.POSITIVE) {
++            RangeType positive = RangeType.POSITIVE;
++            if (this.rangeType == positive) {
+                 lower = Math.max(0.0, lower);
+                 upper = Math.max(0.0, upper);
+             }
+@@ -470,7 +471,7 @@
+                         lower = lower - adjust;
+                         upper = upper + adjust;
+                     }
+-                    if (this.rangeType == RangeType.POSITIVE) {
++                    if (this.rangeType == positive) {
+                         if (lower < 0.0) {
+                             upper = upper - lower;
+                             lower = 0.0;

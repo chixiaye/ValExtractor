@@ -1,0 +1,93 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..5047e80 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -44,6 +44,7 @@
+ import java.util.Iterator;
+ import java.util.List;
+ import java.util.Map;
++import java.util.Map.Entry;
+ import java.util.Set;
+ 
+ /**
+@@ -132,8 +133,9 @@
+     functionNames.process(null, root);
+ 
+     sb.append("Pure functions:\n");
++    Set<Entry<Node, FunctionInformation>> var_1339 = functionSideEffectMap.entrySet();
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++             var_1339) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 
+@@ -146,7 +148,7 @@
+     sb.append("\n");
+ 
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++             var_1339) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..5047e80 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -44,6 +44,7 @@
+ import java.util.Iterator;
+ import java.util.List;
+ import java.util.Map;
++import java.util.Map.Entry;
+ import java.util.Set;
+ 
+ /**
+@@ -132,8 +133,9 @@
+     functionNames.process(null, root);
+ 
+     sb.append("Pure functions:\n");
++    Set<Entry<Node, FunctionInformation>> var_1339 = functionSideEffectMap.entrySet();
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++             var_1339) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 
+@@ -146,7 +148,7 @@
+     sb.append("\n");
+ 
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++             var_1339) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..f11b97a 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -132,8 +132,9 @@
+     functionNames.process(null, root);
+ 
+     sb.append("Pure functions:\n");
++      Set<Map.Entry<Node, FunctionInformation>> entries = functionSideEffectMap.entrySet();
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++              entries) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 
+@@ -146,7 +147,7 @@
+     sb.append("\n");
+ 
+     for (Map.Entry<Node, FunctionInformation> entry :
+-             functionSideEffectMap.entrySet()) {
++            entries) {
+       Node function = entry.getKey();
+       FunctionInformation functionInfo = entry.getValue();
+ 

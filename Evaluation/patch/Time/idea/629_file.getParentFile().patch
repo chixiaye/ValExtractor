@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..5694877 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -442,8 +442,9 @@
+         if (outputDir != null) {
+             System.out.println("Writing ZoneInfoMap");
+             File file = new File(outputDir, "ZoneInfoMap");
+-            if (!file.getParentFile().exists()) {
+-                file.getParentFile().mkdirs();
++            File parentFile = file.getParentFile();
++            if (!parentFile.exists()) {
++                parentFile.mkdirs();
+             }
+ 
+             OutputStream out = new FileOutputStream(file);

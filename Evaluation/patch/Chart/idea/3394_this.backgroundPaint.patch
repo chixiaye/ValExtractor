@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/title/CompositeTitle.java b/source/org/jfree/chart/title/CompositeTitle.java
+index adf0c64..4989ff9 100644
+--- a/source/org/jfree/chart/title/CompositeTitle.java
++++ b/source/org/jfree/chart/title/CompositeTitle.java
+@@ -188,8 +188,9 @@
+         area = trimMargin(area);
+         drawBorder(g2, area);
+         area = trimBorder(area);
+-        if (this.backgroundPaint != null) {
+-            g2.setPaint(this.backgroundPaint);
++        Paint backgroundPaint1 = this.backgroundPaint;
++        if (backgroundPaint1 != null) {
++            g2.setPaint(backgroundPaint1);
+             g2.fill(area);
+         }
+         area = trimPadding(area);

@@ -1,0 +1,21 @@
+diff --git a/src/com/google/debugging/sourcemap/Util.java b/src/com/google/debugging/sourcemap/Util.java
+index 260c1e4..d935b82 100644
+--- a/src/com/google/debugging/sourcemap/Util.java
++++ b/src/com/google/debugging/sourcemap/Util.java
+@@ -67,12 +67,13 @@
+           // Break <!-- into <\!--
+           final String START_COMMENT = "!--";
+ 
+-          if (s.regionMatches(true, i + 1, END_SCRIPT, 0,
++            StringBuilder append = sb.append("<\\");
++            if (s.regionMatches(true, i + 1, END_SCRIPT, 0,
+                               END_SCRIPT.length())) {
+-            sb.append("<\\");
++            append;
+           } else if (s.regionMatches(false, i + 1, START_COMMENT, 0,
+                                      START_COMMENT.length())) {
+-            sb.append("<\\");
++            append;
+           } else {
+             sb.append(c);
+           }

@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/NameGenerator.java b/src/com/google/javascript/jscomp/NameGenerator.java
+index 5960007..af6190a 100644
+--- a/src/com/google/javascript/jscomp/NameGenerator.java
++++ b/src/com/google/javascript/jscomp/NameGenerator.java
+@@ -130,9 +130,10 @@
+ 
+       while (i > 0) {
+         i--;
+-        int pos = i % nonFirstChars.length;
++          int length = nonFirstChars.length;
++          int pos = i % length;
+         name += nonFirstChars[pos];
+-        i /= nonFirstChars.length;
++        i /= length;
+       }
+ 
+       nameCount++;

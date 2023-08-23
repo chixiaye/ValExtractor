@@ -1,0 +1,40 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..f31fa5f 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -501,15 +501,16 @@
+          * @param x the vector to be updated with the refined value of xL
+          */
+          void refineSolution(final RealVector x) {
+-            final int n = this.xL.getDimension();
++             RealVector xL1 = this.xL;
++             final int n = xL1.getDimension();
+             if (lqnorm < cgnorm) {
+                 if (!goodb) {
+-                    x.setSubVector(0, this.xL);
++                    x.setSubVector(0, xL1);
+                 } else {
+                     final double step = bstep / beta1;
+                     for (int i = 0; i < n; i++) {
+                         final double bi = mb.getEntry(i);
+-                        final double xi = this.xL.getEntry(i);
++                        final double xi = xL1.getEntry(i);
+                         x.setEntry(i, xi + step * bi);
+                     }
+                 }
+@@ -521,13 +522,13 @@
+                 // ynorm = FastMath.sqrt(ynorm2 + zbar * zbar);
+                 if (!goodb) {
+                     for (int i = 0; i < n; i++) {
+-                        final double xi = this.xL.getEntry(i);
++                        final double xi = xL1.getEntry(i);
+                         final double wi = wbar.getEntry(i);
+                         x.setEntry(i, xi + zbar * wi);
+                     }
+                 } else {
+                     for (int i = 0; i < n; i++) {
+-                        final double xi = this.xL.getEntry(i);
++                        final double xi = xL1.getEntry(i);
+                         final double wi = wbar.getEntry(i);
+                         final double bi = mb.getEntry(i);
+                         x.setEntry(i, xi + zbar * wi + step * bi);

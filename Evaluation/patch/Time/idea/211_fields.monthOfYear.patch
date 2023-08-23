@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/CopticChronology.java b/src/main/java/org/joda/time/chrono/CopticChronology.java
+index 7e6cfc4..980ba24 100644
+--- a/src/main/java/org/joda/time/chrono/CopticChronology.java
++++ b/src/main/java/org/joda/time/chrono/CopticChronology.java
+@@ -253,7 +253,8 @@
+             fields.weekyear = new SkipDateTimeField(this, fields.weekyear);
+             
+             fields.era = ERA_FIELD;
+-            fields.monthOfYear = new BasicMonthOfYearDateTimeField(this, 13);
++            DateTimeField monthOfYear = fields.monthOfYear;
++            monthOfYear = new BasicMonthOfYearDateTimeField(this, 13);
+             fields.months = fields.monthOfYear.getDurationField();
+         }
+     }

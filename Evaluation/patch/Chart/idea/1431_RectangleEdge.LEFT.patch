@@ -1,0 +1,51 @@
+diff --git a/source/org/jfree/chart/plot/ThermometerPlot.java b/source/org/jfree/chart/plot/ThermometerPlot.java
+index d4bd7b7..2cb8263 100644
+--- a/source/org/jfree/chart/plot/ThermometerPlot.java
++++ b/source/org/jfree/chart/plot/ThermometerPlot.java
+@@ -1159,8 +1159,9 @@
+ 
+         if ((this.dataset != null) && (this.dataset.getValue() != null)) {
+             double current = this.dataset.getValue().doubleValue();
++            RectangleEdge left = RectangleEdge.LEFT;
+             double ds = this.rangeAxis.valueToJava2D(current, dataArea,
+-                    RectangleEdge.LEFT);
++                    left);
+ 
+             int i = getColumnDiameter() - getGap() * 2; // already calculated
+             int j = getColumnRadius() - getGap(); // already calculated
+@@ -1193,7 +1194,7 @@
+                 if (range.contains(value)) {
+                     double x = midX + getColumnRadius() + 2;
+                     double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
++                            left);
+                     Line2D line = new Line2D.Double(x, y, x + 10, y);
+                     g2.setPaint(this.subrangePaint[NORMAL]);
+                     g2.draw(line);
+@@ -1204,7 +1205,7 @@
+                 if (range.contains(value)) {
+                     double x = midX + getColumnRadius() + 2;
+                     double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
++                            left);
+                     Line2D line = new Line2D.Double(x, y, x + 10, y);
+                     g2.setPaint(this.subrangePaint[WARNING]);
+                     g2.draw(line);
+@@ -1215,7 +1216,7 @@
+                 if (range.contains(value)) {
+                     double x = midX + getColumnRadius() + 2;
+                     double y = this.rangeAxis.valueToJava2D(value, dataArea,
+-                            RectangleEdge.LEFT);
++                            left);
+                     Line2D line = new Line2D.Double(x, y, x + 10, y);
+                     g2.setPaint(this.subrangePaint[CRITICAL]);
+                     g2.draw(line);
+@@ -1244,7 +1245,7 @@
+                         drawArea = new Rectangle2D.Double(cursor, stemTop,
+                                 drawWidth, (stemBottom - stemTop + 1));
+                         this.rangeAxis.draw(g2, cursor, area, drawArea,
+-                                RectangleEdge.LEFT, null);
++                                left, null);
+                         break;
+                 }
+ 

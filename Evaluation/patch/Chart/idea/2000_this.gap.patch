@@ -1,0 +1,35 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..223539e 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -379,11 +379,12 @@
+         double x = adjustedPlotArea.getX();
+         double y = adjustedPlotArea.getY();
+         double usableSize = 0.0;
++        double gap1 = this.gap;
+         if (orientation == PlotOrientation.HORIZONTAL) {
+-            usableSize = adjustedPlotArea.getWidth() - this.gap * (n - 1);
++            usableSize = adjustedPlotArea.getWidth() - gap1 * (n - 1);
+         }
+         else if (orientation == PlotOrientation.VERTICAL) {
+-            usableSize = adjustedPlotArea.getHeight() - this.gap * (n - 1);
++            usableSize = adjustedPlotArea.getHeight() - gap1 * (n - 1);
+         }
+ 
+         for (int i = 0; i < n; i++) {
+@@ -394,13 +395,13 @@
+                 double w = usableSize * plot.getWeight() / totalWeight;
+                 this.subplotAreas[i] = new Rectangle2D.Double(x, y, w,
+                         adjustedPlotArea.getHeight());
+-                x = x + w + this.gap;
++                x = x + w + gap1;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 double h = usableSize * plot.getWeight() / totalWeight;
+                 this.subplotAreas[i] = new Rectangle2D.Double(x, y,
+                         adjustedPlotArea.getWidth(), h);
+-                y = y + h + this.gap;
++                y = y + h + gap1;
+             }
+ 
+             AxisSpace subSpace = plot.calculateRangeAxisSpace(g2,

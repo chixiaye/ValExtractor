@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..f57ce18 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -852,9 +852,10 @@
+         }
+       }
+       if (min == 1 && max == 1) { return body; }
+-      boolean greedy = this.greedy || min == max;
++      boolean var_2425 = this.greedy;
++	boolean greedy = var_2425 || min == max;
+       return body.equals(this.body) && min == this.min && max == this.max
+-          && greedy == this.greedy
++          && greedy == var_2425
+           ? this
+           : new Repetition(body, min, max, greedy).simplify(flags);
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..f57ce18 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -852,9 +852,10 @@
+         }
+       }
+       if (min == 1 && max == 1) { return body; }
+-      boolean greedy = this.greedy || min == max;
++      boolean var_2425 = this.greedy;
++	boolean greedy = var_2425 || min == max;
+       return body.equals(this.body) && min == this.min && max == this.max
+-          && greedy == this.greedy
++          && greedy == var_2425
+           ? this
+           : new Repetition(body, min, max, greedy).simplify(flags);
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..c0a8373 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -839,9 +839,10 @@
+       if (body instanceof Empty || NEVER_MATCHES.equals(body)) { return body; }
+       int min = this.min;
+       int max = this.max;
++        boolean greedy1 = this.greedy;
+       if (body instanceof Repetition) {
+         Repetition rbody = (Repetition) body;
+-        if (rbody.greedy == greedy) {
++        if (rbody.greedy == greedy1) {
+           long lmin = ((long) min) * rbody.min;
+           long lmax = ((long) max) * rbody.max;
+           if (lmin < Integer.MAX_VALUE) {
+@@ -852,9 +853,9 @@
+         }
+       }
+       if (min == 1 && max == 1) { return body; }
+-      boolean greedy = this.greedy || min == max;
++      boolean greedy = greedy1 || min == max;
+       return body.equals(this.body) && min == this.min && max == this.max
+-          && greedy == this.greedy
++          && greedy == greedy1
+           ? this
+           : new Repetition(body, min, max, greedy).simplify(flags);
+     }

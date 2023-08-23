@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/FunctionArgumentInjector.java b/src/com/google/javascript/jscomp/FunctionArgumentInjector.java
+index a6efa7d..bdba494 100644
+--- a/src/com/google/javascript/jscomp/FunctionArgumentInjector.java
++++ b/src/com/google/javascript/jscomp/FunctionArgumentInjector.java
+@@ -197,9 +197,10 @@
+       boolean inInnerFunction) {
+     Preconditions.checkArgument(unsafe != null);
+     if (n.isName()) {
+-      if (names.contains(n.getString())) {
++        String string = n.getString();
++        if (names.contains(string)) {
+         if (inInnerFunction || canNameValueChange(n, parent)) {
+-          unsafe.add(n.getString());
++          unsafe.add(string);
+         }
+       }
+     } else if (n.isFunction()) {

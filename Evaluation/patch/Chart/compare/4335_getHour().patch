@@ -1,0 +1,57 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..7b1f9c3 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -287,7 +287,8 @@
+ 
+         Minute result;
+         if (this.minute != LAST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute + 1, getHour());
++            Hour var_4335 = getHour();
++			result = new Minute(this.minute + 1, var_4335);
+         }
+         else { // we are at the last minute in the hour...
+             Hour nextHour = (Hour) getHour().next();
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..d8c951b 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -286,11 +286,12 @@
+     public RegularTimePeriod next() {
+ 
+         Minute result;
++        Hour var_4335 = getHour();
+         if (this.minute != LAST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute + 1, getHour());
++            result = new Minute(this.minute + 1, var_4335);
+         }
+         else { // we are at the last minute in the hour...
+-            Hour nextHour = (Hour) getHour().next();
++            Hour nextHour = (Hour) var_4335.next();
+             if (nextHour != null) {
+                 result = new Minute(FIRST_MINUTE_IN_HOUR, nextHour);
+             }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/time/Minute.java b/source/org/jfree/data/time/Minute.java
+index 7abf01d..ad6ad87 100644
+--- a/source/org/jfree/data/time/Minute.java
++++ b/source/org/jfree/data/time/Minute.java
+@@ -286,11 +286,12 @@
+     public RegularTimePeriod next() {
+ 
+         Minute result;
++        Hour hour1 = getHour();
+         if (this.minute != LAST_MINUTE_IN_HOUR) {
+-            result = new Minute(this.minute + 1, getHour());
++            result = new Minute(this.minute + 1, hour1);
+         }
+         else { // we are at the last minute in the hour...
+-            Hour nextHour = (Hour) getHour().next();
++            Hour nextHour = (Hour) hour1.next();
+             if (nextHour != null) {
+                 result = new Minute(FIRST_MINUTE_IN_HOUR, nextHour);
+             }

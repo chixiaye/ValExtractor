@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/TypeCheck.java b/src/com/google/javascript/jscomp/TypeCheck.java
+index 96f256d..9b6e543 100644
+--- a/src/com/google/javascript/jscomp/TypeCheck.java
++++ b/src/com/google/javascript/jscomp/TypeCheck.java
+@@ -1324,8 +1324,9 @@
+               abstractMethodMessage));
+     }
+ 
+-    if (assign.getLastChild().isFunction()
+-        && !NodeUtil.isEmptyBlock(assign.getLastChild().getLastChild())) {
++      Node lastChild = assign.getLastChild();
++      if (lastChild.isFunction()
++        && !NodeUtil.isEmptyBlock(lastChild.getLastChild())) {
+       compiler.report(
+           t.makeError(object, INTERFACE_FUNCTION_NOT_EMPTY,
+               abstractMethodName));

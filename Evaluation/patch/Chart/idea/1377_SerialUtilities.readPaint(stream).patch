@@ -1,0 +1,21 @@
+diff --git a/source/org/jfree/chart/plot/FastScatterPlot.java b/source/org/jfree/chart/plot/FastScatterPlot.java
+index c5a3b1d..49d20aa 100644
+--- a/source/org/jfree/chart/plot/FastScatterPlot.java
++++ b/source/org/jfree/chart/plot/FastScatterPlot.java
+@@ -1113,12 +1113,13 @@
+             throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+ 
+-        this.paint = SerialUtilities.readPaint(stream);
++        Paint paint1 = SerialUtilities.readPaint(stream);
++        this.paint = paint1;
+         this.domainGridlineStroke = SerialUtilities.readStroke(stream);
+-        this.domainGridlinePaint = SerialUtilities.readPaint(stream);
++        this.domainGridlinePaint = paint1;
+ 
+         this.rangeGridlineStroke = SerialUtilities.readStroke(stream);
+-        this.rangeGridlinePaint = SerialUtilities.readPaint(stream);
++        this.rangeGridlinePaint = paint1;
+ 
+         if (this.domainAxis != null) {
+             this.domainAxis.addChangeListener(this);

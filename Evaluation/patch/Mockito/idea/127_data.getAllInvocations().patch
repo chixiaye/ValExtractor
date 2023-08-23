@@ -1,0 +1,20 @@
+diff --git a/src/org/mockito/internal/verification/AtLeast.java b/src/org/mockito/internal/verification/AtLeast.java
+index db2cbda..03d676b 100644
+--- a/src/org/mockito/internal/verification/AtLeast.java
++++ b/src/org/mockito/internal/verification/AtLeast.java
+@@ -33,11 +33,12 @@
+     public void verify(VerificationData data) {
+         MissingInvocationChecker missingInvocation = new MissingInvocationChecker();
+         AtLeastXNumberOfInvocationsChecker numberOfInvocations = new AtLeastXNumberOfInvocationsChecker();
+-        
++
++        List<Invocation> allInvocations = data.getAllInvocations();
+         if (wantedCount == 1) {
+-            missingInvocation.check(data.getAllInvocations(), data.getWanted());
++            missingInvocation.check(allInvocations, data.getWanted());
+         }
+-        numberOfInvocations.check(data.getAllInvocations(), data.getWanted(), wantedCount);
++        numberOfInvocations.check(allInvocations, data.getWanted(), wantedCount);
+     }
+     
+     public void verifyInOrder(VerificationDataInOrder data) {

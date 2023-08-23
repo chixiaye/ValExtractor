@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+index 15d08a7..324fdcd 100644
+--- a/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
++++ b/source/org/jfree/chart/plot/CombinedDomainXYPlot.java
+@@ -390,21 +390,22 @@
+             XYPlot plot = (XYPlot) this.subplots.get(i);
+ 
+             // calculate sub-plot area
++            Rectangle2D[] subplotAreas1 = this.subplotAreas;
+             if (orientation == PlotOrientation.HORIZONTAL) {
+                 double w = usableSize * plot.getWeight() / totalWeight;
+-                this.subplotAreas[i] = new Rectangle2D.Double(x, y, w,
++                subplotAreas1[i] = new Rectangle2D.Double(x, y, w,
+                         adjustedPlotArea.getHeight());
+                 x = x + w + this.gap;
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {
+                 double h = usableSize * plot.getWeight() / totalWeight;
+-                this.subplotAreas[i] = new Rectangle2D.Double(x, y,
++                subplotAreas1[i] = new Rectangle2D.Double(x, y,
+                         adjustedPlotArea.getWidth(), h);
+                 y = y + h + this.gap;
+             }
+ 
+             AxisSpace subSpace = plot.calculateRangeAxisSpace(g2,
+-                    this.subplotAreas[i], null);
++                    subplotAreas1[i], null);
+             space.ensureAtLeast(subSpace);
+ 
+         }

@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/Year.java b/source/org/jfree/data/time/Year.java
+index b5b242d..6648c5f 100644
+--- a/source/org/jfree/data/time/Year.java
++++ b/source/org/jfree/data/time/Year.java
+@@ -234,8 +234,9 @@
+      *         year is 9999).
+      */
+     public RegularTimePeriod next() {
+-        if (this.year < Year.MAXIMUM_YEAR) {
+-            return new Year(this.year + 1);
++        short year1 = this.year;
++        if (year1 < Year.MAXIMUM_YEAR) {
++            return new Year(year1 + 1);
+         }
+         else {
+             return null;

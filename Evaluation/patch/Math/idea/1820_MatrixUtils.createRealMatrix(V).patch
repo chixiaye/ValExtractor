@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+index efbe8a2..93ed5ea 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/SingularValueDecomposition.java
+@@ -478,11 +478,12 @@
+         tol = FastMath.max(m * singularValues[0] * EPS,
+                            FastMath.sqrt(Precision.SAFE_MIN));
+ 
++        RealMatrix realMatrix = MatrixUtils.createRealMatrix(V);
+         if (!transposed) {
+             cachedU = MatrixUtils.createRealMatrix(U);
+-            cachedV = MatrixUtils.createRealMatrix(V);
++            cachedV = realMatrix;
+         } else {
+-            cachedU = MatrixUtils.createRealMatrix(V);
++            cachedU = realMatrix;
+             cachedV = MatrixUtils.createRealMatrix(U);
+         }
+     }

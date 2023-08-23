@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+index a8877eb..303c47d 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+@@ -1603,7 +1603,8 @@
+             // P_n(x) = (x^2-1) P_(n-1)'(x) - (2n-3) x P_(n-1)(x)
+             // as per polynomial parity, we can store coefficients of both P_(n-1) and P_n in the same array
+             final double[] p = new double[order];
+-            p[0] = 1;
++            double v1 = p[0];
++            v1 = 1;
+             final double x2  = x * x;
+             final double f   = 1.0 / (x2 - 1);
+             double coeff = FastMath.sqrt(f);

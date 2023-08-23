@@ -1,0 +1,36 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..04b901f 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -280,23 +280,24 @@
+         double startY = plotArea.getY();
+         double chipWidth = 1d;
+         double chipHeight = 1d;
+-        if (plotArea.getWidth() != plotArea.getHeight()) {
++        double width = plotArea.getWidth();
++        if (width != plotArea.getHeight()) {
+             double major = 0d;
+             double minor = 0d;
+-            if (plotArea.getWidth() > plotArea.getHeight()) {
+-                major = plotArea.getWidth();
++            if (width > plotArea.getHeight()) {
++                major = width;
+                 minor = plotArea.getHeight();
+             }
+             else {
+                 major = plotArea.getHeight();
+-                minor = plotArea.getWidth();
++                minor = width;
+             }
+             //set upperLeft point
+-            if (plotArea.getWidth() == minor) { // x is minor
++            if (width == minor) { // x is minor
+                 startY += (major - minor) / 2;
+-                chipWidth = (plotArea.getWidth() - (space * xchips - 1))
++                chipWidth = (width - (space * xchips - 1))
+                     / xchips;
+-                chipHeight = (plotArea.getWidth() - (space * ychips - 1))
++                chipHeight = (width - (space * ychips - 1))
+                     / ychips;
+             }
+             else { // y is minor

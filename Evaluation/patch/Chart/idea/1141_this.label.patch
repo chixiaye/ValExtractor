@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultAxisEditor.java b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+index cb647cf..4eb6d29 100644
+--- a/source/org/jfree/chart/editor/DefaultAxisEditor.java
++++ b/source/org/jfree/chart/editor/DefaultAxisEditor.java
+@@ -194,6 +194,7 @@
+         JPanel interior = new JPanel(new LCBLayout(5));
+         interior.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+         interior.add(new JLabel(localizationResources.getString("Label")));
++        JTextField label1 = this.label;
+         this.label = new JTextField(axis.getLabel());
+         interior.add(this.label);
+         interior.add(new JPanel());

@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/joda/time/convert/ConverterSet.java b/src/main/java/org/joda/time/convert/ConverterSet.java
+index d571c64..5bc2d23 100644
+--- a/src/main/java/org/joda/time/convert/ConverterSet.java
++++ b/src/main/java/org/joda/time/convert/ConverterSet.java
+@@ -266,9 +266,10 @@
+         if (type == null || length == 0) {
+             return null;
+         }
++        Converter converter1 = converters[0];
+         if (length == 1) {
+             // Found the one best match.
+-            return converters[0];
++            return converter1;
+         }
+ 
+         // At this point, there exist multiple potential converters.
+@@ -292,7 +293,7 @@
+ 
+         if (length == 1) {
+             // Found the one best match.
+-            return converters[0];
++            return converter1;
+         }
+ 
+         // Class c implements a, b {}

@@ -1,0 +1,35 @@
+diff --git a/source/org/jfree/chart/axis/DateAxis.java b/source/org/jfree/chart/axis/DateAxis.java
+index 059bc3a..d0b6d94 100644
+--- a/source/org/jfree/chart/axis/DateAxis.java
++++ b/source/org/jfree/chart/axis/DateAxis.java
+@@ -1190,20 +1190,21 @@
+                 DateTickUnitType.MILLISECOND, 50, f1));
+ 
+         // seconds
+-        units.add(new DateTickUnit(DateTickUnitType.SECOND, 1,
++        DateTickUnitType second = DateTickUnitType.SECOND;
++        units.add(new DateTickUnit(second, 1,
+                 DateTickUnitType.MILLISECOND, 50, f2));
+-        units.add(new DateTickUnit(DateTickUnitType.SECOND, 5,
+-                DateTickUnitType.SECOND, 1, f2));
+-        units.add(new DateTickUnit(DateTickUnitType.SECOND, 10,
+-                DateTickUnitType.SECOND, 1, f2));
+-        units.add(new DateTickUnit(DateTickUnitType.SECOND, 30,
+-                DateTickUnitType.SECOND, 5, f2));
++        units.add(new DateTickUnit(second, 5,
++                second, 1, f2));
++        units.add(new DateTickUnit(second, 10,
++                second, 1, f2));
++        units.add(new DateTickUnit(second, 30,
++                second, 5, f2));
+ 
+         // minutes
+         units.add(new DateTickUnit(DateTickUnitType.MINUTE, 1,
+-                DateTickUnitType.SECOND, 5, f3));
++                second, 5, f3));
+         units.add(new DateTickUnit(DateTickUnitType.MINUTE, 2,
+-                DateTickUnitType.SECOND, 10, f3));
++                second, 10, f3));
+         units.add(new DateTickUnit(DateTickUnitType.MINUTE, 5,
+                 DateTickUnitType.MINUTE, 1, f3));
+         units.add(new DateTickUnit(DateTickUnitType.MINUTE, 10,

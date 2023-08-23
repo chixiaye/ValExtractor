@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+index ccc914a..246ae8d 100644
+--- a/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/StackedXYBarRenderer.java
+@@ -362,14 +362,15 @@
+             }
+         }
+ 
++        XYBarPainter barPainter = getBarPainter();
+         if (pass == 0) {
+             if (getShadowsVisible()) {
+-                getBarPainter().paintBarShadow(g2, this, series, item, 
++                barPainter.paintBarShadow(g2, this, series, item, 
+                         selected, bar, barBase, false);
+             }
+         }
+         else if (pass == 1) {
+-            getBarPainter().paintBar(g2, this, series, item, selected, bar,
++            barPainter.paintBar(g2, this, series, item, selected, bar,
+                     barBase);
+ 
+             // add an entity for the item...

@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/AmbiguateProperties.java b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+index 68c3996..b8c6dad 100644
+--- a/src/com/google/javascript/jscomp/AmbiguateProperties.java
++++ b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+@@ -233,8 +233,9 @@
+       Property p = propertyMap.get(oldName);
+       if (p != null && p.newName != null) {
+         Preconditions.checkState(oldName.equals(p.oldName));
+-        if (!p.newName.equals(oldName)) {
+-          n.setString(p.newName);
++        String var_694 = p.newName;
++		if (!var_694.equals(oldName)) {
++          n.setString(var_694);
+           compiler.reportCodeChange();
+         }
+       }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/AmbiguateProperties.java b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+index 68c3996..b27b4eb 100644
+--- a/src/com/google/javascript/jscomp/AmbiguateProperties.java
++++ b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+@@ -231,10 +231,11 @@
+     for (Node n : stringNodesToRename) {
+       String oldName = n.getString();
+       Property p = propertyMap.get(oldName);
+-      if (p != null && p.newName != null) {
++      String var_694 = p.newName;
++	if (p != null && var_694 != null) {
+         Preconditions.checkState(oldName.equals(p.oldName));
+-        if (!p.newName.equals(oldName)) {
+-          n.setString(p.newName);
++        if (!var_694.equals(oldName)) {
++          n.setString(var_694);
+           compiler.reportCodeChange();
+         }
+       }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/AmbiguateProperties.java b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+index 68c3996..d59bd70 100644
+--- a/src/com/google/javascript/jscomp/AmbiguateProperties.java
++++ b/src/com/google/javascript/jscomp/AmbiguateProperties.java
+@@ -231,14 +231,17 @@
+     for (Node n : stringNodesToRename) {
+       String oldName = n.getString();
+       Property p = propertyMap.get(oldName);
+-      if (p != null && p.newName != null) {
++      if (p != null) {
++          String newName = p.newName;
++          if (newName != null) {
+         Preconditions.checkState(oldName.equals(p.oldName));
+-        if (!p.newName.equals(oldName)) {
+-          n.setString(p.newName);
++              if (!newName.equals(oldName)) {
++                  n.setString(newName);
+           compiler.reportCodeChange();
+         }
+       }
+     }
++    }
+ 
+     logger.fine("Collapsed " + numRenamedPropertyNames + " properties into "
+                 + numNewPropertyNames + " and skipped renaming "

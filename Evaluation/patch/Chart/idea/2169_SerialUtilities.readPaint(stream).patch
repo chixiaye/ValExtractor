@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/plot/MeterInterval.java b/source/org/jfree/chart/plot/MeterInterval.java
+index cdfffae..084d399 100644
+--- a/source/org/jfree/chart/plot/MeterInterval.java
++++ b/source/org/jfree/chart/plot/MeterInterval.java
+@@ -219,9 +219,10 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
++        Paint outlinePaint1 = SerialUtilities.readPaint(stream);
++        this.outlinePaint = outlinePaint1;
+         this.outlineStroke = SerialUtilities.readStroke(stream);
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
++        this.backgroundPaint = outlinePaint1;
+     }
+ 
+ }

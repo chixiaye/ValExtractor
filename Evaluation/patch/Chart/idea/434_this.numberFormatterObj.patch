@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..d09fbe5 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -297,10 +297,11 @@
+      * 'expTickLabelsFlag' flag.
+      */
+     protected void setupNumberFmtObj() {
+-        if (this.numberFormatterObj instanceof DecimalFormat) {
++        NumberFormat numberFormatterObj1 = this.numberFormatterObj;
++        if (numberFormatterObj1 instanceof DecimalFormat) {
+             //setup for "1e#"-style tick labels or regular
+             // numeric tick labels, depending on flag:
+-            ((DecimalFormat) this.numberFormatterObj).applyPattern(
++            ((DecimalFormat) numberFormatterObj1).applyPattern(
+                     this.expTickLabelsFlag ? "0E0" : "0.###");
+         }
+     }

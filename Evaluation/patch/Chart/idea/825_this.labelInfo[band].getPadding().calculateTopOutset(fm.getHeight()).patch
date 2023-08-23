@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..f09848f 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -824,9 +824,10 @@
+         // work out the initial gap
+         double delta1 = 0.0;
+         FontMetrics fm = g2.getFontMetrics(this.labelInfo[band].getLabelFont());
++        double delta11 = this.labelInfo[band].getPadding().calculateTopOutset(
++                fm.getHeight());
+         if (edge == RectangleEdge.BOTTOM) {
+-            delta1 = this.labelInfo[band].getPadding().calculateTopOutset(
+-                    fm.getHeight());
++            delta1 = delta11;
+         }
+         else if (edge == RectangleEdge.TOP) {
+             delta1 = this.labelInfo[band].getPadding().calculateBottomOutset(
+@@ -944,8 +945,7 @@
+                         fm.getHeight());
+             }
+             else if (edge == RectangleEdge.TOP) {
+-                used += this.labelInfo[band].getPadding().calculateTopOutset(
+-                        fm.getHeight());
++                used += delta11;
+             }
+         }
+         state.moveCursor(used, edge);

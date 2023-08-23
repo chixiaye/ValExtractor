@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+index 7fd7850..18f7233 100644
+--- a/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
++++ b/src/main/java/org/apache/commons/math3/stat/ranking/NaturalRanking.java
+@@ -339,6 +339,7 @@
+         // length of sequence of tied ranks
+         final int length = tiesTrace.size();
+ 
++        boolean b = iterator.hasNext();
+         switch (tiesStrategy) {
+             case  AVERAGE:  // Replace ranks with average
+                 fill(ranks, tiesTrace, (2 * c + length - 1) / 2d);
+@@ -352,7 +353,7 @@
+             case RANDOM:    // Fill with random integral values in [c, c + length - 1]
+                 Iterator<Integer> iterator = tiesTrace.iterator();
+                 long f = FastMath.round(c);
+-                while (iterator.hasNext()) {
++                while (b) {
+                     // No advertised exception because args are guaranteed valid
+                     ranks[iterator.next()] =
+                         randomData.nextLong(f, f + length - 1);
+@@ -363,7 +364,7 @@
+                 iterator = tiesTrace.iterator();
+                 f = FastMath.round(c);
+                 int i = 0;
+-                while (iterator.hasNext()) {
++                while (b) {
+                     ranks[iterator.next()] = f + i++;
+                 }
+                 break;

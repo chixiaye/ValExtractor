@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartRenderingInfo.java b/source/org/jfree/chart/ChartRenderingInfo.java
+index c542f1b..6c1906b 100644
+--- a/source/org/jfree/chart/ChartRenderingInfo.java
++++ b/source/org/jfree/chart/ChartRenderingInfo.java
+@@ -257,8 +257,9 @@
+      */
+     public Object clone() throws CloneNotSupportedException {
+         ChartRenderingInfo clone = (ChartRenderingInfo) super.clone();
+-        if (this.chartArea != null) {
+-            clone.chartArea = (Rectangle2D) this.chartArea.clone();
++        Rectangle2D chartArea1 = this.chartArea;
++        if (chartArea1 != null) {
++            clone.chartArea = (Rectangle2D) chartArea1.clone();
+         }
+         if (this.entities instanceof PublicCloneable) {
+             PublicCloneable pc = (PublicCloneable) this.entities;

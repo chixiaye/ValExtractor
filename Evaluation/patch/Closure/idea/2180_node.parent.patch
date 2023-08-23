@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/graph/StandardUnionFind.java b/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
+index 1362ba2..7066474 100644
+--- a/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
++++ b/src/com/google/javascript/jscomp/graph/StandardUnionFind.java
+@@ -157,7 +157,8 @@
+    */
+   private Node<E> findRoot(Node<E> node) {
+     if (node.parent != node) {
+-      node.parent = findRoot(node.parent);
++        Node<E> parent = node.parent;
++        parent = findRoot(node.parent);
+     }
+     return node.parent;
+   }

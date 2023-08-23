@@ -1,0 +1,60 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..029fd79 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -741,7 +741,7 @@
+ 
+         if (inexact) {
+             field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+-            dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
++            Dfp var_564 = dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
+         }
+ 
+         return lostdigit;
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..029fd79 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -741,7 +741,7 @@
+ 
+         if (inexact) {
+             field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+-            dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
++            Dfp var_564 = dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
+         }
+ 
+         return lostdigit;
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..3c8c83f 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -710,13 +710,14 @@
+             return 0;
+         }
+ 
++        Dfp dotrap = dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
+         if (adiff > (mant.length + 1)) {
+             // Special case
+             Arrays.fill(mant, 0);
+             exp = e;
+ 
+             field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+-            dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
++            dotrap;
+ 
+             return 0;
+         }
+@@ -741,7 +742,7 @@
+ 
+         if (inexact) {
+             field.setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+-            dotrap(DfpField.FLAG_INEXACT, ALIGN_TRAP, this, this);
++            dotrap;
+         }
+ 
+         return lostdigit;

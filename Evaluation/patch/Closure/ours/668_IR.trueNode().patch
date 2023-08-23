@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/InlineObjectLiterals.java b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+index d03988c..77bf77e 100644
+--- a/src/com/google/javascript/jscomp/InlineObjectLiterals.java
++++ b/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+@@ -358,7 +358,8 @@
+ 
+       Node replacement;
+       if (nodes.isEmpty()) {
+-        replacement = IR.trueNode();
++        Node var_668 = IR.trueNode();
++		replacement = var_668;
+       } else {
+         // All assignments evaluate to true, so make sure that the
+         // expr statement evaluates to true in case it matters.

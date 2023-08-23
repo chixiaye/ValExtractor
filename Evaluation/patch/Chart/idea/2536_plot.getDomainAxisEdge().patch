@@ -1,0 +1,38 @@
+diff --git a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+index c469505..9e3a24c 100644
+--- a/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalLineAndShapeRenderer.java
+@@ -253,15 +253,16 @@
+ 
+         // current data point...
+         double x1;
++        RectangleEdge domainAxisEdge = plot.getDomainAxisEdge();
+         if (getUseSeriesOffset()) {
+             x1 = domainAxis.getCategorySeriesMiddle(column,
+                     dataset.getColumnCount(),
+                     visibleRow, visibleRowCount,
+-                    getItemMargin(), dataArea, plot.getDomainAxisEdge());
++                    getItemMargin(), dataArea, domainAxisEdge);
+         }
+         else {
+             x1 = domainAxis.getCategoryMiddle(column, getColumnCount(),
+-                    dataArea, plot.getDomainAxisEdge());
++                    dataArea, domainAxisEdge);
+         }
+         double y1 = rangeAxis.valueToJava2D(meanValue.doubleValue(), dataArea,
+                 plot.getRangeAxisEdge());
+@@ -386,12 +387,12 @@
+                                 column - 1, dataset.getColumnCount(),
+                                 visibleRow, visibleRowCount,
+                                 getItemMargin(), dataArea,
+-                                plot.getDomainAxisEdge());
++                                domainAxisEdge);
+                     }
+                     else {
+                         x0 = domainAxis.getCategoryMiddle(column - 1,
+                                 getColumnCount(), dataArea,
+-                                plot.getDomainAxisEdge());
++                                domainAxisEdge);
+                     }
+                     double y0 = rangeAxis.valueToJava2D(previous, dataArea,
+                             plot.getRangeAxisEdge());

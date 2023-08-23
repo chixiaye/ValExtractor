@@ -1,0 +1,31 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
+index 4b370ec..bc2f405 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
+@@ -83,9 +83,11 @@
+      */
+     public double[] fit(double[] initialGuess) {
+         final Gaussian.Parametric f = new Gaussian.Parametric() {
+-                @Override
++            private final double positiveInfinity = Double.POSITIVE_INFINITY;
++
++            @Override
+                 public double value(double x, double ... p) {
+-                    double v = Double.POSITIVE_INFINITY;
++                    double v = positiveInfinity;
+                     try {
+                         v = super.value(x, p);
+                     } catch (NotStrictlyPositiveException e) { // NOPMD
+@@ -96,9 +98,9 @@
+ 
+                 @Override
+                 public double[] gradient(double x, double ... p) {
+-                    double[] v = { Double.POSITIVE_INFINITY,
+-                                   Double.POSITIVE_INFINITY,
+-                                   Double.POSITIVE_INFINITY };
++                    double[] v = {positiveInfinity,
++                            positiveInfinity,
++                            positiveInfinity};
+                     try {
+                         v = super.gradient(x, p);
+                     } catch (NotStrictlyPositiveException e) { // NOPMD

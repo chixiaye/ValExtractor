@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..baa809d 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1384,7 +1384,7 @@
+     }
+ 
+     StringBuilder builder = new StringBuilder();
+-    builder.append(line);
++    StringBuilder var_2332 = builder.append(line);
+ 
+     state = State.SEARCHING_ANNOTATION;
+     token = next();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..baa809d 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1384,7 +1384,7 @@
+     }
+ 
+     StringBuilder builder = new StringBuilder();
+-    builder.append(line);
++    StringBuilder var_2332 = builder.append(line);
+ 
+     state = State.SEARCHING_ANNOTATION;
+     token = next();
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..9db5522 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1384,7 +1384,7 @@
+     }
+ 
+     StringBuilder builder = new StringBuilder();
+-    builder.append(line);
++      StringBuilder append = builder.append(line);
+ 
+     state = State.SEARCHING_ANNOTATION;
+     token = next();
+@@ -1473,7 +1473,7 @@
+             line = trimEnd(line);
+           }
+ 
+-          builder.append(line);
++          append;
+           token = next();
+       }
+     } while (true);

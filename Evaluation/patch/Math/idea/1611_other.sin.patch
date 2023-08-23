@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+index 7ff678c..9c216bb 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+@@ -195,12 +195,13 @@
+      * or null if there are no intersection points
+      */
+     public Vector2D intersection(final Line other) {
+-        final double d = sin * other.cos - other.sin * cos;
++        double sin1 = other.sin;
++        final double d = sin * other.cos - sin1 * cos;
+         if (FastMath.abs(d) < 1.0e-10) {
+             return null;
+         }
+         return new Vector2D((cos * other.originOffset - other.cos * originOffset) / d,
+-                            (sin * other.originOffset - other.sin * originOffset) / d);
++                            (sin * other.originOffset - sin1 * originOffset) / d);
+     }
+ 
+     /** {@inheritDoc} */

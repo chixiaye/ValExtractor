@@ -1,0 +1,57 @@
+diff --git a/src/com/google/javascript/jscomp/GlobalNamespace.java b/src/com/google/javascript/jscomp/GlobalNamespace.java
+index 1cd29f0..4bc5199 100644
+--- a/src/com/google/javascript/jscomp/GlobalNamespace.java
++++ b/src/com/google/javascript/jscomp/GlobalNamespace.java
+@@ -320,7 +320,8 @@
+ 
+       String name;
+       boolean isSet = false;
+-      Name.Type type = Name.Type.OTHER;
++        Name.Type other = Name.Type.OTHER;
++        Name.Type type = other;
+       boolean isPropAssign = false;
+ 
+       switch (n.getType()) {
+@@ -355,7 +356,7 @@
+               case Token.VAR:
+                 isSet = true;
+                 Node rvalue = n.getFirstChild();
+-                type = rvalue == null ? Name.Type.OTHER : getValueType(rvalue);
++                type = rvalue == null ? other : getValueType(rvalue);
+                 break;
+               case Token.ASSIGN:
+                 if (parent.getFirstChild() == n) {
+@@ -375,13 +376,13 @@
+               case Token.INC:
+               case Token.DEC:
+                 isSet = true;
+-                type = Name.Type.OTHER;
++                type = other;
+                 break;
+               default:
+                 if (NodeUtil.isAssignmentOp(parent) &&
+                     parent.getFirstChild() == n) {
+                   isSet = true;
+-                  type = Name.Type.OTHER;
++                  type = other;
+                 }
+             }
+           }
+@@ -401,7 +402,7 @@
+               case Token.INC:
+               case Token.DEC:
+                 isSet = true;
+-                type = Name.Type.OTHER;
++                type = other;
+                 break;
+               case Token.GETPROP:
+                 return;
+@@ -409,7 +410,7 @@
+                 if (NodeUtil.isAssignmentOp(parent) &&
+                     parent.getFirstChild() == n) {
+                   isSet = true;
+-                  type = Name.Type.OTHER;
++                  type = other;
+                 }
+             }
+           }

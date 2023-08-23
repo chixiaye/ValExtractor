@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+index a2ea88e..31551d0 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
++++ b/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java
+@@ -223,9 +223,10 @@
+      */
+     private double getNorm() {
+         double norm = 0.0;
+-        for (int i = 0; i < matrixT.length; i++) {
++        int length = matrixT.length;
++        for (int i = 0; i < length; i++) {
+             // as matrix T is (quasi-)triangular, also take the sub-diagonal element into account
+-            for (int j = FastMath.max(i - 1, 0); j < matrixT.length; j++) {
++            for (int j = FastMath.max(i - 1, 0); j < length; j++) {
+                 norm += FastMath.abs(matrixT[i][j]);
+             }
+         }

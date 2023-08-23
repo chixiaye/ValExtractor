@@ -1,0 +1,16 @@
+diff --git a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+index 768d9064ac..f595edeb6f 100644
+--- a/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
++++ b/gremlin-core/src/main/java/org/apache/tinkerpop/gremlin/process/traversal/step/map/MatchStep.java
+@@ -524,8 +524,9 @@ public final class MatchStep<S, E> extends ComputerAwareStep<S, Map<String, E>>
+             final Set<String> keepers = new HashSet<>(this.parent.getKeepLabels());
+             final Set<String> tags = traverser.getTags();
+             for (final Traversal.Admin<?, ?> matchTraversal : this.parent.matchTraversals) { // get remaining traversal patterns for the traverser
+-                if (!tags.contains(matchTraversal.getStartStep().getId())) {
+-                    keepers.addAll(this.parent.referencedLabelsMap.get(matchTraversal.getStartStep().getId())); // get the reference labels required for those remaining traversals
++                String startStepId = matchTraversal.getStartStep().getId();
++                if (!tags.contains(startStepId)) {
++                    keepers.addAll(this.parent.referencedLabelsMap.get(startStepId)); // get the reference labels required for those remaining traversals
+                 }
+             }
+             return PathProcessor.processTraverserPathLabels(traverser, keepers); // remove all reference labels that are no longer required

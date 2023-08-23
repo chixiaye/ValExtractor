@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/SymbolAxis.java b/source/org/jfree/chart/axis/SymbolAxis.java
+index 234109b..ac6c004 100644
+--- a/source/org/jfree/chart/axis/SymbolAxis.java
++++ b/source/org/jfree/chart/axis/SymbolAxis.java
+@@ -714,8 +714,9 @@
+                 TextAnchor rotationAnchor = null;
+                 double angle = 0.0;
+                 if (isVerticalTickLabels()) {
+-                    anchor = TextAnchor.BOTTOM_CENTER;
+-                    rotationAnchor = TextAnchor.BOTTOM_CENTER;
++                    TextAnchor bottomCenter = TextAnchor.BOTTOM_CENTER;
++                    anchor = bottomCenter;
++                    rotationAnchor = bottomCenter;
+                     if (edge == RectangleEdge.LEFT) {
+                         angle = -Math.PI / 2.0;
+                     }

@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ConstCheck.java b/src/com/google/javascript/jscomp/ConstCheck.java
+index fa8a3ce..65b3b68 100644
+--- a/src/com/google/javascript/jscomp/ConstCheck.java
++++ b/src/com/google/javascript/jscomp/ConstCheck.java
+@@ -89,7 +89,8 @@
+         Node lhs = n.getFirstChild();
+         if (lhs.isName()) {
+           String name = lhs.getString();
+-          Scope.Var var = t.getScope().getVar(name);
++            Scope.Var var1 = t.getScope().getVar(name);
++            Scope.Var var = var1;
+           if (isConstant(var)) {
+             if (initializedConstants.contains(var)) {
+               reportError(t, n, name);

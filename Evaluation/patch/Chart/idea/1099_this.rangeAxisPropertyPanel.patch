@@ -1,0 +1,20 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..47d9405 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -325,11 +325,12 @@
+         }
+ 
+         this.rangeAxisPropertyPanel = DefaultAxisEditor.getInstance(rangeAxis);
+-        if (this.rangeAxisPropertyPanel != null) {
+-            this.rangeAxisPropertyPanel.setBorder(
++        DefaultAxisEditor rangeAxisPropertyPanel1 = this.rangeAxisPropertyPanel;
++        if (rangeAxisPropertyPanel1 != null) {
++            rangeAxisPropertyPanel1.setBorder(
+                     BorderFactory.createEmptyBorder(2, 2, 2, 2));
+             tabs.add(localizationResources.getString("Range_Axis"),
+-                    this.rangeAxisPropertyPanel);
++                    rangeAxisPropertyPanel1);
+         }
+ 
+         tabs.add(localizationResources.getString("Appearance"), appearance);

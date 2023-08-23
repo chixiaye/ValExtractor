@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+index 4848ab3..25ab691 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java
+@@ -271,7 +271,8 @@
+             for (int i = 1; i <= n; i++) {
+                 final double[] x = getPoint(i).getPoint();
+                 for (int j = 0; j < n; j++) {
+-                    x[j] = xSmallest[j] + sigma * (x[j] - xSmallest[j]);
++                    double v = xSmallest[j];
++                    x[j] = v + sigma * (x[j] - v);
+                 }
+                 setPoint(i, new PointValuePair(x, Double.NaN, false));
+             }

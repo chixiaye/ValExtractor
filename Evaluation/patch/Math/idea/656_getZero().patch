@@ -1,0 +1,33 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..ed64dbf 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1624,6 +1624,7 @@
+         Dfp result = newInstance(this);
+ 
+         /* handle special cases */
++        Dfp zero = getZero();
+         if (nans != FINITE) {
+             if (isNaN()) {
+                 return this;
+@@ -1636,9 +1637,9 @@
+ 
+             if (nans == INFINITE && x == 0) {
+                 field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
+-                result = newInstance(getZero());
++                result = newInstance(zero);
+                 result.nans = QNAN;
+-                result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(getZero()), result);
++                result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, newInstance(zero), result);
+                 return result;
+             }
+         }
+@@ -1646,7 +1647,7 @@
+         /* range check x */
+         if (x < 0 || x >= RADIX) {
+             field.setIEEEFlagsBits(DfpField.FLAG_INVALID);
+-            result = newInstance(getZero());
++            result = newInstance(zero);
+             result.nans = QNAN;
+             result = dotrap(DfpField.FLAG_INVALID, MULTIPLY_TRAP, result, result);
+             return result;

@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+index 8f76f06..26dbee4 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java
+@@ -2172,8 +2172,9 @@
+             }
+ 
+             int minutes = displayOffset / DateTimeConstants.MILLIS_PER_MINUTE;
++            StringBuffer append = buf.append(':');
+             if (iShowSeparators) {
+-                buf.append(':');
++                append;
+             }
+             FormatUtils.appendPaddedInteger(buf, minutes, 2);
+             if (iMaxFields == 2) {
+@@ -2186,7 +2187,7 @@
+ 
+             int seconds = displayOffset / DateTimeConstants.MILLIS_PER_SECOND;
+             if (iShowSeparators) {
+-                buf.append(':');
++                append;
+             }
+             FormatUtils.appendPaddedInteger(buf, seconds, 2);
+             if (iMaxFields == 3) {

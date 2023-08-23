@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+index af670fc..6b3e144 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
++++ b/src/main/java/org/apache/commons/math3/dfp/DfpMath.java
+@@ -347,7 +347,8 @@
+         Dfp[] spy = new Dfp[2];
+         spy[0] = pow(a.getTwo(), p2);          // use spy[0] temporarily as a divisor
+         spx[0] = spx[0].divide(spy[0]);
+-        spx[1] = spx[1].divide(spy[0]);
++        Dfp spx1 = spx[1];
++        spx[1] = spx1.divide(spy[0]);
+ 
+         spy[0] = a.newInstance("1.33333");    // Use spy[0] for comparison
+         while (spx[0].add(spx[1]).greaterThan(spy[0])) {

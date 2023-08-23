@@ -1,0 +1,50 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..9cafc46 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -806,10 +806,11 @@
+                 int l = idx;
+                 matrixT[idx][idx] = 1.0;
+                 for (int i = idx - 1; i >= 0; i--) {
+-                    double w = matrixT[i][i] - p;
++                    double[] doubles = matrixT[i];
++                    double w = doubles[i] - p;
+                     r = 0.0;
+                     for (int j = l; j <= idx; j++) {
+-                        r = r + matrixT[i][j] * matrixT[j][idx];
++                        r = r + doubles[j] * matrixT[j][idx];
+                     }
+                     if (Precision.compareTo(imagEigenvalues[i], 0.0, EPSILON) < 0.0) {
+                         z = w;
+@@ -818,18 +819,18 @@
+                         l = i;
+                         if (Precision.equals(imagEigenvalues[i], 0.0)) {
+                             if (w != 0.0) {
+-                                matrixT[i][idx] = -r / w;
++                                doubles[idx] = -r / w;
+                             } else {
+-                                matrixT[i][idx] = -r / (Precision.EPSILON * norm);
++                                doubles[idx] = -r / (Precision.EPSILON * norm);
+                             }
+                         } else {
+                             // Solve real equations
+-                            double x = matrixT[i][i + 1];
++                            double x = doubles[i + 1];
+                             double y = matrixT[i + 1][i];
+                             q = (realEigenvalues[i] - p) * (realEigenvalues[i] - p) +
+                                 imagEigenvalues[i] * imagEigenvalues[i];
+                             double t = (x * s - z * r) / q;
+-                            matrixT[i][idx] = t;
++                            doubles[idx] = t;
+                             if (FastMath.abs(x) > FastMath.abs(z)) {
+                                 matrixT[i + 1][idx] = (-r - w * t) / x;
+                             } else {
+@@ -838,7 +839,7 @@
+                         }
+ 
+                         // Overflow control
+-                        double t = FastMath.abs(matrixT[i][idx]);
++                        double t = FastMath.abs(doubles[idx]);
+                         if ((Precision.EPSILON * t) * t > 1) {
+                             for (int j = i; j <= idx; j++) {
+                                 matrixT[j][idx] = matrixT[j][idx] / t;

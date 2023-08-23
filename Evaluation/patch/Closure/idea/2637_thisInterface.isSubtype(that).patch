@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java b/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
+index 3da752b..4c1948d 100644
+--- a/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
++++ b/src/com/google/javascript/rhino/jstype/PrototypeObjectType.java
+@@ -340,7 +340,8 @@
+ 
+     if (getConstructor() != null && getConstructor().isInterface()) {
+       for (ObjectType thisInterface : getCtorExtendedInterfaces()) {
+-        if (thisInterface.isSubtype(that)) {
++          boolean subtype = thisInterface.isSubtype(that);
++          if (subtype) {
+           return true;
+         }
+       }

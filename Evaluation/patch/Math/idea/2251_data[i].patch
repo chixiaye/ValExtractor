@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+index 4ffd794..40494b0 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayFieldVector.java
+@@ -565,7 +565,8 @@
+         throws NullArgumentException, MathArithmeticException {
+         MathUtils.checkNotNull(d);
+         for (int i = 0; i < data.length; i++) {
+-            data[i] = data[i].divide(d);
++            T datum = data[i];
++            datum = data[i].divide(d);
+         }
+         return this;
+     }

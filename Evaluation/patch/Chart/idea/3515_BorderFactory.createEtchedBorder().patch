@@ -1,0 +1,49 @@
+diff --git a/source/org/jfree/chart/ui/FontChooserPanel.java b/source/org/jfree/chart/ui/FontChooserPanel.java
+index 061a429..d55b578 100644
+--- a/source/org/jfree/chart/ui/FontChooserPanel.java
++++ b/source/org/jfree/chart/ui/FontChooserPanel.java
+@@ -57,6 +57,7 @@
+ import javax.swing.JPanel;
+ import javax.swing.JScrollPane;
+ import javax.swing.ListModel;
++import javax.swing.border.Border;
+ 
+ import org.jfree.chart.util.ResourceBundleWrapper;
+ 
+@@ -102,22 +103,23 @@
+         JPanel right = new JPanel(new BorderLayout());
+ 
+         JPanel fontPanel = new JPanel(new BorderLayout());
++        Border etchedBorder = BorderFactory.createEtchedBorder();
+         fontPanel.setBorder(BorderFactory.createTitledBorder(
+-                            BorderFactory.createEtchedBorder(),
++                etchedBorder,
+                             localizationResources.getString("Font")));
+         this.fontlist = new JList(fonts);
+         JScrollPane fontpane = new JScrollPane(this.fontlist);
+-        fontpane.setBorder(BorderFactory.createEtchedBorder());
++        fontpane.setBorder(etchedBorder);
+         fontPanel.add(fontpane);
+         add(fontPanel);
+ 
+         JPanel sizePanel = new JPanel(new BorderLayout());
+         sizePanel.setBorder(BorderFactory.createTitledBorder(
+-                            BorderFactory.createEtchedBorder(),
++                etchedBorder,
+                             localizationResources.getString("Size")));
+         this.sizelist = new JList(SIZES);
+         JScrollPane sizepane = new JScrollPane(this.sizelist);
+-        sizepane.setBorder(BorderFactory.createEtchedBorder());
++        sizepane.setBorder(etchedBorder);
+         sizePanel.add(sizepane);
+ 
+         JPanel attributes = new JPanel(new GridLayout(1, 2));
+@@ -126,7 +128,7 @@
+         attributes.add(this.bold);
+         attributes.add(this.italic);
+         attributes.setBorder(BorderFactory.createTitledBorder(
+-                BorderFactory.createEtchedBorder(),
++                etchedBorder,
+                 localizationResources.getString("Attributes")));
+ 
+         right.add(sizePanel, BorderLayout.CENTER);

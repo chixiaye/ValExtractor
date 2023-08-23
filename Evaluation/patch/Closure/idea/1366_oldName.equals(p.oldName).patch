@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/RenameProperties.java b/src/com/google/javascript/jscomp/RenameProperties.java
+index 7753a36..f68d19e 100644
+--- a/src/com/google/javascript/jscomp/RenameProperties.java
++++ b/src/com/google/javascript/jscomp/RenameProperties.java
+@@ -237,7 +237,8 @@
+       String oldName = n.getString();
+       Property p = propertyMap.get(oldName);
+       if (p != null && p.newName != null) {
+-        Preconditions.checkState(oldName.equals(p.oldName));
++          boolean equals = oldName.equals(p.oldName);
++          Preconditions.checkState(equals);
+         n.setString(p.newName);
+         changed = changed || !p.newName.equals(oldName);
+       }

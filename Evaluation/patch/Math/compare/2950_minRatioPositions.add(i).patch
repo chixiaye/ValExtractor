@@ -1,0 +1,51 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+index 3bf5938..55b8e8e 100644
+--- a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
++++ b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+@@ -160,7 +160,7 @@
+                 } else if (cmp < 0) {
+                     minRatio = ratio;
+                     minRatioPositions = new ArrayList<Integer>();
+-                    minRatioPositions.add(i);
++                    boolean var_2950 = minRatioPositions.add(i);
+                 }
+             }
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+index 3bf5938..55b8e8e 100644
+--- a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
++++ b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+@@ -160,7 +160,7 @@
+                 } else if (cmp < 0) {
+                     minRatio = ratio;
+                     minRatioPositions = new ArrayList<Integer>();
+-                    minRatioPositions.add(i);
++                    boolean var_2950 = minRatioPositions.add(i);
+                 }
+             }
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+index 3bf5938..31bd177 100644
+--- a/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
++++ b/src/main/java/org/apache/commons/math3/optim/linear/SimplexSolver.java
+@@ -155,12 +155,13 @@
+                 // check if the entry is strictly equal to the current min ratio
+                 // do not use a ulp/epsilon check
+                 final int cmp = Double.compare(ratio, minRatio);
++                boolean add = minRatioPositions.add(i);
+                 if (cmp == 0) {
+-                    minRatioPositions.add(i);
++                    add;
+                 } else if (cmp < 0) {
+                     minRatio = ratio;
+                     minRatioPositions = new ArrayList<Integer>();
+-                    minRatioPositions.add(i);
++                    add;
+                 }
+             }
+         }

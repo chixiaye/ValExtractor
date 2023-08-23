@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..fe34eea 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1846,19 +1846,20 @@
+         nact = 0;
+         for (int i = 0; i < n; i++) {
+             xbdi.setEntry(i, ZERO);
++            double entry = gradientAtTrustRegionCenter.getEntry(i);
+             if (trustRegionCenterOffset.getEntry(i) <= lowerDifference.getEntry(i)) {
+-                if (gradientAtTrustRegionCenter.getEntry(i) >= ZERO) {
++                if (entry >= ZERO) {
+                     xbdi.setEntry(i, MINUS_ONE);
+                 }
+             } else if (trustRegionCenterOffset.getEntry(i) >= upperDifference.getEntry(i) &&
+-                       gradientAtTrustRegionCenter.getEntry(i) <= ZERO) {
++                       entry <= ZERO) {
+                 xbdi.setEntry(i, ONE);
+             }
+             if (xbdi.getEntry(i) != ZERO) {
+                 ++nact;
+             }
+             trialStepPoint.setEntry(i, ZERO);
+-            gnew.setEntry(i, gradientAtTrustRegionCenter.getEntry(i));
++            gnew.setEntry(i, entry);
+         }
+         delsq = delta * delta;
+         qred = ZERO;

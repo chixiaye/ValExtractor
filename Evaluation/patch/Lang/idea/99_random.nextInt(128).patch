@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+index 7535574..a2d3664 100644
+--- a/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+@@ -261,6 +261,7 @@
+             if (letters && Character.isLetter(ch)
+                     || numbers && Character.isDigit(ch)
+                     || !letters && !numbers) {
++                int i = random.nextInt(128);
+                 if(ch >= 56320 && ch <= 57343) {
+                     if(count == 0) {
+                         count++;
+@@ -268,14 +269,14 @@
+                         // low surrogate, insert high surrogate after putting it in
+                         buffer[count] = ch;
+                         count--;
+-                        buffer[count] = (char) (55296 + random.nextInt(128));
++                        buffer[count] = (char) (55296 + i);
+                     }
+                 } else if(ch >= 55296 && ch <= 56191) {
+                     if(count == 0) {
+                         count++;
+                     } else {
+                         // high surrogate, insert low surrogate before putting it in
+-                        buffer[count] = (char) (56320 + random.nextInt(128));
++                        buffer[count] = (char) (56320 + i);
+                         count--;
+                         buffer[count] = ch;
+                     }

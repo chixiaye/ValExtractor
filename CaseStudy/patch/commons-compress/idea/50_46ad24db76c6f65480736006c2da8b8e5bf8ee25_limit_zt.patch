@@ -1,0 +1,15 @@
+diff --git a/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java b/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
+index 1de731db..c0af2a0b 100644
+--- a/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
++++ b/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java
+@@ -551,7 +551,9 @@ public class BZip2CompressorInputStream extends CompressorInputStream implements
+                         zt = selector[groupNo];
+                         zn = minLens[zt];
+                         zvec = bsR(zn);
+-                        while (zvec > limit[zt][zn]) {
++                        while (true) {
++                            int[] limit_zt = limit[zt];
++                            if (!(zvec > limit_zt[zn])) break;
+                             zn++;
+                             {
+                                 {

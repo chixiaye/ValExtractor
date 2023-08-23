@@ -1,0 +1,75 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/ObjectType.java b/src/com/google/javascript/rhino/jstype/ObjectType.java
+index 21e8aba..6a1aed8 100644
+--- a/src/com/google/javascript/rhino/jstype/ObjectType.java
++++ b/src/com/google/javascript/rhino/jstype/ObjectType.java
+@@ -177,7 +177,8 @@
+       } else {
+         p.visited = true;
+       }
+-      p = p.getImplicitPrototype();
++      ObjectType var_2623 = p.getImplicitPrototype();
++	p = var_2623;
+     }
+ 
+     // clean up
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/ObjectType.java b/src/com/google/javascript/rhino/jstype/ObjectType.java
+index 21e8aba..ecb0dd3 100644
+--- a/src/com/google/javascript/rhino/jstype/ObjectType.java
++++ b/src/com/google/javascript/rhino/jstype/ObjectType.java
+@@ -171,20 +171,21 @@
+     // detecting cycle
+     this.visited = true;
+     ObjectType p = getImplicitPrototype();
++    ObjectType var_2623 = p.getImplicitPrototype();
+     while (p != null) {
+       if (p.visited) {
+         return true;
+       } else {
+         p.visited = true;
+       }
+-      p = p.getImplicitPrototype();
++      p = var_2623;
+     }
+ 
+     // clean up
+     p = this;
+     do {
+       p.visited = false;
+-      p = p.getImplicitPrototype();
++      p = var_2623;
+     } while (p != null);
+     return false;
+   }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/ObjectType.java b/src/com/google/javascript/rhino/jstype/ObjectType.java
+index 21e8aba..b35361f 100644
+--- a/src/com/google/javascript/rhino/jstype/ObjectType.java
++++ b/src/com/google/javascript/rhino/jstype/ObjectType.java
+@@ -171,20 +171,21 @@
+     // detecting cycle
+     this.visited = true;
+     ObjectType p = getImplicitPrototype();
++      ObjectType implicitPrototype = p.getImplicitPrototype();
+     while (p != null) {
+       if (p.visited) {
+         return true;
+       } else {
+         p.visited = true;
+       }
+-      p = p.getImplicitPrototype();
++      p = implicitPrototype;
+     }
+ 
+     // clean up
+     p = this;
+     do {
+       p.visited = false;
+-      p = p.getImplicitPrototype();
++      p = implicitPrototype;
+     } while (p != null);
+     return false;
+   }

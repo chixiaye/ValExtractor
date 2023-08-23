@@ -1,0 +1,33 @@
+diff --git a/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java b/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
+index da9463b..ebbe02b 100644
+--- a/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
++++ b/source/org/jfree/chart/labels/IntervalXYItemLabelGenerator.java
+@@ -186,8 +186,9 @@
+ 
+         NumberFormat ynf = getYFormat();
+         DateFormat ydf = getYDateFormat();
++        String nullYString = getNullYString();
+         if (Double.isNaN(y) && dataset.getY(series, item) == null) {
+-            result[4] = getNullYString();
++            result[4] = nullYString;
+         }
+         else {
+             if (ydf != null) {
+@@ -199,7 +200,7 @@
+         }
+         if (Double.isNaN(ys)
+                 && intervalDataset.getStartY(series, item) == null) {
+-            result[5] = getNullYString();
++            result[5] = nullYString;
+         }
+         else {
+             if (ydf != null) {
+@@ -211,7 +212,7 @@
+         }
+         if (Double.isNaN(ye)
+                 && intervalDataset.getEndY(series, item) == null) {
+-            result[6] = getNullYString();
++            result[6] = nullYString;
+         }
+         else {
+             if (ydf != null) {

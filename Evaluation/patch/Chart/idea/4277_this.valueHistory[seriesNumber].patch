@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+index 067e1df..623ea81 100644
+--- a/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
++++ b/source/org/jfree/data/time/DynamicTimeSeriesCollection.java
+@@ -454,7 +454,8 @@
+             );
+         }
+         if (this.valueHistory[seriesNumber] == null) {
+-            this.valueHistory[seriesNumber]
++            ValueSequence valueSequence = this.valueHistory[seriesNumber];
++            valueSequence
+                 = new ValueSequence(this.historyCount);
+             this.seriesCount++;
+         }

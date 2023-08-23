@@ -1,0 +1,30 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..d7a9ad9 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -370,19 +370,20 @@
+      * @return Format description String
+      */
+     private String parseFormatDescription(final String pattern, final ParsePosition pos) {
+-        final int start = pos.getIndex();
++        int index = pos.getIndex();
++        final int start = index;
+         seekNonWs(pattern, pos);
+-        final int text = pos.getIndex();
++        final int text = index;
+         int depth = 1;
+-        for (; pos.getIndex() < pattern.length(); next(pos)) {
+-            switch (pattern.charAt(pos.getIndex())) {
++        for (; index < pattern.length(); next(pos)) {
++            switch (pattern.charAt(index)) {
+             case START_FE:
+                 depth++;
+                 break;
+             case END_FE:
+                 depth--;
+                 if (depth == 0) {
+-                    return pattern.substring(text, pos.getIndex());
++                    return pattern.substring(text, index);
+                 }
+                 break;
+             case QUOTE:

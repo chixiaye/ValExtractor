@@ -1,0 +1,18 @@
+diff --git a/gremlin-core/src/main/java/com/tinkerpop/gremlin/process/util/DefaultTraversal.java b/gremlin-core/src/main/java/com/tinkerpop/gremlin/process/util/DefaultTraversal.java
+index 929b9f1..5828eab 100644
+--- a/gremlin-core/src/main/java/com/tinkerpop/gremlin/process/util/DefaultTraversal.java
++++ b/gremlin-core/src/main/java/com/tinkerpop/gremlin/process/util/DefaultTraversal.java
+@@ -94,10 +94,11 @@
+             return this.lastEnd;
+         } else {
+             final Traverser<E> next = TraversalHelper.getEnd(this).next();
+-            if (next.bulk() == 1) {
++            long nextBulk = next.bulk();
++			if (nextBulk == 1) {
+                 return next.get();
+             } else {
+-                this.lastEndCount = next.bulk() - 1;
++                this.lastEndCount = nextBulk - 1;
+                 this.lastEnd = next.get();
+                 return this.lastEnd;
+             }

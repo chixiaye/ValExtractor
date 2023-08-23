@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..cfb71d1 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -460,6 +460,7 @@
+ 
+         this.listenerList = new EventListenerList();
+ 
++        RenderAttributes selectedItemAttributes1 = this.selectedItemAttributes;
+         this.selectedItemAttributes = new RenderAttributes();
+         this.selectedItemAttributes.setDefaultFillPaint(Color.WHITE);
+     }

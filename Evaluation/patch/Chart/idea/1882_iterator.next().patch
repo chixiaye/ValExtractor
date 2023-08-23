@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..dc1f754 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -2823,7 +2823,8 @@
+             if (markers != null) {
+                 Iterator iterator = markers.iterator();
+                 while (iterator.hasNext()) {
+-                    Marker m = (Marker) iterator.next();
++                    Object next = iterator.next();
++                    Marker m = (Marker) next;
+                     m.removeChangeListener(this);
+                 }
+                 markers.clear();

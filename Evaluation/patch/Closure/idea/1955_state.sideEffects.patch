@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ExpressionDecomposer.java b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+index 2344537..44e6fb6 100644
+--- a/src/com/google/javascript/jscomp/ExpressionDecomposer.java
++++ b/src/com/google/javascript/jscomp/ExpressionDecomposer.java
+@@ -167,7 +167,8 @@
+       Preconditions.checkState(
+           !isConditionalOp(parent) || child == parent.getFirstChild());
+       if (parentType == Token.ASSIGN) {
+-          if (isSafeAssign(parent, state.sideEffects)) {
++          boolean sideEffects = state.sideEffects;
++          if (isSafeAssign(parent, sideEffects)) {
+             // It is always safe to inline "foo()" for expressions such as
+             // "a = b = c = foo();"
+             // As the assignment is unaffected by side effect of "foo()"

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..e0fad3f 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -975,6 +975,7 @@
+      */
+     protected void setAutoRange(boolean auto, boolean notify) {
+         if (this.autoRange != auto) {
++            boolean autoRange1 = this.autoRange;
+             this.autoRange = auto;
+             if (this.autoRange) {
+                 autoAdjustRange();

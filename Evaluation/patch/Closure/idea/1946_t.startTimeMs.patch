@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..997f8fc 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -890,12 +890,13 @@
+ 
+         sb.append(" Unstopped timers:\n");
+         for (Tracer t : outstandingEvents) {
+-          sb.append("  ").
++            long startTimeMs1 = t.startTimeMs;
++            sb.append("  ").
+             append(t).
+             append(" (").
+-            append(now - t.startTimeMs).
++            append(now - startTimeMs1).
+             append(" ms, started at ").
+-            append(formatTime(t.startTimeMs)).
++            append(formatTime(startTimeMs1)).
+             append(")\n");
+         }
+       }

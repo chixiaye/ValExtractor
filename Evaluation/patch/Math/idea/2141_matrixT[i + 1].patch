@@ -1,0 +1,34 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+index 4652f61..8188e9c 100644
+--- a/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
++++ b/src/main/java/org/apache/commons/math3/linear/EigenDecomposition.java
+@@ -886,7 +886,8 @@
+                         } else {
+                             // Solve complex equations
+                             double x = matrixT[i][i + 1];
+-                            double y = matrixT[i + 1][i];
++                            double[] doubles = matrixT[i + 1];
++                            double y = doubles[i];
+                             double vr = (realEigenvalues[i] - p) * (realEigenvalues[i] - p) +
+                                         imagEigenvalues[i] * imagEigenvalues[i] - q * q;
+                             final double vi = (realEigenvalues[i] - p) * 2.0 * q;
+@@ -901,15 +902,15 @@
+                             matrixT[i][idx]     = c.getImaginary();
+ 
+                             if (FastMath.abs(x) > (FastMath.abs(z) + FastMath.abs(q))) {
+-                                matrixT[i + 1][idx - 1] = (-ra - w * matrixT[i][idx - 1] +
++                                doubles[idx - 1] = (-ra - w * matrixT[i][idx - 1] +
+                                                            q * matrixT[i][idx]) / x;
+-                                matrixT[i + 1][idx]     = (-sa - w * matrixT[i][idx] -
++                                doubles[idx]     = (-sa - w * matrixT[i][idx] -
+                                                            q * matrixT[i][idx - 1]) / x;
+                             } else {
+                                 final Complex c2        = cdiv(-r - y * matrixT[i][idx - 1],
+                                                                -s - y * matrixT[i][idx], z, q);
+-                                matrixT[i + 1][idx - 1] = c2.getReal();
+-                                matrixT[i + 1][idx]     = c2.getImaginary();
++                                doubles[idx - 1] = c2.getReal();
++                                doubles[idx]     = c2.getImaginary();
+                             }
+                         }
+ 

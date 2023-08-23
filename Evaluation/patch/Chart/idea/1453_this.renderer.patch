@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..cbb85ea 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -213,7 +213,8 @@
+      * @param renderer  the new renderer (<code>null</code> permitted).
+      */
+     public void setRenderer(WaferMapRenderer renderer) {
+-        if (this.renderer != null) {
++        WaferMapRenderer renderer1 = this.renderer;
++        if (renderer1 != null) {
+             this.renderer.removeChangeListener(this);
+         }
+         this.renderer = renderer;

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+index 522fe94..49aacf6 100644
+--- a/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
++++ b/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+@@ -136,8 +136,9 @@
+     // Compute the forward reaching definition.
+     ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, true);
+     // Process the body of the function.
+-    Preconditions.checkState(t.getScopeRoot().isFunction());
+-    cfa.process(null, t.getScopeRoot().getLastChild());
++      Node scopeRoot = t.getScopeRoot();
++      Preconditions.checkState(scopeRoot.isFunction());
++    cfa.process(null, scopeRoot.getLastChild());
+     cfg = cfa.getCfg();
+     reachingDef = new MustBeReachingVariableDef(cfg, t.getScope(), compiler);
+     reachingDef.analyze();
+@@ -146,7 +147,7 @@
+     // Using the forward reaching definition search to find all the inline
+     // candidates
+     new NodeTraversal(compiler, new GatherCandiates()).traverse(
+-        t.getScopeRoot().getLastChild());
++        scopeRoot.getLastChild());
+ 
+     // Compute the backward reaching use. The CFG can be reused.
+     reachingUses = new MaybeReachingVariableUse(cfg, t.getScope(), compiler);

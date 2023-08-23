@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..c0ef04e 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1955,7 +1955,8 @@
+       this.outputManifests = Lists.newArrayList();
+       for (String manifestName : outputManifests) {
+         if (!manifestName.isEmpty()) {
+-          this.outputManifests.add(manifestName);
++            List<String> outputManifests1 = this.outputManifests;
++            outputManifests1.add(manifestName);
+         }
+       }
+       this.outputManifests = ImmutableList.copyOf(this.outputManifests);

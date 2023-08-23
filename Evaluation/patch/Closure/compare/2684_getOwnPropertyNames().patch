@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/RecordType.java b/src/com/google/javascript/rhino/jstype/RecordType.java
+index c2f0249..570e17c 100755
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
+@@ -143,6 +143,7 @@
+   }
+ 
+   JSType getGreatestSubtypeHelper(JSType that) {
++    Set<String> var_2684 = getOwnPropertyNames();
+     if (that.isRecordType()) {
+       RecordType thatRecord = that.toMaybeRecordType();
+       RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+@@ -151,7 +152,7 @@
+       // The greatest subtype consists of those *unique* properties of both
+       // record types. If any property conflicts, then the NO_TYPE type
+       // is returned.
+-      for (String property : getOwnPropertyNames()) {
++      for (String property : var_2684) {
+         if (thatRecord.hasProperty(property) &&
+             !thatRecord.getPropertyType(property).isInvariant(
+                 getPropertyType(property))) {
+@@ -184,7 +185,7 @@
+       //    of all classes with a property "x" with a compatible property type.
+       //    and which are a subtype of {@code that}.
+       // 2) Take the intersection of all of these unions.
+-      for (String propName : getOwnPropertyNames()) {
++      for (String propName : var_2684) {
+         JSType propType = getPropertyType(propName);
+         UnionTypeBuilder builder = new UnionTypeBuilder(registry);
+         for (ObjectType alt :
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/jstype/RecordType.java b/src/com/google/javascript/rhino/jstype/RecordType.java
+index c2f0249..8a4cb0f 100755
+--- a/src/com/google/javascript/rhino/jstype/RecordType.java
++++ b/src/com/google/javascript/rhino/jstype/RecordType.java
+@@ -143,6 +143,7 @@
+   }
+ 
+   JSType getGreatestSubtypeHelper(JSType that) {
++      Set<String> ownPropertyNames = getOwnPropertyNames();
+     if (that.isRecordType()) {
+       RecordType thatRecord = that.toMaybeRecordType();
+       RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+@@ -151,7 +152,7 @@
+       // The greatest subtype consists of those *unique* properties of both
+       // record types. If any property conflicts, then the NO_TYPE type
+       // is returned.
+-      for (String property : getOwnPropertyNames()) {
++      for (String property : ownPropertyNames) {
+         if (thatRecord.hasProperty(property) &&
+             !thatRecord.getPropertyType(property).isInvariant(
+                 getPropertyType(property))) {
+@@ -184,7 +185,7 @@
+       //    of all classes with a property "x" with a compatible property type.
+       //    and which are a subtype of {@code that}.
+       // 2) Take the intersection of all of these unions.
+-      for (String propName : getOwnPropertyNames()) {
++      for (String propName : ownPropertyNames) {
+         JSType propType = getPropertyType(propName);
+         UnionTypeBuilder builder = new UnionTypeBuilder(registry);
+         for (ObjectType alt :

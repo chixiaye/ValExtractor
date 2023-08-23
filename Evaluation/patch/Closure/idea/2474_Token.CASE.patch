@@ -1,0 +1,42 @@
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..b828df7 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -126,15 +126,16 @@
+       FlowScope blindScope, boolean outcome) {
+     // Check for the typeof operator.
+     int operatorToken = condition.getType();
+-    switch (operatorToken) {
++      final int aCase = Token.CASE;
++      switch (operatorToken) {
+       case Token.EQ:
+       case Token.NE:
+       case Token.SHEQ:
+       case Token.SHNE:
+-      case Token.CASE:
++      case aCase:
+         Node left;
+         Node right;
+-        if (operatorToken == Token.CASE) {
++        if (operatorToken == aCase) {
+           left = condition.getParent().getFirstChild(); // the switch condition
+           right = condition.getFirstChild();
+         } else {
+@@ -157,7 +158,7 @@
+           JSType operandType = getTypeIfRefinable(operandNode, blindScope);
+           if (operandType != null) {
+             boolean resultEqualsValue = operatorToken == Token.EQ ||
+-                operatorToken == Token.SHEQ || operatorToken == Token.CASE;
++                operatorToken == Token.SHEQ || operatorToken == aCase;
+             if (!outcome) {
+               resultEqualsValue = !resultEqualsValue;
+             }
+@@ -249,7 +250,7 @@
+         }
+         break;
+ 
+-      case Token.CASE:
++      case aCase:
+         Node left =
+             condition.getParent().getFirstChild(); // the switch condition
+         Node right = condition.getFirstChild();

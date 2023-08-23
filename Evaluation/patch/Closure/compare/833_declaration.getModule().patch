@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalNames.java b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+index d035d9d..65be802 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalNames.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+@@ -159,10 +159,12 @@
+         if (!isGlobalExpr) {
+           reportRefToUndefinedName(name, ref);
+         }
+-      } else if (declaration != null &&
+-          ref.getModule() != declaration.getModule() &&
++      } else {
++		JSModule var_833 = declaration.getModule();
++		if (declaration != null &&
++		      ref.getModule() != var_833 &&
+           !moduleGraph.dependsOn(
+-              ref.getModule(), declaration.getModule())) {
++		          ref.getModule(), var_833)) {
+         reportBadModuleReference(name, ref);
+       } else {
+         // Check for late references.
+@@ -193,6 +195,7 @@
+       }
+     }
+   }
++  }
+ 
+   private boolean isTypedef(Ref ref) {
+     // If this is an annotated EXPR-GET, don't do anything.
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CheckGlobalNames.java b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+index d035d9d..3e85e6a 100644
+--- a/src/com/google/javascript/jscomp/CheckGlobalNames.java
++++ b/src/com/google/javascript/jscomp/CheckGlobalNames.java
+@@ -159,10 +159,12 @@
+         if (!isGlobalExpr) {
+           reportRefToUndefinedName(name, ref);
+         }
+-      } else if (declaration != null &&
+-          ref.getModule() != declaration.getModule() &&
++      } else {
++          JSModule module = declaration.getModule();
++          if (declaration != null &&
++              ref.getModule() != module &&
+           !moduleGraph.dependsOn(
+-              ref.getModule(), declaration.getModule())) {
++                  ref.getModule(), module)) {
+         reportBadModuleReference(name, ref);
+       } else {
+         // Check for late references.
+@@ -193,6 +195,7 @@
+       }
+     }
+   }
++  }
+ 
+   private boolean isTypedef(Ref ref) {
+     // If this is an annotated EXPR-GET, don't do anything.

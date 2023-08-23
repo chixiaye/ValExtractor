@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..f5a8aaf 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -1012,9 +1012,10 @@
+          */
+         @Override
+         public void appendTo(final StringBuffer buffer, final Calendar calendar) {
+-            int value = calendar.get(Calendar.HOUR);
++            int hour = Calendar.HOUR;
++            int value = calendar.get(hour);
+             if (value == 0) {
+-                value = calendar.getLeastMaximum(Calendar.HOUR) + 1;
++                value = calendar.getLeastMaximum(hour) + 1;
+             }
+             mRule.appendTo(buffer, value);
+         }

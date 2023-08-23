@@ -1,0 +1,18 @@
+diff --git a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
+index 99a4167..af7bea7 100644
+--- a/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
++++ b/gremlin-server/src/main/java/org/apache/tinkerpop/gremlin/server/handler/NioGremlinResponseEncoder.java
+@@ -54,9 +54,10 @@
+             if (!responseMessage.getStatus().getCode().isSuccess())
+                 errorMeter.mark();
+ 
+-            if (useBinary)
+-                byteBuf.writeBytes(serializer.serializeResponseAsBinary(responseMessage, ctx.alloc()));
+-            else {
++            if (useBinary) {
++				Object bytes = serializer.serializeResponseAsBinary(responseMessage, ctx.alloc());
++				byteBuf.writeBytes(bytes);
++			} else {
+                 // the expectation is that the GremlinTextRequestDecoder will have placed a MessageTextSerializer
+                 // instance on the channel.
+                 final MessageTextSerializer textSerializer = (MessageTextSerializer) serializer;

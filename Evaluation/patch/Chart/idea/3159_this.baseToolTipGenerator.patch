@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..5540127 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1743,9 +1743,10 @@
+ 
+         clone.toolTipGeneratorList
+                 = (ObjectList) this.toolTipGeneratorList.clone();
+-        if (this.baseToolTipGenerator != null
+-                && this.baseToolTipGenerator instanceof PublicCloneable) {
+-            PublicCloneable pc = (PublicCloneable) this.baseToolTipGenerator;
++        XYToolTipGenerator baseToolTipGenerator1 = this.baseToolTipGenerator;
++        if (baseToolTipGenerator1 != null
++                && baseToolTipGenerator1 instanceof PublicCloneable) {
++            PublicCloneable pc = (PublicCloneable) baseToolTipGenerator1;
+             clone.baseToolTipGenerator = (XYToolTipGenerator) pc.clone();
+         }
+ 

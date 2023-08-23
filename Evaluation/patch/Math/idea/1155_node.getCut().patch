@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
+index 674fb0a..9ebd2ad 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/oned/IntervalsSet.java
+@@ -221,13 +221,14 @@
+                              final List<Interval> list,
+                              final double lower, final double upper) {
+ 
+-        if (node.getCut() == null) {
++        SubHyperplane<Euclidean1D> cut = node.getCut();
++        if (cut == null) {
+             if ((Boolean) node.getAttribute()) {
+                 // this leaf cell is an inside cell: an interval
+                 list.add(new Interval(lower, upper));
+             }
+         } else {
+-            final OrientedPoint op  = (OrientedPoint) node.getCut().getHyperplane();
++            final OrientedPoint op  = (OrientedPoint) cut.getHyperplane();
+             final Vector1D       loc = op.getLocation();
+             double              x   = loc.getX();
+ 

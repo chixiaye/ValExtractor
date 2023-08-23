@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..2ccc75c 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -327,10 +327,11 @@
+     // checks the externs file for validity. If you don't want to warn
+     // about missing variable declarations, we shut that specific
+     // error off.
+-    if (!options.checkSymbols &&
+-        !composedGuards.enables(DiagnosticGroups.CHECK_VARIABLES)) {
++      DiagnosticGroup checkVariables = DiagnosticGroups.CHECK_VARIABLES;
++      if (!options.checkSymbols &&
++        !composedGuards.enables(checkVariables)) {
+       composedGuards.addGuard(new DiagnosticGroupWarningsGuard(
+-          DiagnosticGroups.CHECK_VARIABLES, CheckLevel.OFF));
++              checkVariables, CheckLevel.OFF));
+     }
+ 
+     this.warningsGuard = composedGuards;

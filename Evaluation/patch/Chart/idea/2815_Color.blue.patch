@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/category/GradientBarPainter.java b/source/org/jfree/chart/renderer/category/GradientBarPainter.java
+index 96a84cd..e8031c6 100644
+--- a/source/org/jfree/chart/renderer/category/GradientBarPainter.java
++++ b/source/org/jfree/chart/renderer/category/GradientBarPainter.java
+@@ -120,8 +120,9 @@
+             c1 = gp.getColor2();
+         }
+         else {
+-            c0 = Color.blue;
+-            c1 = Color.blue.brighter();
++            Color blue = Color.blue;
++            c0 = blue;
++            c1 = blue.brighter();
+         }
+ 
+         // as a special case, if the bar colour has alpha == 0, we draw

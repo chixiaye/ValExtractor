@@ -1,0 +1,69 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..f366e3c 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -194,10 +194,11 @@
+       return input;
+     }
+ 
+-    int startIndex = 0, endIndex = input.length() - 1;
++    int var_1710 = input.length();
++	int startIndex = 0, endIndex = var_1710 - 1;
+ 
+     // Remove leading zeros
+-    while (startIndex < input.length() && input.charAt(startIndex) == '0' &&
++    while (startIndex < var_1710 && input.charAt(startIndex) == '0' &&
+         input.charAt(startIndex) != '.') {
+       startIndex++;
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..8483a83 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -190,14 +190,15 @@
+    * @return string with leading and trailing zeros removed
+    */
+   private String normalizeNumericString(String input) {
+-    if (input == null || input.length() == 0) {
++    int var_1710 = input.length();
++	if (input == null || var_1710 == 0) {
+       return input;
+     }
+ 
+-    int startIndex = 0, endIndex = input.length() - 1;
++    int startIndex = 0, endIndex = var_1710 - 1;
+ 
+     // Remove leading zeros
+-    while (startIndex < input.length() && input.charAt(startIndex) == '0' &&
++    while (startIndex < var_1710 && input.charAt(startIndex) == '0' &&
+         input.charAt(startIndex) != '.') {
+       startIndex++;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+index 63538e3..54ef9d1 100644
+--- a/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
++++ b/src/com/google/javascript/jscomp/PeepholeReplaceKnownMethods.java
+@@ -190,14 +190,15 @@
+    * @return string with leading and trailing zeros removed
+    */
+   private String normalizeNumericString(String input) {
+-    if (input == null || input.length() == 0) {
++      int length = input.length();
++      if (input == null || length == 0) {
+       return input;
+     }
+ 
+-    int startIndex = 0, endIndex = input.length() - 1;
++    int startIndex = 0, endIndex = length - 1;
+ 
+     // Remove leading zeros
+-    while (startIndex < input.length() && input.charAt(startIndex) == '0' &&
++    while (startIndex < length && input.charAt(startIndex) == '0' &&
+         input.charAt(startIndex) != '.') {
+       startIndex++;
+     }

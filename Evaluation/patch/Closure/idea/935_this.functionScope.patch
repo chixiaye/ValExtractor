@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..93dacbe 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -94,7 +94,8 @@
+     this.syntacticScope = functionScope;
+     inferArguments(functionScope);
+ 
+-    this.functionScope = LinkedFlowScope.createEntryLattice(functionScope);
++      FlowScope functionScope1 = this.functionScope;
++      this.functionScope = LinkedFlowScope.createEntryLattice(functionScope);
+     this.assertionFunctionsMap = assertionFunctionsMap;
+ 
+     // For each local variable declared with the VAR keyword, the entry

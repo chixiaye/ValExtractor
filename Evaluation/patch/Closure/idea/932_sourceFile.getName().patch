@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/JsAst.java b/src/com/google/javascript/jscomp/JsAst.java
+index 1da141f..4d21a33 100644
+--- a/src/com/google/javascript/jscomp/JsAst.java
++++ b/src/com/google/javascript/jscomp/JsAst.java
+@@ -41,9 +41,10 @@
+   private Node root;
+ 
+   public JsAst(SourceFile sourceFile) {
+-    this.inputId = new InputId(sourceFile.getName());
++      String name = sourceFile.getName();
++      this.inputId = new InputId(name);
+     this.sourceFile = sourceFile;
+-    this.fileName = sourceFile.getName();
++    this.fileName = name;
+   }
+ 
+   @Override

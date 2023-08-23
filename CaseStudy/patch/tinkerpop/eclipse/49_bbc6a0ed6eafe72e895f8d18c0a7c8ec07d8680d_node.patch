@@ -1,0 +1,16 @@
+diff --git a/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/NoMultiNoMetaNeo4jTrait.java b/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/NoMultiNoMetaNeo4jTrait.java
+index 25be842..e56886c 100644
+--- a/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/NoMultiNoMetaNeo4jTrait.java
++++ b/neo4j-gremlin/src/main/java/org/apache/tinkerpop/gremlin/neo4j/structure/trait/NoMultiNoMetaNeo4jTrait.java
+@@ -111,8 +111,9 @@
+ 
+     @Override
+     public void removeVertexProperty(final Neo4jVertexProperty vertexProperty) {
+-        if ((((Neo4jVertex) vertexProperty.element()).getBaseVertex().hasProperty(vertexProperty.key())))
+-            ((Neo4jVertex) vertexProperty.element()).getBaseVertex().removeProperty(vertexProperty.key());
++        org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jNode node = ((Neo4jVertex) vertexProperty.element()).getBaseVertex();
++		if ((node.hasProperty(vertexProperty.key())))
++            node.removeProperty(vertexProperty.key());
+     }
+ 
+     @Override

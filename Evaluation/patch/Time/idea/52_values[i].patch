@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/Period.java b/src/main/java/org/joda/time/Period.java
+index 5ea67a7..906d8bc 100644
+--- a/src/main/java/org/joda/time/Period.java
++++ b/src/main/java/org/joda/time/Period.java
+@@ -1336,7 +1336,8 @@
+         }
+         int[] values = getValues();  // cloned
+         for (int i = 0; i < values.length; i++) {
+-            values[i] = FieldUtils.safeMultiply(values[i], scalar);
++            int value = values[i];
++            value = FieldUtils.safeMultiply(values[i], scalar);
+         }
+         return new Period(values, getPeriodType());
+     }

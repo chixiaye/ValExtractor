@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/MathArrays.java b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+index ff729ac..f3a228d 100644
+--- a/src/main/java/org/apache/commons/math3/util/MathArrays.java
++++ b/src/main/java/org/apache/commons/math3/util/MathArrays.java
+@@ -1501,7 +1501,8 @@
+                 }
+                 final int temp = list[target];
+                 list[target] = list[i];
+-                list[i] = temp;
++                int i1 = list[i];
++                i1 = temp;
+             }
+         }
+             break;

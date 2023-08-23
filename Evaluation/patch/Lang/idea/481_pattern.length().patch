@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+index 722d3b5..24853b7 100644
+--- a/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
++++ b/src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java
+@@ -405,11 +405,12 @@
+         if (!containsElements(customPatterns)) {
+             return pattern;
+         }
+-        final StringBuilder sb = new StringBuilder(pattern.length() * 2);
++        int length = pattern.length();
++        final StringBuilder sb = new StringBuilder(length * 2);
+         final ParsePosition pos = new ParsePosition(0);
+         int fe = -1;
+         int depth = 0;
+-        while (pos.getIndex() < pattern.length()) {
++        while (pos.getIndex() < length) {
+             final char c = pattern.charAt(pos.getIndex());
+             switch (c) {
+             case QUOTE:

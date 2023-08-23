@@ -1,0 +1,41 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+index 7b1dcc7..bf39fe7 100644
+--- a/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
++++ b/src/main/java/org/apache/commons/math3/linear/SymmLQ.java
+@@ -548,14 +548,15 @@
+              * if b = 0.
+              */
+             this.r1 = this.b.copy();
+-            this.y = this.m == null ? this.b.copy() : this.m.operate(this.r1);
+-            if ((this.m != null) && this.check) {
+-                checkSymmetry(this.m, this.r1, this.y, this.m.operate(this.y));
++             RealLinearOperator m1 = this.m;
++             this.y = m1 == null ? this.b.copy() : m1.operate(this.r1);
++            if ((m1 != null) && this.check) {
++                checkSymmetry(m1, this.r1, this.y, m1.operate(this.y));
+             }
+ 
+             this.beta1 = this.r1.dotProduct(this.y);
+             if (this.beta1 < 0.) {
+-                throwNPDLOException(this.m, this.y);
++                throwNPDLOException(m1, this.y);
+             }
+             if (this.beta1 == 0.) {
+                 /* If b = 0 exactly, stop with x = 0. */
+@@ -591,13 +592,13 @@
+             final double vtv = v.dotProduct(v);
+             daxpy(-vty / vtv, v, this.y);
+             this.r2 = this.y.copy();
+-            if (this.m != null) {
+-                this.y = this.m.operate(this.r2);
++            if (m1 != null) {
++                this.y = m1.operate(this.r2);
+             }
+             this.oldb = this.beta1;
+             this.beta = this.r2.dotProduct(this.y);
+             if (this.beta < 0.) {
+-                throwNPDLOException(this.m, this.y);
++                throwNPDLOException(m1, this.y);
+             }
+             this.beta = FastMath.sqrt(this.beta);
+             /*

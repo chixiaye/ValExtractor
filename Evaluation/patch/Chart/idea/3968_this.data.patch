@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/general/WaferMapDataset.java b/source/org/jfree/data/general/WaferMapDataset.java
+index 7436b84..4a0c1e0 100644
+--- a/source/org/jfree/data/general/WaferMapDataset.java
++++ b/source/org/jfree/data/general/WaferMapDataset.java
+@@ -168,9 +168,10 @@
+     public Set getUniqueValues() {
+         Set unique = new TreeSet();
+         //step through all the values and add them to the hash
+-        for (int r = 0; r < this.data.getRowCount(); r++) {
+-            for (int c = 0; c < this.data.getColumnCount(); c++) {
+-                Number value = this.data.getValue(r, c);
++        DefaultKeyedValues2D data1 = this.data;
++        for (int r = 0; r < data1.getRowCount(); r++) {
++            for (int c = 0; c < data1.getColumnCount(); c++) {
++                Number value = data1.getValue(r, c);
+                 if (value != null) {
+                     unique.add(value);
+                 }

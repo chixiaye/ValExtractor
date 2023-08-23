@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+index a8877eb..dd98a65 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java
+@@ -1812,8 +1812,9 @@
+      */
+     public void checkCompatibility(final DSCompiler compiler)
+             throws DimensionMismatchException {
+-        if (parameters != compiler.parameters) {
+-            throw new DimensionMismatchException(parameters, compiler.parameters);
++        int parameters1 = compiler.parameters;
++        if (parameters != parameters1) {
++            throw new DimensionMismatchException(parameters, parameters1);
+         }
+         if (order != compiler.order) {
+             throw new DimensionMismatchException(order, compiler.order);

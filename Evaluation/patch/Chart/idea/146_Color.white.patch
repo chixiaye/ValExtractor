@@ -1,0 +1,33 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..55ea03b 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -247,20 +247,21 @@
+      */
+     public static ChartTheme createDarknessTheme() {
+         StandardChartTheme theme = new StandardChartTheme("Darkness");
+-        theme.titlePaint = Color.white;
+-        theme.subtitlePaint = Color.white;
++        Color white = Color.white;
++        theme.titlePaint = white;
++        theme.subtitlePaint = white;
+         theme.legendBackgroundPaint = Color.black;
+-        theme.legendItemPaint = Color.white;
++        theme.legendItemPaint = white;
+         theme.chartBackgroundPaint = Color.black;
+         theme.plotBackgroundPaint = Color.black;
+         theme.plotOutlinePaint = Color.yellow;
+-        theme.baselinePaint = Color.white;
++        theme.baselinePaint = white;
+         theme.crosshairPaint = Color.red;
+         theme.labelLinkPaint = Color.lightGray;
+-        theme.tickLabelPaint = Color.white;
+-        theme.axisLabelPaint = Color.white;
++        theme.tickLabelPaint = white;
++        theme.axisLabelPaint = white;
+         theme.shadowPaint = Color.darkGray;
+-        theme.itemLabelPaint = Color.white;
++        theme.itemLabelPaint = white;
+         theme.drawingSupplier = new DefaultDrawingSupplier(
+                 new Paint[] {Color.decode("0xFFFF00"),
+                         Color.decode("0x0036CC"), Color.decode("0xFF0000"),

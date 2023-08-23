@@ -1,0 +1,61 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..66fbe9c 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -485,7 +485,7 @@
+       }
+ 
+       if (options.crossModuleMethodMotion) {
+-        passes.add(crossModuleMethodMotion);
++        boolean var_1786 = passes.add(crossModuleMethodMotion);
+       }
+ 
+       passes.add(specializeInitialModule);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..66fbe9c 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -485,7 +485,7 @@
+       }
+ 
+       if (options.crossModuleMethodMotion) {
+-        passes.add(crossModuleMethodMotion);
++        boolean var_1786 = passes.add(crossModuleMethodMotion);
+       }
+ 
+       passes.add(specializeInitialModule);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..5dd8e10 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -474,6 +474,7 @@
+ 
+     passes.addAll(getMainOptimizationLoop());
+ 
++      boolean add = passes.add(crossModuleMethodMotion);
+     if (options.specializeInitialModule) {
+       // When specializing the initial module, we want our fixups to be
+       // as lean as possible, so we run the entire optimization loop to a
+@@ -485,7 +486,7 @@
+       }
+ 
+       if (options.crossModuleMethodMotion) {
+-        passes.add(crossModuleMethodMotion);
++        add;
+       }
+ 
+       passes.add(specializeInitialModule);
+@@ -499,7 +500,7 @@
+     }
+ 
+     if (options.crossModuleMethodMotion) {
+-      passes.add(crossModuleMethodMotion);
++      add;
+     }
+ 
+     passes.add(createEmptyPass("afterModuleMotion"));

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..6e46dfa 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -3740,7 +3740,8 @@
+                 CategoryItemRenderer r = getRenderer(i);
+                 if (r != null) {
+                     CategoryAxis domainAxis = getDomainAxisForDataset(i);
+-                    ValueAxis rangeAxis = getRangeAxisForDataset(i);
++                    ValueAxis rangeAxisForDataset = getRangeAxisForDataset(i);
++                    ValueAxis rangeAxis = rangeAxisForDataset;
+                     r.drawAnnotations(g2, dataArea, domainAxis, rangeAxis,
+                             Layer.BACKGROUND, state);
+                 }

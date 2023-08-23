@@ -1,0 +1,74 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodValuesCollection.java b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+index ba52bd7..e4174a4 100644
+--- a/source/org/jfree/data/time/TimePeriodValuesCollection.java
++++ b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+@@ -410,8 +410,9 @@
+                     else if (this.xPosition == TimePeriodAnchor.END) {
+                         TimePeriod minEnd = series.getTimePeriod(
+                                 series.getMinEndIndex());
++                        long var_4206 = end.getEnd().getTime();
+                         temp = new Range(minEnd.getEnd().getTime(),
+-                                end.getEnd().getTime());
++                                var_4206);
+                     }
+                 }
+                 else {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodValuesCollection.java b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+index ba52bd7..1149cfb 100644
+--- a/source/org/jfree/data/time/TimePeriodValuesCollection.java
++++ b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+@@ -388,6 +388,7 @@
+                 TimePeriod start = series.getTimePeriod(
+                         series.getMinStartIndex());
+                 TimePeriod end = series.getTimePeriod(series.getMaxEndIndex());
++                long var_4206 = end.getEnd().getTime();
+                 if (!includeInterval) {
+                     if (this.xPosition == TimePeriodAnchor.START) {
+                         TimePeriod maxStart = series.getTimePeriod(
+@@ -411,12 +412,12 @@
+                         TimePeriod minEnd = series.getTimePeriod(
+                                 series.getMinEndIndex());
+                         temp = new Range(minEnd.getEnd().getTime(),
+-                                end.getEnd().getTime());
++                                var_4206);
+                     }
+                 }
+                 else {
+                     temp = new Range(start.getStart().getTime(),
+-                            end.getEnd().getTime());
++                            var_4206);
+                 }
+                 result = Range.combine(result, temp);
+             }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/time/TimePeriodValuesCollection.java b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+index ba52bd7..fd54aae 100644
+--- a/source/org/jfree/data/time/TimePeriodValuesCollection.java
++++ b/source/org/jfree/data/time/TimePeriodValuesCollection.java
+@@ -388,6 +388,7 @@
+                 TimePeriod start = series.getTimePeriod(
+                         series.getMinStartIndex());
+                 TimePeriod end = series.getTimePeriod(series.getMaxEndIndex());
++                long time = end.getEnd().getTime();
+                 if (!includeInterval) {
+                     if (this.xPosition == TimePeriodAnchor.START) {
+                         TimePeriod maxStart = series.getTimePeriod(
+@@ -411,12 +412,12 @@
+                         TimePeriod minEnd = series.getTimePeriod(
+                                 series.getMinEndIndex());
+                         temp = new Range(minEnd.getEnd().getTime(),
+-                                end.getEnd().getTime());
++                                time);
+                     }
+                 }
+                 else {
+                     temp = new Range(start.getStart().getTime(),
+-                            end.getEnd().getTime());
++                            time);
+                 }
+                 result = Range.combine(result, temp);
+             }

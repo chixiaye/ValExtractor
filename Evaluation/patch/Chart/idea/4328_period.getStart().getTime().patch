@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/data/time/TimeTableXYDataset.java b/source/org/jfree/data/time/TimeTableXYDataset.java
+index 377c9a4..147ae11 100644
+--- a/source/org/jfree/data/time/TimeTableXYDataset.java
++++ b/source/org/jfree/data/time/TimeTableXYDataset.java
+@@ -483,11 +483,12 @@
+      */
+     private long getXValue(TimePeriod period) {
+         long result = 0L;
++        long time = period.getStart().getTime();
+         if (this.xPosition == TimePeriodAnchor.START) {
+-            result = period.getStart().getTime();
++            result = time;
+         }
+         else if (this.xPosition == TimePeriodAnchor.MIDDLE) {
+-            long t0 = period.getStart().getTime();
++            long t0 = time;
+             long t1 = period.getEnd().getTime();
+             result = t0 + (t1 - t0) / 2L;
+         }

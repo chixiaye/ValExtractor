@@ -1,0 +1,17 @@
+diff --git a/src/com/google/javascript/jscomp/JSModuleGraph.java b/src/com/google/javascript/jscomp/JSModuleGraph.java
+index 114ad2a..e195cc7 100644
+--- a/src/com/google/javascript/jscomp/JSModuleGraph.java
++++ b/src/com/google/javascript/jscomp/JSModuleGraph.java
+@@ -239,9 +239,10 @@
+   public JSModule getDeepestCommonDependencyInclusive(
+       Collection<JSModule> modules) {
+     Iterator<JSModule> iter = modules.iterator();
+-    JSModule dep = iter.next();
++      JSModule next = iter.next();
++      JSModule dep = next;
+     while (iter.hasNext()) {
+-      dep = getDeepestCommonDependencyInclusive(dep, iter.next());
++      dep = getDeepestCommonDependencyInclusive(dep, next);
+     }
+     return dep;
+   }

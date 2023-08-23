@@ -1,0 +1,22 @@
+diff --git a/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/util/IOEdge.java b/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/util/IOEdge.java
+index c2eae5e8ba..a530173b2b 100644
+--- a/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/util/IOEdge.java
++++ b/gremlin-core/src/main/java/com/tinkerpop/gremlin/structure/io/util/IOEdge.java
+@@ -2,6 +2,7 @@ package com.tinkerpop.gremlin.structure.io.util;
+ 
+ import com.tinkerpop.gremlin.structure.Direction;
+ import com.tinkerpop.gremlin.structure.Edge;
++import com.tinkerpop.gremlin.structure.Vertex;
+ 
+ /**
+  * @author Stephen Mallette (http://stephen.genoprime.com)
+@@ -13,7 +14,8 @@ public class IOEdge extends IOElement {
+     public static IOEdge from(final Edge edge) {
+         final IOEdge ioe = new IOEdge();
+         ioe.inV = edge.getVertex(Direction.IN).getId();
+-        ioe.outV = edge.getVertex(Direction.OUT).getId();
++        Vertex out = edge.getVertex(Direction.OUT);
++        ioe.outV = out.getId();
+         return from(edge, ioe);
+     }
+ }

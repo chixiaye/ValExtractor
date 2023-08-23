@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java b/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
+index 4b370ec..dd1b89f 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
++++ b/src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java
+@@ -196,10 +196,11 @@
+                     if (p2 == null) {
+                         return 1;
+                     }
+-                    if (p1.getX() < p2.getX()) {
++                    double x = p2.getX();
++                    if (p1.getX() < x) {
+                         return -1;
+                     }
+-                    if (p1.getX() > p2.getX()) {
++                    if (p1.getX() > x) {
+                         return 1;
+                     }
+                     if (p1.getY() < p2.getY()) {

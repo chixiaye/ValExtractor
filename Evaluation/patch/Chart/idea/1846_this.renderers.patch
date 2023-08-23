@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..f02d6d6 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -1662,14 +1662,15 @@
+                             boolean notify) {
+ 
+         // stop listening to the existing renderer...
++        ObjectList renderers1 = this.renderers;
+         CategoryItemRenderer existing
+-            = (CategoryItemRenderer) this.renderers.get(index);
++            = (CategoryItemRenderer) renderers1.get(index);
+         if (existing != null) {
+             existing.removeChangeListener(this);
+         }
+ 
+         // register the new renderer...
+-        this.renderers.set(index, renderer);
++        renderers1.set(index, renderer);
+         if (renderer != null) {
+             renderer.setPlot(this);
+             renderer.addChangeListener(this);

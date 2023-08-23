@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/WaferMapPlot.java b/source/org/jfree/chart/plot/WaferMapPlot.java
+index eba4ff8..4e52d33 100644
+--- a/source/org/jfree/chart/plot/WaferMapPlot.java
++++ b/source/org/jfree/chart/plot/WaferMapPlot.java
+@@ -189,7 +189,8 @@
+         // if there is an existing dataset, remove the plot from the list of
+         // change listeners...
+         if (this.dataset != null) {
+-            this.dataset.removeChangeListener(this);
++            WaferMapDataset dataset1 = this.dataset;
++            dataset1.removeChangeListener(this);
+         }
+ 
+         // set the new dataset, and register the chart as a change listener...

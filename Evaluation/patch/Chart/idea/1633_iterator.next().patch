@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..579b9a3 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -2512,7 +2512,8 @@
+             Set keys = this.backgroundDomainMarkers.keySet();
+             Iterator iterator = keys.iterator();
+             while (iterator.hasNext()) {
+-                Integer key = (Integer) iterator.next();
++                Object next = iterator.next();
++                Integer key = (Integer) next;
+                 clearDomainMarkers(key.intValue());
+             }
+             this.backgroundDomainMarkers.clear();

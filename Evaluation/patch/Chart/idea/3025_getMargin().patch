@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+index ee3e0b4..1c9a9b1 100644
+--- a/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/ClusteredXYBarRenderer.java
+@@ -255,9 +255,10 @@
+         if (this.centerBarAtStartValue) {
+             baseX = baseX - intervalW / 2.0;
+         }
+-        double m = getMargin();
++        double margin = getMargin();
++        double m = margin;
+         if (m > 0.0) {
+-            double cut = intervalW * getMargin();
++            double cut = intervalW * margin;
+             intervalW = intervalW - cut;
+             baseX = baseX + (cut / 2);
+         }

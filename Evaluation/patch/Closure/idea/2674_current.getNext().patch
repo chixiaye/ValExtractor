@@ -1,0 +1,32 @@
+diff --git a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+index c8fbac8..9ab793e 100644
+--- a/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
++++ b/src/com/google/javascript/rhino/jstype/JSTypeRegistry.java
+@@ -1604,7 +1604,8 @@
+         ObjectType thisType = null;
+         boolean isConstructor = false;
+         Node current = n.getFirstChild();
+-        if (current.getType() == Token.THIS ||
++          Node next = current.getNext();
++          if (current.getType() == Token.THIS ||
+             current.getType() == Token.NEW) {
+           Node contextNode = current.getFirstChild();
+           thisType =
+@@ -1623,7 +1624,7 @@
+           }
+ 
+           isConstructor = current.getType() == Token.NEW;
+-          current = current.getNext();
++          current = next;
+         }
+ 
+         FunctionParamBuilder paramBuilder = new FunctionParamBuilder(this);
+@@ -1655,7 +1656,7 @@
+               }
+             }
+           }
+-          current = current.getNext();
++          current = next;
+         }
+ 
+         JSType returnType =

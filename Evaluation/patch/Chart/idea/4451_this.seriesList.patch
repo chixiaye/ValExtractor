@@ -1,0 +1,22 @@
+diff --git a/source/org/jfree/data/xy/DefaultIntervalXYDataset.java b/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
+index 5c5ff5b..3a5f4b5 100644
+--- a/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
++++ b/source/org/jfree/data/xy/DefaultIntervalXYDataset.java
+@@ -423,13 +423,14 @@
+                 "The 'data' array must contain six arrays with equal length.");
+         }
+         int seriesIndex = indexOf(seriesKey);
++        List seriesList1 = this.seriesList;
+         if (seriesIndex == -1) {  // add a new series
+             this.seriesKeys.add(seriesKey);
+-            this.seriesList.add(data);
++            seriesList1.add(data);
+         }
+         else {  // replace an existing series
+-            this.seriesList.remove(seriesIndex);
+-            this.seriesList.add(seriesIndex, data);
++            seriesList1.remove(seriesIndex);
++            seriesList1.add(seriesIndex, data);
+         }
+         fireDatasetChanged(new DatasetChangeInfo());
+         //TODO: fill in real change info

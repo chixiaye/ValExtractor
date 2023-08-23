@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/axis/LogarithmicAxis.java b/source/org/jfree/chart/axis/LogarithmicAxis.java
+index 1f440bd..bc2ae68 100644
+--- a/source/org/jfree/chart/axis/LogarithmicAxis.java
++++ b/source/org/jfree/chart/axis/LogarithmicAxis.java
+@@ -950,10 +950,11 @@
+                                     //negative exponent; create fractional value
+                                     //set exact number of fractional digits to
+                                     // be shown:
+-                                    this.numberFormatterObj
++                                    NumberFormat numberFormatterObj1 = this.numberFormatterObj;
++                                    numberFormatterObj1
+                                         .setMaximumFractionDigits(-i);
+                                     //create tick label:
+-                                    tickLabel = this.numberFormatterObj.format(
++                                    tickLabel = numberFormatterObj1.format(
+                                             tickVal);
+                                 }
+                             }

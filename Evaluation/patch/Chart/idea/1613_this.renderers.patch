@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..9b13cb1 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -653,6 +653,7 @@
+         this.backgroundRangeMarkers = new HashMap();
+ 
+         this.datasets = new ObjectList();
++        ObjectList renderers1 = this.renderers;
+         this.renderers = new ObjectList();
+ 
+         this.datasetToDomainAxesMap = new TreeMap();

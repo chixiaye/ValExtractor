@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..965a717 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -611,7 +611,8 @@
+ 
+   public void addChildrenToFront(Node children) {
+     for (Node child = children; child != null; child = child.next) {
+-      Preconditions.checkArgument(child.parent == null);
++        Node parent1 = child.parent;
++        Preconditions.checkArgument(parent1 == null);
+       child.parent = this;
+     }
+     Node lastSib = children.getLastSibling();

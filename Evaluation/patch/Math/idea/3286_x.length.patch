@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+index 104bdf5..a7ce78f 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/CMAESOptimizer.java
+@@ -1071,8 +1071,9 @@
+             final double[] lB = CMAESOptimizer.this.getLowerBound();
+             final double[] uB = CMAESOptimizer.this.getUpperBound();
+ 
+-            final double[] repaired = new double[x.length];
+-            for (int i = 0; i < x.length; i++) {
++            int length = x.length;
++            final double[] repaired = new double[length];
++            for (int i = 0; i < length; i++) {
+                 if (x[i] < lB[i]) {
+                     repaired[i] = lB[i];
+                 } else if (x[i] > uB[i]) {

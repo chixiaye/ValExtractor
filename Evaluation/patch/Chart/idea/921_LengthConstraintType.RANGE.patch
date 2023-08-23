@@ -1,0 +1,43 @@
+diff --git a/source/org/jfree/chart/block/BorderArrangement.java b/source/org/jfree/chart/block/BorderArrangement.java
+index b3ae54b..bfd1289 100644
+--- a/source/org/jfree/chart/block/BorderArrangement.java
++++ b/source/org/jfree/chart/block/BorderArrangement.java
+@@ -133,6 +133,7 @@
+         Size2D contentSize = null;
+         LengthConstraintType w = contentConstraint.getWidthConstraintType();
+         LengthConstraintType h = contentConstraint.getHeightConstraintType();
++        LengthConstraintType range = LengthConstraintType.RANGE;
+         if (w == LengthConstraintType.NONE) {
+             if (h == LengthConstraintType.NONE) {
+                 contentSize = arrangeNN(container, g2);
+@@ -140,7 +141,7 @@
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 throw new RuntimeException("Not implemented.");
+             }
+         }
+@@ -151,18 +152,18 @@
+             else if (h == LengthConstraintType.FIXED) {
+                 contentSize = arrangeFF(container, g2, constraint);
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 contentSize = arrangeFR(container, g2, constraint);
+             }
+         }
+-        else if (w == LengthConstraintType.RANGE) {
++        else if (w == range) {
+             if (h == LengthConstraintType.NONE) {
+                 throw new RuntimeException("Not implemented.");
+             }
+             else if (h == LengthConstraintType.FIXED) {
+                 throw new RuntimeException("Not implemented.");
+             }
+-            else if (h == LengthConstraintType.RANGE) {
++            else if (h == range) {
+                 contentSize = arrangeRR(container, constraint.getWidthRange(),
+                         constraint.getHeightRange(), g2);
+             }

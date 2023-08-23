@@ -1,0 +1,20 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..47262f8 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -2389,12 +2389,13 @@
+         }
+         // Check number of interpolation points.
+         final int[] nPointsInterval = { dimension + 2, (dimension + 2) * (dimension + 1) / 2 };
++        int hi = nPointsInterval[1];
+         if (numberOfInterpolationPoints < nPointsInterval[0] ||
+-            numberOfInterpolationPoints > nPointsInterval[1]) {
++            numberOfInterpolationPoints > hi) {
+             throw new OutOfRangeException(LocalizedFormats.NUMBER_OF_INTERPOLATION_POINTS,
+                                           numberOfInterpolationPoints,
+                                           nPointsInterval[0],
+-                                          nPointsInterval[1]);
++                    hi);
+         }
+ 
+         // Initialize bound differences.

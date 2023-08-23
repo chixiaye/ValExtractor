@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 04b53fa..36a2f00 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -5668,10 +5668,11 @@
+ 
+         for (int i = 0; i < buffer.length; i++) {
+             final char ch = buffer[i];
++            char c = Character.toLowerCase(ch);
+             if (Character.isUpperCase(ch)) {
+-                buffer[i] = Character.toLowerCase(ch);
++                buffer[i] = c;
+             } else if (Character.isTitleCase(ch)) {
+-                buffer[i] = Character.toLowerCase(ch);
++                buffer[i] = c;
+             } else if (Character.isLowerCase(ch)) {
+                 buffer[i] = Character.toUpperCase(ch);
+             }

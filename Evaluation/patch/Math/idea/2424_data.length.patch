@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+index e807cb0..8c6899c 100644
+--- a/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
++++ b/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java
+@@ -755,8 +755,9 @@
+     @Override
+     protected void checkVectorDimensions(int n)
+         throws DimensionMismatchException {
+-        if (data.length != n) {
+-            throw new DimensionMismatchException(data.length, n);
++        int length = data.length;
++        if (length != n) {
++            throw new DimensionMismatchException(length, n);
+         }
+     }
+ 

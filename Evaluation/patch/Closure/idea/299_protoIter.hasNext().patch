@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..d5725ac 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1233,9 +1233,11 @@
+       if (node.prototypeNames.size() > 0) {
+         sb.append("<li>PROTOTYPES: ");
+         Iterator<String> protoIter = node.prototypeNames.iterator();
+-        while (protoIter.hasNext()) {
+-          sb.append(protoIter.next());
+-          if (protoIter.hasNext()) {
++        while (true) {
++            boolean b = protoIter.hasNext();
++            if (!b) break;
++            sb.append(protoIter.next());
++          if (b) {
+             sb.append(", ");
+           }
+         }

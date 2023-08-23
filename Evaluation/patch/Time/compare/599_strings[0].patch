@@ -1,0 +1,39 @@
+==> /tmp/ours.java <==
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/tz/DefaultNameProvider.java b/src/main/java/org/joda/time/tz/DefaultNameProvider.java
+index 89e6739..f25b976 100644
+--- a/src/main/java/org/joda/time/tz/DefaultNameProvider.java
++++ b/src/main/java/org/joda/time/tz/DefaultNameProvider.java
+@@ -66,7 +66,8 @@
+             String[][] zoneStringsEn = DateTimeUtils.getDateFormatSymbols(Locale.ENGLISH).getZoneStrings();
+             String[] setEn = null;
+             for (String[] strings : zoneStringsEn) {
+-              if (strings != null && strings.length == 5 && id.equals(strings[0])) {
++              String var_599 = strings[0];
++			if (strings != null && strings.length == 5 && id.equals(var_599)) {
+                 setEn = strings;
+                 break;
+               }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/tz/DefaultNameProvider.java b/src/main/java/org/joda/time/tz/DefaultNameProvider.java
+index 89e6739..1b45feb 100644
+--- a/src/main/java/org/joda/time/tz/DefaultNameProvider.java
++++ b/src/main/java/org/joda/time/tz/DefaultNameProvider.java
+@@ -66,11 +66,14 @@
+             String[][] zoneStringsEn = DateTimeUtils.getDateFormatSymbols(Locale.ENGLISH).getZoneStrings();
+             String[] setEn = null;
+             for (String[] strings : zoneStringsEn) {
+-              if (strings != null && strings.length == 5 && id.equals(strings[0])) {
++              if (strings != null && strings.length == 5) {
++                  String string = strings[0];
++                  if (id.equals(string)) {
+                 setEn = strings;
+                 break;
+               }
+             }
++            }
+             String[][] zoneStringsLoc = DateTimeUtils.getDateFormatSymbols(locale).getZoneStrings();
+             String[] setLoc = null;
+             for (String[] strings : zoneStringsLoc) {

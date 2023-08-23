@@ -1,0 +1,24 @@
+diff --git a/src/main/java/org/apache/commons/lang3/CharUtils.java b/src/main/java/org/apache/commons/lang3/CharUtils.java
+index d603cfa..b803ab7 100644
+--- a/src/main/java/org/apache/commons/lang3/CharUtils.java
++++ b/src/main/java/org/apache/commons/lang3/CharUtils.java
+@@ -350,14 +350,15 @@
+      * @return the escaped Unicode string
+      */
+     public static String unicodeEscaped(final char ch) {
++        String s = Integer.toHexString(ch);
+         if (ch < 0x10) {
+-            return "\\u000" + Integer.toHexString(ch);
++            return "\\u000" + s;
+         } else if (ch < 0x100) {
+-            return "\\u00" + Integer.toHexString(ch);
++            return "\\u00" + s;
+         } else if (ch < 0x1000) {
+-            return "\\u0" + Integer.toHexString(ch);
++            return "\\u0" + s;
+         }
+-        return "\\u" + Integer.toHexString(ch);
++        return "\\u" + s;
+     }
+     
+     /**

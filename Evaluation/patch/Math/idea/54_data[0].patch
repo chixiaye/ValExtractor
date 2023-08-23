@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+index bb29eee..a72cdd7 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
++++ b/src/main/java/org/apache/commons/math3/analysis/differentiation/DerivativeStructure.java
+@@ -514,11 +514,12 @@
+ 
+         compiler.checkCompatibility(y.compiler);
+ 
+-        if (Double.isInfinite(data[0]) || Double.isInfinite(y.data[0])) {
++        double datum = data[0];
++        if (Double.isInfinite(datum) || Double.isInfinite(y.data[0])) {
+             return new DerivativeStructure(compiler.getFreeParameters(),
+                                            compiler.getFreeParameters(),
+                                            Double.POSITIVE_INFINITY);
+-        } else if (Double.isNaN(data[0]) || Double.isNaN(y.data[0])) {
++        } else if (Double.isNaN(datum) || Double.isNaN(y.data[0])) {
+             return new DerivativeStructure(compiler.getFreeParameters(),
+                                            compiler.getFreeParameters(),
+                                            Double.NaN);

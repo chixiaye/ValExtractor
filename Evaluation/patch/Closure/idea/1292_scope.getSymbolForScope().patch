@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..6b531ef 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -250,10 +250,11 @@
+    * scope.
+    */
+   public Symbol getSymbolForScope(SymbolScope scope) {
+-    if (scope.getSymbolForScope() == null) {
++      Symbol symbolForScope = scope.getSymbolForScope();
++      if (symbolForScope == null) {
+       scope.setSymbolForScope(findSymbolForScope(scope));
+     }
+-    return scope.getSymbolForScope();
++    return symbolForScope;
+   }
+ 
+   /**

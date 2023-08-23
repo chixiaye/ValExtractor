@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TightenTypes.java b/src/com/google/javascript/jscomp/TightenTypes.java
+index 2f1ab6a..de6bdec 100644
+--- a/src/com/google/javascript/jscomp/TightenTypes.java
++++ b/src/com/google/javascript/jscomp/TightenTypes.java
+@@ -601,13 +601,14 @@
+           // Variable declaration, e.g. var a = b;
+           Node name;
+           for (name = n.getFirstChild(); name != null; name = name.getNext()) {
+-            if (inExterns) {
++              String string = name.getString();
++              if (inExterns) {
+               // In externs, we have to trust the type information because there
+               // are not necessarily assignments to the variables, calls to the
+               // functions, etc.
+-              scope.declareSlot(name.getString(), n, createType(name, scope));
++              scope.declareSlot(string, n, createType(name, scope));
+             } else {
+-              scope.declareSlot(name.getString(), n);
++              scope.declareSlot(string, n);
+               if (name.getFirstChild() != null) {
+                 addActions(createAssignmentActions(
+                     name, name.getFirstChild(), n));

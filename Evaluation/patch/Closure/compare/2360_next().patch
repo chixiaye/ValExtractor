@@ -1,0 +1,111 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..9dfa841 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1855,7 +1855,8 @@
+     Node parameters = null;
+     skipEOLs();
+     if (!match(JsDocToken.RP)) {
+-      token = next();
++      JsDocToken var_2360 = next();
++	token = var_2360;
+ 
+       boolean hasParams = true;
+       if (token == JsDocToken.STRING) {
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..00791d0 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1854,8 +1854,9 @@
+     Node functionType = newNode(Token.FUNCTION);
+     Node parameters = null;
+     skipEOLs();
++    JsDocToken var_2360 = next();
+     if (!match(JsDocToken.RP)) {
+-      token = next();
++      token = var_2360;
+ 
+       boolean hasParams = true;
+       if (token == JsDocToken.STRING) {
+@@ -1868,7 +1869,7 @@
+             skipEOLs();
+             Node contextType = wrapNode(
+                 isThis ? Token.THIS : Token.NEW,
+-                parseTypeName(next()));
++                parseTypeName(var_2360));
+             if (contextType == null) {
+               return null;
+             }
+@@ -1881,7 +1882,7 @@
+           if (match(JsDocToken.COMMA)) {
+             next();
+             skipEOLs();
+-            token = next();
++            token = var_2360;
+           } else {
+             hasParams = false;
+           }
+@@ -1906,7 +1907,7 @@
+     }
+ 
+     skipEOLs();
+-    Node resultType = parseResultType(next());
++    Node resultType = parseResultType(var_2360);
+     if (resultType == null) {
+       return null;
+     } else {
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..7d00864 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1854,8 +1854,9 @@
+     Node functionType = newNode(Token.FUNCTION);
+     Node parameters = null;
+     skipEOLs();
++      JsDocToken next = next();
+     if (!match(JsDocToken.RP)) {
+-      token = next();
++      token = next;
+ 
+       boolean hasParams = true;
+       if (token == JsDocToken.STRING) {
+@@ -1864,11 +1865,11 @@
+         boolean isNew = "new".equals(tokenStr);
+         if (isThis || isNew) {
+           if (match(JsDocToken.COLON)) {
+-            next();
++            next;
+             skipEOLs();
+             Node contextType = wrapNode(
+                 isThis ? Token.THIS : Token.NEW,
+-                parseTypeName(next()));
++                parseTypeName(next));
+             if (contextType == null) {
+               return null;
+             }
+@@ -1879,9 +1880,9 @@
+           }
+ 
+           if (match(JsDocToken.COMMA)) {
+-            next();
++            next;
+             skipEOLs();
+-            token = next();
++            token = next;
+           } else {
+             hasParams = false;
+           }
+@@ -1906,7 +1907,7 @@
+     }
+ 
+     skipEOLs();
+-    Node resultType = parseResultType(next());
++    Node resultType = parseResultType(next);
+     if (resultType == null) {
+       return null;
+     } else {

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/text/TextLine.java b/source/org/jfree/chart/text/TextLine.java
+index d79bb18..6145c55 100644
+--- a/source/org/jfree/chart/text/TextLine.java
++++ b/source/org/jfree/chart/text/TextLine.java
+@@ -92,6 +92,7 @@
+      * @param font  the text font (<code>null</code> not permitted).
+      */
+     public TextLine(String text, Font font) {
++        List fragments1 = this.fragments;
+         this.fragments = new java.util.ArrayList();
+         TextFragment fragment = new TextFragment(text, font);
+         this.fragments.add(fragment);

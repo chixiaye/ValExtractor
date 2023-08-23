@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+index 6577281..ba9f4a8 100644
+--- a/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
++++ b/src/main/java/org/apache/commons/math3/linear/AbstractRealMatrix.java
+@@ -427,8 +427,9 @@
+         }
+ 
+         for (int r = 1; r < nRows; ++r) {
+-            if (subMatrix[r].length != nCols) {
+-                throw new DimensionMismatchException(nCols, subMatrix[r].length);
++            double[] subMatrix1 = subMatrix[r];
++            if (subMatrix1.length != nCols) {
++                throw new DimensionMismatchException(nCols, subMatrix1.length);
+             }
+         }
+ 

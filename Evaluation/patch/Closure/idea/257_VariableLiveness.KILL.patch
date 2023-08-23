@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+index 9d1b56c..9260818 100644
+--- a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
++++ b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+@@ -429,10 +429,13 @@
+     // a KILL is only considered if both KILL.
+     if (v1 == VariableLiveness.READ || v2 == VariableLiveness.READ) {
+       return VariableLiveness.READ;
+-    } else if (v1 == VariableLiveness.KILL && v2 == VariableLiveness.KILL) {
+-      return VariableLiveness.KILL;
+     } else {
+-      return VariableLiveness.MAYBE_LIVE;
++        VariableLiveness kill = VariableLiveness.KILL;
++        if (v1 == kill && v2 == kill) {
++          return kill;
++        } else {
++          return VariableLiveness.MAYBE_LIVE;
++        }
+     }
+   }
+ }

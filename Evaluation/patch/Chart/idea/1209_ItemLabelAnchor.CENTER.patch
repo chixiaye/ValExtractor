@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/labels/ItemLabelAnchor.java b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+index 1fb515d..236def8 100644
+--- a/source/org/jfree/chart/labels/ItemLabelAnchor.java
++++ b/source/org/jfree/chart/labels/ItemLabelAnchor.java
+@@ -212,8 +212,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         ItemLabelAnchor result = null;
+-        if (this.equals(ItemLabelAnchor.CENTER)) {
+-            result = ItemLabelAnchor.CENTER;
++        ItemLabelAnchor center = ItemLabelAnchor.CENTER;
++        if (this.equals(center)) {
++            result = center;
+         }
+         else if (this.equals(ItemLabelAnchor.INSIDE1)) {
+             result = ItemLabelAnchor.INSIDE1;

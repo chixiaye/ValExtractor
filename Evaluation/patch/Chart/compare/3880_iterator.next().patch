@@ -1,0 +1,67 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..f427a9f 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -315,7 +315,8 @@
+         ArrayList otherKeys = new ArrayList();
+         Iterator iterator = keys.iterator();
+         while (iterator.hasNext()) {
+-            Comparable currentKey = (Comparable) iterator.next();
++            Object var_3880 = iterator.next();
++			Comparable currentKey = (Comparable) var_3880;
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 double value = dataValue.doubleValue();
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..913775c 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -314,8 +314,9 @@
+         List keys = source.getKeys();
+         ArrayList otherKeys = new ArrayList();
+         Iterator iterator = keys.iterator();
++        Object var_3880 = iterator.next();
+         while (iterator.hasNext()) {
+-            Comparable currentKey = (Comparable) iterator.next();
++            Comparable currentKey = (Comparable) var_3880;
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 double value = dataValue.doubleValue();
+@@ -329,7 +330,7 @@
+         iterator = keys.iterator();
+         double otherValue = 0;
+         while (iterator.hasNext()) {
+-            Comparable currentKey = (Comparable) iterator.next();
++            Comparable currentKey = (Comparable) var_3880;
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 if (otherKeys.contains(currentKey)
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..b6308bf 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -314,8 +314,9 @@
+         List keys = source.getKeys();
+         ArrayList otherKeys = new ArrayList();
+         Iterator iterator = keys.iterator();
++        Object next = iterator.next();
+         while (iterator.hasNext()) {
+-            Comparable currentKey = (Comparable) iterator.next();
++            Comparable currentKey = (Comparable) next;
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 double value = dataValue.doubleValue();
+@@ -329,7 +330,7 @@
+         iterator = keys.iterator();
+         double otherValue = 0;
+         while (iterator.hasNext()) {
+-            Comparable currentKey = (Comparable) iterator.next();
++            Comparable currentKey = (Comparable) next;
+             Number dataValue = source.getValue(currentKey);
+             if (dataValue != null) {
+                 if (otherKeys.contains(currentKey)

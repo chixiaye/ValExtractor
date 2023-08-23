@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/dfp/Dfp.java b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+index e6de61f..e71a846 100644
+--- a/src/main/java/org/apache/commons/math3/dfp/Dfp.java
++++ b/src/main/java/org/apache/commons/math3/dfp/Dfp.java
+@@ -1246,7 +1246,8 @@
+         for (int i = 0; i < mant.length; i++) {
+             final int r = mant[i] + rh;
+             rh = r / RADIX;
+-            mant[i] = r - rh * RADIX;
++            int i1 = mant[i];
++            i1 = r - rh * RADIX;
+         }
+ 
+         return extra;

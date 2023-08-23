@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/text/TextBlock.java b/source/org/jfree/chart/text/TextBlock.java
+index 708fe7a..aecb5ea 100644
+--- a/source/org/jfree/chart/text/TextBlock.java
++++ b/source/org/jfree/chart/text/TextBlock.java
+@@ -135,9 +135,10 @@
+      */
+     public TextLine getLastLine() {
+         TextLine last = null;
+-        final int index = this.lines.size() - 1;
++        List lines1 = this.lines;
++        final int index = lines1.size() - 1;
+         if (index >= 0) {
+-            last = (TextLine) this.lines.get(index);
++            last = (TextLine) lines1.get(index);
+         }
+         return last;
+     }

@@ -1,0 +1,41 @@
+diff --git a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+index d61f9e9..1c01a5f 100644
+--- a/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
++++ b/src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java
+@@ -165,7 +165,8 @@
+     @SuppressWarnings("fallthrough")
+     @Override
+     public void visit(NodeTraversal t, Node n, Node parent) {
+-      switch (n.getType()) {
++        Node firstChild = n.getFirstChild();
++        switch (n.getType()) {
+         case Token.NAME:
+         case Token.GETPROP:
+           if (parent.isGetProp()) {
+@@ -194,7 +195,7 @@
+           break;
+ 
+         case Token.ASSIGN:
+-          Node lhs = n.getFirstChild();
++          Node lhs = firstChild;
+           Node rhs = n.getLastChild();
+           if (rhs.isFunction()) {
+             // These are recorded when entering the scope.
+@@ -214,7 +215,7 @@
+ 
+         case Token.VAR:
+           // var foo = bar;
+-          Node varName = n.getFirstChild();
++          Node varName = firstChild;
+           Node assignedValue = varName.getFirstChild();
+           if (assignedValue == null) {
+             return;
+@@ -223,7 +224,7 @@
+           break;
+ 
+         case Token.CALL:
+-          Node param = n.getFirstChild();
++          Node param = firstChild;
+           // We need to alias every name that is passed as a parameter because
+           // they have different names inside the function's scope.
+           while ((param = param.getNext()) != null) {

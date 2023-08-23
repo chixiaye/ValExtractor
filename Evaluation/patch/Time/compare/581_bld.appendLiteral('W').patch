@@ -1,0 +1,76 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..ab4c6eb 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -352,7 +352,7 @@
+             
+         } else if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+             bld.appendLiteral('-');
+-            bld.appendLiteral('W');
++            DateTimeFormatterBuilder var_581 = bld.appendLiteral('W');
+             bld.appendWeekOfWeekyear(2);
+             if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+                 // -WWW-D/-WWWD
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..ab4c6eb 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -352,7 +352,7 @@
+             
+         } else if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+             bld.appendLiteral('-');
+-            bld.appendLiteral('W');
++            DateTimeFormatterBuilder var_581 = bld.appendLiteral('W');
+             bld.appendWeekOfWeekyear(2);
+             if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+                 // -WWW-D/-WWWD
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/joda/time/format/ISODateTimeFormat.java b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+index af53ee4..362a0f7 100644
+--- a/src/main/java/org/joda/time/format/ISODateTimeFormat.java
++++ b/src/main/java/org/joda/time/format/ISODateTimeFormat.java
+@@ -322,11 +322,12 @@
+         boolean strictISO) {
+         
+         boolean reducedPrec = false;
++        DateTimeFormatterBuilder w = bld.appendLiteral('W');
+         if (fields.remove(DateTimeFieldType.weekyear())) {
+             bld.append(Constants.we);
+             if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+                 appendSeparator(bld, extended);
+-                bld.appendLiteral('W');
++                w;
+                 bld.appendWeekOfWeekyear(2);
+                 if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+                     // YYYY-WWW-D/YYYYWWWD
+@@ -341,7 +342,7 @@
+                     // YYYY-W-D/YYYYW-D (non-iso)
+                     checkNotStrictISO(fields, strictISO);
+                     appendSeparator(bld, extended);
+-                    bld.appendLiteral('W');
++                    w;
+                     bld.appendLiteral('-');
+                     bld.appendDayOfWeek(1);
+                 } else {
+@@ -352,7 +353,7 @@
+             
+         } else if (fields.remove(DateTimeFieldType.weekOfWeekyear())) {
+             bld.appendLiteral('-');
+-            bld.appendLiteral('W');
++            w;
+             bld.appendWeekOfWeekyear(2);
+             if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+                 // -WWW-D/-WWWD
+@@ -365,7 +366,7 @@
+         } else if (fields.remove(DateTimeFieldType.dayOfWeek())) {
+             // -W-D/-W-D
+             bld.appendLiteral('-');
+-            bld.appendLiteral('W');
++            w;
+             bld.appendLiteral('-');
+             bld.appendDayOfWeek(1);
+         }

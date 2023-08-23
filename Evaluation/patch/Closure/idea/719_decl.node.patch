@@ -1,0 +1,20 @@
+diff --git a/src/com/google/javascript/jscomp/CollapseProperties.java b/src/com/google/javascript/jscomp/CollapseProperties.java
+index 3dc9204..060051c 100644
+--- a/src/com/google/javascript/jscomp/CollapseProperties.java
++++ b/src/com/google/javascript/jscomp/CollapseProperties.java
+@@ -398,9 +398,12 @@
+     // initialized is fully qualified (i.e. not an object literal key).
+     String originalName = n.getFullName();
+     Ref decl = n.getDeclaration();
+-    if (decl != null && decl.node != null &&
+-        decl.node.isGetProp()) {
+-      flattenNameRefAtDepth(alias, decl.node, depth, originalName);
++    if (decl != null) {
++        Node node = decl.node;
++        if (node != null &&
++                node.isGetProp()) {
++            flattenNameRefAtDepth(alias, node, depth, originalName);
++        }
+     }
+ 
+     for (Ref r : n.getRefs()) {

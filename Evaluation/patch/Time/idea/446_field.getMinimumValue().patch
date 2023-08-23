@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/field/OffsetDateTimeField.java b/src/main/java/org/joda/time/field/OffsetDateTimeField.java
+index b317eb2..cebaebc 100644
+--- a/src/main/java/org/joda/time/field/OffsetDateTimeField.java
++++ b/src/main/java/org/joda/time/field/OffsetDateTimeField.java
+@@ -79,8 +79,9 @@
+ 
+         iOffset = offset;
+ 
+-        if (minValue < (field.getMinimumValue() + offset)) {
+-            iMin = field.getMinimumValue() + offset;
++        int minimumValue = field.getMinimumValue();
++        if (minValue < (minimumValue + offset)) {
++            iMin = minimumValue + offset;
+         } else {
+             iMin = minValue;
+         }

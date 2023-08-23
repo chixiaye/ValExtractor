@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+index fb9b5c2..e2e8d8a 100644
+--- a/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
++++ b/src/com/google/javascript/jscomp/SimpleDefinitionFinder.java
+@@ -51,8 +51,9 @@
+   public SimpleDefinitionFinder(AbstractCompiler compiler) {
+     this.compiler = compiler;
+     this.definitionSiteMap = Maps.newLinkedHashMap();
+-    this.nameDefinitionMultimap = LinkedHashMultimap.create();
+-    this.nameUseSiteMultimap = LinkedHashMultimap.create();
++      LinkedHashMultimap<String, Definition> nameDefinitionMultimap1 = LinkedHashMultimap.create();
++      this.nameDefinitionMultimap = nameDefinitionMultimap1;
++    this.nameUseSiteMultimap = nameDefinitionMultimap1;
+   }
+ 
+   /**

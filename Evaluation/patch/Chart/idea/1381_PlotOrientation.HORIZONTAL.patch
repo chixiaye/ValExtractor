@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/PlotOrientation.java b/source/org/jfree/chart/plot/PlotOrientation.java
+index bac2eb7..b411ea2 100644
+--- a/source/org/jfree/chart/plot/PlotOrientation.java
++++ b/source/org/jfree/chart/plot/PlotOrientation.java
+@@ -122,8 +122,9 @@
+      */
+     private Object readResolve() throws ObjectStreamException {
+         Object result = null;
+-        if (this.equals(PlotOrientation.HORIZONTAL)) {
+-            result = PlotOrientation.HORIZONTAL;
++        PlotOrientation horizontal = PlotOrientation.HORIZONTAL;
++        if (this.equals(horizontal)) {
++            result = horizontal;
+         }
+         else if (this.equals(PlotOrientation.VERTICAL)) {
+             result = PlotOrientation.VERTICAL;

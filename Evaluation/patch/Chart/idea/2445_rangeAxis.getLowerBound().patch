@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/chart/renderer/category/LayeredBarRenderer.java b/source/org/jfree/chart/renderer/category/LayeredBarRenderer.java
+index e49577c..953c080 100644
+--- a/source/org/jfree/chart/renderer/category/LayeredBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/LayeredBarRenderer.java
+@@ -363,7 +363,8 @@
+         // BAR Y
+         double value = dataValue.doubleValue();
+         double base = 0.0;
+-        double lclip = rangeAxis.getLowerBound();
++        double lowerBound = rangeAxis.getLowerBound();
++        double lclip = lowerBound;
+         double uclip = rangeAxis.getUpperBound();
+ 
+         if (uclip <= 0.0) {  // cases 1, 2, 3 and 4
+@@ -389,7 +390,7 @@
+             if (value <= lclip) {
+                 return; // bar is not visible
+             }
+-            base = rangeAxis.getLowerBound();
++            base = lowerBound;
+             if (value >= uclip) {
+                value = uclip;
+             }

@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+index 171eb51..56dc218 100644
+--- a/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
++++ b/src/com/google/javascript/jscomp/PureFunctionIdentifier.java
+@@ -784,8 +784,9 @@
+     public boolean traverseEdge(FunctionInformation callee,
+                                 Node callSite,
+                                 FunctionInformation caller) {
+-      Preconditions.checkArgument(callSite.isCall() ||
+-                                  callSite.isNew());
++        boolean aNew = callSite.isNew();
++        Preconditions.checkArgument(callSite.isCall() ||
++                aNew);
+ 
+       boolean changed = false;
+       if (!caller.mutatesGlobalState() && callee.mutatesGlobalState()) {
+@@ -801,7 +802,7 @@
+       if (callee.mutatesThis()) {
+         // Side effects only propagate via regular calls.
+         // Calling a constructor that modifies "this" has no side effects.
+-        if (!callSite.isNew()) {
++        if (!aNew) {
+           Node objectNode = getCallThisObject(callSite);
+           if (objectNode != null && objectNode.isName()
+               && !isCallOrApply(callSite)) {

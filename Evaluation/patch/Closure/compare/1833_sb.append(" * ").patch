@@ -1,0 +1,88 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..59465f8 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -147,7 +147,7 @@
+ 
+       if (funType.isInterface()) {
+         for (ObjectType interfaceType : funType.getExtendedInterfaces()) {
+-          sb.append(" * ");
++          StringBuilder var_1833 = sb.append(" * ");
+           appendAnnotation(sb, "extends", interfaceType.toAnnotationString());
+           sb.append("\n");
+         }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..59465f8 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -147,7 +147,7 @@
+ 
+       if (funType.isInterface()) {
+         for (ObjectType interfaceType : funType.getExtendedInterfaces()) {
+-          sb.append(" * ");
++          StringBuilder var_1833 = sb.append(" * ");
+           appendAnnotation(sb, "extends", interfaceType.toAnnotationString());
+           sb.append("\n");
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/TypedCodeGenerator.java b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+index 64c3d95..45b9aa7 100644
+--- a/src/com/google/javascript/jscomp/TypedCodeGenerator.java
++++ b/src/com/google/javascript/jscomp/TypedCodeGenerator.java
+@@ -104,6 +104,7 @@
+     //   LP
+     //     NAME param1
+     //     NAME param2
++      StringBuilder append = sb.append(" * ");
+     if (fnNode != null) {
+       Node paramNode = NodeUtil.getFunctionParameters(fnNode).getFirstChild();
+ 
+@@ -113,7 +114,7 @@
+         if (paramNode == null) {
+           break;
+         }
+-        sb.append(" * ");
++        append;
+         appendAnnotation(sb, "param", getParameterNodeJSDocType(n));
+         sb.append(" ")
+             .append(paramNode.getString())
+@@ -125,7 +126,7 @@
+     // Return type
+     JSType retType = funType.getReturnType();
+     if (retType != null && !retType.isUnknownType() && !retType.isEmptyType()) {
+-      sb.append(" * ");
++      append;
+       appendAnnotation(sb, "return", retType.toAnnotationString());
+       sb.append("\n");
+     }
+@@ -139,7 +140,7 @@
+         ObjectType superInstance =
+           funType.getSuperClassConstructor().getInstanceType();
+         if (!superInstance.toString().equals("Object")) {
+-          sb.append(" * ");
++          append;
+           appendAnnotation(sb, "extends", superInstance.toAnnotationString());
+           sb.append("\n");
+         }
+@@ -147,7 +148,7 @@
+ 
+       if (funType.isInterface()) {
+         for (ObjectType interfaceType : funType.getExtendedInterfaces()) {
+-          sb.append(" * ");
++          append;
+           appendAnnotation(sb, "extends", interfaceType.toAnnotationString());
+           sb.append("\n");
+         }
+@@ -159,7 +160,7 @@
+         interfaces.add(interfaze.toAnnotationString());
+       }
+       for (String interfaze : interfaces) {
+-        sb.append(" * ");
++        append;
+         appendAnnotation(sb, "implements", interfaze);
+         sb.append("\n");
+       }

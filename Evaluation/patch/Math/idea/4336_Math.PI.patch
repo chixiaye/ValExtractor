@@ -1,0 +1,92 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..762a17c 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -2582,6 +2582,7 @@
+             return Double.NaN;
+         }
+ 
++        double pi = Math.PI;
+         if (y == 0) {
+             final double result = x * y;
+             final double invx = 1d / x;
+@@ -2591,15 +2592,15 @@
+                 if (x > 0) {
+                     return y; // return +/- 0.0
+                 } else {
+-                    return copySign(Math.PI, y);
++                    return copySign(pi, y);
+                 }
+             }
+ 
+             if (x < 0 || invx < 0) {
+                 if (y < 0 || invy < 0) {
+-                    return -Math.PI;
++                    return -pi;
+                 } else {
+-                    return Math.PI;
++                    return pi;
+                 }
+             } else {
+                 return result;
+@@ -2610,26 +2611,26 @@
+ 
+         if (y == Double.POSITIVE_INFINITY) {
+             if (x == Double.POSITIVE_INFINITY) {
+-                return Math.PI * F_1_4;
++                return pi * F_1_4;
+             }
+ 
+             if (x == Double.NEGATIVE_INFINITY) {
+-                return Math.PI * F_3_4;
++                return pi * F_3_4;
+             }
+ 
+-            return Math.PI * F_1_2;
++            return pi * F_1_2;
+         }
+ 
+         if (y == Double.NEGATIVE_INFINITY) {
+             if (x == Double.POSITIVE_INFINITY) {
+-                return -Math.PI * F_1_4;
++                return -pi * F_1_4;
+             }
+ 
+             if (x == Double.NEGATIVE_INFINITY) {
+-                return -Math.PI * F_3_4;
++                return -pi * F_3_4;
+             }
+ 
+-            return -Math.PI * F_1_2;
++            return -pi * F_1_2;
+         }
+ 
+         if (x == Double.POSITIVE_INFINITY) {
+@@ -2645,11 +2646,11 @@
+         if (x == Double.NEGATIVE_INFINITY)
+         {
+             if (y > 0.0 || 1 / y > 0.0) {
+-                return Math.PI;
++                return pi;
+             }
+ 
+             if (y < 0 || 1 / y < 0) {
+-                return -Math.PI;
++                return -pi;
+             }
+         }
+ 
+@@ -2657,11 +2658,11 @@
+ 
+         if (x == 0) {
+             if (y > 0 || 1 / y > 0) {
+-                return Math.PI * F_1_2;
++                return pi * F_1_2;
+             }
+ 
+             if (y < 0 || 1 / y < 0) {
+-                return -Math.PI * F_1_2;
++                return -pi * F_1_2;
+             }
+         }
+ 

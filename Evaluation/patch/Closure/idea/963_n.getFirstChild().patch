@@ -1,0 +1,22 @@
+diff --git a/src/com/google/javascript/jscomp/TypeInference.java b/src/com/google/javascript/jscomp/TypeInference.java
+index 3dc8ec6..0dbeaab 100644
+--- a/src/com/google/javascript/jscomp/TypeInference.java
++++ b/src/com/google/javascript/jscomp/TypeInference.java
+@@ -1254,14 +1254,15 @@
+   }
+ 
+   private FlowScope traverseGetProp(Node n, FlowScope scope) {
+-    Node objNode = n.getFirstChild();
++      Node firstChild = n.getFirstChild();
++      Node objNode = firstChild;
+     Node property = n.getLastChild();
+     scope = traverseChildren(n, scope);
+ 
+     n.setJSType(
+         getPropertyType(
+             objNode.getJSType(), property.getString(), n, scope));
+-    return dereferencePointer(n.getFirstChild(), scope);
++    return dereferencePointer(firstChild, scope);
+   }
+ 
+   /**

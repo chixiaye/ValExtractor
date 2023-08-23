@@ -1,0 +1,28 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..dd0fb94 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -1133,8 +1133,9 @@
+      * @return log(x)
+      */
+     private static double log(final double x, final double[] hiPrec) {
++        double negativeInfinity = Double.NEGATIVE_INFINITY;
+         if (x==0) { // Handle special case of +0/-0
+-            return Double.NEGATIVE_INFINITY;
++            return negativeInfinity;
+         }
+         long bits = Double.doubleToRawLongBits(x);
+ 
+@@ -1164,10 +1165,10 @@
+             if (x == 0) {
+                 // Zero
+                 if (hiPrec != null) {
+-                    hiPrec[0] = Double.NEGATIVE_INFINITY;
++                    hiPrec[0] = negativeInfinity;
+                 }
+ 
+-                return Double.NEGATIVE_INFINITY;
++                return negativeInfinity;
+             }
+ 
+             /* Normalize the subnormal number. */

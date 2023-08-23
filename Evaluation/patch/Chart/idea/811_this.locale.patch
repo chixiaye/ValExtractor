@@ -1,0 +1,27 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..5e870a5 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -839,10 +839,11 @@
+         g2.setPaint(this.labelInfo[band].getLabelPaint());
+ 
+         // work out the number of periods to skip for labelling
++        Locale locale1 = this.locale;
+         RegularTimePeriod p1 = this.labelInfo[band].createInstance(
+-                new Date(axisMin), this.timeZone, this.locale);
++                new Date(axisMin), this.timeZone, locale1);
+         RegularTimePeriod p2 = this.labelInfo[band].createInstance(
+-                new Date(axisMax), this.timeZone, this.locale);
++                new Date(axisMax), this.timeZone, locale1);
+         String label1 = this.labelInfo[band].getDateFormat().format(
+                 new Date(p1.getMiddleMillisecond()));
+         String label2 = this.labelInfo[band].getDateFormat().format(
+@@ -865,7 +866,7 @@
+         int periods = (int) (ww / length) + 1;
+ 
+         RegularTimePeriod p = this.labelInfo[band].createInstance(
+-                new Date(axisMin), this.timeZone, this.locale);
++                new Date(axisMin), this.timeZone, locale1);
+         Rectangle2D b = null;
+         long lastXX = 0L;
+         float y = (float) (state.getCursor());

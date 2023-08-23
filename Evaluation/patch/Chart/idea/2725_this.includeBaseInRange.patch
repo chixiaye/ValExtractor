@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer.java b/source/org/jfree/chart/renderer/category/BarRenderer.java
+index 37da044..f21372e 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer.java
+@@ -561,7 +561,8 @@
+      * @see #getIncludeBaseInRange()
+      */
+     public void setIncludeBaseInRange(boolean include) {
+-        if (this.includeBaseInRange != include) {
++        boolean includeBaseInRange1 = this.includeBaseInRange;
++        if (includeBaseInRange1 != include) {
+             this.includeBaseInRange = include;
+             fireChangeEvent();
+         }

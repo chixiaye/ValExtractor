@@ -1,0 +1,16 @@
+diff --git a/src/main/java/org/joda/time/field/OffsetDateTimeField.java b/src/main/java/org/joda/time/field/OffsetDateTimeField.java
+index b317eb2..cb80aa5 100644
+--- a/src/main/java/org/joda/time/field/OffsetDateTimeField.java
++++ b/src/main/java/org/joda/time/field/OffsetDateTimeField.java
+@@ -84,8 +84,9 @@
+         } else {
+             iMin = minValue;
+         }
+-        if (maxValue > (field.getMaximumValue() + offset)) {
+-            iMax = field.getMaximumValue() + offset;
++        int maximumValue = field.getMaximumValue();
++        if (maxValue > (maximumValue + offset)) {
++            iMax = maximumValue + offset;
+         } else {
+             iMax = maxValue;
+         }

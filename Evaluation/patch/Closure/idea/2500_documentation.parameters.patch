@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..1076f85 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -846,7 +846,8 @@
+       return true;
+     }
+ 
+-    if (documentation.parameters == null) {
++      Map<String, String> parameters = documentation.parameters;
++      if (parameters == null) {
+       documentation.parameters = new LinkedHashMap<String, String>();
+     }
+ 

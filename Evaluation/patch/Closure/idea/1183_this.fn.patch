@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/InlineFunctions.java b/src/com/google/javascript/jscomp/InlineFunctions.java
+index 008ffe5..fdcbd29 100644
+--- a/src/com/google/javascript/jscomp/InlineFunctions.java
++++ b/src/com/google/javascript/jscomp/InlineFunctions.java
+@@ -911,7 +911,8 @@
+     }
+ 
+     public void setFn(Function fn) {
+-      Preconditions.checkState(this.fn == null);
++        Function fn1 = this.fn;
++        Preconditions.checkState(fn1 == null);
+       this.fn = fn;
+     }
+ 

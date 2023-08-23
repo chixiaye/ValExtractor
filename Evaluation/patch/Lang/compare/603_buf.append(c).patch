@@ -1,0 +1,72 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..1cffd3c 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -328,7 +328,7 @@
+                     if (i + 1 < length && pattern.charAt(i + 1) == '\'') {
+                         // '' is treated as escaped '
+                         i++;
+-                        buf.append(c);
++                        StringBuilder var_603 = buf.append(c);
+                     } else {
+                         inLiteral = !inLiteral;
+                     }
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..1cffd3c 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -328,7 +328,7 @@
+                     if (i + 1 < length && pattern.charAt(i + 1) == '\'') {
+                         // '' is treated as escaped '
+                         i++;
+-                        buf.append(c);
++                        StringBuilder var_603 = buf.append(c);
+                     } else {
+                         inLiteral = !inLiteral;
+                     }
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+index 18c8964..3b737d3 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
++++ b/src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java
+@@ -301,15 +301,16 @@
+         final int length = pattern.length();
+ 
+         char c = pattern.charAt(i);
++        StringBuilder append = buf.append(c);
+         if (c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z') {
+             // Scan a run of the same character, which indicates a time
+             // pattern.
+-            buf.append(c);
++            append;
+ 
+             while (i + 1 < length) {
+                 final char peek = pattern.charAt(i + 1);
+                 if (peek == c) {
+-                    buf.append(c);
++                    append;
+                     i++;
+                 } else {
+                     break;
+@@ -328,7 +329,7 @@
+                     if (i + 1 < length && pattern.charAt(i + 1) == '\'') {
+                         // '' is treated as escaped '
+                         i++;
+-                        buf.append(c);
++                        append;
+                     } else {
+                         inLiteral = !inLiteral;
+                     }
+@@ -337,7 +338,7 @@
+                     i--;
+                     break;
+                 } else {
+-                    buf.append(c);
++                    append;
+                 }
+             }
+         }

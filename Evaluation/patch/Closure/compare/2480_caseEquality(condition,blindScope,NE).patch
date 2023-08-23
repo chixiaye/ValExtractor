@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..527ce73 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -189,7 +189,8 @@
+         if (outcome) {
+           return caseEquality(condition, blindScope, EQ);
+         } else {
+-          return caseEquality(condition, blindScope, NE);
++          FlowScope var_2480 = caseEquality(condition, blindScope, NE);
++		return var_2480;
+         }
+ 
+       case Token.NE:
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..99fd76a 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -166,6 +166,7 @@
+           }
+         }
+     }
++    FlowScope var_2480 = caseEquality(condition, blindScope, NE);
+     switch (operatorToken) {
+       case Token.AND:
+         if (outcome) {
+@@ -189,12 +190,12 @@
+         if (outcome) {
+           return caseEquality(condition, blindScope, EQ);
+         } else {
+-          return caseEquality(condition, blindScope, NE);
++          return var_2480;
+         }
+ 
+       case Token.NE:
+         if (outcome) {
+-          return caseEquality(condition, blindScope, NE);
++          return var_2480;
+         } else {
+           return caseEquality(condition, blindScope, EQ);
+         }
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+index aa25ddd..b78b4ea 100644
+--- a/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
++++ b/src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java
+@@ -166,6 +166,7 @@
+           }
+         }
+     }
++      FlowScope flowScope = caseEquality(condition, blindScope, NE);
+     switch (operatorToken) {
+       case Token.AND:
+         if (outcome) {
+@@ -189,12 +190,12 @@
+         if (outcome) {
+           return caseEquality(condition, blindScope, EQ);
+         } else {
+-          return caseEquality(condition, blindScope, NE);
++          return flowScope;
+         }
+ 
+       case Token.NE:
+         if (outcome) {
+-          return caseEquality(condition, blindScope, NE);
++          return flowScope;
+         } else {
+           return caseEquality(condition, blindScope, EQ);
+         }

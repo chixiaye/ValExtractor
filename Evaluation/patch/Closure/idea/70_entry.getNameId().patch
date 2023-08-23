@@ -1,0 +1,16 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+index e970d3a..c86d38a 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
++++ b/src/com/google/debugging/sourcemap/SourceMapConsumerV3.java
+@@ -488,8 +488,9 @@
+         .setOriginalFile(sources[entry.getSourceFileId()])
+         .setLineNumber(entry.getSourceLine() + 1)
+         .setColumnPosition(entry.getSourceColumn() + 1);
+-      if (entry.getNameId() != UNMAPPED) {
+-        x.setIdentifier(names[entry.getNameId()]);
++      int nameId = entry.getNameId();
++      if (nameId != UNMAPPED) {
++        x.setIdentifier(names[nameId]);
+       }
+       return x.build();
+     }

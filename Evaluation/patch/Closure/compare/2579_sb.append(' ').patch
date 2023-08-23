@@ -1,0 +1,66 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..8c69e18 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -936,7 +936,7 @@
+       sb.append(' ');
+       sb.append(getString());
+     } else if (type == Token.FUNCTION) {
+-      sb.append(' ');
++      StringBuilder var_2579 = sb.append(' ');
+       // In the case of JsDoc trees, the first child is often not a string
+       // which causes exceptions to be thrown when calling toString or
+       // toStringTree.
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..8c69e18 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -936,7 +936,7 @@
+       sb.append(' ');
+       sb.append(getString());
+     } else if (type == Token.FUNCTION) {
+-      sb.append(' ');
++      StringBuilder var_2579 = sb.append(' ');
+       // In the case of JsDoc trees, the first child is often not a string
+       // which causes exceptions to be thrown when calling toString or
+       // toStringTree.
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..35c6a2d 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -932,11 +932,12 @@
+       boolean printAnnotations,
+       boolean printType) {
+     sb.append(Token.name(type));
++      StringBuilder append = sb.append(' ');
+     if (this instanceof StringNode) {
+-      sb.append(' ');
++      append;
+       sb.append(getString());
+     } else if (type == Token.FUNCTION) {
+-      sb.append(' ');
++      append;
+       // In the case of JsDoc trees, the first child is often not a string
+       // which causes exceptions to be thrown when calling toString or
+       // toStringTree.
+@@ -946,13 +947,13 @@
+         sb.append(first.getString());
+       }
+     } else if (type == Token.NUMBER) {
+-      sb.append(' ');
++      append;
+       sb.append(getDouble());
+     }
+     if (printSource) {
+       int lineno = getLineno();
+       if (lineno != -1) {
+-        sb.append(' ');
++        append;
+         sb.append(lineno);
+       }
+     }

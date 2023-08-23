@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+index 6a7c33a..ef76ec5 100644
+--- a/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optimization/direct/BOBYQAOptimizer.java
+@@ -1004,7 +1004,8 @@
+                 for (int k = 0; k < npt; k++) {
+                     double temp = ZERO;
+                     for (int j = 0; j < n; j++) {
+-                        temp += interpolationPoints.getEntry(k, j) * trialStepPoint.getEntry(j);
++                        double entry = trialStepPoint.getEntry(j);
++                        temp += interpolationPoints.getEntry(k, j) * entry;
+                     }
+                     temp *= modelSecondDerivativesParameters.getEntry(k);
+                     for (int i = 0; i < n; i++) {

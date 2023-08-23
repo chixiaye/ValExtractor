@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..e892564 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -41,9 +41,7 @@
+ 
+ package org.jfree.chart.editor;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Color;
+-import java.awt.Paint;
++import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.util.ResourceBundle;
+@@ -114,8 +112,8 @@
+                 "Draw_anti-aliased"));
+         this.antialias.setSelected(chart.getAntiAlias());
+         interior.add(this.antialias);
+-        interior.add(new JLabel(""));
+-        interior.add(new JLabel(""));
++        Component add = interior.add(new JLabel(""));
++        add;
+         interior.add(new JLabel(localizationResources.getString(
+                 "Background_paint")));
+         this.background = new PaintSample(chart.getBackgroundPaint());

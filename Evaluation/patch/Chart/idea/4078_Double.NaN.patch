@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..9740f63 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -352,8 +352,9 @@
+                 mean, standardDeviation);
+         this.data.addObject(item, rowKey, columnKey);
+ 
+-        double m = Double.NaN;
+-        double sd = Double.NaN;
++        double naN = Double.NaN;
++        double m = naN;
++        double sd = naN;
+         if (mean != null) {
+             m = mean.doubleValue();
+         }

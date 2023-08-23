@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+index efc0110..24b6177 100644
+--- a/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java
+@@ -1911,7 +1911,8 @@
+             ds = ZERO;
+             shs = ZERO;
+             for (int i = 0; i < n; i++) {
+-                if (xbdi.getEntry(i) == ZERO) {
++                double entry = xbdi.getEntry(i);
++                if (entry == ZERO) {
+                     // Computing 2nd power
+                     final double d1 = trialStepPoint.getEntry(i);
+                     resid -= d1 * d1;

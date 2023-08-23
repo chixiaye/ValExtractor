@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/editor/DefaultPlotEditor.java b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+index b938aa5..3f6d015 100644
+--- a/source/org/jfree/chart/editor/DefaultPlotEditor.java
++++ b/source/org/jfree/chart/editor/DefaultPlotEditor.java
+@@ -307,6 +307,7 @@
+         else if (plot instanceof XYPlot) {
+             domainAxis = ((XYPlot) plot).getDomainAxis();
+         }
++        DefaultAxisEditor domainAxisPropertyPanel1 = this.domainAxisPropertyPanel;
+         this.domainAxisPropertyPanel = DefaultAxisEditor.getInstance(
+                 domainAxis);
+         if (this.domainAxisPropertyPanel != null) {

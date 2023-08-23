@@ -1,0 +1,29 @@
+diff --git a/source/org/jfree/chart/util/VerticalAlignment.java b/source/org/jfree/chart/util/VerticalAlignment.java
+index 8a13ee0..25167ea 100644
+--- a/source/org/jfree/chart/util/VerticalAlignment.java
++++ b/source/org/jfree/chart/util/VerticalAlignment.java
+@@ -129,14 +129,17 @@
+         if (this.equals(VerticalAlignment.TOP)) {
+             return VerticalAlignment.TOP;
+         }
+-        else if (this.equals(VerticalAlignment.BOTTOM)) {
+-            return VerticalAlignment.BOTTOM;
+-        }
+-        else if (this.equals(VerticalAlignment.CENTER)) {
+-            return VerticalAlignment.CENTER;
+-        }
+         else {
+-            return null;  // this should never happen
++            VerticalAlignment bottom = VerticalAlignment.BOTTOM;
++            if (this.equals(bottom)) {
++                return bottom;
++            }
++            else if (this.equals(VerticalAlignment.CENTER)) {
++                return VerticalAlignment.CENTER;
++            }
++            else {
++                return null;  // this should never happen
++            }
+         }
+     }
+ 

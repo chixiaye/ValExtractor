@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/text/TextBox.java b/source/org/jfree/chart/text/TextBox.java
+index a928467..d2de3f4 100644
+--- a/source/org/jfree/chart/text/TextBox.java
++++ b/source/org/jfree/chart/text/TextBox.java
+@@ -405,10 +405,11 @@
+     private void readObject(ObjectInputStream stream)
+         throws IOException, ClassNotFoundException {
+         stream.defaultReadObject();
+-        this.outlinePaint = SerialUtilities.readPaint(stream);
++        Paint backgroundPaint1 = SerialUtilities.readPaint(stream);
++        this.outlinePaint = backgroundPaint1;
+         this.outlineStroke = SerialUtilities.readStroke(stream);
+-        this.backgroundPaint = SerialUtilities.readPaint(stream);
+-        this.shadowPaint = SerialUtilities.readPaint(stream);
++        this.backgroundPaint = backgroundPaint1;
++        this.shadowPaint = backgroundPaint1;
+     }
+ 
+ 

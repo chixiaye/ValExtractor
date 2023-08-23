@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/joda/time/chrono/LenientChronology.java b/src/main/java/org/joda/time/chrono/LenientChronology.java
+index f072d58..2874b92 100644
+--- a/src/main/java/org/joda/time/chrono/LenientChronology.java
++++ b/src/main/java/org/joda/time/chrono/LenientChronology.java
+@@ -106,7 +106,8 @@
+         fields.hourOfDay = convertField(fields.hourOfDay);
+         fields.hourOfHalfday = convertField(fields.hourOfHalfday);
+         fields.clockhourOfDay = convertField(fields.clockhourOfDay);
+-        fields.clockhourOfHalfday = convertField(fields.clockhourOfHalfday);
++        DateTimeField clockhourOfHalfday = fields.clockhourOfHalfday;
++        clockhourOfHalfday = convertField(fields.clockhourOfHalfday);
+         fields.halfdayOfDay = convertField(fields.halfdayOfDay);
+     }
+ 

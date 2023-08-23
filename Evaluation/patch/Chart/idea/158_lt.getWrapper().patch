@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/StandardChartTheme.java b/source/org/jfree/chart/StandardChartTheme.java
+index 55fcb4f..4e22cbc 100644
+--- a/source/org/jfree/chart/StandardChartTheme.java
++++ b/source/org/jfree/chart/StandardChartTheme.java
+@@ -1172,8 +1172,9 @@
+             }
+             lt.setItemFont(this.regularFont);
+             lt.setItemPaint(this.legendItemPaint);
+-            if (lt.getWrapper() != null) {
+-                applyToBlockContainer(lt.getWrapper());
++            BlockContainer wrapper = lt.getWrapper();
++            if (wrapper != null) {
++                applyToBlockContainer(wrapper);
+             }
+         }
+         else if (title instanceof PaintScaleLegend) {

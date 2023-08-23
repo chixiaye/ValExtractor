@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/VarCheck.java b/src/com/google/javascript/jscomp/VarCheck.java
+index a497232..99aab08 100644
+--- a/src/com/google/javascript/jscomp/VarCheck.java
++++ b/src/com/google/javascript/jscomp/VarCheck.java
+@@ -242,7 +242,8 @@
+           case Token.GETPROP:
+             if (n == parent.getFirstChild()) {
+               Scope scope = t.getScope();
+-              Scope.Var var = scope.getVar(n.getString());
++                Scope.Var var1 = scope.getVar(n.getString());
++                Scope.Var var = var1;
+               if (var == null) {
+                 t.report(n, UNDEFINED_EXTERN_VAR_ERROR, n.getString());
+                 varsToDeclareInExterns.add(n.getString());

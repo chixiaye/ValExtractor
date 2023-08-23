@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/data/statistics/SimpleHistogramBin.java b/source/org/jfree/data/statistics/SimpleHistogramBin.java
+index 9782cd2..1b3fc0c 100644
+--- a/source/org/jfree/data/statistics/SimpleHistogramBin.java
++++ b/source/org/jfree/data/statistics/SimpleHistogramBin.java
+@@ -255,10 +255,11 @@
+             return 0;
+         }
+         SimpleHistogramBin bin = (SimpleHistogramBin) obj;
+-        if (this.lowerBound < bin.lowerBound) {
++        double lowerBound1 = this.lowerBound;
++        if (lowerBound1 < bin.lowerBound) {
+             return -1;
+         }
+-        if (this.lowerBound > bin.lowerBound) {
++        if (lowerBound1 > bin.lowerBound) {
+             return 1;
+         }
+         // lower bounds are the same

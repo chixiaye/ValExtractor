@@ -1,0 +1,17 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+index ed2ddda..114ccf6 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/GraggBulirschStoerIntegrator.java
+@@ -828,9 +828,10 @@
+ 
+           // compute centered differences to evaluate next derivatives
+           for (int j = (l + 1) / 2; j <= k; ++j) {
+-            for (int m = fk[j].length - 1; m >= 2 * (l + 1); --m) {
++              double[][] doubles = fk[j];
++              for (int m = doubles.length - 1; m >= 2 * (l + 1); --m) {
+               for (int i = 0; i < y0.length; ++i) {
+-                fk[j][m][i] -= fk[j][m-2][i];
++                doubles[m][i] -= doubles[m-2][i];
+               }
+             }
+           }

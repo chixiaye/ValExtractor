@@ -1,0 +1,25 @@
+diff --git a/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java b/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
+index 12badd2..6694c94 100644
+--- a/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
++++ b/src/main/java/org/apache/commons/math3/fitting/HarmonicFitter.java
+@@ -277,8 +277,9 @@
+             double sxz = 0;
+             double syz = 0;
+ 
+-            double currentX = observations[0].getX();
+-            double currentY = observations[0].getY();
++            WeightedObservedPoint observation = observations[0];
++            double currentX = observation.getX();
++            double currentY = observation.getY();
+             double f2Integral = 0;
+             double fPrime2Integral = 0;
+             final double startX = currentX;
+@@ -316,7 +317,7 @@
+                 final int last = observations.length - 1;
+                 // Range of the observations, assuming that the
+                 // observations are sorted.
+-                final double xRange = observations[last].getX() - observations[0].getX();
++                final double xRange = observations[last].getX() - observation.getX();
+                 if (xRange == 0) {
+                     throw new ZeroException();
+                 }

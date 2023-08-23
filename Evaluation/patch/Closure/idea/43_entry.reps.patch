@@ -1,0 +1,17 @@
+diff --git a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+index 8d33887..eebacf7 100644
+--- a/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
++++ b/src/com/google/debugging/sourcemap/SourceMapGeneratorV2.java
+@@ -608,9 +608,10 @@
+       if (validate) {
+         SourceMapLineDecoder.LineEntry entry =
+             SourceMapLineDecoder.decodeLineEntry(sb.toString(), lastId);
+-        Preconditions.checkState(entry.id == id && entry.reps == reps,
++          int reps1 = entry.reps;
++          Preconditions.checkState(entry.id == id && reps1 == reps,
+             "expected (%s,%s) but got (%s,%s)",
+-            id, reps, entry.id, entry.reps);
++            id, reps, entry.id, reps1);
+       }
+ 
+       out.append(sb);

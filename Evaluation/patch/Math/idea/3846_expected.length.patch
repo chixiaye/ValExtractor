@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+index 813f094..ccdfc74 100644
+--- a/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
++++ b/src/main/java/org/apache/commons/math3/stat/inference/ChiSquareTest.java
+@@ -82,11 +82,12 @@
+         throws NotPositiveException, NotStrictlyPositiveException,
+         DimensionMismatchException {
+ 
+-        if (expected.length < 2) {
+-            throw new DimensionMismatchException(expected.length, 2);
++        int length = expected.length;
++        if (length < 2) {
++            throw new DimensionMismatchException(length, 2);
+         }
+-        if (expected.length != observed.length) {
+-            throw new DimensionMismatchException(expected.length, observed.length);
++        if (length != observed.length) {
++            throw new DimensionMismatchException(length, observed.length);
+         }
+         MathArrays.checkPositive(expected);
+         MathArrays.checkNonNegative(observed);

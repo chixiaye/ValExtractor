@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/rhino/Node.java b/src/com/google/javascript/rhino/Node.java
+index 55aefbe..a496289 100644
+--- a/src/com/google/javascript/rhino/Node.java
++++ b/src/com/google/javascript/rhino/Node.java
+@@ -482,7 +482,8 @@
+         Preconditions.checkArgument(children[i - 1].parent == null);
+         children[i - 1].parent = this;
+       }
+-      Preconditions.checkArgument(children[children.length - 1].parent == null);
++        Node parent1 = children[children.length - 1].parent;
++        Preconditions.checkArgument(parent1 == null);
+       children[children.length - 1].parent = this;
+ 
+       if (null != this.last.next) {

@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java b/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
+index 2cbebcf..301310f 100644
+--- a/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
++++ b/source/org/jfree/chart/labels/MultipleXYSeriesLabelGenerator.java
+@@ -180,7 +180,8 @@
+     public Object clone() throws CloneNotSupportedException {
+         MultipleXYSeriesLabelGenerator clone
+                 = (MultipleXYSeriesLabelGenerator) super.clone();
+-        clone.seriesLabelLists = new HashMap();
++        Map seriesLabelLists1 = clone.seriesLabelLists;
++        seriesLabelLists1 = new HashMap();
+         Set keys = this.seriesLabelLists.keySet();
+         Iterator iterator = keys.iterator();
+         while (iterator.hasNext()) {

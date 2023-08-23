@@ -1,0 +1,65 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..e7ffaec 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -373,9 +373,10 @@
+         if (nreq < 1) {
+             throw new ModelSpecificationException(LocalizedFormats.NO_REGRESSORS);
+         }
+-        if (nreq > this.nvars) {
++        int var_3970 = this.nvars;
++		if (nreq > var_3970) {
+             throw new ModelSpecificationException(
+-                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, this.nvars);
++                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, var_3970);
+         }
+         if (!this.tol_set) {
+             tolset();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..e7ffaec 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -373,9 +373,10 @@
+         if (nreq < 1) {
+             throw new ModelSpecificationException(LocalizedFormats.NO_REGRESSORS);
+         }
+-        if (nreq > this.nvars) {
++        int var_3970 = this.nvars;
++		if (nreq > var_3970) {
+             throw new ModelSpecificationException(
+-                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, this.nvars);
++                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, var_3970);
+         }
+         if (!this.tol_set) {
+             tolset();
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..b2d2831 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -373,9 +373,10 @@
+         if (nreq < 1) {
+             throw new ModelSpecificationException(LocalizedFormats.NO_REGRESSORS);
+         }
+-        if (nreq > this.nvars) {
++        int nvars1 = this.nvars;
++        if (nreq > nvars1) {
+             throw new ModelSpecificationException(
+-                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, this.nvars);
++                    LocalizedFormats.TOO_MANY_REGRESSORS, nreq, nvars1);
+         }
+         if (!this.tol_set) {
+             tolset();
+@@ -389,7 +390,7 @@
+                 rankProblem = true;
+             } else {
+                 ret[i] = rhs[i];
+-                nextr = i * (nvars + nvars - i - 1) / 2;
++                nextr = i * (nvars1 + nvars1 - i - 1) / 2;
+                 for (int j = i + 1; j < nreq; j++) {
+                     ret[i] = smartAdd(ret[i], -r[nextr] * ret[j]);
+                     ++nextr;

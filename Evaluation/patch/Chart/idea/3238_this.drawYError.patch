@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java b/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java
+index 4af9465..c738e34 100644
+--- a/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYErrorRenderer.java
+@@ -170,7 +170,8 @@
+      * @see #getDrawYError()
+      */
+     public void setDrawYError(boolean draw) {
+-        if (this.drawYError != draw) {
++        boolean drawYError1 = this.drawYError;
++        if (drawYError1 != draw) {
+             this.drawYError = draw;
+             fireChangeEvent();
+         }

@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..1811279 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -910,10 +910,11 @@
+              append(" (").
+              append(stat.clockTime).
+              append(" ms");
+-          if (stat.extraInfo != null) {
+-            for (int i = 0; i < stat.extraInfo.length; i++) {
++            int[] extraInfo = stat.extraInfo;
++            if (extraInfo != null) {
++            for (int i = 0; i < extraInfo.length; i++) {
+               sb.append("; ");
+-              sb.append(stat.extraInfo[i]).
++              sb.append(extraInfo[i]).
+                  append(' ').
+                  append(extraTracingStatistics.get(i).getUnits());
+             }

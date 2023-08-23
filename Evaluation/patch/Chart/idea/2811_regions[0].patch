@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/renderer/category/GradientBarPainter.java b/source/org/jfree/chart/renderer/category/GradientBarPainter.java
+index 96a84cd..970d45c 100644
+--- a/source/org/jfree/chart/renderer/category/GradientBarPainter.java
++++ b/source/org/jfree/chart/renderer/category/GradientBarPainter.java
+@@ -133,10 +133,11 @@
+         if (base == RectangleEdge.TOP || base == RectangleEdge.BOTTOM) {
+             Rectangle2D[] regions = splitVerticalBar(bar, this.g1, this.g2,
+                     this.g3);
+-            GradientPaint gp = new GradientPaint((float) regions[0].getMinX(),
+-                    0.0f, c0, (float) regions[0].getMaxX(), 0.0f, Color.white);
++            Rectangle2D region = regions[0];
++            GradientPaint gp = new GradientPaint((float) region.getMinX(),
++                    0.0f, c0, (float) region.getMaxX(), 0.0f, Color.white);
+             g2.setPaint(gp);
+-            g2.fill(regions[0]);
++            g2.fill(region);
+ 
+             gp = new GradientPaint((float) regions[1].getMinX(), 0.0f,
+                     Color.white, (float) regions[1].getMaxX(), 0.0f, c0);

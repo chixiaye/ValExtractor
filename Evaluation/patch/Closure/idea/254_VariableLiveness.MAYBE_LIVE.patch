@@ -1,0 +1,53 @@
+diff --git a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+index 9d1b56c..cc2b62e 100644
+--- a/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
++++ b/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+@@ -357,8 +357,9 @@
+    */
+   private VariableLiveness isVariableReadBeforeKill(
+       Node n, String variable) {
+-    if (ControlFlowGraph.isEnteringNewCfgNode(n)) { // Not a FUNCTION
+-      return VariableLiveness.MAYBE_LIVE;
++      VariableLiveness maybeLive = VariableLiveness.MAYBE_LIVE;
++      if (ControlFlowGraph.isEnteringNewCfgNode(n)) { // Not a FUNCTION
++      return maybeLive;
+     }
+ 
+     if (n.isName() && variable.equals(n.getString())) {
+@@ -388,17 +389,17 @@
+           n.getLastChild(), variable);
+         // With a AND/OR the first branch always runs, but the second is
+         // may not.
+-        if (v1 != VariableLiveness.MAYBE_LIVE) {
++        if (v1 != maybeLive) {
+           return v1;
+         } else if (v2 == VariableLiveness.READ) {
+           return VariableLiveness.READ;
+         } else {
+-          return VariableLiveness.MAYBE_LIVE;
++          return maybeLive;
+         }
+       case Token.HOOK:
+         VariableLiveness first = isVariableReadBeforeKill(
+             n.getFirstChild(), variable);
+-        if (first != VariableLiveness.MAYBE_LIVE) {
++        if (first != maybeLive) {
+           return first;
+         }
+         return checkHookBranchReadBeforeKill(
+@@ -409,13 +410,13 @@
+         for (Node child = n.getFirstChild();
+             child != null; child = child.getNext()) {
+           VariableLiveness state = isVariableReadBeforeKill(child, variable);
+-          if (state != VariableLiveness.MAYBE_LIVE) {
++          if (state != maybeLive) {
+             return state;
+           }
+         }
+     }
+ 
+-    return VariableLiveness.MAYBE_LIVE;
++    return maybeLive;
+   }
+ 
+   private VariableLiveness checkHookBranchReadBeforeKill(

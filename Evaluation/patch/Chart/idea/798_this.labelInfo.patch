@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..ac3b790 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -616,8 +616,9 @@
+         double labelWidth = 0.0;
+         double tickLabelBandsDimension = 0.0;
+ 
+-        for (int i = 0; i < this.labelInfo.length; i++) {
+-            PeriodAxisLabelInfo info = this.labelInfo[i];
++        PeriodAxisLabelInfo[] labelInfo1 = this.labelInfo;
++        for (int i = 0; i < labelInfo1.length; i++) {
++            PeriodAxisLabelInfo info = labelInfo1[i];
+             FontMetrics fm = g2.getFontMetrics(info.getLabelFont());
+             tickLabelBandsDimension
+                 += info.getPadding().extendHeight(fm.getHeight());

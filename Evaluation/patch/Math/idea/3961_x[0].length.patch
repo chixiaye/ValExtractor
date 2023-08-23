@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..6d709ea 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -202,10 +202,11 @@
+             throw new ModelSpecificationException(
+                     LocalizedFormats.NO_DATA);
+         }
+-        if (x[0].length + 1 > x.length) {
++        int length = x[0].length;
++        if (length + 1 > x.length) {
+             throw new ModelSpecificationException(
+                   LocalizedFormats.NOT_ENOUGH_DATA_FOR_NUMBER_OF_PREDICTORS,
+-                  x.length, x[0].length);
++                  x.length, length);
+         }
+         for (int i = 0; i < x.length; i++) {
+             addObservation(x[i], y[i]);

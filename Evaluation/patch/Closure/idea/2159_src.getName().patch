@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/deps/DepsGenerator.java b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+index 135c87c..8895925 100644
+--- a/src/com/google/javascript/jscomp/deps/DepsGenerator.java
++++ b/src/com/google/javascript/jscomp/deps/DepsGenerator.java
+@@ -293,10 +293,11 @@
+     // into srcs.  So we need to scan all the src files for addDependency
+     // calls as well.
+     for (SourceFile src : srcs) {
+-      if ((new File(src.getName())).exists() &&
++        String name = src.getName();
++        if ((new File(name)).exists() &&
+           !shouldSkipDepsFile(src)) {
+         List<DependencyInfo> srcInfos =
+-            depsParser.parseFileReader(src.getName(), src.getCodeReader());
++            depsParser.parseFileReader(name, src.getCodeReader());
+         for (DependencyInfo info : srcInfos) {
+           depsFiles.put(info.getPathRelativeToClosureBase(), info);
+         }

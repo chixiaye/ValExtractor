@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/axis/ModuloAxis.java b/source/org/jfree/chart/axis/ModuloAxis.java
+index cf1e3c9..6c04b42 100644
+--- a/source/org/jfree/chart/axis/ModuloAxis.java
++++ b/source/org/jfree/chart/axis/ModuloAxis.java
+@@ -319,8 +319,9 @@
+             return (this.displayEnd - this.displayStart);
+         }
+         else {
+-            return (this.fixedRange.getUpperBound() - this.displayStart)
+-                + (this.displayEnd - this.fixedRange.getLowerBound());
++            Range fixedRange1 = this.fixedRange;
++            return (fixedRange1.getUpperBound() - this.displayStart)
++                + (this.displayEnd - fixedRange1.getLowerBound());
+         }
+     }
+ 

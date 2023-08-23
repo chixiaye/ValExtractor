@@ -1,0 +1,23 @@
+diff --git a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+index 4e56fef..fe65b10 100644
+--- a/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
++++ b/src/main/java/org/joda/time/tz/ZoneInfoCompiler.java
+@@ -277,7 +277,8 @@
+         long end = ISOChronology.getInstanceUTC().year().set(0, 2050);
+ 
+         int offset = tz.getOffset(millis);
+-        String key = tz.getNameKey(millis);
++        String nameKey = tz.getNameKey(millis);
++        String key = nameKey;
+ 
+         List<Long> transitions = new ArrayList<Long>();
+ 
+@@ -290,7 +291,7 @@
+             millis = next;
+ 
+             int nextOffset = tz.getOffset(millis);
+-            String nextKey = tz.getNameKey(millis);
++            String nextKey = nameKey;
+ 
+             if (offset == nextOffset
+                 && key.equals(nextKey)) {

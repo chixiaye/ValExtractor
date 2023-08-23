@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+index a558724..f7a0cc3 100644
+--- a/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/AbstractXYItemRenderer.java
+@@ -1025,8 +1025,9 @@
+                 series);
+         String description = label;
+         String toolTipText = null;
+-        if (getLegendItemToolTipGenerator() != null) {
+-            toolTipText = getLegendItemToolTipGenerator().generateLabel(
++        XYSeriesLabelGenerator legendItemToolTipGenerator1 = getLegendItemToolTipGenerator();
++        if (legendItemToolTipGenerator1 != null) {
++            toolTipText = legendItemToolTipGenerator1.generateLabel(
+                     dataset, series);
+         }
+         String urlText = null;

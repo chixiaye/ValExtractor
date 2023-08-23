@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+index cd91775..6ff947a 100644
+--- a/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
++++ b/source/org/jfree/chart/renderer/xy/XYDifferenceRenderer.java
+@@ -568,6 +568,7 @@
+         }
+ 
+         // start of algorithm
++        boolean b = l_polygonXs.addAll(l_subtrahendXs);
+         while (!b_minuendDone && !b_subtrahendDone) {
+             if (!b_minuendDone && !b_minuendFastForward && b_minuendAdvanced) {
+                 l_x1 = x_dataset.getXValue(0, l_minuendItem);
+@@ -722,7 +723,7 @@
+                 // add the subtrahend's points to the polygon in reverse
+                 Collections.reverse(l_subtrahendXs);
+                 Collections.reverse(l_subtrahendYs);
+-                l_polygonXs.addAll(l_subtrahendXs);
++                b;
+                 l_polygonYs.addAll(l_subtrahendYs);
+ 
+                 // create an actual polygon
+@@ -816,7 +817,7 @@
+         // add the subtrahend's points to the polygon in reverse
+         Collections.reverse(l_subtrahendXs);
+         Collections.reverse(l_subtrahendYs);
+-        l_polygonXs.addAll(l_subtrahendXs);
++        b;
+         l_polygonYs.addAll(l_subtrahendYs);
+ 
+         // create an actual polygon

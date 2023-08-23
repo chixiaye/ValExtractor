@@ -1,0 +1,25 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..3822b41 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -1225,9 +1225,9 @@
+         + countOf(TriState.TRUE, TriState.TRUE));
+     appendListItem(sb, "Referenced Functions: "
+         + countOf(TriState.FALSE, TriState.TRUE));
+-    sb.append("</ul>");
++      StringBuilder append = sb.append("</ul>");
+ 
+-    sb.append("ALL NAMES<ul>\n");
++      sb.append("ALL NAMES<ul>\n");
+     for (JsName node : allNames.values()) {
+       sb.append("<li>" + nameAnchor(node.name) + "<ul>");
+       if (node.prototypeNames.size() > 0) {
+@@ -1272,7 +1272,7 @@
+       sb.append("</li>");
+       sb.append("</ul></li>");
+     }
+-    sb.append("</ul>");
++    append;
+     sb.append("</body></html>");
+ 
+     return sb.toString();

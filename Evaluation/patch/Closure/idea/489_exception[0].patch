@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/Compiler.java b/src/com/google/javascript/jscomp/Compiler.java
+index 5f6b2c5..99663ce 100644
+--- a/src/com/google/javascript/jscomp/Compiler.java
++++ b/src/com/google/javascript/jscomp/Compiler.java
+@@ -661,7 +661,8 @@
+           }
+           return callable.call();
+         } catch (Throwable e) {
+-          exception[0] = e;
++            Throwable throwable = exception[0];
++            throwable = e;
+         } finally {
+           compilerThread = null;
+           if (dumpTraceReport) {

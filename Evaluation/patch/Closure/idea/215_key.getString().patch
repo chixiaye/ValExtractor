@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/StrictModeCheck.java b/src/com/google/javascript/jscomp/StrictModeCheck.java
+index b22f3ed..f0704b7 100644
+--- a/src/com/google/javascript/jscomp/StrictModeCheck.java
++++ b/src/com/google/javascript/jscomp/StrictModeCheck.java
+@@ -194,23 +194,24 @@
+     for (Node key = n.getFirstChild();
+          key != null;
+          key = key.getNext()) {
+-      if (!noCajaChecks && key.getString().endsWith("__")) {
++        String string = key.getString();
++        if (!noCajaChecks && string.endsWith("__")) {
+         t.report(key, ILLEGAL_NAME);
+       }
+       if (!key.isSetterDef()) {
+         // normal property and getter cases
+-        if (getters.contains(key.getString())) {
++        if (getters.contains(string)) {
+           t.report(key, DUPLICATE_OBJECT_KEY);
+         } else {
+-          getters.add(key.getString());
++          getters.add(string);
+         }
+       }
+       if (!key.isGetterDef()) {
+         // normal property and setter cases
+-        if (setters.contains(key.getString())) {
++        if (setters.contains(string)) {
+           t.report(key, DUPLICATE_OBJECT_KEY);
+         } else {
+-          setters.add(key.getString());
++          setters.add(string);
+         }
+       }
+     }

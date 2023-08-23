@@ -1,0 +1,73 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FormatCache.java b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+index 386baf7..03ec4cc 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FormatCache.java
++++ b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+@@ -197,12 +197,14 @@
+                 DateFormat formatter;
+                 if (dateStyle == null) {
+                     formatter = DateFormat.getTimeInstance(timeStyle.intValue(), locale);                    
+-                }
+-                else if (timeStyle == null) {
+-                    formatter = DateFormat.getDateInstance(dateStyle.intValue(), locale);                    
++                } else {
++					int var_619 = dateStyle.intValue();
++					if (timeStyle == null) {
++					    formatter = DateFormat.getDateInstance(var_619, locale);                    
+                 }
+                 else {
+-                    formatter = DateFormat.getDateTimeInstance(dateStyle.intValue(), timeStyle.intValue(), locale);
++					    formatter = DateFormat.getDateTimeInstance(var_619, timeStyle.intValue(), locale);
++					}
+                 }
+                 pattern = ((SimpleDateFormat)formatter).toPattern();
+                 final String previous = cDateTimeInstanceCache.putIfAbsent(key, pattern);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FormatCache.java b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+index 386baf7..03ec4cc 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FormatCache.java
++++ b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+@@ -197,12 +197,14 @@
+                 DateFormat formatter;
+                 if (dateStyle == null) {
+                     formatter = DateFormat.getTimeInstance(timeStyle.intValue(), locale);                    
+-                }
+-                else if (timeStyle == null) {
+-                    formatter = DateFormat.getDateInstance(dateStyle.intValue(), locale);                    
++                } else {
++					int var_619 = dateStyle.intValue();
++					if (timeStyle == null) {
++					    formatter = DateFormat.getDateInstance(var_619, locale);                    
+                 }
+                 else {
+-                    formatter = DateFormat.getDateTimeInstance(dateStyle.intValue(), timeStyle.intValue(), locale);
++					    formatter = DateFormat.getDateTimeInstance(var_619, timeStyle.intValue(), locale);
++					}
+                 }
+                 pattern = ((SimpleDateFormat)formatter).toPattern();
+                 final String previous = cDateTimeInstanceCache.putIfAbsent(key, pattern);
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/lang3/time/FormatCache.java b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+index 386baf7..dbf1e72 100644
+--- a/src/main/java/org/apache/commons/lang3/time/FormatCache.java
++++ b/src/main/java/org/apache/commons/lang3/time/FormatCache.java
+@@ -198,11 +198,14 @@
+                 if (dateStyle == null) {
+                     formatter = DateFormat.getTimeInstance(timeStyle.intValue(), locale);                    
+                 }
+-                else if (timeStyle == null) {
+-                    formatter = DateFormat.getDateInstance(dateStyle.intValue(), locale);                    
++                else {
++                    int style = dateStyle.intValue();
++                    if (timeStyle == null) {
++                        formatter = DateFormat.getDateInstance(style, locale);                    
+                 }
+                 else {
+-                    formatter = DateFormat.getDateTimeInstance(dateStyle.intValue(), timeStyle.intValue(), locale);
++                        formatter = DateFormat.getDateTimeInstance(style, timeStyle.intValue(), locale);
++                    }
+                 }
+                 pattern = ((SimpleDateFormat)formatter).toPattern();
+                 final String previous = cDateTimeInstanceCache.putIfAbsent(key, pattern);

@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/regex/RegExpTree.java b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+index c0c470a..52456e4 100644
+--- a/src/com/google/javascript/jscomp/regex/RegExpTree.java
++++ b/src/com/google/javascript/jscomp/regex/RegExpTree.java
+@@ -1387,12 +1387,13 @@
+         CharRanges ucaseLettersToLower = ucaseLetters.shift(32);
+ 
+         options.add(ranges.union(ucaseLettersToLower));
+-        options.add(ranges.union(lcaseLettersToUpper));
+-        options.add(ranges.union(lcaseLettersToUpper)
++          CharRanges union = ranges.union(lcaseLettersToUpper);
++          options.add(union);
++        options.add(union
+                     .union(ucaseLettersToLower));
+ 
+         options.add(ranges.union(ucaseLettersToLower).difference(ucaseLetters));
+-        options.add(ranges.union(lcaseLettersToUpper).difference(lcaseLetters));
++        options.add(union.difference(lcaseLetters));
+ 
+         int bestComplexity = complexityWordFolded(ranges);
+ 

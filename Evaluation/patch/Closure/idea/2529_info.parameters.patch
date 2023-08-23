@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/rhino/JSDocInfo.java b/src/com/google/javascript/rhino/JSDocInfo.java
+index d1e7604..92a3686 100644
+--- a/src/com/google/javascript/rhino/JSDocInfo.java
++++ b/src/com/google/javascript/rhino/JSDocInfo.java
+@@ -1503,8 +1503,9 @@
+         }
+       }
+ 
+-      if (info.parameters != null) {
+-        for (JSTypeExpression parameterType : info.parameters.values()) {
++        Map<String, JSTypeExpression> parameters = info.parameters;
++        if (parameters != null) {
++        for (JSTypeExpression parameterType : parameters.values()) {
+           if (parameterType != null) {
+             nodes.add(parameterType.getRoot());
+           }

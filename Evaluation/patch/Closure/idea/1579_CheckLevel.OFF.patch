@@ -1,0 +1,42 @@
+diff --git a/src/com/google/javascript/jscomp/WarningLevel.java b/src/com/google/javascript/jscomp/WarningLevel.java
+index 79244df..1971a49 100644
+--- a/src/com/google/javascript/jscomp/WarningLevel.java
++++ b/src/com/google/javascript/jscomp/WarningLevel.java
+@@ -58,22 +58,23 @@
+ 
+     // Allow passes that aren't going to report anything to be skipped.
+ 
+-    options.checkRequires = CheckLevel.OFF;
+-    options.checkProvides = CheckLevel.OFF;
+-    options.checkMissingGetCssNameLevel = CheckLevel.OFF;
+-    options.aggressiveVarCheck = CheckLevel.OFF;
++      CheckLevel off = CheckLevel.OFF;
++      options.checkRequires = off;
++    options.checkProvides = off;
++    options.checkMissingGetCssNameLevel = off;
++    options.aggressiveVarCheck = off;
+     options.checkTypes = false;
+-    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.OFF);
+-    options.checkUnreachableCode = CheckLevel.OFF;
+-    options.checkMissingReturn = CheckLevel.OFF;
+-    options.setWarningLevel(DiagnosticGroups.ACCESS_CONTROLS, CheckLevel.OFF);
+-    options.setWarningLevel(DiagnosticGroups.CONST, CheckLevel.OFF);
+-    options.setWarningLevel(DiagnosticGroups.CONSTANT_PROPERTY, CheckLevel.OFF);
+-    options.checkGlobalNamesLevel = CheckLevel.OFF;
++    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, off);
++    options.checkUnreachableCode = off;
++    options.checkMissingReturn = off;
++    options.setWarningLevel(DiagnosticGroups.ACCESS_CONTROLS, off);
++    options.setWarningLevel(DiagnosticGroups.CONST, off);
++    options.setWarningLevel(DiagnosticGroups.CONSTANT_PROPERTY, off);
++    options.checkGlobalNamesLevel = off;
+     options.checkSuspiciousCode = false;
+-    options.checkGlobalThisLevel = CheckLevel.OFF;
+-    options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS, CheckLevel.OFF);
+-    options.setWarningLevel(DiagnosticGroups.ES5_STRICT, CheckLevel.OFF);
++    options.checkGlobalThisLevel = off;
++    options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS, off);
++    options.setWarningLevel(DiagnosticGroups.ES5_STRICT, off);
+     options.checkCaja = false;
+   }
+ 

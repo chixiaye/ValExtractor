@@ -1,0 +1,36 @@
+diff --git a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+index e374ca0..6b90564 100644
+--- a/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
++++ b/src/com/google/javascript/jscomp/MustBeReachingVariableDef.java
+@@ -334,25 +334,26 @@
+       return;
+     }
+ 
+-    for (Var other : def.reachingDef.keySet()) {
+-      Definition otherDef = def.reachingDef.get(other);
++      Map<Var, Definition> reachingDef = def.reachingDef;
++      for (Var other : reachingDef.keySet()) {
++      Definition otherDef = reachingDef.get(other);
+       if (otherDef == null) {
+         continue;
+       }
+       if (otherDef.depends.contains(var)) {
+-        def.reachingDef.put(other, null);
++        reachingDef.put(other, null);
+       }
+     }
+ 
+     if (!escaped.contains(var)) {
+       if (node == null) {
+-        def.reachingDef.put(var, null);
++        reachingDef.put(var, null);
+       } else {
+         Definition definition = new Definition(node);
+         if (rValue != null) {
+           computeDependence(definition, rValue);
+         }
+-        def.reachingDef.put(var, definition);
++        reachingDef.put(var, definition);
+       }
+     }
+   }

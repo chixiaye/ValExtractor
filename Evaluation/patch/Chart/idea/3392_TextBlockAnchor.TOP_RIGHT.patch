@@ -1,0 +1,30 @@
+diff --git a/source/org/jfree/chart/text/TextBlock.java b/source/org/jfree/chart/text/TextBlock.java
+index 708fe7a..ca0e33d 100644
+--- a/source/org/jfree/chart/text/TextBlock.java
++++ b/source/org/jfree/chart/text/TextBlock.java
+@@ -267,6 +267,7 @@
+         float xAdj = 0.0f;
+         float yAdj = 0.0f;
+ 
++        TextBlockAnchor topRight = TextBlockAnchor.TOP_RIGHT;
+         if (anchor == TextBlockAnchor.TOP_CENTER
+                 || anchor == TextBlockAnchor.CENTER
+                 || anchor == TextBlockAnchor.BOTTOM_CENTER) {
+@@ -274,7 +275,7 @@
+             xAdj = (float) -width / 2.0f;
+ 
+         }
+-        else if (anchor == TextBlockAnchor.TOP_RIGHT
++        else if (anchor == topRight
+                 || anchor == TextBlockAnchor.CENTER_RIGHT
+                 || anchor == TextBlockAnchor.BOTTOM_RIGHT) {
+ 
+@@ -284,7 +285,7 @@
+ 
+         if (anchor == TextBlockAnchor.TOP_LEFT
+                 || anchor == TextBlockAnchor.TOP_CENTER
+-                || anchor == TextBlockAnchor.TOP_RIGHT) {
++                || anchor == topRight) {
+ 
+             yAdj = 0.0f;
+ 

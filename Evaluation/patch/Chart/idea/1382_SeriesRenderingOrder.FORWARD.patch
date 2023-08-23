@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/plot/SeriesRenderingOrder.java b/source/org/jfree/chart/plot/SeriesRenderingOrder.java
+index d893b3b..3befbd7 100644
+--- a/source/org/jfree/chart/plot/SeriesRenderingOrder.java
++++ b/source/org/jfree/chart/plot/SeriesRenderingOrder.java
+@@ -127,8 +127,9 @@
+      * @throws ObjectStreamException if there is a problem.
+      */
+     private Object readResolve() throws ObjectStreamException {
+-        if (this.equals(SeriesRenderingOrder.FORWARD)) {
+-            return SeriesRenderingOrder.FORWARD;
++        SeriesRenderingOrder forward = SeriesRenderingOrder.FORWARD;
++        if (this.equals(forward)) {
++            return forward;
+         }
+         else if (this.equals(SeriesRenderingOrder.REVERSE)) {
+             return SeriesRenderingOrder.REVERSE;

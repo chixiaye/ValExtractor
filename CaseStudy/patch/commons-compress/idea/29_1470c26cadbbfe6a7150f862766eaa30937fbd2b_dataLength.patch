@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java b/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java
+index a1600bc8..69d30a05 100644
+--- a/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java
++++ b/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java
+@@ -194,10 +194,11 @@ public ZipExtraField fill(final ZipExtraField field, final byte[] data, final in
+         final List<ZipExtraField> v = new ArrayList<>();
+         int start = 0;
+         LOOP:
+-        while (start <= data.length - WORD) {
++        int dataLength = data.length;
++        while (start <= dataLength - WORD) {
+             final ZipShort headerId = new ZipShort(data, start);
+             final int length = new ZipShort(data, start + 2).getValue();
+-            if (start + WORD + length > data.length) {
++            if (start + WORD + length > dataLength) {
+                 final ZipExtraField field = parsingBehavior.onUnparseableExtraField(data, start, data.length - start,
+                     local, length);
+                 if (field != null) {

@@ -1,0 +1,12 @@
+diff --git a/source/org/jfree/chart/axis/PeriodAxis.java b/source/org/jfree/chart/axis/PeriodAxis.java
+index 3c0bc0f..a2effe2 100644
+--- a/source/org/jfree/chart/axis/PeriodAxis.java
++++ b/source/org/jfree/chart/axis/PeriodAxis.java
+@@ -223,6 +223,7 @@
+             throw new IllegalArgumentException("Null 'locale' argument.");
+         }
+         this.first = first;
++        RegularTimePeriod last1 = this.last;
+         this.last = last;
+         this.timeZone = timeZone;
+         this.locale = locale;

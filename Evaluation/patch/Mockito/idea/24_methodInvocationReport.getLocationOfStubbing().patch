@@ -1,0 +1,16 @@
+diff --git a/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java b/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
+index 0712fb7..deabaea 100644
+--- a/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
++++ b/src/org/mockito/internal/debugging/VerboseMockInvocationLogger.java
+@@ -49,8 +49,9 @@
+     }
+ 
+     private void printStubInfo(MethodInvocationReport methodInvocationReport) {
+-        if (methodInvocationReport.getLocationOfStubbing() != null) {
+-            printlnIndented("stubbed: " + methodInvocationReport.getLocationOfStubbing());
++        String locationOfStubbing = methodInvocationReport.getLocationOfStubbing();
++        if (locationOfStubbing != null) {
++            printlnIndented("stubbed: " + locationOfStubbing);
+         }
+     }
+ 

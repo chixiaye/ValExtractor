@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/ChartPanel.java b/source/org/jfree/chart/ChartPanel.java
+index 001049a..fec32d9 100644
+--- a/source/org/jfree/chart/ChartPanel.java
++++ b/source/org/jfree/chart/ChartPanel.java
+@@ -2532,8 +2532,9 @@
+                  // Set XOR mode to draw the zoom rectangle
+                 g2.setXORMode(Color.gray);
+             }
+-            if (this.selectionFillPaint != null) {
+-                g2.setPaint(this.selectionFillPaint);
++            Paint selectionFillPaint1 = this.selectionFillPaint;
++            if (selectionFillPaint1 != null) {
++                g2.setPaint(selectionFillPaint1);
+                 g2.fill(this.selectionShape);
+             }
+             g2.setPaint(this.selectionOutlinePaint);

@@ -1,0 +1,27 @@
+diff --git a/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator.java b/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator.java
+index 5d5a7a7..07a2bd6 100644
+--- a/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator.java
++++ b/src/main/java/org/apache/commons/math3/ode/nonstiff/AdamsMoultonIntegrator.java
+@@ -214,7 +214,8 @@
+ 
+         sanityChecks(equations, t);
+         setEquations(equations);
+-        final boolean forward = t > equations.getTime();
++        double time = equations.getTime();
++        final boolean forward = t > time;
+ 
+         // initialize working arrays
+         final double[] y0   = equations.getCompleteState();
+@@ -230,10 +231,10 @@
+                                   equations.getPrimaryMapper(), equations.getSecondaryMappers());
+ 
+         // set up integration control objects
+-        initIntegration(equations.getTime(), y0, t);
++        initIntegration(time, y0, t);
+ 
+         // compute the initial Nordsieck vector using the configured starter integrator
+-        start(equations.getTime(), y, t);
++        start(time, y, t);
+         interpolator.reinitialize(stepStart, stepSize, scaled, nordsieck);
+         interpolator.storeTime(stepStart);
+ 

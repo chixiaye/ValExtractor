@@ -1,0 +1,97 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..800b0ea 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -498,13 +498,14 @@
+ 
+             return new Size2D(maxWidth, this.stripWidth + this.axisOffset
+                     + space.getTop() + space.getBottom());
+-        }
+-        else if (position == RectangleEdge.LEFT || position
+-                == RectangleEdge.RIGHT) {
++        } else {
++			RectangleEdge var_3407 = RectangleEdge.RIGHT;
++			if (position == RectangleEdge.LEFT || position
++			        == var_3407) {
+             float maxHeight = (float) heightRange.getUpperBound();
+             AxisSpace space = this.axis.reserveSpace(g2, null,
+                     new Rectangle2D.Double(0, 0, 100, maxHeight),
+-                    RectangleEdge.RIGHT, null);
++			            var_3407, null);
+             return new Size2D(this.stripWidth + this.axisOffset
+                     + space.getLeft() + space.getRight(), maxHeight);
+         }
+@@ -512,6 +513,7 @@
+             throw new RuntimeException("Unrecognised position.");
+         }
+     }
++    }
+ 
+     /**
+      * Draws the legend within the specified area.
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..800b0ea 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -498,13 +498,14 @@
+ 
+             return new Size2D(maxWidth, this.stripWidth + this.axisOffset
+                     + space.getTop() + space.getBottom());
+-        }
+-        else if (position == RectangleEdge.LEFT || position
+-                == RectangleEdge.RIGHT) {
++        } else {
++			RectangleEdge var_3407 = RectangleEdge.RIGHT;
++			if (position == RectangleEdge.LEFT || position
++			        == var_3407) {
+             float maxHeight = (float) heightRange.getUpperBound();
+             AxisSpace space = this.axis.reserveSpace(g2, null,
+                     new Rectangle2D.Double(0, 0, 100, maxHeight),
+-                    RectangleEdge.RIGHT, null);
++			            var_3407, null);
+             return new Size2D(this.stripWidth + this.axisOffset
+                     + space.getLeft() + space.getRight(), maxHeight);
+         }
+@@ -512,6 +513,7 @@
+             throw new RuntimeException("Unrecognised position.");
+         }
+     }
++    }
+ 
+     /**
+      * Draws the legend within the specified area.
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/title/PaintScaleLegend.java b/source/org/jfree/chart/title/PaintScaleLegend.java
+index c489277..69d361c 100644
+--- a/source/org/jfree/chart/title/PaintScaleLegend.java
++++ b/source/org/jfree/chart/title/PaintScaleLegend.java
+@@ -499,12 +499,14 @@
+             return new Size2D(maxWidth, this.stripWidth + this.axisOffset
+                     + space.getTop() + space.getBottom());
+         }
+-        else if (position == RectangleEdge.LEFT || position
+-                == RectangleEdge.RIGHT) {
++        else {
++            RectangleEdge right = RectangleEdge.RIGHT;
++            if (position == RectangleEdge.LEFT || position
++                    == right) {
+             float maxHeight = (float) heightRange.getUpperBound();
+             AxisSpace space = this.axis.reserveSpace(g2, null,
+                     new Rectangle2D.Double(0, 0, 100, maxHeight),
+-                    RectangleEdge.RIGHT, null);
++                        right, null);
+             return new Size2D(this.stripWidth + this.axisOffset
+                     + space.getLeft() + space.getRight(), maxHeight);
+         }
+@@ -512,6 +514,7 @@
+             throw new RuntimeException("Unrecognised position.");
+         }
+     }
++    }
+ 
+     /**
+      * Draws the legend within the specified area.

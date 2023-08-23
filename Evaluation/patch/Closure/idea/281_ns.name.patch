@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..398364d 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -643,7 +643,8 @@
+         } else if (NodeUtil.isObjectLitKey(n, parent)) {
+           NameInformation ns = createNameInformation(t, n);
+           if (ns != null) {
+-            recordSet(ns.name, n);
++              String name = ns.name;
++              recordSet(name, n);
+           }
+         }
+       }

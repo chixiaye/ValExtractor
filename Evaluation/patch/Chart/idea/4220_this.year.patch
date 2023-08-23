@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/data/time/Year.java b/source/org/jfree/data/time/Year.java
+index b5b242d..f86f50c 100644
+--- a/source/org/jfree/data/time/Year.java
++++ b/source/org/jfree/data/time/Year.java
+@@ -219,8 +219,9 @@
+      *         current year is -9999).
+      */
+     public RegularTimePeriod previous() {
+-        if (this.year > Year.MINIMUM_YEAR) {
+-            return new Year(this.year - 1);
++        short year1 = this.year;
++        if (year1 > Year.MINIMUM_YEAR) {
++            return new Year(year1 - 1);
+         }
+         else {
+             return null;

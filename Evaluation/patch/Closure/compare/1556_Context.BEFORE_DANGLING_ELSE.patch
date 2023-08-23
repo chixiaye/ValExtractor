@@ -1,0 +1,89 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..a276fc0 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -144,6 +144,7 @@
+ 
+     cc.startSourceMapping(n);
+ 
++    Context var_1556 = Context.BEFORE_DANGLING_ELSE;
+     switch (type) {
+       case Token.TRY: {
+         Preconditions.checkState(first.getNext().isBlock() &&
+@@ -541,7 +542,7 @@
+       case Token.IF:
+         boolean hasElse = childCount == 3;
+         boolean ambiguousElseClause =
+-            context == Context.BEFORE_DANGLING_ELSE && !hasElse;
++            context == var_1556 && !hasElse;
+         if (ambiguousElseClause) {
+           cc.beginBlock();
+         }
+@@ -552,7 +553,7 @@
+ 
+         if (hasElse) {
+           addNonEmptyStatement(
+-              first.getNext(), Context.BEFORE_DANGLING_ELSE, false);
++              first.getNext(), var_1556, false);
+           add("else");
+           addNonEmptyStatement(
+               last, getContextForNonEmptyExpression(context), false);
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..a276fc0 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -144,6 +144,7 @@
+ 
+     cc.startSourceMapping(n);
+ 
++    Context var_1556 = Context.BEFORE_DANGLING_ELSE;
+     switch (type) {
+       case Token.TRY: {
+         Preconditions.checkState(first.getNext().isBlock() &&
+@@ -541,7 +542,7 @@
+       case Token.IF:
+         boolean hasElse = childCount == 3;
+         boolean ambiguousElseClause =
+-            context == Context.BEFORE_DANGLING_ELSE && !hasElse;
++            context == var_1556 && !hasElse;
+         if (ambiguousElseClause) {
+           cc.beginBlock();
+         }
+@@ -552,7 +553,7 @@
+ 
+         if (hasElse) {
+           addNonEmptyStatement(
+-              first.getNext(), Context.BEFORE_DANGLING_ELSE, false);
++              first.getNext(), var_1556, false);
+           add("else");
+           addNonEmptyStatement(
+               last, getContextForNonEmptyExpression(context), false);
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/CodeGenerator.java b/src/com/google/javascript/jscomp/CodeGenerator.java
+index 2270c17..2df9c03 100644
+--- a/src/com/google/javascript/jscomp/CodeGenerator.java
++++ b/src/com/google/javascript/jscomp/CodeGenerator.java
+@@ -540,8 +540,9 @@
+ 
+       case Token.IF:
+         boolean hasElse = childCount == 3;
++          Context beforeDanglingElse = Context.BEFORE_DANGLING_ELSE;
+         boolean ambiguousElseClause =
+-            context == Context.BEFORE_DANGLING_ELSE && !hasElse;
++            context == beforeDanglingElse && !hasElse;
+         if (ambiguousElseClause) {
+           cc.beginBlock();
+         }
+@@ -552,7 +553,7 @@
+ 
+         if (hasElse) {
+           addNonEmptyStatement(
+-              first.getNext(), Context.BEFORE_DANGLING_ELSE, false);
++              first.getNext(), beforeDanglingElse, false);
+           add("else");
+           addNonEmptyStatement(
+               last, getContextForNonEmptyExpression(context), false);

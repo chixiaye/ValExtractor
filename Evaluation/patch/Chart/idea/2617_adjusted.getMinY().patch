@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/chart/renderer/category/BarRenderer3D.java b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+index 6cf5928..49cc235 100644
+--- a/source/org/jfree/chart/renderer/category/BarRenderer3D.java
++++ b/source/org/jfree/chart/renderer/category/BarRenderer3D.java
+@@ -596,9 +596,10 @@
+                 path.moveTo(x, y);
+                 path.lineTo((float) (x + getXOffset()),
+                         y - (float) getYOffset());
++                double minY = adjusted.getMinY();
+                 path.lineTo((float) (x + getXOffset()),
+-                        (float) (adjusted.getMinY() - getYOffset()));
+-                path.lineTo(x, (float) adjusted.getMinY());
++                        (float) (minY - getYOffset()));
++                path.lineTo(x, (float) minY);
+                 path.closePath();
+             }
+             else if (orientation == PlotOrientation.VERTICAL) {

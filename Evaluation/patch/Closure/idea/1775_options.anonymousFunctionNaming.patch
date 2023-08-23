@@ -1,0 +1,18 @@
+diff --git a/src/com/google/javascript/jscomp/DefaultPassConfig.java b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+index a10c4dd..6bb2f63 100644
+--- a/src/com/google/javascript/jscomp/DefaultPassConfig.java
++++ b/src/com/google/javascript/jscomp/DefaultPassConfig.java
+@@ -191,10 +191,11 @@
+     }
+ 
+     if (options.nameAnonymousFunctionsOnly) {
+-      if (options.anonymousFunctionNaming ==
++        AnonymousFunctionNamingPolicy anonymousFunctionNaming = options.anonymousFunctionNaming;
++        if (anonymousFunctionNaming ==
+           AnonymousFunctionNamingPolicy.MAPPED) {
+         checks.add(nameMappedAnonymousFunctions);
+-      } else if (options.anonymousFunctionNaming ==
++      } else if (anonymousFunctionNaming ==
+           AnonymousFunctionNamingPolicy.UNMAPPED) {
+         checks.add(nameUnmappedAnonymousFunctions);
+       }

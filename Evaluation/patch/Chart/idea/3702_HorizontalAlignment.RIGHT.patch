@@ -1,0 +1,24 @@
+diff --git a/source/org/jfree/chart/util/HorizontalAlignment.java b/source/org/jfree/chart/util/HorizontalAlignment.java
+index 9a3e4e3..e1db4a8 100644
+--- a/source/org/jfree/chart/util/HorizontalAlignment.java
++++ b/source/org/jfree/chart/util/HorizontalAlignment.java
+@@ -129,11 +129,14 @@
+         if (this.equals(HorizontalAlignment.LEFT)) {
+             result = HorizontalAlignment.LEFT;
+         }
+-        else if (this.equals(HorizontalAlignment.RIGHT)) {
+-            result = HorizontalAlignment.RIGHT;
+-        }
+-        else if (this.equals(HorizontalAlignment.CENTER)) {
+-            result = HorizontalAlignment.CENTER;
++        else {
++            HorizontalAlignment right = HorizontalAlignment.RIGHT;
++            if (this.equals(right)) {
++                result = right;
++            }
++            else if (this.equals(HorizontalAlignment.CENTER)) {
++                result = HorizontalAlignment.CENTER;
++            }
+         }
+         return result;
+     }

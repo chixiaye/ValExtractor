@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/CategoryPlot.java b/source/org/jfree/chart/plot/CategoryPlot.java
+index 24a84fd..30ceaa9 100644
+--- a/source/org/jfree/chart/plot/CategoryPlot.java
++++ b/source/org/jfree/chart/plot/CategoryPlot.java
+@@ -5112,7 +5112,8 @@
+         }
+         clone.rangeAxisLocations = (ObjectList) this.rangeAxisLocations.clone();
+ 
+-        clone.datasets = (ObjectList) this.datasets.clone();
++        ObjectList datasets1 = clone.datasets;
++        datasets1 = (ObjectList) this.datasets.clone();
+         for (int i = 0; i < clone.datasets.size(); i++) {
+             CategoryDataset dataset = clone.getDataset(i);
+             if (dataset != null) {

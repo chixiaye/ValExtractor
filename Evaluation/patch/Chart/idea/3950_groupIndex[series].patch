@@ -1,0 +1,23 @@
+diff --git a/source/org/jfree/data/general/DatasetUtilities.java b/source/org/jfree/data/general/DatasetUtilities.java
+index 548d684..f34beab 100644
+--- a/source/org/jfree/data/general/DatasetUtilities.java
++++ b/source/org/jfree/data/general/DatasetUtilities.java
+@@ -1950,13 +1950,14 @@
+                 if (number != null) {
+                     hasValidData = true;
+                     double value = number.doubleValue();
++                    int groupIndex1 = groupIndex[series];
+                     if (value > 0.0) {
+-                        positive[groupIndex[series]]
+-                                 = positive[groupIndex[series]] + value;
++                        positive[groupIndex1]
++                                 = positive[groupIndex1] + value;
+                     }
+                     if (value < 0.0) {
+-                        negative[groupIndex[series]]
+-                                 = negative[groupIndex[series]] + value;
++                        negative[groupIndex1]
++                                 = negative[groupIndex1] + value;
+                                  // '+', remember value is negative
+                     }
+                 }

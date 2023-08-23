@@ -1,0 +1,19 @@
+diff --git a/source/org/jfree/chart/axis/CyclicNumberAxis.java b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+index 114e296..0557e99 100644
+--- a/source/org/jfree/chart/axis/CyclicNumberAxis.java
++++ b/source/org/jfree/chart/axis/CyclicNumberAxis.java
+@@ -475,11 +475,12 @@
+             TextAnchor rotationAnchor = null;
+             double angle = 0.0;
+             if (isVerticalTickLabels()) {
++                double pi = Math.PI;
+                 if (edge == RectangleEdge.TOP) {
+-                    angle = Math.PI / 2.0;
++                    angle = pi / 2.0;
+                 }
+                 else {
+-                    angle = -Math.PI / 2.0;
++                    angle = -pi / 2.0;
+                 }
+                 anchor = TextAnchor.CENTER_RIGHT;
+                 // If tick overlap when cycling, update last tick too

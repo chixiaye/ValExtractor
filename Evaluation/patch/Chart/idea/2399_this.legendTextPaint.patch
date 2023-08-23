@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/renderer/AbstractRenderer.java b/source/org/jfree/chart/renderer/AbstractRenderer.java
+index a6f2ba6..3ad4405 100644
+--- a/source/org/jfree/chart/renderer/AbstractRenderer.java
++++ b/source/org/jfree/chart/renderer/AbstractRenderer.java
+@@ -3252,8 +3252,9 @@
+         if (this.legendTextFont != null) {
+             clone.legendTextFont = (ObjectList) this.legendTextFont.clone();
+         }
+-        if (this.legendTextPaint != null) {
+-            clone.legendTextPaint = (PaintList) this.legendTextPaint.clone();
++        PaintList legendTextPaint1 = this.legendTextPaint;
++        if (legendTextPaint1 != null) {
++            clone.legendTextPaint = (PaintList) legendTextPaint1.clone();
+         }
+         clone.listenerList = new EventListenerList();
+ 

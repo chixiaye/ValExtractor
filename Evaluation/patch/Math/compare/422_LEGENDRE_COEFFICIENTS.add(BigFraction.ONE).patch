@@ -1,0 +1,47 @@
+==> /tmp/ours.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+index 6046954..78d86d6 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+@@ -76,7 +76,7 @@
+         LEGENDRE_COEFFICIENTS = new ArrayList<BigFraction>();
+         LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
+         LEGENDRE_COEFFICIENTS.add(BigFraction.ZERO);
+-        LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
++        boolean var_422 = LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
+ 
+         // initialize map for Jacobi polynomials
+         JACOBI_COEFFICIENTS = new HashMap<JacobiKey, List<BigFraction>>();
+
+==> /tmp/eclipse.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+index 6046954..78d86d6 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+@@ -76,7 +76,7 @@
+         LEGENDRE_COEFFICIENTS = new ArrayList<BigFraction>();
+         LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
+         LEGENDRE_COEFFICIENTS.add(BigFraction.ZERO);
+-        LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
++        boolean var_422 = LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
+ 
+         // initialize map for Jacobi polynomials
+         JACOBI_COEFFICIENTS = new HashMap<JacobiKey, List<BigFraction>>();
+
+==> /tmp/idea.java <==
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+index 6046954..6fea14f 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialsUtils.java
+@@ -74,9 +74,9 @@
+         // initialize recurrence for Legendre polynomials
+         // P0(X) = 1, P1(X) = 0 + 1 * X
+         LEGENDRE_COEFFICIENTS = new ArrayList<BigFraction>();
+-        LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
++        boolean add = LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
+         LEGENDRE_COEFFICIENTS.add(BigFraction.ZERO);
+-        LEGENDRE_COEFFICIENTS.add(BigFraction.ONE);
++        add;
+ 
+         // initialize map for Jacobi polynomials
+         JACOBI_COEFFICIENTS = new HashMap<JacobiKey, List<BigFraction>>();

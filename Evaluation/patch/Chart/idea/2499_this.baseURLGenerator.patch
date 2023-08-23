@@ -1,0 +1,18 @@
+diff --git a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+index 4a54655..f771a07 100644
+--- a/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
++++ b/source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java
+@@ -1723,9 +1723,10 @@
+             clone.urlGeneratorList = (ObjectList) this.urlGeneratorList.clone();
+         }
+ 
+-        if (this.baseURLGenerator != null) {
+-            if (this.baseURLGenerator instanceof PublicCloneable) {
+-                PublicCloneable pc = (PublicCloneable) this.baseURLGenerator;
++        CategoryURLGenerator baseURLGenerator1 = this.baseURLGenerator;
++        if (baseURLGenerator1 != null) {
++            if (baseURLGenerator1 instanceof PublicCloneable) {
++                PublicCloneable pc = (PublicCloneable) baseURLGenerator1;
+                 clone.baseURLGenerator = (CategoryURLGenerator) pc.clone();
+             }
+             else {

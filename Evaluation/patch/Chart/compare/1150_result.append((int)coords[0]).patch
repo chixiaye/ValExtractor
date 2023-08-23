@@ -1,0 +1,53 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/entity/ChartEntity.java b/source/org/jfree/chart/entity/ChartEntity.java
+index 2d463c7..ad1f953 100644
+--- a/source/org/jfree/chart/entity/ChartEntity.java
++++ b/source/org/jfree/chart/entity/ChartEntity.java
+@@ -285,7 +285,7 @@
+             pi.currentSegment(coords);
+             if (first) {
+                 first = false;
+-                result.append((int) coords[0]);
++                StringBuffer var_1150 = result.append((int) coords[0]);
+                 result.append(",").append((int) coords[1]);
+             }
+             else {
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/entity/ChartEntity.java b/source/org/jfree/chart/entity/ChartEntity.java
+index 2d463c7..ad1f953 100644
+--- a/source/org/jfree/chart/entity/ChartEntity.java
++++ b/source/org/jfree/chart/entity/ChartEntity.java
+@@ -285,7 +285,7 @@
+             pi.currentSegment(coords);
+             if (first) {
+                 first = false;
+-                result.append((int) coords[0]);
++                StringBuffer var_1150 = result.append((int) coords[0]);
+                 result.append(",").append((int) coords[1]);
+             }
+             else {
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/entity/ChartEntity.java b/source/org/jfree/chart/entity/ChartEntity.java
+index 2d463c7..27e41d5 100644
+--- a/source/org/jfree/chart/entity/ChartEntity.java
++++ b/source/org/jfree/chart/entity/ChartEntity.java
+@@ -283,14 +283,15 @@
+         PathIterator pi = shape.getPathIterator(null, 1.0);
+         while (!pi.isDone()) {
+             pi.currentSegment(coords);
++            StringBuffer append = result.append((int) coords[0]);
+             if (first) {
+                 first = false;
+-                result.append((int) coords[0]);
++                append;
+                 result.append(",").append((int) coords[1]);
+             }
+             else {
+                 result.append(",");
+-                result.append((int) coords[0]);
++                append;
+                 result.append(",");
+                 result.append((int) coords[1]);
+             }

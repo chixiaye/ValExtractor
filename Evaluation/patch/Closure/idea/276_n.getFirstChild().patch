@@ -1,0 +1,34 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..eafda2e 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -514,16 +514,19 @@
+       } else if (NodeUtil.isVarDeclaration(n)) {
+         NameInformation ns = createNameInformation(t, n);
+         recordDepScope(n, ns);
+-      } else if (NodeUtil.isFunctionDeclaration(n)) {
+-        NameInformation ns = createNameInformation(t, n.getFirstChild());
+-        recordDepScope(n, ns);
+-      } else if (NodeUtil.isExprCall(n)) {
+-        Node callNode = n.getFirstChild();
+-        Node nameNode = callNode.getFirstChild();
+-        NameInformation ns = createNameInformation(t, nameNode);
+-        if (ns != null && ns.onlyAffectsClassDef) {
+-          recordDepScope(n, ns);
+-        }
++      } else {
++          Node firstChild = n.getFirstChild();
++          if (NodeUtil.isFunctionDeclaration(n)) {
++            NameInformation ns = createNameInformation(t, firstChild);
++            recordDepScope(n, ns);
++          } else if (NodeUtil.isExprCall(n)) {
++            Node callNode = firstChild;
++            Node nameNode = callNode.getFirstChild();
++            NameInformation ns = createNameInformation(t, nameNode);
++            if (ns != null && ns.onlyAffectsClassDef) {
++              recordDepScope(n, ns);
++            }
++          }
+       }
+     }
+ 

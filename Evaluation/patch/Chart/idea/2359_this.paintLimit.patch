@@ -1,0 +1,26 @@
+diff --git a/source/org/jfree/chart/renderer/WaferMapRenderer.java b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+index c56827d..ad471d9 100644
+--- a/source/org/jfree/chart/renderer/WaferMapRenderer.java
++++ b/source/org/jfree/chart/renderer/WaferMapRenderer.java
+@@ -241,8 +241,9 @@
+      * @param uniqueValues  the set of unique values.
+      */
+     private void makePositionIndex(Set uniqueValues) {
++        int paintLimit1 = this.paintLimit;
+         int valuesPerColor = (int) Math.ceil(
+-            (double) uniqueValues.size() / this.paintLimit
++            (double) uniqueValues.size() / paintLimit1
+         );
+         int count = 0; // assign a color for each unique value
+         int paint = 0;
+@@ -251,8 +252,8 @@
+             if (++count % valuesPerColor == 0) {
+                 paint++;
+             }
+-            if (paint > this.paintLimit) {
+-                paint = this.paintLimit;
++            if (paint > paintLimit1) {
++                paint = paintLimit1;
+             }
+         }
+     }

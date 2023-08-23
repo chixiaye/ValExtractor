@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/annotations/CategoryPointerAnnotation.java b/source/org/jfree/chart/annotations/CategoryPointerAnnotation.java
+index 3e836fe..9f4bba3 100644
+--- a/source/org/jfree/chart/annotations/CategoryPointerAnnotation.java
++++ b/source/org/jfree/chart/annotations/CategoryPointerAnnotation.java
+@@ -387,8 +387,9 @@
+         double startX = j2DX + Math.cos(this.angle) * this.baseRadius;
+         double startY = j2DY + Math.sin(this.angle) * this.baseRadius;
+ 
+-        double endX = j2DX + Math.cos(this.angle) * this.tipRadius;
+-        double endY = j2DY + Math.sin(this.angle) * this.tipRadius;
++        double tipRadius1 = this.tipRadius;
++        double endX = j2DX + Math.cos(this.angle) * tipRadius1;
++        double endY = j2DY + Math.sin(this.angle) * tipRadius1;
+ 
+         double arrowBaseX = endX + Math.cos(this.angle) * this.arrowLength;
+         double arrowBaseY = endY + Math.sin(this.angle) * this.arrowLength;

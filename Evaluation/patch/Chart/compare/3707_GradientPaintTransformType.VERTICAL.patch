@@ -1,0 +1,82 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/util/GradientPaintTransformType.java b/source/org/jfree/chart/util/GradientPaintTransformType.java
+index c2a310e..7eb06a8 100644
+--- a/source/org/jfree/chart/util/GradientPaintTransformType.java
++++ b/source/org/jfree/chart/util/GradientPaintTransformType.java
+@@ -137,9 +137,10 @@
+         GradientPaintTransformType result = null;
+         if (this.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = GradientPaintTransformType.HORIZONTAL;
+-        }
+-        else if (this.equals(GradientPaintTransformType.VERTICAL)) {
+-            result = GradientPaintTransformType.VERTICAL;
++        } else {
++			GradientPaintTransformType var_3707 = GradientPaintTransformType.VERTICAL;
++			if (this.equals(var_3707)) {
++			    result = var_3707;
+         }
+         else if (this.equals(GradientPaintTransformType.CENTER_HORIZONTAL)) {
+             result = GradientPaintTransformType.CENTER_HORIZONTAL;
+@@ -147,6 +148,7 @@
+         else if (this.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = GradientPaintTransformType.CENTER_VERTICAL;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/util/GradientPaintTransformType.java b/source/org/jfree/chart/util/GradientPaintTransformType.java
+index c2a310e..7eb06a8 100644
+--- a/source/org/jfree/chart/util/GradientPaintTransformType.java
++++ b/source/org/jfree/chart/util/GradientPaintTransformType.java
+@@ -137,9 +137,10 @@
+         GradientPaintTransformType result = null;
+         if (this.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = GradientPaintTransformType.HORIZONTAL;
+-        }
+-        else if (this.equals(GradientPaintTransformType.VERTICAL)) {
+-            result = GradientPaintTransformType.VERTICAL;
++        } else {
++			GradientPaintTransformType var_3707 = GradientPaintTransformType.VERTICAL;
++			if (this.equals(var_3707)) {
++			    result = var_3707;
+         }
+         else if (this.equals(GradientPaintTransformType.CENTER_HORIZONTAL)) {
+             result = GradientPaintTransformType.CENTER_HORIZONTAL;
+@@ -147,6 +148,7 @@
+         else if (this.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = GradientPaintTransformType.CENTER_VERTICAL;
+         }
++		}
+         return result;
+     }
+ 
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/util/GradientPaintTransformType.java b/source/org/jfree/chart/util/GradientPaintTransformType.java
+index c2a310e..5595f1a 100644
+--- a/source/org/jfree/chart/util/GradientPaintTransformType.java
++++ b/source/org/jfree/chart/util/GradientPaintTransformType.java
+@@ -138,8 +138,10 @@
+         if (this.equals(GradientPaintTransformType.HORIZONTAL)) {
+             result = GradientPaintTransformType.HORIZONTAL;
+         }
+-        else if (this.equals(GradientPaintTransformType.VERTICAL)) {
+-            result = GradientPaintTransformType.VERTICAL;
++        else {
++            GradientPaintTransformType vertical = GradientPaintTransformType.VERTICAL;
++            if (this.equals(vertical)) {
++                result = vertical;
+         }
+         else if (this.equals(GradientPaintTransformType.CENTER_HORIZONTAL)) {
+             result = GradientPaintTransformType.CENTER_HORIZONTAL;
+@@ -147,6 +149,7 @@
+         else if (this.equals(GradientPaintTransformType.CENTER_VERTICAL)) {
+             result = GradientPaintTransformType.CENTER_VERTICAL;
+         }
++        }
+         return result;
+     }
+ 

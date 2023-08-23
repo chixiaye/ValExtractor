@@ -1,0 +1,16 @@
+diff --git a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+index ffa8bfe..d4fd7bd 100644
+--- a/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
++++ b/src/com/google/javascript/jscomp/AbstractCommandLineRunner.java
+@@ -1885,8 +1885,9 @@
+      * [=<val>] is omitted, then true is assumed.
+      */
+     CommandLineConfig setTweak(List<String> tweak) {
+-      this.tweak.clear();
+-      this.tweak.addAll(tweak);
++        List<String> tweak1 = this.tweak;
++        tweak1.clear();
++      tweak1.addAll(tweak);
+       return this;
+     }
+ 

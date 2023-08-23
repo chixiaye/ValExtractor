@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+index 6669ef9..4dac9f1 100644
+--- a/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
++++ b/source/org/jfree/data/statistics/DefaultStatisticalCategoryDataset.java
+@@ -686,9 +686,10 @@
+             }
+         }
+         else {
+-            if (!Double.isNaN(this.minimumRangeValue)
++            double minimumRangeValue1 = this.minimumRangeValue;
++            if (!Double.isNaN(minimumRangeValue1)
+                     && !Double.isNaN(this.maximumRangeValue)) {
+-                result = new Range(this.minimumRangeValue,
++                result = new Range(minimumRangeValue1,
+                         this.maximumRangeValue);
+             }
+         }

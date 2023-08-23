@@ -1,0 +1,19 @@
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index f41a3ea..710a83f 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -184,11 +184,12 @@
+      */
+     static void register(final Object value) {
+         if (value != null) {
+-            final Map<Object, Object> m = getRegistry();
++            Map<Object, Object> registry = getRegistry();
++            final Map<Object, Object> m = registry;
+             if (m == null) {
+                 REGISTRY.set(new WeakHashMap<Object, Object>());
+             }
+-            getRegistry().put(value, null);
++            registry.put(value, null);
+         }
+     }
+ 

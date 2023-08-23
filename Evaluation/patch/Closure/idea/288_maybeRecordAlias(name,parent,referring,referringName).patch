@@ -1,0 +1,31 @@
+diff --git a/src/com/google/javascript/jscomp/NameAnalyzer.java b/src/com/google/javascript/jscomp/NameAnalyzer.java
+index 781fc3c..9adf2e8 100644
+--- a/src/com/google/javascript/jscomp/NameAnalyzer.java
++++ b/src/com/google/javascript/jscomp/NameAnalyzer.java
+@@ -922,9 +922,10 @@
+ 
+       // An externally referenceable name must always be defined, so we add a
+       // reference to it from the global scope (a.k.a. window).
+-      if (nameInfo.isExternallyReferenceable) {
++        boolean b = maybeRecordAlias(name, parent, referring, referringName);
++        if (nameInfo.isExternallyReferenceable) {
+         recordReference(WINDOW, name, RefType.REGULAR);
+-        maybeRecordAlias(name, parent, referring, referringName);
++        b;
+         return;
+       }
+ 
+@@ -947,11 +948,11 @@
+         } else {
+           recordReference(WINDOW, name, RefType.REGULAR);
+           if (referring != null) {
+-            maybeRecordAlias(name, parent, referring, referringName);
++            b;
+           }
+         }
+       } else if (referring != null) {
+-        if (!maybeRecordAlias(name, parent, referring, referringName)) {
++        if (!b) {
+           RefType depType = referring.onlyAffectsClassDef ?
+               RefType.INHERITANCE : RefType.REGULAR;
+           recordReference(referringName, name, depType);

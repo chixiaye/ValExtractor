@@ -1,0 +1,19 @@
+diff --git a/src/com/google/javascript/jscomp/Tracer.java b/src/com/google/javascript/jscomp/Tracer.java
+index 5298e98..dcf4b40 100644
+--- a/src/com/google/javascript/jscomp/Tracer.java
++++ b/src/com/google/javascript/jscomp/Tracer.java
+@@ -902,11 +902,12 @@
+ 
+       for (String key : stats.keySet()) {
+         Stat stat = stats.get(key);
+-        if (stat.count > 1) {
++          int count = stat.count;
++          if (count > 1) {
+           sb.append(" TOTAL ").
+              append(key).
+              append(" ").
+-             append(stat.count).
++             append(count).
+              append(" (").
+              append(stat.clockTime).
+              append(" ms");

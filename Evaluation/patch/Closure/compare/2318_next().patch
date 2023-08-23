@@ -1,0 +1,97 @@
+==> /tmp/ours.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..5141238 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1073,7 +1073,8 @@
+           }
+ 
+           modifies.add(stream.getString());
+-          token = next();
++          JsDocToken var_2318 = next();
++		token = var_2318;
+         } else {
+           parser.addParserWarning("msg.jsdoc.modifies",
+               stream.getLineno(), stream.getCharno());
+
+==> /tmp/eclipse.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..baa40ee 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1063,6 +1063,7 @@
+   private JsDocToken parseModifiesTag(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       Set<String> modifies = new HashSet<String>();
++      JsDocToken var_2318 = next();
+       while (true) {
+         if (match(JsDocToken.STRING)) {
+           String name = stream.getString();
+@@ -1073,7 +1074,7 @@
+           }
+ 
+           modifies.add(stream.getString());
+-          token = next();
++          token = var_2318;
+         } else {
+           parser.addParserWarning("msg.jsdoc.modifies",
+               stream.getLineno(), stream.getCharno());
+@@ -1081,7 +1082,7 @@
+         }
+ 
+         if (match(JsDocToken.PIPE)) {
+-          token = next();
++          token = var_2318;
+         } else {
+           break;
+         }
+@@ -1091,7 +1092,7 @@
+         parser.addParserWarning("msg.jsdoc.modifies",
+             stream.getLineno(), stream.getCharno());
+       } else {
+-        token = next();
++        token = var_2318;
+         if (!jsdocBuilder.recordModifies(modifies)) {
+           parser.addParserWarning("msg.jsdoc.modifies.duplicate",
+               stream.getLineno(), stream.getCharno());
+
+==> /tmp/idea.java <==
+diff --git a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+index 5ef8850..77e762a 100644
+--- a/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
++++ b/src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java
+@@ -1063,6 +1063,7 @@
+   private JsDocToken parseModifiesTag(JsDocToken token) {
+     if (token == JsDocToken.LC) {
+       Set<String> modifies = new HashSet<String>();
++        JsDocToken next = next();
+       while (true) {
+         if (match(JsDocToken.STRING)) {
+           String name = stream.getString();
+@@ -1073,7 +1074,7 @@
+           }
+ 
+           modifies.add(stream.getString());
+-          token = next();
++          token = next;
+         } else {
+           parser.addParserWarning("msg.jsdoc.modifies",
+               stream.getLineno(), stream.getCharno());
+@@ -1081,7 +1082,7 @@
+         }
+ 
+         if (match(JsDocToken.PIPE)) {
+-          token = next();
++          token = next;
+         } else {
+           break;
+         }
+@@ -1091,7 +1092,7 @@
+         parser.addParserWarning("msg.jsdoc.modifies",
+             stream.getLineno(), stream.getCharno());
+       } else {
+-        token = next();
++        token = next;
+         if (!jsdocBuilder.recordModifies(modifies)) {
+           parser.addParserWarning("msg.jsdoc.modifies.duplicate",
+               stream.getLineno(), stream.getCharno());

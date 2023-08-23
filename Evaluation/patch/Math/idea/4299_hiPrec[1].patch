@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/util/FastMath.java b/src/main/java/org/apache/commons/math3/util/FastMath.java
+index 919e39f..c44e42d 100644
+--- a/src/main/java/org/apache/commons/math3/util/FastMath.java
++++ b/src/main/java/org/apache/commons/math3/util/FastMath.java
+@@ -955,7 +955,8 @@
+         if (hiPrec != null) {
+             // If requesting high precision
+             hiPrec[0] = tempA;
+-            hiPrec[1] = tempC*extra*z + tempC*extra + tempC*z + tempB;
++            double v = hiPrec[1];
++            v = tempC*extra*z + tempC*extra + tempC*z + tempB;
+         }
+ 
+         return result;

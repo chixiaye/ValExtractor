@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/ant/CompileTask.java b/src/com/google/javascript/jscomp/ant/CompileTask.java
+index 1adfb25..1c83895 100644
+--- a/src/com/google/javascript/jscomp/ant/CompileTask.java
++++ b/src/com/google/javascript/jscomp/ant/CompileTask.java
+@@ -557,7 +557,8 @@
+         for (String fileName : list.getFiles(this.getProject())) {
+           File path = list.getDir(this.getProject());
+           File file = new File(path, fileName);
+-          lastModified = Math.max(getLastModifiedTime(file), lastModified);
++            long max = Math.max(getLastModifiedTime(file), lastModified);
++            lastModified = max;
+         }
+       } else if (entry instanceof Path) {
+         Path path = (Path) entry;

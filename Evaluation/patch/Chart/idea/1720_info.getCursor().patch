@@ -1,0 +1,14 @@
+diff --git a/source/org/jfree/chart/plot/XYPlot.java b/source/org/jfree/chart/plot/XYPlot.java
+index cc18077..8848e3c 100644
+--- a/source/org/jfree/chart/plot/XYPlot.java
++++ b/source/org/jfree/chart/plot/XYPlot.java
+@@ -3768,7 +3768,8 @@
+             ValueAxis axis = (ValueAxis) iterator.next();
+             AxisState info = axis.draw(g2, cursor, plotArea, dataArea,
+                     RectangleEdge.LEFT, plotState);
+-            cursor = info.getCursor();
++            double cursor1 = info.getCursor();
++            cursor = cursor1;
+             axisStateMap.put(axis, info);
+         }
+ 

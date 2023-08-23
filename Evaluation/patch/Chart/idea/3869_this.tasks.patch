@@ -1,0 +1,17 @@
+diff --git a/source/org/jfree/data/gantt/TaskSeries.java b/source/org/jfree/data/gantt/TaskSeries.java
+index 1e7f6c5..18ce614 100644
+--- a/source/org/jfree/data/gantt/TaskSeries.java
++++ b/source/org/jfree/data/gantt/TaskSeries.java
+@@ -138,9 +138,10 @@
+      */
+     public Task get(String description) {
+         Task result = null;
+-        int count = this.tasks.size();
++        List tasks1 = this.tasks;
++        int count = tasks1.size();
+         for (int i = 0; i < count; i++) {
+-            Task t = (Task) this.tasks.get(i);
++            Task t = (Task) tasks1.get(i);
+             if (t.getDescription().equals(description)) {
+                 result = t;
+                 break;

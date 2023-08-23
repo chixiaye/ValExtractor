@@ -1,0 +1,51 @@
+diff --git a/source/org/jfree/chart/editor/DefaultChartEditor.java b/source/org/jfree/chart/editor/DefaultChartEditor.java
+index 1dc2b30..a578854 100644
+--- a/source/org/jfree/chart/editor/DefaultChartEditor.java
++++ b/source/org/jfree/chart/editor/DefaultChartEditor.java
+@@ -41,9 +41,7 @@
+ 
+ package org.jfree.chart.editor;
+ 
+-import java.awt.BorderLayout;
+-import java.awt.Color;
+-import java.awt.Paint;
++import java.awt.*;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
+ import java.util.ResourceBundle;
+@@ -131,7 +129,7 @@
+         JTextField info = new JTextField(localizationResources.getString(
+                 "No_editor_implemented"));
+         info.setEnabled(false);
+-        interior.add(info);
++        Component add = interior.add(info);
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+         interior.add(button);
+@@ -141,7 +139,7 @@
+         info = new JTextField(localizationResources.getString(
+                 "No_editor_implemented"));
+         info.setEnabled(false);
+-        interior.add(info);
++        add;
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+         interior.add(button);
+@@ -151,7 +149,7 @@
+         info = new JTextField(localizationResources.getString(
+                 "No_editor_implemented"));
+         info.setEnabled(false);
+-        interior.add(info);
++        add;
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+         interior.add(button);
+@@ -161,7 +159,7 @@
+         info = new JTextField(localizationResources.getString(
+                 "No_editor_implemented"));
+         info.setEnabled(false);
+-        interior.add(info);
++        add;
+         button = new JButton(localizationResources.getString("Edit..."));
+         button.setEnabled(false);
+         interior.add(button);

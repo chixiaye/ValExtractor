@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+index 315c3dd..59d70ee 100644
+--- a/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
++++ b/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunctionLagrangeForm.java
+@@ -315,11 +315,12 @@
+      */
+     public static boolean verifyInterpolationArray(double x[], double y[], boolean abort)
+         throws DimensionMismatchException, NumberIsTooSmallException, NonMonotonicSequenceException {
+-        if (x.length != y.length) {
+-            throw new DimensionMismatchException(x.length, y.length);
++        int length = x.length;
++        if (length != y.length) {
++            throw new DimensionMismatchException(length, y.length);
+         }
+-        if (x.length < 2) {
+-            throw new NumberIsTooSmallException(LocalizedFormats.WRONG_NUMBER_OF_POINTS, 2, x.length, true);
++        if (length < 2) {
++            throw new NumberIsTooSmallException(LocalizedFormats.WRONG_NUMBER_OF_POINTS, 2, length, true);
+         }
+ 
+         return MathArrays.checkOrder(x, MathArrays.OrderDirection.INCREASING, true, abort);

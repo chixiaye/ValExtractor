@@ -1,0 +1,16 @@
+diff --git a/source/org/jfree/chart/urls/StandardPieURLGenerator.java b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+index dfe9acd..d896901 100644
+--- a/source/org/jfree/chart/urls/StandardPieURLGenerator.java
++++ b/source/org/jfree/chart/urls/StandardPieURLGenerator.java
+@@ -153,8 +153,9 @@
+         else {
+             url += "?" + this.categoryParameterName + "=" + encodedKey;
+         }
+-        if (this.indexParameterName != null) {
+-            url += "&amp;" + this.indexParameterName + "="
++        String indexParameterName1 = this.indexParameterName;
++        if (indexParameterName1 != null) {
++            url += "&amp;" + indexParameterName1 + "="
+                    + String.valueOf(pieIndex);
+         }
+         return url;

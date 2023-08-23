@@ -1,0 +1,91 @@
+==> /tmp/ours.java <==
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..630aeb1 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -740,18 +740,19 @@
+                 used = findMaximumTickLabelWidth(ticks, g2, plotArea,
+                         isVerticalTickLabels());
+                 state.cursorRight(used);
+-            }
+-            else if (edge == RectangleEdge.TOP) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
++            } else {
++				double var_578 = findMaximumTickLabelHeight(ticks, g2, plotArea,
+                         isVerticalTickLabels());
++				if (edge == RectangleEdge.TOP) {
++				    used = var_578;
+                 state.cursorUp(used);
+             }
+             else if (edge == RectangleEdge.BOTTOM) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
+-                        isVerticalTickLabels());
++				    used = var_578;
+                 state.cursorDown(used);
+             }
+         }
++        }
+ 
+         return state;
+     }
+
+==> /tmp/eclipse.java <==
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..630aeb1 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -740,18 +740,19 @@
+                 used = findMaximumTickLabelWidth(ticks, g2, plotArea,
+                         isVerticalTickLabels());
+                 state.cursorRight(used);
+-            }
+-            else if (edge == RectangleEdge.TOP) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
++            } else {
++				double var_578 = findMaximumTickLabelHeight(ticks, g2, plotArea,
+                         isVerticalTickLabels());
++				if (edge == RectangleEdge.TOP) {
++				    used = var_578;
+                 state.cursorUp(used);
+             }
+             else if (edge == RectangleEdge.BOTTOM) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
+-                        isVerticalTickLabels());
++				    used = var_578;
+                 state.cursorDown(used);
+             }
+         }
++        }
+ 
+         return state;
+     }
+
+==> /tmp/idea.java <==
+diff --git a/source/org/jfree/chart/axis/ValueAxis.java b/source/org/jfree/chart/axis/ValueAxis.java
+index 5972cdd..643063f 100644
+--- a/source/org/jfree/chart/axis/ValueAxis.java
++++ b/source/org/jfree/chart/axis/ValueAxis.java
+@@ -741,17 +741,19 @@
+                         isVerticalTickLabels());
+                 state.cursorRight(used);
+             }
+-            else if (edge == RectangleEdge.TOP) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
++            else {
++                double maximumTickLabelHeight = findMaximumTickLabelHeight(ticks, g2, plotArea,
+                         isVerticalTickLabels());
++                if (edge == RectangleEdge.TOP) {
++                    used = maximumTickLabelHeight;
+                 state.cursorUp(used);
+             }
+             else if (edge == RectangleEdge.BOTTOM) {
+-                used = findMaximumTickLabelHeight(ticks, g2, plotArea,
+-                        isVerticalTickLabels());
++                    used = maximumTickLabelHeight;
+                 state.cursorDown(used);
+             }
+         }
++        }
+ 
+         return state;
+     }

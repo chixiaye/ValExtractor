@@ -1,0 +1,18 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+index 3e7fff7..32729d6 100644
+--- a/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
++++ b/src/main/java/org/apache/commons/math3/stat/descriptive/SummaryStatistics.java
+@@ -734,10 +734,11 @@
+         } else {
+             SumOfLogs.copy(source.sumLog, dest.sumLog);
+         }
+-        if (source.sumsq == source.sumsqImpl) {
++        SumOfSquares sumsq1 = source.sumsq;
++        if (sumsq1 == source.sumsqImpl) {
+             dest.sumsq = (SumOfSquares) dest.sumsqImpl;
+         } else {
+-            SumOfSquares.copy(source.sumsq, dest.sumsq);
++            SumOfSquares.copy(sumsq1, dest.sumsq);
+         }
+     }
+ }

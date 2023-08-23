@@ -1,0 +1,21 @@
+diff --git a/src/com/google/javascript/jscomp/SymbolTable.java b/src/com/google/javascript/jscomp/SymbolTable.java
+index 5f0a14c..ed79a17 100644
+--- a/src/com/google/javascript/jscomp/SymbolTable.java
++++ b/src/com/google/javascript/jscomp/SymbolTable.java
+@@ -414,10 +414,13 @@
+       return linkToCtor ?
+           globalScope.getSlot("Function") :
+           globalScope.getQualifiedSlot("Function.prototype");
+-    } else if (type.autoboxesTo() != null) {
+-      return getSymbolForTypeHelper(type.autoboxesTo(), linkToCtor);
+     } else {
+-      return null;
++        JSType jsType = type.autoboxesTo();
++        if (jsType != null) {
++          return getSymbolForTypeHelper(jsType, linkToCtor);
++        } else {
++          return null;
++        }
+     }
+   }
+ 

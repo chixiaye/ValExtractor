@@ -1,0 +1,40 @@
+diff --git a/src/com/google/javascript/jscomp/jsonml/Reader.java b/src/com/google/javascript/jscomp/jsonml/Reader.java
+index 9b7e760..cfb2e97 100644
+--- a/src/com/google/javascript/jscomp/jsonml/Reader.java
++++ b/src/com/google/javascript/jscomp/jsonml/Reader.java
+@@ -961,9 +961,10 @@
+ 
+     Node node = null;
+     Type type = Type.get(getStringAttribute(element, TagAttr.TYPE));
+-    switch (type) {
++      TagAttr value1 = TagAttr.VALUE;
++      switch (type) {
+       case BOOLEAN: {
+-        Boolean value = getAttribute(element, TagAttr.VALUE, Boolean.class);
++        Boolean value = getAttribute(element, value1, Boolean.class);
+         if (value) {
+           node = IR.trueNode();
+         } else {
+@@ -974,19 +975,19 @@
+ 
+       case NULL: {
+         // needed to throw an exception if value is not null
+-        getAttribute(element, TagAttr.VALUE, null);
++        getAttribute(element, value1, null);
+         node = IR.nullNode();
+         break;
+       }
+ 
+       case NUMBER: {
+-        Double value = getAttribute(element, TagAttr.VALUE, Double.class);
++        Double value = getAttribute(element, value1, Double.class);
+         node = IR.number(value);
+         break;
+       }
+ 
+       case STRING: {
+-        String value = getStringAttribute(element, TagAttr.VALUE);
++        String value = getStringAttribute(element, value1);
+         node = IR.string(value);
+         break;
+       }

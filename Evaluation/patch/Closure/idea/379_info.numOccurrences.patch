@@ -1,0 +1,14 @@
+diff --git a/src/com/google/javascript/jscomp/AliasStrings.java b/src/com/google/javascript/jscomp/AliasStrings.java
+index 437c030..3b40c28 100644
+--- a/src/com/google/javascript/jscomp/AliasStrings.java
++++ b/src/com/google/javascript/jscomp/AliasStrings.java
+@@ -150,7 +150,8 @@
+         StringInfo info = getOrCreateStringInfo(str);
+ 
+         info.occurrences.add(occurrence);
+-        info.numOccurrences++;
++          int numOccurrences = info.numOccurrences;
++          numOccurrences++;
+ 
+         if (t.inGlobalScope() || isInThrowExpression(n)) {
+           info.numOccurrencesInfrequentlyExecuted++;

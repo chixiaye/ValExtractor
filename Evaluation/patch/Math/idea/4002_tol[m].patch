@@ -1,0 +1,14 @@
+diff --git a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+index 36f8bd2..ad3cb59 100644
+--- a/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
++++ b/src/main/java/org/apache/commons/math3/stat/regression/MillerUpdatingRegression.java
+@@ -793,7 +793,8 @@
+             vorder[m] = vorder[mp1];
+             vorder[mp1] = m1;
+             X = tol[m];
+-            tol[m] = tol[mp1];
++            double v = tol[m];
++            v = tol[mp1];
+             tol[mp1] = X;
+             rss[m] = rss[mp1] + d[mp1] * rhs[mp1] * rhs[mp1];
+ 
